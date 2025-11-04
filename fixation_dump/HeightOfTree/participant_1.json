@@ -1,0 +1,10968 @@
+{
+  "algorithm": "HeightOfTree",
+  "participant": 1,
+  "vocabulary": [
+    {
+      "TokenIdx": 0,
+      "Token": "public"
+    },
+    {
+      "TokenIdx": 1,
+      "Token": "static"
+    },
+    {
+      "TokenIdx": 2,
+      "Token": "class"
+    },
+    {
+      "TokenIdx": 3,
+      "Token": "Node"
+    },
+    {
+      "TokenIdx": 4,
+      "Token": "{"
+    },
+    {
+      "TokenIdx": 5,
+      "Token": "public"
+    },
+    {
+      "TokenIdx": 6,
+      "Token": "Node"
+    },
+    {
+      "TokenIdx": 7,
+      "Token": "left"
+    },
+    {
+      "TokenIdx": 8,
+      "Token": ","
+    },
+    {
+      "TokenIdx": 9,
+      "Token": "right"
+    },
+    {
+      "TokenIdx": 10,
+      "Token": ";"
+    },
+    {
+      "TokenIdx": 11,
+      "Token": "int"
+    },
+    {
+      "TokenIdx": 12,
+      "Token": "value"
+    },
+    {
+      "TokenIdx": 13,
+      "Token": ";"
+    },
+    {
+      "TokenIdx": 14,
+      "Token": "}"
+    },
+    {
+      "TokenIdx": 15,
+      "Token": "public"
+    },
+    {
+      "TokenIdx": 16,
+      "Token": "static"
+    },
+    {
+      "TokenIdx": 17,
+      "Token": "int"
+    },
+    {
+      "TokenIdx": 18,
+      "Token": "getHeightOfTree"
+    },
+    {
+      "TokenIdx": 19,
+      "Token": "("
+    },
+    {
+      "TokenIdx": 20,
+      "Token": "Node"
+    },
+    {
+      "TokenIdx": 21,
+      "Token": "n"
+    },
+    {
+      "TokenIdx": 22,
+      "Token": ")"
+    },
+    {
+      "TokenIdx": 23,
+      "Token": "{"
+    },
+    {
+      "TokenIdx": 24,
+      "Token": "if"
+    },
+    {
+      "TokenIdx": 25,
+      "Token": "("
+    },
+    {
+      "TokenIdx": 26,
+      "Token": "n"
+    },
+    {
+      "TokenIdx": 27,
+      "Token": "."
+    },
+    {
+      "TokenIdx": 28,
+      "Token": "left"
+    },
+    {
+      "TokenIdx": 29,
+      "Token": "=="
+    },
+    {
+      "TokenIdx": 30,
+      "Token": "null"
+    },
+    {
+      "TokenIdx": 31,
+      "Token": "&&"
+    },
+    {
+      "TokenIdx": 32,
+      "Token": "n"
+    },
+    {
+      "TokenIdx": 33,
+      "Token": "."
+    },
+    {
+      "TokenIdx": 34,
+      "Token": "right"
+    },
+    {
+      "TokenIdx": 35,
+      "Token": "=="
+    },
+    {
+      "TokenIdx": 36,
+      "Token": "null"
+    },
+    {
+      "TokenIdx": 37,
+      "Token": ")"
+    },
+    {
+      "TokenIdx": 38,
+      "Token": "{"
+    },
+    {
+      "TokenIdx": 39,
+      "Token": "return"
+    },
+    {
+      "TokenIdx": 40,
+      "Token": "1"
+    },
+    {
+      "TokenIdx": 41,
+      "Token": ";"
+    },
+    {
+      "TokenIdx": 42,
+      "Token": "}"
+    },
+    {
+      "TokenIdx": 43,
+      "Token": "if"
+    },
+    {
+      "TokenIdx": 44,
+      "Token": "("
+    },
+    {
+      "TokenIdx": 45,
+      "Token": "n"
+    },
+    {
+      "TokenIdx": 46,
+      "Token": "."
+    },
+    {
+      "TokenIdx": 47,
+      "Token": "left"
+    },
+    {
+      "TokenIdx": 48,
+      "Token": "=="
+    },
+    {
+      "TokenIdx": 49,
+      "Token": "null"
+    },
+    {
+      "TokenIdx": 50,
+      "Token": ")"
+    },
+    {
+      "TokenIdx": 51,
+      "Token": "{"
+    },
+    {
+      "TokenIdx": 52,
+      "Token": "return"
+    },
+    {
+      "TokenIdx": 53,
+      "Token": "1"
+    },
+    {
+      "TokenIdx": 54,
+      "Token": "+"
+    },
+    {
+      "TokenIdx": 55,
+      "Token": "getHeightOfTree"
+    },
+    {
+      "TokenIdx": 56,
+      "Token": "("
+    },
+    {
+      "TokenIdx": 57,
+      "Token": "n"
+    },
+    {
+      "TokenIdx": 58,
+      "Token": "."
+    },
+    {
+      "TokenIdx": 59,
+      "Token": "right"
+    },
+    {
+      "TokenIdx": 60,
+      "Token": ");"
+    },
+    {
+      "TokenIdx": 61,
+      "Token": "}"
+    },
+    {
+      "TokenIdx": 62,
+      "Token": "if"
+    },
+    {
+      "TokenIdx": 63,
+      "Token": "("
+    },
+    {
+      "TokenIdx": 64,
+      "Token": "n"
+    },
+    {
+      "TokenIdx": 65,
+      "Token": "."
+    },
+    {
+      "TokenIdx": 66,
+      "Token": "right"
+    },
+    {
+      "TokenIdx": 67,
+      "Token": "=="
+    },
+    {
+      "TokenIdx": 68,
+      "Token": "null"
+    },
+    {
+      "TokenIdx": 69,
+      "Token": ")"
+    },
+    {
+      "TokenIdx": 70,
+      "Token": "{"
+    },
+    {
+      "TokenIdx": 71,
+      "Token": "return"
+    },
+    {
+      "TokenIdx": 72,
+      "Token": "1"
+    },
+    {
+      "TokenIdx": 73,
+      "Token": "+"
+    },
+    {
+      "TokenIdx": 74,
+      "Token": "getHeightOfTree"
+    },
+    {
+      "TokenIdx": 75,
+      "Token": "("
+    },
+    {
+      "TokenIdx": 76,
+      "Token": "n"
+    },
+    {
+      "TokenIdx": 77,
+      "Token": "."
+    },
+    {
+      "TokenIdx": 78,
+      "Token": "left"
+    },
+    {
+      "TokenIdx": 79,
+      "Token": ");"
+    },
+    {
+      "TokenIdx": 80,
+      "Token": "}"
+    },
+    {
+      "TokenIdx": 81,
+      "Token": "return"
+    },
+    {
+      "TokenIdx": 82,
+      "Token": "1"
+    },
+    {
+      "TokenIdx": 83,
+      "Token": "+"
+    },
+    {
+      "TokenIdx": 84,
+      "Token": "Math"
+    },
+    {
+      "TokenIdx": 85,
+      "Token": "."
+    },
+    {
+      "TokenIdx": 86,
+      "Token": "max"
+    },
+    {
+      "TokenIdx": 87,
+      "Token": "("
+    },
+    {
+      "TokenIdx": 88,
+      "Token": "getHeightOfTree"
+    },
+    {
+      "TokenIdx": 89,
+      "Token": "("
+    },
+    {
+      "TokenIdx": 90,
+      "Token": "n"
+    },
+    {
+      "TokenIdx": 91,
+      "Token": "."
+    },
+    {
+      "TokenIdx": 92,
+      "Token": "left"
+    },
+    {
+      "TokenIdx": 93,
+      "Token": "),"
+    },
+    {
+      "TokenIdx": 94,
+      "Token": "getHeightOfTree"
+    },
+    {
+      "TokenIdx": 95,
+      "Token": "("
+    },
+    {
+      "TokenIdx": 96,
+      "Token": "n"
+    },
+    {
+      "TokenIdx": 97,
+      "Token": "."
+    },
+    {
+      "TokenIdx": 98,
+      "Token": "right"
+    },
+    {
+      "TokenIdx": 99,
+      "Token": "));"
+    },
+    {
+      "TokenIdx": 100,
+      "Token": "}"
+    }
+  ],
+  "total_scores": [
+    {
+      "Token": "public",
+      "score": 352.009
+    },
+    {
+      "Token": "static",
+      "score": 0.0
+    },
+    {
+      "Token": "class",
+      "score": 0.0
+    },
+    {
+      "Token": "Node",
+      "score": 0.0
+    },
+    {
+      "Token": "{",
+      "score": 0.0
+    },
+    {
+      "Token": "public",
+      "score": 0.0
+    },
+    {
+      "Token": "Node",
+      "score": 0.0
+    },
+    {
+      "Token": "left",
+      "score": 0.0
+    },
+    {
+      "Token": ",",
+      "score": 0.0
+    },
+    {
+      "Token": "right",
+      "score": 0.0
+    },
+    {
+      "Token": ";",
+      "score": 0.0
+    },
+    {
+      "Token": "int",
+      "score": 140.0010000000002
+    },
+    {
+      "Token": "value",
+      "score": 304.01400000000285
+    },
+    {
+      "Token": ";",
+      "score": 0.0
+    },
+    {
+      "Token": "}",
+      "score": 0.0
+    },
+    {
+      "Token": "public",
+      "score": 336.0060000000003
+    },
+    {
+      "Token": "static",
+      "score": 340.01400000000103
+    },
+    {
+      "Token": "int",
+      "score": 0.0
+    },
+    {
+      "Token": "getHeightOfTree",
+      "score": 876.0279999999993
+    },
+    {
+      "Token": "(",
+      "score": 0.0
+    },
+    {
+      "Token": "Node",
+      "score": 0.0
+    },
+    {
+      "Token": "n",
+      "score": 0.0
+    },
+    {
+      "Token": ")",
+      "score": 0.0
+    },
+    {
+      "Token": "{",
+      "score": 0.0
+    },
+    {
+      "Token": "if",
+      "score": 0.0
+    },
+    {
+      "Token": "(",
+      "score": 0.0
+    },
+    {
+      "Token": "n",
+      "score": 0.0
+    },
+    {
+      "Token": ".",
+      "score": 0.0
+    },
+    {
+      "Token": "left",
+      "score": 416.0129999999999
+    },
+    {
+      "Token": "==",
+      "score": 0.0
+    },
+    {
+      "Token": "null",
+      "score": 0.0
+    },
+    {
+      "Token": "&&",
+      "score": 0.0
+    },
+    {
+      "Token": "n",
+      "score": 0.0
+    },
+    {
+      "Token": ".",
+      "score": 0.0
+    },
+    {
+      "Token": "right",
+      "score": 0.0
+    },
+    {
+      "Token": "==",
+      "score": 0.0
+    },
+    {
+      "Token": "null",
+      "score": 0.0
+    },
+    {
+      "Token": ")",
+      "score": 0.0
+    },
+    {
+      "Token": "{",
+      "score": 0.0
+    },
+    {
+      "Token": "return",
+      "score": 420.0130000000063
+    },
+    {
+      "Token": "1",
+      "score": 0.0
+    },
+    {
+      "Token": ";",
+      "score": 0.0
+    },
+    {
+      "Token": "}",
+      "score": 0.0
+    },
+    {
+      "Token": "if",
+      "score": 0.0
+    },
+    {
+      "Token": "(",
+      "score": 1000.0389999999989
+    },
+    {
+      "Token": "n",
+      "score": 0.0
+    },
+    {
+      "Token": ".",
+      "score": 0.0
+    },
+    {
+      "Token": "left",
+      "score": 0.0
+    },
+    {
+      "Token": "==",
+      "score": 0.0
+    },
+    {
+      "Token": "null",
+      "score": 0.0
+    },
+    {
+      "Token": ")",
+      "score": 0.0
+    },
+    {
+      "Token": "{",
+      "score": 0.0
+    },
+    {
+      "Token": "return",
+      "score": 260.01000000000204
+    },
+    {
+      "Token": "1",
+      "score": 0.0
+    },
+    {
+      "Token": "+",
+      "score": 0.0
+    },
+    {
+      "Token": "getHeightOfTree",
+      "score": 1076.033000000003
+    },
+    {
+      "Token": "(",
+      "score": 0.0
+    },
+    {
+      "Token": "n",
+      "score": 460.0149999999994
+    },
+    {
+      "Token": ".",
+      "score": 0.0
+    },
+    {
+      "Token": "right",
+      "score": 372.0119999999988
+    },
+    {
+      "Token": ");",
+      "score": 0.0
+    },
+    {
+      "Token": "}",
+      "score": 460.0189999999984
+    },
+    {
+      "Token": "if",
+      "score": 0.0
+    },
+    {
+      "Token": "(",
+      "score": 0.0
+    },
+    {
+      "Token": "n",
+      "score": 0.0
+    },
+    {
+      "Token": ".",
+      "score": 0.0
+    },
+    {
+      "Token": "right",
+      "score": 0.0
+    },
+    {
+      "Token": "==",
+      "score": 0.0
+    },
+    {
+      "Token": "null",
+      "score": 0.0
+    },
+    {
+      "Token": ")",
+      "score": 0.0
+    },
+    {
+      "Token": "{",
+      "score": 0.0
+    },
+    {
+      "Token": "return",
+      "score": 612.0280000000021
+    },
+    {
+      "Token": "1",
+      "score": 0.0
+    },
+    {
+      "Token": "+",
+      "score": 0.0
+    },
+    {
+      "Token": "getHeightOfTree",
+      "score": 0.0
+    },
+    {
+      "Token": "(",
+      "score": 0.0
+    },
+    {
+      "Token": "n",
+      "score": 0.0
+    },
+    {
+      "Token": ".",
+      "score": 0.0
+    },
+    {
+      "Token": "left",
+      "score": 0.0
+    },
+    {
+      "Token": ");",
+      "score": 0.0
+    },
+    {
+      "Token": "}",
+      "score": 0.0
+    },
+    {
+      "Token": "return",
+      "score": 0.0
+    },
+    {
+      "Token": "1",
+      "score": 0.0
+    },
+    {
+      "Token": "+",
+      "score": 0.0
+    },
+    {
+      "Token": "Math",
+      "score": 0.0
+    },
+    {
+      "Token": ".",
+      "score": 0.0
+    },
+    {
+      "Token": "max",
+      "score": 0.0
+    },
+    {
+      "Token": "(",
+      "score": 0.0
+    },
+    {
+      "Token": "getHeightOfTree",
+      "score": 0.0
+    },
+    {
+      "Token": "(",
+      "score": 0.0
+    },
+    {
+      "Token": "n",
+      "score": 0.0
+    },
+    {
+      "Token": ".",
+      "score": 0.0
+    },
+    {
+      "Token": "left",
+      "score": 0.0
+    },
+    {
+      "Token": "),",
+      "score": 0.0
+    },
+    {
+      "Token": "getHeightOfTree",
+      "score": 0.0
+    },
+    {
+      "Token": "(",
+      "score": 0.0
+    },
+    {
+      "Token": "n",
+      "score": 0.0
+    },
+    {
+      "Token": ".",
+      "score": 0.0
+    },
+    {
+      "Token": "right",
+      "score": 0.0
+    },
+    {
+      "Token": "));",
+      "score": 0.0
+    },
+    {
+      "Token": "}",
+      "score": 160.00400000000081
+    }
+  ],
+  "timeline": [
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "class",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "value",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 176.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "Math",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "max",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "),",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "));",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "class",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "value",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 160.0060000000003
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "Math",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "max",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "),",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "));",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "class",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "value",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 120.0069999999996
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "Math",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "max",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "),",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "));",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 352.009
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "class",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "value",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "Math",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "max",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "),",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "));",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "class",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "value",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 416.0129999999999
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "Math",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "max",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "),",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "));",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "class",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "value",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 456.0150000000003
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "Math",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "max",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "),",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "));",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "class",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "value",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 180.0039999999999
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "Math",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "max",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "),",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "));",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "class",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "value",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 240.0089999999991
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "Math",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "max",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "),",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "));",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "class",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "value",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 120.0059999999994
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "Math",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "max",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "),",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "));",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "class",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "value",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 1000.0389999999989
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "Math",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "max",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "),",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "));",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "class",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "value",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 460.0189999999984
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "Math",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "max",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "),",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "));",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "class",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "value",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 200.00400000000081
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "Math",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "max",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "),",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "));",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "class",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "value",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 460.0149999999994
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "Math",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "max",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "),",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "));",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "class",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "value",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 280.0060000000012
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "Math",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "max",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "),",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "));",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "class",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "value",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 216.0069999999996
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "Math",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "max",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "),",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "));",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "class",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "value",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 372.0119999999988
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "Math",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "max",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "),",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "));",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "class",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "value",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 340.01400000000285
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "Math",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "max",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "),",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "));",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "class",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 140.0010000000002
+      },
+      {
+        "Token": "value",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "Math",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "max",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "),",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "));",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "class",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "value",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 220.00700000000143
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "Math",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "max",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "),",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "));",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "class",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "value",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 272.0139999999992
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "Math",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "max",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "),",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "));",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "class",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "value",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "Math",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "max",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "),",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "));",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 160.00400000000081
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "class",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "value",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 420.0130000000063
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "Math",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "max",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "),",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "));",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "class",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "value",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 260.01000000000204
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "Math",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "max",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "),",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "));",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "class",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "value",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 260.01000000000204
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "Math",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "max",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "),",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "));",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "class",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "value",
+        "score": 304.01400000000285
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Node",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "==",
+        "score": 0.0
+      },
+      {
+        "Token": "null",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": "+",
+        "score": 0.0
+      },
+      {
+        "Token": "Math",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "max",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "left",
+        "score": 0.0
+      },
+      {
+        "Token": "),",
+        "score": 0.0
+      },
+      {
+        "Token": "getHeightOfTree",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "n",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "right",
+        "score": 0.0
+      },
+      {
+        "Token": "));",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ]
+  ]
+}

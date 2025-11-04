@@ -1,0 +1,6966 @@
+{
+  "algorithm": "Power",
+  "participant": 5,
+  "vocabulary": [
+    {
+      "TokenIdx": 0,
+      "Token": "public"
+    },
+    {
+      "TokenIdx": 1,
+      "Token": "static"
+    },
+    {
+      "TokenIdx": 2,
+      "Token": "int"
+    },
+    {
+      "TokenIdx": 3,
+      "Token": "power"
+    },
+    {
+      "TokenIdx": 4,
+      "Token": "("
+    },
+    {
+      "TokenIdx": 5,
+      "Token": "int"
+    },
+    {
+      "TokenIdx": 6,
+      "Token": "base"
+    },
+    {
+      "TokenIdx": 7,
+      "Token": ","
+    },
+    {
+      "TokenIdx": 8,
+      "Token": "int"
+    },
+    {
+      "TokenIdx": 9,
+      "Token": "exponent"
+    },
+    {
+      "TokenIdx": 10,
+      "Token": ")"
+    },
+    {
+      "TokenIdx": 11,
+      "Token": "{"
+    },
+    {
+      "TokenIdx": 12,
+      "Token": "int"
+    },
+    {
+      "TokenIdx": 13,
+      "Token": "result"
+    },
+    {
+      "TokenIdx": 14,
+      "Token": "="
+    },
+    {
+      "TokenIdx": 15,
+      "Token": "base"
+    },
+    {
+      "TokenIdx": 16,
+      "Token": ";"
+    },
+    {
+      "TokenIdx": 17,
+      "Token": "for"
+    },
+    {
+      "TokenIdx": 18,
+      "Token": "("
+    },
+    {
+      "TokenIdx": 19,
+      "Token": "int"
+    },
+    {
+      "TokenIdx": 20,
+      "Token": "i"
+    },
+    {
+      "TokenIdx": 21,
+      "Token": "="
+    },
+    {
+      "TokenIdx": 22,
+      "Token": "2"
+    },
+    {
+      "TokenIdx": 23,
+      "Token": ";"
+    },
+    {
+      "TokenIdx": 24,
+      "Token": "i"
+    },
+    {
+      "TokenIdx": 25,
+      "Token": "<="
+    },
+    {
+      "TokenIdx": 26,
+      "Token": "exponent"
+    },
+    {
+      "TokenIdx": 27,
+      "Token": ";"
+    },
+    {
+      "TokenIdx": 28,
+      "Token": "i"
+    },
+    {
+      "TokenIdx": 29,
+      "Token": "++"
+    },
+    {
+      "TokenIdx": 30,
+      "Token": ")"
+    },
+    {
+      "TokenIdx": 31,
+      "Token": "{"
+    },
+    {
+      "TokenIdx": 32,
+      "Token": "result"
+    },
+    {
+      "TokenIdx": 33,
+      "Token": "="
+    },
+    {
+      "TokenIdx": 34,
+      "Token": "result"
+    },
+    {
+      "TokenIdx": 35,
+      "Token": "*"
+    },
+    {
+      "TokenIdx": 36,
+      "Token": "base"
+    },
+    {
+      "TokenIdx": 37,
+      "Token": ";"
+    },
+    {
+      "TokenIdx": 38,
+      "Token": "}"
+    },
+    {
+      "TokenIdx": 39,
+      "Token": "return"
+    },
+    {
+      "TokenIdx": 40,
+      "Token": "result"
+    },
+    {
+      "TokenIdx": 41,
+      "Token": ";"
+    },
+    {
+      "TokenIdx": 42,
+      "Token": "}"
+    }
+  ],
+  "total_scores": [
+    {
+      "Token": "public",
+      "score": 0.0
+    },
+    {
+      "Token": "static",
+      "score": 0.0
+    },
+    {
+      "Token": "int",
+      "score": 168.00800000000163
+    },
+    {
+      "Token": "power",
+      "score": 0.0
+    },
+    {
+      "Token": "(",
+      "score": 1416.05
+    },
+    {
+      "Token": "int",
+      "score": 0.0
+    },
+    {
+      "Token": "base",
+      "score": 120.00499999999738
+    },
+    {
+      "Token": ",",
+      "score": 0.0
+    },
+    {
+      "Token": "int",
+      "score": 0.0
+    },
+    {
+      "Token": "exponent",
+      "score": 0.0
+    },
+    {
+      "Token": ")",
+      "score": 0.0
+    },
+    {
+      "Token": "{",
+      "score": 0.0
+    },
+    {
+      "Token": "int",
+      "score": 0.0
+    },
+    {
+      "Token": "result",
+      "score": 1764.0610000000006
+    },
+    {
+      "Token": "=",
+      "score": 0.0
+    },
+    {
+      "Token": "base",
+      "score": 2584.099999999998
+    },
+    {
+      "Token": ";",
+      "score": 0.0
+    },
+    {
+      "Token": "for",
+      "score": 164.0010000000002
+    },
+    {
+      "Token": "(",
+      "score": 0.0
+    },
+    {
+      "Token": "int",
+      "score": 520.0169999999998
+    },
+    {
+      "Token": "i",
+      "score": 332.0060000000012
+    },
+    {
+      "Token": "=",
+      "score": 1244.0430000000006
+    },
+    {
+      "Token": "2",
+      "score": 1048.0370000000003
+    },
+    {
+      "Token": ";",
+      "score": 0.0
+    },
+    {
+      "Token": "i",
+      "score": 320.012999999999
+    },
+    {
+      "Token": "<=",
+      "score": 1640.0620000000044
+    },
+    {
+      "Token": "exponent",
+      "score": 388.012999999999
+    },
+    {
+      "Token": ";",
+      "score": 0.0
+    },
+    {
+      "Token": "i",
+      "score": 0.0
+    },
+    {
+      "Token": "++",
+      "score": 0.0
+    },
+    {
+      "Token": ")",
+      "score": 0.0
+    },
+    {
+      "Token": "{",
+      "score": 400.0049999999992
+    },
+    {
+      "Token": "result",
+      "score": 1624.0609999999997
+    },
+    {
+      "Token": "=",
+      "score": 484.02200000000084
+    },
+    {
+      "Token": "result",
+      "score": 736.0239999999985
+    },
+    {
+      "Token": "*",
+      "score": 1152.0430000000015
+    },
+    {
+      "Token": "base",
+      "score": 360.007999999998
+    },
+    {
+      "Token": ";",
+      "score": 0.0
+    },
+    {
+      "Token": "}",
+      "score": 0.0
+    },
+    {
+      "Token": "return",
+      "score": 0.0
+    },
+    {
+      "Token": "result",
+      "score": 0.0
+    },
+    {
+      "Token": ";",
+      "score": 0.0
+    },
+    {
+      "Token": "}",
+      "score": 0.0
+    }
+  ],
+  "timeline": [
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 1416.05
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 384.0129999999999
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 420.0149999999999
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 472.0140000000001
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 1244.0430000000006
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 200.01400000000012
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 396.02199999999993
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 164.0010000000002
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 468.0139999999992
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 168.00800000000163
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 128.0059999999994
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 260.0069999999996
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 400.0049999999992
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 1124.049000000001
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 252.0079999999998
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 284.0100000000002
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 1040.0390000000007
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 188.0089999999982
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 772.0280000000021
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 120.00499999999738
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 248.00800000000163
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 216.0109999999986
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 172.0030000000006
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 320.012999999999
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 520.0169999999998
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 200.00499999999738
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 180.0030000000006
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 188.00499999999738
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 139.99599999999919
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 332.0060000000012
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 348.02300000000105
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 484.02200000000084
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 472.01200000000244
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 376.0149999999994
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 648.0250000000015
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 1048.0370000000003
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 504.01800000000003
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "power",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "exponent",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 168.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "base",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "result",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ]
+  ]
+}

@@ -1,0 +1,4206 @@
+{
+  "algorithm": "Rectangle",
+  "participant": 2,
+  "vocabulary": [
+    {
+      "TokenIdx": 0,
+      "Token": "public"
+    },
+    {
+      "TokenIdx": 1,
+      "Token": "Rectangle"
+    },
+    {
+      "TokenIdx": 2,
+      "Token": "("
+    },
+    {
+      "TokenIdx": 3,
+      "Token": "int"
+    },
+    {
+      "TokenIdx": 4,
+      "Token": "x1"
+    },
+    {
+      "TokenIdx": 5,
+      "Token": ","
+    },
+    {
+      "TokenIdx": 6,
+      "Token": "int"
+    },
+    {
+      "TokenIdx": 7,
+      "Token": "y1"
+    },
+    {
+      "TokenIdx": 8,
+      "Token": ","
+    },
+    {
+      "TokenIdx": 9,
+      "Token": "int"
+    },
+    {
+      "TokenIdx": 10,
+      "Token": "x2"
+    },
+    {
+      "TokenIdx": 11,
+      "Token": ","
+    },
+    {
+      "TokenIdx": 12,
+      "Token": "int"
+    },
+    {
+      "TokenIdx": 13,
+      "Token": "y2"
+    },
+    {
+      "TokenIdx": 14,
+      "Token": ")"
+    },
+    {
+      "TokenIdx": 15,
+      "Token": "{"
+    },
+    {
+      "TokenIdx": 16,
+      "Token": "this"
+    },
+    {
+      "TokenIdx": 17,
+      "Token": "."
+    },
+    {
+      "TokenIdx": 18,
+      "Token": "x1"
+    },
+    {
+      "TokenIdx": 19,
+      "Token": "="
+    },
+    {
+      "TokenIdx": 20,
+      "Token": "x1"
+    },
+    {
+      "TokenIdx": 21,
+      "Token": ";"
+    },
+    {
+      "TokenIdx": 22,
+      "Token": "this"
+    },
+    {
+      "TokenIdx": 23,
+      "Token": "."
+    },
+    {
+      "TokenIdx": 24,
+      "Token": "y1"
+    },
+    {
+      "TokenIdx": 25,
+      "Token": "="
+    },
+    {
+      "TokenIdx": 26,
+      "Token": "y1"
+    },
+    {
+      "TokenIdx": 27,
+      "Token": ";"
+    },
+    {
+      "TokenIdx": 28,
+      "Token": "this"
+    },
+    {
+      "TokenIdx": 29,
+      "Token": "."
+    },
+    {
+      "TokenIdx": 30,
+      "Token": "x2"
+    },
+    {
+      "TokenIdx": 31,
+      "Token": "="
+    },
+    {
+      "TokenIdx": 32,
+      "Token": "x2"
+    },
+    {
+      "TokenIdx": 33,
+      "Token": ";"
+    },
+    {
+      "TokenIdx": 34,
+      "Token": "this"
+    },
+    {
+      "TokenIdx": 35,
+      "Token": "."
+    },
+    {
+      "TokenIdx": 36,
+      "Token": "y2"
+    },
+    {
+      "TokenIdx": 37,
+      "Token": "="
+    },
+    {
+      "TokenIdx": 38,
+      "Token": "y2"
+    },
+    {
+      "TokenIdx": 39,
+      "Token": ";"
+    },
+    {
+      "TokenIdx": 40,
+      "Token": "}"
+    },
+    {
+      "TokenIdx": 41,
+      "Token": "public"
+    },
+    {
+      "TokenIdx": 42,
+      "Token": "int"
+    },
+    {
+      "TokenIdx": 43,
+      "Token": "width"
+    },
+    {
+      "TokenIdx": 44,
+      "Token": "()"
+    },
+    {
+      "TokenIdx": 45,
+      "Token": "{"
+    },
+    {
+      "TokenIdx": 46,
+      "Token": "return"
+    },
+    {
+      "TokenIdx": 47,
+      "Token": "this"
+    },
+    {
+      "TokenIdx": 48,
+      "Token": "."
+    },
+    {
+      "TokenIdx": 49,
+      "Token": "x2"
+    },
+    {
+      "TokenIdx": 50,
+      "Token": "-"
+    },
+    {
+      "TokenIdx": 51,
+      "Token": "this"
+    },
+    {
+      "TokenIdx": 52,
+      "Token": "."
+    },
+    {
+      "TokenIdx": 53,
+      "Token": "x1"
+    },
+    {
+      "TokenIdx": 54,
+      "Token": ";"
+    },
+    {
+      "TokenIdx": 55,
+      "Token": "}"
+    },
+    {
+      "TokenIdx": 56,
+      "Token": "public"
+    },
+    {
+      "TokenIdx": 57,
+      "Token": "int"
+    },
+    {
+      "TokenIdx": 58,
+      "Token": "height"
+    },
+    {
+      "TokenIdx": 59,
+      "Token": "()"
+    },
+    {
+      "TokenIdx": 60,
+      "Token": "{"
+    },
+    {
+      "TokenIdx": 61,
+      "Token": "return"
+    },
+    {
+      "TokenIdx": 62,
+      "Token": "this"
+    },
+    {
+      "TokenIdx": 63,
+      "Token": "."
+    },
+    {
+      "TokenIdx": 64,
+      "Token": "y2"
+    },
+    {
+      "TokenIdx": 65,
+      "Token": "-"
+    },
+    {
+      "TokenIdx": 66,
+      "Token": "this"
+    },
+    {
+      "TokenIdx": 67,
+      "Token": "."
+    },
+    {
+      "TokenIdx": 68,
+      "Token": "y1"
+    },
+    {
+      "TokenIdx": 69,
+      "Token": ";"
+    },
+    {
+      "TokenIdx": 70,
+      "Token": "}"
+    },
+    {
+      "TokenIdx": 71,
+      "Token": "public"
+    },
+    {
+      "TokenIdx": 72,
+      "Token": "double"
+    },
+    {
+      "TokenIdx": 73,
+      "Token": "area"
+    },
+    {
+      "TokenIdx": 74,
+      "Token": "()"
+    },
+    {
+      "TokenIdx": 75,
+      "Token": "{"
+    },
+    {
+      "TokenIdx": 76,
+      "Token": "return"
+    },
+    {
+      "TokenIdx": 77,
+      "Token": "this"
+    },
+    {
+      "TokenIdx": 78,
+      "Token": "."
+    },
+    {
+      "TokenIdx": 79,
+      "Token": "width"
+    },
+    {
+      "TokenIdx": 80,
+      "Token": "()"
+    },
+    {
+      "TokenIdx": 81,
+      "Token": "*"
+    },
+    {
+      "TokenIdx": 82,
+      "Token": "this"
+    },
+    {
+      "TokenIdx": 83,
+      "Token": "."
+    },
+    {
+      "TokenIdx": 84,
+      "Token": "height"
+    },
+    {
+      "TokenIdx": 85,
+      "Token": "();"
+    },
+    {
+      "TokenIdx": 86,
+      "Token": "}"
+    }
+  ],
+  "total_scores": [
+    {
+      "Token": "public",
+      "score": 0.0
+    },
+    {
+      "Token": "Rectangle",
+      "score": 0.0
+    },
+    {
+      "Token": "(",
+      "score": 0.0
+    },
+    {
+      "Token": "int",
+      "score": 0.0
+    },
+    {
+      "Token": "x1",
+      "score": 0.0
+    },
+    {
+      "Token": ",",
+      "score": 0.0
+    },
+    {
+      "Token": "int",
+      "score": 0.0
+    },
+    {
+      "Token": "y1",
+      "score": 0.0
+    },
+    {
+      "Token": ",",
+      "score": 0.0
+    },
+    {
+      "Token": "int",
+      "score": 0.0
+    },
+    {
+      "Token": "x2",
+      "score": 0.0
+    },
+    {
+      "Token": ",",
+      "score": 0.0
+    },
+    {
+      "Token": "int",
+      "score": 0.0
+    },
+    {
+      "Token": "y2",
+      "score": 0.0
+    },
+    {
+      "Token": ")",
+      "score": 0.0
+    },
+    {
+      "Token": "{",
+      "score": 0.0
+    },
+    {
+      "Token": "this",
+      "score": 228.0099999999984
+    },
+    {
+      "Token": ".",
+      "score": 0.0
+    },
+    {
+      "Token": "x1",
+      "score": 0.0
+    },
+    {
+      "Token": "=",
+      "score": 0.0
+    },
+    {
+      "Token": "x1",
+      "score": 0.0
+    },
+    {
+      "Token": ";",
+      "score": 0.0
+    },
+    {
+      "Token": "this",
+      "score": 0.0
+    },
+    {
+      "Token": ".",
+      "score": 0.0
+    },
+    {
+      "Token": "y1",
+      "score": 0.0
+    },
+    {
+      "Token": "=",
+      "score": 0.0
+    },
+    {
+      "Token": "y1",
+      "score": 0.0
+    },
+    {
+      "Token": ";",
+      "score": 0.0
+    },
+    {
+      "Token": "this",
+      "score": 416.01600000000144
+    },
+    {
+      "Token": ".",
+      "score": 0.0
+    },
+    {
+      "Token": "x2",
+      "score": 0.0
+    },
+    {
+      "Token": "=",
+      "score": 0.0
+    },
+    {
+      "Token": "x2",
+      "score": 0.0
+    },
+    {
+      "Token": ";",
+      "score": 0.0
+    },
+    {
+      "Token": "this",
+      "score": 560.0250000000005
+    },
+    {
+      "Token": ".",
+      "score": 0.0
+    },
+    {
+      "Token": "y2",
+      "score": 0.0
+    },
+    {
+      "Token": "=",
+      "score": 0.0
+    },
+    {
+      "Token": "y2",
+      "score": 0.0
+    },
+    {
+      "Token": ";",
+      "score": 0.0
+    },
+    {
+      "Token": "}",
+      "score": 0.0
+    },
+    {
+      "Token": "public",
+      "score": 0.0
+    },
+    {
+      "Token": "int",
+      "score": 0.0
+    },
+    {
+      "Token": "width",
+      "score": 0.0
+    },
+    {
+      "Token": "()",
+      "score": 0.0
+    },
+    {
+      "Token": "{",
+      "score": 0.0
+    },
+    {
+      "Token": "return",
+      "score": 128.0079999999998
+    },
+    {
+      "Token": "this",
+      "score": 0.0
+    },
+    {
+      "Token": ".",
+      "score": 128.01400000000012
+    },
+    {
+      "Token": "x2",
+      "score": 0.0
+    },
+    {
+      "Token": "-",
+      "score": 0.0
+    },
+    {
+      "Token": "this",
+      "score": 0.0
+    },
+    {
+      "Token": ".",
+      "score": 0.0
+    },
+    {
+      "Token": "x1",
+      "score": 0.0
+    },
+    {
+      "Token": ";",
+      "score": 0.0
+    },
+    {
+      "Token": "}",
+      "score": 0.0
+    },
+    {
+      "Token": "public",
+      "score": 0.0
+    },
+    {
+      "Token": "int",
+      "score": 0.0
+    },
+    {
+      "Token": "height",
+      "score": 0.0
+    },
+    {
+      "Token": "()",
+      "score": 0.0
+    },
+    {
+      "Token": "{",
+      "score": 0.0
+    },
+    {
+      "Token": "return",
+      "score": 0.0
+    },
+    {
+      "Token": "this",
+      "score": 620.023000000001
+    },
+    {
+      "Token": ".",
+      "score": 0.0
+    },
+    {
+      "Token": "y2",
+      "score": 0.0
+    },
+    {
+      "Token": "-",
+      "score": 0.0
+    },
+    {
+      "Token": "this",
+      "score": 704.0259999999998
+    },
+    {
+      "Token": ".",
+      "score": 0.0
+    },
+    {
+      "Token": "y1",
+      "score": 0.0
+    },
+    {
+      "Token": ";",
+      "score": 0.0
+    },
+    {
+      "Token": "}",
+      "score": 0.0
+    },
+    {
+      "Token": "public",
+      "score": 0.0
+    },
+    {
+      "Token": "double",
+      "score": 0.0
+    },
+    {
+      "Token": "area",
+      "score": 0.0
+    },
+    {
+      "Token": "()",
+      "score": 0.0
+    },
+    {
+      "Token": "{",
+      "score": 0.0
+    },
+    {
+      "Token": "return",
+      "score": 0.0
+    },
+    {
+      "Token": "this",
+      "score": 0.0
+    },
+    {
+      "Token": ".",
+      "score": 0.0
+    },
+    {
+      "Token": "width",
+      "score": 0.0
+    },
+    {
+      "Token": "()",
+      "score": 0.0
+    },
+    {
+      "Token": "*",
+      "score": 0.0
+    },
+    {
+      "Token": "this",
+      "score": 0.0
+    },
+    {
+      "Token": ".",
+      "score": 0.0
+    },
+    {
+      "Token": "height",
+      "score": 0.0
+    },
+    {
+      "Token": "();",
+      "score": 0.0
+    },
+    {
+      "Token": "}",
+      "score": 0.0
+    }
+  ],
+  "timeline": [
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Rectangle",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 208.00900000000001
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "width",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "height",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "double",
+        "score": 0.0
+      },
+      {
+        "Token": "area",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "width",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "height",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Rectangle",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 560.0250000000005
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "width",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "height",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "double",
+        "score": 0.0
+      },
+      {
+        "Token": "area",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "width",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "height",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Rectangle",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "width",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 128.01400000000012
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "height",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "double",
+        "score": 0.0
+      },
+      {
+        "Token": "area",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "width",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "height",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Rectangle",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "width",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 128.0079999999998
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "height",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "double",
+        "score": 0.0
+      },
+      {
+        "Token": "area",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "width",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "height",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Rectangle",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "width",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "height",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 620.023000000001
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "double",
+        "score": 0.0
+      },
+      {
+        "Token": "area",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "width",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "height",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Rectangle",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "width",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "height",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 204.00900000000001
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "double",
+        "score": 0.0
+      },
+      {
+        "Token": "area",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "width",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "height",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Rectangle",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "width",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "height",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 156.00500000000102
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "double",
+        "score": 0.0
+      },
+      {
+        "Token": "area",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "width",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "height",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Rectangle",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 208.00700000000143
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "width",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "height",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "double",
+        "score": 0.0
+      },
+      {
+        "Token": "area",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "width",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "height",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Rectangle",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "width",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "height",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 344.0119999999988
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "double",
+        "score": 0.0
+      },
+      {
+        "Token": "area",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "width",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "height",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "Rectangle",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": ",",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 228.0099999999984
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "width",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x2",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "x1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "height",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y2",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "y1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "double",
+        "score": 0.0
+      },
+      {
+        "Token": "area",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "width",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "*",
+        "score": 0.0
+      },
+      {
+        "Token": "this",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "height",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ]
+  ]
+}

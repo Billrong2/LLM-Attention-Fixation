@@ -1,0 +1,145 @@
+
+
+_REGISTERED_TESTS = []
+
+
+def Test(func):
+    """
+    Decorator to register lightweight test helpers exposed via __main__.
+    """
+    _REGISTERED_TESTS.append(func)
+    return func
+
+
+class utity:
+    def run_java_program(java_code_string: str, java_class_name: str) -> str:
+        import tempfile
+        import subprocess
+        from pathlib import Path
+
+        if java_code_string.strip() == "":
+            raise ValueError("Empty Java source received.")
+        if java_class_name.strip() == "":
+            raise ValueError("Invalid Java class name.")
+
+        # Compile and run inside an isolated temp directory.
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp_path = Path(tmp_dir)
+            source_path = tmp_path / f"{java_class_name}.java"
+            source_path.write_text(java_code_string, encoding="utf-8")
+
+            compile_proc = subprocess.run(
+                ["javac", source_path.name],
+                cwd=tmp_dir,
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            if compile_proc.returncode != 0:
+                error_msg = compile_proc.stderr.strip() or compile_proc.stdout.strip()
+                raise RuntimeError(f"Compilation failed for {java_class_name}: {error_msg}")
+
+            run_proc = subprocess.run(
+                ["java", java_class_name],
+                cwd=tmp_dir,
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            if run_proc.returncode != 0:
+                error_msg = run_proc.stderr.strip() or run_proc.stdout.strip()
+                raise RuntimeError(f"Execution failed for {java_class_name}: {error_msg}")
+
+            return run_proc.stdout.strip()
+
+
+@Test
+def run_all_source_java_files():
+    from pathlib import Path
+
+    source_dir = Path(__file__).resolve().parent / "Source"
+    if not source_dir.is_dir():
+        raise FileNotFoundError(f"Source directory not found: {source_dir}")
+
+    for java_file in sorted(source_dir.glob("*.java")):
+        code = java_file.read_text(encoding="utf-8")
+        class_name = java_file.stem
+        print(f"Running {java_file.name}...")
+        try:
+            result = utity.run_java_program(code, class_name)
+        except Exception as exc:
+            print(f"Aborting on {java_file.name}: {exc}")
+            raise
+        print(result)
+        print()
+
+
+@Test
+def _test_llama70b_downloaded():
+    """
+    Sanity-check that llama70b defaults are intact and the cached assets exist.
+    """
+    from pathlib import Path
+    import importlib
+    import sys
+
+    try:
+        models_module = importlib.import_module("eyetracking.models")
+    except ModuleNotFoundError:
+        fallback_path = str(Path(__file__).resolve().parent)
+        if fallback_path not in sys.path:
+            sys.path.append(fallback_path)
+        models_module = importlib.import_module("models")
+
+    DEFAULT_CACHE_DIR = getattr(models_module, "DEFAULT_CACHE_DIR")
+    DEFAULT_MODEL_NAME = getattr(models_module, "DEFAULT_MODEL_NAME")
+    llama70b = getattr(models_module, "llama70b")
+
+    model = llama70b()
+
+    mismatches = {}
+    if model.model_name != DEFAULT_MODEL_NAME:
+        mismatches["model_name"] = (model.model_name, DEFAULT_MODEL_NAME)
+    if model.cache_dir != DEFAULT_CACHE_DIR:
+        mismatches["cache_dir"] = (model.cache_dir, DEFAULT_CACHE_DIR)
+    if mismatches:
+        raise AssertionError(f"llama70b configuration mismatch: {mismatches}")
+
+    cache_path = Path(model.cache_dir)
+    if not cache_path.exists():
+        raise FileNotFoundError(f"Cache directory missing: {cache_path}")
+
+    required_files = {
+        "config.json",
+        "generation_config.json",
+        "tokenizer_config.json",
+        "tokenizer.model",
+    }
+    missing = []
+    for target in required_files:
+        if not any(path.name == target for path in cache_path.rglob(target)):
+            missing.append(target)
+    if missing:
+        raise FileNotFoundError(
+            f"Missing expected llama70b assets under {cache_path}: {missing}"
+        )
+
+    print(f"llama70b assets verified in {cache_path}")
+
+
+class _TestFuncNamespace:
+    @staticmethod
+    def llama70b():
+        return _test_llama70b_downloaded()
+
+
+test_func = _TestFuncNamespace()
+test_func.run_all_source_java_files = run_all_source_java_files
+
+
+if __name__ == "__main__":
+    for entry in _REGISTERED_TESTS:
+        print(f"Executing test {entry.__name__}()")
+        entry()
+
+        

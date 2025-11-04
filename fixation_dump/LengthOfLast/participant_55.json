@@ -1,0 +1,8982 @@
+{
+  "algorithm": "LengthOfLast",
+  "participant": 55,
+  "vocabulary": [
+    {
+      "TokenIdx": 0,
+      "Token": "public"
+    },
+    {
+      "TokenIdx": 1,
+      "Token": "static"
+    },
+    {
+      "TokenIdx": 2,
+      "Token": "int"
+    },
+    {
+      "TokenIdx": 3,
+      "Token": "lengthOfLastWord"
+    },
+    {
+      "TokenIdx": 4,
+      "Token": "("
+    },
+    {
+      "TokenIdx": 5,
+      "Token": "String"
+    },
+    {
+      "TokenIdx": 6,
+      "Token": "text"
+    },
+    {
+      "TokenIdx": 7,
+      "Token": ")"
+    },
+    {
+      "TokenIdx": 8,
+      "Token": "{"
+    },
+    {
+      "TokenIdx": 9,
+      "Token": "int"
+    },
+    {
+      "TokenIdx": 10,
+      "Token": "length"
+    },
+    {
+      "TokenIdx": 11,
+      "Token": "="
+    },
+    {
+      "TokenIdx": 12,
+      "Token": "0"
+    },
+    {
+      "TokenIdx": 13,
+      "Token": ";"
+    },
+    {
+      "TokenIdx": 14,
+      "Token": "boolean"
+    },
+    {
+      "TokenIdx": 15,
+      "Token": "isLastWord"
+    },
+    {
+      "TokenIdx": 16,
+      "Token": "="
+    },
+    {
+      "TokenIdx": 17,
+      "Token": "false"
+    },
+    {
+      "TokenIdx": 18,
+      "Token": ";"
+    },
+    {
+      "TokenIdx": 19,
+      "Token": "for"
+    },
+    {
+      "TokenIdx": 20,
+      "Token": "("
+    },
+    {
+      "TokenIdx": 21,
+      "Token": "int"
+    },
+    {
+      "TokenIdx": 22,
+      "Token": "i"
+    },
+    {
+      "TokenIdx": 23,
+      "Token": "="
+    },
+    {
+      "TokenIdx": 24,
+      "Token": "text"
+    },
+    {
+      "TokenIdx": 25,
+      "Token": "."
+    },
+    {
+      "TokenIdx": 26,
+      "Token": "length"
+    },
+    {
+      "TokenIdx": 27,
+      "Token": "()"
+    },
+    {
+      "TokenIdx": 28,
+      "Token": "-"
+    },
+    {
+      "TokenIdx": 29,
+      "Token": "1"
+    },
+    {
+      "TokenIdx": 30,
+      "Token": ";"
+    },
+    {
+      "TokenIdx": 31,
+      "Token": "i"
+    },
+    {
+      "TokenIdx": 32,
+      "Token": ">="
+    },
+    {
+      "TokenIdx": 33,
+      "Token": "0"
+    },
+    {
+      "TokenIdx": 34,
+      "Token": ";"
+    },
+    {
+      "TokenIdx": 35,
+      "Token": "i"
+    },
+    {
+      "TokenIdx": 36,
+      "Token": "--"
+    },
+    {
+      "TokenIdx": 37,
+      "Token": ")"
+    },
+    {
+      "TokenIdx": 38,
+      "Token": "{"
+    },
+    {
+      "TokenIdx": 39,
+      "Token": "char"
+    },
+    {
+      "TokenIdx": 40,
+      "Token": "c"
+    },
+    {
+      "TokenIdx": 41,
+      "Token": "="
+    },
+    {
+      "TokenIdx": 42,
+      "Token": "text"
+    },
+    {
+      "TokenIdx": 43,
+      "Token": "."
+    },
+    {
+      "TokenIdx": 44,
+      "Token": "charAt"
+    },
+    {
+      "TokenIdx": 45,
+      "Token": "("
+    },
+    {
+      "TokenIdx": 46,
+      "Token": "i"
+    },
+    {
+      "TokenIdx": 47,
+      "Token": ");"
+    },
+    {
+      "TokenIdx": 48,
+      "Token": "if"
+    },
+    {
+      "TokenIdx": 49,
+      "Token": "(("
+    },
+    {
+      "TokenIdx": 50,
+      "Token": "c"
+    },
+    {
+      "TokenIdx": 51,
+      "Token": ">="
+    },
+    {
+      "TokenIdx": 52,
+      "Token": "'a'"
+    },
+    {
+      "TokenIdx": 53,
+      "Token": "&&"
+    },
+    {
+      "TokenIdx": 54,
+      "Token": "c"
+    },
+    {
+      "TokenIdx": 55,
+      "Token": "<="
+    },
+    {
+      "TokenIdx": 56,
+      "Token": "'z'"
+    },
+    {
+      "TokenIdx": 57,
+      "Token": ")"
+    },
+    {
+      "TokenIdx": 58,
+      "Token": "||"
+    },
+    {
+      "TokenIdx": 59,
+      "Token": "("
+    },
+    {
+      "TokenIdx": 60,
+      "Token": "c"
+    },
+    {
+      "TokenIdx": 61,
+      "Token": ">="
+    },
+    {
+      "TokenIdx": 62,
+      "Token": "'A'"
+    },
+    {
+      "TokenIdx": 63,
+      "Token": "&&"
+    },
+    {
+      "TokenIdx": 64,
+      "Token": "c"
+    },
+    {
+      "TokenIdx": 65,
+      "Token": "<="
+    },
+    {
+      "TokenIdx": 66,
+      "Token": "'Z'"
+    },
+    {
+      "TokenIdx": 67,
+      "Token": "))"
+    },
+    {
+      "TokenIdx": 68,
+      "Token": "{"
+    },
+    {
+      "TokenIdx": 69,
+      "Token": "isLastWord"
+    },
+    {
+      "TokenIdx": 70,
+      "Token": "="
+    },
+    {
+      "TokenIdx": 71,
+      "Token": "true"
+    },
+    {
+      "TokenIdx": 72,
+      "Token": ";"
+    },
+    {
+      "TokenIdx": 73,
+      "Token": "length"
+    },
+    {
+      "TokenIdx": 74,
+      "Token": "++"
+    },
+    {
+      "TokenIdx": 75,
+      "Token": ";"
+    },
+    {
+      "TokenIdx": 76,
+      "Token": "}"
+    },
+    {
+      "TokenIdx": 77,
+      "Token": "else"
+    },
+    {
+      "TokenIdx": 78,
+      "Token": "{"
+    },
+    {
+      "TokenIdx": 79,
+      "Token": "if"
+    },
+    {
+      "TokenIdx": 80,
+      "Token": "("
+    },
+    {
+      "TokenIdx": 81,
+      "Token": "isLastWord"
+    },
+    {
+      "TokenIdx": 82,
+      "Token": ")"
+    },
+    {
+      "TokenIdx": 83,
+      "Token": "{"
+    },
+    {
+      "TokenIdx": 84,
+      "Token": "break"
+    },
+    {
+      "TokenIdx": 85,
+      "Token": ";"
+    },
+    {
+      "TokenIdx": 86,
+      "Token": "}"
+    },
+    {
+      "TokenIdx": 87,
+      "Token": "}"
+    },
+    {
+      "TokenIdx": 88,
+      "Token": "}"
+    },
+    {
+      "TokenIdx": 89,
+      "Token": "return"
+    },
+    {
+      "TokenIdx": 90,
+      "Token": "length"
+    },
+    {
+      "TokenIdx": 91,
+      "Token": ";"
+    },
+    {
+      "TokenIdx": 92,
+      "Token": "}"
+    }
+  ],
+  "total_scores": [
+    {
+      "Token": "public",
+      "score": 348.01199999999517
+    },
+    {
+      "Token": "static",
+      "score": 952.0330000000104
+    },
+    {
+      "Token": "int",
+      "score": 0.0
+    },
+    {
+      "Token": "lengthOfLastWord",
+      "score": 204.00799999999435
+    },
+    {
+      "Token": "(",
+      "score": 0.0
+    },
+    {
+      "Token": "String",
+      "score": 300.0060000000012
+    },
+    {
+      "Token": "text",
+      "score": 136.00599999999395
+    },
+    {
+      "Token": ")",
+      "score": 0.0
+    },
+    {
+      "Token": "{",
+      "score": 0.0
+    },
+    {
+      "Token": "int",
+      "score": 236.01199999999517
+    },
+    {
+      "Token": "length",
+      "score": 248.01100000000588
+    },
+    {
+      "Token": "=",
+      "score": 0.0
+    },
+    {
+      "Token": "0",
+      "score": 0.0
+    },
+    {
+      "Token": ";",
+      "score": 0.0
+    },
+    {
+      "Token": "boolean",
+      "score": 0.0
+    },
+    {
+      "Token": "isLastWord",
+      "score": 0.0
+    },
+    {
+      "Token": "=",
+      "score": 0.0
+    },
+    {
+      "Token": "false",
+      "score": 416.012999999999
+    },
+    {
+      "Token": ";",
+      "score": 0.0
+    },
+    {
+      "Token": "for",
+      "score": 0.0
+    },
+    {
+      "Token": "(",
+      "score": 772.025999999998
+    },
+    {
+      "Token": "int",
+      "score": 0.0
+    },
+    {
+      "Token": "i",
+      "score": 0.0
+    },
+    {
+      "Token": "=",
+      "score": 0.0
+    },
+    {
+      "Token": "text",
+      "score": 0.0
+    },
+    {
+      "Token": ".",
+      "score": 0.0
+    },
+    {
+      "Token": "length",
+      "score": 0.0
+    },
+    {
+      "Token": "()",
+      "score": 0.0
+    },
+    {
+      "Token": "-",
+      "score": 0.0
+    },
+    {
+      "Token": "1",
+      "score": 0.0
+    },
+    {
+      "Token": ";",
+      "score": 0.0
+    },
+    {
+      "Token": "i",
+      "score": 0.0
+    },
+    {
+      "Token": ">=",
+      "score": 0.0
+    },
+    {
+      "Token": "0",
+      "score": 0.0
+    },
+    {
+      "Token": ";",
+      "score": 0.0
+    },
+    {
+      "Token": "i",
+      "score": 0.0
+    },
+    {
+      "Token": "--",
+      "score": 0.0
+    },
+    {
+      "Token": ")",
+      "score": 0.0
+    },
+    {
+      "Token": "{",
+      "score": 0.0
+    },
+    {
+      "Token": "char",
+      "score": 560.0140000000029
+    },
+    {
+      "Token": "c",
+      "score": 0.0
+    },
+    {
+      "Token": "=",
+      "score": 0.0
+    },
+    {
+      "Token": "text",
+      "score": 0.0
+    },
+    {
+      "Token": ".",
+      "score": 0.0
+    },
+    {
+      "Token": "charAt",
+      "score": 0.0
+    },
+    {
+      "Token": "(",
+      "score": 0.0
+    },
+    {
+      "Token": "i",
+      "score": 0.0
+    },
+    {
+      "Token": ");",
+      "score": 0.0
+    },
+    {
+      "Token": "if",
+      "score": 720.0240000000049
+    },
+    {
+      "Token": "((",
+      "score": 372.0149999999994
+    },
+    {
+      "Token": "c",
+      "score": 0.0
+    },
+    {
+      "Token": ">=",
+      "score": 0.0
+    },
+    {
+      "Token": "'a'",
+      "score": 0.0
+    },
+    {
+      "Token": "&&",
+      "score": 0.0
+    },
+    {
+      "Token": "c",
+      "score": 0.0
+    },
+    {
+      "Token": "<=",
+      "score": 0.0
+    },
+    {
+      "Token": "'z'",
+      "score": 0.0
+    },
+    {
+      "Token": ")",
+      "score": 0.0
+    },
+    {
+      "Token": "||",
+      "score": 0.0
+    },
+    {
+      "Token": "(",
+      "score": 0.0
+    },
+    {
+      "Token": "c",
+      "score": 0.0
+    },
+    {
+      "Token": ">=",
+      "score": 0.0
+    },
+    {
+      "Token": "'A'",
+      "score": 0.0
+    },
+    {
+      "Token": "&&",
+      "score": 0.0
+    },
+    {
+      "Token": "c",
+      "score": 0.0
+    },
+    {
+      "Token": "<=",
+      "score": 0.0
+    },
+    {
+      "Token": "'Z'",
+      "score": 0.0
+    },
+    {
+      "Token": "))",
+      "score": 0.0
+    },
+    {
+      "Token": "{",
+      "score": 0.0
+    },
+    {
+      "Token": "isLastWord",
+      "score": 3808.131999999998
+    },
+    {
+      "Token": "=",
+      "score": 0.0
+    },
+    {
+      "Token": "true",
+      "score": 0.0
+    },
+    {
+      "Token": ";",
+      "score": 0.0
+    },
+    {
+      "Token": "length",
+      "score": 1572.0530000000072
+    },
+    {
+      "Token": "++",
+      "score": 0.0
+    },
+    {
+      "Token": ";",
+      "score": 0.0
+    },
+    {
+      "Token": "}",
+      "score": 0.0
+    },
+    {
+      "Token": "else",
+      "score": 0.0
+    },
+    {
+      "Token": "{",
+      "score": 0.0
+    },
+    {
+      "Token": "if",
+      "score": 0.0
+    },
+    {
+      "Token": "(",
+      "score": 0.0
+    },
+    {
+      "Token": "isLastWord",
+      "score": 0.0
+    },
+    {
+      "Token": ")",
+      "score": 0.0
+    },
+    {
+      "Token": "{",
+      "score": 0.0
+    },
+    {
+      "Token": "break",
+      "score": 0.0
+    },
+    {
+      "Token": ";",
+      "score": 0.0
+    },
+    {
+      "Token": "}",
+      "score": 0.0
+    },
+    {
+      "Token": "}",
+      "score": 0.0
+    },
+    {
+      "Token": "}",
+      "score": 0.0
+    },
+    {
+      "Token": "return",
+      "score": 0.0
+    },
+    {
+      "Token": "length",
+      "score": 0.0
+    },
+    {
+      "Token": ";",
+      "score": 0.0
+    },
+    {
+      "Token": "}",
+      "score": 0.0
+    }
+  ],
+  "timeline": [
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 300.012999999999
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "lengthOfLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "String",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "boolean",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "false",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "--",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "char",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "charAt",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "((",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'a'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'z'",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "||",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'A'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'Z'",
+        "score": 0.0
+      },
+      {
+        "Token": "))",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "true",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "else",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "break",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "lengthOfLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "String",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 236.01199999999517
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "boolean",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "false",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "--",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "char",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "charAt",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "((",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'a'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'z'",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "||",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'A'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'Z'",
+        "score": 0.0
+      },
+      {
+        "Token": "))",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "true",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "else",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "break",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 436.0150000000067
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "lengthOfLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "String",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "boolean",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "false",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "--",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "char",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "charAt",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "((",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'a'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'z'",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "||",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'A'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'Z'",
+        "score": 0.0
+      },
+      {
+        "Token": "))",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "true",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "else",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "break",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 348.01199999999517
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "lengthOfLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "String",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "boolean",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "false",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "--",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "char",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "charAt",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "((",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'a'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'z'",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "||",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'A'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'Z'",
+        "score": 0.0
+      },
+      {
+        "Token": "))",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "true",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "else",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "break",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 216.00500000000466
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "lengthOfLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "String",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "boolean",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "false",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "--",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "char",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "charAt",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "((",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'a'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'z'",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "||",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'A'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'Z'",
+        "score": 0.0
+      },
+      {
+        "Token": "))",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "true",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "else",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "break",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "lengthOfLastWord",
+        "score": 204.00799999999435
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "String",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "boolean",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "false",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "--",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "char",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "charAt",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "((",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'a'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'z'",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "||",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'A'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'Z'",
+        "score": 0.0
+      },
+      {
+        "Token": "))",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "true",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "else",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "break",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "lengthOfLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "String",
+        "score": 300.0060000000012
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "boolean",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "false",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "--",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "char",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "charAt",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "((",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'a'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'z'",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "||",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'A'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'Z'",
+        "score": 0.0
+      },
+      {
+        "Token": "))",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "true",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "else",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "break",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "lengthOfLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "String",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 136.00599999999395
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "boolean",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "false",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "--",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "char",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "charAt",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "((",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'a'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'z'",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "||",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'A'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'Z'",
+        "score": 0.0
+      },
+      {
+        "Token": "))",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "true",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "else",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "break",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "lengthOfLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "String",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 248.01100000000588
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "boolean",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "false",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "--",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "char",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "charAt",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "((",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'a'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'z'",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "||",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'A'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'Z'",
+        "score": 0.0
+      },
+      {
+        "Token": "))",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "true",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "else",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "break",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "lengthOfLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "String",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "boolean",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "false",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "--",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "char",
+        "score": 560.0140000000029
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "charAt",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "((",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'a'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'z'",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "||",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'A'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'Z'",
+        "score": 0.0
+      },
+      {
+        "Token": "))",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "true",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "else",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "break",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "lengthOfLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "String",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "boolean",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "false",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "--",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "char",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "charAt",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "((",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'a'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'z'",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "||",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'A'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'Z'",
+        "score": 0.0
+      },
+      {
+        "Token": "))",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "true",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 244.00700000000506
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "else",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "break",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "lengthOfLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "String",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "boolean",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "false",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "--",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "char",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "charAt",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "((",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'a'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'z'",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "||",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'A'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'Z'",
+        "score": 0.0
+      },
+      {
+        "Token": "))",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 632.0219999999972
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "true",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "else",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "break",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "lengthOfLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "String",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "boolean",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "false",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "--",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "char",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "charAt",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 440.01400000000285
+      },
+      {
+        "Token": "((",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'a'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'z'",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "||",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'A'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'Z'",
+        "score": 0.0
+      },
+      {
+        "Token": "))",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "true",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "else",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "break",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "lengthOfLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "String",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "boolean",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "false",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "--",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "char",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "charAt",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "((",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'a'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'z'",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "||",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'A'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'Z'",
+        "score": 0.0
+      },
+      {
+        "Token": "))",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "true",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 488.0169999999998
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "else",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "break",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "lengthOfLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "String",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "boolean",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "false",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "--",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "char",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "charAt",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "((",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'a'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'z'",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "||",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'A'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'Z'",
+        "score": 0.0
+      },
+      {
+        "Token": "))",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 536.0179999999964
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "true",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "else",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "break",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "lengthOfLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "String",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "boolean",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "false",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "--",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "char",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "charAt",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "((",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'a'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'z'",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "||",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'A'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'Z'",
+        "score": 0.0
+      },
+      {
+        "Token": "))",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 1444.0520000000033
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "true",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "else",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "break",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "lengthOfLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "String",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "boolean",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "false",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "--",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "char",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "charAt",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "((",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'a'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'z'",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "||",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'A'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'Z'",
+        "score": 0.0
+      },
+      {
+        "Token": "))",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "true",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 840.0290000000023
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "else",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "break",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "lengthOfLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "String",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "boolean",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "false",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "--",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "char",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "charAt",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 280.01000000000204
+      },
+      {
+        "Token": "((",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'a'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'z'",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "||",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'A'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'Z'",
+        "score": 0.0
+      },
+      {
+        "Token": "))",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "true",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "else",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "break",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "lengthOfLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "String",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "boolean",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "false",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 772.025999999998
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "--",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "char",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "charAt",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "((",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'a'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'z'",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "||",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'A'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'Z'",
+        "score": 0.0
+      },
+      {
+        "Token": "))",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "true",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "else",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "break",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "lengthOfLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "String",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "boolean",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "false",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "--",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "char",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "charAt",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "((",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'a'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'z'",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "||",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'A'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'Z'",
+        "score": 0.0
+      },
+      {
+        "Token": "))",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 1196.0400000000009
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "true",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "else",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "break",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "lengthOfLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "String",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "boolean",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "false",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "--",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "char",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "charAt",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "((",
+        "score": 372.0149999999994
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'a'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'z'",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "||",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'A'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'Z'",
+        "score": 0.0
+      },
+      {
+        "Token": "))",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "true",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "else",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "break",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "lengthOfLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "String",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "boolean",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "false",
+        "score": 416.012999999999
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "for",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "int",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "()",
+        "score": 0.0
+      },
+      {
+        "Token": "-",
+        "score": 0.0
+      },
+      {
+        "Token": "1",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "0",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": "--",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "char",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "text",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "charAt",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "i",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "((",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'a'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'z'",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "||",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": ">=",
+        "score": 0.0
+      },
+      {
+        "Token": "'A'",
+        "score": 0.0
+      },
+      {
+        "Token": "&&",
+        "score": 0.0
+      },
+      {
+        "Token": "c",
+        "score": 0.0
+      },
+      {
+        "Token": "<=",
+        "score": 0.0
+      },
+      {
+        "Token": "'Z'",
+        "score": 0.0
+      },
+      {
+        "Token": "))",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "true",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": "++",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "else",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "isLastWord",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "break",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": "length",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ]
+  ]
+}

@@ -1,0 +1,3408 @@
+{
+  "algorithm": "ReverseQueue",
+  "participant": 50,
+  "vocabulary": [
+    {
+      "TokenIdx": 0,
+      "Token": "public"
+    },
+    {
+      "TokenIdx": 1,
+      "Token": "static"
+    },
+    {
+      "TokenIdx": 2,
+      "Token": "void"
+    },
+    {
+      "TokenIdx": 3,
+      "Token": "reverse"
+    },
+    {
+      "TokenIdx": 4,
+      "Token": "("
+    },
+    {
+      "TokenIdx": 5,
+      "Token": "Queue"
+    },
+    {
+      "TokenIdx": 6,
+      "Token": "<"
+    },
+    {
+      "TokenIdx": 7,
+      "Token": "Integer"
+    },
+    {
+      "TokenIdx": 8,
+      "Token": ">"
+    },
+    {
+      "TokenIdx": 9,
+      "Token": "Q"
+    },
+    {
+      "TokenIdx": 10,
+      "Token": ")"
+    },
+    {
+      "TokenIdx": 11,
+      "Token": "{"
+    },
+    {
+      "TokenIdx": 12,
+      "Token": "if"
+    },
+    {
+      "TokenIdx": 13,
+      "Token": "("
+    },
+    {
+      "TokenIdx": 14,
+      "Token": "Q"
+    },
+    {
+      "TokenIdx": 15,
+      "Token": "."
+    },
+    {
+      "TokenIdx": 16,
+      "Token": "isEmpty"
+    },
+    {
+      "TokenIdx": 17,
+      "Token": "())"
+    },
+    {
+      "TokenIdx": 18,
+      "Token": "{"
+    },
+    {
+      "TokenIdx": 19,
+      "Token": "return"
+    },
+    {
+      "TokenIdx": 20,
+      "Token": ";"
+    },
+    {
+      "TokenIdx": 21,
+      "Token": "}"
+    },
+    {
+      "TokenIdx": 22,
+      "Token": "Integer"
+    },
+    {
+      "TokenIdx": 23,
+      "Token": "data"
+    },
+    {
+      "TokenIdx": 24,
+      "Token": "="
+    },
+    {
+      "TokenIdx": 25,
+      "Token": "Q"
+    },
+    {
+      "TokenIdx": 26,
+      "Token": "."
+    },
+    {
+      "TokenIdx": 27,
+      "Token": "remove"
+    },
+    {
+      "TokenIdx": 28,
+      "Token": "();"
+    },
+    {
+      "TokenIdx": 29,
+      "Token": "reverse"
+    },
+    {
+      "TokenIdx": 30,
+      "Token": "("
+    },
+    {
+      "TokenIdx": 31,
+      "Token": "Q"
+    },
+    {
+      "TokenIdx": 32,
+      "Token": ");"
+    },
+    {
+      "TokenIdx": 33,
+      "Token": "Q"
+    },
+    {
+      "TokenIdx": 34,
+      "Token": "."
+    },
+    {
+      "TokenIdx": 35,
+      "Token": "add"
+    },
+    {
+      "TokenIdx": 36,
+      "Token": "("
+    },
+    {
+      "TokenIdx": 37,
+      "Token": "data"
+    },
+    {
+      "TokenIdx": 38,
+      "Token": ");"
+    },
+    {
+      "TokenIdx": 39,
+      "Token": "}"
+    }
+  ],
+  "total_scores": [
+    {
+      "Token": "public",
+      "score": 0.0
+    },
+    {
+      "Token": "static",
+      "score": 1528.0459999999985
+    },
+    {
+      "Token": "void",
+      "score": 356.01400000000103
+    },
+    {
+      "Token": "reverse",
+      "score": 284.0060000000003
+    },
+    {
+      "Token": "(",
+      "score": 0.0
+    },
+    {
+      "Token": "Queue",
+      "score": 0.0
+    },
+    {
+      "Token": "<",
+      "score": 0.0
+    },
+    {
+      "Token": "Integer",
+      "score": 0.0
+    },
+    {
+      "Token": ">",
+      "score": 0.0
+    },
+    {
+      "Token": "Q",
+      "score": 0.0
+    },
+    {
+      "Token": ")",
+      "score": 0.0
+    },
+    {
+      "Token": "{",
+      "score": 0.0
+    },
+    {
+      "Token": "if",
+      "score": 0.0
+    },
+    {
+      "Token": "(",
+      "score": 0.0
+    },
+    {
+      "Token": "Q",
+      "score": 0.0
+    },
+    {
+      "Token": ".",
+      "score": 0.0
+    },
+    {
+      "Token": "isEmpty",
+      "score": 1212.0389999999989
+    },
+    {
+      "Token": "())",
+      "score": 236.01199999999972
+    },
+    {
+      "Token": "{",
+      "score": 0.0
+    },
+    {
+      "Token": "return",
+      "score": 1288.036
+    },
+    {
+      "Token": ";",
+      "score": 296.0070000000014
+    },
+    {
+      "Token": "}",
+      "score": 0.0
+    },
+    {
+      "Token": "Integer",
+      "score": 2388.0890000000018
+    },
+    {
+      "Token": "data",
+      "score": 0.0
+    },
+    {
+      "Token": "=",
+      "score": 0.0
+    },
+    {
+      "Token": "Q",
+      "score": 0.0
+    },
+    {
+      "Token": ".",
+      "score": 0.0
+    },
+    {
+      "Token": "remove",
+      "score": 0.0
+    },
+    {
+      "Token": "();",
+      "score": 0.0
+    },
+    {
+      "Token": "reverse",
+      "score": 0.0
+    },
+    {
+      "Token": "(",
+      "score": 0.0
+    },
+    {
+      "Token": "Q",
+      "score": 0.0
+    },
+    {
+      "Token": ");",
+      "score": 0.0
+    },
+    {
+      "Token": "Q",
+      "score": 0.0
+    },
+    {
+      "Token": ".",
+      "score": 0.0
+    },
+    {
+      "Token": "add",
+      "score": 0.0
+    },
+    {
+      "Token": "(",
+      "score": 0.0
+    },
+    {
+      "Token": "data",
+      "score": 0.0
+    },
+    {
+      "Token": ");",
+      "score": 0.0
+    },
+    {
+      "Token": "}",
+      "score": 0.0
+    }
+  ],
+  "timeline": [
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "void",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Queue",
+        "score": 0.0
+      },
+      {
+        "Token": "<",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": ">",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "isEmpty",
+        "score": 280.0069999999996
+      },
+      {
+        "Token": "())",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "remove",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "add",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "void",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Queue",
+        "score": 0.0
+      },
+      {
+        "Token": "<",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": ">",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "isEmpty",
+        "score": 0.0
+      },
+      {
+        "Token": "())",
+        "score": 236.01199999999972
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "remove",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "add",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "void",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 284.0060000000003
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Queue",
+        "score": 0.0
+      },
+      {
+        "Token": "<",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": ">",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "isEmpty",
+        "score": 0.0
+      },
+      {
+        "Token": "())",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "remove",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "add",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 244.0049999999992
+      },
+      {
+        "Token": "void",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Queue",
+        "score": 0.0
+      },
+      {
+        "Token": "<",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": ">",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "isEmpty",
+        "score": 0.0
+      },
+      {
+        "Token": "())",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "remove",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "add",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "void",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Queue",
+        "score": 0.0
+      },
+      {
+        "Token": "<",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": ">",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "isEmpty",
+        "score": 0.0
+      },
+      {
+        "Token": "())",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 820.0249999999996
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "remove",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "add",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "void",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Queue",
+        "score": 0.0
+      },
+      {
+        "Token": "<",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": ">",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "isEmpty",
+        "score": 0.0
+      },
+      {
+        "Token": "())",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 1072.0340000000015
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "remove",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "add",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "void",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Queue",
+        "score": 0.0
+      },
+      {
+        "Token": "<",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": ">",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "isEmpty",
+        "score": 0.0
+      },
+      {
+        "Token": "())",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 344.0119999999988
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "remove",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "add",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "void",
+        "score": 184.00900000000001
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Queue",
+        "score": 0.0
+      },
+      {
+        "Token": "<",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": ">",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "isEmpty",
+        "score": 0.0
+      },
+      {
+        "Token": "())",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "remove",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "add",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "void",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Queue",
+        "score": 0.0
+      },
+      {
+        "Token": "<",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": ">",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "isEmpty",
+        "score": 0.0
+      },
+      {
+        "Token": "())",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 236.00900000000001
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "remove",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "add",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "void",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Queue",
+        "score": 0.0
+      },
+      {
+        "Token": "<",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": ">",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "isEmpty",
+        "score": 0.0
+      },
+      {
+        "Token": "())",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 232.0020000000004
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "remove",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "add",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 748.0249999999996
+      },
+      {
+        "Token": "void",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Queue",
+        "score": 0.0
+      },
+      {
+        "Token": "<",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": ">",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "isEmpty",
+        "score": 0.0
+      },
+      {
+        "Token": "())",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "remove",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "add",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "void",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Queue",
+        "score": 0.0
+      },
+      {
+        "Token": "<",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": ">",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "isEmpty",
+        "score": 396.0149999999994
+      },
+      {
+        "Token": "())",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "remove",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "add",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "void",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Queue",
+        "score": 0.0
+      },
+      {
+        "Token": "<",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": ">",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "isEmpty",
+        "score": 192.00600000000122
+      },
+      {
+        "Token": "())",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "remove",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "add",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "void",
+        "score": 172.00500000000102
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Queue",
+        "score": 0.0
+      },
+      {
+        "Token": "<",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": ">",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "isEmpty",
+        "score": 0.0
+      },
+      {
+        "Token": "())",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "remove",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "add",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "void",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Queue",
+        "score": 0.0
+      },
+      {
+        "Token": "<",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": ">",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "isEmpty",
+        "score": 0.0
+      },
+      {
+        "Token": "())",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 280.0070000000014
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "remove",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "add",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 536.0159999999996
+      },
+      {
+        "Token": "void",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Queue",
+        "score": 0.0
+      },
+      {
+        "Token": "<",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": ">",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "isEmpty",
+        "score": 0.0
+      },
+      {
+        "Token": "())",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "remove",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "add",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "void",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Queue",
+        "score": 0.0
+      },
+      {
+        "Token": "<",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": ">",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "isEmpty",
+        "score": 0.0
+      },
+      {
+        "Token": "())",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 692.0360000000001
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "remove",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "add",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "void",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Queue",
+        "score": 0.0
+      },
+      {
+        "Token": "<",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": ">",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "isEmpty",
+        "score": 0.0
+      },
+      {
+        "Token": "())",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 296.0070000000014
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "remove",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "add",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ],
+    [
+      {
+        "Token": "public",
+        "score": 0.0
+      },
+      {
+        "Token": "static",
+        "score": 0.0
+      },
+      {
+        "Token": "void",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Queue",
+        "score": 0.0
+      },
+      {
+        "Token": "<",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": ">",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ")",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "if",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "isEmpty",
+        "score": 344.0109999999986
+      },
+      {
+        "Token": "())",
+        "score": 0.0
+      },
+      {
+        "Token": "{",
+        "score": 0.0
+      },
+      {
+        "Token": "return",
+        "score": 0.0
+      },
+      {
+        "Token": ";",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      },
+      {
+        "Token": "Integer",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": "=",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "remove",
+        "score": 0.0
+      },
+      {
+        "Token": "();",
+        "score": 0.0
+      },
+      {
+        "Token": "reverse",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "Q",
+        "score": 0.0
+      },
+      {
+        "Token": ".",
+        "score": 0.0
+      },
+      {
+        "Token": "add",
+        "score": 0.0
+      },
+      {
+        "Token": "(",
+        "score": 0.0
+      },
+      {
+        "Token": "data",
+        "score": 0.0
+      },
+      {
+        "Token": ");",
+        "score": 0.0
+      },
+      {
+        "Token": "}",
+        "score": 0.0
+      }
+    ]
+  ]
+}
