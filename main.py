@@ -200,7 +200,7 @@ def main():
         snippet_name = snippet_path.stem
         snippet_root = output_root / snippet_name
         snippet_root.mkdir(parents=True, exist_ok=True)
-        fixation_vocab: list[dict[str, object]] = []
+        fixation_vocab: list[dict[str, object]] = [] # Type Hint
         vocab_path = Path(__file__).resolve().parent / "fixation_dump" / snippet_name / "vocabulary.json"
         if vocab_path.is_file():
             try:
@@ -236,7 +236,7 @@ def main():
             phase_prompt_scores, phase_counts = _aggregate_phase_prompt_scores(
                 result, phase_assignments, pool_name="all_layers_mean"
             )
-
+            # TODO: Experiment with all 5 settings.
             attn_map = renderer.map_attention_to_source(
                 code_snippet=code,
                 generation_result=result,
