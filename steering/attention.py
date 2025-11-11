@@ -132,7 +132,7 @@ class SteeringAttention(nn.Module):
             else:
                 attn_weights = attn_weights + attention_mask
 
-        attn_probs = nn.functional.softmax(attn_weights, dim=-1, dtype=torch.float32).to(query_states.dtype)
+        attn_probs = nn.functional.softmax(attn_weights, dim=-1, dtype=torch.float32)
         attn_probs = nn.functional.dropout(attn_probs, p=self.attention_dropout, training=self.training)
 
         if runtime:
@@ -142,6 +142,7 @@ class SteeringAttention(nn.Module):
         if runtime and 2 in self.config.enabled_levels and self.layer_index >= 52:
             scale = runtime.prior_tensor(attn_probs.device, attn_probs.shape[-1])
             attn_probs = level2_post(attn_probs, scale, runtime.coeffs().beta_post)
+        attn_probs = attn_probs.to(value_states.dtype)
 
         attn_output = torch.matmul(attn_probs, value_states)
 

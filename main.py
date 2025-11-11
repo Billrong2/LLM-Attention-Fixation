@@ -7,6 +7,7 @@ import os
 from pathlib import Path
 import re
 import json
+import shutil
 from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
@@ -314,15 +315,16 @@ def main():
         snippet_name = snippet_path.stem
         snippet_root = output_root / snippet_name / level_label / prior_label
         snippet_root.mkdir(parents=True, exist_ok=True)
-        existing_run_ids: list[int] = []
         for outcome in ("EM", "Mismatch"):
             outcome_dir = snippet_root / outcome
-            if not outcome_dir.exists():
-                continue
-            for child in outcome_dir.iterdir():
-                if child.is_dir() and child.name.isdigit():
-                    existing_run_ids.append(int(child.name))
-        run_idx = max(existing_run_ids, default=0) + 1
+            if outcome_dir.exists():
+                for child in outcome_dir.iterdir():
+                    if child.is_dir():
+                        shutil.rmtree(child)
+                    else:
+                        child.unlink()
+            outcome_dir.mkdir(exist_ok=True)
+        run_idx = 1
         runs_completed = 0
         fixation_dir = fixation_root / snippet_name
         fixation_vocab: list[dict[str, object]] = [] # Type Hint
