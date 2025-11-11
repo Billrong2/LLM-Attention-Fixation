@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import argparse
 import os
 from pathlib import Path
 import re
@@ -12,6 +13,7 @@ import numpy as np
 from models import llama70b
 from util import utity
 from render.util import AttentionRenderer, RenderConfig
+from steering import SteeringConfig
 
 
 def _canonicalize_model_output(text: str) -> tuple[str, bool]:
@@ -165,12 +167,95 @@ def _aggregate_phase_prompt_scores(
     return phase_scores, counts
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Eyetracking collection with optional steering.")
+    parser.add_argument("--level1", action="store_true")
+    parser.add_argument("--level2", action="store_true")
+    parser.add_argument("--level3", action="store_true")
+    parser.add_argument("--level4", action="store_true")
+    parser.add_argument("--level5", action="store_true")
+    parser.add_argument("--prior", choices=["human", "ast", "lex", "rand"], default="human")
+    parser.add_argument("--n-bins", type=int, default=8)
+    parser.add_argument("--binning", choices=["equal_count"], default="equal_count")
+    parser.add_argument("--beta-bias", type=float, default=0.0)
+    parser.add_argument("--beta-post", type=float, default=0.0)
+    parser.add_argument("--lambda-attn", type=float, default=1.0)
+    parser.add_argument("--lambda-mlp", type=float, default=1.0)
+    parser.add_argument("--alpha-k", type=float, default=0.0)
+    parser.add_argument("--alpha-v", type=float, default=0.0)
+    parser.add_argument("--beta-ptr", type=float, default=0.0)
+    parser.add_argument("--bias-cap", type=float, default=None)
+    parser.add_argument("--gamma-min", type=float, default=0.0)
+    parser.add_argument("--gamma-max", type=float, default=5.0)
+    parser.add_argument("--eta-min", type=float, default=0.0)
+    parser.add_argument("--eta-max", type=float, default=5.0)
+    parser.add_argument("--human-file", type=Path, default=None)
+    parser.add_argument("--lex-window", type=int, default=32)
+    parser.add_argument("--rand-seed", type=int, default=None)
+    parser.add_argument("--schedule-json", type=Path, default=None)
+    parser.add_argument("--runs-per-snippet", type=int, default=20, help="Number of generations per snippet.")
+    parser.add_argument("--skip-steering", action="store_true")
+    parser.add_argument("--snippet", type=str, default=None, help="Run only this snippet (single name without .java).")
+    parser.add_argument(
+        "--snippets",
+        type=str,
+        default=None,
+        help="Comma-separated list of snippet names to run. Defaults to all when omitted.",
+    )
+    return parser.parse_args()
+
+
+def build_steering_config(args: argparse.Namespace) -> Optional[SteeringConfig]:
+    enabled = [
+        idx
+        for idx, flag in enumerate(
+            [args.level1, args.level2, args.level3, args.level4, args.level5], start=1
+        )
+        if flag
+    ]
+    if not enabled or args.skip_steering:
+        return None
+    return SteeringConfig(
+        enabled_levels=enabled,
+        prior=args.prior,
+        n_bins=args.n_bins,
+        binning=args.binning,
+        beta_bias=args.beta_bias,
+        beta_post=args.beta_post,
+        lambda_attn=args.lambda_attn,
+        lambda_mlp=args.lambda_mlp,
+        alpha_k=args.alpha_k,
+        alpha_v=args.alpha_v,
+        beta_ptr=args.beta_ptr,
+        bias_cap=args.bias_cap,
+        gamma_min=args.gamma_min,
+        gamma_max=args.gamma_max,
+        eta_min=args.eta_min,
+        eta_max=args.eta_max,
+        human_file=args.human_file,
+        lex_window=args.lex_window,
+        rand_seed=args.rand_seed,
+        schedule_json=args.schedule_json,
+    )
+
+
 def main():
+    args = parse_args()
     # 1) Build/run the model (only HF token may come from env)
     llama = llama70b()
+    steering_config = build_steering_config(args)
+    if steering_config:
+        llama.set_steering_config(steering_config)
     llama.login_hf()                  # optional; uses HUGGINGFACE_TOKEN if present
     llama.config(key_scope="prompt")  # IMPORTANT for prompt-aligned attention
     llama.build()
+
+    level_label = "baseline"
+    prior_label = "none"
+    if steering_config:
+        sorted_levels = "".join(f"L{lvl}" for lvl in sorted(steering_config.enabled_levels))
+        level_label = f"levels-{sorted_levels}" if sorted_levels else "levels"
+        prior_label = steering_config.prior
 
     # 2) Build our image renderer
     renderer = AttentionRenderer(tokenizer=llama.tokenizer, config=RenderConfig(pool="all_layers_mean"))
@@ -183,7 +268,21 @@ def main():
     output_root.mkdir(parents=True, exist_ok=True)
 
     source_dir = Path(__file__).resolve().parent / "Source"
-    snippet_paths = sorted(p for p in source_dir.iterdir() if p.is_file())
+    requested: set[str] = set()
+    if args.snippet:
+        requested.add(args.snippet.strip())
+    if args.snippets:
+        requested.update(s.strip() for s in args.snippets.split(",") if s.strip())
+
+    if requested:
+        snippet_paths = []
+        for name in sorted(requested):
+            candidate = source_dir / f"{name}.java"
+            if not candidate.is_file():
+                raise FileNotFoundError(f"Snippet '{name}' not found under {source_dir}.")
+            snippet_paths.append(candidate)
+    else:
+        snippet_paths = sorted(p for p in source_dir.iterdir() if p.is_file())
     if not snippet_paths:
         print(f"No code snippets found under {source_dir.resolve()}")
         llama.free()
@@ -194,12 +293,22 @@ def main():
         "Do not add explanations, commentary, or formatting such as code fences or quotes. "
         "If the program prints nothing, respond with an empty string."
     )
-    runs_per_snippet = 20
+    runs_per_snippet = max(1, args.runs_per_snippet)
     for snippet_path in snippet_paths:
         code = snippet_path.read_text(encoding="utf-8")
         snippet_name = snippet_path.stem
-        snippet_root = output_root / snippet_name
+        snippet_root = output_root / snippet_name / level_label / prior_label
         snippet_root.mkdir(parents=True, exist_ok=True)
+        existing_run_ids: list[int] = []
+        for outcome in ("EM", "Mismatch"):
+            outcome_dir = snippet_root / outcome
+            if not outcome_dir.exists():
+                continue
+            for child in outcome_dir.iterdir():
+                if child.is_dir() and child.name.isdigit():
+                    existing_run_ids.append(int(child.name))
+        run_idx = max(existing_run_ids, default=0) + 1
+        runs_completed = 0
         fixation_vocab: list[dict[str, object]] = [] # Type Hint
         vocab_path = Path(__file__).resolve().parent / "fixation_dump" / snippet_name / "vocabulary.json"
         if vocab_path.is_file():
@@ -213,9 +322,8 @@ def main():
             llama.free()
             raise RuntimeError(f"Failed to execute {snippet_path.name}: {exc}") from exc
         actual_output_str = actual_output if actual_output is not None else ""
-        run_idx = 1
         actual_output_clean = actual_output_str.strip()
-        while run_idx <= runs_per_snippet:
+        while runs_completed < runs_per_snippet:
             result = llama.run_llama(code, instruction=instruction, language="java")
             predicted_output_raw = result.get("generated_text", "")
             predicted_output, format_ok = _canonicalize_model_output(predicted_output_raw)
@@ -327,6 +435,7 @@ def main():
             status = "EM" if is_exact_match else "Mismatch"
             print(f"[{snippet_name}] {status} saved artifacts for run {run_idx:03d} -> {run_dir}")
             run_idx += 1
+            runs_completed += 1
     llama.free()
 
 if __name__ == "__main__":

@@ -22,7 +22,7 @@ class utity:
         if java_class_name.strip() == "":
             raise ValueError("Invalid Java class name.")
 
-        # Compile and run inside an isolated temp directory.
+        # Compile and run inside an isolated temp directory. With correct naming.
         with tempfile.TemporaryDirectory() as tmp_dir:
             tmp_path = Path(tmp_dir)
             source_path = tmp_path / f"{java_class_name}.java"

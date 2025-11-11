@@ -248,17 +248,24 @@ class SemanticEntropyEvaluator:
         )
         return vector_from_fixation_tokens(attn_map.get("fixation_tokens", []), self.vocab_size)
 
-    def load_model_runs(self, snippet: str) -> Tuple[List[RunRecord], float]:
+    def load_model_runs(
+        self,
+        snippet: str,
+        variant_label: Optional[str] = None,
+        prior_label: Optional[str] = None,
+    ) -> Tuple[List[RunRecord], float]:
         snippet_dir = self.root / "attn_viz" / snippet
         if not snippet_dir.exists():
             raise FileNotFoundError(f"No model outputs found for snippet '{snippet}'.")
+        variant_dir = resolve_child_dir(snippet_dir, variant_label, "variant")
+        prior_dir = resolve_child_dir(variant_dir, prior_label, "prior")
 
         run_records: List[RunRecord] = []
         outputs: List[str] = []
         run_metadata: List[Tuple[str, Dict[str, RunPhaseData]]] = []
 
         for band in ("EM", "Mismatch"):
-            band_dir = snippet_dir / band
+            band_dir = prior_dir / band
             if not band_dir.exists():
                 continue
             for run_dir in sorted(band_dir.iterdir()):
@@ -424,6 +431,18 @@ def load_participant_data(
     return total_scores, matrix
 
 
+def resolve_child_dir(base: Path, preferred: Optional[str], label: str) -> Path:
+    if preferred:
+        target = base / preferred
+        if not target.is_dir():
+            raise FileNotFoundError(f"{label} '{preferred}' not found under {base}")
+        return target
+    candidates = sorted([p for p in base.iterdir() if p.is_dir()])
+    if not candidates:
+        raise FileNotFoundError(f"No {label} directories found under {base}")
+    return candidates[-1]
+
+
 def columnwise_metric(
     model: np.ndarray, human: np.ndarray, func
 ) -> float:
@@ -444,6 +463,8 @@ def evaluate_snippet(
     phase_summary_tables: Optional[
         Dict[str, Dict[str, Dict[str, Tuple[float, float, float, float]]]]
     ] = None,
+    variant_label: Optional[str] = None,
+    prior_label: Optional[str] = None,
 ) -> None:
     fixation_dir = project_root / "fixation_dump" / snippet
     vocab_path = fixation_dir / "vocabulary.json"
@@ -470,7 +491,11 @@ def evaluate_snippet(
         cache_dir=cache_dir,
     )
 
-    run_records, semantic_entropy_value = evaluator.load_model_runs(snippet)
+    run_records, semantic_entropy_value = evaluator.load_model_runs(
+        snippet,
+        variant_label=variant_label,
+        prior_label=prior_label,
+    )
     if not run_records:
         print(f"[WARN] No model runs found for snippet '{snippet}'.")
         return
@@ -601,6 +626,18 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
         default=Path("eval"),
         help="Directory where evaluation results will be stored.",
     )
+    parser.add_argument(
+        "--variant-label",
+        type=str,
+        default=None,
+        help="Variant directory under attn_viz/<snippet> (e.g., baseline, levels-L1L2). Defaults to latest.",
+    )
+    parser.add_argument(
+        "--prior-label",
+        type=str,
+        default=None,
+        help="Prior directory under the variant (e.g., none, human). Defaults to latest.",
+    )
     args = parser.parse_args(argv)
 
     project_root = args.project_root
@@ -628,6 +665,8 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
                 output_root=args.output_dir,
                 cache_dir=args.cache_dir,
                 phase_summary_tables=phase_summary_tables,
+                variant_label=args.variant_label,
+                prior_label=args.prior_label,
             )
             print(f"[INFO] Evaluation completed for snippet '{snippet}'.")
         except Exception as exc:

@@ -1,0 +1,71 @@
+from __future__ import annotations
+
+import json
+from dataclasses import dataclass, field
+from pathlib import Path
+from typing import Dict, Optional, Sequence
+
+
+@dataclass
+class ScheduleEntry:
+    beta_bias: float = 0.0
+    beta_post: float = 0.0
+    lambda_attn: float = 1.0
+    lambda_mlp: float = 1.0
+    alpha_k: float = 0.0
+    alpha_v: float = 0.0
+    beta_ptr: float = 0.0
+
+
+@dataclass
+class SteeringConfig:
+    enabled_levels: Sequence[int] = field(default_factory=list)
+    prior: str = "human"
+    n_bins: int = 8
+    binning: str = "equal_count"
+    beta_bias: float = 0.0
+    beta_post: float = 0.0
+    lambda_attn: float = 1.0
+    lambda_mlp: float = 1.0
+    alpha_k: float = 0.0
+    alpha_v: float = 0.0
+    beta_ptr: float = 0.0
+    bias_cap: Optional[float] = None
+    gamma_min: float = 0.0
+    gamma_max: float = 5.0
+    eta_min: float = 0.0
+    eta_max: float = 5.0
+    human_file: Optional[Path] = None
+    lex_window: int = 32
+    rand_seed: Optional[int] = None
+    schedule_json: Optional[Path] = None
+    schedule: Dict[int, ScheduleEntry] = field(default_factory=dict)
+
+    def load_schedule(self) -> None:
+        if not self.schedule_json:
+            return
+        data = json.loads(Path(self.schedule_json).read_text(encoding="utf-8"))
+        for bin_idx, payload in data.items():
+            self.schedule[int(bin_idx)] = ScheduleEntry(
+                beta_bias=payload.get("beta_bias", self.beta_bias),
+                beta_post=payload.get("beta_post", self.beta_post),
+                lambda_attn=payload.get("lambda_attn", self.lambda_attn),
+                lambda_mlp=payload.get("lambda_mlp", self.lambda_mlp),
+                alpha_k=payload.get("alpha_k", self.alpha_k),
+                alpha_v=payload.get("alpha_v", self.alpha_v),
+                beta_ptr=payload.get("beta_ptr", self.beta_ptr),
+            )
+
+    def coeff_for_bin(self, bin_idx: int) -> ScheduleEntry:
+        return self.schedule.get(
+            bin_idx,
+            ScheduleEntry(
+                beta_bias=self.beta_bias,
+                beta_post=self.beta_post,
+                lambda_attn=self.lambda_attn,
+                lambda_mlp=self.lambda_mlp,
+                alpha_k=self.alpha_k,
+                alpha_v=self.alpha_v,
+                beta_ptr=self.beta_ptr,
+            ),
+        )

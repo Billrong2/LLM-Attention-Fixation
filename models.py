@@ -14,7 +14,7 @@ from __future__ import annotations
 import os
 import json
 import pprint
-from typing import Dict, Any, List, Tuple, Optional
+from typing import Dict, Any, List, Tuple, Optional, Sequence
 
 from huggingface_hub import login
 import torch
@@ -23,6 +23,12 @@ from transformers import (
     AutoModelForCausalLM,
     GenerationConfig,
 )
+from transformers.generation.logits_process import LogitsProcessorList
+from steering import SteeringConfig
+from steering.attention import SteeringAttention
+from steering.layer_patch import patch_decoder_layer
+from steering.pointer import PointerBiasProcessor, StepAdvanceProcessor
+from steering.runtime import SteeringRuntime, create_runtime
 
 # ----------------------------
 # Hard-coded defaults (change via llama.config(...))
@@ -35,7 +41,7 @@ DEFAULT_TEMP       = 0.7
 DEFAULT_TOP_P      = 1.0
 DEFAULT_TOP_K      = 7
 DEFAULT_TOP_ATTN_K = 10
-DEFAULT_ATTN_DIR   = "attn_dumps"
+DEFAULT_ATTN_DIR   = "attn_viz"
 DEFAULT_MEM_FRAC   = 0.90
 DEFAULT_KEY_SCOPE  = "prompt"   # "prompt" | "all"
 DEFAULT_RENORMAL   = True
@@ -91,6 +97,9 @@ class llama70b:
         # internals
         self.model: Optional[AutoModelForCausalLM] = None
         self.tokenizer: Optional[AutoTokenizer] = None
+        self.steering_config: Optional[SteeringConfig] = None
+        self._steering_runtime: Optional[SteeringRuntime] = None
+        self._current_code_snippet: str = ""
 
     def config(
         self,
@@ -122,6 +131,9 @@ class llama70b:
         if key_scope is not None:      self.key_scope = key_scope.lower()
         if renormalize is not None:    self.renormalize = renormalize
         return self
+
+    def set_steering_config(self, config: SteeringConfig) -> None:
+        self.steering_config = config
 
     # ----------------------------
     # Auth (only HUGGINGFACE_TOKEN allowed from env)
@@ -168,33 +180,52 @@ class llama70b:
             print(k, "=", getattr(tok, k, None))
         if tok.pad_token is None:
             tok.pad_token = tok.eos_token
+            tok.pad_token_id = tok.eos_token_id
 
         common = dict(
-            device_map="auto",  # shard across visible GPUs
-            max_memory=self._auto_max_memory_dict(self.mem_fraction) if torch.cuda.is_available() else None,
-            attn_implementation="eager",  # critical to expose attention tensors
+            device_map="auto",
             cache_dir=self.cache_dir,
+            attn_implementation="eager",
         )
 
-        if self.use_4bit:
+        force_4bit = self.use_4bit or bool(int(os.environ.get("LLM_FORCE_4BIT", "0")))
+        model = None
+        if force_4bit:
+            try:
+                model = AutoModelForCausalLM.from_pretrained(
+                    self.model_name,
+                    load_in_4bit=True,
+                    bnb_4bit_use_double_quant=True,
+                    bnb_4bit_quant_type="nf4",
+                    bnb_4bit_compute_dtype=torch.bfloat16,
+                    **common,
+                )
+                print("[Steering] Loaded model in 4-bit NF4 mode.")
+            except (ImportError, AttributeError, RuntimeError) as err:
+                print(f"[WARN] 4-bit load failed ({err}); falling back to full precision.")
+
+        if model is None:
+            dtype = torch.float16 if torch.cuda.is_available() else torch.float32
             model = AutoModelForCausalLM.from_pretrained(
                 self.model_name,
-                load_in_4bit=True,
-                bnb_4bit_use_double_quant=True,
-                bnb_4bit_quant_type="nf4",
-                bnb_4bit_compute_dtype=torch.bfloat16,
+                torch_dtype=dtype,
+                low_cpu_mem_usage=True,
                 **common,
             )
-        else:
-            model = AutoModelForCausalLM.from_pretrained(
-                self.model_name,
-                dtype=torch.bfloat16 if torch.cuda.is_available() else torch.float32,
-                **common,
-            )
+            print(f"[INFO] Loaded model with torch_dtype={dtype}.")
 
         model.eval()
         self.model = model
         self.tokenizer = tok
+
+        # ensure model config pad/eos are set (required for HF >=4.38 generation)
+        if model.config.pad_token_id is None:
+            model.config.pad_token_id = tok.pad_token_id
+        if model.config.eos_token_id is None:
+            model.config.eos_token_id = tok.eos_token_id
+
+        if self.steering_config and self.steering_config.enabled_levels:
+            self._install_steering_hooks()
 
         # Optional: print device map
         try:
@@ -267,6 +298,27 @@ class llama70b:
         if do_sample is None:
             do_sample = temperature > 0
 
+        runtime: Optional[SteeringRuntime] = None
+        logits_processor = None
+        if self.steering_config:
+            prompt_ids = input_ids[0].tolist()
+            prompt_tokens = self.tokenizer.convert_ids_to_tokens(prompt_ids)
+            code_text = getattr(self, "_current_code_snippet", "")
+            runtime = create_runtime(
+                self.steering_config,
+                prompt_token_ids=prompt_ids,
+                prompt_tokens=prompt_tokens,
+                code_text=code_text,
+                vocab_tokens=[],
+            )
+            runtime.start(max_new_tokens)
+            self._steering_runtime = runtime
+            logits_processor = LogitsProcessorList()
+            if 5 in self.steering_config.enabled_levels:
+                logits_processor.append(PointerBiasProcessor(runtime))
+            else:
+                logits_processor.append(StepAdvanceProcessor(runtime))
+
         gen_cfg = GenerationConfig(
             max_new_tokens=max_new_tokens,
             do_sample=do_sample,
@@ -274,6 +326,8 @@ class llama70b:
             top_p=top_p,
             top_k=None if (top_k or 0) <= 0 else top_k,
             cache_dir=self.cache_dir,
+            pad_token_id=self.tokenizer.pad_token_id,
+            eos_token_id=self.tokenizer.eos_token_id,
         )
 
         with torch.no_grad():
@@ -284,9 +338,13 @@ class llama70b:
                 output_attentions=True,   # <-- capture attention per generated step
                 output_scores=False,
                 use_cache=True,
+                logits_processor=logits_processor,
             )
 
         sequences = out.sequences  # [batch, prompt_len + gen_len]
+
+        if runtime:
+            self._steering_runtime = None
         full_text = self.tokenizer.decode(sequences[0], skip_special_tokens=True)
         prompt_text = self.tokenizer.decode(sequences[0][:prompt_len], skip_special_tokens=True)
         generated_completion = self.tokenizer.decode(sequences[0][prompt_len:], skip_special_tokens=True)
@@ -476,7 +534,29 @@ class llama70b:
         if do_sample is not None:
             overrides["do_sample"] = do_sample
 
-        return self._generate_with_attn(prompt, overrides=overrides)
+        self._current_code_snippet = code_snippet
+        try:
+            return self._generate_with_attn(prompt, overrides=overrides)
+        finally:
+            self._current_code_snippet = ""
+
+    # Steering integration -------------------------------------------------
+
+    def _install_steering_hooks(self) -> None:
+        assert self.model is not None
+        layers = self.model.model.layers  # type: ignore[attr-defined]
+
+        def runtime_getter():
+            return self._steering_runtime
+
+        for idx, layer in enumerate(layers):
+            layer.self_attn = SteeringAttention(
+                layer.self_attn,
+                runtime_getter=runtime_getter,
+                layer_index=idx,
+                config=self.steering_config,
+            )
+            patch_decoder_layer(layer, runtime_getter, self.steering_config, idx)
 
     def summarize_code(
         self,
