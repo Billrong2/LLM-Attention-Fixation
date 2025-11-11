@@ -43,15 +43,19 @@ def patch_decoder_layer(
             cache_position=cache_position,
             **kwargs,
         )
+        hidden_states = hidden_states.to(dtype=residual.dtype, device=residual.device, non_blocking=True)
         if runtime and 3 in config.enabled_levels and 40 <= layer_idx <= 63:
             hidden_states = hidden_states * coeffs.lambda_attn
+        residual = residual.to(hidden_states.device, dtype=hidden_states.dtype, non_blocking=True)
         hidden_states = residual + hidden_states
 
         residual = hidden_states
         hidden_states = layer.post_attention_layernorm(hidden_states)
         hidden_states = layer.mlp(hidden_states)
+        hidden_states = hidden_states.to(dtype=residual.dtype, device=residual.device, non_blocking=True)
         if runtime and 3 in config.enabled_levels and 40 <= layer_idx <= 63:
             hidden_states = hidden_states * coeffs.lambda_mlp
+        residual = residual.to(hidden_states.device, dtype=hidden_states.dtype, non_blocking=True)
         hidden_states = residual + hidden_states
 
         outputs = (hidden_states,)

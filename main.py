@@ -244,6 +244,7 @@ def main():
     # 1) Build/run the model (only HF token may come from env)
     llama = llama70b()
     steering_config = build_steering_config(args)
+    human_prior_override = args.human_file
     if steering_config:
         llama.set_steering_config(steering_config)
     llama.login_hf()                  # optional; uses HUGGINGFACE_TOKEN if present
@@ -267,7 +268,12 @@ def main():
     output_root = Path('attn_viz')
     output_root.mkdir(parents=True, exist_ok=True)
 
-    source_dir = Path(__file__).resolve().parent / "Source"
+    base_dir = Path(__file__).resolve().parent
+    source_dir = base_dir / "Source"
+    fixation_root = base_dir / "fixation_dump"
+    available_fixations = (
+        {p.name for p in fixation_root.iterdir() if p.is_dir()} if fixation_root.is_dir() else set()
+    )
     requested: set[str] = set()
     if args.snippet:
         requested.add(args.snippet.strip())
@@ -280,9 +286,18 @@ def main():
             candidate = source_dir / f"{name}.java"
             if not candidate.is_file():
                 raise FileNotFoundError(f"Snippet '{name}' not found under {source_dir}.")
+            if available_fixations and name not in available_fixations:
+                print(f"[WARN] Fixation data not found for requested snippet '{name}'.")
             snippet_paths.append(candidate)
     else:
-        snippet_paths = sorted(p for p in source_dir.iterdir() if p.is_file())
+        snippet_paths = []
+        for p in sorted(source_dir.iterdir()):
+            if not p.is_file():
+                continue
+            if available_fixations and p.stem not in available_fixations:
+                print(f"[WARN] Skipping '{p.stem}' (no fixation data found).")
+                continue
+            snippet_paths.append(p)
     if not snippet_paths:
         print(f"No code snippets found under {source_dir.resolve()}")
         llama.free()
@@ -309,13 +324,24 @@ def main():
                     existing_run_ids.append(int(child.name))
         run_idx = max(existing_run_ids, default=0) + 1
         runs_completed = 0
+        fixation_dir = fixation_root / snippet_name
         fixation_vocab: list[dict[str, object]] = [] # Type Hint
-        vocab_path = Path(__file__).resolve().parent / "fixation_dump" / snippet_name / "vocabulary.json"
+        vocab_path = fixation_dir / "vocabulary.json"
         if vocab_path.is_file():
             try:
                 fixation_vocab = json.loads(vocab_path.read_text(encoding="utf-8"))
             except Exception as exc:
                 print(f"[{snippet_name}] Warning: failed to load fixation vocabulary ({exc}); continuing without it.")
+        if steering_config and steering_config.prior == "human":
+            if human_prior_override:
+                steering_config.human_file = human_prior_override
+            else:
+                snippet_fix_dir = fixation_dir
+                if not snippet_fix_dir.is_dir():
+                    raise FileNotFoundError(
+                        f"Human prior selected but no fixation directory found at {snippet_fix_dir} for snippet '{snippet_name}'."
+                    )
+                steering_config.human_file = snippet_fix_dir
         try:
             actual_output = utity.run_java_program(code, snippet_name)
         except Exception as exc:
@@ -324,7 +350,12 @@ def main():
         actual_output_str = actual_output if actual_output is not None else ""
         actual_output_clean = actual_output_str.strip()
         while runs_completed < runs_per_snippet:
-            result = llama.run_llama(code, instruction=instruction, language="java")
+            result = llama.run_llama(
+                code,
+                instruction=instruction,
+                language="java",
+                vocab_tokens=fixation_vocab,
+            )
             predicted_output_raw = result.get("generated_text", "")
             predicted_output, format_ok = _canonicalize_model_output(predicted_output_raw)
 

@@ -100,6 +100,7 @@ class llama70b:
         self.steering_config: Optional[SteeringConfig] = None
         self._steering_runtime: Optional[SteeringRuntime] = None
         self._current_code_snippet: str = ""
+        self._current_vocab_tokens: Sequence[dict] = []
 
     def config(
         self,
@@ -309,7 +310,7 @@ class llama70b:
                 prompt_token_ids=prompt_ids,
                 prompt_tokens=prompt_tokens,
                 code_text=code_text,
-                vocab_tokens=[],
+                vocab_tokens=self._current_vocab_tokens,
             )
             runtime.start(max_new_tokens)
             self._steering_runtime = runtime
@@ -510,6 +511,7 @@ class llama70b:
         top_p: Optional[float] = None,
         top_k: Optional[int] = None,
         do_sample: Optional[bool] = None,
+        vocab_tokens: Optional[Sequence[dict]] = None,
     ) -> Dict[str, Any]:
         """
         Generate with llama70b using a caller-provided instruction.
@@ -535,10 +537,12 @@ class llama70b:
             overrides["do_sample"] = do_sample
 
         self._current_code_snippet = code_snippet
+        self._current_vocab_tokens = vocab_tokens or []
         try:
             return self._generate_with_attn(prompt, overrides=overrides)
         finally:
             self._current_code_snippet = ""
+            self._current_vocab_tokens = []
 
     # Steering integration -------------------------------------------------
 

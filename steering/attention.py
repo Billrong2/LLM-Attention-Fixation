@@ -61,6 +61,14 @@ class SteeringAttention(nn.Module):
         runtime = self.runtime_getter()
         bsz, q_len, _ = hidden_states.size()
 
+        target_device = hidden_states.device
+        if position_ids is not None and position_ids.device != target_device:
+            position_ids = position_ids.to(target_device)
+        if attention_mask is not None and attention_mask.device != target_device:
+            attention_mask = attention_mask.to(target_device)
+        if cache_position is not None and cache_position.device != target_device:
+            cache_position = cache_position.to(target_device)
+
         if self.config_hf.pretraining_tp > 1:
             key_value_slicing = (self.num_key_value_heads * self.head_dim) // self.config_hf.pretraining_tp
             query_slices = self.q_proj.weight.split(

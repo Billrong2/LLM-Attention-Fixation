@@ -4,7 +4,7 @@ import csv
 import json
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, Sequence
+from typing import Any, Dict, Sequence
 
 import numpy as np
 
@@ -36,11 +36,11 @@ class HumanPrior(PriorProvider):
         self.vectors = self._load(human_file)
 
     def _load(self, file_path: Path) -> Sequence[np.ndarray]:
+        if file_path.is_dir():
+            return [self._aggregate_directory(file_path)]
         if file_path.suffix == ".json":
             data = json.loads(file_path.read_text(encoding="utf-8"))
-            if "bins" in data:
-                return [np.asarray(vec, dtype=float) for vec in data["bins"]]
-            return [np.asarray(data["vector"], dtype=float)]
+            return self._vectors_from_payload(data, file_path)
         rows = []
         with file_path.open("r", encoding="utf-8") as fh:
             reader = csv.reader(fh)
@@ -50,6 +50,67 @@ class HumanPrior(PriorProvider):
         if not rows:
             raise ValueError(f"No data in human prior file {file_path}")
         return [np.asarray(row, dtype=float) for row in rows]
+
+    def _aggregate_directory(self, folder: Path) -> np.ndarray:
+        vocab = list(self.context.vocab_tokens)
+        if not vocab:
+            vocab_path = folder / "vocabulary.json"
+            if vocab_path.is_file():
+                try:
+                    vocab = json.loads(vocab_path.read_text(encoding="utf-8"))
+                except Exception:
+                    vocab = []
+        vocab_len = len(vocab)
+        if vocab_len == 0:
+            vocab_len = len(self.context.prompt_tokens) or 1
+
+        accumulator = np.zeros(vocab_len, dtype=float)
+        participant_files = sorted(folder.glob("participant_*.json"))
+        for participant in participant_files:
+            try:
+                payload = json.loads(participant.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+            scores = payload.get("total_scores")
+            if not isinstance(scores, list):
+                continue
+            vec = np.asarray(
+                [float(entry.get("score", 0.0)) for entry in scores],
+                dtype=float,
+            )
+            if vec.size < vocab_len:
+                padded = np.zeros(vocab_len, dtype=float)
+                padded[: vec.size] = vec
+                vec = padded
+            elif vec.size > vocab_len:
+                vec = vec[:vocab_len]
+            accumulator += vec
+
+        if accumulator.sum() == 0:
+            accumulator += 1.0
+        return accumulator
+
+    def _vectors_from_payload(self, payload: Any, source: Path) -> Sequence[np.ndarray]:
+        if isinstance(payload, dict):
+            if "bins" in payload:
+                return [np.asarray(vec, dtype=float) for vec in payload["bins"]]
+            if "vector" in payload:
+                return [np.asarray(payload["vector"], dtype=float)]
+            if "total_scores" in payload:
+                return [
+                    np.asarray(
+                        [float(entry.get("score", 0.0)) for entry in payload["total_scores"]],
+                        dtype=float,
+                    )
+                ]
+        if isinstance(payload, list):
+            if payload and isinstance(payload[0], dict) and "score" in payload[0]:
+                return [
+                    np.asarray([float(entry.get("score", 0.0)) for entry in payload], dtype=float)
+                ]
+            length = len(payload) or 1
+            return [np.ones(length, dtype=float)]
+        raise ValueError(f"Unsupported human prior format in {source}")
 
     def vector(self, bin_idx: int, n_bins: int) -> np.ndarray:
         vec = self.vectors[min(bin_idx, len(self.vectors) - 1)]
