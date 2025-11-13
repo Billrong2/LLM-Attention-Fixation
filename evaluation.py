@@ -15,6 +15,7 @@ from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
+import re
 
 import numpy as np
 
@@ -453,6 +454,143 @@ def columnwise_metric(
         scores.append(func(model[:, t], human[:, t]))
     return float(np.mean(scores)) if scores else 0.0
 
+def output_prediction_eval(
+    project_root: Path,
+    output_root: Path,
+    snippets_filter: Optional[Sequence[str]] = None,
+) -> None:
+    """
+    Scan attn_viz and report output-prediction accuracy (EM rate) per snippet/variant/prior.
+    """
+    attn_root = project_root / "attn_viz"
+    if not attn_root.exists():
+        raise FileNotFoundError("attn_viz directory missing. Run main.py first.")
+
+    targets = set(s.lower() for s in snippets_filter) if snippets_filter else None
+    rows: List[Tuple[str, str, str, int, int, int, float]] = []
+    snippet_variant_stats: Dict[str, Dict[str, Dict[str, Any]]] = {}
+    overall_em = {}
+    overall_total = {}
+
+    for snippet_dir in sorted(p for p in attn_root.iterdir() if p.is_dir()):
+        snippet_name = snippet_dir.name
+        if targets and snippet_name.lower() not in targets:
+            continue
+        for variant_dir in sorted(p for p in snippet_dir.iterdir() if p.is_dir()):
+            variant = variant_dir.name
+            for prior_dir in sorted(p for p in variant_dir.iterdir() if p.is_dir()):
+                prior = prior_dir.name
+                em_dir = prior_dir / "EM"
+                mismatch_dir = prior_dir / "Mismatch"
+                em_runs = (
+                    sum(
+                        1
+                        for run in em_dir.iterdir()
+                        if run.is_dir() and (run / "model_output.json").is_file()
+                    )
+                    if em_dir.exists()
+                    else 0
+                )
+                mm_runs = (
+                    sum(
+                        1
+                        for run in mismatch_dir.iterdir()
+                        if run.is_dir() and (run / "model_output.json").is_file()
+                    )
+                    if mismatch_dir.exists()
+                    else 0
+                )
+                total = em_runs + mm_runs
+                if total == 0:
+                    continue
+                accuracy = em_runs / total
+                rows.append((snippet_name, variant, prior, total, em_runs, mm_runs, accuracy))
+
+                stats = snippet_variant_stats.setdefault(snippet_name, {}).setdefault(
+                    variant,
+                    {
+                        "em": 0,
+                        "total": 0,
+                        "priors": [],
+                    },
+                )
+                stats["em"] += em_runs
+                stats["total"] += total
+                stats["priors"].append(
+                    {
+                        "prior": prior,
+                        "total": total,
+                        "em": em_runs,
+                        "mm": mm_runs,
+                        "acc": accuracy,
+                    }
+                )
+                # overall_em += em_runs
+                # overall_total += total
+
+    if not rows:
+        print("[WARN] No completed runs found for prediction accuracy evaluation.")
+        return
+
+    def format_variant_label(name: str) -> str:
+        if name == "baseline":
+            return "--baseline"
+        if name.startswith("levels-"):
+            suffix = name[len("levels-") :]
+            levels = re.findall(r"L(\d+)", suffix)
+            if levels:
+                return ", ".join(f"--level{lvl}" for lvl in levels)
+        return name
+
+    print("\n[Prediction Accuracy]")
+    for snippet in sorted(snippet_variant_stats.keys()):
+        print(f"{snippet}")
+        variants = snippet_variant_stats[snippet]
+        for variant in sorted(variants.keys()):
+            stats = variants[variant]
+            total = stats["total"]
+            em_runs = stats["em"]
+            mm_runs = total - em_runs
+            acc = em_runs / total if total else 0.0
+            label = format_variant_label(variant)
+            if label in overall_em: pass
+            else: overall_em[label]=0
+            if label in overall_total: pass
+            else: overall_total[label]=0
+            overall_total[label]+= total
+            overall_em[label]+= em_runs
+            print(
+                f"  {label:<25}: {acc*100:6.2f}%  (runs={total}, EM={em_runs}, Mismatch={mm_runs})"
+            )
+            for prior_stats in sorted(stats["priors"], key=lambda p: p["prior"]):
+                prior = prior_stats["prior"]
+                p_total = prior_stats["total"]
+                p_em = prior_stats["em"]
+                p_mm = prior_stats["mm"]
+                p_acc = prior_stats["acc"]
+                print(
+                    f"      [prior={prior:<8}] {p_acc*100:6.2f}%  (runs={p_total}, EM={p_em}, Mismatch={p_mm})"
+                )
+        print()
+
+    # if overall_total:
+    #     overall_acc = overall_em / overall_total
+    #     print(
+    #         f"[Overall Accuracy] {overall_acc*100:6.2f}%  "
+    #         f"(runs={overall_total}, EM={overall_em}, Mismatch={overall_total - overall_em})"
+    #     )
+
+    ensure_dir(output_root)
+    csv_path = output_root / "prediction_accuracy.csv"
+    with csv_path.open("w", encoding="utf-8") as fh:
+        fh.write("snippet,variant,prior,total_runs,exact_matches,mismatches,accuracy\n")
+        for snippet, variant, prior, total, em_runs, mm_runs, acc in sorted(rows):
+            fh.write(f"{snippet},{variant},{prior},{total},{em_runs},{mm_runs},{acc:.6f}\n")
+    print(f"[INFO] Saved accuracy summary to {csv_path}")
+    print(overall_total)
+    print(overall_em)
+
+
 
 def evaluate_snippet(
     project_root: Path,
@@ -597,6 +735,17 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
 
     parser = argparse.ArgumentParser(description="Semantic entropy based evaluation pipeline.")
     parser.add_argument(
+        "--prediction-accuracy",
+        type=str,
+        nargs="?",
+        const="all",
+        default=None,
+        help=(
+            "Compute output-prediction accuracy. "
+            "Optionally supply comma-separated snippets (default: all)."
+        ),
+    )
+    parser.add_argument(
         "--project-root",
         type=Path,
         default=Path(__file__).resolve().parent,
@@ -644,6 +793,22 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
     attn_root = project_root / "attn_viz"
     if not attn_root.exists():
         raise FileNotFoundError("Run the main pipeline first to generate attn_viz artifacts.")
+
+    if args.prediction_accuracy is not None:
+        arg_value = args.prediction_accuracy or "all"
+        tokens = [
+            token.strip()
+            for token in arg_value.split(",")
+            if token.strip()
+        ]
+        if tokens and tokens[0].lower() in {"all", "*"}:
+            tokens = []
+        output_prediction_eval(
+            project_root=project_root,
+            output_root=args.output_dir,
+            snippets_filter=tokens or None,
+        )
+        return
 
     snippets = (
         [args.snippet]
