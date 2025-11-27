@@ -30,6 +30,14 @@ class PriorProvider:
         raise NotImplementedError
 
 
+class Semantic(PriorProvider):
+    def __init__(self, context):
+        super().__init__(context)
+        pass
+    """ To Do:
+        Maybe we can make use of PDG. Let model focus on semantic preserving element through
+        Control- or Data- flow 
+    """
 class HumanPrior(PriorProvider):
     def __init__(self, context: PriorContext, human_file: Path) -> None:
         super().__init__(context)

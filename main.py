@@ -7,6 +7,7 @@ import os
 from pathlib import Path
 import re
 import json
+import copy
 import shutil
 from typing import Any, Dict, List, Optional, Sequence, Tuple
 
@@ -27,19 +28,50 @@ def _canonicalize_model_output(text: str) -> tuple[str, bool]:
         return "", False
 
     stripped = text.strip()
-    fence_pattern = re.compile(r"```(?:\w+)?\s*\n?(.*?)\n?```", re.DOTALL)
-    candidates = [m.group(1).strip() for m in fence_pattern.finditer(stripped)]
-    for candidate in reversed(candidates):
-        lowered = candidate.lower()
+    fence_pattern = re.compile(r"```(\w+)?\s*\n?(.*?)\n?```", re.DOTALL)
+    matches = list(fence_pattern.finditer(stripped))
+    for m in reversed(matches):
+        candidate = (m.group(2) or "").strip()
         if not candidate:
             continue
+        lowered = candidate.lower()
         if "<your answer>" in lowered:
             continue
-        if lowered.startswith("class "):
+        if lowered.startswith("class ") or lowered.startswith("import "):
             continue
-        return candidate.strip(), True
+        return candidate, True
 
-    return stripped.strip(), False
+    # Handle \begin{code} ... ``` or \end{code}
+    code_match = re.search(r"\\begin\{code\}(.*?)(?:```|\\end\{code\}|$)", stripped, re.DOTALL)
+    if code_match:
+        cand = code_match.group(1).strip()
+        if cand:
+            return cand, True
+
+    # Fallback: take everything after the last fence if present, else try trailing numeric block.
+    if matches:
+        last_end = matches[-1].end()
+        tail = stripped[last_end:].strip()
+        if tail:
+            return tail, True
+
+    # Trailing numeric/non-alpha block heuristic
+    lines = stripped.splitlines()
+    collected: List[str] = []
+    for line in reversed(lines):
+        if line.strip() == "":
+            if collected:
+                break
+            continue
+        if re.search(r"[A-Za-z]", line):
+            if collected:
+                break
+            continue
+        collected.append(line.strip())
+    if collected:
+        return "\n".join(reversed(collected)), True
+
+    return stripped, False
 
 
 def _compute_generated_token_spans(
@@ -67,17 +99,11 @@ def _classify_generation_phases(
     completion = result.get("generated_completion", "")
     lower = completion.lower()
 
-    reading_end_candidate = lower.find("answer:")
-    if reading_end_candidate == -1:
-        reading_end_candidate = lower.find("explanation")
-    if reading_end_candidate == -1:
-        reading_end_candidate = lower.find("```text")
-    if reading_end_candidate == -1:
-        reading_end_candidate = len(completion)
-
+    # Identify the likely answer as the *last* non-Java fenced block.
     answer_start = -1
-    search_pos = reading_end_candidate
-    while search_pos < len(lower):
+    answer_end = -1
+    search_pos = 0
+    while True:
         idx = lower.find("```", search_pos)
         if idx == -1:
             break
@@ -86,23 +112,23 @@ def _classify_generation_phases(
             search_pos = idx + 3
             continue
         answer_start = idx
-        break
-    if answer_start == -1:
-        answer_start = lower.find("```text")
+        end_idx = lower.find("```", idx + 3)
+        if end_idx != -1:
+            answer_end = end_idx + 3
+        search_pos = idx + 3
     if answer_start == -1:
         answer_start = len(completion)
-
-    answer_end = -1
-    if answer_start < len(completion):
-        answer_end = lower.find("```", answer_start + 3)
-        if answer_end != -1:
-            answer_end += 3
     if answer_end == -1:
         answer_end = len(completion)
 
-    reading_range = (0, max(0, min(answer_start, reading_end_candidate)))
+    # Explanation flagged by keyword if present.
+    expl_start = lower.find("explanation")
+    if expl_start == -1 or expl_start >= answer_start:
+        expl_start = answer_start
+
+    reading_range = (0, max(0, expl_start))
+    reasoning_range = (expl_start, max(expl_start, answer_start))
     answer_range = (answer_start, answer_end)
-    reasoning_range = (answer_end, len(completion))
 
     token_spans = _compute_generated_token_spans(
         tokenizer,
@@ -113,9 +139,9 @@ def _classify_generation_phases(
     phase_by_step: Dict[int, str] = {}
     for idx, (start_char, end_char) in enumerate(token_spans):
         phase = "reading"
-        if answer_range[0] < answer_range[1] and start_char >= answer_range[0] and start_char < answer_range[1]:
+        if answer_range[0] < answer_range[1] and answer_range[0] <= start_char < answer_range[1]:
             phase = "answering"
-        elif reasoning_range[0] < reasoning_range[1] and start_char >= reasoning_range[0]:
+        elif reasoning_range[0] < reasoning_range[1] and reasoning_range[0] <= start_char < reasoning_range[1]:
             phase = "reasoning"
         phase_by_step[idx] = phase
 
@@ -240,24 +266,31 @@ def build_steering_config(args: argparse.Namespace) -> Optional[SteeringConfig]:
     )
 
 
+def _assign_config_fields(target: SteeringConfig, source: SteeringConfig) -> None:
+    for key, value in vars(source).items():
+        setattr(target, key, copy.deepcopy(value))
+
+
 def main():
     args = parse_args()
     # 1) Build/run the model (only HF token may come from env)
     llama = llama70b()
-    steering_config = build_steering_config(args)
+    base_steering_config = build_steering_config(args)
     human_prior_override = args.human_file
-    if steering_config:
-        llama.set_steering_config(steering_config)
+    active_steering_config: Optional[SteeringConfig] = None
+    if base_steering_config:
+        active_steering_config = copy.deepcopy(base_steering_config)
+        llama.set_steering_config(active_steering_config)
     llama.login_hf()                  # optional; uses HUGGINGFACE_TOKEN if present
     llama.config(key_scope="prompt")  # IMPORTANT for prompt-aligned attention
     llama.build()
 
     level_label = "baseline"
     prior_label = "none"
-    if steering_config:
-        sorted_levels = "".join(f"L{lvl}" for lvl in sorted(steering_config.enabled_levels))
+    if base_steering_config:
+        sorted_levels = "".join(f"L{lvl}" for lvl in sorted(base_steering_config.enabled_levels))
         level_label = f"levels-{sorted_levels}" if sorted_levels else "levels"
-        prior_label = steering_config.prior
+        prior_label = base_steering_config.prior
 
     # 2) Build our image renderer
     renderer = AttentionRenderer(tokenizer=llama.tokenizer, config=RenderConfig(pool="all_layers_mean"))
@@ -304,10 +337,9 @@ def main():
         llama.free()
         return
     instruction = (
-        "Simulate the execution of the Java program provided below and reproduce exactly what would appear on standard output. "
-        "Return only the raw console output characters, preserving line breaks and spacing. "
-        "Do not add explanations, commentary, or formatting such as code fences or quotes. "
-        "If the program prints nothing, respond with an empty string."
+        "You will analyze the Java program provided below. "
+        "First, explain how you will predict the output for the code snippet. "
+        "Then, simulate it as a compiler would and print the exact console output. \n"
     )
     runs_per_snippet = max(1, args.runs_per_snippet)
     for snippet_path in snippet_paths:
@@ -334,16 +366,23 @@ def main():
                 fixation_vocab = json.loads(vocab_path.read_text(encoding="utf-8"))
             except Exception as exc:
                 print(f"[{snippet_name}] Warning: failed to load fixation vocabulary ({exc}); continuing without it.")
-        if steering_config and steering_config.prior == "human":
-            if human_prior_override:
-                steering_config.human_file = human_prior_override
+        if base_steering_config:
+            current_cfg = copy.deepcopy(base_steering_config)
+            if current_cfg.prior == "human":
+                if human_prior_override:
+                    current_cfg.human_file = human_prior_override
+                else:
+                    snippet_fix_dir = fixation_dir
+                    if not snippet_fix_dir.is_dir():
+                        raise FileNotFoundError(
+                            f"Human prior selected but no fixation directory found at {snippet_fix_dir} for snippet '{snippet_name}'."
+                        )
+                    current_cfg.human_file = snippet_fix_dir
+            if active_steering_config is None:
+                active_steering_config = current_cfg
+                llama.set_steering_config(active_steering_config)
             else:
-                snippet_fix_dir = fixation_dir
-                if not snippet_fix_dir.is_dir():
-                    raise FileNotFoundError(
-                        f"Human prior selected but no fixation directory found at {snippet_fix_dir} for snippet '{snippet_name}'."
-                    )
-                steering_config.human_file = snippet_fix_dir
+                _assign_config_fields(active_steering_config, current_cfg)
         try:
             actual_output = utity.run_java_program(code, snippet_name)
         except Exception as exc:

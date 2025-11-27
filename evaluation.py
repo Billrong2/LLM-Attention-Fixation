@@ -21,6 +21,7 @@ import numpy as np
 
 from models import DEFAULT_MODEL_NAME, DEFAULT_CACHE_DIR
 from render.util import AttentionRenderer, RenderConfig
+from render.plot_layer_attention import generate_layer_attention_plots
 
 try:
     from transformers import AutoTokenizer  # type: ignore
@@ -746,6 +747,14 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
         ),
     )
     parser.add_argument(
+        "--plot-layer-attention",
+        type=str,
+        nargs="?",
+        const="all",
+        default=None,
+        help="Generate per-layer attention plots (optionally comma-separated snippets).",
+    )
+    parser.add_argument(
         "--project-root",
         type=Path,
         default=Path(__file__).resolve().parent,
@@ -807,6 +816,21 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
             project_root=project_root,
             output_root=args.output_dir,
             snippets_filter=tokens or None,
+        )
+        return
+
+    if args.plot_layer_attention is not None:
+        arg_value = args.plot_layer_attention or "all"
+        tokens = [
+            token.strip()
+            for token in arg_value.split(",")
+            if token.strip()
+        ]
+        if tokens and tokens[0].lower() in {"all", "*"}:
+            tokens = []
+        generate_layer_attention_plots(
+            project_root=project_root,
+            snippets=tokens or None,
         )
         return
 

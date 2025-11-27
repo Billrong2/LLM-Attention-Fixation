@@ -36,7 +36,7 @@ from steering.runtime import SteeringRuntime, create_runtime
 DEFAULT_MODEL_NAME = "codellama/CodeLlama-70b-Instruct-hf"
 DEFAULT_CACHE_DIR  = "/data/xxr230000/model_cache/codellama_70b"
 DEFAULT_USE_4BIT   = False
-DEFAULT_MAX_NEW    = 128
+DEFAULT_MAX_NEW    = 256
 DEFAULT_TEMP       = 0.7
 DEFAULT_TOP_P      = 1.0
 DEFAULT_TOP_K      = 7
@@ -366,6 +366,12 @@ class llama70b:
         # accumulate mean distribution over prompt tokens across steps
         device = self.model.device
         global_prompt_accum = {name: torch.zeros(prompt_len, dtype=torch.float32, device=device) for name in pool_names}
+        layer_prompt_totals = None
+        if self.key_scope == "prompt":
+            num_layers_cfg = getattr(self.model.config, "num_hidden_layers", None)
+            if num_layers_cfg is None:
+                num_layers_cfg = len(self.model.model.layers)  # type: ignore[attr-defined]
+            layer_prompt_totals = [0.0 for _ in range(int(num_layers_cfg))]
 
         # ---- Records
         attn_record: List[Dict[str, Any]] = []   # per-layer tops
@@ -388,6 +394,8 @@ class llama70b:
                 attn = attn[:, 0, :]              # [n_heads, k_len]
                 attn_mean = attn.mean(dim=0).to(torch.float32)  # [k_len]
                 layer_vecs.append(attn_mean)
+                if layer_prompt_totals is not None and layer_idx < len(layer_prompt_totals):
+                    layer_prompt_totals[layer_idx] += float(attn_mean[:prompt_len].sum().item())
 
                 # Keep diagnostic top-K (over full k_len for transparency)
                 k_len = attn_mean.shape[-1]
@@ -471,6 +479,18 @@ class llama70b:
                     "top_values": val_list,
                 }
 
+        layer_prompt_stats = None
+        if layer_prompt_totals is not None:
+            denom = float(max(num_generated, 1))
+            prompt_mass_mean = [val / denom for val in layer_prompt_totals]
+            layer_prompt_stats = {
+                "num_layers": len(layer_prompt_totals),
+                "prompt_mass_per_layer": prompt_mass_mean,
+                "prompt_mass_totals": layer_prompt_totals,
+                "prompt_length": prompt_len,
+                "num_generated_tokens": num_generated,
+            }
+
         return {
             "model": self.model_name,
             "use_4bit": self.use_4bit,
@@ -495,6 +515,7 @@ class llama70b:
             },
             "key_scope": self.key_scope,
             "renormalized": self.renormalize,
+            "layer_prompt_stats": layer_prompt_stats,
         }
 
     # ----------------------------
