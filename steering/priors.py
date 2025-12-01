@@ -4,9 +4,10 @@ import csv
 import json
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Dict, Sequence
+from typing import Any, Dict, Sequence, List, Optional
 
 import numpy as np
+import re
 
 
 @dataclass
@@ -153,7 +154,141 @@ class RandPrior(PriorProvider):
 
 
 class ASTPrior(PriorProvider):
-    def vector(self, bin_idx: int, n_bins: int) -> np.ndarray:
+    """
+    AST-aware prior using javalang. Falls back to a simple chunk heuristic if parsing fails.
+    """
+
+    tier_weights = {
+        "tier1": 3.0,  # signatures and control
+        "tier2": 2.0,  # calls / data flow
+        "tier3": 1.0,  # literals / secondary
+    }
+
+    def _try_import(self):
+        try:
+            import javalang  # type: ignore
+            return javalang
+        except Exception:
+            return None
+
+    def _tokenize(self, javalang_mod, code: str):
+        try:
+            return list(javalang_mod.tokenizer.tokenize(code))
+        except Exception:
+            return []
+
+    def _position_index(self, tokens) -> Dict[tuple, int]:
+        pos_map = {}
+        for idx, tok in enumerate(tokens):
+            if getattr(tok, "position", None):
+                pos_map[tok.position] = idx
+        return pos_map
+
+    def _add_pos(self, node, weight: float, pos_map: Dict[tuple, int], scores: Dict[int, float]):
+        if not node:
+            return
+        pos = getattr(node, "position", None)
+        if pos and pos in pos_map:
+            idx = pos_map[pos]
+            scores[idx] = scores.get(idx, 0.0) + weight
+
+    def _collect_scores(self, tree, tokens, javalang_mod) -> Dict[int, float]:
+        pos_map = self._position_index(tokens)
+        scores: Dict[int, float] = {}
+        tier1 = self.tier_weights["tier1"]
+        tier2 = self.tier_weights["tier2"]
+        tier3 = self.tier_weights["tier3"]
+
+        for path, node in tree:
+            ntype = type(node).__name__
+            # Tier 1: class/method signatures and core control
+            if ntype in {
+                "ClassDeclaration",
+                "ConstructorDeclaration",
+                "MethodDeclaration",
+                "IfStatement",
+                "WhileStatement",
+                "ForStatement",
+                "SwitchStatement",
+                "TryStatement",
+            }:
+                self._add_pos(node, tier1, pos_map, scores)
+                # method name
+                if hasattr(node, "name"):
+                    self._add_pos(node, tier1, pos_map, scores)
+                # parameters
+                if hasattr(node, "parameters"):
+                    for p in getattr(node, "parameters", []):
+                        self._add_pos(p, tier1, pos_map, scores)
+                        if hasattr(p, "name"):
+                            self._add_pos(p, tier1, pos_map, scores)
+                        if hasattr(p, "type"):
+                            self._add_pos(p.type, tier1, pos_map, scores)
+            # Tier 2: invocations, members, assignments, returns
+            elif ntype in {
+                "MethodInvocation",
+                "SuperMethodInvocation",
+                "MemberReference",
+                "Assignment",
+                "ReturnStatement",
+                "BinaryOperation",
+                "UnaryOperation",
+                "Cast",
+                "InstanceOf",
+            }:
+                self._add_pos(node, tier2, pos_map, scores)
+                if hasattr(node, "member"):
+                    self._add_pos(getattr(node, "member", None), tier2, pos_map, scores)
+                if hasattr(node, "expression"):
+                    self._add_pos(getattr(node, "expression", None), tier2, pos_map, scores)
+            # Tier 3: literals and new expressions
+            elif ntype in {
+                "Literal",
+                "ElementArrayValue",
+                "ArraySelector",
+                "This",
+                "SuperConstructorInvocation",
+                "ClassCreator",
+                "ArrayCreator",
+            }:
+                self._add_pos(node, tier3, pos_map, scores)
+
+        return scores
+
+    def _map_scores_to_prompt(self, token_scores: Dict[int, float], tokens, prompt_tokens: Sequence[str]) -> np.ndarray:
+        total_len = len(prompt_tokens)
+        vec = np.zeros(total_len, dtype=float)
+        if not token_scores:
+            return vec
+
+        # Build code lexemes and map from token index to lexeme text
+        idx_to_text = {i: str(tok.value) for i, tok in enumerate(tokens)}
+        # Take code-ish portion from the end of prompt_tokens
+        code_token_indices = [i for i, t in enumerate(prompt_tokens) if True]
+        # Greedy match from the end: map AST token scores onto prompt tokens
+        lexemes = [(idx, idx_to_text[idx], score) for idx, score in token_scores.items()]
+        # sort by original order
+        lexemes.sort(key=lambda x: x[0], reverse=True)
+        pt_idx = len(prompt_tokens) - 1
+        for _, lex, score in lexemes:
+            lex_clean = lex.strip()
+            if not lex_clean:
+                continue
+            while pt_idx >= 0:
+                token_text = prompt_tokens[pt_idx].replace("▁", "").strip()
+                if token_text == "":
+                    pt_idx -= 1
+                    continue
+                if token_text.lower().startswith(lex_clean.lower()):
+                    vec[pt_idx] += score
+                    pt_idx -= 1
+                    break
+                pt_idx -= 1
+            if pt_idx < 0:
+                break
+        return vec
+
+    def _fallback_chunk(self, bin_idx: int, n_bins: int) -> np.ndarray:
         total = len(self.context.prompt_tokens)
         if total == 0:
             return np.asarray([])
@@ -161,6 +296,24 @@ class ASTPrior(PriorProvider):
         start = min(bin_idx * chunk, total - 1)
         vec = np.zeros(total, dtype=float)
         vec[start : start + chunk] = 1.0
+        return vec
+
+    def vector(self, bin_idx: int, n_bins: int) -> np.ndarray:
+        javalang_mod = self._try_import()
+        if javalang_mod is None:
+            return self._normalize(self._fallback_chunk(bin_idx, n_bins))
+        tokens = self._tokenize(javalang_mod, self.context.code_text)
+        if not tokens:
+            return self._normalize(self._fallback_chunk(bin_idx, n_bins))
+        try:
+            tree = javalang_mod.parse.parse(self.context.code_text)
+java        except Exception:
+            return self._normalize(self._fallback_chunk(bin_idx, n_bins))
+
+        scores = self._collect_scores(tree, tokens, javalang_mod)
+        vec = self._map_scores_to_prompt(scores, tokens, self.context.prompt_tokens)
+        if vec.sum() == 0:
+            vec = self._fallback_chunk(bin_idx, n_bins)
         return self._normalize(vec)
 
 
