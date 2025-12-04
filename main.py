@@ -12,6 +12,7 @@ import shutil
 from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
+import torch
 from models import llama70b
 from util import utity
 from render.util import AttentionRenderer, RenderConfig
@@ -220,6 +221,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--lex-window", type=int, default=32)
     parser.add_argument("--rand-seed", type=int, default=None)
     parser.add_argument("--schedule-json", type=Path, default=None)
+    parser.add_argument(
+        "--gpus",
+        type=int,
+        default=None,
+        help="Number of GPUs to use (caps device_map). Defaults to auto (all visible).",
+    )
     parser.add_argument("--runs-per-snippet", type=int, default=20, help="Number of generations per snippet.")
     parser.add_argument("--skip-steering", action="store_true")
     parser.add_argument("--snippet", type=str, default=None, help="Run only this snippet (single name without .java).")
@@ -273,6 +280,17 @@ def _assign_config_fields(target: SteeringConfig, source: SteeringConfig) -> Non
 
 def main():
     args = parse_args()
+    visible_gpus = torch.cuda.device_count() if torch.cuda.is_available() else 0
+    max_devices = None
+    if args.gpus is not None:
+        if visible_gpus == 0:
+            print("[WARN] --gpus specified but no CUDA devices visible; falling back to CPU.")
+        else:
+            requested = max(1, args.gpus)
+            max_devices = min(requested, visible_gpus)
+            if requested > visible_gpus:
+                print(f"[WARN] Requested {requested} GPUs but only {visible_gpus} visible; using {max_devices}.")
+
     # 1) Build/run the model (only HF token may come from env)
     llama = llama70b()
     base_steering_config = build_steering_config(args)
@@ -282,7 +300,7 @@ def main():
         active_steering_config = copy.deepcopy(base_steering_config)
         llama.set_steering_config(active_steering_config)
     llama.login_hf()                  # optional; uses HUGGINGFACE_TOKEN if present
-    llama.config(key_scope="prompt")  # IMPORTANT for prompt-aligned attention
+    llama.config(key_scope="prompt", max_devices=max_devices)  # IMPORTANT for prompt-aligned attention
     llama.build()
 
     level_label = "baseline"
