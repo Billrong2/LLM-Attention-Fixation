@@ -163,6 +163,38 @@ class ASTPrior(PriorProvider):
         "tier2": 2.0,  # calls / data flow
         "tier3": 1.0,  # literals / secondary
     }
+    node_names = {
+        "tier1": {
+            "ClassDeclaration",
+            "ConstructorDeclaration",
+            "MethodDeclaration",
+            "IfStatement",
+            "WhileStatement",
+            "ForStatement",
+            "SwitchStatement",
+            "TryStatement",
+        },
+        "tier2": {
+            "MethodInvocation",
+            "SuperMethodInvocation",
+            "MemberReference",
+            "Assignment",
+            "ReturnStatement",
+            "BinaryOperation",
+            "UnaryOperation",
+            "Cast",
+            "InstanceOf",
+        },
+        "tier3": {
+            "Literal",
+            "ElementArrayValue",
+            "ArraySelector",
+            "This",
+            "SuperConstructorInvocation",
+            "ClassCreator",
+            "ArrayCreator",
+        },
+    }
 
     def _try_import(self):
         try:
@@ -202,16 +234,7 @@ class ASTPrior(PriorProvider):
         for path, node in tree:
             ntype = type(node).__name__
             # Tier 1: class/method signatures and core control
-            if ntype in {
-                "ClassDeclaration",
-                "ConstructorDeclaration",
-                "MethodDeclaration",
-                "IfStatement",
-                "WhileStatement",
-                "ForStatement",
-                "SwitchStatement",
-                "TryStatement",
-            }:
+            if ntype in self.node_names["tier1"]:
                 self._add_pos(node, tier1, pos_map, scores)
                 # method name
                 if hasattr(node, "name"):
@@ -225,32 +248,14 @@ class ASTPrior(PriorProvider):
                         if hasattr(p, "type"):
                             self._add_pos(p.type, tier1, pos_map, scores)
             # Tier 2: invocations, members, assignments, returns
-            elif ntype in {
-                "MethodInvocation",
-                "SuperMethodInvocation",
-                "MemberReference",
-                "Assignment",
-                "ReturnStatement",
-                "BinaryOperation",
-                "UnaryOperation",
-                "Cast",
-                "InstanceOf",
-            }:
+            elif ntype in self.node_names["tier2"]:
                 self._add_pos(node, tier2, pos_map, scores)
                 if hasattr(node, "member"):
                     self._add_pos(getattr(node, "member", None), tier2, pos_map, scores)
                 if hasattr(node, "expression"):
                     self._add_pos(getattr(node, "expression", None), tier2, pos_map, scores)
             # Tier 3: literals and new expressions
-            elif ntype in {
-                "Literal",
-                "ElementArrayValue",
-                "ArraySelector",
-                "This",
-                "SuperConstructorInvocation",
-                "ClassCreator",
-                "ArrayCreator",
-            }:
+            elif ntype in self.node_names["tier3"]:
                 self._add_pos(node, tier3, pos_map, scores)
 
         return scores
@@ -307,7 +312,7 @@ class ASTPrior(PriorProvider):
             return self._normalize(self._fallback_chunk(bin_idx, n_bins))
         try:
             tree = javalang_mod.parse.parse(self.context.code_text)
-java        except Exception:
+        except Exception:
             return self._normalize(self._fallback_chunk(bin_idx, n_bins))
 
         scores = self._collect_scores(tree, tokens, javalang_mod)
@@ -315,6 +320,15 @@ java        except Exception:
         if vec.sum() == 0:
             vec = self._fallback_chunk(bin_idx, n_bins)
         return self._normalize(vec)
+
+    def _node_weight(self, ntype: str) -> float:
+        if ntype in self.node_names["tier1"]:
+            return self.tier_weights["tier1"]
+        if ntype in self.node_names["tier2"]:
+            return self.tier_weights["tier2"]
+        if ntype in self.node_names["tier3"]:
+            return self.tier_weights["tier3"]
+        return 0.0
 
 
 PRIOR_REGISTRY = {
