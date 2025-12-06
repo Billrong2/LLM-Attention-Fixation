@@ -227,37 +227,38 @@ class ASTPrior(PriorProvider):
     def _collect_scores(self, tree, tokens, javalang_mod) -> Dict[int, float]:
         pos_map = self._position_index(tokens)
         scores: Dict[int, float] = {}
-        tier1 = self.tier_weights["tier1"]
-        tier2 = self.tier_weights["tier2"]
-        tier3 = self.tier_weights["tier3"]
 
-        for path, node in tree:
+        def walk(node, accumulated: float) -> None:
+            if node is None:
+                return
             ntype = type(node).__name__
-            # Tier 1: class/method signatures and core control
-            if ntype in self.node_names["tier1"]:
-                self._add_pos(node, tier1, pos_map, scores)
-                # method name
-                if hasattr(node, "name"):
-                    self._add_pos(node, tier1, pos_map, scores)
-                # parameters
-                if hasattr(node, "parameters"):
-                    for p in getattr(node, "parameters", []):
-                        self._add_pos(p, tier1, pos_map, scores)
-                        if hasattr(p, "name"):
-                            self._add_pos(p, tier1, pos_map, scores)
-                        if hasattr(p, "type"):
-                            self._add_pos(p.type, tier1, pos_map, scores)
-            # Tier 2: invocations, members, assignments, returns
-            elif ntype in self.node_names["tier2"]:
-                self._add_pos(node, tier2, pos_map, scores)
-                if hasattr(node, "member"):
-                    self._add_pos(getattr(node, "member", None), tier2, pos_map, scores)
-                if hasattr(node, "expression"):
-                    self._add_pos(getattr(node, "expression", None), tier2, pos_map, scores)
-            # Tier 3: literals and new expressions
-            elif ntype in self.node_names["tier3"]:
-                self._add_pos(node, tier3, pos_map, scores)
+            w_self = self._node_weight(ntype)
+            total_w = accumulated + w_self
+            if total_w > 0:
+                self._add_pos(node, total_w, pos_map, scores)
+                # for declarations, also tag their name/type positions if present
+                if ntype in self.node_names["tier1"]:
+                    if hasattr(node, "name"):
+                        name_obj = getattr(node, "name", None)
+                        if hasattr(name_obj, "position"):
+                            self._add_pos(name_obj, total_w, pos_map, scores)
+                    if hasattr(node, "parameters"):
+                        for p in getattr(node, "parameters", []):
+                            walk(p, total_w)
+                    if hasattr(node, "type"):
+                        walk(getattr(node, "type", None), total_w)
+            # Recurse children to inherit this node's emphasis (accumulate)
+            for child in getattr(node, "children", ()):
+                if child is None:
+                    continue
+                if isinstance(child, (list, tuple)):
+                    for c in child:
+                        walk(c, total_w)
+                else:
+                    walk(child, total_w)
 
+        # walk the parsed tree root
+        walk(tree, 0.0)
         return scores
 
     def _map_scores_to_prompt(self, token_scores: Dict[int, float], tokens, prompt_tokens: Sequence[str]) -> np.ndarray:
@@ -328,6 +329,7 @@ class ASTPrior(PriorProvider):
             return self.tier_weights["tier2"]
         if ntype in self.node_names["tier3"]:
             return self.tier_weights["tier3"]
+        # small default to avoid over-amplifying deep nesting of unlisted nodes
         return 0.0
 
 

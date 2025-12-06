@@ -45,6 +45,7 @@ DEFAULT_ATTN_DIR   = "attn_viz"
 DEFAULT_MEM_FRAC   = 0.90
 DEFAULT_KEY_SCOPE  = "prompt"   # "prompt" | "all"
 DEFAULT_RENORMAL   = True
+DEFAULT_MAX_DEVICES: Optional[int] = None
 
 class llama70b:
     """
@@ -93,6 +94,7 @@ class llama70b:
         self.mem_fraction: float = DEFAULT_MEM_FRAC
         self.key_scope: str      = DEFAULT_KEY_SCOPE
         self.renormalize: bool   = DEFAULT_RENORMAL
+        self.max_devices: Optional[int] = DEFAULT_MAX_DEVICES
 
         # internals
         self.model: Optional[AutoModelForCausalLM] = None
@@ -117,6 +119,7 @@ class llama70b:
         mem_fraction: Optional[float] = None,
         key_scope: Optional[str] = None,           # "prompt" | "all"
         renormalize: Optional[bool] = None,
+        max_devices: Optional[int] = None,
     ) -> "llama70b":
         """Programmatic configuration (no environment variables used)."""
         if model_name is not None:     self.model_name = model_name
@@ -131,6 +134,7 @@ class llama70b:
         if mem_fraction is not None:   self.mem_fraction = mem_fraction
         if key_scope is not None:      self.key_scope = key_scope.lower()
         if renormalize is not None:    self.renormalize = renormalize
+        if max_devices is not None:    self.max_devices = max_devices
         return self
 
     def set_steering_config(self, config: SteeringConfig) -> None:
@@ -171,8 +175,16 @@ class llama70b:
         """Load tokenizer + model with attention enabled configuration."""
         print(f"Loading model: {self.model_name}")
         print(f"USE_4BIT={self.use_4bit}  |  GPUs visible={torch.cuda.device_count() if torch.cuda.is_available() else 0}")
-        if torch.cuda.is_available():
-            print("Per-GPU max_memory cap:", self._auto_max_memory_dict(self.mem_fraction))
+        max_memory = self._auto_max_memory_dict(self.mem_fraction)
+        selected_devices = None
+        if torch.cuda.is_available() and max_memory:
+            if self.max_devices is not None:
+                visible = torch.cuda.device_count()
+                use = max(1, min(self.max_devices, visible))
+                selected_devices = list(range(use))
+                max_memory = {k: v for k, v in max_memory.items() if k in selected_devices}
+                print(f"Limiting to {use} GPU(s) (of {visible}).")
+            print("Per-GPU max_memory cap:", max_memory)
 
         tok = AutoTokenizer.from_pretrained(self.model_name, cache_dir=self.cache_dir)
         for k in ["hidden_size","num_hidden_layers","num_attention_heads","num_key_value_heads",
@@ -188,6 +200,8 @@ class llama70b:
             cache_dir=self.cache_dir,
             attn_implementation="eager",
         )
+        if max_memory:
+            common["max_memory"] = max_memory
 
         force_4bit = self.use_4bit or bool(int(os.environ.get("LLM_FORCE_4BIT", "0")))
         model = None
