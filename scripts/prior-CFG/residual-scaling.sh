@@ -1,0 +1,11 @@
+python -u main.py \
+  --level3 \
+  --prior=cfg \
+  --gpu-ids=3 \
+  --lambda-attn=1.15 \
+  --lambda-mlp=0.9 \
+  --n-bins=12 \
+  --runs-per-snippet=200 \
+  --record-layers=off \
+  --model-name=codellama/CodeLlama-7b-Instruct-hf \
+  --auto-run-tag

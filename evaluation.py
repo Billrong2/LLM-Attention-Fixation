@@ -22,6 +22,7 @@ import numpy as np
 from models import DEFAULT_MODEL_NAME, DEFAULT_CACHE_DIR
 from render.util import AttentionRenderer, RenderConfig
 from render.plot_layer_attention import generate_layer_attention_plots
+from paths import resolve_attn_root, model_dir_name
 
 try:
     from transformers import AutoTokenizer  # type: ignore
@@ -159,8 +160,10 @@ class SemanticEntropyEvaluator:
         code_snippet: str,
         vocab_tokens: Sequence[Dict[str, Any]],
         cache_dir: Optional[str] = None,
+        model_dir: Optional[str] = None,
     ) -> None:
         self.root = root
+        self.attn_root = resolve_attn_root(root, model_dir)
         self.instruction = instruction
         self.code_snippet = code_snippet
         self.vocab_tokens = vocab_tokens
@@ -256,7 +259,7 @@ class SemanticEntropyEvaluator:
         variant_label: Optional[str] = None,
         prior_label: Optional[str] = None,
     ) -> Tuple[List[RunRecord], float]:
-        snippet_dir = self.root / "attn_viz" / snippet
+        snippet_dir = self.attn_root / snippet
         if not snippet_dir.exists():
             raise FileNotFoundError(f"No model outputs found for snippet '{snippet}'.")
         variant_dir = resolve_child_dir(snippet_dir, variant_label, "variant")
@@ -459,19 +462,21 @@ def output_prediction_eval(
     project_root: Path,
     output_root: Path,
     snippets_filter: Optional[Sequence[str]] = None,
+    model_dir: Optional[str] = None,
+    model_name: Optional[str] = None,
 ) -> None:
     """
     Scan attn_viz and report output-prediction accuracy (EM rate) per snippet/variant/prior.
     """
-    attn_root = project_root / "attn_viz"
+    attn_root = resolve_attn_root(project_root, model_dir)
     if not attn_root.exists():
         raise FileNotFoundError("attn_viz directory missing. Run main.py first.")
 
     targets = set(s.lower() for s in snippets_filter) if snippets_filter else None
-    rows: List[Tuple[str, str, str, int, int, int, float]] = []
+    rows: List[Tuple[str, str, str, str, int, int, int, float]] = []
     snippet_variant_stats: Dict[str, Dict[str, Dict[str, Any]]] = {}
-    overall_em = {}
-    overall_total = {}
+    overall_em: Dict[Tuple[str, str], int] = {}
+    overall_total: Dict[Tuple[str, str], int] = {}
 
     for snippet_dir in sorted(p for p in attn_root.iterdir() if p.is_dir()):
         snippet_name = snippet_dir.name
@@ -505,7 +510,7 @@ def output_prediction_eval(
                 if total == 0:
                     continue
                 accuracy = em_runs / total
-                rows.append((snippet_name, variant, prior, total, em_runs, mm_runs, accuracy))
+                rows.append((snippet_name, variant, prior, model_name or "", total, em_runs, mm_runs, accuracy))
 
                 stats = snippet_variant_stats.setdefault(snippet_name, {}).setdefault(
                     variant,
@@ -543,7 +548,9 @@ def output_prediction_eval(
                 return ", ".join(f"--level{lvl}" for lvl in levels)
         return name
 
+    display_model = model_name or (model_dir or "default")
     print("\n[Prediction Accuracy]")
+    print(f"Model: {display_model}")
     for snippet in sorted(snippet_variant_stats.keys()):
         print(f"{snippet}")
         variants = snippet_variant_stats[snippet]
@@ -554,12 +561,11 @@ def output_prediction_eval(
             mm_runs = total - em_runs
             acc = em_runs / total if total else 0.0
             label = format_variant_label(variant)
-            if label in overall_em: pass
-            else: overall_em[label]=0
-            if label in overall_total: pass
-            else: overall_total[label]=0
-            overall_total[label]+= total
-            overall_em[label]+= em_runs
+            for prior_stats in sorted(stats["priors"], key=lambda p: p["prior"]):
+                prior = prior_stats["prior"]
+                key = (label, prior)
+                overall_total[key] = overall_total.get(key, 0) + prior_stats["total"]
+                overall_em[key] = overall_em.get(key, 0) + prior_stats["em"]
             print(
                 f"  {label:<25}: {acc*100:6.2f}%  (runs={total}, EM={em_runs}, Mismatch={mm_runs})"
             )
@@ -581,15 +587,21 @@ def output_prediction_eval(
     #         f"(runs={overall_total}, EM={overall_em}, Mismatch={overall_total - overall_em})"
     #     )
 
+    print("\n[Overall Accuracy by Level/Prior]")
+    for (label, prior) in sorted(overall_total.keys()):
+        total = overall_total[(label, prior)]
+        em = overall_em.get((label, prior), 0)
+        acc = em / total if total else 0.0
+        mm = total - em
+        print(f"  {label:<25} | prior={prior:<8} : {acc*100:6.2f}%  (runs={total}, EM={em}, Mismatch={mm})")
+
     ensure_dir(output_root)
     csv_path = output_root / "prediction_accuracy.csv"
     with csv_path.open("w", encoding="utf-8") as fh:
-        fh.write("snippet,variant,prior,total_runs,exact_matches,mismatches,accuracy\n")
-        for snippet, variant, prior, total, em_runs, mm_runs, acc in sorted(rows):
-            fh.write(f"{snippet},{variant},{prior},{total},{em_runs},{mm_runs},{acc:.6f}\n")
+        fh.write("model,snippet,variant,prior,total_runs,exact_matches,mismatches,accuracy\n")
+        for snippet, variant, prior, model, total, em_runs, mm_runs, acc in sorted(rows):
+            fh.write(f"{model},{snippet},{variant},{prior},{total},{em_runs},{mm_runs},{acc:.6f}\n")
     print(f"[INFO] Saved accuracy summary to {csv_path}")
-    print(overall_total)
-    print(overall_em)
 
 
 
@@ -599,6 +611,7 @@ def evaluate_snippet(
     snippet: str,
     output_root: Path,
     cache_dir: Optional[str] = None,
+    model_dir: Optional[str] = None,
     phase_summary_tables: Optional[
         Dict[str, Dict[str, Dict[str, Tuple[float, float, float, float]]]]
     ] = None,
@@ -628,6 +641,7 @@ def evaluate_snippet(
         code_snippet=code_text,
         vocab_tokens=vocab_tokens,
         cache_dir=cache_dir,
+        model_dir=model_dir,
     )
 
     run_records, semantic_entropy_value = evaluator.load_model_runs(
@@ -785,6 +799,18 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
         help="Directory where evaluation results will be stored.",
     )
     parser.add_argument(
+        "--model-name",
+        type=str,
+        default=None,
+        help="Model name used to select attn_viz/<model> directory.",
+    )
+    parser.add_argument(
+        "--model-dir",
+        type=str,
+        default=None,
+        help="Explicit attn_viz/<model_dir> override.",
+    )
+    parser.add_argument(
         "--variant-label",
         type=str,
         default=None,
@@ -799,7 +825,8 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
     args = parser.parse_args(argv)
 
     project_root = args.project_root
-    attn_root = project_root / "attn_viz"
+    model_dir = args.model_dir or (model_dir_name(args.model_name) if args.model_name else None)
+    attn_root = resolve_attn_root(project_root, model_dir)
     if not attn_root.exists():
         raise FileNotFoundError("Run the main pipeline first to generate attn_viz artifacts.")
 
@@ -816,6 +843,8 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
             project_root=project_root,
             output_root=args.output_dir,
             snippets_filter=tokens or None,
+            model_dir=model_dir,
+            model_name=args.model_name,
         )
         return
 
@@ -831,6 +860,7 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
         generate_layer_attention_plots(
             project_root=project_root,
             snippets=tokens or None,
+            model_dir=model_dir,
         )
         return
 
@@ -853,6 +883,7 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
                 snippet=snippet,
                 output_root=args.output_dir,
                 cache_dir=args.cache_dir,
+                model_dir=model_dir,
                 phase_summary_tables=phase_summary_tables,
                 variant_label=args.variant_label,
                 prior_label=args.prior_label,

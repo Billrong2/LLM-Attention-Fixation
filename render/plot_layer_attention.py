@@ -7,6 +7,8 @@ import re
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Sequence, Tuple
 
+from paths import resolve_attn_root, model_dir_name
+
 try:
     import matplotlib
 
@@ -113,8 +115,9 @@ def generate_layer_attention_plots(
     variants: Optional[Sequence[str]] = None,
     priors: Optional[Sequence[str]] = None,
     include_baseline_all: bool = False,
+    model_dir: Optional[str] = None,
 ) -> None:
-    attn_root = project_root / "attn_viz"
+    attn_root = resolve_attn_root(project_root, model_dir)
     if not attn_root.exists():
         raise FileNotFoundError(f"No attn_viz directory found at {attn_root}")
 
@@ -167,13 +170,17 @@ def _cli() -> None:
         default=False,
         help="Plot all-layer chart for every variant (not just baseline).",
     )
+    parser.add_argument("--model-name", type=str, default=None, help="Model name for attn_viz/<model> lookup.")
+    parser.add_argument("--model-dir", type=str, default=None, help="Explicit attn_viz/<model_dir> override.")
     args = parser.parse_args()
+    model_dir = args.model_dir or (model_dir_name(args.model_name) if args.model_name else None)
     generate_layer_attention_plots(
         project_root=args.project_root,
         snippets=_parse_csv_arg(args.snippets),
         variants=_parse_csv_arg(args.variants),
         priors=_parse_csv_arg(args.priors),
         include_baseline_all=args.include_baseline_all,
+        model_dir=model_dir,
     )
 
 

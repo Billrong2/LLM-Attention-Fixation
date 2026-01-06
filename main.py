@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import os
+import time
 from pathlib import Path
 import re
 import json
@@ -17,6 +18,7 @@ from models import llama70b
 from util import utity
 from render.util import AttentionRenderer, RenderConfig
 from steering import SteeringConfig
+from paths import model_dir_name
 
 
 def _canonicalize_model_output(text: str) -> tuple[str, bool]:
@@ -202,7 +204,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--level3", action="store_true")
     parser.add_argument("--level4", action="store_true")
     parser.add_argument("--level5", action="store_true")
-    parser.add_argument("--prior", choices=["human", "ast", "lex", "rand"], default="human")
+    parser.add_argument("--prior", choices=["human", "ast", "lex", "rand", "cfg", "slice"], default="human")
     parser.add_argument("--n-bins", type=int, default=8)
     parser.add_argument("--binning", choices=["equal_count"], default="equal_count")
     parser.add_argument("--beta-bias", type=float, default=0.0)
@@ -221,14 +223,39 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--lex-window", type=int, default=32)
     parser.add_argument("--rand-seed", type=int, default=None)
     parser.add_argument("--schedule-json", type=Path, default=None)
+    parser.add_argument("--model-name", type=str, default=None, help="HF model name to load.")
+    parser.add_argument("--cache-dir", type=str, default=None, help="HF cache directory for the model.")
     parser.add_argument(
         "--gpus",
         type=int,
         default=None,
         help="Number of GPUs to use (caps device_map). Defaults to auto (all visible).",
     )
+    parser.add_argument(
+        "--gpu-ids",
+        type=str,
+        default=None,
+        help="Explicit GPU IDs to use (e.g., 0+1 or 0,1). Overrides --gpus.",
+    )
     parser.add_argument("--runs-per-snippet", type=int, default=20, help="Number of generations per snippet.")
     parser.add_argument("--skip-steering", action="store_true")
+    parser.add_argument(
+        "--record-layers",
+        choices=["on", "off"],
+        default="on",
+        help="When off, disable all attention capture and visualization output.",
+    )
+    parser.add_argument(
+        "--run-tag",
+        type=str,
+        default=None,
+        help="Optional output subfolder tag to avoid collisions across parallel runs.",
+    )
+    parser.add_argument(
+        "--auto-run-tag",
+        action="store_true",
+        help="Auto-generate a run tag (timestamp+pid) when --run-tag is not provided.",
+    )
     parser.add_argument("--snippet", type=str, default=None, help="Run only this snippet (single name without .java).")
     parser.add_argument(
         "--snippets",
@@ -237,6 +264,26 @@ def parse_args() -> argparse.Namespace:
         help="Comma-separated list of snippet names to run. Defaults to all when omitted.",
     )
     return parser.parse_args()
+
+
+def _parse_gpu_ids(raw: Optional[str]) -> Optional[List[int]]:
+    if not raw:
+        return None
+    cleaned = raw.strip()
+    if not cleaned:
+        return None
+    parts = re.split(r"[+,]", cleaned)
+    ids: List[int] = []
+    for part in parts:
+        part = part.strip()
+        if not part:
+            continue
+        if not part.isdigit():
+            raise ValueError(f"Invalid GPU id '{part}' in --gpu-ids={raw!r}. Use digits separated by '+' or ','.")
+        ids.append(int(part))
+    if not ids:
+        return None
+    return ids
 
 
 def build_steering_config(args: argparse.Namespace) -> Optional[SteeringConfig]:
@@ -280,9 +327,17 @@ def _assign_config_fields(target: SteeringConfig, source: SteeringConfig) -> Non
 
 def main():
     args = parse_args()
+    gpu_ids = _parse_gpu_ids(args.gpu_ids)
+    if gpu_ids is not None:
+        os.environ["CUDA_VISIBLE_DEVICES"] = ",".join(str(i) for i in gpu_ids)
     visible_gpus = torch.cuda.device_count() if torch.cuda.is_available() else 0
     max_devices = None
-    if args.gpus is not None:
+    if gpu_ids is not None:
+        if visible_gpus == 0:
+            print("[WARN] --gpu-ids specified but no CUDA devices visible; falling back to CPU.")
+        else:
+            max_devices = min(len(gpu_ids), visible_gpus)
+    elif args.gpus is not None:
         if visible_gpus == 0:
             print("[WARN] --gpus specified but no CUDA devices visible; falling back to CPU.")
         else:
@@ -300,7 +355,12 @@ def main():
         active_steering_config = copy.deepcopy(base_steering_config)
         llama.set_steering_config(active_steering_config)
     llama.login_hf()                  # optional; uses HUGGINGFACE_TOKEN if present
-    llama.config(key_scope="prompt", max_devices=max_devices)  # IMPORTANT for prompt-aligned attention
+    llama.config(
+        key_scope="prompt",
+        max_devices=max_devices,
+        model_name=args.model_name,
+        cache_dir=args.cache_dir,
+    )  # IMPORTANT for prompt-aligned attention
     llama.build()
 
     level_label = "baseline"
@@ -317,8 +377,14 @@ def main():
     #     code_set.append(open(f"./Source/{snippet}", 'r').read())
     # for code in code_set():
 
-    output_root = Path('attn_viz')
+    model_label = model_dir_name(args.model_name or llama.model_name)
+    output_root = Path("attn_viz") / model_label
     output_root.mkdir(parents=True, exist_ok=True)
+    run_tag = args.run_tag.strip() if args.run_tag else None
+    if not run_tag and args.auto_run_tag:
+        run_tag = f"{time.strftime('%Y%m%d-%H%M%S')}-pid{os.getpid()}"
+    if run_tag:
+        run_tag = re.sub(r"[^A-Za-z0-9_.-]+", "_", run_tag)
 
     base_dir = Path(__file__).resolve().parent
     source_dir = base_dir / "Source"
@@ -360,10 +426,14 @@ def main():
         "Then, simulate it as a compiler would and print the exact console output. \n"
     )
     runs_per_snippet = max(1, args.runs_per_snippet)
+    record_layers = args.record_layers != "off"
+    record_attention = record_layers
     for snippet_path in snippet_paths:
         code = snippet_path.read_text(encoding="utf-8")
         snippet_name = snippet_path.stem
         snippet_root = output_root / snippet_name / level_label / prior_label
+        if run_tag:
+            snippet_root = snippet_root / run_tag
         snippet_root.mkdir(parents=True, exist_ok=True)
         for outcome in ("EM", "Mismatch"):
             outcome_dir = snippet_root / outcome
@@ -413,6 +483,7 @@ def main():
                 code,
                 instruction=instruction,
                 language="java",
+                record_layers=record_layers,
                 vocab_tokens=fixation_vocab,
             )
             predicted_output_raw = result.get("generated_text", "")
@@ -430,94 +501,97 @@ def main():
             result["exact_match"] = is_exact_match
             result["task"] = "output_prediction"
 
-            phase_assignments, phase_ranges = _classify_generation_phases(result, llama.tokenizer)
-            phase_prompt_scores, phase_counts = _aggregate_phase_prompt_scores(
-                result, phase_assignments, pool_name="all_layers_mean"
-            )
-            # TODO: Experiment with all 5 settings.
-            attn_map = renderer.map_attention_to_source(
-                code_snippet=code,
-                generation_result=result,
-                instruction=instruction,
-                pool="all_layers_mean",
-                human_vocabulary=fixation_vocab,
-            )
+            attn_map = None
             phase_attention_maps = {}
-            for phase, prompt_scores in phase_prompt_scores.items():
-                if phase_counts.get(phase, 0) == 0:
-                    continue
-                phase_attention_maps[phase] = renderer.map_attention_from_prompt_scores(
-                    code_snippet=code,
-                    instruction=instruction,
-                    prompt_scores=prompt_scores,
-                    pool_name="all_layers_mean",
-                    human_vocabulary=fixation_vocab,
-                    metadata={
-                        "phase": phase,
-                        "phase_step_count": phase_counts.get(phase, 0),
-                        "phase_char_range": phase_ranges.get(phase),
-                    },
-                )
-            fixation_spans = [
-                (token["start"], token["end"])
-                for token in attn_map.get("fixation_tokens", [])
-                if not token.get("missing")
-                and token.get("start", -1) is not None
-                and int(token["start"]) >= 0
-                and int(token["end"]) > int(token["start"])
-            ]
             masked_attn_map = None
-            if fixation_spans:
-                masked_attn_map = renderer.mask_attention_map(
-                    code_snippet=code,
-                    attn_map=attn_map,
-                    spans=fixation_spans,
-                    human_vocabulary=fixation_vocab,
-                    note="fixation-aligned span",
+            if record_attention:
+                phase_assignments, phase_ranges = _classify_generation_phases(result, llama.tokenizer)
+                phase_prompt_scores, phase_counts = _aggregate_phase_prompt_scores(
+                    result, phase_assignments, pool_name="all_layers_mean"
                 )
+                # TODO: Experiment with all 5 settings.
+                attn_map = renderer.map_attention_to_source(
+                    code_snippet=code,
+                    generation_result=result,
+                    instruction=instruction,
+                    pool="all_layers_mean",
+                    human_vocabulary=fixation_vocab,
+                )
+                for phase, prompt_scores in phase_prompt_scores.items():
+                    if phase_counts.get(phase, 0) == 0:
+                        continue
+                    phase_attention_maps[phase] = renderer.map_attention_from_prompt_scores(
+                        code_snippet=code,
+                        instruction=instruction,
+                        prompt_scores=prompt_scores,
+                        pool_name="all_layers_mean",
+                        human_vocabulary=fixation_vocab,
+                        metadata={
+                            "phase": phase,
+                            "phase_step_count": phase_counts.get(phase, 0),
+                            "phase_char_range": phase_ranges.get(phase),
+                        },
+                    )
+                fixation_spans = [
+                    (token["start"], token["end"])
+                    for token in attn_map.get("fixation_tokens", [])
+                    if not token.get("missing")
+                    and token.get("start", -1) is not None
+                    and int(token["start"]) >= 0
+                    and int(token["end"]) > int(token["start"])
+                ]
+                if fixation_spans:
+                    masked_attn_map = renderer.mask_attention_map(
+                        code_snippet=code,
+                        attn_map=attn_map,
+                        spans=fixation_spans,
+                        human_vocabulary=fixation_vocab,
+                        note="fixation-aligned span",
+                    )
             match_dir = snippet_root / ("EM" if is_exact_match else "Mismatch")
             run_dir = match_dir / f"{run_idx}"
             run_dir.mkdir(parents=True, exist_ok=True)
-            renderer.save_text_dump(attn_map, str(run_dir / "attention.json"), str(run_dir / "attention.csv"))
-            renderer.render_html(code, attn_map, str(run_dir / "attention.html"))
-            renderer.render_png(code, attn_map, str(run_dir / "attention_char.png"), score_key="char_attention")
-            renderer.render_png(code, attn_map, str(run_dir / "attention_lexical.png"), score_key="lexical_tokens")
-            if attn_map.get("fixation_tokens"):
-                renderer.render_png(code, attn_map, str(run_dir / "attention_fixation.png"), score_key="fixation_tokens")
-            for phase, phase_map in phase_attention_maps.items():
-                phase_prefix = f"attention_phase_{phase}"
-                renderer.save_text_dump(
-                    phase_map,
-                    str(run_dir / f"{phase_prefix}.json"),
-                    str(run_dir / f"{phase_prefix}.csv"),
-                )
-                renderer.render_html(code, phase_map, str(run_dir / f"{phase_prefix}.html"))
-                renderer.render_png(
-                    code,
-                    phase_map,
-                    str(run_dir / f"{phase_prefix}_char.png"),
-                    score_key="char_attention",
-                )
-                renderer.render_png(
-                    code,
-                    phase_map,
-                    str(run_dir / f"{phase_prefix}_lexical.png"),
-                    score_key="lexical_tokens",
-                )
-                if phase_map.get("fixation_tokens"):
+            if record_attention and attn_map is not None:
+                renderer.save_text_dump(attn_map, str(run_dir / "attention.json"), str(run_dir / "attention.csv"))
+                renderer.render_html(code, attn_map, str(run_dir / "attention.html"))
+                renderer.render_png(code, attn_map, str(run_dir / "attention_char.png"), score_key="char_attention")
+                renderer.render_png(code, attn_map, str(run_dir / "attention_lexical.png"), score_key="lexical_tokens")
+                if attn_map.get("fixation_tokens"):
+                    renderer.render_png(code, attn_map, str(run_dir / "attention_fixation.png"), score_key="fixation_tokens")
+                for phase, phase_map in phase_attention_maps.items():
+                    phase_prefix = f"attention_phase_{phase}"
+                    renderer.save_text_dump(
+                        phase_map,
+                        str(run_dir / f"{phase_prefix}.json"),
+                        str(run_dir / f"{phase_prefix}.csv"),
+                    )
+                    renderer.render_html(code, phase_map, str(run_dir / f"{phase_prefix}.html"))
                     renderer.render_png(
                         code,
                         phase_map,
-                        str(run_dir / f"{phase_prefix}_fixation.png"),
-                        score_key="fixation_tokens",
+                        str(run_dir / f"{phase_prefix}_char.png"),
+                        score_key="char_attention",
                     )
-            if masked_attn_map:
-                renderer.save_text_dump(masked_attn_map, str(run_dir / "attention_algorithm.json"), str(run_dir / "attention_algorithm.csv"))
-                renderer.render_html(code, masked_attn_map, str(run_dir / "attention_algorithm.html"))
-                renderer.render_png(code, masked_attn_map, str(run_dir / "attention_algorithm_char.png"), score_key="char_attention")
-                renderer.render_png(code, masked_attn_map, str(run_dir / "attention_algorithm_lexical.png"), score_key="lexical_tokens")
-                if masked_attn_map.get("fixation_tokens"):
-                    renderer.render_png(code, masked_attn_map, str(run_dir / "attention_algorithm_fixation.png"), score_key="fixation_tokens")
+                    renderer.render_png(
+                        code,
+                        phase_map,
+                        str(run_dir / f"{phase_prefix}_lexical.png"),
+                        score_key="lexical_tokens",
+                    )
+                    if phase_map.get("fixation_tokens"):
+                        renderer.render_png(
+                            code,
+                            phase_map,
+                            str(run_dir / f"{phase_prefix}_fixation.png"),
+                            score_key="fixation_tokens",
+                        )
+                if masked_attn_map:
+                    renderer.save_text_dump(masked_attn_map, str(run_dir / "attention_algorithm.json"), str(run_dir / "attention_algorithm.csv"))
+                    renderer.render_html(code, masked_attn_map, str(run_dir / "attention_algorithm.html"))
+                    renderer.render_png(code, masked_attn_map, str(run_dir / "attention_algorithm_char.png"), score_key="char_attention")
+                    renderer.render_png(code, masked_attn_map, str(run_dir / "attention_algorithm_lexical.png"), score_key="lexical_tokens")
+                    if masked_attn_map.get("fixation_tokens"):
+                        renderer.render_png(code, masked_attn_map, str(run_dir / "attention_algorithm_fixation.png"), score_key="fixation_tokens")
             llama.save_dump(result, str(run_dir / "model_output.json"))
             (run_dir / "actual_output.txt").write_text(actual_output_str + "\n", encoding="utf-8")
             (run_dir / "predicted_output.txt").write_text(predicted_output + "\n", encoding="utf-8")

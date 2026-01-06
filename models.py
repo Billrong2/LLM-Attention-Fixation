@@ -309,6 +309,9 @@ class llama70b:
         top_p = overrides.get("top_p", self.top_p)
         top_k = overrides.get("top_k", self.top_k)
         max_new_tokens = overrides.get("max_new_tokens", self.max_new_tokens)
+        record_layers = bool(overrides.get("record_layers", True))
+        record_attention = bool(overrides.get("record_attention", record_layers))
+        record_layers = record_layers and record_attention
         do_sample = overrides.get("do_sample")
         if do_sample is None:
             do_sample = temperature > 0
@@ -350,7 +353,7 @@ class llama70b:
                 **enc,
                 generation_config=gen_cfg,
                 return_dict_in_generate=True,
-                output_attentions=True,   # <-- capture attention per generated step
+                output_attentions=record_attention,   # capture attention only when requested
                 output_scores=False,
                 use_cache=True,
                 logits_processor=logits_processor,
@@ -368,6 +371,33 @@ class llama70b:
         num_generated = total_len - prompt_len
         ids_all = sequences[0].tolist()
         tokens_all = self.tokenizer.convert_ids_to_tokens(ids_all)
+
+        if not record_attention:
+            return {
+                "model": self.model_name,
+                "use_4bit": self.use_4bit,
+                "prompt_length_tokens": prompt_len,
+                "num_generated_tokens": num_generated,
+                "tokens_all": tokens_all,
+                "token_ids_all": ids_all,
+                "generated_text": full_text,
+                "prompt_text": prompt_text,
+                "generated_completion": generated_completion,
+                "attention_by_generated_token": [],
+                "pooled_attention_by_generated_token": [],
+                "global_pooled_attention_over_prompt": {},
+                "pooling_strategies": {
+                    "first_layer": "first",
+                    "last_layer": "last",
+                    "last4_layers_mean": "last4",
+                    "all_layers_mean": "all",
+                },
+                "key_scope": self.key_scope,
+                "renormalized": self.renormalize,
+                "layer_prompt_stats": None,
+                "record_layers": False,
+                "record_attention": False,
+            }
 
         # ---- Per-step pooled attention accumulators over the prompt (for global means)
         pool_names = ["first_layer", "last_layer", "last4_layers_mean", "all_layers_mean"]
@@ -398,8 +428,8 @@ class llama70b:
             gen_tok = tokens_all[abs_idx]
 
             step_layers = out.attentions[step_idx]
-            layer_summaries: List[Dict[str, Any]] = []
             layer_vecs: List[torch.Tensor] = []
+            layer_summaries: List[Dict[str, Any]] = []
 
             # --- Build per-layer mean-over-head vectors
             for layer_idx, layer_tensor in enumerate(step_layers):
@@ -411,17 +441,18 @@ class llama70b:
                 if layer_prompt_totals is not None and layer_idx < len(layer_prompt_totals):
                     layer_prompt_totals[layer_idx] += float(attn_mean[:prompt_len].sum().item())
 
-                # Keep diagnostic top-K (over full k_len for transparency)
-                k_len = attn_mean.shape[-1]
-                top_k = min(self.top_attended_k, k_len)
-                top_vals, top_idx = torch.topk(attn_mean, k=top_k, largest=True, sorted=True)
-                layer_summaries.append({
-                    "layer": layer_idx,
-                    "k_len": int(k_len),
-                    "top_indices": self._to_cpu_list_ints(top_idx),
-                    "top_tokens": [tokens_all[i] for i in self._to_cpu_list_ints(top_idx)],
-                    "top_values": self._to_cpu_list_floats(top_vals),
-                })
+                if record_layers:
+                    # Keep diagnostic top-K (over full k_len for transparency)
+                    k_len = attn_mean.shape[-1]
+                    top_k = min(self.top_attended_k, k_len)
+                    top_vals, top_idx = torch.topk(attn_mean, k=top_k, largest=True, sorted=True)
+                    layer_summaries.append({
+                        "layer": layer_idx,
+                        "k_len": int(k_len),
+                        "top_indices": self._to_cpu_list_ints(top_idx),
+                        "top_tokens": [tokens_all[i] for i in self._to_cpu_list_ints(top_idx)],
+                        "top_values": self._to_cpu_list_floats(top_vals),
+                    })
 
             # --- Pooled attention per strategy
             per_step_pooled = {"generated_step": step_idx, "absolute_token_index": abs_idx, "token": gen_tok, "pools": {}}
@@ -465,13 +496,14 @@ class llama70b:
 
             pooled_record.append(per_step_pooled)
 
-            # Keep per-layer top-K diagnostic
-            attn_record.append({
-                "generated_step": step_idx,
-                "absolute_token_index": abs_idx,
-                "token": gen_tok,
-                "layers": layer_summaries,
-            })
+            if record_layers:
+                # Keep per-layer top-K diagnostic
+                attn_record.append({
+                    "generated_step": step_idx,
+                    "absolute_token_index": abs_idx,
+                    "token": gen_tok,
+                    "layers": layer_summaries,
+                })
 
         # --- Build global pooled distributions over prompt tokens (mean across steps)
         global_pooled_over_prompt = {}
@@ -516,7 +548,7 @@ class llama70b:
             "prompt_text": prompt_text,
             "generated_completion": generated_completion,
             # per-layer diagnostic (kept)
-            "attention_by_generated_token": attn_record,
+            "attention_by_generated_token": attn_record if record_layers else [],
             # per-step per-pool top-K
             "pooled_attention_by_generated_token": pooled_record,
             # global per-pool distribution over prompt tokens (only when KEY_SCOPE='prompt')
@@ -530,6 +562,8 @@ class llama70b:
             "key_scope": self.key_scope,
             "renormalized": self.renormalize,
             "layer_prompt_stats": layer_prompt_stats,
+            "record_layers": record_layers,
+            "record_attention": record_attention,
         }
 
     # ----------------------------
@@ -546,6 +580,8 @@ class llama70b:
         top_p: Optional[float] = None,
         top_k: Optional[int] = None,
         do_sample: Optional[bool] = None,
+        record_layers: Optional[bool] = None,
+        record_attention: Optional[bool] = None,
         vocab_tokens: Optional[Sequence[dict]] = None,
     ) -> Dict[str, Any]:
         """
@@ -570,6 +606,10 @@ class llama70b:
             overrides["top_k"] = top_k
         if do_sample is not None:
             overrides["do_sample"] = do_sample
+        if record_layers is not None:
+            overrides["record_layers"] = record_layers
+        if record_attention is not None:
+            overrides["record_attention"] = record_attention
 
         self._current_code_snippet = code_snippet
         self._current_vocab_tokens = vocab_tokens or []

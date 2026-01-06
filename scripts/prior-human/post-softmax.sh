@@ -3,4 +3,4 @@ python -u main.py \
   --prior=human \
   --beta-post=0.8 \
   --n-bins=12 \
-  --runs-per-snippet=30
+  --runs-per-snippet=50
