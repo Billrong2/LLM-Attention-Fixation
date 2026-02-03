@@ -23,18 +23,18 @@ run_job() {
 }
 
 scripts=(
-  "$SCRIPT_ROOT/baselines/baseline_llama7b.sh"
-  "$SCRIPT_ROOT/baselines/baseline_llama7b.sh"
+  # "$SCRIPT_ROOT/baselines/baseline_llama7b.sh"
+  # "$SCRIPT_ROOT/baselines/baseline_llama7b.sh"
 
-  "$SCRIPT_ROOT/prior-AST/pre-softmax.sh"
-  "$SCRIPT_ROOT/prior-AST/pre-softmax.sh"
+  # "$SCRIPT_ROOT/prior-AST/pre-softmax.sh"
+  # "$SCRIPT_ROOT/prior-AST/pre-softmax.sh"
 
-  "$SCRIPT_ROOT/prior-CFG/pre-softmax.sh"
-  "$SCRIPT_ROOT/prior-CFG/pre-softmax.sh"
+  # "$SCRIPT_ROOT/prior-CFG/pre-softmax.sh"
+  # "$SCRIPT_ROOT/prior-CFG/pre-softmax.sh"
 
-  "$SCRIPT_ROOT/prior-slicing/pre-softmax.sh"
-  "$SCRIPT_ROOT/prior-slicing/pre-softmax.sh"
-  #  batch 1 end here
+  # "$SCRIPT_ROOT/prior-slicing/pre-softmax.sh"
+  # "$SCRIPT_ROOT/prior-slicing/pre-softmax.sh"
+  # #  batch 1 end here
   "$SCRIPT_ROOT/prior-AST/post-softmax.sh"
   "$SCRIPT_ROOT/prior-AST/post-softmax.sh"
 

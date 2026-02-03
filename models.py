@@ -25,8 +25,7 @@ from transformers import (
 )
 from transformers.generation.logits_process import LogitsProcessorList
 from steering import SteeringConfig
-from steering.attention import SteeringAttention
-from steering.layer_patch import patch_decoder_layer
+from steering.backends import install_steering_hooks
 from steering.pointer import PointerBiasProcessor, StepAdvanceProcessor
 from steering.runtime import SteeringRuntime, create_runtime
 
@@ -623,19 +622,13 @@ class llama70b:
 
     def _install_steering_hooks(self) -> None:
         assert self.model is not None
-        layers = self.model.model.layers  # type: ignore[attr-defined]
+        assert self.steering_config is not None
 
         def runtime_getter():
             return self._steering_runtime
 
-        for idx, layer in enumerate(layers):
-            layer.self_attn = SteeringAttention(
-                layer.self_attn,
-                runtime_getter=runtime_getter,
-                layer_index=idx,
-                config=self.steering_config,
-            )
-            patch_decoder_layer(layer, runtime_getter, self.steering_config, idx)
+        backend = install_steering_hooks(self.model, runtime_getter, self.steering_config)
+        print(f"[Steering] Installed backend={backend}.")
 
     def summarize_code(
         self,

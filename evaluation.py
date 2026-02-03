@@ -464,6 +464,7 @@ def output_prediction_eval(
     snippets_filter: Optional[Sequence[str]] = None,
     model_dir: Optional[str] = None,
     model_name: Optional[str] = None,
+    expected_runs: int = 200,
 ) -> None:
     """
     Scan attn_viz and report output-prediction accuracy (EM rate) per snippet/variant/prior.
@@ -478,6 +479,29 @@ def output_prediction_eval(
     overall_em: Dict[Tuple[str, str], int] = {}
     overall_total: Dict[Tuple[str, str], int] = {}
 
+    def count_runs(root: Path) -> Tuple[int, int]:
+        em_dir = root / "EM"
+        mismatch_dir = root / "Mismatch"
+        em_runs = (
+            sum(
+                1
+                for run in em_dir.iterdir()
+                if run.is_dir() and (run / "model_output.json").is_file()
+            )
+            if em_dir.exists()
+            else 0
+        )
+        mm_runs = (
+            sum(
+                1
+                for run in mismatch_dir.iterdir()
+                if run.is_dir() and (run / "model_output.json").is_file()
+            )
+            if mismatch_dir.exists()
+            else 0
+        )
+        return em_runs, mm_runs
+
     for snippet_dir in sorted(p for p in attn_root.iterdir() if p.is_dir()):
         snippet_name = snippet_dir.name
         if targets and snippet_name.lower() not in targets:
@@ -486,31 +510,39 @@ def output_prediction_eval(
             variant = variant_dir.name
             for prior_dir in sorted(p for p in variant_dir.iterdir() if p.is_dir()):
                 prior = prior_dir.name
-                em_dir = prior_dir / "EM"
-                mismatch_dir = prior_dir / "Mismatch"
-                em_runs = (
-                    sum(
-                        1
-                        for run in em_dir.iterdir()
-                        if run.is_dir() and (run / "model_output.json").is_file()
-                    )
-                    if em_dir.exists()
-                    else 0
-                )
-                mm_runs = (
-                    sum(
-                        1
-                        for run in mismatch_dir.iterdir()
-                        if run.is_dir() and (run / "model_output.json").is_file()
-                    )
-                    if mismatch_dir.exists()
-                    else 0
-                )
-                total = em_runs + mm_runs
+                run_tag_dirs = [
+                    d
+                    for d in prior_dir.iterdir()
+                    if d.is_dir() and d.name not in {"EM", "Mismatch"}
+                ]
+                if run_tag_dirs:
+                    run_tags = [(d.name, d) for d in sorted(run_tag_dirs)]
+                else:
+                    run_tags = []
+                    if (prior_dir / "EM").exists() or (prior_dir / "Mismatch").exists():
+                        run_tags.append(("legacy", prior_dir))
+
+                total_em = 0
+                total_mm = 0
+                valid_tags = 0
+                for tag_name, tag_dir in run_tags:
+                    em_runs, mm_runs = count_runs(tag_dir)
+                    total = em_runs + mm_runs
+                    if total != expected_runs:
+                        print(
+                            f"[SKIP] {snippet_name}/{variant}/{prior}/{tag_name} "
+                            f"runs={total} (expected {expected_runs})"
+                        )
+                        continue
+                    valid_tags += 1
+                    total_em += em_runs
+                    total_mm += mm_runs
+
+                total = total_em + total_mm
                 if total == 0:
                     continue
-                accuracy = em_runs / total
-                rows.append((snippet_name, variant, prior, model_name or "", total, em_runs, mm_runs, accuracy))
+                accuracy = total_em / total
+                rows.append((snippet_name, variant, prior, model_name or "", total, total_em, total_mm, accuracy))
 
                 stats = snippet_variant_stats.setdefault(snippet_name, {}).setdefault(
                     variant,
@@ -520,15 +552,16 @@ def output_prediction_eval(
                         "priors": [],
                     },
                 )
-                stats["em"] += em_runs
+                stats["em"] += total_em
                 stats["total"] += total
                 stats["priors"].append(
                     {
                         "prior": prior,
                         "total": total,
-                        "em": em_runs,
-                        "mm": mm_runs,
+                        "em": total_em,
+                        "mm": total_mm,
                         "acc": accuracy,
+                        "valid_tags": valid_tags,
                     }
                 )
                 # overall_em += em_runs
@@ -575,17 +608,12 @@ def output_prediction_eval(
                 p_em = prior_stats["em"]
                 p_mm = prior_stats["mm"]
                 p_acc = prior_stats["acc"]
+                p_tags = prior_stats.get("valid_tags", 0)
                 print(
-                    f"      [prior={prior:<8}] {p_acc*100:6.2f}%  (runs={p_total}, EM={p_em}, Mismatch={p_mm})"
+                    f"      [prior={prior:<8}] {p_acc*100:6.2f}%  (runs={p_total}, EM={p_em}, Mismatch={p_mm}, tags={p_tags})"
                 )
         print()
 
-    # if overall_total:
-    #     overall_acc = overall_em / overall_total
-    #     print(
-    #         f"[Overall Accuracy] {overall_acc*100:6.2f}%  "
-    #         f"(runs={overall_total}, EM={overall_em}, Mismatch={overall_total - overall_em})"
-    #     )
 
     print("\n[Overall Accuracy by Level/Prior]")
     for (label, prior) in sorted(overall_total.keys()):
