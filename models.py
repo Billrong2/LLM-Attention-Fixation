@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-# llama70b_attn.py
-# Class-based wrapper for CodeLlama-70B-Instruct (or compatible HF causal LMs)
-# with attention capture and pooled-attention summaries.
+# models.py
+# Class-based wrapper for Hugging Face causal LMs (e.g., CodeLlama, Qwen2.5)
+# with attention capture, pooled-attention summaries, and optional steering.
 #
 # Notes:
 # - Only HUGGINGFACE_TOKEN is read from the environment (optional).
@@ -23,11 +23,12 @@ from transformers import (
     AutoModelForCausalLM,
     GenerationConfig,
 )
-from transformers.generation.logits_process import LogitsProcessorList
+from transformers.generation.logits_process import LogitsProcessor, LogitsProcessorList
 from steering import SteeringConfig
 from steering.backends import install_steering_hooks
 from steering.pointer import PointerBiasProcessor, StepAdvanceProcessor
 from steering.runtime import SteeringRuntime, create_runtime
+from attn_postprocess import POOLING_STRATEGIES, postprocess_generation_attentions
 
 # ----------------------------
 # Hard-coded defaults (change via llama.config(...))
@@ -46,14 +47,29 @@ DEFAULT_KEY_SCOPE  = "prompt"   # "prompt" | "all"
 DEFAULT_RENORMAL   = True
 DEFAULT_MAX_DEVICES: Optional[int] = None
 
-class llama70b:
+class _SanitizeLogitsProcessor(LogitsProcessor):
     """
-    Class wrapper for CodeLlama-70B-Instruct with attention capture.
+    Guardrail against rare NaN/Inf logits causing `torch.multinomial` failures during sampling.
+
+    This is especially useful for fp16 inference on some checkpoints. It does not change
+    behavior when logits are already finite.
+    """
+
+    def __call__(self, input_ids: torch.LongTensor, scores: torch.FloatTensor) -> torch.FloatTensor:
+        if not torch.isfinite(scores).all():
+            # Replace NaN/Inf with large finite values so softmax stays well-defined.
+            scores = torch.nan_to_num(scores, nan=-1e9, posinf=1e9, neginf=-1e9)
+        # Avoid extreme magnitudes that can still destabilize softmax on some stacks.
+        return scores.clamp(min=-1e9, max=1e9)
+
+class SteeredCausalLM:
+    """
+    Generic HF causal LM wrapper with attention capture and optional steering.
 
     Usage:
-        llama = llama70b()
-        llama.login_hf()  # optional; reads HUGGINGFACE_TOKEN if set
-        llama.config(
+        lm = SteeredCausalLM()
+        lm.login_hf()  # optional; reads HUGGINGFACE_TOKEN if set
+        lm.config(
             model_name="codellama/CodeLlama-70b-Instruct-hf",
             cache_dir="/path/to/cache",
             use_4bit=True,
@@ -67,10 +83,10 @@ class llama70b:
             key_scope="prompt",   # or "all"
             renormalize=True,
         )
-        llama.build()
-        result = llama.run_llama("def two_sum(...): ...", language="python")
-        llama.save_dump(result, "attn_dumps/attn_summary.json")
-        llama.free()
+        lm.build()
+        result = lm.run_llama("def two_sum(...): ...", language="python")
+        lm.save_dump(result, "attn_dumps/attn_summary.json")
+        lm.free()
     """
 
 
@@ -119,7 +135,7 @@ class llama70b:
         key_scope: Optional[str] = None,           # "prompt" | "all"
         renormalize: Optional[bool] = None,
         max_devices: Optional[int] = None,
-    ) -> "llama70b":
+    ) -> "SteeredCausalLM":
         """Programmatic configuration (no environment variables used)."""
         if model_name is not None:     self.model_name = model_name
         if cache_dir is not None:      self.cache_dir = cache_dir
@@ -219,7 +235,10 @@ class llama70b:
                 print(f"[WARN] 4-bit load failed ({err}); falling back to full precision.")
 
         if model is None:
-            dtype = torch.float16 if torch.cuda.is_available() else torch.float32
+            if torch.cuda.is_available():
+                dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
+            else:
+                dtype = torch.float32
             model = AutoModelForCausalLM.from_pretrained(
                 self.model_name,
                 torch_dtype=dtype,
@@ -251,42 +270,6 @@ class llama70b:
     # ----------------------------
     # Utilities
     # ----------------------------
-    @staticmethod
-    def _renorm_or_copy(vec: torch.Tensor, do: bool) -> torch.Tensor:
-        if not do:
-            return vec
-        s = float(vec.sum().item())
-        if s > 1e-12:
-            return vec / s
-        return vec
-
-    @staticmethod
-    def _pool_layer_vectors(layer_vecs: List[torch.Tensor], mode: str) -> torch.Tensor:
-        """
-        layer_vecs: list of 1D tensors of length k_len (one per layer), already averaged across heads.
-        mode: 'first', 'last', 'last4', 'all'
-        """
-        if len(layer_vecs) == 0:
-            raise ValueError("No layer vectors to pool.")
-        if mode == "first":
-            return layer_vecs[0]
-        if mode == "last":
-            return layer_vecs[-1]
-        if mode == "last4":
-            take = min(4, len(layer_vecs))
-            return torch.stack(layer_vecs[-take:], dim=0).mean(dim=0)
-        if mode == "all":
-            return torch.stack(layer_vecs, dim=0).mean(dim=0)
-        raise ValueError(f"Unknown pooling mode: {mode}")
-
-    @staticmethod
-    def _to_cpu_list_floats(t: torch.Tensor) -> List[float]:
-        return [float(x) for x in t.detach().to(torch.float32).cpu().tolist()]
-
-    @staticmethod
-    def _to_cpu_list_ints(t: torch.Tensor) -> List[int]:
-        return [int(x) for x in t.detach().to(torch.int64).cpu().tolist()]
-
     # ----------------------------
     # Core: generate with attention
     # ----------------------------
@@ -316,7 +299,7 @@ class llama70b:
             do_sample = temperature > 0
 
         runtime: Optional[SteeringRuntime] = None
-        logits_processor = None
+        logits_processor = LogitsProcessorList()
         if self.steering_config:
             prompt_ids = input_ids[0].tolist()
             prompt_tokens = self.tokenizer.convert_ids_to_tokens(prompt_ids)
@@ -330,11 +313,11 @@ class llama70b:
             )
             runtime.start(max_new_tokens)
             self._steering_runtime = runtime
-            logits_processor = LogitsProcessorList()
             if 5 in self.steering_config.enabled_levels:
                 logits_processor.append(PointerBiasProcessor(runtime))
             else:
                 logits_processor.append(StepAdvanceProcessor(runtime))
+        logits_processor.append(_SanitizeLogitsProcessor())
 
         gen_cfg = GenerationConfig(
             max_new_tokens=max_new_tokens,
@@ -385,12 +368,7 @@ class llama70b:
                 "attention_by_generated_token": [],
                 "pooled_attention_by_generated_token": [],
                 "global_pooled_attention_over_prompt": {},
-                "pooling_strategies": {
-                    "first_layer": "first",
-                    "last_layer": "last",
-                    "last4_layers_mean": "last4",
-                    "all_layers_mean": "all",
-                },
+                "pooling_strategies": dict(POOLING_STRATEGIES),
                 "key_scope": self.key_scope,
                 "renormalized": self.renormalize,
                 "layer_prompt_stats": None,
@@ -398,143 +376,17 @@ class llama70b:
                 "record_attention": False,
             }
 
-        # ---- Per-step pooled attention accumulators over the prompt (for global means)
-        pool_names = ["first_layer", "last_layer", "last4_layers_mean", "all_layers_mean"]
-        pool_modes = {
-            "first_layer": "first",
-            "last_layer": "last",
-            "last4_layers_mean": "last4",
-            "all_layers_mean": "all",
-        }
-        # accumulate mean distribution over prompt tokens across steps
-        device = self.model.device
-        global_prompt_accum = {name: torch.zeros(prompt_len, dtype=torch.float32, device=device) for name in pool_names}
-        layer_prompt_totals = None
-        if self.key_scope == "prompt":
-            num_layers_cfg = getattr(self.model.config, "num_hidden_layers", None)
-            if num_layers_cfg is None:
-                num_layers_cfg = len(self.model.model.layers)  # type: ignore[attr-defined]
-            layer_prompt_totals = [0.0 for _ in range(int(num_layers_cfg))]
-
-        # ---- Records
-        attn_record: List[Dict[str, Any]] = []   # per-layer tops
-        pooled_record: List[Dict[str, Any]] = [] # per-step per-pool top-K over chosen key scope
-
-        # out.attentions is a tuple with length == num_generated steps
-        # out.attentions[step][layer] is [batch=1, n_heads, q_len(=1), k_len]
-        for step_idx in range(num_generated):
-            abs_idx = prompt_len + step_idx
-            gen_tok = tokens_all[abs_idx]
-
-            step_layers = out.attentions[step_idx]
-            layer_vecs: List[torch.Tensor] = []
-            layer_summaries: List[Dict[str, Any]] = []
-
-            # --- Build per-layer mean-over-head vectors
-            for layer_idx, layer_tensor in enumerate(step_layers):
-                # [n_heads, 1, k_len] -> [n_heads, k_len] -> mean over heads -> [k_len]
-                attn = layer_tensor[0]            # [n_heads, 1, k_len]
-                attn = attn[:, 0, :]              # [n_heads, k_len]
-                attn_mean = attn.mean(dim=0).to(torch.float32)  # [k_len]
-                layer_vecs.append(attn_mean)
-                if layer_prompt_totals is not None and layer_idx < len(layer_prompt_totals):
-                    layer_prompt_totals[layer_idx] += float(attn_mean[:prompt_len].sum().item())
-
-                if record_layers:
-                    # Keep diagnostic top-K (over full k_len for transparency)
-                    k_len = attn_mean.shape[-1]
-                    top_k = min(self.top_attended_k, k_len)
-                    top_vals, top_idx = torch.topk(attn_mean, k=top_k, largest=True, sorted=True)
-                    layer_summaries.append({
-                        "layer": layer_idx,
-                        "k_len": int(k_len),
-                        "top_indices": self._to_cpu_list_ints(top_idx),
-                        "top_tokens": [tokens_all[i] for i in self._to_cpu_list_ints(top_idx)],
-                        "top_values": self._to_cpu_list_floats(top_vals),
-                    })
-
-            # --- Pooled attention per strategy
-            per_step_pooled = {"generated_step": step_idx, "absolute_token_index": abs_idx, "token": gen_tok, "pools": {}}
-
-            # For global accumulation, consider prompt-token slice when KEY_SCOPE="prompt"
-            for name, mode in pool_modes.items():
-                pooled_vec = self._pool_layer_vectors(layer_vecs, mode=mode)  # [k_len]
-
-                if self.key_scope == "prompt":
-                    pooled_slice = pooled_vec[:prompt_len]
-                    pooled_slice = self._renorm_or_copy(pooled_slice, self.renormalize)
-                    per_step_pooled.setdefault("prompt_scores", {})[name] = self._to_cpu_list_floats(pooled_slice)
-                    # global accumulation over prompt (mean across steps; renorm at the end)
-                    global_prompt_accum[name] += pooled_slice
-                    # top-K within prompt
-                    top_k = min(self.top_attended_k, prompt_len)
-                    vals, idx = torch.topk(pooled_slice, k=top_k, largest=True, sorted=True)
-                    idx_list = self._to_cpu_list_ints(idx)
-                    val_list = self._to_cpu_list_floats(vals)
-                    per_step_pooled["pools"][name] = {
-                        "key_scope": "prompt",
-                        "top_indices": idx_list,                 # indices within prompt range [0, prompt_len)
-                        "top_tokens": [tokens_all[i] for i in idx_list],
-                        "top_values": val_list,
-                    }
-                else:
-                    # KEY_SCOPE == "all"
-                    pooled_vec = self._renorm_or_copy(pooled_vec, self.renormalize)
-                    per_step_pooled.setdefault("prompt_scores", {})[name] = self._to_cpu_list_floats(pooled_vec)
-                    k_len = pooled_vec.shape[-1]
-                    top_k = min(self.top_attended_k, k_len)
-                    vals, idx = torch.topk(pooled_vec, k=top_k, largest=True, sorted=True)
-                    idx_list = self._to_cpu_list_ints(idx)
-                    val_list = self._to_cpu_list_floats(vals)
-                    per_step_pooled["pools"][name] = {
-                        "key_scope": "all",
-                        "top_indices": idx_list,                 # absolute indices into tokens_all
-                        "top_tokens": [tokens_all[i] for i in idx_list],
-                        "top_values": val_list,
-                    }
-
-            pooled_record.append(per_step_pooled)
-
-            if record_layers:
-                # Keep per-layer top-K diagnostic
-                attn_record.append({
-                    "generated_step": step_idx,
-                    "absolute_token_index": abs_idx,
-                    "token": gen_tok,
-                    "layers": layer_summaries,
-                })
-
-        # --- Build global pooled distributions over prompt tokens (mean across steps)
-        global_pooled_over_prompt = {}
-        if self.key_scope == "prompt" and num_generated > 0:
-            prompt_tokens = tokens_all[:prompt_len]
-            for name in pool_names:
-                mean_vec = global_prompt_accum[name] / float(num_generated)  # average across steps
-                mean_vec = self._renorm_or_copy(mean_vec, self.renormalize)
-                # top-K for reporting
-                top_k = min(self.top_attended_k, prompt_len)
-                vals, idx = torch.topk(mean_vec, k=top_k, largest=True, sorted=True)
-                idx_list = self._to_cpu_list_ints(idx)
-                val_list = self._to_cpu_list_floats(vals)
-                global_pooled_over_prompt[name] = {
-                    "prompt_tokens": prompt_tokens,
-                    "scores": self._to_cpu_list_floats(mean_vec),  # full length prompt_len
-                    "top_indices": idx_list,
-                    "top_tokens": [prompt_tokens[i] for i in idx_list],
-                    "top_values": val_list,
-                }
-
-        layer_prompt_stats = None
-        if layer_prompt_totals is not None:
-            denom = float(max(num_generated, 1))
-            prompt_mass_mean = [val / denom for val in layer_prompt_totals]
-            layer_prompt_stats = {
-                "num_layers": len(layer_prompt_totals),
-                "prompt_mass_per_layer": prompt_mass_mean,
-                "prompt_mass_totals": layer_prompt_totals,
-                "prompt_length": prompt_len,
-                "num_generated_tokens": num_generated,
-            }
+        attn_summaries = postprocess_generation_attentions(
+            attentions=getattr(out, "attentions", None),
+            tokens_all=tokens_all,
+            prompt_len=prompt_len,
+            num_generated=num_generated,
+            key_scope=self.key_scope,
+            renormalize=self.renormalize,
+            top_attended_k=self.top_attended_k,
+            record_layers=record_layers,
+            model=self.model,
+        )
 
         return {
             "model": self.model_name,
@@ -547,20 +399,15 @@ class llama70b:
             "prompt_text": prompt_text,
             "generated_completion": generated_completion,
             # per-layer diagnostic (kept)
-            "attention_by_generated_token": attn_record if record_layers else [],
+            "attention_by_generated_token": attn_summaries.attention_by_generated_token if record_layers else [],
             # per-step per-pool top-K
-            "pooled_attention_by_generated_token": pooled_record,
+            "pooled_attention_by_generated_token": attn_summaries.pooled_attention_by_generated_token,
             # global per-pool distribution over prompt tokens (only when KEY_SCOPE='prompt')
-            "global_pooled_attention_over_prompt": global_pooled_over_prompt,
-            "pooling_strategies": {
-                "first_layer": "first",
-                "last_layer": "last",
-                "last4_layers_mean": "last4",
-                "all_layers_mean": "all",
-            },
+            "global_pooled_attention_over_prompt": attn_summaries.global_pooled_attention_over_prompt,
+            "pooling_strategies": dict(POOLING_STRATEGIES),
             "key_scope": self.key_scope,
             "renormalized": self.renormalize,
-            "layer_prompt_stats": layer_prompt_stats,
+            "layer_prompt_stats": attn_summaries.layer_prompt_stats,
             "record_layers": record_layers,
             "record_attention": record_attention,
         }
@@ -584,7 +431,7 @@ class llama70b:
         vocab_tokens: Optional[Sequence[dict]] = None,
     ) -> Dict[str, Any]:
         """
-        Generate with llama70b using a caller-provided instruction.
+        Generate with the configured causal LM using a caller-provided instruction.
         """
         if instruction is None:
             instruction = "Summarize what this Java function does. Be concise and accurate."
@@ -630,22 +477,6 @@ class llama70b:
         backend = install_steering_hooks(self.model, runtime_getter, self.steering_config)
         print(f"[Steering] Installed backend={backend}.")
 
-    def summarize_code(
-        self,
-        code_snippet: str,
-        instruction: Optional[str] = None,
-    ) -> Dict[str, Any]:
-        """
-        Backwards-compatible wrapper for the legacy API.
-        """
-        if instruction is None:
-            instruction = "Summarize what this Python function does. Be concise and accurate."
-        return self.run_llama(
-            code_snippet,
-            instruction=instruction,
-            language="python",
-        )
-
     def save_dump(self, result: Dict[str, Any], json_path: str) -> str:
         """Persist a result to JSON and return the path."""
         os.makedirs(os.path.dirname(json_path) or ".", exist_ok=True)
@@ -661,103 +492,7 @@ class llama70b:
             torch.cuda.empty_cache()
 
 
-# Optional alias
-Llama70B = llama70b
-
-
-# ----------------------------
-# Main (demo)
-# ----------------------------
-def _short_preview(result: Dict[str, Any], n_steps: int = 2, n_layers: int = 3, n_top: int = 5):
-    print("\n=== GENERATED TEXT ===")
-    print(result["generated_text"])
-
-    print("\n=== ATTENTION SUMMARY (first %d generated tokens, first %d layers) ===" % (n_steps, n_layers))
-    for rec in result["attention_by_generated_token"][:n_steps]:
-        idx = rec.get("absolute_token_index", -1)
-        print(f"\nToken #{idx} -> {rec['token']!r}")
-        for ls in rec["layers"][:n_layers]:
-            tops = ", ".join(
-                f"{tok}:{val:.3f}"
-                for tok, val in zip(ls["top_tokens"], ls["top_values"])
-            )
-            print(f"  Layer {ls['layer']:>2}: {tops}")
-
-    print("\n=== POOLED (first %d generated tokens; top-%d per strategy, scope=%s) ==="
-          % (n_steps, n_top, result["key_scope"]))
-    for rec in result["pooled_attention_by_generated_token"][:n_steps]:
-        print(f"\nToken #{rec['absolute_token_index']} -> {rec['token']!r}")
-        for name, payload in rec["pools"].items():
-            tops = ", ".join(
-                f"{tok}:{val:.3f}"
-                for tok, val in zip(payload["top_tokens"][:n_top], payload["top_values"][:n_top])
-            )
-            print(f"  {name:>22}: {tops}")
-
-    if result["key_scope"] == "prompt" and result["global_pooled_attention_over_prompt"]:
-        print("\n=== GLOBAL POOLED OVER PROMPT (top-10) ===")
-        for name, payload in result["global_pooled_attention_over_prompt"].items():
-            tops = ", ".join(
-                f"{tok}:{val:.3f}"
-                for tok, val in zip(payload["top_tokens"][:10], payload["top_values"][:10])
-            )
-            print(f"  {name:>22}: {tops}")
-
-
-def main():
-    # Example usage (adjust config here; no env overrides except optional HUGGINGFACE_TOKEN for login)
-    llama = llama70b()
-
-    # Optional: login using HUGGINGFACE_TOKEN if present
-    llama.login_hf()
-
-    # Configure as needed (edit these lines, or call from your code)
-    llama.config(
-        model_name="/data/xxr230000/model_cache/codellama_70b/models--codellama--CodeLlama-70b-Instruct-hf/snapshots/397cae981dffaf5d5c9c90e89a0a75a850528b70",
-        cache_dir=DEFAULT_CACHE_DIR,
-        use_4bit=DEFAULT_USE_4BIT,
-        max_new_tokens=DEFAULT_MAX_NEW,
-        temperature=DEFAULT_TEMP,
-        top_p=DEFAULT_TOP_P,
-        top_k=DEFAULT_TOP_K,
-        top_attended_k=DEFAULT_TOP_ATTN_K,
-        attn_dump_dir=DEFAULT_ATTN_DIR,
-        mem_fraction=DEFAULT_MEM_FRAC,
-        key_scope=DEFAULT_KEY_SCOPE,
-        renormalize=DEFAULT_RENORMAL,
-    )
-
-    print(f"Cache dir: {llama.cache_dir}")
-    if torch.cuda.is_available():
-        print("CUDA devices:", torch.cuda.device_count())
-
-    llama.build()
-
-    demo_code = r"""
-def two_sum(nums, target):
-    seen = {}
-    for i, x in enumerate(nums):
-        y = target - x
-        if y in seen:
-            return [seen[y], i]
-        seen[x] = i
-    return None
-"""
-
-    result = llama.run_llama(demo_code, language="python")
-
-    # Short, human-readable preview
-    _short_preview(result, n_steps=2, n_layers=3, n_top=5)
-
-    # Save full JSON
-    os.makedirs(llama.attn_dump_dir, exist_ok=True)
-    out_path = os.path.join(llama.attn_dump_dir, "attn_summary.json")
-    llama.save_dump(result, out_path)
-    print(f"\nSaved full JSON to: {out_path}")
-
-    # Free VRAM/resources if desired
-    llama.free()
-
-
-if __name__ == "__main__":
-    main()
+# Backwards-compatible aliases (the codebase historically used `llama70b()` as
+# the entrypoint for any causal LM; keep it to avoid touching other modules).
+ModelRunner = SteeredCausalLM
+llama70b = SteeredCausalLM

@@ -14,7 +14,7 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 import torch
-from models import llama70b
+from models import ModelRunner
 from util import utity
 from render.util import AttentionRenderer, RenderConfig
 from steering import SteeringConfig
@@ -347,7 +347,7 @@ def main():
                 print(f"[WARN] Requested {requested} GPUs but only {visible_gpus} visible; using {max_devices}.")
 
     # 1) Build/run the model (only HF token may come from env)
-    llama = llama70b()
+    llama = ModelRunner()
     base_steering_config = build_steering_config(args)
     human_prior_override = args.human_file
     active_steering_config: Optional[SteeringConfig] = None
