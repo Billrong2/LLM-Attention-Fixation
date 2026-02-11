@@ -168,6 +168,12 @@ class RandPrior(PriorProvider):
         return self._normalize(vec)
 
 
+class UniformPrior(PriorProvider):
+    def vector(self, bin_idx: int, n_bins: int) -> np.ndarray:
+        vec = np.ones(len(self.context.prompt_tokens), dtype=float)
+        return self._normalize(vec)
+
+
 class ASTPrior(PriorProvider):
     """
     AST-aware prior using javalang. Falls back to a simple chunk heuristic if parsing fails.
@@ -1317,6 +1323,7 @@ PRIOR_REGISTRY = {
     "human": HumanPrior,
     "lex": LexPrior,
     "rand": RandPrior,
+    "uniform": UniformPrior,
     "ast": ASTPrior,
     "cfg": CFGPrior,
     "slice": SlicingPrior,

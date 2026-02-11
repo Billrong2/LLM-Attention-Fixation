@@ -14,6 +14,7 @@ from __future__ import annotations
 import os
 import json
 import pprint
+from types import SimpleNamespace
 from typing import Dict, Any, List, Tuple, Optional, Sequence
 
 from huggingface_hub import login
@@ -202,6 +203,7 @@ class SteeredCausalLM:
             print("Per-GPU max_memory cap:", max_memory)
 
         tok = AutoTokenizer.from_pretrained(self.model_name, cache_dir=self.cache_dir)
+        tok.padding_side = "left"
         for k in ["hidden_size","num_hidden_layers","num_attention_heads","num_key_value_heads",
           "intermediate_size","rms_norm_eps","rope_theta","max_position_embeddings",
           "vocab_size","tie_word_embeddings"]:
@@ -273,6 +275,180 @@ class SteeredCausalLM:
     # ----------------------------
     # Core: generate with attention
     # ----------------------------
+    def _should_use_split_prefill(self, runtime: Optional[SteeringRuntime], prompt_len: int) -> bool:
+        if runtime is None:
+            return False
+        if self.steering_config is None:
+            return False
+        if not self.steering_config.split_prefill:
+            return False
+        if not runtime.decode_only:
+            return False
+        if prompt_len < 2:
+            return False
+        return any(level in self.steering_config.enabled_levels for level in (1, 2))
+
+    def _sample_next_token(
+        self,
+        scores: torch.Tensor,
+        *,
+        do_sample: bool,
+        temperature: float,
+        top_p: float,
+        top_k: Optional[int],
+    ) -> torch.Tensor:
+        if not do_sample:
+            return torch.argmax(scores, dim=-1, keepdim=True)
+
+        scores = scores / max(float(temperature), 1e-6)
+        if top_k is not None and top_k > 0:
+            k = min(int(top_k), scores.size(-1))
+            cutoff = torch.topk(scores, k)[0][..., -1, None]
+            scores = scores.masked_fill(scores < cutoff, float("-inf"))
+        if top_p < 1.0:
+            sorted_logits, sorted_indices = torch.sort(scores, descending=True, dim=-1)
+            sorted_probs = torch.softmax(sorted_logits, dim=-1)
+            cdf = torch.cumsum(sorted_probs, dim=-1)
+            remove = cdf > top_p
+            remove[..., 1:] = remove[..., :-1].clone()
+            remove[..., 0] = False
+            sorted_logits = sorted_logits.masked_fill(remove, float("-inf"))
+            scores = torch.full_like(scores, float("-inf"))
+            scores.scatter_(dim=-1, index=sorted_indices, src=sorted_logits)
+
+        probs = torch.softmax(scores, dim=-1)
+        return torch.multinomial(probs, num_samples=1)
+
+    def _manual_decode_from_past(
+        self,
+        *,
+        last_id: torch.Tensor,
+        full_mask: torch.Tensor,
+        initial_position_ids: torch.Tensor,
+        past_key_values: Any,
+        gen_cfg: GenerationConfig,
+        logits_processor: LogitsProcessorList,
+        record_attention: bool,
+    ) -> SimpleNamespace:
+        generated = last_id
+        attentions: List[Any] = []
+        past = past_key_values
+        input_step = last_id
+        dynamic_mask = full_mask
+        dynamic_position_ids = initial_position_ids
+        eos_ids = gen_cfg.eos_token_id
+        if eos_ids is None:
+            eos_set = set()
+        elif isinstance(eos_ids, (list, tuple, set)):
+            eos_set = {int(v) for v in eos_ids}
+        else:
+            eos_set = {int(eos_ids)}
+
+        for _ in range(int(gen_cfg.max_new_tokens)):
+            outputs = self.model(
+                input_ids=input_step,
+                attention_mask=dynamic_mask,
+                position_ids=dynamic_position_ids,
+                past_key_values=past,
+                use_cache=True,
+                output_attentions=record_attention,
+                return_dict=True,
+            )
+            past = outputs.past_key_values
+            if record_attention:
+                attentions.append(outputs.attentions)
+
+            scores = outputs.logits[:, -1, :]
+            scores = logits_processor(generated, scores)
+            next_token = self._sample_next_token(
+                scores,
+                do_sample=bool(gen_cfg.do_sample),
+                temperature=float(gen_cfg.temperature or 1.0),
+                top_p=float(gen_cfg.top_p or 1.0),
+                top_k=gen_cfg.top_k,
+            )
+            generated = torch.cat([generated, next_token], dim=-1)
+            input_step = next_token
+            dynamic_position_ids = dynamic_position_ids + 1
+            dynamic_mask = torch.cat(
+                [
+                    dynamic_mask,
+                    torch.ones((dynamic_mask.shape[0], 1), dtype=dynamic_mask.dtype, device=dynamic_mask.device),
+                ],
+                dim=-1,
+            )
+            if eos_set and all(int(tok.item()) in eos_set for tok in next_token.view(-1)):
+                break
+
+        return SimpleNamespace(
+            sequences=generated,
+            attentions=tuple(attentions),
+        )
+
+    def _generate_with_split_prefill(
+        self,
+        *,
+        enc: Dict[str, torch.Tensor],
+        gen_cfg: GenerationConfig,
+        logits_processor: LogitsProcessorList,
+        record_attention: bool,
+        runtime: Optional[SteeringRuntime],
+    ) -> Tuple[Any, torch.Tensor]:
+        input_ids = enc["input_ids"]
+        attention_mask = enc["attention_mask"]
+        if not bool(torch.all(attention_mask[:, -1] == 1)):
+            raise ValueError(
+                "Split-prefill requires the final token in each sample to be non-pad. "
+                "Use left-padding or batch size 1."
+            )
+
+        prefix_ids = input_ids[:, :-1]
+        last_id = input_ids[:, -1:]
+        prefix_mask = attention_mask[:, :-1]
+        full_mask = attention_mask
+        if runtime:
+            prefill_calls_before = runtime.steer_calls
+        with torch.no_grad():
+            prefill = self.model(
+                input_ids=prefix_ids,
+                attention_mask=prefix_mask,
+                use_cache=True,
+                return_dict=True,
+            )
+        if runtime and runtime.steer_calls != prefill_calls_before:
+            raise AssertionError("Steering fired during prefix prefill, which should be decode-only.")
+
+        # left-padded compatible position for the final prompt token
+        pos_last = (full_mask.sum(dim=-1) - 1).clamp_min(0).unsqueeze(1)
+
+        try:
+            with torch.no_grad():
+                out_tail = self.model.generate(
+                    input_ids=last_id,
+                    attention_mask=full_mask,
+                    past_key_values=prefill.past_key_values,
+                    generation_config=gen_cfg,
+                    return_dict_in_generate=True,
+                    output_attentions=record_attention,
+                    output_scores=False,
+                    use_cache=True,
+                    logits_processor=logits_processor,
+                )
+        except (TypeError, ValueError, RuntimeError):
+            out_tail = self._manual_decode_from_past(
+                last_id=last_id,
+                full_mask=full_mask,
+                initial_position_ids=pos_last,
+                past_key_values=prefill.past_key_values,
+                gen_cfg=gen_cfg,
+                logits_processor=logits_processor,
+                record_attention=record_attention,
+            )
+
+        full_sequences = torch.cat([prefix_ids, out_tail.sequences], dim=-1)
+        out_tail.sequences = full_sequences
+        return out_tail, full_sequences
+
     def _generate_with_attn(
         self,
         prompt: str,
@@ -285,6 +461,8 @@ class SteeredCausalLM:
         enc = {k: v.to(self.model.device) for k, v in enc.items()}
         input_ids = enc["input_ids"]
         prompt_len = input_ids.shape[-1]
+        if "attention_mask" not in enc:
+            enc["attention_mask"] = torch.ones_like(input_ids, dtype=torch.long)
 
         overrides = overrides or {}
         temperature = overrides.get("temperature", self.temperature)
@@ -310,6 +488,7 @@ class SteeredCausalLM:
                 prompt_tokens=prompt_tokens,
                 code_text=code_text,
                 vocab_tokens=self._current_vocab_tokens,
+                prompt_attention_mask=enc["attention_mask"][0].tolist(),
             )
             runtime.start(max_new_tokens)
             self._steering_runtime = runtime
@@ -330,21 +509,49 @@ class SteeredCausalLM:
             eos_token_id=self.tokenizer.eos_token_id,
         )
 
-        with torch.no_grad():
-            out = self.model.generate(
-                **enc,
-                generation_config=gen_cfg,
-                return_dict_in_generate=True,
-                output_attentions=record_attention,   # capture attention only when requested
-                output_scores=False,
-                use_cache=True,
+        use_split_prefill = self._should_use_split_prefill(runtime, prompt_len)
+        if use_split_prefill:
+            out, sequences = self._generate_with_split_prefill(
+                enc=enc,
+                gen_cfg=gen_cfg,
                 logits_processor=logits_processor,
+                record_attention=record_attention,
+                runtime=runtime,
             )
-
-        sequences = out.sequences  # [batch, prompt_len + gen_len]
+        else:
+            with torch.no_grad():
+                out = self.model.generate(
+                    **enc,
+                    generation_config=gen_cfg,
+                    return_dict_in_generate=True,
+                    output_attentions=record_attention,   # capture attention only when requested
+                    output_scores=False,
+                    use_cache=True,
+                    logits_processor=logits_processor,
+                )
+            sequences = out.sequences  # [batch, prompt_len + gen_len]
 
         if runtime:
             self._steering_runtime = None
+        steering_debug = {
+            "enabled": bool(runtime and runtime.enabled),
+            "decode_only": bool(runtime and runtime.decode_only),
+            "only_first_decode_step": bool(runtime and runtime.only_first_decode_step),
+            "prompt_len": int(prompt_len),
+            "steer_calls": int(runtime.steer_calls if runtime else 0),
+            "blocked_prefill_calls": int(runtime.blocked_prefill_calls if runtime else 0),
+            "blocked_q_len": int(runtime.blocked_q_len if runtime else 0),
+            "blocked_kv_len": int(runtime.blocked_kv_len if runtime else 0),
+            "blocked_layer": int(runtime.blocked_layer if runtime else 0),
+            "blocked_disabled": int(runtime.blocked_disabled if runtime else 0),
+            "split_prefill_used": bool(use_split_prefill),
+            "recency_mix": bool(self.steering_config.recency_mix) if self.steering_config else False,
+            "recency_rho": float(self.steering_config.recency_rho) if self.steering_config else 0.0,
+            "recency_window": int(self.steering_config.recency_window) if self.steering_config else 0,
+            "recency_apply_after_prompt": bool(self.steering_config.recency_apply_after_prompt) if self.steering_config else False,
+            "recency_scope": str(self.steering_config.recency_scope) if self.steering_config else "",
+            "temporal_debug": list(runtime.temporal_debug) if runtime else [],
+        }
         full_text = self.tokenizer.decode(sequences[0], skip_special_tokens=True)
         prompt_text = self.tokenizer.decode(sequences[0][:prompt_len], skip_special_tokens=True)
         generated_completion = self.tokenizer.decode(sequences[0][prompt_len:], skip_special_tokens=True)
@@ -374,6 +581,7 @@ class SteeredCausalLM:
                 "layer_prompt_stats": None,
                 "record_layers": False,
                 "record_attention": False,
+                "steering_debug": steering_debug,
             }
 
         attn_summaries = postprocess_generation_attentions(
@@ -410,6 +618,7 @@ class SteeredCausalLM:
             "layer_prompt_stats": attn_summaries.layer_prompt_stats,
             "record_layers": record_layers,
             "record_attention": record_attention,
+            "steering_debug": steering_debug,
         }
 
     # ----------------------------

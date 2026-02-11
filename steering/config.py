@@ -40,6 +40,21 @@ class SteeringConfig:
     rand_seed: Optional[int] = None
     schedule_json: Optional[Path] = None
     schedule: Dict[int, ScheduleEntry] = field(default_factory=dict)
+    # Step-1 safety defaults for non-destructive L1/L2 steering.
+    steering_enabled: bool = True
+    decode_only: bool = True
+    only_first_decode_step: bool = False
+    split_prefill: bool = True
+    steer_layer_start: Optional[int] = None
+    steer_layer_end: Optional[int] = None
+    gating_debug: bool = False
+    debug_assert_mask: bool = False
+    # Step-2 temporal decode prior: prompt prior + recency prior.
+    recency_mix: bool = True
+    recency_rho: float = 0.2
+    recency_window: int = 64
+    recency_apply_after_prompt: bool = True
+    recency_scope: str = "prefer_generated"
 
     def load_schedule(self) -> None:
         if not self.schedule_json:

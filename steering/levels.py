@@ -6,10 +6,11 @@ import torch
 def level1_bias(attn_scores: torch.Tensor, prior: torch.Tensor, beta: float, eps: float = 1e-6, cap: float | None = None):
     if beta == 0.0:
         return attn_scores
-    bias = beta * torch.log(prior + eps)
+    # Compute in fp32 for numerical stability, then cast back to logits dtype.
+    bias = beta * torch.log((prior + eps).to(torch.float32))
     if cap is not None:
         bias = torch.clamp(bias, min=-cap, max=cap)
-    return attn_scores + bias
+    return attn_scores + bias.to(attn_scores.dtype)
 
 
 def level2_post(attn_probs: torch.Tensor, prior: torch.Tensor, beta: float, eps: float = 1e-6):

@@ -465,6 +465,11 @@ def output_prediction_eval(
     model_dir: Optional[str] = None,
     model_name: Optional[str] = None,
     expected_runs: int = 200,
+    variant_filter: Optional[Sequence[str]] = None,
+    prior_filter: Optional[Sequence[str]] = None,
+    run_tag_filter: Optional[Sequence[str]] = None,
+    run_tag_contains: Optional[str] = None,
+    run_tag_regex: Optional[str] = None,
 ) -> None:
     """
     Scan attn_viz and report output-prediction accuracy (EM rate) per snippet/variant/prior.
@@ -474,10 +479,67 @@ def output_prediction_eval(
         raise FileNotFoundError("attn_viz directory missing. Run main.py first.")
 
     targets = set(s.lower() for s in snippets_filter) if snippets_filter else None
+    variant_targets = (
+        set(v.strip().lower() for v in variant_filter if v.strip())
+        if variant_filter
+        else None
+    )
+    prior_targets = (
+        set(p.strip().lower() for p in prior_filter if p.strip())
+        if prior_filter
+        else None
+    )
+    run_tag_targets = (
+        set(t.strip().lower() for t in run_tag_filter if t.strip())
+        if run_tag_filter
+        else None
+    )
+    run_tag_contains_lc = run_tag_contains.lower() if run_tag_contains else None
+    run_tag_regex_compiled = re.compile(run_tag_regex) if run_tag_regex else None
     rows: List[Tuple[str, str, str, str, int, int, int, float]] = []
+    tag_rows: List[Tuple[str, str, str, str, str, str, str, str, int, int, int, float]] = []
     snippet_variant_stats: Dict[str, Dict[str, Dict[str, Any]]] = {}
     overall_em: Dict[Tuple[str, str], int] = {}
     overall_total: Dict[Tuple[str, str], int] = {}
+    setting_totals: Dict[Tuple[str, str, str, str], Dict[str, int]] = defaultdict(
+        lambda: {"em": 0, "total": 0, "tags": 0}
+    )
+    true_baseline_totals: Dict[str, int] = {"em": 0, "total": 0, "tags": 0}
+
+    def parse_step_level_beta(tag_name: str, variant_name: str) -> Tuple[str, str, str]:
+        tag_lc = tag_name.lower()
+        variant_lc = variant_name.lower()
+        step = "-"
+        level = "-"
+        beta = "-"
+
+        step_m = re.search(r"(step\d+)", tag_lc)
+        if step_m:
+            step = step_m.group(1)
+
+        level_m = re.search(r"-(l\d+(?:l\d+)*)($|-)", tag_lc)
+        if level_m:
+            level = level_m.group(1)
+        elif variant_lc.startswith("levels-"):
+            level = variant_lc[len("levels-") :].lower()
+        elif variant_lc == "baseline":
+            level = "baseline"
+
+        beta_m = re.search(r"-b(\d+(?:p\d+)?)($|-)", tag_lc)
+        if beta_m:
+            beta = beta_m.group(1).replace("p", ".")
+
+        return step, level, beta
+
+    def tag_matches(tag_name: str) -> bool:
+        tag_lc = tag_name.lower()
+        if run_tag_targets is not None and tag_lc not in run_tag_targets:
+            return False
+        if run_tag_contains_lc is not None and run_tag_contains_lc not in tag_lc:
+            return False
+        if run_tag_regex_compiled is not None and not run_tag_regex_compiled.search(tag_name):
+            return False
+        return True
 
     def count_runs(root: Path) -> Tuple[int, int]:
         em_dir = root / "EM"
@@ -508,8 +570,12 @@ def output_prediction_eval(
             continue
         for variant_dir in sorted(p for p in snippet_dir.iterdir() if p.is_dir()):
             variant = variant_dir.name
+            if variant_targets and variant.lower() not in variant_targets:
+                continue
             for prior_dir in sorted(p for p in variant_dir.iterdir() if p.is_dir()):
                 prior = prior_dir.name
+                if prior_targets and prior.lower() not in prior_targets:
+                    continue
                 run_tag_dirs = [
                     d
                     for d in prior_dir.iterdir()
@@ -522,10 +588,22 @@ def output_prediction_eval(
                     if (prior_dir / "EM").exists() or (prior_dir / "Mismatch").exists():
                         run_tags.append(("legacy", prior_dir))
 
+                if variant.lower() == "baseline" and prior.lower() == "none":
+                    for tag_name, tag_dir in run_tags:
+                        b_em, b_mm = count_runs(tag_dir)
+                        b_total = b_em + b_mm
+                        if b_total == 0:
+                            continue
+                        true_baseline_totals["em"] += b_em
+                        true_baseline_totals["total"] += b_total
+                        true_baseline_totals["tags"] += 1
+
                 total_em = 0
                 total_mm = 0
                 valid_tags = 0
                 for tag_name, tag_dir in run_tags:
+                    if not tag_matches(tag_name):
+                        continue
                     em_runs, mm_runs = count_runs(tag_dir)
                     total = em_runs + mm_runs
                     if total != expected_runs:
@@ -537,6 +615,28 @@ def output_prediction_eval(
                     valid_tags += 1
                     total_em += em_runs
                     total_mm += mm_runs
+                    step, level, beta = parse_step_level_beta(tag_name, variant)
+                    tag_acc = em_runs / total if total else 0.0
+                    tag_rows.append(
+                        (
+                            snippet_name,
+                            variant,
+                            prior,
+                            tag_name,
+                            step,
+                            level,
+                            beta,
+                            model_name or "",
+                            total,
+                            em_runs,
+                            mm_runs,
+                            tag_acc,
+                        )
+                    )
+                    setting_key = (step, level, prior, beta)
+                    setting_totals[setting_key]["em"] += em_runs
+                    setting_totals[setting_key]["total"] += total
+                    setting_totals[setting_key]["tags"] += 1
 
                 total = total_em + total_mm
                 if total == 0:
@@ -584,6 +684,16 @@ def output_prediction_eval(
     display_model = model_name or (model_dir or "default")
     print("\n[Prediction Accuracy]")
     print(f"Model: {display_model}")
+    print(
+        "Filters: "
+        f"snippets={','.join(sorted(targets)) if targets else 'all'} | "
+        f"variant={','.join(sorted(variant_targets)) if variant_targets else 'all'} | "
+        f"prior={','.join(sorted(prior_targets)) if prior_targets else 'all'} | "
+        f"run_tag={','.join(sorted(run_tag_targets)) if run_tag_targets else '*'} | "
+        f"contains={run_tag_contains or '*'} | "
+        f"regex={run_tag_regex or '*'} | "
+        f"expected_runs={expected_runs}"
+    )
     for snippet in sorted(snippet_variant_stats.keys()):
         print(f"{snippet}")
         variants = snippet_variant_stats[snippet]
@@ -616,12 +726,44 @@ def output_prediction_eval(
 
 
     print("\n[Overall Accuracy by Level/Prior]")
+    if true_baseline_totals["total"] > 0:
+        b_total = true_baseline_totals["total"]
+        b_em = true_baseline_totals["em"]
+        b_mm = b_total - b_em
+        b_acc = b_em / b_total if b_total else 0.0
+        print(
+            f"  {'--baseline':<25} | prior={'none':<8} : "
+            f"{b_acc*100:6.2f}%  (runs={b_total}, EM={b_em}, Mismatch={b_mm})"
+        )
     for (label, prior) in sorted(overall_total.keys()):
         total = overall_total[(label, prior)]
         em = overall_em.get((label, prior), 0)
         acc = em / total if total else 0.0
         mm = total - em
         print(f"  {label:<25} | prior={prior:<8} : {acc*100:6.2f}%  (runs={total}, EM={em}, Mismatch={mm})")
+
+    if setting_totals or true_baseline_totals["total"] > 0:
+        print("\n[Accuracy by Step/Level/Prior/Beta]")
+        if true_baseline_totals["total"] > 0:
+            b_total = true_baseline_totals["total"]
+            b_em = true_baseline_totals["em"]
+            b_mm = b_total - b_em
+            b_acc = b_em / b_total if b_total else 0.0
+            b_tags = true_baseline_totals["tags"]
+            print(
+                f"  {'baseline':<8} | {'baseline':<12} | prior={'none':<8} | beta={'-':<6} "
+                f": {b_acc*100:6.2f}%  (runs={b_total}, EM={b_em}, Mismatch={b_mm}, tags={b_tags})"
+            )
+        for step, level, prior, beta in sorted(setting_totals.keys()):
+            total = setting_totals[(step, level, prior, beta)]["total"]
+            em = setting_totals[(step, level, prior, beta)]["em"]
+            tags = setting_totals[(step, level, prior, beta)]["tags"]
+            mm = total - em
+            acc = em / total if total else 0.0
+            print(
+                f"  {step:<8} | {level:<12} | prior={prior:<8} | beta={beta:<6} "
+                f": {acc*100:6.2f}%  (runs={total}, EM={em}, Mismatch={mm}, tags={tags})"
+            )
 
     ensure_dir(output_root)
     csv_path = output_root / "prediction_accuracy.csv"
@@ -630,6 +772,56 @@ def output_prediction_eval(
         for snippet, variant, prior, model, total, em_runs, mm_runs, acc in sorted(rows):
             fh.write(f"{model},{snippet},{variant},{prior},{total},{em_runs},{mm_runs},{acc:.6f}\n")
     print(f"[INFO] Saved accuracy summary to {csv_path}")
+
+    if tag_rows:
+        tag_csv_path = output_root / "prediction_accuracy_by_tag.csv"
+        with tag_csv_path.open("w", encoding="utf-8") as fh:
+            fh.write(
+                "model,snippet,variant,prior,run_tag,step,level,beta,total_runs,exact_matches,mismatches,accuracy\n"
+            )
+            for (
+                snippet,
+                variant,
+                prior,
+                tag_name,
+                step,
+                level,
+                beta,
+                model,
+                total,
+                em_runs,
+                mm_runs,
+                acc,
+            ) in sorted(tag_rows):
+                fh.write(
+                    f"{model},{snippet},{variant},{prior},{tag_name},{step},{level},{beta},"
+                    f"{total},{em_runs},{mm_runs},{acc:.6f}\n"
+                )
+        print(f"[INFO] Saved run-tag accuracy summary to {tag_csv_path}")
+
+    if setting_totals or true_baseline_totals["total"] > 0:
+        setting_csv_path = output_root / "prediction_accuracy_by_setting.csv"
+        with setting_csv_path.open("w", encoding="utf-8") as fh:
+            fh.write("model,step,level,prior,beta,total_runs,exact_matches,mismatches,tags,accuracy\n")
+            if true_baseline_totals["total"] > 0:
+                b_total = true_baseline_totals["total"]
+                b_em = true_baseline_totals["em"]
+                b_mm = b_total - b_em
+                b_acc = b_em / b_total if b_total else 0.0
+                b_tags = true_baseline_totals["tags"]
+                fh.write(
+                    f"{model_name or ''},baseline,baseline,none,-,{b_total},{b_em},{b_mm},{b_tags},{b_acc:.6f}\n"
+                )
+            for step, level, prior, beta in sorted(setting_totals.keys()):
+                total = setting_totals[(step, level, prior, beta)]["total"]
+                em = setting_totals[(step, level, prior, beta)]["em"]
+                tags = setting_totals[(step, level, prior, beta)]["tags"]
+                mm = total - em
+                acc = em / total if total else 0.0
+                fh.write(
+                    f"{model_name or ''},{step},{level},{prior},{beta},{total},{em},{mm},{tags},{acc:.6f}\n"
+                )
+        print(f"[INFO] Saved setting-level accuracy summary to {setting_csv_path}")
 
 
 
@@ -850,6 +1042,30 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
         default=None,
         help="Prior directory under the variant (e.g., none, human). Defaults to latest.",
     )
+    parser.add_argument(
+        "--expected-runs",
+        type=int,
+        default=200,
+        help="Expected number of runs per run-tag. Tags with different counts are skipped.",
+    )
+    parser.add_argument(
+        "--run-tag",
+        type=str,
+        default=None,
+        help="Run-tag filter (comma-separated exact names).",
+    )
+    parser.add_argument(
+        "--run-tag-contains",
+        type=str,
+        default=None,
+        help="Run-tag substring filter (e.g., step1-l1-cfg-b0p5).",
+    )
+    parser.add_argument(
+        "--run-tag-regex",
+        type=str,
+        default=None,
+        help="Run-tag regex filter.",
+    )
     args = parser.parse_args(argv)
 
     project_root = args.project_root
@@ -867,12 +1083,33 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
         ]
         if tokens and tokens[0].lower() in {"all", "*"}:
             tokens = []
+        variant_tokens = (
+            [token.strip() for token in args.variant_label.split(",") if token.strip()]
+            if args.variant_label
+            else None
+        )
+        prior_tokens = (
+            [token.strip() for token in args.prior_label.split(",") if token.strip()]
+            if args.prior_label
+            else None
+        )
+        run_tag_tokens = (
+            [token.strip() for token in args.run_tag.split(",") if token.strip()]
+            if args.run_tag
+            else None
+        )
         output_prediction_eval(
             project_root=project_root,
             output_root=args.output_dir,
             snippets_filter=tokens or None,
             model_dir=model_dir,
             model_name=args.model_name,
+            expected_runs=args.expected_runs,
+            variant_filter=variant_tokens,
+            prior_filter=prior_tokens,
+            run_tag_filter=run_tag_tokens,
+            run_tag_contains=args.run_tag_contains,
+            run_tag_regex=args.run_tag_regex,
         )
         return
 

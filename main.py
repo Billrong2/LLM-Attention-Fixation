@@ -204,7 +204,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--level3", action="store_true")
     parser.add_argument("--level4", action="store_true")
     parser.add_argument("--level5", action="store_true")
-    parser.add_argument("--prior", choices=["human", "ast", "lex", "rand", "cfg", "slice"], default="human")
+    parser.add_argument("--prior", choices=["human", "ast", "lex", "rand", "uniform", "cfg", "slice"], default="human")
     parser.add_argument("--n-bins", type=int, default=8)
     parser.add_argument("--binning", choices=["equal_count"], default="equal_count")
     parser.add_argument("--beta-bias", type=float, default=0.0)
@@ -223,6 +223,42 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--lex-window", type=int, default=32)
     parser.add_argument("--rand-seed", type=int, default=None)
     parser.add_argument("--schedule-json", type=Path, default=None)
+    parser.add_argument(
+        "--recency-mix",
+        choices=["on", "off"],
+        default="on",
+        help="Enable Step-2 temporal prior mixing (prompt prior + recency prior).",
+    )
+    parser.add_argument(
+        "--recency-rho",
+        type=float,
+        default=0.2,
+        help="Recency mixing weight rho in p_all=(1-rho)*p_prompt + rho*p_recent.",
+    )
+    parser.add_argument(
+        "--recency-window",
+        type=int,
+        default=64,
+        help="Recency window size (last W keys).",
+    )
+    parser.add_argument(
+        "--recency-apply-after-prompt",
+        choices=["on", "off"],
+        default="on",
+        help="When on, first decode step uses only prompt prior (no recency dilution).",
+    )
+    parser.add_argument(
+        "--recency-scope",
+        choices=["prefer_generated", "last_w"],
+        default="prefer_generated",
+        help="Recency key range policy.",
+    )
+    parser.add_argument(
+        "--only-first-decode-step",
+        choices=["on", "off"],
+        default=None,
+        help="Override decode-step gating (default: off for Step-2 multi-step steering).",
+    )
     parser.add_argument("--model-name", type=str, default=None, help="HF model name to load.")
     parser.add_argument("--cache-dir", type=str, default=None, help="HF cache directory for the model.")
     parser.add_argument(
@@ -317,6 +353,16 @@ def build_steering_config(args: argparse.Namespace) -> Optional[SteeringConfig]:
         lex_window=args.lex_window,
         rand_seed=args.rand_seed,
         schedule_json=args.schedule_json,
+        recency_mix=(args.recency_mix == "on"),
+        recency_rho=args.recency_rho,
+        recency_window=args.recency_window,
+        recency_apply_after_prompt=(args.recency_apply_after_prompt == "on"),
+        recency_scope=args.recency_scope,
+        only_first_decode_step=(
+            (args.only_first_decode_step == "on")
+            if args.only_first_decode_step is not None
+            else False
+        ),
     )
 
 

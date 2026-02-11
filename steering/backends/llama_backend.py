@@ -133,16 +133,35 @@ class SteeringAttention(nn.Module):
 
         attn_weights = torch.matmul(query_states, key_states.transpose(2, 3)) / math.sqrt(self.head_dim)
 
-        if runtime and 1 in self.config.enabled_levels and self.layer_index >= self.cutoffs.l12_start:
+        if runtime and 1 in self.config.enabled_levels and runtime.should_apply_l12(
+            layer_idx=self.layer_index,
+            q_len=q_len,
+            kv_len=attn_weights.shape[-1],
+            default_layer_start=self.cutoffs.l12_start,
+            default_layer_end=self.cutoffs.l12_end,
+        ):
             bias = runtime.prior_tensor(attn_weights.device, attn_weights.shape[-1])
             attn_weights = level1_bias(attn_weights, bias, runtime.coeffs().beta_bias, cap=self.config.bias_cap)
+            runtime.steer_calls += 1
 
+        effective_mask = None
         if attention_mask is not None:
             if cache_position is not None:
                 causal_mask = attention_mask[:, :, cache_position, : key_states.shape[-2]]
                 attn_weights = attn_weights + causal_mask
+                effective_mask = causal_mask
             else:
                 attn_weights = attn_weights + attention_mask
+                effective_mask = attention_mask
+
+        if runtime and runtime.debug_assert_mask and effective_mask is not None:
+            mask_blocked = effective_mask <= -1e4
+            if mask_blocked.any():
+                if mask_blocked.shape != attn_weights.shape:
+                    mask_blocked = mask_blocked.expand_as(attn_weights)
+                masked_logits = attn_weights.masked_select(mask_blocked)
+                if masked_logits.numel() > 0:
+                    assert torch.all(masked_logits < -1e4), "Masked logits became finite after steering bias."
 
         attn_probs = nn.functional.softmax(attn_weights, dim=-1, dtype=torch.float32)
         attn_probs = nn.functional.dropout(attn_probs, p=self.attention_dropout, training=self.training)
@@ -151,9 +170,16 @@ class SteeringAttention(nn.Module):
             mean_heads = attn_probs.mean(dim=1)
             runtime.latest_attention = mean_heads[:, -1, :].detach()
 
-        if runtime and 2 in self.config.enabled_levels and self.layer_index >= self.cutoffs.l12_start:
+        if runtime and 2 in self.config.enabled_levels and runtime.should_apply_l12(
+            layer_idx=self.layer_index,
+            q_len=q_len,
+            kv_len=attn_probs.shape[-1],
+            default_layer_start=self.cutoffs.l12_start,
+            default_layer_end=self.cutoffs.l12_end,
+        ):
             scale = runtime.prior_tensor(attn_probs.device, attn_probs.shape[-1])
             attn_probs = level2_post(attn_probs, scale, runtime.coeffs().beta_post)
+            runtime.steer_calls += 1
         attn_probs = attn_probs.to(value_states.dtype)
 
         attn_output = torch.matmul(attn_probs, value_states)
