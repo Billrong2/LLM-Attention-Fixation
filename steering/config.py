@@ -55,6 +55,14 @@ class SteeringConfig:
     recency_window: int = 64
     recency_apply_after_prompt: bool = True
     recency_scope: str = "prefer_generated"
+    # Step-4 steerable-head subset configuration.
+    head_subset_mode: str = "none"  # "none" | "file"
+    head_mask_path: Optional[Path] = None
+    head_mask_apply_to: str = "both"  # "l1" | "l2" | "both"
+    head_mask_debug: bool = False
+    # Optional offline head-stat collection.
+    collect_head_stats: bool = False
+    collect_head_stats_first_decode_only: bool = True
 
     def load_schedule(self) -> None:
         if not self.schedule_json:

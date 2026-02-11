@@ -37,7 +37,7 @@ from attn_postprocess import POOLING_STRATEGIES, postprocess_generation_attentio
 DEFAULT_MODEL_NAME = "codellama/CodeLlama-70b-Instruct-hf"
 DEFAULT_CACHE_DIR  = "/data/xxr230000/model_cache/codellama_70b"
 DEFAULT_USE_4BIT   = False
-DEFAULT_MAX_NEW    = 256
+DEFAULT_MAX_NEW    = 256 # 512 If we see majority of unfinished generations.
 DEFAULT_TEMP       = 0.7
 DEFAULT_TOP_P      = 1.0
 DEFAULT_TOP_K      = 7
@@ -550,6 +550,13 @@ class SteeredCausalLM:
             "recency_window": int(self.steering_config.recency_window) if self.steering_config else 0,
             "recency_apply_after_prompt": bool(self.steering_config.recency_apply_after_prompt) if self.steering_config else False,
             "recency_scope": str(self.steering_config.recency_scope) if self.steering_config else "",
+            "head_subset_mode": str(self.steering_config.head_subset_mode) if self.steering_config else "none",
+            "head_mask_apply_to": str(self.steering_config.head_mask_apply_to) if self.steering_config else "both",
+            "head_mask_loaded": bool(runtime.head_mask_loaded) if runtime else False,
+            "head_mask_error": runtime.head_mask_error if runtime else None,
+            "head_mask_active_total": int(runtime.head_mask_active_total) if runtime else 0,
+            "head_mask_active_by_layer": dict(runtime.head_mask_active_by_layer) if runtime else {},
+            "head_stats": runtime.head_stats_payload() if runtime else None,
             "temporal_debug": list(runtime.temporal_debug) if runtime else [],
         }
         full_text = self.tokenizer.decode(sequences[0], skip_special_tokens=True)

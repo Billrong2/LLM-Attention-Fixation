@@ -259,6 +259,41 @@ def parse_args() -> argparse.Namespace:
         default=None,
         help="Override decode-step gating (default: off for Step-2 multi-step steering).",
     )
+    parser.add_argument(
+        "--head-subset-mode",
+        choices=["none", "file"],
+        default="none",
+        help="Head subset steering mode: none (all heads) or file (use --head-mask-path).",
+    )
+    parser.add_argument(
+        "--head-mask-path",
+        type=Path,
+        default=None,
+        help="Path to JSON head mask file with shape [num_layers, num_heads].",
+    )
+    parser.add_argument(
+        "--head-mask-apply-to",
+        choices=["l1", "l2", "both"],
+        default="both",
+        help="Which steering levels should apply the head mask.",
+    )
+    parser.add_argument(
+        "--head-mask-debug",
+        action="store_true",
+        help="Print head-mask loading details at runtime.",
+    )
+    parser.add_argument(
+        "--collect-head-stats",
+        choices=["on", "off"],
+        default="off",
+        help="Collect per-layer per-head agreement stats for offline mask building.",
+    )
+    parser.add_argument(
+        "--collect-head-stats-first-decode-only",
+        choices=["on", "off"],
+        default="on",
+        help="Collect head stats only at first decode step (kv_len==prompt_len).",
+    )
     parser.add_argument("--model-name", type=str, default=None, help="HF model name to load.")
     parser.add_argument("--cache-dir", type=str, default=None, help="HF cache directory for the model.")
     parser.add_argument(
@@ -363,6 +398,12 @@ def build_steering_config(args: argparse.Namespace) -> Optional[SteeringConfig]:
             if args.only_first_decode_step is not None
             else False
         ),
+        head_subset_mode=args.head_subset_mode,
+        head_mask_path=args.head_mask_path,
+        head_mask_apply_to=args.head_mask_apply_to,
+        head_mask_debug=bool(args.head_mask_debug),
+        collect_head_stats=(args.collect_head_stats == "on"),
+        collect_head_stats_first_decode_only=(args.collect_head_stats_first_decode_only == "on"),
     )
 
 

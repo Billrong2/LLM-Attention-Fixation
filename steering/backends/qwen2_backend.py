@@ -130,8 +130,20 @@ class Qwen2SteeringAttention(nn.Module):
             default_layer_start=self.cutoffs.l12_start,
             default_layer_end=self.cutoffs.l12_end,
         ):
+            base_attn_weights = attn_weights
             bias = runtime.prior_tensor(attn_weights.device, attn_weights.shape[-1])
-            attn_weights = level1_bias(attn_weights, bias, runtime.coeffs().beta_bias, cap=self.config.bias_cap)
+            steered_attn_weights = level1_bias(attn_weights, bias, runtime.coeffs().beta_bias, cap=self.config.bias_cap)
+            head_mask = runtime.get_head_mask_tensor(
+                layer_idx=self.layer_index,
+                num_layers=int(getattr(self.config_hf, "num_hidden_layers", self.layer_index + 1)),
+                num_heads=self.num_heads,
+                device=attn_weights.device,
+                level="l1",
+            )
+            if head_mask is not None:
+                attn_weights = base_attn_weights + (steered_attn_weights - base_attn_weights) * head_mask.to(attn_weights.dtype)
+            else:
+                attn_weights = steered_attn_weights
             runtime.steer_calls += 1
 
         effective_mask = None
@@ -155,6 +167,16 @@ class Qwen2SteeringAttention(nn.Module):
         if runtime:
             mean_heads = attn_probs.mean(dim=1)
             runtime.latest_attention = mean_heads[:, -1, :].detach()
+            runtime.maybe_collect_head_stats(
+                layer_idx=self.layer_index,
+                num_layers=int(getattr(self.config_hf, "num_hidden_layers", self.layer_index + 1)),
+                num_heads=self.num_heads,
+                q_len=q_len,
+                kv_len=attn_probs.shape[-1],
+                default_layer_start=self.cutoffs.l12_start,
+                default_layer_end=self.cutoffs.l12_end,
+                attn_probs=attn_probs,
+            )
 
         if runtime and 2 in self.config.enabled_levels and runtime.should_apply_l12(
             layer_idx=self.layer_index,
@@ -163,8 +185,20 @@ class Qwen2SteeringAttention(nn.Module):
             default_layer_start=self.cutoffs.l12_start,
             default_layer_end=self.cutoffs.l12_end,
         ):
+            base_attn_probs = attn_probs
             scale = runtime.prior_tensor(attn_probs.device, attn_probs.shape[-1])
-            attn_probs = level2_post(attn_probs, scale, runtime.coeffs().beta_post)
+            steered_attn_probs = level2_post(attn_probs, scale, runtime.coeffs().beta_post)
+            head_mask = runtime.get_head_mask_tensor(
+                layer_idx=self.layer_index,
+                num_layers=int(getattr(self.config_hf, "num_hidden_layers", self.layer_index + 1)),
+                num_heads=self.num_heads,
+                device=attn_probs.device,
+                level="l2",
+            )
+            if head_mask is not None:
+                attn_probs = base_attn_probs + (steered_attn_probs - base_attn_probs) * head_mask.to(attn_probs.dtype)
+            else:
+                attn_probs = steered_attn_probs
             runtime.steer_calls += 1
 
         attn_probs = attn_probs.to(value_states.dtype)

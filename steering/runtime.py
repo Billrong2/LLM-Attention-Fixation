@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass, field
-from typing import Optional, Sequence
+from pathlib import Path
+from typing import Any, Dict, Optional, Sequence
 
 import numpy as np
 import torch
@@ -39,6 +41,16 @@ class SteeringRuntime:
     _gate_logged_once: bool = False
     temporal_debug: list[dict] = field(default_factory=list)
     _temporal_logged_keys: set[tuple[int, int]] = field(default_factory=set)
+    # Step-4 head subset state.
+    head_mask_loaded: bool = False
+    head_mask_error: Optional[str] = None
+    head_mask_active_total: int = 0
+    head_mask_active_by_layer: Dict[str, int] = field(default_factory=dict)
+    _head_mask_np: Optional[np.ndarray] = None
+    _head_mask_shape: Optional[tuple[int, int]] = None
+    # Optional offline head-stat collection.
+    head_stats_sum: Optional[np.ndarray] = None
+    head_stats_count: Optional[np.ndarray] = None
 
     def start(self, total_steps: int) -> None:
         self.total_steps = total_steps
@@ -52,6 +64,8 @@ class SteeringRuntime:
         self._gate_logged_once = False
         self.temporal_debug = []
         self._temporal_logged_keys = set()
+        self.head_stats_sum = None
+        self.head_stats_count = None
         self.manager.init_bins(total_steps)
         self.manager.step(self.step_index)
 
@@ -178,6 +192,166 @@ class SteeringRuntime:
     def prior_tensor(self, device: torch.device, key_len: int) -> torch.Tensor:
         prior_vec = self.build_key_prior(device=device, key_len=key_len)
         return prior_vec.view(1, 1, 1, -1)
+
+    # ---- Step-4: steerable head subset ---------------------------------
+    def _parse_head_mask_payload(self, payload: Any, num_layers: int, num_heads: int) -> np.ndarray:
+        if isinstance(payload, dict) and "mask" in payload:
+            mask_data = payload["mask"]
+        elif isinstance(payload, dict) and "active_heads" in payload:
+            mask = np.zeros((num_layers, num_heads), dtype=bool)
+            active = payload["active_heads"]
+            if isinstance(active, dict):
+                for layer_key, heads in active.items():
+                    li = int(layer_key)
+                    if li < 0 or li >= num_layers:
+                        continue
+                    for h in heads:
+                        hi = int(h)
+                        if 0 <= hi < num_heads:
+                            mask[li, hi] = True
+                return mask
+            raise ValueError("head_mask active_heads must be a dict[layer -> list[head]].")
+        elif isinstance(payload, list):
+            mask_data = payload
+        else:
+            raise ValueError("Unsupported head mask format. Use {'mask': [[...], ...]} or {'active_heads': {...}}.")
+
+        mask_np = np.asarray(mask_data)
+        if mask_np.shape != (num_layers, num_heads):
+            raise ValueError(
+                f"Head mask shape mismatch: expected {(num_layers, num_heads)}, got {tuple(mask_np.shape)}"
+            )
+        if mask_np.dtype != np.bool_:
+            mask_np = mask_np.astype(np.float32) > 0.5
+        return mask_np
+
+    def _ensure_head_mask(self, num_layers: int, num_heads: int) -> None:
+        if self.config.head_subset_mode == "none":
+            self._head_mask_np = None
+            self._head_mask_shape = None
+            self.head_mask_loaded = False
+            self.head_mask_error = None
+            self.head_mask_active_total = 0
+            self.head_mask_active_by_layer = {}
+            return
+
+        if self.config.head_subset_mode != "file":
+            self.head_mask_error = f"Unknown head_subset_mode={self.config.head_subset_mode!r}"
+            raise ValueError(self.head_mask_error)
+
+        if self._head_mask_np is not None and self._head_mask_shape == (num_layers, num_heads):
+            return
+
+        if not self.config.head_mask_path:
+            self.head_mask_error = "head_subset_mode='file' requires head_mask_path."
+            raise ValueError(self.head_mask_error)
+
+        path = Path(self.config.head_mask_path)
+        if not path.is_file():
+            self.head_mask_error = f"Head mask file not found: {path}"
+            raise FileNotFoundError(self.head_mask_error)
+
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        mask_np = self._parse_head_mask_payload(payload, num_layers=num_layers, num_heads=num_heads)
+        self._head_mask_np = mask_np
+        self._head_mask_shape = (num_layers, num_heads)
+        self.head_mask_loaded = True
+        self.head_mask_error = None
+        self.head_mask_active_total = int(mask_np.sum())
+        self.head_mask_active_by_layer = {
+            str(i): int(mask_np[i].sum()) for i in range(num_layers) if int(mask_np[i].sum()) > 0
+        }
+        if self.config.head_mask_debug:
+            print(
+                f"[HeadMask] loaded path={path} shape={mask_np.shape} "
+                f"active_total={self.head_mask_active_total}"
+            )
+
+    def _head_mask_applies(self, level: str) -> bool:
+        mode = str(self.config.head_mask_apply_to).lower()
+        if mode == "both":
+            return True
+        return mode == level
+
+    def get_head_mask_tensor(
+        self,
+        *,
+        layer_idx: int,
+        num_layers: int,
+        num_heads: int,
+        device: torch.device,
+        level: str,
+    ) -> Optional[torch.Tensor]:
+        if self.config.head_subset_mode == "none":
+            return None
+        if not self._head_mask_applies(level):
+            return None
+
+        self._ensure_head_mask(num_layers=num_layers, num_heads=num_heads)
+        if self._head_mask_np is None:
+            return None
+        if layer_idx < 0 or layer_idx >= self._head_mask_np.shape[0]:
+            return None
+        row = self._head_mask_np[layer_idx]
+        return torch.as_tensor(row, device=device, dtype=torch.float32).view(1, num_heads, 1, 1)
+
+    # ---- Optional offline head-stat collection --------------------------
+    def _ensure_head_stats_arrays(self, num_layers: int, num_heads: int) -> None:
+        shape = (num_layers, num_heads)
+        if self.head_stats_sum is None or self.head_stats_sum.shape != shape:
+            self.head_stats_sum = np.zeros(shape, dtype=np.float64)
+            self.head_stats_count = np.zeros(shape, dtype=np.int64)
+
+    def maybe_collect_head_stats(
+        self,
+        *,
+        layer_idx: int,
+        num_layers: int,
+        num_heads: int,
+        q_len: int,
+        kv_len: int,
+        default_layer_start: int,
+        default_layer_end: int,
+        attn_probs: torch.Tensor,
+    ) -> None:
+        if not self.config.collect_head_stats:
+            return
+        if q_len != 1:
+            return
+        if self.config.collect_head_stats_first_decode_only and kv_len != self.prompt_len:
+            return
+        layer_start = default_layer_start if self.layer_start is None else self.layer_start
+        layer_end = default_layer_end if self.layer_end is None else self.layer_end
+        if layer_idx < layer_start or layer_idx > layer_end:
+            return
+        if attn_probs.ndim != 4:
+            return
+        if attn_probs.shape[1] != num_heads:
+            return
+
+        self._ensure_head_stats_arrays(num_layers=num_layers, num_heads=num_heads)
+        prior = self.build_key_prior(device=attn_probs.device, key_len=kv_len).to(attn_probs.dtype)
+        # agree[b,h] = sum_k P_last[b,h,k] * p_all[k]
+        agree = (attn_probs[:, :, -1, :] * prior.view(1, 1, kv_len)).sum(dim=-1)
+        agree_mean = agree.mean(dim=0).detach().to(torch.float64).cpu().numpy()
+        self.head_stats_sum[layer_idx, :num_heads] += agree_mean[:num_heads]
+        self.head_stats_count[layer_idx, :num_heads] += 1
+
+    def head_stats_payload(self) -> Optional[Dict[str, Any]]:
+        if self.head_stats_sum is None or self.head_stats_count is None:
+            return None
+        with np.errstate(divide="ignore", invalid="ignore"):
+            mean = np.divide(
+                self.head_stats_sum,
+                np.maximum(self.head_stats_count, 1),
+                where=np.maximum(self.head_stats_count, 1) > 0,
+            )
+        return {
+            "shape": [int(self.head_stats_sum.shape[0]), int(self.head_stats_sum.shape[1])],
+            "sum": self.head_stats_sum.tolist(),
+            "count": self.head_stats_count.tolist(),
+            "mean": mean.tolist(),
+        }
 
     def coeffs(self):
         return self.manager.coeffs()
