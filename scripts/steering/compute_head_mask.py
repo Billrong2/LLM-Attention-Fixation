@@ -18,6 +18,7 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from models import ModelRunner
 from steering import SteeringConfig
+from paths import resolve_head_mask_root, resolve_artifact_path
 
 
 def _parse_gpu_ids(raw: Optional[str]) -> Optional[List[int]]:
@@ -79,7 +80,7 @@ def parse_args() -> argparse.Namespace:
         "--output-mask",
         type=Path,
         default=None,
-        help="Optional output JSON path. Default: steering/head_masks/<snippet>_topk<k>.json",
+        help="Optional output JSON path. Relative paths are rooted under artifact root.",
     )
     return parser.parse_args()
 
@@ -198,15 +199,15 @@ def main() -> None:
         mask[li, selected] = 1
         active_heads[str(li)] = selected
 
+    safe_model = re.sub(r"[^A-Za-z0-9_.-]+", "_", args.model_name)
     out_path = args.output_mask
     if out_path is None:
-        out_dir = Path("/data/xxr230000/steering/head_masks")
+        out_dir = resolve_head_mask_root(PROJECT_ROOT)
         out_dir.mkdir(parents=True, exist_ok=True)
-        safe_model = re.sub(r"[^A-Za-z0-9_.-]+", "_", args.model_name)
         out_path = out_dir / f"{safe_model}-{args.snippet}-topk{k}.json"
     else:
-        # out_path.parent.mkdir(parents=True, exist_ok=True)
-    output_path = Path("/data/xxr230000/steering/head_masks") / f"{safe_model}-{args.snippet}-topk{k}.json"
+        out_path = resolve_artifact_path(PROJECT_ROOT, out_path)
+        out_path.parent.mkdir(parents=True, exist_ok=True)
     payload = {
         "meta": {
             "snippet": args.snippet,

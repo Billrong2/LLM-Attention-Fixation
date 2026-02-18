@@ -15,7 +15,12 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from paths import model_dir_name  # noqa: E402
+from paths import (  # noqa: E402
+    model_dir_name,
+    resolve_attn_root,
+    resolve_alignment_outputs_root,
+    resolve_artifact_path,
+)
 
 
 @dataclass
@@ -227,17 +232,19 @@ def main() -> None:
     )
     parser.add_argument(
         "--output-dir",
-        default=str(PROJECT_ROOT / "alignment" / "outputs"),
+        default=str(resolve_alignment_outputs_root(PROJECT_ROOT)),
         help="Directory to write CSV summaries.",
     )
     args = parser.parse_args()
 
-    attn_root = PROJECT_ROOT / "attn_viz"
+    attn_root = resolve_attn_root(PROJECT_ROOT)
     struct_priors = [p.strip() for p in args.struct_priors.split(",") if p.strip()]
     variant_regex = re.compile(args.variant_regex)
     tag_regex = re.compile(args.struct_tag_regex) if args.struct_tag_regex else None
     baseline_tag_regex = re.compile(args.baseline_tag_regex) if args.baseline_tag_regex else None
     out_dir = Path(args.output_dir)
+    if not out_dir.is_absolute():
+        out_dir = resolve_artifact_path(PROJECT_ROOT, out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
     micro_rows: List[Dict[str, str]] = []

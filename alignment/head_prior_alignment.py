@@ -21,6 +21,11 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from models import ModelRunner  # noqa: E402
 from steering import SteeringConfig  # noqa: E402
+from paths import (  # noqa: E402
+    resolve_head_mask_root,
+    resolve_alignment_outputs_root,
+    resolve_artifact_path,
+)
 
 
 @dataclass
@@ -156,7 +161,7 @@ def main() -> None:
     parser.add_argument(
         "--mask-dir",
         type=Path,
-        default=PROJECT_ROOT / "steering" / "head_masks",
+        default=resolve_head_mask_root(PROJECT_ROOT),
         help="Directory with Step-4 mask files.",
     )
     parser.add_argument(
@@ -192,17 +197,24 @@ def main() -> None:
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=PROJECT_ROOT / "alignment" / "outputs",
+        default=resolve_alignment_outputs_root(PROJECT_ROOT),
     )
     args = parser.parse_args()
+
+    mask_dir = args.mask_dir
+    if not mask_dir.is_absolute():
+        mask_dir = resolve_artifact_path(PROJECT_ROOT, mask_dir)
+    output_dir = args.output_dir
+    if not output_dir.is_absolute():
+        output_dir = resolve_artifact_path(PROJECT_ROOT, output_dir)
 
     gpu_ids = _parse_gpu_ids(args.gpu_ids)
     if gpu_ids is not None:
         os.environ["CUDA_VISIBLE_DEVICES"] = ",".join(str(i) for i in gpu_ids)
 
-    refs = _load_reference_masks(args.mask_dir, args.mask_glob)
+    refs = _load_reference_masks(mask_dir, args.mask_glob)
     if not refs:
-        raise RuntimeError(f"No reference masks found in {args.mask_dir} with glob '{args.mask_glob}'.")
+        raise RuntimeError(f"No reference masks found in {mask_dir} with glob '{args.mask_glob}'.")
 
     steering_cfg = SteeringConfig(
         enabled_levels=[1],
@@ -334,7 +346,7 @@ def main() -> None:
     if not rows:
         raise RuntimeError("No per-snippet alignment rows computed.")
 
-    out_dir = args.output_dir
+    out_dir = output_dir
     out_dir.mkdir(parents=True, exist_ok=True)
     micro_csv = out_dir / "head_prior_alignment_micro.csv"
     summary_csv = out_dir / "head_prior_alignment_summary.csv"

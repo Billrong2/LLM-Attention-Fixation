@@ -18,7 +18,7 @@ from models import ModelRunner
 from util import utity
 from render.util import AttentionRenderer, RenderConfig
 from steering import SteeringConfig
-from paths import model_dir_name
+from paths import model_dir_name, resolve_attn_root, resolve_artifact_path
 
 
 def _canonicalize_model_output(text: str) -> tuple[str, bool]:
@@ -459,6 +459,17 @@ def build_steering_config(args: argparse.Namespace) -> Optional[SteeringConfig]:
     ]
     if not enabled or args.skip_steering:
         return None
+    project_root = Path(__file__).resolve().parent
+    head_mask_path = (
+        resolve_artifact_path(project_root, args.head_mask_path)
+        if args.head_mask_path is not None
+        else None
+    )
+    head_subset_auto_save = (
+        resolve_artifact_path(project_root, args.head_subset_auto_save)
+        if args.head_subset_auto_save is not None
+        else None
+    )
     return SteeringConfig(
         enabled_levels=enabled,
         prior=args.prior,
@@ -500,14 +511,14 @@ def build_steering_config(args: argparse.Namespace) -> Optional[SteeringConfig]:
             else False
         ),
         head_subset_mode=args.head_subset_mode,
-        head_mask_path=args.head_mask_path,
+        head_mask_path=head_mask_path,
         head_mask_apply_to=args.head_mask_apply_to,
         head_mask_debug=bool(args.head_mask_debug),
         head_subset_topk_per_layer=max(1, int(args.head_subset_topk_per_layer)),
         head_subset_calib_runs=max(1, int(args.head_subset_calib_runs)),
         head_subset_calib_max_new_tokens=max(1, int(args.head_subset_calib_max_new_tokens)),
         head_subset_calib_first_decode_only=(args.head_subset_calib_first_decode_only == "on"),
-        head_subset_auto_save=args.head_subset_auto_save,
+        head_subset_auto_save=head_subset_auto_save,
         collect_head_stats=(args.collect_head_stats == "on"),
         collect_head_stats_first_decode_only=(args.collect_head_stats_first_decode_only == "on"),
     )
@@ -592,7 +603,8 @@ def main():
     # for code in code_set():
 
     model_label = model_dir_name(args.model_name or llama.model_name)
-    output_root = Path("/data/xxr230000/attn_viz") / model_label
+    base_dir = Path(__file__).resolve().parent
+    output_root = resolve_attn_root(base_dir, model_label, for_write=True)
     output_root.mkdir(parents=True, exist_ok=True)
     run_tag = args.run_tag.strip() if args.run_tag else None
     if not run_tag and args.auto_run_tag:
@@ -600,7 +612,6 @@ def main():
     if run_tag:
         run_tag = re.sub(r"[^A-Za-z0-9_.-]+", "_", run_tag)
 
-    base_dir = Path(__file__).resolve().parent
     source_dir = base_dir / "Source"
     fixation_root = base_dir / "fixation_dump"
     available_fixations = (

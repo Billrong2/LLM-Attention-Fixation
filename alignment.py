@@ -231,11 +231,11 @@ def main() -> None:
     args = parser.parse_args()
 
     project_root = Path(__file__).resolve().parent
-    from paths import resolve_attn_root, model_dir_name
+    from paths import resolve_attn_root, model_dir_name, resolve_eval_root
     model_dir = args.model_dir or (model_dir_name(args.model_name) if args.model_name else None)
     attn_root = resolve_attn_root(project_root, model_dir)
     fixation_root = project_root / "fixation_dump"
-    out_dir = project_root / "eval"
+    out_dir = resolve_eval_root(project_root)
     out_dir.mkdir(parents=True, exist_ok=True)
 
     pools = ["all_layers_mean", "last_layer"]

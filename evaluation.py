@@ -21,7 +21,12 @@ import numpy as np
 
 from models import DEFAULT_MODEL_NAME, DEFAULT_CACHE_DIR
 from render.util import AttentionRenderer, RenderConfig
-from paths import resolve_attn_root, model_dir_name
+from paths import (
+    resolve_attn_root,
+    model_dir_name,
+    resolve_eval_root,
+    resolve_artifact_path,
+)
 
 try:
     from transformers import AutoTokenizer  # type: ignore
@@ -1021,7 +1026,7 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=Path("eval"),
+        default=resolve_eval_root(Path(__file__).resolve().parent),
         help="Directory where evaluation results will be stored.",
     )
     parser.add_argument(
@@ -1075,6 +1080,9 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
     args = parser.parse_args(argv)
 
     project_root = args.project_root
+    output_dir = args.output_dir
+    if not output_dir.is_absolute():
+        output_dir = resolve_artifact_path(project_root, output_dir)
     model_dir = args.model_dir or (model_dir_name(args.model_name) if args.model_name else None)
     attn_root = resolve_attn_root(project_root, model_dir)
     if not attn_root.exists():
@@ -1106,7 +1114,7 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
         )
         output_prediction_eval(
             project_root=project_root,
-            output_root=args.output_dir,
+            output_root=output_dir,
             snippets_filter=tokens or None,
             model_dir=model_dir,
             model_name=args.model_name,
@@ -1143,7 +1151,7 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
         else sorted([p.name for p in attn_root.iterdir() if p.is_dir()])
     )
 
-    ensure_dir(args.output_dir)
+    ensure_dir(output_dir)
     phase_summary_tables: Dict[
         str, Dict[str, Dict[str, Tuple[float, float, float, float]]]
     ] = {phase: {} for phase in PHASES}
@@ -1154,7 +1162,7 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
                 project_root=project_root,
                 instruction=args.instruction,
                 snippet=snippet,
-                output_root=args.output_dir,
+                output_root=output_dir,
                 cache_dir=args.cache_dir,
                 model_dir=model_dir,
                 phase_summary_tables=phase_summary_tables,
@@ -1169,7 +1177,7 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
             continue
         participants = sorted(table.keys())
         snippets_sorted = sorted({snip for mapping in table.values() for snip in mapping.keys()})
-        summary_path = args.output_dir / f"summary_phase_{phase}.csv"
+        summary_path = output_dir / f"summary_phase_{phase}.csv"
         with summary_path.open("w", encoding="utf-8") as csv_file:
             header = ["participant"] + snippets_sorted
             csv_file.write(",".join(header) + "\n")

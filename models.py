@@ -35,6 +35,7 @@ from steering.backends import install_steering_hooks
 from steering.pointer import PointerBiasProcessor, StepAdvanceProcessor
 from steering.runtime import SteeringRuntime, create_runtime
 from attn_postprocess import POOLING_STRATEGIES, postprocess_generation_attentions
+from paths import resolve_artifact_path
 
 # ----------------------------
 # Hard-coded defaults (change via llama.config(...))
@@ -727,6 +728,8 @@ class SteeredCausalLM:
             ts=time.strftime("%Y%m%d-%H%M%S"),
         )
         path = Path(rendered)
+        if not path.is_absolute():
+            path = resolve_artifact_path(Path(__file__).resolve().parent, path)
         if path.suffix == "":
             path.mkdir(parents=True, exist_ok=True)
             return path / f"{safe_model}-{snippet_name}-topk{topk}.json"
