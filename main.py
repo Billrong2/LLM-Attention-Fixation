@@ -211,6 +211,59 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--beta-post", type=float, default=0.0)
     parser.add_argument("--lambda-attn", type=float, default=1.0)
     parser.add_argument("--lambda-mlp", type=float, default=1.0)
+    parser.add_argument(
+        "--residual-scale",
+        choices=["on", "off"],
+        default="off",
+        help="Enable improved Level-3 residual scaling (decode-only, layer-banded).",
+    )
+    parser.add_argument(
+        "--residual-scale-mode",
+        choices=["static", "amplifier", "paired", "agreement_gate"],
+        default="static",
+        help="Residual scaling mode for Level-3.",
+    )
+    parser.add_argument(
+        "--lambda-attn-delta",
+        type=float,
+        default=0.0,
+        help="Paired mode delta; lambdas become (1+delta, 1-delta) with clipping.",
+    )
+    parser.add_argument(
+        "--residual-scale-layer-start",
+        type=int,
+        default=None,
+        help="Optional override start layer index for residual scaling band.",
+    )
+    parser.add_argument(
+        "--residual-scale-layer-end",
+        type=int,
+        default=None,
+        help="Optional override end layer index for residual scaling band.",
+    )
+    parser.add_argument(
+        "--residual-scale-debug",
+        action="store_true",
+        help="Print one-time residual scaling debug and collect per-step residual debug records.",
+    )
+    parser.add_argument(
+        "--lambda-attn-alpha",
+        type=float,
+        default=0.05,
+        help="Agreement-gate alpha: lambda_attn=1+alpha*clamp(agree_rel-1,0,cap).",
+    )
+    parser.add_argument(
+        "--lambda-attn-cap",
+        type=float,
+        default=4.0,
+        help="Agreement-gate cap in lambda_attn computation.",
+    )
+    parser.add_argument(
+        "--agreement-scope",
+        choices=["selected_heads", "all_heads"],
+        default="selected_heads",
+        help="Agreement-gate aggregation scope for per-head agreement signal.",
+    )
     parser.add_argument("--alpha-k", type=float, default=0.0)
     parser.add_argument("--alpha-v", type=float, default=0.0)
     parser.add_argument("--beta-ptr", type=float, default=0.0)
@@ -261,9 +314,9 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--head-subset-mode",
-        choices=["none", "file"],
+        choices=["none", "file", "auto"],
         default="none",
-        help="Head subset steering mode: none (all heads) or file (use --head-mask-path).",
+        help="Head subset steering mode: none (all heads), file, or auto calibration.",
     )
     parser.add_argument(
         "--head-mask-path",
@@ -283,6 +336,36 @@ def parse_args() -> argparse.Namespace:
         help="Print head-mask loading details at runtime.",
     )
     parser.add_argument(
+        "--head-subset-topk-per-layer",
+        type=int,
+        default=4,
+        help="Step-4: for auto mode, select top-k heads per layer by agreement.",
+    )
+    parser.add_argument(
+        "--head-subset-calib-runs",
+        type=int,
+        default=12,
+        help="Step-4 auto mode: number of calibration generations.",
+    )
+    parser.add_argument(
+        "--head-subset-calib-max-new-tokens",
+        type=int,
+        default=64,
+        help="Step-4 auto mode: max_new_tokens during calibration.",
+    )
+    parser.add_argument(
+        "--head-subset-calib-first-decode-only",
+        choices=["on", "off"],
+        default="on",
+        help="Step-4 auto mode: collect calibration stats only at first decode step.",
+    )
+    parser.add_argument(
+        "--head-subset-auto-save",
+        type=Path,
+        default=None,
+        help="Optional path to save auto-calibrated mask JSON (file or directory).",
+    )
+    parser.add_argument(
         "--collect-head-stats",
         choices=["on", "off"],
         default="off",
@@ -293,6 +376,15 @@ def parse_args() -> argparse.Namespace:
         choices=["on", "off"],
         default="on",
         help="Collect head stats only at first decode step (kv_len==prompt_len).",
+    )
+    parser.add_argument(
+        "--steer-last-n-layers",
+        type=int,
+        default=None,
+        help=(
+            "Override L1/L2 steering layer band to the last N decoder layers "
+            "(e.g., 8 means [num_layers-8, num_layers-1])."
+        ),
     )
     parser.add_argument("--model-name", type=str, default=None, help="HF model name to load.")
     parser.add_argument("--cache-dir", type=str, default=None, help="HF cache directory for the model.")
@@ -376,6 +468,15 @@ def build_steering_config(args: argparse.Namespace) -> Optional[SteeringConfig]:
         beta_post=args.beta_post,
         lambda_attn=args.lambda_attn,
         lambda_mlp=args.lambda_mlp,
+        residual_scale=(args.residual_scale == "on"),
+        residual_scale_mode=args.residual_scale_mode,
+        lambda_attn_delta=args.lambda_attn_delta,
+        residual_scale_layer_start=args.residual_scale_layer_start,
+        residual_scale_layer_end=args.residual_scale_layer_end,
+        residual_scale_debug=bool(args.residual_scale_debug),
+        lambda_attn_alpha=args.lambda_attn_alpha,
+        lambda_attn_cap=args.lambda_attn_cap,
+        agreement_scope=args.agreement_scope,
         alpha_k=args.alpha_k,
         alpha_v=args.alpha_v,
         beta_ptr=args.beta_ptr,
@@ -402,6 +503,11 @@ def build_steering_config(args: argparse.Namespace) -> Optional[SteeringConfig]:
         head_mask_path=args.head_mask_path,
         head_mask_apply_to=args.head_mask_apply_to,
         head_mask_debug=bool(args.head_mask_debug),
+        head_subset_topk_per_layer=max(1, int(args.head_subset_topk_per_layer)),
+        head_subset_calib_runs=max(1, int(args.head_subset_calib_runs)),
+        head_subset_calib_max_new_tokens=max(1, int(args.head_subset_calib_max_new_tokens)),
+        head_subset_calib_first_decode_only=(args.head_subset_calib_first_decode_only == "on"),
+        head_subset_auto_save=args.head_subset_auto_save,
         collect_head_stats=(args.collect_head_stats == "on"),
         collect_head_stats_first_decode_only=(args.collect_head_stats_first_decode_only == "on"),
     )
@@ -450,6 +556,27 @@ def main():
     )  # IMPORTANT for prompt-aligned attention
     llama.build()
 
+    if base_steering_config and args.steer_last_n_layers is not None:
+        n = max(1, int(args.steer_last_n_layers))
+        num_layers = getattr(getattr(llama.model, "config", None), "num_hidden_layers", None)
+        if not isinstance(num_layers, int) or num_layers <= 0:
+            layers_obj = getattr(getattr(llama.model, "model", None), "layers", None)
+            num_layers = len(layers_obj) if layers_obj is not None else None
+        if not isinstance(num_layers, int) or num_layers <= 0:
+            print(
+                "[WARN] --steer-last-n-layers provided but failed to infer model layer count; "
+                "falling back to backend defaults."
+            )
+        else:
+            start = max(0, num_layers - min(n, num_layers))
+            end = max(0, num_layers - 1)
+            base_steering_config.steer_layer_start = start
+            base_steering_config.steer_layer_end = end
+            print(
+                f"[Steering] L1/L2 layer override via --steer-last-n-layers={n}: "
+                f"start={start}, end={end} (num_layers={num_layers})"
+            )
+
     level_label = "baseline"
     prior_label = "none"
     if base_steering_config:
@@ -465,7 +592,7 @@ def main():
     # for code in code_set():
 
     model_label = model_dir_name(args.model_name or llama.model_name)
-    output_root = Path("attn_viz") / model_label
+    output_root = Path("/data/xxr230000/attn_viz") / model_label
     output_root.mkdir(parents=True, exist_ok=True)
     run_tag = args.run_tag.strip() if args.run_tag else None
     if not run_tag and args.auto_run_tag:
@@ -558,6 +685,22 @@ def main():
                 llama.set_steering_config(active_steering_config)
             else:
                 _assign_config_fields(active_steering_config, current_cfg)
+            if current_cfg.head_subset_mode == "auto":
+                calib_info = llama.calibrate_head_subset(
+                    code_snippet=code,
+                    instruction=instruction,
+                    language="java",
+                    vocab_tokens=fixation_vocab,
+                    snippet_name=snippet_name,
+                )
+                selected_heads = int(calib_info.get("active_total", 0))
+                layers_with_heads = int(calib_info.get("layers_with_heads", 0))
+                print(
+                    f"[{snippet_name}] Auto head subset ready: "
+                    f"active_heads={selected_heads}, layers_with_heads={layers_with_heads}"
+                )
+                if calib_info.get("auto_save_path"):
+                    print(f"[{snippet_name}] Auto head subset mask: {calib_info['auto_save_path']}")
         try:
             actual_output = utity.run_java_program(code, snippet_name)
         except Exception as exc:

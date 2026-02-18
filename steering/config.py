@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Dict, Optional, Sequence
+from typing import Any, Dict, Optional, Sequence
 
 
 @dataclass
@@ -56,13 +56,32 @@ class SteeringConfig:
     recency_apply_after_prompt: bool = True
     recency_scope: str = "prefer_generated"
     # Step-4 steerable-head subset configuration.
-    head_subset_mode: str = "none"  # "none" | "file"
+    head_subset_mode: str = "none"  # "none" | "file" | "auto"
     head_mask_path: Optional[Path] = None
     head_mask_apply_to: str = "both"  # "l1" | "l2" | "both"
     head_mask_debug: bool = False
+    head_subset_topk_per_layer: int = 4
+    head_subset_calib_runs: int = 12
+    head_subset_calib_max_new_tokens: int = 64
+    head_subset_calib_first_decode_only: bool = True
+    head_subset_auto_save: Optional[Path] = None
+    # In-memory mask produced by auto calibration (same shape as file mask).
+    head_mask_inline: Optional[Any] = None
+    head_subset_selected_heads: Dict[str, list[int]] = field(default_factory=dict)
+    head_subset_calibration: Dict[str, Any] = field(default_factory=dict)
     # Optional offline head-stat collection.
     collect_head_stats: bool = False
     collect_head_stats_first_decode_only: bool = True
+    # Improved Level-3 residual scaling controls.
+    residual_scale: bool = False
+    residual_scale_mode: str = "static"  # "static" | "amplifier" | "paired" | "agreement_gate"
+    lambda_attn_delta: float = 0.0
+    residual_scale_layer_start: Optional[int] = None
+    residual_scale_layer_end: Optional[int] = None
+    residual_scale_debug: bool = False
+    lambda_attn_alpha: float = 0.05
+    lambda_attn_cap: float = 4.0
+    agreement_scope: str = "selected_heads"  # "selected_heads" | "all_heads"
 
     def load_schedule(self) -> None:
         if not self.schedule_json:

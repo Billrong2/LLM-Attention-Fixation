@@ -11,13 +11,18 @@
 # - Attention tensors scale ~O(L^2); long prompts or large max_new_tokens increase memory.
 
 from __future__ import annotations
+import copy
 import os
 import json
 import pprint
+import re
+import time
+from pathlib import Path
 from types import SimpleNamespace
 from typing import Dict, Any, List, Tuple, Optional, Sequence
 
 from huggingface_hub import login
+import numpy as np
 import torch
 from transformers import (
     AutoTokenizer,
@@ -544,6 +549,7 @@ class SteeredCausalLM:
             "blocked_kv_len": int(runtime.blocked_kv_len if runtime else 0),
             "blocked_layer": int(runtime.blocked_layer if runtime else 0),
             "blocked_disabled": int(runtime.blocked_disabled if runtime else 0),
+            "current_step_kv_len": int(runtime.current_step_kv_len) if (runtime and runtime.current_step_kv_len is not None) else None,
             "split_prefill_used": bool(use_split_prefill),
             "recency_mix": bool(self.steering_config.recency_mix) if self.steering_config else False,
             "recency_rho": float(self.steering_config.recency_rho) if self.steering_config else 0.0,
@@ -556,8 +562,37 @@ class SteeredCausalLM:
             "head_mask_error": runtime.head_mask_error if runtime else None,
             "head_mask_active_total": int(runtime.head_mask_active_total) if runtime else 0,
             "head_mask_active_by_layer": dict(runtime.head_mask_active_by_layer) if runtime else {},
+            "head_subset_selected_heads": (
+                dict(self.steering_config.head_subset_selected_heads)
+                if self.steering_config
+                else {}
+            ),
+            "head_subset_calibration": (
+                dict(self.steering_config.head_subset_calibration)
+                if self.steering_config
+                else {}
+            ),
             "head_stats": runtime.head_stats_payload() if runtime else None,
             "temporal_debug": list(runtime.temporal_debug) if runtime else [],
+            "residual_scale_enabled": bool(self.steering_config.residual_scale) if self.steering_config else False,
+            "residual_scale_mode": str(self.steering_config.residual_scale_mode) if self.steering_config else "static",
+            "residual_scale_layer_start": (
+                int(self.steering_config.residual_scale_layer_start)
+                if (self.steering_config and self.steering_config.residual_scale_layer_start is not None)
+                else None
+            ),
+            "residual_scale_layer_end": (
+                int(self.steering_config.residual_scale_layer_end)
+                if (self.steering_config and self.steering_config.residual_scale_layer_end is not None)
+                else None
+            ),
+            "residual_calls_attn": int(runtime.residual_calls_attn) if runtime else 0,
+            "residual_calls_mlp": int(runtime.residual_calls_mlp) if runtime else 0,
+            "blocked_residual_prefill": int(runtime.blocked_residual_prefill) if runtime else 0,
+            "blocked_residual_layer": int(runtime.blocked_residual_layer) if runtime else 0,
+            "blocked_residual_disabled": int(runtime.blocked_residual_disabled) if runtime else 0,
+            "blocked_residual_no_steer": int(runtime.blocked_residual_no_steer) if runtime else 0,
+            "residual_debug": list(runtime.residual_debug) if runtime else [],
         }
         full_text = self.tokenizer.decode(sequences[0], skip_special_tokens=True)
         prompt_text = self.tokenizer.decode(sequences[0][:prompt_len], skip_special_tokens=True)
@@ -682,6 +717,241 @@ class SteeredCausalLM:
             self._current_vocab_tokens = []
 
     # Steering integration -------------------------------------------------
+
+    def _resolve_auto_mask_save_path(self, raw_path: Path, *, snippet_name: str, topk: int) -> Path:
+        safe_model = re.sub(r"[^A-Za-z0-9_.-]+", "_", self.model_name)
+        rendered = str(raw_path).format(
+            snippet=snippet_name,
+            model=safe_model,
+            topk=topk,
+            ts=time.strftime("%Y%m%d-%H%M%S"),
+        )
+        path = Path(rendered)
+        if path.suffix == "":
+            path.mkdir(parents=True, exist_ok=True)
+            return path / f"{safe_model}-{snippet_name}-topk{topk}.json"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        return path
+
+    def calibrate_head_subset(
+        self,
+        *,
+        code_snippet: str,
+        instruction: str,
+        language: str = "java",
+        vocab_tokens: Optional[Sequence[dict]] = None,
+        snippet_name: Optional[str] = None,
+    ) -> Dict[str, Any]:
+        """
+        Step-4 auto head subset calibration:
+        - Collect per-layer/per-head agreement stats with betas forced to zero.
+        - Select top-k heads per layer in L1/L2 steering band.
+        - Store in-memory mask on current steering config (no prebuilt JSON required).
+        """
+        if self.steering_config is None:
+            raise RuntimeError("Head subset auto mode requires an active steering config.")
+
+        base_cfg = self.steering_config
+        if base_cfg.head_subset_mode != "auto":
+            return {"mode": base_cfg.head_subset_mode, "active_total": 0, "layers_with_heads": 0}
+        if not any(level in base_cfg.enabled_levels for level in (1, 2)):
+            raise RuntimeError("Head subset auto mode requires Level 1 and/or Level 2 steering enabled.")
+
+        from steering.backends.common import compute_default_cutoffs
+
+        runs = max(1, int(base_cfg.head_subset_calib_runs))
+        calib_max_new = max(1, int(base_cfg.head_subset_calib_max_new_tokens))
+        topk = max(1, int(base_cfg.head_subset_topk_per_layer))
+        snippet_id = snippet_name or "snippet"
+
+        calib_cfg = copy.deepcopy(base_cfg)
+        calib_cfg.head_subset_mode = "none"  # no mask during calibration.
+        calib_cfg.head_mask_path = None
+        calib_cfg.head_mask_inline = None
+        calib_cfg.head_subset_selected_heads = {}
+        calib_cfg.head_subset_calibration = {}
+        calib_cfg.collect_head_stats = True
+        calib_cfg.collect_head_stats_first_decode_only = bool(base_cfg.head_subset_calib_first_decode_only)
+        calib_cfg.beta_bias = 0.0
+        calib_cfg.beta_post = 0.0
+        calib_cfg.schedule = {}
+
+        agg_sum: Optional[np.ndarray] = None
+        agg_count: Optional[np.ndarray] = None
+        valid_runs = 0
+
+        prev_cfg = self.steering_config
+        self.steering_config = calib_cfg
+        try:
+            for run_idx in range(1, runs + 1):
+                result = self.run_llama(
+                    code_snippet,
+                    instruction=instruction,
+                    language=language,
+                    max_new_tokens=calib_max_new,
+                    do_sample=True,
+                    record_layers=False,
+                    record_attention=False,
+                    vocab_tokens=vocab_tokens,
+                )
+                hs = (result.get("steering_debug") or {}).get("head_stats")
+                if not hs:
+                    continue
+                run_sum = np.asarray(hs.get("sum", []), dtype=np.float64)
+                run_count = np.asarray(hs.get("count", []), dtype=np.float64)
+                if run_sum.ndim != 2 or run_count.ndim != 2:
+                    continue
+                if agg_sum is None:
+                    agg_sum = np.zeros_like(run_sum, dtype=np.float64)
+                    agg_count = np.zeros_like(run_count, dtype=np.float64)
+                if agg_sum.shape != run_sum.shape:
+                    raise RuntimeError(
+                        f"Head stats shape mismatch during calibration: {agg_sum.shape} vs {run_sum.shape}"
+                    )
+                agg_sum += run_sum
+                agg_count += run_count
+                valid_runs += 1
+                if run_idx % 5 == 0 or run_idx == runs:
+                    print(f"[HeadSubset-Auto] calibration progress {run_idx}/{runs} (valid={valid_runs})")
+        finally:
+            self.steering_config = prev_cfg
+
+        if agg_sum is None or agg_count is None or valid_runs == 0:
+            raise RuntimeError("Step-4 auto calibration failed: no valid head stats collected.")
+
+        with np.errstate(divide="ignore", invalid="ignore"):
+            mean = np.divide(agg_sum, np.maximum(agg_count, 1.0), where=np.maximum(agg_count, 1.0) > 0)
+
+        num_layers, num_heads = mean.shape
+        cutoffs = compute_default_cutoffs(num_layers)
+        layer_start = cutoffs.l12_start if base_cfg.steer_layer_start is None else int(base_cfg.steer_layer_start)
+        layer_end = cutoffs.l12_end if base_cfg.steer_layer_end is None else int(base_cfg.steer_layer_end)
+        layer_start = max(0, min(num_layers - 1, layer_start))
+        layer_end = max(layer_start, min(num_layers - 1, layer_end))
+        k = max(1, min(topk, num_heads))
+
+        mask = np.zeros((num_layers, num_heads), dtype=bool)
+        active_heads: Dict[str, List[int]] = {}
+        for li in range(layer_start, layer_end + 1):
+            candidates = np.where(agg_count[li] > 0)[0]
+            if candidates.size == 0:
+                continue
+            scores = mean[li, candidates]
+            order = np.argsort(-scores)
+            selected = candidates[order[: min(k, candidates.size)]].astype(int).tolist()
+            if not selected:
+                continue
+            mask[li, selected] = True
+            active_heads[str(li)] = selected
+
+        active_total = int(mask.sum())
+        if active_total <= 0:
+            raise RuntimeError("Step-4 auto calibration selected zero heads; aborting.")
+
+        base_cfg.head_mask_inline = mask.astype(np.int32).tolist()
+        base_cfg.head_subset_selected_heads = active_heads
+        base_cfg.head_subset_calibration = {
+            "mode": "auto",
+            "calib_runs_requested": int(runs),
+            "calib_runs_valid": int(valid_runs),
+            "calib_max_new_tokens": int(calib_max_new),
+            "collect_first_decode_only": bool(base_cfg.head_subset_calib_first_decode_only),
+            "layer_start": int(layer_start),
+            "layer_end": int(layer_end),
+            "topk_per_layer": int(k),
+            "active_total": int(active_total),
+            "layers_with_heads": int(len(active_heads)),
+            "auto_save_path": None,
+        }
+
+        auto_save_path: Optional[str] = None
+        if base_cfg.head_subset_auto_save:
+            save_path = self._resolve_auto_mask_save_path(
+                base_cfg.head_subset_auto_save,
+                snippet_name=snippet_id,
+                topk=k,
+            )
+            payload = {
+                "meta": {
+                    "snippet": snippet_id,
+                    "model_name": self.model_name,
+                    "mode": "auto",
+                    "calib_runs_requested": int(runs),
+                    "calib_runs_valid": int(valid_runs),
+                    "calib_max_new_tokens": int(calib_max_new),
+                    "collect_first_decode_only": bool(base_cfg.head_subset_calib_first_decode_only),
+                    "layer_start": int(layer_start),
+                    "layer_end": int(layer_end),
+                    "topk_per_layer": int(k),
+                },
+                "shape": [int(num_layers), int(num_heads)],
+                "mask": mask.astype(np.int32).tolist(),
+                "active_heads": active_heads,
+                "agree_mean": mean.tolist(),
+                "agree_sum": agg_sum.tolist(),
+                "agree_count": agg_count.astype(np.int64).tolist(),
+            }
+            save_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+            auto_save_path = str(save_path)
+            print(f"[HeadSubset-Auto] saved mask -> {auto_save_path}")
+            base_cfg.head_subset_calibration["auto_save_path"] = auto_save_path
+
+        # Smoke check 1: auto mode should select non-empty heads.
+        if int(mask.sum()) <= 0:
+            raise RuntimeError("Step-4 smoke check failed: auto mode selected empty head set.")
+
+        # Smoke check 2: when beta=0, auto mask must be a no-op.
+        beta_zero = abs(float(base_cfg.beta_bias)) <= 1e-12 and abs(float(base_cfg.beta_post)) <= 1e-12
+        noop_ok: Optional[bool] = None
+        if beta_zero:
+            cfg_none = copy.deepcopy(base_cfg)
+            cfg_none.head_subset_mode = "none"
+            cfg_none.head_mask_inline = None
+            cfg_none.collect_head_stats = False
+
+            cfg_auto = copy.deepcopy(base_cfg)
+            cfg_auto.head_subset_mode = "auto"
+            cfg_auto.collect_head_stats = False
+
+            self.steering_config = cfg_none
+            out_none = self.run_llama(
+                code_snippet,
+                instruction=instruction,
+                language=language,
+                max_new_tokens=min(calib_max_new, 16),
+                do_sample=False,
+                record_layers=False,
+                record_attention=False,
+                vocab_tokens=vocab_tokens,
+            )
+            self.steering_config = cfg_auto
+            out_auto = self.run_llama(
+                code_snippet,
+                instruction=instruction,
+                language=language,
+                max_new_tokens=min(calib_max_new, 16),
+                do_sample=False,
+                record_layers=False,
+                record_attention=False,
+                vocab_tokens=vocab_tokens,
+            )
+            noop_ok = out_none.get("token_ids_all") == out_auto.get("token_ids_all")
+            self.steering_config = base_cfg
+            if not noop_ok:
+                raise RuntimeError("Step-4 smoke check failed: auto head subset with beta=0 changed outputs.")
+
+        return {
+            "mode": "auto",
+            "active_total": int(active_total),
+            "layers_with_heads": int(len(active_heads)),
+            "topk_per_layer": int(k),
+            "calib_runs_requested": int(runs),
+            "calib_runs_valid": int(valid_runs),
+            "layer_start": int(layer_start),
+            "layer_end": int(layer_end),
+            "auto_save_path": auto_save_path,
+            "beta_zero_noop_ok": noop_ok,
+        }
 
     def _install_steering_hooks(self) -> None:
         assert self.model is not None

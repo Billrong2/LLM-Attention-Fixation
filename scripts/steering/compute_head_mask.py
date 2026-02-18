@@ -200,13 +200,13 @@ def main() -> None:
 
     out_path = args.output_mask
     if out_path is None:
-        out_dir = PROJECT_ROOT / "steering" / "head_masks"
+        out_dir = Path("/data/xxr230000/steering/head_masks")
         out_dir.mkdir(parents=True, exist_ok=True)
         safe_model = re.sub(r"[^A-Za-z0-9_.-]+", "_", args.model_name)
         out_path = out_dir / f"{safe_model}-{args.snippet}-topk{k}.json"
     else:
-        out_path.parent.mkdir(parents=True, exist_ok=True)
-
+        # out_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path = Path("/data/xxr230000/steering/head_masks") / f"{safe_model}-{args.snippet}-topk{k}.json"
     payload = {
         "meta": {
             "snippet": args.snippet,

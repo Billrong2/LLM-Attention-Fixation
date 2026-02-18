@@ -20,6 +20,45 @@ if TYPE_CHECKING:
     from ..runtime import SteeringRuntime
 
 
+def _agreement_rel_layer(
+    *,
+    runtime: "SteeringRuntime",
+    attn_probs: torch.Tensor,
+    layer_idx: int,
+    num_layers: int,
+    num_heads: int,
+    kv_len: int,
+    device: torch.device,
+) -> Optional[float]:
+    if attn_probs.ndim != 4:
+        return None
+    if attn_probs.shape[1] != num_heads:
+        return None
+
+    prior = runtime.build_key_prior(device=device, key_len=kv_len).to(attn_probs.dtype)
+    # agree_h = sum_k P_last[h,k] * p_all[k], then length-normalize.
+    agree = (attn_probs[:, :, -1, :] * prior.view(1, 1, kv_len)).sum(dim=-1) * float(kv_len)
+    if agree.numel() == 0:
+        return None
+
+    scope = str(runtime.config.agreement_scope).lower()
+    if scope == "selected_heads":
+        mask = runtime.get_head_mask_vector(
+            layer_idx=layer_idx,
+            num_layers=num_layers,
+            num_heads=num_heads,
+            device=device,
+            level="l1",
+            ignore_apply_to=True,
+        )
+        if mask is not None and float(mask.sum().item()) > 0.0:
+            selected = mask.view(-1) > 0
+            if bool(selected.any().item()):
+                agree = agree[:, selected]
+
+    return float(agree.mean().item())
+
+
 class Qwen2SteeringAttention(nn.Module):
     """
     Qwen2/Qwen2.5-specific attention wrapper that applies steering levels.
@@ -122,6 +161,12 @@ class Qwen2SteeringAttention(nn.Module):
             )
 
         attn_weights = torch.matmul(query_states, key_states.transpose(2, 3)) / math.sqrt(self.head_dim)
+        if runtime:
+            runtime.begin_decode_step(
+                q_len=q_len,
+                kv_len=attn_weights.shape[-1],
+                num_layers=int(getattr(self.config_hf, "num_hidden_layers", self.layer_index + 1)),
+            )
 
         if runtime and 1 in self.config.enabled_levels and runtime.should_apply_l12(
             layer_idx=self.layer_index,
@@ -141,10 +186,21 @@ class Qwen2SteeringAttention(nn.Module):
                 level="l1",
             )
             if head_mask is not None:
+                assert head_mask.shape[1] == attn_weights.shape[1], (
+                    f"Head mask/query mismatch at layer {self.layer_index}: "
+                    f"mask_heads={head_mask.shape[1]}, query_heads={attn_weights.shape[1]}"
+                )
                 attn_weights = base_attn_weights + (steered_attn_weights - base_attn_weights) * head_mask.to(attn_weights.dtype)
+                heads_active = float(head_mask.sum().item()) > 0.0
             else:
                 attn_weights = steered_attn_weights
+                heads_active = True
             runtime.steer_calls += 1
+            if abs(float(runtime.coeffs().beta_bias)) > 0.0 and heads_active:
+                runtime.mark_layer_steered(
+                    layer_idx=self.layer_index,
+                    num_layers=int(getattr(self.config_hf, "num_hidden_layers", self.layer_index + 1)),
+                )
 
         effective_mask = None
         if attention_mask is not None:
@@ -196,10 +252,43 @@ class Qwen2SteeringAttention(nn.Module):
                 level="l2",
             )
             if head_mask is not None:
+                assert head_mask.shape[1] == attn_probs.shape[1], (
+                    f"Head mask/query mismatch at layer {self.layer_index}: "
+                    f"mask_heads={head_mask.shape[1]}, query_heads={attn_probs.shape[1]}"
+                )
                 attn_probs = base_attn_probs + (steered_attn_probs - base_attn_probs) * head_mask.to(attn_probs.dtype)
+                heads_active = float(head_mask.sum().item()) > 0.0
             else:
                 attn_probs = steered_attn_probs
+                heads_active = True
             runtime.steer_calls += 1
+            if abs(float(runtime.coeffs().beta_post)) > 0.0 and heads_active:
+                runtime.mark_layer_steered(
+                    layer_idx=self.layer_index,
+                    num_layers=int(getattr(self.config_hf, "num_hidden_layers", self.layer_index + 1)),
+                )
+
+        if (
+            runtime
+            and q_len == 1
+            and 3 in self.config.enabled_levels
+            and str(runtime.config.residual_scale_mode).lower() == "agreement_gate"
+        ):
+            agree_rel = _agreement_rel_layer(
+                runtime=runtime,
+                attn_probs=attn_probs,
+                layer_idx=self.layer_index,
+                num_layers=int(getattr(self.config_hf, "num_hidden_layers", self.layer_index + 1)),
+                num_heads=self.num_heads,
+                kv_len=attn_probs.shape[-1],
+                device=attn_probs.device,
+            )
+            if agree_rel is not None:
+                runtime.set_layer_agreement(
+                    layer_idx=self.layer_index,
+                    num_layers=int(getattr(self.config_hf, "num_hidden_layers", self.layer_index + 1)),
+                    agree_rel=agree_rel,
+                )
 
         attn_probs = attn_probs.to(value_states.dtype)
         attn_output = torch.matmul(attn_probs, value_states)
@@ -227,11 +316,16 @@ def patch_decoder_layer(
     layer_idx: int,
     cutoffs: LayerCutoffs | None = None,
 ) -> None:
+    num_layers = 80
     if cutoffs is None:
         attn = getattr(layer, "self_attn", None)
         cfg = getattr(attn, "config", None) or getattr(attn, "config_hf", None)
         num_layers = int(getattr(cfg, "num_hidden_layers", 80))
         cutoffs = compute_default_cutoffs(num_layers)
+    else:
+        attn = getattr(layer, "self_attn", None)
+        cfg = getattr(attn, "config", None) or getattr(attn, "config_hf", None)
+        num_layers = int(getattr(cfg, "num_hidden_layers", 80))
 
     def steered_forward(
         hidden_states: torch.Tensor,
@@ -259,8 +353,23 @@ def patch_decoder_layer(
         )
 
         hidden_states = hidden_states.to(dtype=residual.dtype, device=residual.device, non_blocking=True)
-        if runtime and 3 in config.enabled_levels and cutoffs.l3_start <= layer_idx <= cutoffs.l3_end:
-            hidden_states = hidden_states * coeffs.lambda_attn
+        if runtime and 3 in config.enabled_levels and runtime.should_apply_residual(
+            layer_idx=layer_idx,
+            seq_len=hidden_states.shape[1],
+            default_layer_start=cutoffs.l12_start,
+            default_layer_end=cutoffs.l12_end,
+        ):
+            lambda_attn, _ = runtime.residual_lambdas(
+                layer_idx=layer_idx,
+                num_layers=num_layers,
+                coeffs=coeffs,
+            )
+            hidden_states = (hidden_states.float() * float(lambda_attn)).to(
+                dtype=residual.dtype,
+                device=residual.device,
+                non_blocking=True,
+            )
+            runtime.mark_residual_call("attn")
         residual = residual.to(hidden_states.device, dtype=hidden_states.dtype, non_blocking=True)
         hidden_states = residual + hidden_states
 
@@ -268,8 +377,23 @@ def patch_decoder_layer(
         hidden_states = layer.post_attention_layernorm(hidden_states)
         hidden_states = layer.mlp(hidden_states)
         hidden_states = hidden_states.to(dtype=residual.dtype, device=residual.device, non_blocking=True)
-        if runtime and 3 in config.enabled_levels and cutoffs.l3_start <= layer_idx <= cutoffs.l3_end:
-            hidden_states = hidden_states * coeffs.lambda_mlp
+        if runtime and 3 in config.enabled_levels and runtime.should_apply_residual(
+            layer_idx=layer_idx,
+            seq_len=hidden_states.shape[1],
+            default_layer_start=cutoffs.l12_start,
+            default_layer_end=cutoffs.l12_end,
+        ):
+            _, lambda_mlp = runtime.residual_lambdas(
+                layer_idx=layer_idx,
+                num_layers=num_layers,
+                coeffs=coeffs,
+            )
+            hidden_states = (hidden_states.float() * float(lambda_mlp)).to(
+                dtype=residual.dtype,
+                device=residual.device,
+                non_blocking=True,
+            )
+            runtime.mark_residual_call("mlp")
         residual = residual.to(hidden_states.device, dtype=hidden_states.dtype, non_blocking=True)
         hidden_states = residual + hidden_states
 
