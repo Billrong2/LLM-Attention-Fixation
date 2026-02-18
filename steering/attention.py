@@ -7,6 +7,9 @@ module was LLaMA/CodeLlama-specific. It has been moved to
 Qwen2.5) without mixing architectures in one file.
 """
 
-from .backends.llama_backend import SteeringAttention
+from .backends.llama_backend import LlamaSteeringAttention
 
-__all__ = ["SteeringAttention"]
+# Backward-compatible alias for legacy imports.
+SteeringAttention = LlamaSteeringAttention
+
+__all__ = ["LlamaSteeringAttention", "SteeringAttention"]

@@ -21,7 +21,6 @@ import numpy as np
 
 from models import DEFAULT_MODEL_NAME, DEFAULT_CACHE_DIR
 from render.util import AttentionRenderer, RenderConfig
-from render.plot_layer_attention import generate_layer_attention_plots
 from paths import resolve_attn_root, model_dir_name
 
 try:
@@ -502,9 +501,11 @@ def output_prediction_eval(
     overall_em: Dict[Tuple[str, str], int] = {}
     overall_total: Dict[Tuple[str, str], int] = {}
     setting_totals: Dict[Tuple[str, str, str, str], Dict[str, int]] = defaultdict(
-        lambda: {"em": 0, "total": 0, "tags": 0}
+        lambda: {"em": 0, "total": 0}
     )
-    true_baseline_totals: Dict[str, int] = {"em": 0, "total": 0, "tags": 0}
+    setting_snippets: Dict[Tuple[str, str, str, str], set[str]] = defaultdict(set)
+    true_baseline_totals: Dict[str, int] = {"em": 0, "total": 0}
+    true_baseline_snippets: set[str] = set()
 
     def parse_step_level_beta(tag_name: str, variant_name: str) -> Tuple[str, str, str]:
         tag_lc = tag_name.lower()
@@ -589,14 +590,19 @@ def output_prediction_eval(
                         run_tags.append(("legacy", prior_dir))
 
                 if variant.lower() == "baseline" and prior.lower() == "none":
+                    # Baseline aggregates across all baseline run-tags and does
+                    # NOT apply expected-runs filtering.
+                    baseline_has_runs = False
                     for tag_name, tag_dir in run_tags:
                         b_em, b_mm = count_runs(tag_dir)
                         b_total = b_em + b_mm
-                        if b_total == 0:
+                        if b_total <= 0:
                             continue
+                        baseline_has_runs = True
                         true_baseline_totals["em"] += b_em
                         true_baseline_totals["total"] += b_total
-                        true_baseline_totals["tags"] += 1
+                    if baseline_has_runs:
+                        true_baseline_snippets.add(snippet_name)
 
                 total_em = 0
                 total_mm = 0
@@ -636,7 +642,7 @@ def output_prediction_eval(
                     setting_key = (step, level, prior, beta)
                     setting_totals[setting_key]["em"] += em_runs
                     setting_totals[setting_key]["total"] += total
-                    setting_totals[setting_key]["tags"] += 1
+                    setting_snippets[setting_key].add(snippet_name)
 
                 total = total_em + total_mm
                 if total == 0:
@@ -749,7 +755,7 @@ def output_prediction_eval(
             b_em = true_baseline_totals["em"]
             b_mm = b_total - b_em
             b_acc = b_em / b_total if b_total else 0.0
-            b_tags = true_baseline_totals["tags"]
+            b_tags = len(true_baseline_snippets)
             print(
                 f"  {'baseline':<8} | {'baseline':<12} | prior={'none':<8} | beta={'-':<6} "
                 f": {b_acc*100:6.2f}%  (runs={b_total}, EM={b_em}, Mismatch={b_mm}, tags={b_tags})"
@@ -757,7 +763,7 @@ def output_prediction_eval(
         for step, level, prior, beta in sorted(setting_totals.keys()):
             total = setting_totals[(step, level, prior, beta)]["total"]
             em = setting_totals[(step, level, prior, beta)]["em"]
-            tags = setting_totals[(step, level, prior, beta)]["tags"]
+            tags = len(setting_snippets[(step, level, prior, beta)])
             mm = total - em
             acc = em / total if total else 0.0
             print(
@@ -808,14 +814,14 @@ def output_prediction_eval(
                 b_em = true_baseline_totals["em"]
                 b_mm = b_total - b_em
                 b_acc = b_em / b_total if b_total else 0.0
-                b_tags = true_baseline_totals["tags"]
+                b_tags = len(true_baseline_snippets)
                 fh.write(
                     f"{model_name or ''},baseline,baseline,none,-,{b_total},{b_em},{b_mm},{b_tags},{b_acc:.6f}\n"
                 )
             for step, level, prior, beta in sorted(setting_totals.keys()):
                 total = setting_totals[(step, level, prior, beta)]["total"]
                 em = setting_totals[(step, level, prior, beta)]["em"]
-                tags = setting_totals[(step, level, prior, beta)]["tags"]
+                tags = len(setting_snippets[(step, level, prior, beta)])
                 mm = total - em
                 acc = em / total if total else 0.0
                 fh.write(
@@ -1114,6 +1120,8 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
         return
 
     if args.plot_layer_attention is not None:
+        from render.plot_layer_attention import generate_layer_attention_plots
+
         arg_value = args.plot_layer_attention or "all"
         tokens = [
             token.strip()

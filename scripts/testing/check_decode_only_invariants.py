@@ -82,7 +82,7 @@ def main() -> None:
 
     code = args.snippet.read_text(encoding="utf-8")
 
-    print("[1/5] Baseline run (legacy path: no steering config)...")
+    print("[1/10] Baseline run (legacy path: no steering config)...")
     baseline = _run_once(
         code=code,
         model_name=args.model_name,
@@ -91,7 +91,7 @@ def main() -> None:
         max_new_tokens=args.max_new_tokens,
     )
 
-    print("[2/5] Invariant A: split_prefill=OFF, enabled=OFF must equal baseline...")
+    print("[2/10] Invariant A: split_prefill=OFF, enabled=OFF must equal baseline...")
     cfg_disabled_legacy = SteeringConfig(
         enabled_levels=[1],
         prior="ast",
@@ -112,7 +112,7 @@ def main() -> None:
     )
     _assert_same("Invariant A (legacy-disabled==baseline)", baseline, disabled_legacy)
 
-    print("[3/5] Invariant D: split_prefill=ON, enabled=OFF must equal legacy baseline...")
+    print("[3/10] Invariant D: split_prefill=ON, enabled=OFF must equal legacy baseline...")
     cfg_disabled_split = SteeringConfig(
         enabled_levels=[1],
         prior="ast",
@@ -133,7 +133,7 @@ def main() -> None:
     )
     _assert_same("Invariant D (split-prefill-disabled==legacy-baseline)", baseline, disabled_split)
 
-    print("[4/5] Invariant B: beta=0 must equal baseline...")
+    print("[4/10] Invariant B: beta=0 must equal baseline...")
     cfg_beta0 = SteeringConfig(
         enabled_levels=[1, 2],
         prior="ast",
@@ -155,7 +155,7 @@ def main() -> None:
     )
     _assert_same("Invariant B (beta=0==baseline)", baseline, beta0)
 
-    print("[5/5] Invariant C: uniform prior must equal baseline...")
+    print("[5/10] Invariant C: uniform prior must equal baseline...")
     cfg_uniform = SteeringConfig(
         enabled_levels=[1],
         prior="uniform",
@@ -176,19 +176,155 @@ def main() -> None:
     )
     _assert_same("Invariant C (uniform==baseline)", baseline, uniform)
 
+    print("[6/10] Invariant E: residual_scale=off must equal baseline...")
+    cfg_residual_off = SteeringConfig(
+        enabled_levels=[3],
+        prior="ast",
+        steering_enabled=True,
+        decode_only=True,
+        only_first_decode_step=False,
+        split_prefill=True,
+        residual_scale=False,
+        residual_scale_mode="static",
+        lambda_attn=1.2,
+        lambda_mlp=0.8,
+        gating_debug=args.gating_debug,
+        debug_assert_mask=args.mask_assert_debug,
+    )
+    residual_off = _run_once(
+        code=code,
+        model_name=args.model_name,
+        cache_dir=args.cache_dir,
+        steering=cfg_residual_off,
+        max_new_tokens=args.max_new_tokens,
+    )
+    _assert_same("Invariant E (residual_off==baseline)", baseline, residual_off)
+
+    print("[7/10] Invariant F: residual_scale=on with lambdas=1 must equal baseline...")
+    cfg_residual_on_unit = SteeringConfig(
+        enabled_levels=[3],
+        prior="ast",
+        steering_enabled=True,
+        decode_only=True,
+        only_first_decode_step=False,
+        split_prefill=True,
+        residual_scale=True,
+        residual_scale_mode="static",
+        lambda_attn=1.0,
+        lambda_mlp=1.0,
+        gating_debug=args.gating_debug,
+        debug_assert_mask=args.mask_assert_debug,
+    )
+    residual_on_unit = _run_once(
+        code=code,
+        model_name=args.model_name,
+        cache_dir=args.cache_dir,
+        steering=cfg_residual_on_unit,
+        max_new_tokens=args.max_new_tokens,
+    )
+    _assert_same("Invariant F (residual_on_lambdas1==baseline)", baseline, residual_on_unit)
+    dbg_residual_unit = residual_on_unit.get("steering_debug", {})
+    if int(dbg_residual_unit.get("blocked_residual_prefill", 0)) <= 0:
+        raise AssertionError("Invariant F failed: expected blocked_residual_prefill>0 to prove no prefill scaling.")
+
+    print("[8/10] Invariant G: amplifier mode with beta=0 should not apply residual scaling...")
+    cfg_amplifier_beta0 = SteeringConfig(
+        enabled_levels=[1, 3],
+        prior="ast",
+        beta_bias=0.0,
+        steering_enabled=True,
+        decode_only=True,
+        only_first_decode_step=False,
+        split_prefill=True,
+        residual_scale=True,
+        residual_scale_mode="amplifier",
+        lambda_attn=1.05,
+        lambda_mlp=1.0,
+        gating_debug=args.gating_debug,
+        debug_assert_mask=args.mask_assert_debug,
+    )
+    amplifier_beta0 = _run_once(
+        code=code,
+        model_name=args.model_name,
+        cache_dir=args.cache_dir,
+        steering=cfg_amplifier_beta0,
+        max_new_tokens=args.max_new_tokens,
+    )
+    _assert_same("Invariant G (amplifier_beta0==baseline)", baseline, amplifier_beta0)
+    dbg_amp = amplifier_beta0.get("steering_debug", {})
+    if int(dbg_amp.get("residual_calls_attn", 0)) != 0 or int(dbg_amp.get("residual_calls_mlp", 0)) != 0:
+        raise AssertionError("Invariant G failed: amplifier mode should not apply residual scaling when beta=0.")
+
+    print("[9/10] Invariant H: agreement_gate alpha=0 must equal baseline...")
+    cfg_agree_alpha0 = SteeringConfig(
+        enabled_levels=[3],
+        prior="ast",
+        steering_enabled=True,
+        decode_only=True,
+        only_first_decode_step=False,
+        split_prefill=True,
+        residual_scale=True,
+        residual_scale_mode="agreement_gate",
+        lambda_attn_alpha=0.0,
+        lambda_attn_cap=4.0,
+        lambda_mlp=1.0,
+        agreement_scope="all_heads",
+        gating_debug=args.gating_debug,
+        debug_assert_mask=args.mask_assert_debug,
+    )
+    agree_alpha0 = _run_once(
+        code=code,
+        model_name=args.model_name,
+        cache_dir=args.cache_dir,
+        steering=cfg_agree_alpha0,
+        max_new_tokens=args.max_new_tokens,
+    )
+    _assert_same("Invariant H (agreement_alpha0==baseline)", baseline, agree_alpha0)
+
+    print("[10/10] Invariant I: paired mode with delta=0 should equal baseline...")
+    cfg_paired_delta0 = SteeringConfig(
+        enabled_levels=[3],
+        prior="ast",
+        steering_enabled=True,
+        decode_only=True,
+        only_first_decode_step=False,
+        split_prefill=True,
+        residual_scale=True,
+        residual_scale_mode="paired",
+        lambda_attn_delta=0.0,
+        gating_debug=args.gating_debug,
+        debug_assert_mask=args.mask_assert_debug,
+    )
+    paired_delta0 = _run_once(
+        code=code,
+        model_name=args.model_name,
+        cache_dir=args.cache_dir,
+        steering=cfg_paired_delta0,
+        max_new_tokens=args.max_new_tokens,
+    )
+    _assert_same("Invariant I (paired_delta0==baseline)", baseline, paired_delta0)
+
     print("All invariants passed.")
     for label, result in [
         ("disabled_legacy", disabled_legacy),
         ("disabled_split", disabled_split),
         ("beta0", beta0),
         ("uniform", uniform),
+        ("residual_off", residual_off),
+        ("resid_unit", residual_on_unit),
+        ("amp_beta0", amplifier_beta0),
+        ("agree_a0", agree_alpha0),
+        ("paired_d0", paired_delta0),
     ]:
         dbg = result.get("steering_debug", {})
         print(
             f"  {label:8s} split_prefill={dbg.get('split_prefill_used')} "
             f"steer_calls={dbg.get('steer_calls')} blocked_prefill={dbg.get('blocked_prefill_calls')} "
             f"blocked_q={dbg.get('blocked_q_len')} blocked_kv={dbg.get('blocked_kv_len')} "
-            f"blocked_layer={dbg.get('blocked_layer')} blocked_disabled={dbg.get('blocked_disabled')}"
+            f"blocked_layer={dbg.get('blocked_layer')} blocked_disabled={dbg.get('blocked_disabled')} "
+            f"residual_calls=({dbg.get('residual_calls_attn')},{dbg.get('residual_calls_mlp')}) "
+            f"blocked_residual_prefill={dbg.get('blocked_residual_prefill')} "
+            f"blocked_residual_no_steer={dbg.get('blocked_residual_no_steer')}"
         )
 
 

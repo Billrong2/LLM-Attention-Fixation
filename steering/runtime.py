@@ -38,9 +38,22 @@ class SteeringRuntime:
     blocked_kv_len: int = 0
     blocked_layer: int = 0
     blocked_disabled: int = 0
+    current_step_kv_len: Optional[int] = None
+    steered_layers_this_step: Optional[np.ndarray] = None
+    agree_rel_this_step: Optional[np.ndarray] = None
     _gate_logged_once: bool = False
     temporal_debug: list[dict] = field(default_factory=list)
     _temporal_logged_keys: set[tuple[int, int]] = field(default_factory=set)
+    # Level-3 residual-scale diagnostics.
+    residual_calls_attn: int = 0
+    residual_calls_mlp: int = 0
+    blocked_residual_prefill: int = 0
+    blocked_residual_layer: int = 0
+    blocked_residual_disabled: int = 0
+    blocked_residual_no_steer: int = 0
+    residual_debug: list[dict] = field(default_factory=list)
+    _residual_logged_once: bool = False
+    _residual_debug_keys: set[tuple[int, int, str]] = field(default_factory=set)
     # Step-4 head subset state.
     head_mask_loaded: bool = False
     head_mask_error: Optional[str] = None
@@ -61,9 +74,21 @@ class SteeringRuntime:
         self.blocked_kv_len = 0
         self.blocked_layer = 0
         self.blocked_disabled = 0
+        self.current_step_kv_len = None
+        self.steered_layers_this_step = None
+        self.agree_rel_this_step = None
         self._gate_logged_once = False
         self.temporal_debug = []
         self._temporal_logged_keys = set()
+        self.residual_calls_attn = 0
+        self.residual_calls_mlp = 0
+        self.blocked_residual_prefill = 0
+        self.blocked_residual_layer = 0
+        self.blocked_residual_disabled = 0
+        self.blocked_residual_no_steer = 0
+        self.residual_debug = []
+        self._residual_logged_once = False
+        self._residual_debug_keys = set()
         self.head_stats_sum = None
         self.head_stats_count = None
         self.manager.init_bins(total_steps)
@@ -235,23 +260,32 @@ class SteeringRuntime:
             self.head_mask_active_by_layer = {}
             return
 
-        if self.config.head_subset_mode != "file":
+        if self.config.head_subset_mode not in {"file", "auto"}:
             self.head_mask_error = f"Unknown head_subset_mode={self.config.head_subset_mode!r}"
             raise ValueError(self.head_mask_error)
 
         if self._head_mask_np is not None and self._head_mask_shape == (num_layers, num_heads):
             return
 
-        if not self.config.head_mask_path:
-            self.head_mask_error = "head_subset_mode='file' requires head_mask_path."
-            raise ValueError(self.head_mask_error)
+        source_desc = "inline"
+        if self.config.head_mask_inline is not None:
+            payload = self.config.head_mask_inline
+        else:
+            if not self.config.head_mask_path:
+                self.head_mask_error = (
+                    f"head_subset_mode={self.config.head_subset_mode!r} requires "
+                    "head_mask_inline (auto calibration) or head_mask_path."
+                )
+                raise ValueError(self.head_mask_error)
 
-        path = Path(self.config.head_mask_path)
-        if not path.is_file():
-            self.head_mask_error = f"Head mask file not found: {path}"
-            raise FileNotFoundError(self.head_mask_error)
+            path = Path(self.config.head_mask_path)
+            if not path.is_file():
+                self.head_mask_error = f"Head mask file not found: {path}"
+                raise FileNotFoundError(self.head_mask_error)
 
-        payload = json.loads(path.read_text(encoding="utf-8"))
+            payload = json.loads(path.read_text(encoding="utf-8"))
+            source_desc = str(path)
+
         mask_np = self._parse_head_mask_payload(payload, num_layers=num_layers, num_heads=num_heads)
         self._head_mask_np = mask_np
         self._head_mask_shape = (num_layers, num_heads)
@@ -263,7 +297,7 @@ class SteeringRuntime:
         }
         if self.config.head_mask_debug:
             print(
-                f"[HeadMask] loaded path={path} shape={mask_np.shape} "
+                f"[HeadMask] loaded source={source_desc} shape={mask_np.shape} "
                 f"active_total={self.head_mask_active_total}"
             )
 
@@ -272,6 +306,29 @@ class SteeringRuntime:
         if mode == "both":
             return True
         return mode == level
+
+    def get_head_mask_vector(
+        self,
+        *,
+        layer_idx: int,
+        num_layers: int,
+        num_heads: int,
+        device: torch.device,
+        level: str,
+        ignore_apply_to: bool = False,
+    ) -> Optional[torch.Tensor]:
+        if self.config.head_subset_mode == "none":
+            return None
+        if (not ignore_apply_to) and (not self._head_mask_applies(level)):
+            return None
+
+        self._ensure_head_mask(num_layers=num_layers, num_heads=num_heads)
+        if self._head_mask_np is None:
+            return None
+        if layer_idx < 0 or layer_idx >= self._head_mask_np.shape[0]:
+            return None
+        row = self._head_mask_np[layer_idx]
+        return torch.as_tensor(row, device=device, dtype=torch.float32)
 
     def get_head_mask_tensor(
         self,
@@ -282,18 +339,17 @@ class SteeringRuntime:
         device: torch.device,
         level: str,
     ) -> Optional[torch.Tensor]:
-        if self.config.head_subset_mode == "none":
+        row = self.get_head_mask_vector(
+            layer_idx=layer_idx,
+            num_layers=num_layers,
+            num_heads=num_heads,
+            device=device,
+            level=level,
+            ignore_apply_to=False,
+        )
+        if row is None:
             return None
-        if not self._head_mask_applies(level):
-            return None
-
-        self._ensure_head_mask(num_layers=num_layers, num_heads=num_heads)
-        if self._head_mask_np is None:
-            return None
-        if layer_idx < 0 or layer_idx >= self._head_mask_np.shape[0]:
-            return None
-        row = self._head_mask_np[layer_idx]
-        return torch.as_tensor(row, device=device, dtype=torch.float32).view(1, num_heads, 1, 1)
+        return row.view(1, num_heads, 1, 1)
 
     # ---- Optional offline head-stat collection --------------------------
     def _ensure_head_stats_arrays(self, num_layers: int, num_heads: int) -> None:
@@ -352,6 +408,168 @@ class SteeringRuntime:
             "count": self.head_stats_count.tolist(),
             "mean": mean.tolist(),
         }
+
+    # ---- Decode-step state for residual scaling -------------------------
+    def _ensure_step_state(self, num_layers: int) -> None:
+        n = max(1, int(num_layers))
+        if self.steered_layers_this_step is None or int(self.steered_layers_this_step.shape[0]) != n:
+            self.steered_layers_this_step = np.zeros((n,), dtype=np.bool_)
+        if self.agree_rel_this_step is None or int(self.agree_rel_this_step.shape[0]) != n:
+            self.agree_rel_this_step = np.ones((n,), dtype=np.float32)
+
+    def begin_decode_step(self, *, q_len: int, kv_len: int, num_layers: int) -> None:
+        if q_len != 1:
+            return
+        self._ensure_step_state(num_layers)
+        if self.current_step_kv_len is None or int(self.current_step_kv_len) != int(kv_len):
+            self.current_step_kv_len = int(kv_len)
+            self.steered_layers_this_step.fill(False)
+            self.agree_rel_this_step.fill(1.0)
+
+    def mark_layer_steered(self, *, layer_idx: int, num_layers: int) -> None:
+        self._ensure_step_state(num_layers)
+        if 0 <= int(layer_idx) < int(self.steered_layers_this_step.shape[0]):
+            self.steered_layers_this_step[int(layer_idx)] = True
+
+    def set_layer_agreement(self, *, layer_idx: int, num_layers: int, agree_rel: float) -> None:
+        self._ensure_step_state(num_layers)
+        if 0 <= int(layer_idx) < int(self.agree_rel_this_step.shape[0]):
+            self.agree_rel_this_step[int(layer_idx)] = float(agree_rel)
+
+    def _residual_band(self, *, default_layer_start: int, default_layer_end: int) -> tuple[int, int]:
+        if self.config.residual_scale_layer_start is not None:
+            start = int(self.config.residual_scale_layer_start)
+        elif self.layer_start is not None:
+            start = int(self.layer_start)
+        else:
+            start = int(default_layer_start)
+
+        if self.config.residual_scale_layer_end is not None:
+            end = int(self.config.residual_scale_layer_end)
+        elif self.layer_end is not None:
+            end = int(self.layer_end)
+        else:
+            end = int(default_layer_end)
+
+        if end < start:
+            end = start
+        return start, end
+
+    def should_apply_residual(
+        self,
+        *,
+        layer_idx: int,
+        seq_len: int,
+        default_layer_start: int,
+        default_layer_end: int,
+    ) -> bool:
+        if not self.enabled or not bool(self.config.residual_scale):
+            self.blocked_residual_disabled += 1
+            return False
+        if int(seq_len) != 1:
+            self.blocked_residual_prefill += 1
+            return False
+
+        layer_start, layer_end = self._residual_band(
+            default_layer_start=default_layer_start,
+            default_layer_end=default_layer_end,
+        )
+        if int(layer_idx) < layer_start or int(layer_idx) > layer_end:
+            self.blocked_residual_layer += 1
+            return False
+
+        mode = str(self.config.residual_scale_mode).lower()
+        if mode == "amplifier":
+            self._ensure_step_state(max(layer_end + 1, layer_idx + 1))
+            if not bool(self.steered_layers_this_step[int(layer_idx)]):
+                self.blocked_residual_no_steer += 1
+                return False
+
+        if self.config.residual_scale_debug and not self._residual_logged_once:
+            coeffs = self.coeffs()
+            print(
+                f"[ResidualScale] mode={mode} band={layer_start}..{layer_end} "
+                f"lambdas=({float(coeffs.lambda_attn):.4f},{float(coeffs.lambda_mlp):.4f})"
+            )
+            self._residual_logged_once = True
+        return True
+
+    def residual_lambdas(
+        self,
+        *,
+        layer_idx: int,
+        num_layers: int,
+        coeffs: Any,
+    ) -> tuple[float, float]:
+        mode = str(self.config.residual_scale_mode).lower()
+        if mode == "paired":
+            delta = float(np.clip(float(self.config.lambda_attn_delta), -0.2, 0.2))
+            return 1.0 + delta, 1.0 - delta
+
+        if mode == "agreement_gate":
+            self._ensure_step_state(num_layers)
+            agree_rel = 1.0
+            if 0 <= int(layer_idx) < int(self.agree_rel_this_step.shape[0]):
+                agree_rel = float(self.agree_rel_this_step[int(layer_idx)])
+            cap = max(0.0, float(self.config.lambda_attn_cap))
+            alpha = float(self.config.lambda_attn_alpha)
+            gain = float(np.clip(agree_rel - 1.0, 0.0, cap))
+            lambda_attn = 1.0 + alpha * gain
+            lambda_mlp = float(coeffs.lambda_mlp)
+            self._record_residual_debug(
+                layer_idx=layer_idx,
+                mode=mode,
+                agree_rel=agree_rel,
+                lambda_attn=lambda_attn,
+                lambda_mlp=lambda_mlp,
+            )
+            return lambda_attn, lambda_mlp
+
+        # static / amplifier share the same lambda source; amplifier only changes apply-gating.
+        lambda_attn = float(coeffs.lambda_attn)
+        lambda_mlp = float(coeffs.lambda_mlp)
+        self._record_residual_debug(
+            layer_idx=layer_idx,
+            mode=mode,
+            agree_rel=None,
+            lambda_attn=lambda_attn,
+            lambda_mlp=lambda_mlp,
+        )
+        return lambda_attn, lambda_mlp
+
+    def _record_residual_debug(
+        self,
+        *,
+        layer_idx: int,
+        mode: str,
+        agree_rel: Optional[float],
+        lambda_attn: float,
+        lambda_mlp: float,
+    ) -> None:
+        if not self.config.residual_scale_debug:
+            return
+        if len(self.residual_debug) >= 12:
+            return
+        key = (int(self.step_index), int(layer_idx), str(mode))
+        if key in self._residual_debug_keys:
+            return
+        self._residual_debug_keys.add(key)
+        entry: Dict[str, Any] = {
+            "step_index": int(self.step_index),
+            "layer_idx": int(layer_idx),
+            "mode": str(mode),
+            "lambda_attn": float(lambda_attn),
+            "lambda_mlp": float(lambda_mlp),
+        }
+        if agree_rel is not None:
+            entry["agree_rel"] = float(agree_rel)
+        self.residual_debug.append(entry)
+
+    def mark_residual_call(self, kind: str) -> None:
+        if kind == "attn":
+            self.residual_calls_attn += 1
+        elif kind == "mlp":
+            self.residual_calls_mlp += 1
 
     def coeffs(self):
         return self.manager.coeffs()
