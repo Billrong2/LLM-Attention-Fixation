@@ -1,0 +1,46 @@
+
+public class C_c2b7795f {
+
+    public static void main(String[] args) {
+        _obf_t7_hook_main_788649();
+        System.out.println();
+        System.out.println("7 5 4 3");
+        System.out.println();
+        System.out.println("5 4 7 3");
+        System.out.println();
+        int[] unsorted = {3, 7, 4, 5};
+        int[] result = sort(unsorted);
+        for (int j : result) {
+            System.out.print("" + j + " ");
+        }
+    }
+
+    public static int[] sort(int[] unsorted) {
+        _obf_t7_hook_sort_27777();
+        for (int i = 1; i < unsorted.length; i++) {
+            for (int j = i; j > 0; j--) {
+                int jthElement = unsorted[j];
+                int jMinusOneElement = unsorted[j - 1];
+                if (jthElement < jMinusOneElement) {
+                    unsorted[j - 1] = jthElement;
+                    unsorted[j] = jMinusOneElement;
+                } else {
+                    break;
+                }
+            }
+        }
+        return unsorted;
+    }
+
+
+
+private static void _obf_t7_hook_sort_27777() {
+        int _obf_t7_27777 = 0;
+        _obf_t7_27777 += 0;
+    }
+
+    private static void _obf_t7_hook_main_788649() {
+        int _obf_t7_788649 = 0;
+        _obf_t7_788649 += 0;
+    }
+}

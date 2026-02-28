@@ -48,6 +48,67 @@ def resolve_alignment_outputs_root(project_root: Path) -> Path:
     return resolve_artifact_root(project_root) / "alignment" / "outputs"
 
 
+def resolve_dataset_source_root(
+    project_root: Path,
+    dataset_name: str,
+) -> Path:
+    """
+    Resolve dataset source root under Source:
+      <project>/Source/<dataset_name>
+    """
+    key = (dataset_name or "").strip().lower()
+    if key == "eyetracking":
+        return project_root / "Source" / "eyetracking"
+    if key == "humaneval":
+        return project_root / "Source" / "Humaneval"
+    if key == "cruxeval":
+        return project_root / "Source" / "Cruxeval"
+    return project_root / "Source" / dataset_name
+
+
+def resolve_eyetracking_source_root(project_root: Path) -> Path:
+    """
+    Resolve the canonical Java snippet corpus location:
+      <project>/Source/eyetracking
+    """
+    preferred = project_root / "Source" / "eyetracking"
+    if preferred.is_dir():
+        return preferred
+    return project_root / "Source"
+
+
+def resolve_obf_result_root(project_root: Path, model_dir: Optional[str] = None) -> Path:
+    root = resolve_artifact_root(project_root) / "obfuscation" / "result"
+    if model_dir:
+        return root / model_dir
+    return root
+
+
+def resolve_obf_result_read_root(
+    project_root: Path,
+    model_dir: Optional[str] = None,
+) -> Path:
+    """
+    Resolve obfuscation prediction result root for reads.
+
+    Layout expectation:
+      /.../obfuscation/result/<model_dir>/<snippet>/<technique>/<difficulty>/<run_tag>/...
+    """
+    root = resolve_obf_result_root(project_root, None)
+    if model_dir:
+        return root / model_dir
+    if not root.exists():
+        return root
+    children = [d for d in root.iterdir() if d.is_dir()]
+    if not children:
+        return root
+    if len(children) == 1:
+        return children[0]
+    raise RuntimeError(
+        "Multiple model directories found under obfuscation/result; specify a model name or --model-dir."
+    )
+
+
 def resolve_attn_root(
     project_root: Path,
     model_dir: Optional[str] = None,

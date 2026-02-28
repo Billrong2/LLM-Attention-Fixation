@@ -1,0 +1,19 @@
+import java.util.*;
+import java.lang.reflect.*;
+import org.javatuples.*;
+import java.security.*;
+import java.math.*;
+import java.io.*;
+import java.util.stream.*;
+class Java_618 {
+    public static String f(String match, String fill, long n) {
+        if (n > fill.length()) {
+            n = fill.length();
+        }
+        return fill.substring(0, (int)n) + match;
+    }
+    public static void main(String[] args) {
+    assert(f(("9"), ("8"), (2l)).equals(("89")));
+    }
+
+}

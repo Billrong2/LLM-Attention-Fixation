@@ -1,0 +1,31 @@
+
+
+public class Power {
+
+    public static void main(String[] args) {
+        int _obf_t6_main_357114 = 0; _obf_t6_main_357114 += 0;
+        System.out.println();
+        System.out.println("25");
+        System.out.println();
+        System.out.println("64");
+        System.out.println();
+        int result = power(2, 5);
+        System.out.println(result);
+    }
+
+    public static int power(int base, int exponent) {
+        int _obf_t6_state_power_773451 = 0;
+        while (_obf_t6_state_power_773451 == 0) {
+            _obf_t6_state_power_773451 = 1;
+            break;
+        }
+        do {
+                    int result = base;
+                    for (int i = 2; i <= exponent; i++) {
+                    result = result * base;
+                    }
+                    return result;
+                    
+        } while (false);
+}
+}

@@ -1,0 +1,16 @@
+import java.util.*;
+import java.lang.reflect.*;
+import org.javatuples.*;
+import java.security.*;
+import java.math.*;
+import java.io.*;
+import java.util.stream.*;
+class Java_315 {
+    public static String f(String challenge) {
+        return challenge.toLowerCase().replace("l", ",");
+    }
+    public static void main(String[] args) {
+    assert(f(("czywZ")).equals(("czywz")));
+    }
+
+}

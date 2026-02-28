@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# changed gpu ids to 0
 set -euo pipefail
 
 cd /people/cs/x/xxr230000/eyetracking
@@ -13,7 +12,6 @@ for K in 4 8 12 16 28; do
     --prior=slice \
     --beta-bias="${BETA}" \
     --n-bins=12 \
-    --gpu-ids=0 \
     --runs-per-snippet=50 \
     --model-name=Qwen/Qwen2.5-Coder-7B-Instruct \
     --record-layers=off \

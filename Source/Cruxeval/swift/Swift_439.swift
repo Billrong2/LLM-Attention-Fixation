@@ -1,0 +1,19 @@
+func f(value: String) -> String {
+    let parts = value.split(separator: " ").filter { String($0) != "" }
+    return parts.joined()
+}
+
+
+func ==(left: [(Int, Int)], right: [(Int, Int)]) -> Bool {
+    if left.count != right.count {
+        return false
+    }
+    for (l, r) in zip(left, right) {
+        if l != r {
+            return false
+        }
+    }
+    return true
+}
+            
+assert(f(value: "coscifysu") == "coscifysu")

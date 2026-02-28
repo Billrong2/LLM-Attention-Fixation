@@ -18,7 +18,11 @@ if str(PROJECT_ROOT) not in sys.path:
 
 from models import ModelRunner
 from steering import SteeringConfig
-from paths import resolve_head_mask_root, resolve_artifact_path
+from paths import (
+    resolve_artifact_path,
+    resolve_eyetracking_source_root,
+    resolve_head_mask_root,
+)
 
 
 def _parse_gpu_ids(raw: Optional[str]) -> Optional[List[int]]:
@@ -91,7 +95,8 @@ def main() -> None:
     if gpu_ids is not None:
         os.environ["CUDA_VISIBLE_DEVICES"] = ",".join(str(i) for i in gpu_ids)
 
-    source_path = PROJECT_ROOT / "Source" / f"{args.snippet}.java"
+    source_root = resolve_eyetracking_source_root(PROJECT_ROOT)
+    source_path = source_root / f"{args.snippet}.java"
     if not source_path.is_file():
         raise FileNotFoundError(f"Snippet not found: {source_path}")
     code = source_path.read_text(encoding="utf-8")

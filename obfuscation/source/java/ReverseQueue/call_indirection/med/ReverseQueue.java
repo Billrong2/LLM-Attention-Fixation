@@ -1,0 +1,41 @@
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
+
+public class ReverseQueue {
+
+    public static void main(String[] args) {
+        Queue<Integer> Q = new LinkedList<>();
+        Q.add(1);
+        Q.add(3);
+        Q.add(2);
+        Q.add(4);
+
+        _obf_t8_reverse_679363(Q);
+
+        for (Integer element : Q) {
+            System.out.print(element + " ");
+        }
+    }
+
+    public static void reverse(Queue<Integer> Q) {
+        if (Q.isEmpty()) {
+            return;
+        }
+        Integer data = Q.remove();
+        _obf_t8_reverse_679363(Q);
+        Q.add(data);
+    }
+
+
+private static void _obf_t8_reverse_679363(Queue<Integer> Q) {
+        int _obf_sel = 1;
+        switch (_obf_sel) {
+            case 1: reverse(Q); break;
+            default: reverse(Q); break;
+        }
+    }
+}

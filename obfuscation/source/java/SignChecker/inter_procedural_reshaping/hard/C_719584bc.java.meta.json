@@ -1,0 +1,70 @@
+{
+  "budgets": {
+    "ast_growth_ok": true,
+    "limits": {
+      "max_added_branches_per_100_stmts": 25,
+      "max_cfg_states_for_flattening": 20,
+      "max_expr_depth_increase": 8,
+      "max_new_ast_nodes_percent": 200.0,
+      "max_new_helpers": 8
+    },
+    "usage": {
+      "added_branches": 0,
+      "ast_nodes_after": 214,
+      "ast_nodes_before": 163,
+      "expr_depth_increase": 0,
+      "flatten_states_added": 0,
+      "helpers_added": 0
+    }
+  },
+  "class_renamed": true,
+  "difficulty": "hard",
+  "equivalence": {
+    "details": "ok",
+    "exit_match": true,
+    "stderr_match": true,
+    "stdout_match": true
+  },
+  "language": "java",
+  "level": null,
+  "main_touched": true,
+  "method_coverage_total": 2,
+  "method_coverage_touched": 4,
+  "metrics": {
+    "ast_nodes": 214,
+    "cyclomatic_approx": 3,
+    "difficulty_score": 0.1202,
+    "helpers_injected": 0,
+    "lines": 42,
+    "max_ast_depth": 3,
+    "tokens": 178
+  },
+  "mode": "technique",
+  "obfuscated_class_name": "C_719584bc",
+  "original_class_name": "SignChecker",
+  "passes_applied": [
+    {
+      "applied": true,
+      "extra": {
+        "fallback_insertions": 0,
+        "main_touched": true,
+        "method_coverage_policy": "force_all",
+        "method_coverage_total": 2,
+        "method_coverage_touched": 4,
+        "untouched_methods": []
+      },
+      "helpers_injected": 2,
+      "name": "T7",
+      "node_delta": 2,
+      "reason": "interproc_changes:2",
+      "tier": "hard",
+      "time_ms": 1.028
+    }
+  ],
+  "profile_name": "aggressive",
+  "program_id": "SignChecker",
+  "seed": 287230525526501490,
+  "skipped_passes_with_reasons": [],
+  "technique": "T7",
+  "untouched_methods": []
+}

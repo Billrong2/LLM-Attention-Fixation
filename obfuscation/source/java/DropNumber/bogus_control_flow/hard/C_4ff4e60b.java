@@ -1,0 +1,65 @@
+class C_4ff4e60b {
+
+    public static void main(String[] args) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_main_134581 = 0;
+            _obf_t5_main_134581++;
+        }
+        if (((2 * 2) + 1) > 0) {
+            int _obf_t5_main_134581_m = 0;
+            _obf_t5_main_134581_m += 0;
+        } else {
+            int _obf_t5_main_134581_e = 1;
+            _obf_t5_main_134581_e -= 1;
+        }
+        int _obf_t5_main_134581_h = (1 ^ 1);
+        if (_obf_t5_main_134581_h != 0) {
+            _obf_t5_main_134581_h += 1;
+        }
+        System.out.println("");
+        System.out.println("1 3 4");
+        System.out.println("");
+        System.out.println("8 8 4");
+        System.out.println("");
+        int[] values = {8, 8, 1, 3, 4};
+        int[] middle = dropNumber(values, 3);
+        int[] out = dropNumber(middle, 1);
+
+        for (int value : out) {
+            System.out.print("" + value + " ");
+        }
+    }
+
+    public static int[] dropNumber(int[] input, int pos) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_dropNumber_835546 = 0;
+            _obf_t5_dropNumber_835546++;
+        }
+        if (((2 * 2) + 1) > 0) {
+            int _obf_t5_dropNumber_835546_m = 0;
+            _obf_t5_dropNumber_835546_m += 0;
+        } else {
+            int _obf_t5_dropNumber_835546_e = 1;
+            _obf_t5_dropNumber_835546_e -= 1;
+        }
+        int _obf_t5_dropNumber_835546_h = (1 ^ 1);
+        if (_obf_t5_dropNumber_835546_h != 0) {
+            _obf_t5_dropNumber_835546_h += 1;
+        }
+        if (input.length == 0 || pos >= input.length) {
+            throw new IllegalArgumentException();
+        }
+
+        int[] result = new int[input.length - 1];
+
+        for (int i = 0; i < pos; i++) {
+            result[i] = input[i];
+        }
+
+        for (int i = pos; i + 1 < input.length; i++) {
+            result[i] = input[i + 1];
+        }
+
+        return result;
+    }
+}

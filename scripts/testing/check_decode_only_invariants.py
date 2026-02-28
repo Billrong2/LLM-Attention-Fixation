@@ -21,7 +21,7 @@ DEFAULT_INSTRUCTION = (
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Step-1 decode-only steering no-op invariants.")
-    parser.add_argument("--snippet", type=Path, default=Path("Source/Ackerman.java"))
+    parser.add_argument("--snippet", type=Path, default=Path("Source/eyetracking/Ackerman.java"))
     parser.add_argument("--model-name", type=str, default="Qwen/Qwen2.5-Coder-7B-Instruct")
     parser.add_argument("--cache-dir", type=str, default=None)
     parser.add_argument("--gpu-ids", type=str, default=None, help="CUDA_VISIBLE_DEVICES override, e.g. '0' or '0,1'")

@@ -18,7 +18,13 @@ from models import ModelRunner
 from util import utity
 from render.util import AttentionRenderer, RenderConfig
 from steering import SteeringConfig
-from paths import model_dir_name, resolve_attn_root, resolve_artifact_path
+from paths import (
+    model_dir_name,
+    resolve_artifact_path,
+    resolve_attn_root,
+    resolve_dataset_source_root,
+    resolve_eyetracking_source_root,
+)
 
 
 def _canonicalize_model_output(text: str) -> tuple[str, bool]:
@@ -409,6 +415,18 @@ def parse_args() -> argparse.Namespace:
         help="When off, disable all attention capture and visualization output.",
     )
     parser.add_argument(
+        "--record-bdv",
+        choices=["on", "off"],
+        default=None,
+        help=argparse.SUPPRESS,
+    )
+    parser.add_argument(
+        "--record-bdv-buckets",
+        type=str,
+        default=None,
+        help=argparse.SUPPRESS,
+    )
+    parser.add_argument(
         "--run-tag",
         type=str,
         default=None,
@@ -425,6 +443,12 @@ def parse_args() -> argparse.Namespace:
         type=str,
         default=None,
         help="Comma-separated list of snippet names to run. Defaults to all when omitted.",
+    )
+    parser.add_argument(
+        "--dataset",
+        choices=["eyetracking", "humaneval", "cruxeval"],
+        default="eyetracking",
+        help="Source dataset selector: eyetracking -> Source/eyetracking, humaneval -> Source/Humaneval(/java), cruxeval -> Source/Cruxeval(/java).",
     )
     return parser.parse_args()
 
@@ -531,6 +555,10 @@ def _assign_config_fields(target: SteeringConfig, source: SteeringConfig) -> Non
 
 def main():
     args = parse_args()
+    if args.record_bdv is not None:
+        print("[WARN] --record-bdv is deprecated and ignored. Use --record-layers on/off only.")
+    if args.record_bdv_buckets is not None:
+        print("[WARN] --record-bdv-buckets is deprecated and ignored. Buckets b1+b3 are emitted automatically when --record-layers=on.")
     gpu_ids = _parse_gpu_ids(args.gpu_ids)
     if gpu_ids is not None:
         os.environ["CUDA_VISIBLE_DEVICES"] = ",".join(str(i) for i in gpu_ids)
@@ -612,10 +640,34 @@ def main():
     if run_tag:
         run_tag = re.sub(r"[^A-Za-z0-9_.-]+", "_", run_tag)
 
-    source_dir = base_dir / "Source"
+    if args.dataset == "eyetracking":
+        source_dir = resolve_eyetracking_source_root(base_dir)
+    elif args.dataset == "humaneval":
+        humaneval_candidates = [
+            resolve_dataset_source_root(base_dir, "humaneval") / "java",
+            resolve_dataset_source_root(base_dir, "humaneval"),
+        ]
+        source_dir = humaneval_candidates[0]
+        for cand in humaneval_candidates:
+            if cand.is_dir():
+                source_dir = cand
+                break
+    else:
+        cruxeval_candidates = [
+            resolve_dataset_source_root(base_dir, "cruxeval") / "java",
+            resolve_dataset_source_root(base_dir, "cruxeval"),
+        ]
+        source_dir = cruxeval_candidates[0]
+        for cand in cruxeval_candidates:
+            if cand.is_dir():
+                source_dir = cand
+                break
     fixation_root = base_dir / "fixation_dump"
+    requires_fixation = args.dataset == "eyetracking"
     available_fixations = (
-        {p.name for p in fixation_root.iterdir() if p.is_dir()} if fixation_root.is_dir() else set()
+        {p.name for p in fixation_root.iterdir() if p.is_dir()}
+        if (requires_fixation and fixation_root.is_dir())
+        else set()
     )
     requested: set[str] = set()
     if args.snippet:
@@ -636,6 +688,8 @@ def main():
         snippet_paths = []
         for p in sorted(source_dir.iterdir()):
             if not p.is_file():
+                continue
+            if p.suffix.lower() != ".java":
                 continue
             if available_fixations and p.stem not in available_fixations:
                 print(f"[WARN] Skipping '{p.stem}' (no fixation data found).")
@@ -833,6 +887,37 @@ def main():
                     renderer.render_png(code, masked_attn_map, str(run_dir / "attention_algorithm_lexical.png"), score_key="lexical_tokens")
                     if masked_attn_map.get("fixation_tokens"):
                         renderer.render_png(code, masked_attn_map, str(run_dir / "attention_algorithm_fixation.png"), score_key="fixation_tokens")
+            if record_layers:
+                pair_id = f"{snippet_name}:{run_idx:03d}"
+                variant_type = "plain" if level_label == "baseline" else "steered"
+                artifact_paths = llama.write_recording_superset(
+                    result=result,
+                    run_dir=run_dir,
+                    schema_dir=snippet_root,
+                    code_snippet=code,
+                    instruction=instruction,
+                    target_text=actual_output_clean,
+                    language="java",
+                    pair_id=pair_id,
+                    variant_type=variant_type,
+                    is_correct=is_exact_match,
+                )
+                result.update(artifact_paths)
+                result["recording_complete"] = True
+                result.pop("full_decode_head_tensors", None)
+                required = [
+                    artifact_paths.get("record_layers_full_path"),
+                    artifact_paths.get("bdv_features_b1_path"),
+                    artifact_paths.get("bdv_features_b3_path"),
+                    artifact_paths.get("bdv_schema_path"),
+                ]
+                if any(not p or not Path(p).is_file() for p in required):
+                    raise RuntimeError(
+                        f"Recorder failure for {snippet_name} run {run_idx:03d}: missing required superset artifacts."
+                    )
+            else:
+                result["recording_complete"] = False
+                result.pop("full_decode_head_tensors", None)
             llama.save_dump(result, str(run_dir / "model_output.json"))
             (run_dir / "actual_output.txt").write_text(actual_output_str + "\n", encoding="utf-8")
             (run_dir / "predicted_output.txt").write_text(predicted_output + "\n", encoding="utf-8")

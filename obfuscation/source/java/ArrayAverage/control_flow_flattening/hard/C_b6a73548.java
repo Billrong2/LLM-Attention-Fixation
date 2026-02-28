@@ -1,0 +1,40 @@
+
+class C_b6a73548 {
+
+    public static void main(String[] args) {
+        int _obf_t6_state_main_204089 = 0;
+        while (_obf_t6_state_main_204089 == 0) {
+            _obf_t6_state_main_204089 = 1;
+            break;
+        }
+        if ((_obf_t6_state_main_204089 ^ 1) < 0) {
+            int _obf_t6_guard_204089 = 0;
+            _obf_t6_guard_204089 += 0;
+        }
+        do {
+                    System.out.println();
+                    System.out.println("0.0");
+                    System.out.println();
+                    System.out.println("7.0");
+                    System.out.println();
+                    int[] input = {2, 4, 1, 9};
+                    System.out.println(arrayAverage(input));
+                    
+        } while (false);
+}
+
+    public static float arrayAverage(int[] numbers) {
+        int _obf_t6_arrayAverage_453001 = 0; _obf_t6_arrayAverage_453001 += 0;
+        int count = 0;
+        int sum = 0;
+
+        while (count < numbers.length) {
+            sum = sum + numbers[count];
+            count = count + 1;
+        }
+
+        float average = sum / (float) count;
+        return average;
+    }
+
+}

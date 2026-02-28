@@ -1,0 +1,70 @@
+{
+  "budgets": {
+    "ast_growth_ok": true,
+    "limits": {
+      "max_added_branches_per_100_stmts": 25,
+      "max_cfg_states_for_flattening": 20,
+      "max_expr_depth_increase": 8,
+      "max_new_ast_nodes_percent": 200.0,
+      "max_new_helpers": 8
+    },
+    "usage": {
+      "added_branches": 0,
+      "ast_nodes_after": 257,
+      "ast_nodes_before": 197,
+      "expr_depth_increase": 0,
+      "flatten_states_added": 0,
+      "helpers_added": 0
+    }
+  },
+  "class_renamed": false,
+  "difficulty": "easy",
+  "equivalence": {
+    "details": "ok",
+    "exit_match": true,
+    "stderr_match": true,
+    "stdout_match": true
+  },
+  "language": "java",
+  "level": null,
+  "main_touched": true,
+  "method_coverage_total": 2,
+  "method_coverage_touched": 2,
+  "metrics": {
+    "ast_nodes": 257,
+    "cyclomatic_approx": 6,
+    "difficulty_score": 0.1521,
+    "helpers_injected": 0,
+    "lines": 33,
+    "max_ast_depth": 3,
+    "tokens": 217
+  },
+  "mode": "technique",
+  "obfuscated_class_name": "BinarySearch",
+  "original_class_name": "BinarySearch",
+  "passes_applied": [
+    {
+      "applied": true,
+      "extra": {
+        "fallback_insertions": 0,
+        "main_touched": true,
+        "method_coverage_policy": "force_all",
+        "method_coverage_total": 2,
+        "method_coverage_touched": 2,
+        "untouched_methods": []
+      },
+      "helpers_injected": 0,
+      "name": "T5",
+      "node_delta": 2,
+      "reason": "bogus_cf:2",
+      "tier": "easy",
+      "time_ms": 1.167
+    }
+  ],
+  "profile_name": "aggressive",
+  "program_id": "BinarySearch",
+  "seed": 6716080438197516086,
+  "skipped_passes_with_reasons": [],
+  "technique": "T5",
+  "untouched_methods": []
+}

@@ -56,8 +56,9 @@ class utity:
 @Test
 def run_all_source_java_files():
     from pathlib import Path
+    from paths import resolve_eyetracking_source_root
 
-    source_dir = Path(__file__).resolve().parent / "Source"
+    source_dir = resolve_eyetracking_source_root(Path(__file__).resolve().parent)
     if not source_dir.is_dir():
         raise FileNotFoundError(f"Source directory not found: {source_dir}")
 

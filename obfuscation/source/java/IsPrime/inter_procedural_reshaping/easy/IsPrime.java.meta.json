@@ -1,0 +1,70 @@
+{
+  "budgets": {
+    "ast_growth_ok": true,
+    "limits": {
+      "max_added_branches_per_100_stmts": 25,
+      "max_cfg_states_for_flattening": 20,
+      "max_expr_depth_increase": 8,
+      "max_new_ast_nodes_percent": 200.0,
+      "max_new_helpers": 8
+    },
+    "usage": {
+      "added_branches": 0,
+      "ast_nodes_after": 151,
+      "ast_nodes_before": 99,
+      "expr_depth_increase": 0,
+      "flatten_states_added": 0,
+      "helpers_added": 0
+    }
+  },
+  "class_renamed": false,
+  "difficulty": "easy",
+  "equivalence": {
+    "details": "ok",
+    "exit_match": true,
+    "stderr_match": true,
+    "stdout_match": true
+  },
+  "language": "java",
+  "level": null,
+  "main_touched": true,
+  "method_coverage_total": 2,
+  "method_coverage_touched": 4,
+  "metrics": {
+    "ast_nodes": 151,
+    "cyclomatic_approx": 3,
+    "difficulty_score": 0.1042,
+    "helpers_injected": 0,
+    "lines": 32,
+    "max_ast_depth": 4,
+    "tokens": 123
+  },
+  "mode": "technique",
+  "obfuscated_class_name": "IsPrime",
+  "original_class_name": "IsPrime",
+  "passes_applied": [
+    {
+      "applied": true,
+      "extra": {
+        "fallback_insertions": 0,
+        "main_touched": true,
+        "method_coverage_policy": "force_all",
+        "method_coverage_total": 2,
+        "method_coverage_touched": 4,
+        "untouched_methods": []
+      },
+      "helpers_injected": 2,
+      "name": "T7",
+      "node_delta": 2,
+      "reason": "interproc_changes:2",
+      "tier": "easy",
+      "time_ms": 0.745
+    }
+  ],
+  "profile_name": "aggressive",
+  "program_id": "IsPrime",
+  "seed": 10108263747874494072,
+  "skipped_passes_with_reasons": [],
+  "technique": "T7",
+  "untouched_methods": []
+}

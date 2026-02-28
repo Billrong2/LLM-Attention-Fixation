@@ -1,0 +1,70 @@
+{
+  "budgets": {
+    "ast_growth_ok": true,
+    "limits": {
+      "max_added_branches_per_100_stmts": 5,
+      "max_cfg_states_for_flattening": 4,
+      "max_expr_depth_increase": 2,
+      "max_new_ast_nodes_percent": 50.0,
+      "max_new_helpers": 2
+    },
+    "usage": {
+      "added_branches": 0,
+      "ast_nodes_after": 246,
+      "ast_nodes_before": 172,
+      "expr_depth_increase": 0,
+      "flatten_states_added": 0,
+      "helpers_added": 0
+    }
+  },
+  "class_renamed": true,
+  "difficulty": "hard",
+  "equivalence": {
+    "details": "ok",
+    "exit_match": true,
+    "stderr_match": true,
+    "stdout_match": true
+  },
+  "language": "java",
+  "level": null,
+  "main_touched": true,
+  "method_coverage_total": 2,
+  "method_coverage_touched": 6,
+  "metrics": {
+    "ast_nodes": 246,
+    "cyclomatic_approx": 3,
+    "difficulty_score": 0.1335,
+    "helpers_injected": 0,
+    "lines": 48,
+    "max_ast_depth": 3,
+    "tokens": 210
+  },
+  "mode": "technique",
+  "obfuscated_class_name": "C_a243bbf8",
+  "original_class_name": "Ackerman",
+  "passes_applied": [
+    {
+      "applied": true,
+      "extra": {
+        "fallback_insertions": 0,
+        "main_touched": true,
+        "method_coverage_policy": "force_all",
+        "method_coverage_total": 2,
+        "method_coverage_touched": 6,
+        "untouched_methods": []
+      },
+      "helpers_injected": 4,
+      "name": "T7",
+      "node_delta": 8,
+      "reason": "interproc_changes:8",
+      "tier": "hard",
+      "time_ms": 1.167
+    }
+  ],
+  "profile_name": "safe",
+  "program_id": "Ackerman",
+  "seed": 13064135614880707782,
+  "skipped_passes_with_reasons": [],
+  "technique": "T7",
+  "untouched_methods": []
+}

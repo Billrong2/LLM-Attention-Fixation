@@ -1,0 +1,70 @@
+{
+  "budgets": {
+    "ast_growth_ok": true,
+    "limits": {
+      "max_added_branches_per_100_stmts": 25,
+      "max_cfg_states_for_flattening": 20,
+      "max_expr_depth_increase": 8,
+      "max_new_ast_nodes_percent": 200.0,
+      "max_new_helpers": 8
+    },
+    "usage": {
+      "added_branches": 0,
+      "ast_nodes_after": 300,
+      "ast_nodes_before": 228,
+      "expr_depth_increase": 0,
+      "flatten_states_added": 0,
+      "helpers_added": 0
+    }
+  },
+  "class_renamed": false,
+  "difficulty": "med",
+  "equivalence": {
+    "details": "ok",
+    "exit_match": true,
+    "stderr_match": true,
+    "stdout_match": true
+  },
+  "language": "java",
+  "level": null,
+  "main_touched": true,
+  "method_coverage_total": 2,
+  "method_coverage_touched": 2,
+  "metrics": {
+    "ast_nodes": 300,
+    "cyclomatic_approx": 8,
+    "difficulty_score": 0.204,
+    "helpers_injected": 0,
+    "lines": 50,
+    "max_ast_depth": 6,
+    "tokens": 256
+  },
+  "mode": "technique",
+  "obfuscated_class_name": "LengthOfLast",
+  "original_class_name": "LengthOfLast",
+  "passes_applied": [
+    {
+      "applied": true,
+      "extra": {
+        "fallback_insertions": 0,
+        "main_touched": true,
+        "method_coverage_policy": "force_all",
+        "method_coverage_total": 2,
+        "method_coverage_touched": 2,
+        "untouched_methods": []
+      },
+      "helpers_injected": 0,
+      "name": "T6",
+      "node_delta": 2,
+      "reason": "flattened_methods:2",
+      "tier": "med",
+      "time_ms": 2.251
+    }
+  ],
+  "profile_name": "aggressive",
+  "program_id": "LengthOfLast",
+  "seed": 12382818216967803758,
+  "skipped_passes_with_reasons": [],
+  "technique": "T6",
+  "untouched_methods": []
+}

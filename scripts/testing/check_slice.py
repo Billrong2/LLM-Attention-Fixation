@@ -8,7 +8,7 @@ from steering.priors import SlicingPrior, PriorContext  # noqa: E402
 
 
 def main():
-    source_path = Path("Source/Ackerman.java")  # change as needed
+    source_path = Path("Source/eyetracking/Ackerman.java")  # change as needed
     code = source_path.read_text()
 
     tokens = list(javalang.tokenizer.tokenize(code))

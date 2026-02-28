@@ -22,9 +22,10 @@ if str(PROJECT_ROOT) not in sys.path:
 from models import ModelRunner  # noqa: E402
 from steering import SteeringConfig  # noqa: E402
 from paths import (  # noqa: E402
-    resolve_head_mask_root,
-    resolve_alignment_outputs_root,
     resolve_artifact_path,
+    resolve_alignment_outputs_root,
+    resolve_eyetracking_source_root,
+    resolve_head_mask_root,
 )
 
 
@@ -259,7 +260,8 @@ def main() -> None:
         done = 0
         for snippet in snippets:
             ref = refs[snippet]
-            source_path = PROJECT_ROOT / "Source" / f"{snippet}.java"
+            source_root = resolve_eyetracking_source_root(PROJECT_ROOT)
+            source_path = source_root / f"{snippet}.java"
             if not source_path.is_file():
                 print(f"[WARN] missing source for snippet={snippet}, skipping")
                 continue

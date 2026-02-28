@@ -1,0 +1,27 @@
+import java.util.*;
+import java.lang.reflect.*;
+import org.javatuples.*;
+import java.security.*;
+import java.math.*;
+import java.io.*;
+import java.util.stream.*;
+class Java_223 {
+    public static long f(ArrayList<Long> array, long target) {
+        long count = 0;
+        long i = 1;
+        for (int j = 1; j < array.size(); j++) {
+            if (array.get(j) > array.get(j - 1) && array.get(j) <= target) {
+                count += i;
+            } else if (array.get(j) <= array.get(j - 1)) {
+                i = 1;
+            } else {
+                i++;
+            }
+        }
+        return count;
+    }
+    public static void main(String[] args) {
+    assert(f((new ArrayList<Long>(Arrays.asList((long)1l, (long)2l, (long)-1l, (long)4l))), (2l)) == (1l));
+    }
+
+}

@@ -1,0 +1,18 @@
+func f(name: String) -> String {
+    return name.split(separator: " ").joined(separator: "*")
+}
+
+
+func ==(left: [(Int, Int)], right: [(Int, Int)]) -> Bool {
+    if left.count != right.count {
+        return false
+    }
+    for (l, r) in zip(left, right) {
+        if l != r {
+            return false
+        }
+    }
+    return true
+}
+            
+assert(f(name: "Fred Smith") == "Fred*Smith")

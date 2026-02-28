@@ -22,10 +22,12 @@ import numpy as np
 from models import DEFAULT_MODEL_NAME, DEFAULT_CACHE_DIR
 from render.util import AttentionRenderer, RenderConfig
 from paths import (
-    resolve_attn_root,
     model_dir_name,
-    resolve_eval_root,
     resolve_artifact_path,
+    resolve_attn_root,
+    resolve_eyetracking_source_root,
+    resolve_eval_root,
+    resolve_obf_result_read_root,
 )
 
 try:
@@ -474,13 +476,15 @@ def output_prediction_eval(
     run_tag_filter: Optional[Sequence[str]] = None,
     run_tag_contains: Optional[str] = None,
     run_tag_regex: Optional[str] = None,
+    prediction_root: Optional[Path] = None,
 ) -> None:
     """
-    Scan attn_viz and report output-prediction accuracy (EM rate) per snippet/variant/prior.
+    Scan prediction run artifacts and report output-prediction accuracy (EM rate)
+    per snippet/variant/prior.
     """
-    attn_root = resolve_attn_root(project_root, model_dir)
+    attn_root = prediction_root if prediction_root is not None else resolve_attn_root(project_root, model_dir)
     if not attn_root.exists():
-        raise FileNotFoundError("attn_viz directory missing. Run main.py first.")
+        raise FileNotFoundError(f"Prediction root missing: {attn_root}. Run the pipeline first.")
 
     targets = set(s.lower() for s in snippets_filter) if snippets_filter else None
     variant_targets = (
@@ -855,7 +859,8 @@ def evaluate_snippet(
         raise FileNotFoundError(f"Vocabulary file missing for snippet '{snippet}'.")
     vocab_tokens = json.loads(vocab_path.read_text(encoding="utf-8"))
 
-    source_path = project_root / "Source" / f"{snippet}.java"
+    source_root = resolve_eyetracking_source_root(project_root)
+    source_path = source_root / f"{snippet}.java"
     if not source_path.is_file():
         raise FileNotFoundError(f"Source file missing for snippet '{snippet}'.")
     code_text = source_path.read_text(encoding="utf-8")
@@ -1069,13 +1074,13 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
         "--run-tag-contains",
         type=str,
         default=None,
-        help="Run-tag substring filter (e.g., step1-l1-cfg-b0p5).",
+        help="Run-tag substring filter (e.g., step1-l1-cfg-b0p5). If it contains 'obf', read from obfuscation/result.",
     )
     parser.add_argument(
         "--run-tag-regex",
         type=str,
         default=None,
-        help="Run-tag regex filter.",
+        help="Run-tag regex filter. If it contains 'obf', read from obfuscation/result.",
     )
     args = parser.parse_args(argv)
 
@@ -1084,9 +1089,6 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
     if not output_dir.is_absolute():
         output_dir = resolve_artifact_path(project_root, output_dir)
     model_dir = args.model_dir or (model_dir_name(args.model_name) if args.model_name else None)
-    attn_root = resolve_attn_root(project_root, model_dir)
-    if not attn_root.exists():
-        raise FileNotFoundError("Run the main pipeline first to generate attn_viz artifacts.")
 
     if args.prediction_accuracy is not None:
         arg_value = args.prediction_accuracy or "all"
@@ -1112,6 +1114,18 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
             if args.run_tag
             else None
         )
+        tag_hints: List[str] = []
+        if run_tag_tokens:
+            tag_hints.extend(run_tag_tokens)
+        if args.run_tag_contains:
+            tag_hints.append(args.run_tag_contains)
+        if args.run_tag_regex:
+            tag_hints.append(args.run_tag_regex)
+        use_obf_prediction_root = any("obf" in hint.lower() for hint in tag_hints)
+        prediction_root = None
+        if use_obf_prediction_root:
+            prediction_root = resolve_obf_result_read_root(project_root, model_dir)
+            print(f"[INFO] Detected obf run-tag filter; reading prediction runs from: {prediction_root}")
         output_prediction_eval(
             project_root=project_root,
             output_root=output_dir,
@@ -1124,6 +1138,7 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
             run_tag_filter=run_tag_tokens,
             run_tag_contains=args.run_tag_contains,
             run_tag_regex=args.run_tag_regex,
+            prediction_root=prediction_root,
         )
         return
 
@@ -1144,6 +1159,10 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
             model_dir=model_dir,
         )
         return
+
+    attn_root = resolve_attn_root(project_root, model_dir)
+    if not attn_root.exists():
+        raise FileNotFoundError("Run the main pipeline first to generate attn_viz artifacts.")
 
     snippets = (
         [args.snippet]

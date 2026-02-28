@@ -1,0 +1,70 @@
+{
+  "budgets": {
+    "ast_growth_ok": true,
+    "limits": {
+      "max_added_branches_per_100_stmts": 25,
+      "max_cfg_states_for_flattening": 20,
+      "max_expr_depth_increase": 8,
+      "max_new_ast_nodes_percent": 200.0,
+      "max_new_helpers": 8
+    },
+    "usage": {
+      "added_branches": 0,
+      "ast_nodes_after": 254,
+      "ast_nodes_before": 214,
+      "expr_depth_increase": 0,
+      "flatten_states_added": 0,
+      "helpers_added": 0
+    }
+  },
+  "class_renamed": false,
+  "difficulty": "easy",
+  "equivalence": {
+    "details": "ok",
+    "exit_match": true,
+    "stderr_match": true,
+    "stdout_match": true
+  },
+  "language": "java",
+  "level": null,
+  "main_touched": true,
+  "method_coverage_total": 4,
+  "method_coverage_touched": 4,
+  "metrics": {
+    "ast_nodes": 254,
+    "cyclomatic_approx": 1,
+    "difficulty_score": 0.1215,
+    "helpers_injected": 0,
+    "lines": 38,
+    "max_ast_depth": 2,
+    "tokens": 230
+  },
+  "mode": "technique",
+  "obfuscated_class_name": "Rectangle",
+  "original_class_name": "Rectangle",
+  "passes_applied": [
+    {
+      "applied": true,
+      "extra": {
+        "fallback_insertions": 4,
+        "main_touched": true,
+        "method_coverage_policy": "force_all",
+        "method_coverage_total": 4,
+        "method_coverage_touched": 4,
+        "untouched_methods": []
+      },
+      "helpers_injected": 0,
+      "name": "T3",
+      "node_delta": 4,
+      "reason": "no_literals_selected|force_all_fallback:4",
+      "tier": "easy",
+      "time_ms": 1.303
+    }
+  ],
+  "profile_name": "aggressive",
+  "program_id": "Rectangle",
+  "seed": 7147561306768523950,
+  "skipped_passes_with_reasons": [],
+  "technique": "T3",
+  "untouched_methods": []
+}

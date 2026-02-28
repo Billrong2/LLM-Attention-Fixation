@@ -1,0 +1,70 @@
+
+
+public class IsAnagram {
+
+    public static void main(String[] args) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_main_602532 = 0;
+            _obf_t5_main_602532++;
+        }
+        if (((2 * 2) + 1) > 0) {
+            int _obf_t5_main_602532_m = 0;
+            _obf_t5_main_602532_m += 0;
+        } else {
+            int _obf_t5_main_602532_e = 1;
+            _obf_t5_main_602532_e -= 1;
+        }
+        System.out.println(isAnagram("keep", "peek"));
+    }
+
+    public static String sort(String word) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_sort_988241 = 0;
+            _obf_t5_sort_988241++;
+        }
+        if (((2 * 2) + 1) > 0) {
+            int _obf_t5_sort_988241_m = 0;
+            _obf_t5_sort_988241_m += 0;
+        } else {
+            int _obf_t5_sort_988241_e = 1;
+            _obf_t5_sort_988241_e -= 1;
+        }
+        StringBuilder builder = new StringBuilder(word);
+        for (int i = 1; i < builder.length(); i++) {
+            char temp = builder.charAt(i);
+            int j = i;
+            while (j > 0 && builder.charAt(j - 1) > temp) {
+                builder.setCharAt(j, builder.charAt(j - 1));
+                j--;
+            }
+            builder.setCharAt(j, temp);
+        }
+        return builder.toString();
+    }
+
+    public static boolean isAnagram(String word1, String word2) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_isAnagram_714816 = 0;
+            _obf_t5_isAnagram_714816++;
+        }
+        if (((2 * 2) + 1) > 0) {
+            int _obf_t5_isAnagram_714816_m = 0;
+            _obf_t5_isAnagram_714816_m += 0;
+        } else {
+            int _obf_t5_isAnagram_714816_e = 1;
+            _obf_t5_isAnagram_714816_e -= 1;
+        }
+        if (word1.length() != word2.length()) {
+            return false;
+        }
+        word1 = sort(word1);
+        word2 = sort(word2);
+
+        for (int i = 0; i < word1.length(); i++) {
+            if (word1.charAt(i) != word2.charAt(i)) {
+                return false;
+            }
+        }
+        return true;
+    }
+}

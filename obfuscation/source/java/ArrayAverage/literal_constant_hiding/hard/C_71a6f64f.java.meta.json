@@ -1,0 +1,70 @@
+{
+  "budgets": {
+    "ast_growth_ok": true,
+    "limits": {
+      "max_added_branches_per_100_stmts": 25,
+      "max_cfg_states_for_flattening": 20,
+      "max_expr_depth_increase": 8,
+      "max_new_ast_nodes_percent": 200.0,
+      "max_new_helpers": 8
+    },
+    "usage": {
+      "added_branches": 0,
+      "ast_nodes_after": 289,
+      "ast_nodes_before": 173,
+      "expr_depth_increase": 0,
+      "flatten_states_added": 0,
+      "helpers_added": 0
+    }
+  },
+  "class_renamed": true,
+  "difficulty": "hard",
+  "equivalence": {
+    "details": "ok",
+    "exit_match": true,
+    "stderr_match": true,
+    "stdout_match": true
+  },
+  "language": "java",
+  "level": null,
+  "main_touched": true,
+  "method_coverage_total": 2,
+  "method_coverage_touched": 3,
+  "metrics": {
+    "ast_nodes": 289,
+    "cyclomatic_approx": 2,
+    "difficulty_score": 0.1494,
+    "helpers_injected": 0,
+    "lines": 33,
+    "max_ast_depth": 3,
+    "tokens": 265
+  },
+  "mode": "technique",
+  "obfuscated_class_name": "C_71a6f64f",
+  "original_class_name": "ArrayAverage",
+  "passes_applied": [
+    {
+      "applied": true,
+      "extra": {
+        "fallback_insertions": 0,
+        "main_touched": true,
+        "method_coverage_policy": "force_all",
+        "method_coverage_total": 2,
+        "method_coverage_touched": 3,
+        "untouched_methods": []
+      },
+      "helpers_injected": 1,
+      "name": "T3",
+      "node_delta": 9,
+      "reason": "constants_hidden:9",
+      "tier": "hard",
+      "time_ms": 1.077
+    }
+  ],
+  "profile_name": "aggressive",
+  "program_id": "ArrayAverage",
+  "seed": 7196553942929063356,
+  "skipped_passes_with_reasons": [],
+  "technique": "T3",
+  "untouched_methods": []
+}

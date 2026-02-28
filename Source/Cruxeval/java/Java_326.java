@@ -1,0 +1,22 @@
+import java.util.*;
+import java.lang.reflect.*;
+import org.javatuples.*;
+import java.security.*;
+import java.math.*;
+import java.io.*;
+import java.util.stream.*;
+class Java_326 {
+    public static long f(String text) {
+        int number = 0;
+        for (int i = 0; i < text.length(); i++) {
+            if (Character.isDigit(text.charAt(i))) {
+                number++;
+            }
+        }
+        return number;
+    }
+    public static void main(String[] args) {
+    assert(f(("Thisisastring")) == (0l));
+    }
+
+}

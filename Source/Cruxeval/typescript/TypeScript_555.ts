@@ -1,0 +1,16 @@
+function f(text: string, tabstop: number): string {
+    text = text.replace(/\n/g, '_____');
+    text = text.replace(/\t/g, ' '.repeat(tabstop));
+    text = text.replace(/_____/g, '\n');
+    return text;
+}
+declare var require: any;
+const assert = require('node:assert');
+
+
+function test() {
+  let candidate = f;
+  assert.deepEqual(candidate("odes	code	well", 2),"odes  code  well");
+}
+
+test();

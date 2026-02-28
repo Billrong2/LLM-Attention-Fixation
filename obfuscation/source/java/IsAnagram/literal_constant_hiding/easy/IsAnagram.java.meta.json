@@ -1,0 +1,70 @@
+{
+  "budgets": {
+    "ast_growth_ok": true,
+    "limits": {
+      "max_added_branches_per_100_stmts": 25,
+      "max_cfg_states_for_flattening": 20,
+      "max_expr_depth_increase": 8,
+      "max_new_ast_nodes_percent": 200.0,
+      "max_new_helpers": 8
+    },
+    "usage": {
+      "added_branches": 0,
+      "ast_nodes_after": 305,
+      "ast_nodes_before": 275,
+      "expr_depth_increase": 0,
+      "flatten_states_added": 0,
+      "helpers_added": 0
+    }
+  },
+  "class_renamed": false,
+  "difficulty": "easy",
+  "equivalence": {
+    "details": "ok",
+    "exit_match": true,
+    "stderr_match": true,
+    "stdout_match": true
+  },
+  "language": "java",
+  "level": null,
+  "main_touched": true,
+  "method_coverage_total": 3,
+  "method_coverage_touched": 3,
+  "metrics": {
+    "ast_nodes": 305,
+    "cyclomatic_approx": 6,
+    "difficulty_score": 0.1814,
+    "helpers_injected": 0,
+    "lines": 40,
+    "max_ast_depth": 4,
+    "tokens": 269
+  },
+  "mode": "technique",
+  "obfuscated_class_name": "IsAnagram",
+  "original_class_name": "IsAnagram",
+  "passes_applied": [
+    {
+      "applied": true,
+      "extra": {
+        "fallback_insertions": 2,
+        "main_touched": true,
+        "method_coverage_policy": "force_all",
+        "method_coverage_total": 3,
+        "method_coverage_touched": 3,
+        "untouched_methods": []
+      },
+      "helpers_injected": 0,
+      "name": "T3",
+      "node_delta": 4,
+      "reason": "constants_hidden:2|force_all_fallback:2",
+      "tier": "easy",
+      "time_ms": 1.733
+    }
+  ],
+  "profile_name": "aggressive",
+  "program_id": "IsAnagram",
+  "seed": 5813971664401939530,
+  "skipped_passes_with_reasons": [],
+  "technique": "T3",
+  "untouched_methods": []
+}

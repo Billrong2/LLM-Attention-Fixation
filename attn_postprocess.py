@@ -3,6 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, Dict, List, Optional
 
+import base64
 import torch
 
 
@@ -221,3 +222,97 @@ def postprocess_generation_attentions(
         layer_prompt_stats=layer_prompt_stats,
     )
 
+
+def extract_full_decode_head_tensors(
+    *,
+    attentions: Any,
+    tokens_all: List[str],
+    token_ids_all: List[int],
+    prompt_len: int,
+    num_generated: int,
+) -> Dict[str, Any]:
+    """
+    Export full decode-time attention tensors as deterministic, compact JSON-ready payload.
+
+    Output schema:
+      {
+        "schema_version": "record_layers_full_v1",
+        "prompt_len": int,
+        "num_generated": int,
+        "num_layers": int,
+        "num_heads": int,
+        "token_ids_all": [...],
+        "tokens_all": [...],
+        "steps": [
+          {
+            "step_idx": int,
+            "abs_token_index": int,
+            "generated_token": str,
+            "kv_len": int,
+            "layers": [
+              {
+                "layer_idx": int,
+                "shape": [num_heads, kv_len],
+                "dtype": "fp16",
+                "values_b64": "..."
+              }, ...
+            ]
+          }, ...
+        ]
+      }
+    """
+    payload: Dict[str, Any] = {
+        "schema_version": "record_layers_full_v1",
+        "prompt_len": int(prompt_len),
+        "num_generated": int(num_generated),
+        "num_layers": 0,
+        "num_heads": 0,
+        "token_ids_all": [int(x) for x in token_ids_all],
+        "tokens_all": list(tokens_all),
+        "steps": [],
+    }
+    if attentions is None:
+        return payload
+    if not isinstance(attentions, (tuple, list)):
+        return payload
+
+    num_steps = min(int(num_generated), len(attentions))
+    if num_steps <= 0:
+        return payload
+
+    for step_idx in range(num_steps):
+        step_layers = attentions[step_idx]
+        if not isinstance(step_layers, (tuple, list)):
+            continue
+        abs_idx = prompt_len + step_idx
+        generated_token = tokens_all[abs_idx] if abs_idx < len(tokens_all) else ""
+
+        step_entry: Dict[str, Any] = {
+            "step_idx": int(step_idx),
+            "abs_token_index": int(abs_idx),
+            "generated_token": generated_token,
+            "kv_len": 0,
+            "layers": [],
+        }
+
+        for layer_idx, layer_tensor in enumerate(step_layers):
+            # expected: [batch=1, n_heads, q_len, kv_len]
+            if layer_tensor is None:
+                continue
+            attn = layer_tensor[0][:, -1, :]  # [n_heads, kv_len]
+            attn_fp16 = attn.detach().to(torch.float16).contiguous().cpu().numpy()
+            step_entry["kv_len"] = int(attn_fp16.shape[-1])
+            if payload["num_heads"] == 0:
+                payload["num_heads"] = int(attn_fp16.shape[0])
+            layer_entry = {
+                "layer_idx": int(layer_idx),
+                "shape": [int(attn_fp16.shape[0]), int(attn_fp16.shape[1])],
+                "dtype": "fp16",
+                "values_b64": base64.b64encode(attn_fp16.tobytes()).decode("ascii"),
+            }
+            step_entry["layers"].append(layer_entry)
+
+        payload["num_layers"] = max(payload["num_layers"], len(step_entry["layers"]))
+        payload["steps"].append(step_entry)
+
+    return payload

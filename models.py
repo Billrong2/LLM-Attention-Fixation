@@ -34,8 +34,18 @@ from steering import SteeringConfig
 from steering.backends import install_steering_hooks
 from steering.pointer import PointerBiasProcessor, StepAdvanceProcessor
 from steering.runtime import SteeringRuntime, create_runtime
-from attn_postprocess import POOLING_STRATEGIES, postprocess_generation_attentions
+from attn_postprocess import (
+    POOLING_STRATEGIES,
+    extract_full_decode_head_tensors,
+    postprocess_generation_attentions,
+)
 from paths import resolve_artifact_path
+from src.bdv import (
+    build_bdv_features,
+    save_bdv_features_npz,
+    save_bdv_schema,
+    save_record_layers_full_json_gz,
+)
 
 # ----------------------------
 # Hard-coded defaults (change via llama.config(...))
@@ -293,6 +303,94 @@ class SteeredCausalLM:
         if prompt_len < 2:
             return False
         return any(level in self.steering_config.enabled_levels for level in (1, 2))
+
+    @staticmethod
+    def _build_prompt(code_snippet: str, *, instruction: str, language: str) -> str:
+        return f"{instruction}\n\n```{language}\n{code_snippet}\n```"
+
+    def compute_bdv_features(
+        self,
+        *,
+        code_snippet: str,
+        instruction: str,
+        target_text: str,
+        language: str = "java",
+        bucket_count: int = 1,
+        pair_id: str = "",
+        variant_type: str = "plain",
+        is_correct: bool = False,
+    ) -> Dict[str, Any]:
+        assert self.model is not None and self.tokenizer is not None, "Call .build() first."
+        return build_bdv_features(
+            model=self.model,
+            tokenizer=self.tokenizer,
+            code_snippet=code_snippet,
+            instruction=instruction,
+            target_text=target_text,
+            language=language,
+            bucket_count=bucket_count,
+            pair_id=pair_id,
+            variant_type=variant_type,
+            is_correct=is_correct,
+        )
+
+    def write_recording_superset(
+        self,
+        *,
+        result: Dict[str, Any],
+        run_dir: Path,
+        schema_dir: Path,
+        code_snippet: str,
+        instruction: str,
+        target_text: str,
+        language: str,
+        pair_id: str,
+        variant_type: str,
+        is_correct: bool,
+    ) -> Dict[str, str]:
+        """
+        Write full recorder superset artifacts when record_layers is enabled.
+        Raises RuntimeError if any required artifact cannot be produced.
+        """
+        full_payload = result.get("full_decode_head_tensors")
+        if not isinstance(full_payload, dict):
+            raise RuntimeError("record_layers_full payload missing from generation result.")
+
+        run_dir.mkdir(parents=True, exist_ok=True)
+        schema_dir.mkdir(parents=True, exist_ok=True)
+
+        full_path = save_record_layers_full_json_gz(run_dir / "record_layers_full.json.gz", full_payload)
+        schema_path = save_bdv_schema(schema_dir / "bdv_schema.json")
+
+        payload_b1 = self.compute_bdv_features(
+            code_snippet=code_snippet,
+            instruction=instruction,
+            target_text=target_text,
+            language=language,
+            bucket_count=1,
+            pair_id=pair_id,
+            variant_type=variant_type,
+            is_correct=is_correct,
+        )
+        payload_b3 = self.compute_bdv_features(
+            code_snippet=code_snippet,
+            instruction=instruction,
+            target_text=target_text,
+            language=language,
+            bucket_count=3,
+            pair_id=pair_id,
+            variant_type=variant_type,
+            is_correct=is_correct,
+        )
+        b1_path = save_bdv_features_npz(run_dir / "bdv_features_b1.npz", payload_b1)
+        b3_path = save_bdv_features_npz(run_dir / "bdv_features_b3.npz", payload_b3)
+
+        return {
+            "record_layers_full_path": str(full_path),
+            "bdv_features_b1_path": str(b1_path),
+            "bdv_features_b3_path": str(b3_path),
+            "bdv_schema_path": str(schema_path),
+        }
 
     def _sample_next_token(
         self,
@@ -625,6 +723,12 @@ class SteeredCausalLM:
                 "record_layers": False,
                 "record_attention": False,
                 "steering_debug": steering_debug,
+                "full_decode_head_tensors": None,
+                "record_layers_full_path": None,
+                "bdv_features_b1_path": None,
+                "bdv_features_b3_path": None,
+                "bdv_schema_path": None,
+                "recording_complete": False,
             }
 
         attn_summaries = postprocess_generation_attentions(
@@ -638,6 +742,15 @@ class SteeredCausalLM:
             record_layers=record_layers,
             model=self.model,
         )
+        full_decode_head_tensors = None
+        if record_layers:
+            full_decode_head_tensors = extract_full_decode_head_tensors(
+                attentions=getattr(out, "attentions", None),
+                tokens_all=tokens_all,
+                token_ids_all=ids_all,
+                prompt_len=prompt_len,
+                num_generated=num_generated,
+            )
 
         return {
             "model": self.model_name,
@@ -662,6 +775,12 @@ class SteeredCausalLM:
             "record_layers": record_layers,
             "record_attention": record_attention,
             "steering_debug": steering_debug,
+            "full_decode_head_tensors": full_decode_head_tensors,
+            "record_layers_full_path": None,
+            "bdv_features_b1_path": None,
+            "bdv_features_b3_path": None,
+            "bdv_schema_path": None,
+            "recording_complete": False,
         }
 
     # ----------------------------
@@ -688,10 +807,7 @@ class SteeredCausalLM:
         if instruction is None:
             instruction = "Summarize what this Java function does. Be concise and accurate."
 
-        prompt = (
-            f"{instruction}\n\n"
-            f"```{language}\n{code_snippet}\n```"
-        )
+        prompt = self._build_prompt(code_snippet, instruction=instruction, language=language)
 
         overrides: Dict[str, Any] = {}
         if max_new_tokens is not None:

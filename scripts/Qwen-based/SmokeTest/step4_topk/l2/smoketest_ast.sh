@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# change gpu id to none
 set -euo pipefail
 
 cd /people/cs/x/xxr230000/eyetracking
