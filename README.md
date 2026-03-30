@@ -2,6 +2,8 @@
 
 LLM Attention Fixation is a research codebase for studying and steering code-generation attention under original and obfuscated program representations.
 
+Anonymous artifact mirror: https://anonymous.4open.science/r/LLM-Attention-Fixation-296D
+
 The repository combines:
 
 - attention collection and rendering for code-generation runs
