@@ -7,14 +7,14 @@ from typing import Any
 @dataclass(frozen=True)
 class LayerCutoffs:
     """
-    Default layer ranges for steering levels.
+    Default layer ranges for steering stages.
 
     Default behavior:
-    - Level 1/2: last 4 layers (Step-1 safer default)
-    - Level 4:   layers >= 60
-    - Level 3:   layers 40..63
+    - attention steering: last 4 layers
+    - key/value scaling: deeper layers
+    - residual scaling: middle-to-late layers
 
-    L3/L4 remain scaled by model depth to preserve prior behavior.
+    Residual and key/value scaling remain scaled by model depth to preserve prior behavior.
     """
 
     l12_start: int
@@ -31,7 +31,7 @@ def compute_default_cutoffs(num_layers: int) -> LayerCutoffs:
     def clamp_idx(idx: int) -> int:
         return max(0, min(num_layers - 1, idx))
 
-    # Step-1 default for L1/L2: only steer the final 4 layers.
+    # Default attention-steering band: only steer the final 4 layers.
     l12_start = clamp_idx(num_layers - 4)
     l12_end = clamp_idx(num_layers - 1)
     l4_start = clamp_idx(int(num_layers * 0.75))
@@ -52,7 +52,8 @@ def compute_default_cutoffs(num_layers: int) -> LayerCutoffs:
 
 def get_decoder_layers(model: Any):
     """
-    Return decoder layers for common HF causal LMs (LLaMA/CodeLlama, Qwen2.*).
+    Return decoder layers for common HF causal LMs
+    (LLaMA/CodeLlama, Qwen2.*, Qwen3*, DeepSeek-V2).
     """
 
     # LlamaForCausalLM / Qwen2ForCausalLM expose: model.model.layers

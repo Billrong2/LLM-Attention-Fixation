@@ -17,7 +17,14 @@ class SteeringState:
 
 
 class SteeringManager:
-    def __init__(self, config: SteeringConfig, prompt_tokens: Sequence[str], code_text: str, vocab_tokens: Sequence[dict]):
+    def __init__(
+        self,
+        config: SteeringConfig,
+        prompt_tokens: Sequence[str],
+        code_text: str,
+        vocab_tokens: Sequence[dict],
+        prompt_text: str = "",
+    ):
         self.config = config
         self.config.load_schedule()
         prior_cls = PRIOR_REGISTRY[config.prior]
@@ -30,7 +37,12 @@ class SteeringManager:
             prior_kwargs["window"] = config.lex_window
         elif config.prior == "rand":
             prior_kwargs["seed"] = config.rand_seed
-        context = PriorContext(prompt_tokens=prompt_tokens, code_text=code_text, vocab_tokens=vocab_tokens)
+        context = PriorContext(
+            prompt_tokens=prompt_tokens,
+            code_text=code_text,
+            vocab_tokens=vocab_tokens,
+            prompt_text=prompt_text,
+        )
         self.prior_provider = prior_cls(context, **prior_kwargs)
         self.state: Optional[SteeringState] = None
 

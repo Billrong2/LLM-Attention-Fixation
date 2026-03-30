@@ -94,7 +94,7 @@ def iter_run_tags(prior_dir: Path) -> Iterable[Tuple[str, Path]]:
         for d in sorted(run_tag_dirs):
             yield d.name, d
     elif (prior_dir / "EM").exists() or (prior_dir / "Mismatch").exists():
-        yield "legacy", prior_dir
+        yield "grouped", prior_dir
 
 
 def collect_baseline_stats(

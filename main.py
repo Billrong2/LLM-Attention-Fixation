@@ -14,10 +14,21 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 import torch
+try:
+    from tqdm import tqdm
+except Exception:  # pragma: no cover - optional dependency at runtime
+    tqdm = None
 from models import ModelRunner
 from util import utity
 from render.util import AttentionRenderer, RenderConfig
 from steering import SteeringConfig
+from counterfactual_eval import (
+    build_case_pack,
+    build_counterfactual_instruction,
+    parse_predicted_labels,
+    resolve_task_profile,
+    score_case_predictions,
+)
 from paths import (
     model_dir_name,
     resolve_artifact_path,
@@ -205,12 +216,12 @@ def _aggregate_phase_prompt_scores(
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Eyetracking collection with optional steering.")
-    parser.add_argument("--level1", action="store_true")
-    parser.add_argument("--level2", action="store_true")
-    parser.add_argument("--level3", action="store_true")
-    parser.add_argument("--level4", action="store_true")
-    parser.add_argument("--level5", action="store_true")
-    parser.add_argument("--prior", choices=["human", "ast", "lex", "rand", "uniform", "cfg", "slice"], default="human")
+    parser.add_argument(
+        "--steer",
+        action="store_true",
+        help="Enable the default steering path used in the paper.",
+    )
+    parser.add_argument("--prior", choices=["human", "ast", "lex", "rand", "uniform", "cfg", "slice", "slice_hybrid"], default="human")
     parser.add_argument("--n-bins", type=int, default=8)
     parser.add_argument("--binning", choices=["equal_count"], default="equal_count")
     parser.add_argument("--beta-bias", type=float, default=0.0)
@@ -221,13 +232,13 @@ def parse_args() -> argparse.Namespace:
         "--residual-scale",
         choices=["on", "off"],
         default="off",
-        help="Enable improved Level-3 residual scaling (decode-only, layer-banded).",
+        help="Enable residual scaling (decode-only, layer-banded).",
     )
     parser.add_argument(
         "--residual-scale-mode",
         choices=["static", "amplifier", "paired", "agreement_gate"],
         default="static",
-        help="Residual scaling mode for Level-3.",
+        help="Residual scaling mode.",
     )
     parser.add_argument(
         "--lambda-attn-delta",
@@ -334,7 +345,7 @@ def parse_args() -> argparse.Namespace:
         "--head-mask-apply-to",
         choices=["l1", "l2", "both"],
         default="both",
-        help="Which steering levels should apply the head mask.",
+        help="Which internal steering stage(s) should apply the head mask.",
     )
     parser.add_argument(
         "--head-mask-debug",
@@ -345,25 +356,25 @@ def parse_args() -> argparse.Namespace:
         "--head-subset-topk-per-layer",
         type=int,
         default=4,
-        help="Step-4: for auto mode, select top-k heads per layer by agreement.",
+        help="For auto mode, select top-k heads per layer by agreement.",
     )
     parser.add_argument(
         "--head-subset-calib-runs",
         type=int,
-        default=12,
-        help="Step-4 auto mode: number of calibration generations.",
+        default=3,
+        help="Auto mode: number of calibration generations.",
     )
     parser.add_argument(
         "--head-subset-calib-max-new-tokens",
         type=int,
         default=64,
-        help="Step-4 auto mode: max_new_tokens during calibration.",
+        help="Auto mode: max_new_tokens during calibration.",
     )
     parser.add_argument(
         "--head-subset-calib-first-decode-only",
         choices=["on", "off"],
         default="on",
-        help="Step-4 auto mode: collect calibration stats only at first decode step.",
+        help="Auto mode: collect calibration stats only at first decode step.",
     )
     parser.add_argument(
         "--head-subset-auto-save",
@@ -388,7 +399,7 @@ def parse_args() -> argparse.Namespace:
         type=int,
         default=None,
         help=(
-            "Override L1/L2 steering layer band to the last N decoder layers "
+            "Override the steering layer band to the last N decoder layers "
             "(e.g., 8 means [num_layers-8, num_layers-1])."
         ),
     )
@@ -407,12 +418,30 @@ def parse_args() -> argparse.Namespace:
         help="Explicit GPU IDs to use (e.g., 0+1 or 0,1). Overrides --gpus.",
     )
     parser.add_argument("--runs-per-snippet", type=int, default=20, help="Number of generations per snippet.")
+    parser.add_argument(
+        "--max-new-tokens",
+        type=int,
+        default=512,
+        help="Maximum number of generated tokens per run.",
+    )
     parser.add_argument("--skip-steering", action="store_true")
     parser.add_argument(
         "--record-layers",
         choices=["on", "off"],
         default="on",
         help="When off, disable all attention capture and visualization output.",
+    )
+    parser.add_argument(
+        "--visual-dump",
+        choices=["on", "off"],
+        default="on",
+        help="When off, skip all attention visualization/text dump artifacts while keeping recorder outputs.",
+    )
+    parser.add_argument(
+        "--record-logits",
+        choices=["on", "off"],
+        default="off",
+        help="When on, save full per-step generated-token logits to generated_logits_full.npz for each run.",
     )
     parser.add_argument(
         "--record-bdv",
@@ -450,6 +479,50 @@ def parse_args() -> argparse.Namespace:
         default="eyetracking",
         help="Source dataset selector: eyetracking -> Source/eyetracking, humaneval -> Source/Humaneval(/java), cruxeval -> Source/Cruxeval(/java).",
     )
+    parser.add_argument(
+        "--task-profile",
+        choices=["auto", "stdout", "counterfactual_tf"],
+        default="auto",
+        help=(
+            "Evaluation profile selector. humaneval/cruxeval are hard-switched to counterfactual_tf; "
+            "eyetracking defaults to stdout."
+        ),
+    )
+    parser.add_argument("--cf-min-cases", type=int, default=8, help="Minimum number of counterfactual T/F cases.")
+    parser.add_argument("--cf-target-cases", type=int, default=16, help="Target number of counterfactual T/F cases.")
+    parser.add_argument(
+        "--cf-cache-dir",
+        type=str,
+        default="logs/eval_casepacks",
+        help="Cache directory for generated counterfactual case packs.",
+    )
+    parser.add_argument(
+        "--cf-rebuild",
+        choices=["on", "off"],
+        default="off",
+        help="When on, ignore case-pack cache and rebuild.",
+    )
+    parser.add_argument(
+        "--cf-strict-json",
+        choices=["on", "off"],
+        default="on",
+        help="When on, enforce JSON-first parsing for counterfactual predictions (regex fallback still attempted).",
+    )
+    parser.add_argument(
+        "--result-layout",
+        choices=["auto", "grouped", "flat"],
+        default="auto",
+        help=(
+            "Output directory layout. auto=flat for counterfactual_tf and grouped for stdout; "
+            "grouped=EM/Mismatch folders; flat=run_XXXX folders."
+        ),
+    )
+    parser.add_argument(
+        "--validation-mode",
+        choices=["auto", "stdout", "assertion_verdict"],
+        default="auto",
+        help=argparse.SUPPRESS,
+    )
     return parser.parse_args()
 
 
@@ -474,13 +547,7 @@ def _parse_gpu_ids(raw: Optional[str]) -> Optional[List[int]]:
 
 
 def build_steering_config(args: argparse.Namespace) -> Optional[SteeringConfig]:
-    enabled = [
-        idx
-        for idx, flag in enumerate(
-            [args.level1, args.level2, args.level3, args.level4, args.level5], start=1
-        )
-        if flag
-    ]
+    enabled = [2] if bool(args.steer) else []
     if not enabled or args.skip_steering:
         return None
     project_root = Path(__file__).resolve().parent
@@ -612,15 +679,14 @@ def main():
             base_steering_config.steer_layer_start = start
             base_steering_config.steer_layer_end = end
             print(
-                f"[Steering] L1/L2 layer override via --steer-last-n-layers={n}: "
+                f"[Steering] Layer override via --steer-last-n-layers={n}: "
                 f"start={start}, end={end} (num_layers={num_layers})"
             )
 
     level_label = "baseline"
     prior_label = "none"
     if base_steering_config:
-        sorted_levels = "".join(f"L{lvl}" for lvl in sorted(base_steering_config.enabled_levels))
-        level_label = f"levels-{sorted_levels}" if sorted_levels else "levels"
+        level_label = "steered"
         prior_label = base_steering_config.prior
 
     # 2) Build our image renderer
@@ -699,233 +765,407 @@ def main():
         print(f"No code snippets found under {source_dir.resolve()}")
         llama.free()
         return
-    instruction = (
+    task_profile = resolve_task_profile(args.dataset, args.task_profile)
+    result_layout = args.result_layout
+    if result_layout == "auto":
+        result_layout = "flat" if task_profile == "counterfactual_tf" else "grouped"
+    stdout_instruction = (
         "You will analyze the Java program provided below. "
         "First, explain how you will predict the output for the code snippet. "
         "Then, simulate it as a compiler would and print the exact console output. \n"
     )
+    cf_cache_dir = resolve_artifact_path(base_dir, args.cf_cache_dir)
+    cf_strict_json = args.cf_strict_json == "on"
+    cf_rebuild = args.cf_rebuild == "on"
     runs_per_snippet = max(1, args.runs_per_snippet)
+    max_new_tokens = max(1, int(args.max_new_tokens))
     record_layers = args.record_layers != "off"
     record_attention = record_layers
-    for snippet_path in snippet_paths:
-        code = snippet_path.read_text(encoding="utf-8")
-        snippet_name = snippet_path.stem
-        snippet_root = output_root / snippet_name / level_label / prior_label
-        if run_tag:
-            snippet_root = snippet_root / run_tag
-        snippet_root.mkdir(parents=True, exist_ok=True)
-        for outcome in ("EM", "Mismatch"):
-            outcome_dir = snippet_root / outcome
-            if outcome_dir.exists():
-                for child in outcome_dir.iterdir():
-                    if child.is_dir():
-                        shutil.rmtree(child)
-                    else:
-                        child.unlink()
-            outcome_dir.mkdir(exist_ok=True)
-        run_idx = 1
-        runs_completed = 0
-        fixation_dir = fixation_root / snippet_name
-        fixation_vocab: list[dict[str, object]] = [] # Type Hint
-        vocab_path = fixation_dir / "vocabulary.json"
-        if vocab_path.is_file():
-            try:
-                fixation_vocab = json.loads(vocab_path.read_text(encoding="utf-8"))
-            except Exception as exc:
-                print(f"[{snippet_name}] Warning: failed to load fixation vocabulary ({exc}); continuing without it.")
-        if base_steering_config:
-            current_cfg = copy.deepcopy(base_steering_config)
-            if current_cfg.prior == "human":
-                if human_prior_override:
-                    current_cfg.human_file = human_prior_override
-                else:
-                    snippet_fix_dir = fixation_dir
-                    if not snippet_fix_dir.is_dir():
-                        raise FileNotFoundError(
-                            f"Human prior selected but no fixation directory found at {snippet_fix_dir} for snippet '{snippet_name}'."
-                        )
-                    current_cfg.human_file = snippet_fix_dir
-            if active_steering_config is None:
-                active_steering_config = current_cfg
-                llama.set_steering_config(active_steering_config)
+    visual_dump = args.visual_dump != "off"
+    record_logits = args.record_logits != "off"
+    if base_steering_config is None:
+        run_mode = "plain"
+    else:
+        run_mode = "steered"
+    total_runs_target = len(snippet_paths) * runs_per_snippet
+    progress = (
+        tqdm(total=total_runs_target, desc="prediction", unit="run", dynamic_ncols=True)
+        if tqdm is not None
+        else None
+    )
+    try:
+        for snippet_path in snippet_paths:
+            code = snippet_path.read_text(encoding="utf-8")
+            snippet_name = snippet_path.stem
+            snippet_root = output_root / snippet_name / level_label / prior_label
+            if run_tag:
+                snippet_root = snippet_root / run_tag
+            snippet_root.mkdir(parents=True, exist_ok=True)
+            if result_layout == "grouped":
+                for outcome in ("EM", "Mismatch"):
+                    outcome_dir = snippet_root / outcome
+                    if outcome_dir.exists():
+                        for child in outcome_dir.iterdir():
+                            if child.is_dir():
+                                shutil.rmtree(child)
+                            else:
+                                child.unlink()
+                    outcome_dir.mkdir(exist_ok=True)
             else:
-                _assign_config_fields(active_steering_config, current_cfg)
-            if current_cfg.head_subset_mode == "auto":
-                calib_info = llama.calibrate_head_subset(
-                    code_snippet=code,
-                    instruction=instruction,
-                    language="java",
-                    vocab_tokens=fixation_vocab,
-                    snippet_name=snippet_name,
+                for run_child in snippet_root.glob("run_*"):
+                    if run_child.is_dir():
+                        shutil.rmtree(run_child)
+                    else:
+                        run_child.unlink()
+            run_idx = 1
+            runs_completed = 0
+            instruction = stdout_instruction
+            answer_prefix = ""
+            case_pack = None
+            case_ids: list[str] = []
+            fixation_dir = fixation_root / snippet_name
+            fixation_vocab: list[dict[str, object]] = [] # Type Hint
+            vocab_path = fixation_dir / "vocabulary.json"
+            if vocab_path.is_file():
+                try:
+                    fixation_vocab = json.loads(vocab_path.read_text(encoding="utf-8"))
+                except Exception as exc:
+                    print(f"[{snippet_name}] Warning: failed to load fixation vocabulary ({exc}); continuing without it.")
+            if task_profile == "counterfactual_tf":
+                case_pack = build_case_pack(
+                    java_code=code,
+                    class_name=snippet_name,
+                    dataset=args.dataset,
+                    snippet=snippet_name,
+                    min_cases=args.cf_min_cases,
+                    target_cases=args.cf_target_cases,
+                    cache_dir=cf_cache_dir,
+                    rebuild=cf_rebuild,
                 )
-                selected_heads = int(calib_info.get("active_total", 0))
-                layers_with_heads = int(calib_info.get("layers_with_heads", 0))
-                print(
-                    f"[{snippet_name}] Auto head subset ready: "
-                    f"active_heads={selected_heads}, layers_with_heads={layers_with_heads}"
-                )
-                if calib_info.get("auto_save_path"):
-                    print(f"[{snippet_name}] Auto head subset mask: {calib_info['auto_save_path']}")
-        try:
-            actual_output = utity.run_java_program(code, snippet_name)
-        except Exception as exc:
-            llama.free()
-            raise RuntimeError(f"Failed to execute {snippet_path.name}: {exc}") from exc
-        actual_output_str = actual_output if actual_output is not None else ""
-        actual_output_clean = actual_output_str.strip()
-        while runs_completed < runs_per_snippet:
-            result = llama.run_llama(
-                code,
-                instruction=instruction,
-                language="java",
-                record_layers=record_layers,
-                vocab_tokens=fixation_vocab,
-            )
-            predicted_output_raw = result.get("generated_text", "")
-            predicted_output, format_ok = _canonicalize_model_output(predicted_output_raw)
-
-            if not format_ok and not (actual_output_clean == "" and predicted_output == ""):
-                print(f"[{snippet_name}] Missing answer section; retrying run {run_idx:03d}.")
-                continue
-
-            is_exact_match = predicted_output == actual_output_clean
-
-            result["actual_output"] = actual_output_str
-            result["predicted_output"] = predicted_output
-            result["predicted_output_raw"] = predicted_output_raw
-            result["exact_match"] = is_exact_match
-            result["task"] = "output_prediction"
-
-            attn_map = None
-            phase_attention_maps = {}
-            masked_attn_map = None
-            if record_attention:
-                phase_assignments, phase_ranges = _classify_generation_phases(result, llama.tokenizer)
-                phase_prompt_scores, phase_counts = _aggregate_phase_prompt_scores(
-                    result, phase_assignments, pool_name="all_layers_mean"
-                )
-                # TODO: Experiment with all 5 settings.
-                attn_map = renderer.map_attention_to_source(
-                    code_snippet=code,
-                    generation_result=result,
-                    instruction=instruction,
-                    pool="all_layers_mean",
-                    human_vocabulary=fixation_vocab,
-                )
-                for phase, prompt_scores in phase_prompt_scores.items():
-                    if phase_counts.get(phase, 0) == 0:
-                        continue
-                    phase_attention_maps[phase] = renderer.map_attention_from_prompt_scores(
+                instruction = build_counterfactual_instruction(case_pack)
+                answer_prefix = "\n\nJSON answer:\n"
+                case_ids = [str(c["case_id"]) for c in case_pack.get("cases", [])]
+            if base_steering_config:
+                current_cfg = copy.deepcopy(base_steering_config)
+                if (
+                    task_profile == "counterfactual_tf"
+                    and args.dataset in {"humaneval", "cruxeval"}
+                    and current_cfg.prior == "human"
+                ):
+                    current_cfg.prior = "slice_hybrid"
+                if current_cfg.prior == "human":
+                    if human_prior_override:
+                        current_cfg.human_file = human_prior_override
+                    else:
+                        snippet_fix_dir = fixation_dir
+                        if not snippet_fix_dir.is_dir():
+                            raise FileNotFoundError(
+                                f"Human prior selected but no fixation directory found at {snippet_fix_dir} for snippet '{snippet_name}'."
+                            )
+                        current_cfg.human_file = snippet_fix_dir
+                if active_steering_config is None:
+                    active_steering_config = current_cfg
+                    llama.set_steering_config(active_steering_config)
+                else:
+                    _assign_config_fields(active_steering_config, current_cfg)
+                if current_cfg.head_subset_mode == "auto":
+                    calib_info = llama.calibrate_head_subset(
                         code_snippet=code,
                         instruction=instruction,
-                        prompt_scores=prompt_scores,
-                        pool_name="all_layers_mean",
-                        human_vocabulary=fixation_vocab,
-                        metadata={
-                            "phase": phase,
-                            "phase_step_count": phase_counts.get(phase, 0),
-                            "phase_char_range": phase_ranges.get(phase),
-                        },
+                        language="java",
+                        vocab_tokens=fixation_vocab,
+                        snippet_name=snippet_name,
                     )
-                fixation_spans = [
-                    (token["start"], token["end"])
-                    for token in attn_map.get("fixation_tokens", [])
-                    if not token.get("missing")
-                    and token.get("start", -1) is not None
-                    and int(token["start"]) >= 0
-                    and int(token["end"]) > int(token["start"])
-                ]
-                if fixation_spans:
-                    masked_attn_map = renderer.mask_attention_map(
+                    selected_heads = int(calib_info.get("active_total", 0))
+                    layers_with_heads = int(calib_info.get("layers_with_heads", 0))
+                    print(
+                        f"[{snippet_name}] Auto head subset ready: "
+                        f"active_heads={selected_heads}, layers_with_heads={layers_with_heads}"
+                    )
+                    if calib_info.get("auto_save_path"):
+                        print(f"[{snippet_name}] Auto head subset mask: {calib_info['auto_save_path']}")
+            exec_result = utity.run_java_program_with_result(code, snippet_name, enable_assertions=True)
+            if not exec_result.get("compiled", False):
+                llama.free()
+                raise RuntimeError(
+                    f"Failed to compile {snippet_path.name}: {exec_result.get('compile_error', '')}"
+                )
+            if task_profile == "counterfactual_tf":
+                oracle_labels = {
+                    str(c["case_id"]): ("T" if bool(c["expected_bool"]) else "F")
+                    for c in (case_pack or {}).get("cases", [])
+                }
+                actual_output_str = json.dumps(oracle_labels, sort_keys=True)
+                actual_output_clean = actual_output_str
+            else:
+                if not exec_result.get("success", False):
+                    llama.free()
+                    raise RuntimeError(
+                        f"Failed to execute {snippet_path.name}: {exec_result.get('runtime_error', '')}"
+                    )
+                actual_output_str = str(exec_result.get("stdout", ""))
+                actual_output_clean = actual_output_str.strip()
+            while runs_completed < runs_per_snippet:
+                result = llama.run_llama(
+                    code,
+                    instruction=instruction,
+                    language="java",
+                    answer_prefix=answer_prefix,
+                    max_new_tokens=max_new_tokens,
+                    record_layers=record_layers,
+                    vocab_tokens=fixation_vocab,
+                )
+                predicted_output_raw = result.get("generated_text", "")
+                if task_profile == "counterfactual_tf":
+                    predicted_map, parse_meta = parse_predicted_labels(
+                        predicted_output_raw,
+                        case_ids,
+                        strict_json=cf_strict_json,
+                    )
+                    parse_mode = str(parse_meta.get("parse_mode", "none"))
+                    provided_case_count = int(parse_meta.get("provided_case_count", 0))
+                    requested_case_count = int(parse_meta.get("requested_case_count", len(case_ids)))
+                    if requested_case_count > 0 and provided_case_count < requested_case_count:
+                        print(
+                            f"[{snippet_name}] Parse coverage {provided_case_count}/{requested_case_count} "
+                            f"(mode={parse_mode}); retrying run {run_idx:03d}."
+                        )
+                        continue
+                    score = score_case_predictions(case_pack or {}, predicted_map)
+                    parse_coverage = (
+                        float(provided_case_count) / float(requested_case_count)
+                        if requested_case_count > 0
+                        else 0.0
+                    )
+                    strict_pass = bool(score["all_cases_pass"])
+                    if provided_case_count == 0:
+                        match_label = "parse_fail"
+                    elif strict_pass:
+                        match_label = "all_pass"
+                    else:
+                        match_label = "partial"
+                    predicted_output = json.dumps(score["predicted_labels"], sort_keys=True)
+                    is_exact_match = strict_pass
+                    result["counterfactual"] = {
+                        "profile": "counterfactual_tf",
+                        "case_total": int(score["case_total"]),
+                        "case_correct": int(score["case_correct"]),
+                        "case_accuracy": float(score["case_accuracy"]),
+                        "all_cases_pass": strict_pass,
+                        "strict_pass": strict_pass,
+                        "match_label": match_label,
+                        "parse_mode": parse_mode,
+                        "provided_case_count": provided_case_count,
+                        "requested_case_count": requested_case_count,
+                        "parse_coverage": parse_coverage,
+                        "parse_meta": parse_meta,
+                    }
+                    result["oracle_labels"] = score["oracle_labels"]
+                    result["predicted_labels"] = score["predicted_labels"]
+                    result["per_case_scores"] = score["per_case"]
+                    result["case_total"] = int(score["case_total"])
+                    result["case_correct"] = int(score["case_correct"])
+                    result["case_accuracy"] = float(score["case_accuracy"])
+                    result["all_cases_pass"] = strict_pass
+                    result["strict_pass"] = strict_pass
+                    result["match_label"] = match_label
+                    result["parse_mode"] = parse_mode
+                    result["provided_case_count"] = provided_case_count
+                    result["requested_case_count"] = requested_case_count
+                    result["parse_coverage"] = parse_coverage
+                    result["exact_match"] = strict_pass
+                else:
+                    predicted_output, format_ok = _canonicalize_model_output(predicted_output_raw)
+                    if not format_ok and not (actual_output_clean == "" and predicted_output == ""):
+                        continue
+                    is_exact_match = predicted_output == actual_output_clean
+
+                result["actual_output"] = actual_output_str
+                result["predicted_output"] = predicted_output
+                result["predicted_output_raw"] = predicted_output_raw
+                result["exact_match"] = is_exact_match
+                result["task"] = "output_prediction"
+                result["task_profile"] = task_profile
+                result["eval_profile"] = task_profile
+                result["dataset"] = args.dataset
+                result["mode"] = run_mode
+                result["actual_execution"] = exec_result
+
+                attn_map = None
+                phase_attention_maps = {}
+                masked_attn_map = None
+                if record_attention and visual_dump:
+                    phase_assignments, phase_ranges = _classify_generation_phases(result, llama.tokenizer)
+                    phase_prompt_scores, phase_counts = _aggregate_phase_prompt_scores(
+                        result, phase_assignments, pool_name="all_layers_mean"
+                    )
+                    # TODO: Experiment with all 5 settings.
+                    attn_map = renderer.map_attention_to_source(
                         code_snippet=code,
-                        attn_map=attn_map,
-                        spans=fixation_spans,
+                        generation_result=result,
+                        instruction=instruction,
+                        pool="all_layers_mean",
                         human_vocabulary=fixation_vocab,
-                        note="fixation-aligned span",
                     )
-            match_dir = snippet_root / ("EM" if is_exact_match else "Mismatch")
-            run_dir = match_dir / f"{run_idx}"
-            run_dir.mkdir(parents=True, exist_ok=True)
-            if record_attention and attn_map is not None:
-                renderer.save_text_dump(attn_map, str(run_dir / "attention.json"), str(run_dir / "attention.csv"))
-                renderer.render_html(code, attn_map, str(run_dir / "attention.html"))
-                renderer.render_png(code, attn_map, str(run_dir / "attention_char.png"), score_key="char_attention")
-                renderer.render_png(code, attn_map, str(run_dir / "attention_lexical.png"), score_key="lexical_tokens")
-                if attn_map.get("fixation_tokens"):
-                    renderer.render_png(code, attn_map, str(run_dir / "attention_fixation.png"), score_key="fixation_tokens")
-                for phase, phase_map in phase_attention_maps.items():
-                    phase_prefix = f"attention_phase_{phase}"
-                    renderer.save_text_dump(
-                        phase_map,
-                        str(run_dir / f"{phase_prefix}.json"),
-                        str(run_dir / f"{phase_prefix}.csv"),
-                    )
-                    renderer.render_html(code, phase_map, str(run_dir / f"{phase_prefix}.html"))
-                    renderer.render_png(
-                        code,
-                        phase_map,
-                        str(run_dir / f"{phase_prefix}_char.png"),
-                        score_key="char_attention",
-                    )
-                    renderer.render_png(
-                        code,
-                        phase_map,
-                        str(run_dir / f"{phase_prefix}_lexical.png"),
-                        score_key="lexical_tokens",
-                    )
-                    if phase_map.get("fixation_tokens"):
+                    for phase, prompt_scores in phase_prompt_scores.items():
+                        if phase_counts.get(phase, 0) == 0:
+                            continue
+                        phase_attention_maps[phase] = renderer.map_attention_from_prompt_scores(
+                            code_snippet=code,
+                            instruction=instruction,
+                            prompt_scores=prompt_scores,
+                            pool_name="all_layers_mean",
+                            human_vocabulary=fixation_vocab,
+                            metadata={
+                                "phase": phase,
+                                "phase_step_count": phase_counts.get(phase, 0),
+                                "phase_char_range": phase_ranges.get(phase),
+                            },
+                        )
+                    fixation_spans = [
+                        (token["start"], token["end"])
+                        for token in attn_map.get("fixation_tokens", [])
+                        if not token.get("missing")
+                        and token.get("start", -1) is not None
+                        and int(token["start"]) >= 0
+                        and int(token["end"]) > int(token["start"])
+                    ]
+                    if fixation_spans:
+                        masked_attn_map = renderer.mask_attention_map(
+                            code_snippet=code,
+                            attn_map=attn_map,
+                            spans=fixation_spans,
+                            human_vocabulary=fixation_vocab,
+                            note="fixation-aligned span",
+                        )
+                if result_layout == "grouped":
+                    match_dir = snippet_root / ("EM" if is_exact_match else "Mismatch")
+                    run_dir = match_dir / f"{run_idx}"
+                else:
+                    run_dir = snippet_root / f"run_{run_idx:04d}"
+                run_dir.mkdir(parents=True, exist_ok=True)
+                if record_attention and visual_dump and attn_map is not None:
+                    renderer.save_text_dump(attn_map, str(run_dir / "attention.json"), str(run_dir / "attention.csv"))
+                    renderer.render_html(code, attn_map, str(run_dir / "attention.html"))
+                    renderer.render_png(code, attn_map, str(run_dir / "attention_char.png"), score_key="char_attention")
+                    renderer.render_png(code, attn_map, str(run_dir / "attention_lexical.png"), score_key="lexical_tokens")
+                    if attn_map.get("fixation_tokens"):
+                        renderer.render_png(code, attn_map, str(run_dir / "attention_fixation.png"), score_key="fixation_tokens")
+                    for phase, phase_map in phase_attention_maps.items():
+                        phase_prefix = f"attention_phase_{phase}"
+                        renderer.save_text_dump(
+                            phase_map,
+                            str(run_dir / f"{phase_prefix}.json"),
+                            str(run_dir / f"{phase_prefix}.csv"),
+                        )
+                        renderer.render_html(code, phase_map, str(run_dir / f"{phase_prefix}.html"))
                         renderer.render_png(
                             code,
                             phase_map,
-                            str(run_dir / f"{phase_prefix}_fixation.png"),
-                            score_key="fixation_tokens",
+                            str(run_dir / f"{phase_prefix}_char.png"),
+                            score_key="char_attention",
                         )
-                if masked_attn_map:
-                    renderer.save_text_dump(masked_attn_map, str(run_dir / "attention_algorithm.json"), str(run_dir / "attention_algorithm.csv"))
-                    renderer.render_html(code, masked_attn_map, str(run_dir / "attention_algorithm.html"))
-                    renderer.render_png(code, masked_attn_map, str(run_dir / "attention_algorithm_char.png"), score_key="char_attention")
-                    renderer.render_png(code, masked_attn_map, str(run_dir / "attention_algorithm_lexical.png"), score_key="lexical_tokens")
-                    if masked_attn_map.get("fixation_tokens"):
-                        renderer.render_png(code, masked_attn_map, str(run_dir / "attention_algorithm_fixation.png"), score_key="fixation_tokens")
-            if record_layers:
-                pair_id = f"{snippet_name}:{run_idx:03d}"
-                variant_type = "plain" if level_label == "baseline" else "steered"
-                artifact_paths = llama.write_recording_superset(
-                    result=result,
-                    run_dir=run_dir,
-                    schema_dir=snippet_root,
-                    code_snippet=code,
-                    instruction=instruction,
-                    target_text=actual_output_clean,
-                    language="java",
-                    pair_id=pair_id,
-                    variant_type=variant_type,
-                    is_correct=is_exact_match,
-                )
-                result.update(artifact_paths)
-                result["recording_complete"] = True
-                result.pop("full_decode_head_tensors", None)
-                required = [
-                    artifact_paths.get("record_layers_full_path"),
-                    artifact_paths.get("bdv_features_b1_path"),
-                    artifact_paths.get("bdv_features_b3_path"),
-                    artifact_paths.get("bdv_schema_path"),
-                ]
-                if any(not p or not Path(p).is_file() for p in required):
-                    raise RuntimeError(
-                        f"Recorder failure for {snippet_name} run {run_idx:03d}: missing required superset artifacts."
+                        renderer.render_png(
+                            code,
+                            phase_map,
+                            str(run_dir / f"{phase_prefix}_lexical.png"),
+                            score_key="lexical_tokens",
+                        )
+                        if phase_map.get("fixation_tokens"):
+                            renderer.render_png(
+                                code,
+                                phase_map,
+                                str(run_dir / f"{phase_prefix}_fixation.png"),
+                                score_key="fixation_tokens",
+                            )
+                    if masked_attn_map:
+                        renderer.save_text_dump(masked_attn_map, str(run_dir / "attention_algorithm.json"), str(run_dir / "attention_algorithm.csv"))
+                        renderer.render_html(code, masked_attn_map, str(run_dir / "attention_algorithm.html"))
+                        renderer.render_png(code, masked_attn_map, str(run_dir / "attention_algorithm_char.png"), score_key="char_attention")
+                        renderer.render_png(code, masked_attn_map, str(run_dir / "attention_algorithm_lexical.png"), score_key="lexical_tokens")
+                        if masked_attn_map.get("fixation_tokens"):
+                            renderer.render_png(code, masked_attn_map, str(run_dir / "attention_algorithm_fixation.png"), score_key="fixation_tokens")
+                if record_layers:
+                    pair_id = f"{snippet_name}:{run_idx:03d}"
+                    variant_type = "plain" if level_label == "baseline" else "steered"
+                    artifact_paths = llama.write_recording_superset(
+                        result=result,
+                        run_dir=run_dir,
+                        schema_dir=snippet_root,
+                        code_snippet=code,
+                        instruction=instruction,
+                        target_text=actual_output_clean,
+                        language="java",
+                        pair_id=pair_id,
+                        variant_type=variant_type,
+                        is_correct=is_exact_match,
                     )
-            else:
-                result["recording_complete"] = False
-                result.pop("full_decode_head_tensors", None)
-            llama.save_dump(result, str(run_dir / "model_output.json"))
-            (run_dir / "actual_output.txt").write_text(actual_output_str + "\n", encoding="utf-8")
-            (run_dir / "predicted_output.txt").write_text(predicted_output + "\n", encoding="utf-8")
-            (run_dir / "predicted_output_raw.txt").write_text(predicted_output_raw + "\n", encoding="utf-8")
-            status = "EM" if is_exact_match else "Mismatch"
-            print(f"[{snippet_name}] {status} saved artifacts for run {run_idx:03d} -> {run_dir}")
-            run_idx += 1
-            runs_completed += 1
+                    result.update(artifact_paths)
+                    result["recording_complete"] = True
+                    result.pop("full_decode_head_tensors", None)
+                    required = [
+                        artifact_paths.get("record_layers_full_path"),
+                        artifact_paths.get("bdv_features_b1_path"),
+                        artifact_paths.get("bdv_features_b3_path"),
+                        artifact_paths.get("bdv_schema_path"),
+                    ]
+                    if any(not p or not Path(p).is_file() for p in required):
+                        raise RuntimeError(
+                            f"Recorder failure for {snippet_name} run {run_idx:03d}: missing required superset artifacts."
+                        )
+                else:
+                    result["recording_complete"] = False
+                    result.pop("full_decode_head_tensors", None)
+                if record_logits:
+                    logits_paths = llama.write_generated_logits_artifact(
+                        result=result,
+                        run_dir=run_dir,
+                    )
+                    result.update(logits_paths)
+                else:
+                    result["logits_recorded"] = False
+                if task_profile == "counterfactual_tf":
+                    score_payload = {
+                        "eval_profile": "counterfactual_tf",
+                        "case_total": int(result.get("case_total", 0)),
+                        "case_correct": int(result.get("case_correct", 0)),
+                        "case_accuracy": float(result.get("case_accuracy", 0.0)),
+                        "all_cases_pass": bool(result.get("all_cases_pass", False)),
+                        "strict_pass": bool(result.get("strict_pass", False)),
+                        "match_label": str(result.get("match_label", "partial")),
+                        "parse_mode": str(result.get("parse_mode", "none")),
+                        "provided_case_count": int(result.get("provided_case_count", 0)),
+                        "requested_case_count": int(result.get("requested_case_count", 0)),
+                        "parse_coverage": float(result.get("parse_coverage", 0.0)),
+                    }
+                    if case_pack is not None:
+                        (run_dir / "case_pack.json").write_text(
+                            json.dumps(case_pack, indent=2),
+                            encoding="utf-8",
+                        )
+                    (run_dir / "oracle_labels.json").write_text(
+                        json.dumps(result.get("oracle_labels", {}), indent=2),
+                        encoding="utf-8",
+                    )
+                    (run_dir / "predicted_labels.json").write_text(
+                        json.dumps(result.get("predicted_labels", {}), indent=2),
+                        encoding="utf-8",
+                    )
+                    (run_dir / "score.json").write_text(
+                        json.dumps(score_payload, indent=2),
+                        encoding="utf-8",
+                    )
+                llama.save_dump(result, str(run_dir / "model_output.json"))
+                (run_dir / "actual_output.txt").write_text(actual_output_str + "\n", encoding="utf-8")
+                (run_dir / "predicted_output.txt").write_text(predicted_output + "\n", encoding="utf-8")
+                (run_dir / "predicted_output_raw.txt").write_text(predicted_output_raw + "\n", encoding="utf-8")
+                run_idx += 1
+                runs_completed += 1
+                if progress is not None:
+                    progress.update(1)
+    finally:
+        if progress is not None:
+            progress.close()
     llama.free()
 
 if __name__ == "__main__":

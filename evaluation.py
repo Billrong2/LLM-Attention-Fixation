@@ -3,7 +3,7 @@
 Semantic entropy based evaluation of model attention against human eye-tracking data.
 
 Usage:
-    python3 eyetracking/evaluation.py --instruction "Simulate ..." --snippet Ackerman
+    python3 evaluation.py --instruction "Simulate ..." --snippet Ackerman
 """
 
 from __future__ import annotations
@@ -596,7 +596,7 @@ def output_prediction_eval(
                 else:
                     run_tags = []
                     if (prior_dir / "EM").exists() or (prior_dir / "Mismatch").exists():
-                        run_tags.append(("legacy", prior_dir))
+                        run_tags.append(("grouped", prior_dir))
 
                 if variant.lower() == "baseline" and prior.lower() == "none":
                     # Baseline aggregates across all baseline run-tags and does
@@ -997,14 +997,6 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
         ),
     )
     parser.add_argument(
-        "--plot-layer-attention",
-        type=str,
-        nargs="?",
-        const="all",
-        default=None,
-        help="Generate per-layer attention plots (optionally comma-separated snippets).",
-    )
-    parser.add_argument(
         "--project-root",
         type=Path,
         default=Path(__file__).resolve().parent,
@@ -1142,22 +1134,6 @@ def main(argv: Optional[Sequence[str]] = None) -> None:
         )
         return
 
-    if args.plot_layer_attention is not None:
-        from render.plot_layer_attention import generate_layer_attention_plots
-
-        arg_value = args.plot_layer_attention or "all"
-        tokens = [
-            token.strip()
-            for token in arg_value.split(",")
-            if token.strip()
-        ]
-        if tokens and tokens[0].lower() in {"all", "*"}:
-            tokens = []
-        generate_layer_attention_plots(
-            project_root=project_root,
-            snippets=tokens or None,
-            model_dir=model_dir,
-        )
         return
 
     attn_root = resolve_attn_root(project_root, model_dir)

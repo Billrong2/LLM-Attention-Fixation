@@ -38,6 +38,7 @@ class SteeringConfig:
     human_file: Optional[Path] = None
     lex_window: int = 32
     rand_seed: Optional[int] = None
+    model_name: Optional[str] = None
     schedule_json: Optional[Path] = None
     schedule: Dict[int, ScheduleEntry] = field(default_factory=dict)
     # Step-1 safety defaults for non-destructive L1/L2 steering.
@@ -61,7 +62,7 @@ class SteeringConfig:
     head_mask_apply_to: str = "both"  # "l1" | "l2" | "both"
     head_mask_debug: bool = False
     head_subset_topk_per_layer: int = 4
-    head_subset_calib_runs: int = 12
+    head_subset_calib_runs: int = 3
     head_subset_calib_max_new_tokens: int = 64
     head_subset_calib_first_decode_only: bool = True
     head_subset_auto_save: Optional[Path] = None

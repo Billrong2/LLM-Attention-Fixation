@@ -16,11 +16,19 @@ class PointerBiasProcessor(LogitsProcessor):
 
     def __call__(self, input_ids: torch.LongTensor, scores: torch.FloatTensor) -> torch.FloatTensor:
         runtime = self.runtime
+        runtime.pointer_calls_total += 1
         coeffs = runtime.coeffs()
         beta = coeffs.beta_ptr
-        if beta == 0.0 or runtime.latest_attention is None:
+        if beta == 0.0:
+            runtime.pointer_beta_zero_steps += 1
             runtime.advance()
             return scores
+        if runtime.latest_attention is None:
+            runtime.pointer_missing_attention_steps += 1
+            raise RuntimeError(
+                "Level-5 pointer steering requires latest_attention, but it is missing at decode step "
+                f"{runtime.step_index}."
+            )
 
         attention_vector = runtime.latest_attention  # [batch, k_len]
         bias = torch.zeros_like(scores)
@@ -28,6 +36,8 @@ class PointerBiasProcessor(LogitsProcessor):
             mass = attention_vector[:, positions].sum(dim=1)
             bias[:, vocab_id] += beta * mass
         scores = scores + bias
+        runtime.pointer_bias_applied_steps += 1
+        runtime.mark_level_call(5)
         runtime.advance()
         return scores
 

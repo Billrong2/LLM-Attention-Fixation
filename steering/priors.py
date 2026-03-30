@@ -16,6 +16,7 @@ class PriorContext:
     prompt_tokens: Sequence[str]
     code_text: str
     vocab_tokens: Sequence[dict]
+    prompt_text: str = ""
 
 
 class PriorProvider:
@@ -230,6 +231,130 @@ class ASTPrior(PriorProvider):
         except Exception:
             return []
 
+    def _sanitize_java_for_javalang(self, java_code: str) -> str:
+        out: List[str] = []
+        i = 0
+        in_str = False
+        in_char = False
+        escape = False
+        while i < len(java_code):
+            ch = java_code[i]
+            nxt = java_code[i + 1] if i + 1 < len(java_code) else ""
+            if in_str:
+                if escape:
+                    out.append(ch)
+                    escape = False
+                    i += 1
+                    continue
+                if ch == "\\" and nxt == "s":
+                    out.append("\\")
+                    out.append("\\")
+                    i += 2
+                    continue
+                if ch == "\\":
+                    out.append(ch)
+                    escape = True
+                    i += 1
+                    continue
+                out.append(ch)
+                if ch == '"':
+                    in_str = False
+                i += 1
+                continue
+            if in_char:
+                out.append(ch)
+                if escape:
+                    escape = False
+                elif ch == "\\":
+                    escape = True
+                elif ch == "'":
+                    in_char = False
+                i += 1
+                continue
+            out.append(ch)
+            if ch == '"':
+                in_str = True
+            elif ch == "'":
+                in_char = True
+            i += 1
+
+        sanitized = "".join(out).replace("\\s", "\\\\")
+        sanitized = re.sub(
+            r"\b[A-Za-z_$][A-Za-z0-9_$.\[\]]*\s*::\s*[A-Za-z_$][A-Za-z0-9_$]*",
+            "null",
+            sanitized,
+        )
+        sanitized = re.sub(
+            r"(\binstanceof\b\s+[^)\]&|,:;]+?\b)(\s+)([A-Za-z_$][A-Za-z0-9_$]*)(?=\s*(?:&&|\|\||[)\],:;]))",
+            lambda m: m.group(1) + m.group(2) + (" " * len(m.group(3))),
+            sanitized,
+        )
+        out_lines: List[str] = []
+        for line in sanitized.splitlines(True):
+            line = re.sub(r"(\bcase\b[\s\S]*?)\-\>", r"\1: ", line)
+            line = re.sub(r"(\bdefault\b[\s\S]*?)\-\>", r"\1: ", line)
+            out_lines.append(line)
+        return "".join(out_lines)
+
+    def _prepare_parse_artifacts(self, javalang_mod):
+        raw_code = str(self.context.code_text or "")
+        if not raw_code.strip():
+            return None, [], None
+        candidates: List[str] = [raw_code]
+        sanitized_code = self._sanitize_java_for_javalang(raw_code)
+        if sanitized_code != raw_code:
+            candidates.append(sanitized_code)
+        for candidate in candidates:
+            tokens = self._tokenize(javalang_mod, candidate)
+            if not tokens:
+                continue
+            try:
+                tree = javalang_mod.parse.parse(candidate)
+            except Exception:
+                continue
+            return candidate, tokens, tree
+        return None, [], None
+
+    def _select_target_method(self, tree, javalang_mod):
+        methods = [node for _, node in tree.filter(javalang_mod.tree.MethodDeclaration)]
+        if not methods:
+            return None
+        main = next((m for m in methods if m.name == "main"), None)
+        non_main = [m for m in methods if m.name != "main"]
+        if not non_main:
+            return None
+
+        def is_wrapper_like(method) -> bool:
+            name = str(getattr(method, "name", "") or "")
+            if not name:
+                return False
+            return name.startswith("_obf_") or re.match(r"^_+obf", name, flags=re.IGNORECASE) is not None
+
+        def filter_wrappers(candidates):
+            filtered = [m for m in candidates if not is_wrapper_like(m)]
+            return filtered or list(candidates)
+
+        if main:
+            called = set()
+            for _, inv in main.filter(javalang_mod.tree.MethodInvocation):
+                if getattr(inv, "member", None):
+                    called.add(inv.member)
+            called_candidates = [m for m in non_main if m.name in called]
+            if called_candidates:
+                called_candidates = filter_wrappers(called_candidates)
+                return max(called_candidates, key=lambda m: len(getattr(m, "body", []) or []))
+
+        def nonvoid_params(method):
+            ret = getattr(method, "return_type", None)
+            params = getattr(method, "parameters", []) or []
+            return ret is not None and len(params) > 0
+
+        non_main = filter_wrappers(non_main)
+        candidates = [m for m in non_main if nonvoid_params(m)]
+        if candidates:
+            return max(candidates, key=lambda m: len(getattr(m, "body", []) or []))
+        return max(non_main, key=lambda m: len(getattr(m, "body", []) or []))
+
     def _position_index(self, tokens) -> Dict[tuple, int]:
         pos_map = {}
         for idx, tok in enumerate(tokens):
@@ -282,19 +407,32 @@ class ASTPrior(PriorProvider):
         walk(tree, 0.0)
         return scores
 
-    def _map_scores_to_prompt(self, token_scores: Dict[int, float], tokens, prompt_tokens: Sequence[str]) -> np.ndarray:
+    @staticmethod
+    def _normalize_prompt_piece(text: str) -> str:
+        return (
+            str(text)
+            .replace("▁", "")
+            .replace("Ġ", "")
+            .replace("Ċ", "")
+            .replace("ĉ", "")
+            .replace("`", "")
+            .strip()
+            .lower()
+        )
+
+    def _is_skippable_prompt_piece(self, piece: str) -> bool:
+        if not piece:
+            return True
+        return re.fullmatch(r"l?\d+", piece) is not None
+
+    def _old_map_scores_to_prompt(self, token_scores: Dict[int, float], tokens, prompt_tokens: Sequence[str]) -> np.ndarray:
         total_len = len(prompt_tokens)
         vec = np.zeros(total_len, dtype=float)
         if not token_scores:
             return vec
 
-        # Build code lexemes and map from token index to lexeme text
         idx_to_text = {i: str(tok.value) for i, tok in enumerate(tokens)}
-        # Take code-ish portion from the end of prompt_tokens
-        code_token_indices = [i for i, t in enumerate(prompt_tokens) if True]
-        # Greedy match from the end: map AST token scores onto prompt tokens
         lexemes = [(idx, idx_to_text[idx], score) for idx, score in token_scores.items()]
-        # sort by original order
         lexemes.sort(key=lambda x: x[0], reverse=True)
         pt_idx = len(prompt_tokens) - 1
         for _, lex, score in lexemes:
@@ -312,8 +450,237 @@ class ASTPrior(PriorProvider):
                     break
                 pt_idx -= 1
             if pt_idx < 0:
-                break
+                    break
         return vec
+
+    def _locate_lexeme_indices(
+        self,
+        lexeme: str,
+        prompt_norms: Sequence[str],
+        start_idx: int,
+        *,
+        skip_line_markers: bool = True,
+    ) -> tuple[List[int], int]:
+        lex_norm = self._normalize_prompt_piece(lexeme)
+        if not lex_norm:
+            return [], start_idx
+        for start in range(start_idx, len(prompt_norms)):
+            first_piece = prompt_norms[start]
+            if first_piece == "":
+                continue
+            if skip_line_markers and self._is_skippable_prompt_piece(first_piece):
+                continue
+            built = ""
+            indices: List[int] = []
+            for idx in range(start, len(prompt_norms)):
+                piece = prompt_norms[idx]
+                if piece == "":
+                    continue
+                if skip_line_markers and self._is_skippable_prompt_piece(piece):
+                    continue
+                candidate = built + piece
+                if candidate == lex_norm or lex_norm.startswith(candidate):
+                    built = candidate
+                    indices.append(idx)
+                    if built == lex_norm:
+                        return indices, idx + 1
+                    continue
+                break
+        return [], start_idx
+
+    def _build_prompt_alignment(self, tokens, prompt_tokens: Sequence[str]) -> Dict[int, List[int]]:
+        prompt_norms = [self._normalize_prompt_piece(tok) for tok in prompt_tokens]
+        alignment: Dict[int, List[int]] = {}
+        cursor = 0
+        for token_idx, tok in enumerate(tokens):
+            indices, next_cursor = self._locate_lexeme_indices(str(tok.value), prompt_norms, cursor)
+            if indices:
+                alignment[token_idx] = indices
+                cursor = next_cursor
+        return alignment
+
+    def _build_prompt_line_spans(self, prompt_tokens: Sequence[str]) -> Dict[int, List[int]]:
+        prompt_text = str(getattr(self.context, "prompt_text", "") or "")
+        if not prompt_text:
+            return {}
+        prompt_lines = []
+        for line in prompt_text.splitlines():
+            match = re.match(r"^\s*L(\d+)\s+", line)
+            if match:
+                prompt_lines.append(int(match.group(1)))
+        if not prompt_lines:
+            return {}
+
+        prompt_norms = [self._normalize_prompt_piece(tok) for tok in prompt_tokens]
+        starts: Dict[int, int] = {}
+        marker_indices_by_line: Dict[int, set[int]] = {}
+        cursor = 0
+        for line_no in prompt_lines:
+            marker = f"l{line_no:03d}"
+            indices, next_cursor = self._locate_lexeme_indices(
+                marker,
+                prompt_norms,
+                cursor,
+                skip_line_markers=False,
+            )
+            if not indices:
+                continue
+            starts[line_no] = indices[0]
+            marker_indices_by_line[line_no] = set(indices)
+            cursor = next_cursor
+        if not starts:
+            return {}
+
+        json_block_start = None
+        for idx in range(cursor, len(prompt_norms) - 1):
+            if prompt_norms[idx] == "json" and prompt_norms[idx + 1] == "array":
+                json_block_start = idx
+                break
+
+        line_spans: Dict[int, List[int]] = {}
+        ordered = [line_no for line_no in prompt_lines if line_no in starts]
+        for pos, line_no in enumerate(ordered):
+            start = starts[line_no]
+            if pos + 1 < len(ordered):
+                end = starts[ordered[pos + 1]]
+            else:
+                end = json_block_start if json_block_start is not None else len(prompt_tokens)
+            indices = [
+                idx
+                for idx in range(start, max(start, end))
+                if prompt_norms[idx]
+                and idx not in marker_indices_by_line.get(line_no, set())
+                and not self._is_skippable_prompt_piece(prompt_norms[idx])
+            ]
+            if indices:
+                line_spans[line_no] = indices
+        return line_spans
+
+    def _source_line_lexemes(self, line: str) -> List[str]:
+        return re.findall(
+            r"[A-Za-z_$][A-Za-z0-9_$]*"
+            r"|-?\d+(?:\.\d+)?(?:e[+-]?\d+)?"
+            r"|<=|>=|==|!=|&&|\|\||\+\+|--|\+=|-=|\*=|/=|%=|->"
+            r"|[{}()\[\];,.:<>+\-*/=%!?]",
+            str(line),
+            flags=re.IGNORECASE,
+        )
+
+    def _build_prompt_source_line_spans(self, prompt_tokens: Sequence[str]) -> Dict[int, List[int]]:
+        prompt_text = str(getattr(self.context, "prompt_text", "") or "")
+        source_text = str(getattr(self.context, "code_text", "") or "")
+        if not prompt_text or not source_text:
+            return {}
+
+        prompt_norms = [self._normalize_prompt_piece(tok) for tok in prompt_tokens]
+        source_lines = source_text.splitlines()
+        anchor_line_no: Optional[int] = None
+        anchor_indices: List[int] = []
+        cursor = 0
+
+        for line_no, raw_line in enumerate(source_lines, start=1):
+            lexemes = self._source_line_lexemes(raw_line)
+            if not lexemes:
+                continue
+            matched: List[int] = []
+            probe_cursor = cursor
+            for lexeme in lexemes:
+                indices, next_cursor = self._locate_lexeme_indices(
+                    lexeme,
+                    prompt_norms,
+                    probe_cursor,
+                    skip_line_markers=False,
+                )
+                if not indices:
+                    continue
+                matched.extend(indices)
+                probe_cursor = next_cursor
+            if matched:
+                anchor_line_no = line_no
+                anchor_indices = sorted(set(matched))
+                cursor = probe_cursor
+                break
+
+        if anchor_line_no is None or not anchor_indices:
+            return {}
+
+        def newline_count(token: str) -> int:
+            return str(token).count("Ċ") + str(token).count("\n")
+
+        line_spans: Dict[int, List[int]] = {}
+        current_line = int(anchor_line_no)
+        current_indices: List[int] = []
+        started = False
+        start_idx = anchor_indices[0]
+        last_line = len(source_lines)
+
+        for idx in range(start_idx, len(prompt_tokens)):
+            raw_tok = str(prompt_tokens[idx])
+            if not started and idx < start_idx:
+                continue
+            started = True
+            current_indices.append(idx)
+            nl_count = newline_count(raw_tok)
+            if nl_count <= 0:
+                continue
+            filtered = [
+                i
+                for i in current_indices
+                if str(prompt_tokens[i]).strip()
+                and str(prompt_tokens[i]).replace("Ċ", "").strip()
+            ]
+            line_spans[current_line] = filtered
+            current_indices = []
+            current_line += 1
+            for _ in range(nl_count - 1):
+                if current_line > last_line:
+                    break
+                line_spans.setdefault(current_line, [])
+                current_line += 1
+            if current_line > last_line:
+                break
+
+        if current_indices and current_line <= last_line:
+            filtered = [
+                i
+                for i in current_indices
+                if str(prompt_tokens[i]).strip()
+                and str(prompt_tokens[i]).replace("Ċ", "").strip()
+            ]
+            line_spans[current_line] = filtered
+        return line_spans
+
+    def _map_scores_to_prompt(self, token_scores: Dict[int, float], tokens, prompt_tokens: Sequence[str]) -> np.ndarray:
+        total_len = len(prompt_tokens)
+        vec = np.zeros(total_len, dtype=float)
+        if not token_scores:
+            return vec
+
+        line_spans = self._build_prompt_line_spans(prompt_tokens)
+        if not line_spans:
+            line_spans = self._build_prompt_source_line_spans(prompt_tokens)
+        if line_spans:
+            for token_idx, score in token_scores.items():
+                pos = getattr(tokens[token_idx], "position", None)
+                if not pos:
+                    continue
+                indices = line_spans.get(int(pos[0])) or []
+                if not indices:
+                    continue
+                weight = float(score) / float(len(indices))
+                for prompt_idx in indices:
+                    vec[prompt_idx] += weight
+            if vec.sum() > 0:
+                return vec
+
+        alignment = self._build_prompt_alignment(tokens, prompt_tokens)
+        for token_idx, score in token_scores.items():
+            for prompt_idx in alignment.get(token_idx, []):
+                vec[prompt_idx] += score
+
+        if vec.sum() > 0:
+            return vec
+        return self._old_map_scores_to_prompt(token_scores, tokens, prompt_tokens)
 
     def _fallback_chunk(self, bin_idx: int, n_bins: int) -> np.ndarray:
         total = len(self.context.prompt_tokens)
@@ -329,15 +696,12 @@ class ASTPrior(PriorProvider):
         javalang_mod = self._try_import()
         if javalang_mod is None:
             return self._normalize(self._fallback_chunk(bin_idx, n_bins))
-        tokens = self._tokenize(javalang_mod, self.context.code_text)
-        if not tokens:
-            return self._normalize(self._fallback_chunk(bin_idx, n_bins))
-        try:
-            tree = javalang_mod.parse.parse(self.context.code_text)
-        except Exception:
+        _, tokens, tree = self._prepare_parse_artifacts(javalang_mod)
+        if not tokens or tree is None:
             return self._normalize(self._fallback_chunk(bin_idx, n_bins))
 
-        scores = self._collect_scores(tree, tokens, javalang_mod)
+        focus_node = self._select_target_method(tree, javalang_mod) or tree
+        scores = self._collect_scores(focus_node, tokens, javalang_mod)
         vec = self._map_scores_to_prompt(scores, tokens, self.context.prompt_tokens)
         if vec.sum() == 0:
             vec = self._fallback_chunk(bin_idx, n_bins)
@@ -1028,12 +1392,8 @@ class SlicingPrior(ASTPrior):
         javalang_mod = self._try_import()
         if javalang_mod is None:
             return self._normalize(self._fallback_chunk(bin_idx, n_bins))
-        tokens = self._tokenize(javalang_mod, self.context.code_text)
-        if not tokens:
-            return self._normalize(self._fallback_chunk(bin_idx, n_bins))
-        try:
-            tree = javalang_mod.parse.parse(self.context.code_text)
-        except Exception:
+        _, tokens, tree = self._prepare_parse_artifacts(javalang_mod)
+        if not tokens or tree is None:
             return self._normalize(self._fallback_chunk(bin_idx, n_bins))
 
         methods = [node for _, node in tree.filter(javalang_mod.tree.MethodDeclaration)]
@@ -1319,6 +1679,185 @@ class SlicingPrior(ASTPrior):
         return self._normalize(combined)
 
 
+class SlicingHybridPrior(SlicingPrior):
+    """
+    Hybrid slicing prior:
+    - algorithm signal from SlicingPrior
+    - case-block signal from prompt markers (### CASES_BEGIN ... ### CASES_END)
+    """
+
+    alg_weight = 0.7
+    case_weight = 0.3
+    baseline_weight = 1.0
+
+    def __init__(self, context: PriorContext) -> None:
+        super().__init__(context)
+        self._case_vectors, self._case_ids = self._build_case_vectors()
+
+    @staticmethod
+    def _norm_token(token: str) -> str:
+        return str(token).replace("▁", "").replace("Ġ", "").strip().lower()
+
+    def _extract_case_specs(self) -> List[tuple[str, str]]:
+        prompt_text = str(getattr(self.context, "prompt_text", "") or "")
+        if not prompt_text:
+            return []
+        start = prompt_text.find("### CASES_BEGIN")
+        end = prompt_text.find("### CASES_END")
+        if start < 0 or end < 0 or end <= start:
+            return []
+        block = prompt_text[start:end]
+        specs: List[tuple[str, str]] = []
+        for line in block.splitlines():
+            m = re.match(r"\s*(c\d{3})\s*:\s*(.+?)\s*$", line, flags=re.IGNORECASE)
+            if not m:
+                continue
+            specs.append((m.group(1).lower(), m.group(2).strip()))
+        return specs
+
+    def _expr_terms(self, expr: str) -> List[str]:
+        terms: List[str] = []
+        for t in re.findall(r"[A-Za-z_][A-Za-z0-9_]*", expr):
+            tl = t.lower()
+            if tl in {
+                "true",
+                "false",
+                "null",
+                "new",
+                "return",
+                "if",
+                "else",
+                "for",
+                "while",
+                "assert",
+                "math",
+            }:
+                continue
+            terms.append(tl)
+        for n in re.findall(r"-?\d+(?:\.\d+)?(?:e[+-]?\d+)?", expr, flags=re.IGNORECASE):
+            terms.append(n.lower())
+        for op in re.findall(r"<=|>=|==|!=|&&|\|\||<|>|\+|-|\*|/|%|!", expr):
+            terms.append(op)
+        # Keep deterministic order and uniqueness.
+        uniq = list(dict.fromkeys(terms))
+        return uniq
+
+    def _build_case_vectors(self) -> tuple[List[np.ndarray], List[str]]:
+        toks = list(self.context.prompt_tokens)
+        total = len(toks)
+        if total == 0:
+            return [], []
+
+        specs = self._extract_case_specs()
+        if not specs:
+            return [], []
+
+        norm_tokens = [self._norm_token(t) for t in toks]
+        marker_start: Optional[int] = None
+        marker_end: Optional[int] = None
+        for i, tok in enumerate(norm_tokens):
+            if marker_start is None and "cases_begin" in tok:
+                marker_start = i
+            if "cases_end" in tok:
+                marker_end = i
+        vectors: List[np.ndarray] = []
+        case_ids: List[str] = []
+
+        for case_id, expr in specs:
+            terms = self._expr_terms(expr)
+            vec = np.zeros(total, dtype=float)
+            for i, raw_tok in enumerate(toks):
+                tok = norm_tokens[i]
+                if not tok:
+                    continue
+                score = 0.0
+                if case_id in tok:
+                    score += 4.0
+                in_case_block = (
+                    marker_start is not None
+                    and marker_end is not None
+                    and marker_start <= i <= marker_end
+                )
+                if in_case_block:
+                    score += 0.2
+                for term in terms:
+                    if tok == term:
+                        score += 2.5
+                    elif len(tok) > 1 and len(term) > 1 and (tok in term or term in tok):
+                        score += 1.2
+                tok_plain = str(raw_tok).replace("▁", "").replace("Ġ", "")
+                if tok_plain in {"(", ")", ":", "<", ">", "==", "!=", "<=", ">="}:
+                    score += 0.2
+                if score > 0.0:
+                    vec[i] = score
+            if vec.sum() > 0:
+                vectors.append(self._normalize(vec))
+                case_ids.append(case_id)
+        return vectors, case_ids
+
+    def _select_case_vector(self, bin_idx: int, n_bins: int, size: int) -> np.ndarray:
+        if not self._case_vectors:
+            return np.zeros(size, dtype=float)
+        if n_bins <= 1:
+            idx = 0
+        else:
+            # Spread bins across available cases deterministically.
+            pos = float(bin_idx) / float(max(n_bins - 1, 1))
+            idx = int(round(pos * float(len(self._case_vectors) - 1)))
+        idx = max(0, min(idx, len(self._case_vectors) - 1))
+        vec = self._case_vectors[idx]
+        if vec.size != size:
+            vec = np.resize(vec, size)
+            s = float(vec.sum())
+            if s > 0:
+                vec = vec / s
+        return vec
+
+    def _case_block_vector(self) -> np.ndarray:
+        toks = list(self.context.prompt_tokens)
+        total = len(toks)
+        if total == 0:
+            return np.ones(1, dtype=float)
+
+        start_idx: Optional[int] = None
+        end_idx: Optional[int] = None
+        for i, tok in enumerate(toks):
+            low = str(tok).lower()
+            if start_idx is None and "cases_begin" in low:
+                start_idx = i
+            if "cases_end" in low:
+                end_idx = i
+
+        vec = np.zeros(total, dtype=float)
+        if start_idx is None or end_idx is None or end_idx < start_idx:
+            return vec
+
+        for i in range(start_idx, end_idx + 1):
+            tok = str(toks[i])
+            tok_plain = tok.replace("▁", "").replace("Ġ", "")
+            weight = 1.0
+            if re.search(r"[A-Za-z0-9_]", tok_plain):
+                weight = 1.5
+            if ":" in tok_plain or "(" in tok_plain or ")" in tok_plain:
+                weight = 2.0
+            vec[i] = weight
+        return self._normalize(vec)
+
+    def vector(self, bin_idx: int, n_bins: int) -> np.ndarray:
+        alg_vec = super().vector(bin_idx, n_bins)
+        if self._case_vectors:
+            case_vec = self._select_case_vector(bin_idx, n_bins, alg_vec.size)
+        else:
+            case_vec = self._case_block_vector()
+        if case_vec.size != alg_vec.size:
+            case_vec = np.resize(case_vec, alg_vec.size)
+        baseline = np.ones_like(alg_vec, dtype=float) * float(self.baseline_weight)
+        combined = baseline + float(self.alg_weight) * alg_vec + float(self.case_weight) * case_vec
+        if combined.sum() == 0:
+            combined = self._fallback_chunk(bin_idx, n_bins)
+        return self._normalize(combined)
+
+
 PRIOR_REGISTRY = {
     "human": HumanPrior,
     "lex": LexPrior,
@@ -1327,4 +1866,5 @@ PRIOR_REGISTRY = {
     "ast": ASTPrior,
     "cfg": CFGPrior,
     "slice": SlicingPrior,
+    "slice_hybrid": SlicingHybridPrior,
 }

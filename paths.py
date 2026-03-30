@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Optional
 
 
-DEFAULT_ARTIFACT_ROOT = Path("/data/xxr230000/eyetracking")
+DEFAULT_ARTIFACT_ROOT = Path("artifacts")
 
 
 def model_dir_name(model_name: str) -> str:
@@ -18,15 +18,7 @@ def resolve_artifact_root(project_root: Path) -> Path:
     env_root = os.getenv("EYETRACKING_DATA_ROOT", "").strip()
     if env_root:
         return Path(env_root).expanduser()
-
-    project_posix = project_root.as_posix()
-    if project_posix.startswith("/people/cs/x/xxr230000/eyetracking"):
-        return DEFAULT_ARTIFACT_ROOT
-
-    if os.name == "posix" and DEFAULT_ARTIFACT_ROOT.parent.exists():
-        return DEFAULT_ARTIFACT_ROOT
-
-    return project_root
+    return (project_root / DEFAULT_ARTIFACT_ROOT).resolve()
 
 
 def resolve_artifact_path(project_root: Path, path: Path | str) -> Path:
@@ -91,8 +83,6 @@ def resolve_obf_result_read_root(
     """
     Resolve obfuscation prediction result root for reads.
 
-    Layout expectation:
-      /.../obfuscation/result/<model_dir>/<snippet>/<technique>/<difficulty>/<run_tag>/...
     """
     root = resolve_obf_result_root(project_root, None)
     if model_dir:
@@ -117,9 +107,9 @@ def resolve_attn_root(
 ) -> Path:
     attn_root = resolve_artifact_root(project_root) / "attn_viz"
     if not for_write and not attn_root.exists():
-        legacy_attn_root = project_root / "attn_viz"
-        if legacy_attn_root.exists():
-            attn_root = legacy_attn_root
+        flat_attn_root = project_root / "attn_viz"
+        if flat_attn_root.exists():
+            attn_root = flat_attn_root
     if model_dir:
         return attn_root / model_dir
     if not attn_root.exists():
@@ -146,6 +136,6 @@ def resolve_attn_root(
         return attn_root
     if direct_baseline and model_dirs:
         raise RuntimeError(
-            "Both legacy and model-namespaced attn_viz layouts found; specify a model name."
+            "Both flat and model-namespaced attn_viz layouts found; specify a model name."
         )
     return attn_root

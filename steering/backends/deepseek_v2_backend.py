@@ -1,15 +1,13 @@
 from __future__ import annotations
 
-import math
 from typing import Callable, Optional, TYPE_CHECKING
 
 import torch
 from torch import nn
-from transformers.models.qwen2.modeling_qwen2 import (
-    Qwen2Attention,
-    Qwen2DecoderLayer,
-    apply_rotary_pos_emb,
-    repeat_kv,
+from transformers.models.deepseek_v2.modeling_deepseek_v2 import (
+    DeepseekV2Attention,
+    DeepseekV2DecoderLayer,
+    apply_rotary_emb,
 )
 
 from ..levels import level1_bias, level2_post, level4_scale
@@ -58,84 +56,101 @@ def _agreement_rel_layer(
     return float(agree.mean().item())
 
 
-class Qwen2SteeringAttention(nn.Module):
+class DeepseekV2SteeringAttention(nn.Module):
     """
-    Qwen2/Qwen2.5 attention wrapper with L1/L2/L4 steering + telemetry.
-
-    Supports the current Transformers signature (position_embeddings/past_key_values/cache_position).
+    DeepSeek-V2 eager-attention wrapper with attention steering, key/value scaling, and telemetry.
     """
 
     def __init__(
         self,
-        base_attn: Qwen2Attention,
+        base_attn: DeepseekV2Attention,
         runtime_getter: Callable[[], Optional["SteeringRuntime"]],
         layer_index: int,
         config: "SteeringConfig",
-        cutoffs: LayerCutoffs | None = None,
+        cutoffs: LayerCutoffs,
     ) -> None:
         super().__init__()
         self.base = base_attn
         self.runtime_getter = runtime_getter
         self.layer_index = layer_index
         self.config = config
-        if cutoffs is None:
-            num_layers = int(getattr(getattr(base_attn, "config", None), "num_hidden_layers", 80))
-            cutoffs = compute_default_cutoffs(num_layers)
         self.cutoffs = cutoffs
 
-        self.config_hf = base_attn.config
-        self.q_proj = base_attn.q_proj
-        self.k_proj = base_attn.k_proj
-        self.v_proj = base_attn.v_proj
-        self.o_proj = base_attn.o_proj
+        cls_name = base_attn.__class__.__name__.lower()
+        if "flash" in cls_name:
+            raise ValueError(
+                "DeepSeek-V2 steering requires eager attention implementation; found flash attention class "
+                f"{base_attn.__class__.__name__!r}."
+            )
 
-        self.head_dim = int(base_attn.head_dim)
-        self.num_heads = int(getattr(base_attn, "num_heads", getattr(base_attn.config, "num_attention_heads", 0)))
-        self.num_key_value_heads = int(
-            getattr(base_attn, "num_key_value_heads", getattr(base_attn.config, "num_key_value_heads", self.num_heads))
-        )
-        self.num_key_value_groups = int(getattr(base_attn, "num_key_value_groups", 1))
-        self.scaling = float(getattr(base_attn, "scaling", 1.0 / math.sqrt(max(self.head_dim, 1))))
-        self.attention_dropout = float(base_attn.attention_dropout)
-        self.hidden_size = int(getattr(base_attn, "hidden_size", getattr(base_attn.config, "hidden_size", 0)))
+        self.config_hf = base_attn.config
         self.layer_idx = getattr(base_attn, "layer_idx", layer_index)
+        self.attention_dropout = float(base_attn.attention_dropout)
+        self.hidden_size = int(base_attn.hidden_size)
+        self.num_heads = int(base_attn.num_heads)
+
+        self.q_lora_rank = base_attn.q_lora_rank
+        self.qk_rope_head_dim = int(base_attn.qk_rope_head_dim)
+        self.kv_lora_rank = int(base_attn.kv_lora_rank)
+        self.v_head_dim = int(base_attn.v_head_dim)
+        self.qk_nope_head_dim = int(base_attn.qk_nope_head_dim)
+        self.qk_head_dim = int(base_attn.qk_head_dim)
+        self.scaling = float(base_attn.scaling)
+
+        self.q_proj = getattr(base_attn, "q_proj", None)
+        self.q_a_proj = getattr(base_attn, "q_a_proj", None)
+        self.q_a_layernorm = getattr(base_attn, "q_a_layernorm", None)
+        self.q_b_proj = getattr(base_attn, "q_b_proj", None)
+        self.kv_a_proj_with_mqa = base_attn.kv_a_proj_with_mqa
+        self.kv_a_layernorm = base_attn.kv_a_layernorm
+        self.kv_b_proj = base_attn.kv_b_proj
+        self.o_proj = base_attn.o_proj
 
     def forward(
         self,
         hidden_states: torch.Tensor,
-        position_embeddings: tuple[torch.Tensor, torch.Tensor],
-        attention_mask: torch.Tensor | None,
+        attention_mask: Optional[torch.Tensor] = None,
         past_key_values=None,
         cache_position: torch.LongTensor | None = None,
+        position_embeddings: tuple[torch.Tensor, torch.Tensor] | None = None,
         **kwargs,
     ) -> tuple[torch.Tensor, torch.Tensor | None]:
         runtime = self.runtime_getter()
         output_attentions = bool(kwargs.get("output_attentions", False))
 
-        input_shape = hidden_states.shape[:-1]
-        bsz = hidden_states.shape[0]
-        q_len = hidden_states.shape[1]
-        hidden_shape = (*input_shape, -1, self.head_dim)
+        batch_size, seq_length = hidden_states.shape[:-1]
+        query_shape = (batch_size, seq_length, -1, self.qk_head_dim)
+        key_shape = (batch_size, seq_length, -1, self.qk_nope_head_dim + self.v_head_dim)
 
-        target_device = hidden_states.device
-        if attention_mask is not None and attention_mask.device != target_device:
-            attention_mask = attention_mask.to(target_device)
-        if cache_position is not None and cache_position.device != target_device:
-            cache_position = cache_position.to(target_device)
+        if self.q_lora_rank is None:
+            if self.q_proj is None:
+                raise RuntimeError("DeepSeek-V2 attention missing q_proj with q_lora_rank=None.")
+            q = self.q_proj(hidden_states)
+        else:
+            if self.q_a_proj is None or self.q_a_layernorm is None or self.q_b_proj is None:
+                raise RuntimeError("DeepSeek-V2 attention missing q_lora projection modules.")
+            q = self.q_b_proj(self.q_a_layernorm(self.q_a_proj(hidden_states)))
 
-        query_states = self.q_proj(hidden_states).view(hidden_shape).transpose(1, 2)
-        key_states = self.k_proj(hidden_states).view(hidden_shape).transpose(1, 2)
-        value_states = self.v_proj(hidden_states).view(hidden_shape).transpose(1, 2)
+        q = q.view(query_shape).transpose(1, 2)
+        q_nope, q_pe = torch.split(q, [self.qk_nope_head_dim, self.qk_rope_head_dim], dim=-1)
 
-        cos, sin = position_embeddings
-        query_states, key_states = apply_rotary_pos_emb(query_states, key_states, cos, sin)
+        compressed_kv = self.kv_a_proj_with_mqa(hidden_states)
+        k_nope, k_pe = torch.split(compressed_kv, [self.kv_lora_rank, self.qk_rope_head_dim], dim=-1)
+        k_nope = self.kv_b_proj(self.kv_a_layernorm(k_nope)).view(key_shape).transpose(1, 2)
+        k_nope, value_states = torch.split(k_nope, [self.qk_nope_head_dim, self.v_head_dim], dim=-1)
+
+        if position_embeddings is None:
+            raise ValueError("DeepSeek-V2 attention requires position_embeddings for RoPE.")
+        k_pe = k_pe.view(batch_size, 1, seq_length, self.qk_rope_head_dim)
+        q_pe, k_pe = apply_rotary_emb(q_pe, k_pe, position_embeddings.to(q_pe.device))
+
+        k_pe = k_pe.expand(*k_nope.shape[:-1], -1)
+        query_states = torch.cat((q_nope, q_pe), dim=-1)
+        key_states = torch.cat((k_nope, k_pe), dim=-1)
 
         if past_key_values is not None:
-            cache_kwargs = {"sin": sin, "cos": cos, "cache_position": cache_position}
+            cache_kwargs = {"cache_position": cache_position}
             key_states, value_states = past_key_values.update(key_states, value_states, self.layer_idx, cache_kwargs)
-
-        key_states = repeat_kv(key_states, self.num_key_value_groups)
-        value_states = repeat_kv(value_states, self.num_key_value_groups)
 
         if runtime and 4 in self.config.enabled_levels and self.layer_index >= self.cutoffs.l4_start:
             prior_vec = runtime.prior_tensor(key_states.device, key_states.shape[-2]).view(-1)
@@ -154,6 +169,7 @@ class Qwen2SteeringAttention(nn.Module):
 
         attn_weights = torch.matmul(query_states, key_states.transpose(2, 3)) * self.scaling
         num_layers = int(getattr(self.config_hf, "num_hidden_layers", self.layer_index + 1))
+        q_len = int(attn_weights.shape[-2])
         if runtime:
             runtime.begin_decode_step(q_len=q_len, kv_len=attn_weights.shape[-1], num_layers=num_layers)
 
@@ -191,6 +207,15 @@ class Qwen2SteeringAttention(nn.Module):
 
         effective_mask = None
         if attention_mask is not None:
+            if attention_mask.size(-2) != q_len:
+                raise ValueError(
+                    f"DeepSeek-V2 attention mask query length mismatch: expected {q_len}, got {attention_mask.size(-2)}"
+                )
+            if attention_mask.size(-1) != attn_weights.shape[-1]:
+                raise ValueError(
+                    "DeepSeek-V2 attention mask key length mismatch: "
+                    f"expected {attn_weights.shape[-1]}, got {attention_mask.size(-1)}"
+                )
             attn_weights = attn_weights + attention_mask
             effective_mask = attention_mask
 
@@ -204,7 +229,11 @@ class Qwen2SteeringAttention(nn.Module):
                     assert torch.all(masked_logits < -1e4), "Masked logits became finite after steering bias."
 
         attn_probs = nn.functional.softmax(attn_weights, dim=-1, dtype=torch.float32)
-        attn_probs = nn.functional.dropout(attn_probs, p=self.attention_dropout if self.training else 0.0, training=self.training)
+        attn_probs = nn.functional.dropout(
+            attn_probs,
+            p=self.attention_dropout if self.training else 0.0,
+            training=self.training,
+        )
 
         if runtime:
             mean_heads = attn_probs.mean(dim=1)
@@ -272,30 +301,28 @@ class Qwen2SteeringAttention(nn.Module):
 
         attn_probs_out = attn_probs.to(value_states.dtype)
         attn_output = torch.matmul(attn_probs_out, value_states)
-        if attn_output.size() != (bsz, self.num_heads, q_len, self.head_dim):
+        if attn_output.size() != (batch_size, self.num_heads, q_len, self.v_head_dim):
             raise ValueError(
-                f"`attn_output` should be {(bsz, self.num_heads, q_len, self.head_dim)}, got {tuple(attn_output.size())}"
+                f"`attn_output` should be {(batch_size, self.num_heads, q_len, self.v_head_dim)}, "
+                f"got {tuple(attn_output.size())}"
             )
 
-        attn_output = attn_output.transpose(1, 2).contiguous().reshape(*input_shape, -1)
+        attn_output = attn_output.transpose(1, 2).contiguous().reshape(batch_size, q_len, -1)
         attn_output = self.o_proj(attn_output)
+
         if not output_attentions:
             return attn_output, None
         return attn_output, attn_probs_out
 
 
-def patch_decoder_layer(
-    layer: Qwen2DecoderLayer,
+def patch_deepseek_v2_decoder_layer(
+    layer: DeepseekV2DecoderLayer,
     runtime_getter: Callable[[], Optional["SteeringRuntime"]],
     config: "SteeringConfig",
     layer_idx: int,
-    cutoffs: LayerCutoffs | None = None,
+    cutoffs: LayerCutoffs,
 ) -> None:
-    attn = getattr(layer, "self_attn", None)
-    cfg = getattr(attn, "config_hf", None) or getattr(attn, "config", None)
-    num_layers = int(getattr(cfg, "num_hidden_layers", 80))
-    if cutoffs is None:
-        cutoffs = compute_default_cutoffs(num_layers)
+    num_layers = int(getattr(getattr(layer.self_attn, "config_hf", None) or getattr(layer.self_attn, "config", None), "num_hidden_layers", 80))
 
     def steered_forward(
         hidden_states: torch.Tensor,
@@ -368,19 +395,24 @@ def patch_decoder_layer(
     layer.forward = steered_forward  # type: ignore[method-assign]
 
 
-def install_qwen2_steering(
+def install_deepseek_v2_steering(
     model,
     runtime_getter: Callable[[], Optional["SteeringRuntime"]],
     config: "SteeringConfig",
 ) -> None:
     layers = get_decoder_layers(model)
     cutoffs = compute_default_cutoffs(len(layers))
+    if len(layers) == 0:
+        raise ValueError("DeepSeek-V2 steering install failed: model has no decoder layers.")
+
     for idx, layer in enumerate(layers):
-        layer.self_attn = Qwen2SteeringAttention(
+        if not hasattr(layer, "self_attn"):
+            raise ValueError(f"DeepSeek-V2 layer {idx} missing self_attn.")
+        layer.self_attn = DeepseekV2SteeringAttention(
             layer.self_attn,
             runtime_getter=runtime_getter,
             layer_index=idx,
             config=config,
             cutoffs=cutoffs,
         )
-        patch_decoder_layer(layer, runtime_getter, config, idx, cutoffs=cutoffs)
+        patch_deepseek_v2_decoder_layer(layer, runtime_getter, config, idx, cutoffs)

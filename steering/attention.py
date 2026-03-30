@@ -9,7 +9,7 @@ Qwen2.5) without mixing architectures in one file.
 
 from .backends.llama_backend import LlamaSteeringAttention
 
-# Backward-compatible alias for legacy imports.
+# Backward-compatible alias for older imports.
 SteeringAttention = LlamaSteeringAttention
 
 __all__ = ["LlamaSteeringAttention", "SteeringAttention"]

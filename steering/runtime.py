@@ -64,6 +64,22 @@ class SteeringRuntime:
     # Optional offline head-stat collection.
     head_stats_sum: Optional[np.ndarray] = None
     head_stats_count: Optional[np.ndarray] = None
+    # Per-level activation accounting for parity audits.
+    level1_calls: int = 0
+    level2_calls: int = 0
+    level4_calls: int = 0
+    level5_calls: int = 0
+    level1_steps: set[int] = field(default_factory=set)
+    level2_steps: set[int] = field(default_factory=set)
+    level3_steps: set[int] = field(default_factory=set)
+    level4_steps: set[int] = field(default_factory=set)
+    level5_steps: set[int] = field(default_factory=set)
+    level_event_trace: list[dict] = field(default_factory=list)
+    # Level-5 pointer diagnostics.
+    pointer_calls_total: int = 0
+    pointer_bias_applied_steps: int = 0
+    pointer_missing_attention_steps: int = 0
+    pointer_beta_zero_steps: int = 0
 
     def start(self, total_steps: int) -> None:
         self.total_steps = total_steps
@@ -91,6 +107,20 @@ class SteeringRuntime:
         self._residual_debug_keys = set()
         self.head_stats_sum = None
         self.head_stats_count = None
+        self.level1_calls = 0
+        self.level2_calls = 0
+        self.level4_calls = 0
+        self.level5_calls = 0
+        self.level1_steps = set()
+        self.level2_steps = set()
+        self.level3_steps = set()
+        self.level4_steps = set()
+        self.level5_steps = set()
+        self.level_event_trace = []
+        self.pointer_calls_total = 0
+        self.pointer_bias_applied_steps = 0
+        self.pointer_missing_attention_steps = 0
+        self.pointer_beta_zero_steps = 0
         self.manager.init_bins(total_steps)
         self.manager.step(self.step_index)
 
@@ -219,6 +249,33 @@ class SteeringRuntime:
         return prior_vec.view(1, 1, 1, -1)
 
     # ---- Step-4: steerable head subset ---------------------------------
+    @staticmethod
+    def _normalize_model_name(name: Optional[str]) -> str:
+        return str(name or "").strip().lower()
+
+    def _validate_head_mask_model(self, payload: Any, source_desc: str) -> None:
+        if not isinstance(payload, dict):
+            return
+
+        meta = payload.get("meta")
+        payload_model = None
+        if isinstance(meta, dict):
+            payload_model = meta.get("model_name")
+        if payload_model is None:
+            payload_model = payload.get("model_name")
+
+        if not payload_model:
+            return
+
+        active_model = self._normalize_model_name(getattr(self.config, "model_name", None))
+        source_model = self._normalize_model_name(str(payload_model))
+        if active_model and source_model and active_model != source_model:
+            raise ValueError(
+                "Head mask model mismatch: "
+                f"mask={payload_model!r}, active={getattr(self.config, 'model_name', None)!r}, "
+                f"source={source_desc}"
+            )
+
     def _parse_head_mask_payload(self, payload: Any, num_layers: int, num_heads: int) -> np.ndarray:
         if isinstance(payload, dict) and "mask" in payload:
             mask_data = payload["mask"]
@@ -286,6 +343,7 @@ class SteeringRuntime:
             payload = json.loads(path.read_text(encoding="utf-8"))
             source_desc = str(path)
 
+        self._validate_head_mask_model(payload, source_desc=source_desc)
         mask_np = self._parse_head_mask_payload(payload, num_layers=num_layers, num_heads=num_heads)
         self._head_mask_np = mask_np
         self._head_mask_shape = (num_layers, num_heads)
@@ -566,10 +624,57 @@ class SteeringRuntime:
         self.residual_debug.append(entry)
 
     def mark_residual_call(self, kind: str) -> None:
+        self.level3_steps.add(int(self.step_index))
+        if len(self.level_event_trace) < 4096:
+            self.level_event_trace.append(
+                {
+                    "step_index": int(self.step_index),
+                    "level": 3,
+                    "kind": str(kind),
+                }
+            )
         if kind == "attn":
             self.residual_calls_attn += 1
         elif kind == "mlp":
             self.residual_calls_mlp += 1
+
+    def mark_level_call(self, level: int) -> None:
+        li = int(level)
+        if len(self.level_event_trace) < 4096:
+            self.level_event_trace.append(
+                {
+                    "step_index": int(self.step_index),
+                    "level": li,
+                }
+            )
+        if li == 1:
+            self.level1_calls += 1
+            self.level1_steps.add(int(self.step_index))
+        elif li == 2:
+            self.level2_calls += 1
+            self.level2_steps.add(int(self.step_index))
+        elif li == 4:
+            self.level4_calls += 1
+            self.level4_steps.add(int(self.step_index))
+        elif li == 5:
+            self.level5_calls += 1
+            self.level5_steps.add(int(self.step_index))
+
+    def level_call_counts_payload(self) -> Dict[str, Any]:
+        return {
+            "l1_calls": int(self.level1_calls),
+            "l2_calls": int(self.level2_calls),
+            "l4_calls": int(self.level4_calls),
+            "l5_calls": int(self.level5_calls),
+            "l1_active_steps": int(len(self.level1_steps)),
+            "l2_active_steps": int(len(self.level2_steps)),
+            "l3_active_steps": int(len(self.level3_steps)),
+            "l4_active_steps": int(len(self.level4_steps)),
+            "l5_active_steps": int(len(self.level5_steps)),
+        }
+
+    def level_event_trace_payload(self) -> list[dict]:
+        return list(self.level_event_trace)
 
     def coeffs(self):
         return self.manager.coeffs()
@@ -626,6 +731,7 @@ def create_runtime(
     prompt_tokens: Sequence[str],
     code_text: str,
     vocab_tokens: Sequence[dict],
+    prompt_text: str = "",
     prompt_attention_mask: Optional[Sequence[int]] = None,
 ) -> SteeringRuntime:
     manager = SteeringManager(
@@ -633,6 +739,7 @@ def create_runtime(
         prompt_tokens=prompt_tokens,
         code_text=code_text,
         vocab_tokens=vocab_tokens,
+        prompt_text=prompt_text,
     )
     pointer_mapping = build_pointer_mapping(prompt_token_ids)
     return SteeringRuntime(

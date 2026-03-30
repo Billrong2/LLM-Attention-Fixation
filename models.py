@@ -51,9 +51,9 @@ from src.bdv import (
 # Hard-coded defaults (change via llama.config(...))
 # ----------------------------
 DEFAULT_MODEL_NAME = "codellama/CodeLlama-70b-Instruct-hf"
-DEFAULT_CACHE_DIR  = "/data/xxr230000/model_cache/codellama_70b"
+DEFAULT_CACHE_DIR  = ".cache/models"
 DEFAULT_USE_4BIT   = False
-DEFAULT_MAX_NEW    = 256 # 512 If we see majority of unfinished generations.
+DEFAULT_MAX_NEW    = 1024
 DEFAULT_TEMP       = 0.7
 DEFAULT_TOP_P      = 1.0
 DEFAULT_TOP_K      = 7
@@ -305,8 +305,15 @@ class SteeredCausalLM:
         return any(level in self.steering_config.enabled_levels for level in (1, 2))
 
     @staticmethod
-    def _build_prompt(code_snippet: str, *, instruction: str, language: str) -> str:
-        return f"{instruction}\n\n```{language}\n{code_snippet}\n```"
+    def _build_prompt(
+        code_snippet: str,
+        *,
+        instruction: str,
+        language: str,
+        answer_prefix: str = "",
+    ) -> str:
+        suffix = answer_prefix or ""
+        return f"{instruction}\n\n```{language}\n{code_snippet}\n```{suffix}"
 
     def compute_bdv_features(
         self,
@@ -392,6 +399,98 @@ class SteeredCausalLM:
             "bdv_schema_path": str(schema_path),
         }
 
+    def write_generated_logits_artifact(
+        self,
+        *,
+        result: Dict[str, Any],
+        run_dir: Path,
+        dtype: str = "float16",
+    ) -> Dict[str, Any]:
+        """
+        Persist full per-step logits for the realized generation trajectory.
+
+        File format:
+          generated_logits_full.npz with arrays:
+            - logits [num_generated, vocab]
+            - generated_token_ids [num_generated]
+            - prompt_length [1]
+            - num_generated [1]
+            - sequence_token_ids [prompt+generated]
+        """
+        assert self.model is not None and self.tokenizer is not None, "Call .build() first."
+
+        token_ids_all = result.get("token_ids_all")
+        if not isinstance(token_ids_all, list) or not token_ids_all:
+            raise RuntimeError("token_ids_all missing; cannot export logits.")
+
+        prompt_len = int(result.get("prompt_length_tokens", 0))
+        total_len = len(token_ids_all)
+        if prompt_len <= 0 or prompt_len > total_len:
+            raise RuntimeError(
+                f"Invalid prompt length ({prompt_len}) for sequence length ({total_len})."
+            )
+        num_generated = max(0, total_len - prompt_len)
+
+        if dtype == "float16":
+            np_dtype = np.float16
+            torch_dtype = torch.float16
+            dtype_label = "float16"
+        elif dtype == "float32":
+            np_dtype = np.float32
+            torch_dtype = torch.float32
+            dtype_label = "float32"
+        else:
+            raise ValueError(f"Unsupported logits dtype: {dtype}")
+
+        if num_generated > 0:
+            seq = torch.tensor([token_ids_all], dtype=torch.long, device=self.model.device)
+            model_input_ids = seq[:, :-1]
+            attention_mask = torch.ones_like(model_input_ids, dtype=torch.long, device=model_input_ids.device)
+
+            with torch.no_grad():
+                out = self.model(
+                    input_ids=model_input_ids,
+                    attention_mask=attention_mask,
+                    use_cache=False,
+                    return_dict=True,
+                )
+            step_logits = out.logits[0, prompt_len - 1 : prompt_len - 1 + num_generated, :]
+            if step_logits.shape[0] != num_generated:
+                raise RuntimeError(
+                    f"Logits length mismatch: expected {num_generated}, got {step_logits.shape[0]}."
+                )
+            logits_np = (
+                step_logits.detach()
+                .to(dtype=torch_dtype)
+                .cpu()
+                .numpy()
+                .astype(np_dtype, copy=False)
+            )
+        else:
+            vocab_size = int(getattr(self.model.config, "vocab_size", 0))
+            logits_np = np.empty((0, vocab_size), dtype=np_dtype)
+
+        generated_token_ids = np.asarray(token_ids_all[prompt_len:], dtype=np.int32)
+        sequence_token_ids = np.asarray(token_ids_all, dtype=np.int32)
+
+        run_dir.mkdir(parents=True, exist_ok=True)
+        logits_path = run_dir / "generated_logits_full.npz"
+        np.savez_compressed(
+            logits_path,
+            logits=logits_np,
+            generated_token_ids=generated_token_ids,
+            prompt_length=np.asarray([prompt_len], dtype=np.int32),
+            num_generated=np.asarray([num_generated], dtype=np.int32),
+            sequence_token_ids=sequence_token_ids,
+        )
+
+        return {
+            "generated_logits_path": str(logits_path),
+            "generated_logits_shape": [int(logits_np.shape[0]), int(logits_np.shape[1])],
+            "generated_logits_dtype": dtype_label,
+            "logits_recorded": True,
+        }
+
     def _sample_next_token(
         self,
         scores: torch.Tensor,
@@ -448,41 +547,42 @@ class SteeredCausalLM:
         else:
             eos_set = {int(eos_ids)}
 
-        for _ in range(int(gen_cfg.max_new_tokens)):
-            outputs = self.model(
-                input_ids=input_step,
-                attention_mask=dynamic_mask,
-                position_ids=dynamic_position_ids,
-                past_key_values=past,
-                use_cache=True,
-                output_attentions=record_attention,
-                return_dict=True,
-            )
-            past = outputs.past_key_values
-            if record_attention:
-                attentions.append(outputs.attentions)
+        with torch.no_grad():
+            for _ in range(int(gen_cfg.max_new_tokens)):
+                outputs = self.model(
+                    input_ids=input_step,
+                    attention_mask=dynamic_mask,
+                    position_ids=dynamic_position_ids,
+                    past_key_values=past,
+                    use_cache=True,
+                    output_attentions=record_attention,
+                    return_dict=True,
+                )
+                past = outputs.past_key_values
+                if record_attention:
+                    attentions.append(outputs.attentions)
 
-            scores = outputs.logits[:, -1, :]
-            scores = logits_processor(generated, scores)
-            next_token = self._sample_next_token(
-                scores,
-                do_sample=bool(gen_cfg.do_sample),
-                temperature=float(gen_cfg.temperature or 1.0),
-                top_p=float(gen_cfg.top_p or 1.0),
-                top_k=gen_cfg.top_k,
-            )
-            generated = torch.cat([generated, next_token], dim=-1)
-            input_step = next_token
-            dynamic_position_ids = dynamic_position_ids + 1
-            dynamic_mask = torch.cat(
-                [
-                    dynamic_mask,
-                    torch.ones((dynamic_mask.shape[0], 1), dtype=dynamic_mask.dtype, device=dynamic_mask.device),
-                ],
-                dim=-1,
-            )
-            if eos_set and all(int(tok.item()) in eos_set for tok in next_token.view(-1)):
-                break
+                scores = outputs.logits[:, -1, :]
+                scores = logits_processor(generated, scores)
+                next_token = self._sample_next_token(
+                    scores,
+                    do_sample=bool(gen_cfg.do_sample),
+                    temperature=float(gen_cfg.temperature or 1.0),
+                    top_p=float(gen_cfg.top_p or 1.0),
+                    top_k=gen_cfg.top_k,
+                )
+                generated = torch.cat([generated, next_token], dim=-1)
+                input_step = next_token
+                dynamic_position_ids = dynamic_position_ids + 1
+                dynamic_mask = torch.cat(
+                    [
+                        dynamic_mask,
+                        torch.ones((dynamic_mask.shape[0], 1), dtype=dynamic_mask.dtype, device=dynamic_mask.device),
+                    ],
+                    dim=-1,
+                )
+                if eos_set and all(int(tok.item()) in eos_set for tok in next_token.view(-1)):
+                    break
 
         return SimpleNamespace(
             sequences=generated,
@@ -538,7 +638,7 @@ class SteeredCausalLM:
                     use_cache=True,
                     logits_processor=logits_processor,
                 )
-        except (TypeError, ValueError, RuntimeError):
+        except (TypeError, ValueError, RuntimeError, IndexError):
             out_tail = self._manual_decode_from_past(
                 last_id=last_id,
                 full_mask=full_mask,
@@ -583,6 +683,7 @@ class SteeredCausalLM:
         runtime: Optional[SteeringRuntime] = None
         logits_processor = LogitsProcessorList()
         if self.steering_config:
+            self.steering_config.model_name = self.model_name
             prompt_ids = input_ids[0].tolist()
             prompt_tokens = self.tokenizer.convert_ids_to_tokens(prompt_ids)
             code_text = getattr(self, "_current_code_snippet", "")
@@ -592,6 +693,7 @@ class SteeredCausalLM:
                 prompt_tokens=prompt_tokens,
                 code_text=code_text,
                 vocab_tokens=self._current_vocab_tokens,
+                prompt_text=prompt,
                 prompt_attention_mask=enc["attention_mask"][0].tolist(),
             )
             runtime.start(max_new_tokens)
@@ -692,6 +794,12 @@ class SteeredCausalLM:
             "blocked_residual_disabled": int(runtime.blocked_residual_disabled) if runtime else 0,
             "blocked_residual_no_steer": int(runtime.blocked_residual_no_steer) if runtime else 0,
             "residual_debug": list(runtime.residual_debug) if runtime else [],
+            "pointer_calls_total": int(runtime.pointer_calls_total) if runtime else 0,
+            "pointer_bias_applied_steps": int(runtime.pointer_bias_applied_steps) if runtime else 0,
+            "pointer_missing_attention_steps": int(runtime.pointer_missing_attention_steps) if runtime else 0,
+            "pointer_beta_zero_steps": int(runtime.pointer_beta_zero_steps) if runtime else 0,
+            "level_call_counts": runtime.level_call_counts_payload() if runtime else {},
+            "level_event_trace": runtime.level_event_trace_payload() if runtime else [],
         }
         full_text = self.tokenizer.decode(sequences[0], skip_special_tokens=True)
         prompt_text = self.tokenizer.decode(sequences[0][:prompt_len], skip_special_tokens=True)
@@ -728,6 +836,10 @@ class SteeredCausalLM:
                 "bdv_features_b1_path": None,
                 "bdv_features_b3_path": None,
                 "bdv_schema_path": None,
+                "generated_logits_path": None,
+                "generated_logits_shape": None,
+                "generated_logits_dtype": None,
+                "logits_recorded": False,
                 "recording_complete": False,
             }
 
@@ -780,6 +892,10 @@ class SteeredCausalLM:
             "bdv_features_b1_path": None,
             "bdv_features_b3_path": None,
             "bdv_schema_path": None,
+            "generated_logits_path": None,
+            "generated_logits_shape": None,
+            "generated_logits_dtype": None,
+            "logits_recorded": False,
             "recording_complete": False,
         }
 
@@ -792,6 +908,7 @@ class SteeredCausalLM:
         instruction: Optional[str] = None,
         *,
         language: str = "java",
+        answer_prefix: str = "",
         max_new_tokens: Optional[int] = None,
         temperature: Optional[float] = None,
         top_p: Optional[float] = None,
@@ -800,6 +917,7 @@ class SteeredCausalLM:
         record_layers: Optional[bool] = None,
         record_attention: Optional[bool] = None,
         vocab_tokens: Optional[Sequence[dict]] = None,
+        steering_code_snippet: Optional[str] = None,
     ) -> Dict[str, Any]:
         """
         Generate with the configured causal LM using a caller-provided instruction.
@@ -807,7 +925,12 @@ class SteeredCausalLM:
         if instruction is None:
             instruction = "Summarize what this Java function does. Be concise and accurate."
 
-        prompt = self._build_prompt(code_snippet, instruction=instruction, language=language)
+        prompt = self._build_prompt(
+            code_snippet,
+            instruction=instruction,
+            language=language,
+            answer_prefix=answer_prefix,
+        )
 
         overrides: Dict[str, Any] = {}
         if max_new_tokens is not None:
@@ -825,7 +948,7 @@ class SteeredCausalLM:
         if record_attention is not None:
             overrides["record_attention"] = record_attention
 
-        self._current_code_snippet = code_snippet
+        self._current_code_snippet = steering_code_snippet if steering_code_snippet is not None else code_snippet
         self._current_vocab_tokens = vocab_tokens or []
         try:
             return self._generate_with_attn(prompt, overrides=overrides)
@@ -860,11 +983,12 @@ class SteeredCausalLM:
         language: str = "java",
         vocab_tokens: Optional[Sequence[dict]] = None,
         snippet_name: Optional[str] = None,
+        steering_code_snippet: Optional[str] = None,
     ) -> Dict[str, Any]:
         """
-        Step-4 auto head subset calibration:
+        Auto head subset calibration:
         - Collect per-layer/per-head agreement stats with betas forced to zero.
-        - Select top-k heads per layer in L1/L2 steering band.
+        - Select top-k heads per layer in the active attention-steering band.
         - Store in-memory mask on current steering config (no prebuilt JSON required).
         """
         if self.steering_config is None:
@@ -874,7 +998,7 @@ class SteeredCausalLM:
         if base_cfg.head_subset_mode != "auto":
             return {"mode": base_cfg.head_subset_mode, "active_total": 0, "layers_with_heads": 0}
         if not any(level in base_cfg.enabled_levels for level in (1, 2)):
-            raise RuntimeError("Head subset auto mode requires Level 1 and/or Level 2 steering enabled.")
+            raise RuntimeError("Head subset auto mode requires active attention steering.")
 
         from steering.backends.common import compute_default_cutoffs
 
@@ -912,6 +1036,7 @@ class SteeredCausalLM:
                     record_layers=False,
                     record_attention=False,
                     vocab_tokens=vocab_tokens,
+                    steering_code_snippet=steering_code_snippet,
                 )
                 hs = (result.get("steering_debug") or {}).get("head_stats")
                 if not hs:
@@ -930,8 +1055,6 @@ class SteeredCausalLM:
                 agg_sum += run_sum
                 agg_count += run_count
                 valid_runs += 1
-                if run_idx % 5 == 0 or run_idx == runs:
-                    print(f"[HeadSubset-Auto] calibration progress {run_idx}/{runs} (valid={valid_runs})")
         finally:
             self.steering_config = prev_cfg
 
@@ -967,7 +1090,15 @@ class SteeredCausalLM:
         if active_total <= 0:
             raise RuntimeError("Step-4 auto calibration selected zero heads; aborting.")
 
-        base_cfg.head_mask_inline = mask.astype(np.int32).tolist()
+        base_cfg.head_mask_inline = {
+            "meta": {
+                "model_name": self.model_name,
+                "mode": "auto",
+                "snippet": snippet_id,
+            },
+            "mask": mask.astype(np.int32).tolist(),
+            "active_heads": active_heads,
+        }
         base_cfg.head_subset_selected_heads = active_heads
         base_cfg.head_subset_calibration = {
             "mode": "auto",

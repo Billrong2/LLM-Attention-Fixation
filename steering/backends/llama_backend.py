@@ -4,7 +4,6 @@ import math
 from typing import Callable, Optional, TYPE_CHECKING
 
 import torch
-import torch.nn.functional as F
 from torch import nn
 from transformers.models.llama.modeling_llama import (
     LlamaAttention,
@@ -61,7 +60,9 @@ def _agreement_rel_layer(
 
 class LlamaSteeringAttention(nn.Module):
     """
-    LLaMA/CodeLlama-specific attention wrapper that applies steering levels.
+    LLaMA attention wrapper with L1/L2/L4 steering + telemetry.
+
+    Supports the current Transformers signature (position_embeddings/past_key_values/cache_position).
     """
 
     def __init__(
@@ -82,75 +83,56 @@ class LlamaSteeringAttention(nn.Module):
             cutoffs = compute_default_cutoffs(num_layers)
         self.cutoffs = cutoffs
 
-        # Mirror base attributes to preserve HF APIs.
         self.config_hf = base_attn.config
         self.q_proj = base_attn.q_proj
         self.k_proj = base_attn.k_proj
         self.v_proj = base_attn.v_proj
         self.o_proj = base_attn.o_proj
-        self.rotary_emb = base_attn.rotary_emb
-        self.num_heads = base_attn.num_heads
-        self.num_key_value_heads = base_attn.num_key_value_heads
-        self.num_key_value_groups = base_attn.num_key_value_groups
-        self.head_dim = base_attn.head_dim
-        self.hidden_size = base_attn.hidden_size
-        self.attention_dropout = base_attn.attention_dropout
+
+        self.head_dim = int(base_attn.head_dim)
+        self.num_heads = int(getattr(base_attn, "num_heads", getattr(base_attn.config, "num_attention_heads", 0)))
+        self.num_key_value_heads = int(
+            getattr(base_attn, "num_key_value_heads", getattr(base_attn.config, "num_key_value_heads", self.num_heads))
+        )
+        self.num_key_value_groups = int(getattr(base_attn, "num_key_value_groups", 1))
+        self.scaling = float(getattr(base_attn, "scaling", 1.0 / math.sqrt(max(self.head_dim, 1))))
+        self.attention_dropout = float(base_attn.attention_dropout)
+        self.hidden_size = int(getattr(base_attn, "hidden_size", getattr(base_attn.config, "hidden_size", 0)))
         self.layer_idx = getattr(base_attn, "layer_idx", layer_index)
 
     def forward(
         self,
         hidden_states: torch.Tensor,
-        attention_mask: Optional[torch.Tensor] = None,
-        position_ids: Optional[torch.LongTensor] = None,
-        past_key_value: Optional[torch.Tensor] = None,
-        output_attentions: bool = False,
-        use_cache: bool = False,
-        cache_position: Optional[torch.LongTensor] = None,
+        position_embeddings: tuple[torch.Tensor, torch.Tensor],
+        attention_mask: torch.Tensor | None,
+        past_key_values=None,
+        cache_position: torch.LongTensor | None = None,
         **kwargs,
-    ):
+    ) -> tuple[torch.Tensor, torch.Tensor | None]:
         runtime = self.runtime_getter()
-        bsz, q_len, _ = hidden_states.size()
+        output_attentions = bool(kwargs.get("output_attentions", False))
+
+        input_shape = hidden_states.shape[:-1]
+        bsz = hidden_states.shape[0]
+        q_len = hidden_states.shape[1]
+        hidden_shape = (*input_shape, -1, self.head_dim)
 
         target_device = hidden_states.device
-        if position_ids is not None and position_ids.device != target_device:
-            position_ids = position_ids.to(target_device)
         if attention_mask is not None and attention_mask.device != target_device:
             attention_mask = attention_mask.to(target_device)
         if cache_position is not None and cache_position.device != target_device:
             cache_position = cache_position.to(target_device)
 
-        if self.config_hf.pretraining_tp > 1:
-            key_value_slicing = (self.num_key_value_heads * self.head_dim) // self.config_hf.pretraining_tp
-            query_slices = self.q_proj.weight.split(
-                (self.num_heads * self.head_dim) // self.config_hf.pretraining_tp, dim=0
-            )
-            key_slices = self.k_proj.weight.split(key_value_slicing, dim=0)
-            value_slices = self.v_proj.weight.split(key_value_slicing, dim=0)
+        query_states = self.q_proj(hidden_states).view(hidden_shape).transpose(1, 2)
+        key_states = self.k_proj(hidden_states).view(hidden_shape).transpose(1, 2)
+        value_states = self.v_proj(hidden_states).view(hidden_shape).transpose(1, 2)
 
-            query_states = [F.linear(hidden_states, query_slices[i]) for i in range(self.config_hf.pretraining_tp)]
-            query_states = torch.cat(query_states, dim=-1)
-
-            key_states = [F.linear(hidden_states, key_slices[i]) for i in range(self.config_hf.pretraining_tp)]
-            key_states = torch.cat(key_states, dim=-1)
-
-            value_states = [F.linear(hidden_states, value_slices[i]) for i in range(self.config_hf.pretraining_tp)]
-            value_states = torch.cat(value_states, dim=-1)
-        else:
-            query_states = self.q_proj(hidden_states)
-            key_states = self.k_proj(hidden_states)
-            value_states = self.v_proj(hidden_states)
-
-        query_states = query_states.view(bsz, q_len, self.num_heads, self.head_dim).transpose(1, 2)
-        key_states = key_states.view(bsz, q_len, self.num_key_value_heads, self.head_dim).transpose(1, 2)
-        value_states = value_states.view(bsz, q_len, self.num_key_value_heads, self.head_dim).transpose(1, 2)
-
-        past_key_value = getattr(self, "past_key_value", past_key_value)
-        cos, sin = self.rotary_emb(value_states, position_ids)
+        cos, sin = position_embeddings
         query_states, key_states = apply_rotary_pos_emb(query_states, key_states, cos, sin)
 
-        if past_key_value is not None:
+        if past_key_values is not None:
             cache_kwargs = {"sin": sin, "cos": cos, "cache_position": cache_position}
-            key_states, value_states = past_key_value.update(key_states, value_states, self.layer_idx, cache_kwargs)
+            key_states, value_states = past_key_values.update(key_states, value_states, self.layer_idx, cache_kwargs)
 
         key_states = repeat_kv(key_states, self.num_key_value_groups)
         value_states = repeat_kv(value_states, self.num_key_value_groups)
@@ -168,14 +150,12 @@ class LlamaSteeringAttention(nn.Module):
                 self.config.eta_min,
                 self.config.eta_max,
             )
+            runtime.mark_level_call(4)
 
-        attn_weights = torch.matmul(query_states, key_states.transpose(2, 3)) / math.sqrt(self.head_dim)
+        attn_weights = torch.matmul(query_states, key_states.transpose(2, 3)) * self.scaling
+        num_layers = int(getattr(self.config_hf, "num_hidden_layers", self.layer_index + 1))
         if runtime:
-            runtime.begin_decode_step(
-                q_len=q_len,
-                kv_len=attn_weights.shape[-1],
-                num_layers=int(getattr(self.config_hf, "num_hidden_layers", self.layer_index + 1)),
-            )
+            runtime.begin_decode_step(q_len=q_len, kv_len=attn_weights.shape[-1], num_layers=num_layers)
 
         if runtime and 1 in self.config.enabled_levels and runtime.should_apply_l12(
             layer_idx=self.layer_index,
@@ -189,7 +169,7 @@ class LlamaSteeringAttention(nn.Module):
             steered_attn_weights = level1_bias(attn_weights, bias, runtime.coeffs().beta_bias, cap=self.config.bias_cap)
             head_mask = runtime.get_head_mask_tensor(
                 layer_idx=self.layer_index,
-                num_layers=int(getattr(self.config_hf, "num_hidden_layers", self.layer_index + 1)),
+                num_layers=num_layers,
                 num_heads=self.num_heads,
                 device=attn_weights.device,
                 level="l1",
@@ -205,21 +185,14 @@ class LlamaSteeringAttention(nn.Module):
                 attn_weights = steered_attn_weights
                 heads_active = True
             runtime.steer_calls += 1
+            runtime.mark_level_call(1)
             if abs(float(runtime.coeffs().beta_bias)) > 0.0 and heads_active:
-                runtime.mark_layer_steered(
-                    layer_idx=self.layer_index,
-                    num_layers=int(getattr(self.config_hf, "num_hidden_layers", self.layer_index + 1)),
-                )
+                runtime.mark_layer_steered(layer_idx=self.layer_index, num_layers=num_layers)
 
         effective_mask = None
         if attention_mask is not None:
-            if cache_position is not None:
-                causal_mask = attention_mask[:, :, cache_position, : key_states.shape[-2]]
-                attn_weights = attn_weights + causal_mask
-                effective_mask = causal_mask
-            else:
-                attn_weights = attn_weights + attention_mask
-                effective_mask = attention_mask
+            attn_weights = attn_weights + attention_mask
+            effective_mask = attention_mask
 
         if runtime and runtime.debug_assert_mask and effective_mask is not None:
             mask_blocked = effective_mask <= -1e4
@@ -231,14 +204,14 @@ class LlamaSteeringAttention(nn.Module):
                     assert torch.all(masked_logits < -1e4), "Masked logits became finite after steering bias."
 
         attn_probs = nn.functional.softmax(attn_weights, dim=-1, dtype=torch.float32)
-        attn_probs = nn.functional.dropout(attn_probs, p=self.attention_dropout, training=self.training)
+        attn_probs = nn.functional.dropout(attn_probs, p=self.attention_dropout if self.training else 0.0, training=self.training)
 
         if runtime:
             mean_heads = attn_probs.mean(dim=1)
             runtime.latest_attention = mean_heads[:, -1, :].detach()
             runtime.maybe_collect_head_stats(
                 layer_idx=self.layer_index,
-                num_layers=int(getattr(self.config_hf, "num_hidden_layers", self.layer_index + 1)),
+                num_layers=num_layers,
                 num_heads=self.num_heads,
                 q_len=q_len,
                 kv_len=attn_probs.shape[-1],
@@ -259,7 +232,7 @@ class LlamaSteeringAttention(nn.Module):
             steered_attn_probs = level2_post(attn_probs, scale, runtime.coeffs().beta_post)
             head_mask = runtime.get_head_mask_tensor(
                 layer_idx=self.layer_index,
-                num_layers=int(getattr(self.config_hf, "num_hidden_layers", self.layer_index + 1)),
+                num_layers=num_layers,
                 num_heads=self.num_heads,
                 device=attn_probs.device,
                 level="l2",
@@ -275,11 +248,10 @@ class LlamaSteeringAttention(nn.Module):
                 attn_probs = steered_attn_probs
                 heads_active = True
             runtime.steer_calls += 1
+            runtime.mark_level_call(2)
             if abs(float(runtime.coeffs().beta_post)) > 0.0 and heads_active:
-                runtime.mark_layer_steered(
-                    layer_idx=self.layer_index,
-                    num_layers=int(getattr(self.config_hf, "num_hidden_layers", self.layer_index + 1)),
-                )
+                runtime.mark_layer_steered(layer_idx=self.layer_index, num_layers=num_layers)
+
         if (
             runtime
             and q_len == 1
@@ -290,38 +262,26 @@ class LlamaSteeringAttention(nn.Module):
                 runtime=runtime,
                 attn_probs=attn_probs,
                 layer_idx=self.layer_index,
-                num_layers=int(getattr(self.config_hf, "num_hidden_layers", self.layer_index + 1)),
+                num_layers=num_layers,
                 num_heads=self.num_heads,
                 kv_len=attn_probs.shape[-1],
                 device=attn_probs.device,
             )
             if agree_rel is not None:
-                runtime.set_layer_agreement(
-                    layer_idx=self.layer_index,
-                    num_layers=int(getattr(self.config_hf, "num_hidden_layers", self.layer_index + 1)),
-                    agree_rel=agree_rel,
-                )
-        attn_probs = attn_probs.to(value_states.dtype)
+                runtime.set_layer_agreement(layer_idx=self.layer_index, num_layers=num_layers, agree_rel=agree_rel)
 
-        attn_output = torch.matmul(attn_probs, value_states)
-
+        attn_probs_out = attn_probs.to(value_states.dtype)
+        attn_output = torch.matmul(attn_probs_out, value_states)
         if attn_output.size() != (bsz, self.num_heads, q_len, self.head_dim):
-            raise ValueError("Unexpected attention output size")
+            raise ValueError(
+                f"`attn_output` should be {(bsz, self.num_heads, q_len, self.head_dim)}, got {tuple(attn_output.size())}"
+            )
 
-        attn_output = attn_output.transpose(1, 2).contiguous().reshape(bsz, q_len, self.hidden_size)
-
-        if self.config_hf.pretraining_tp > 1:
-            attn_output = attn_output.split(self.hidden_size // self.config_hf.pretraining_tp, dim=2)
-            o_proj_slices = self.o_proj.weight.split(self.hidden_size // self.config_hf.pretraining_tp, dim=1)
-            attn_output = sum([F.linear(attn_output[i], o_proj_slices[i]) for i in range(self.config_hf.pretraining_tp)])
-        else:
-            attn_output = self.o_proj(attn_output)
-
+        attn_output = attn_output.transpose(1, 2).contiguous().reshape(*input_shape, -1)
+        attn_output = self.o_proj(attn_output)
         if not output_attentions:
-            attn_probs = None
-
-        present_key_value = past_key_value if use_cache else None
-        return attn_output, attn_probs, present_key_value
+            return attn_output, None
+        return attn_output, attn_probs_out
 
 
 def patch_decoder_layer(
@@ -331,40 +291,36 @@ def patch_decoder_layer(
     layer_idx: int,
     cutoffs: LayerCutoffs | None = None,
 ) -> None:
-    num_layers = 80
+    attn = getattr(layer, "self_attn", None)
+    cfg = getattr(attn, "config_hf", None) or getattr(attn, "config", None)
+    num_layers = int(getattr(cfg, "num_hidden_layers", 80))
     if cutoffs is None:
-        attn = getattr(layer, "self_attn", None)
-        cfg = getattr(attn, "config", None) or getattr(attn, "config_hf", None)
-        num_layers = int(getattr(cfg, "num_hidden_layers", 80))
         cutoffs = compute_default_cutoffs(num_layers)
-    else:
-        attn = getattr(layer, "self_attn", None)
-        cfg = getattr(attn, "config", None) or getattr(attn, "config_hf", None)
-        num_layers = int(getattr(cfg, "num_hidden_layers", 80))
 
     def steered_forward(
         hidden_states: torch.Tensor,
         attention_mask: Optional[torch.Tensor] = None,
         position_ids: Optional[torch.LongTensor] = None,
-        past_key_value: Optional[tuple[torch.Tensor]] = None,
-        output_attentions: bool = False,
-        use_cache: bool = False,
+        past_key_values=None,
+        use_cache: Optional[bool] = False,
         cache_position: Optional[torch.LongTensor] = None,
+        position_embeddings: Optional[tuple[torch.Tensor, torch.Tensor]] = None,
         **kwargs,
-    ):
+    ) -> torch.Tensor:
         runtime = runtime_getter()
         coeffs = runtime.coeffs() if runtime else None
 
         residual = hidden_states
         hidden_states = layer.input_layernorm(hidden_states)
-        hidden_states, self_attn_weights, present_key_value = layer.self_attn(
+
+        hidden_states, _ = layer.self_attn(
             hidden_states=hidden_states,
             attention_mask=attention_mask,
             position_ids=position_ids,
-            past_key_value=past_key_value,
-            output_attentions=output_attentions,
+            past_key_values=past_key_values,
             use_cache=use_cache,
             cache_position=cache_position,
+            position_embeddings=position_embeddings,
             **kwargs,
         )
 
@@ -375,11 +331,7 @@ def patch_decoder_layer(
             default_layer_start=cutoffs.l12_start,
             default_layer_end=cutoffs.l12_end,
         ):
-            lambda_attn, _ = runtime.residual_lambdas(
-                layer_idx=layer_idx,
-                num_layers=num_layers,
-                coeffs=coeffs,
-            )
+            lambda_attn, _ = runtime.residual_lambdas(layer_idx=layer_idx, num_layers=num_layers, coeffs=coeffs)
             hidden_states = (hidden_states.float() * float(lambda_attn)).to(
                 dtype=residual.dtype,
                 device=residual.device,
@@ -392,6 +344,8 @@ def patch_decoder_layer(
         residual = hidden_states
         hidden_states = layer.post_attention_layernorm(hidden_states)
         hidden_states = layer.mlp(hidden_states)
+        if isinstance(hidden_states, tuple):
+            hidden_states = hidden_states[0]
         hidden_states = hidden_states.to(dtype=residual.dtype, device=residual.device, non_blocking=True)
         if runtime and 3 in config.enabled_levels and runtime.should_apply_residual(
             layer_idx=layer_idx,
@@ -399,11 +353,7 @@ def patch_decoder_layer(
             default_layer_start=cutoffs.l12_start,
             default_layer_end=cutoffs.l12_end,
         ):
-            _, lambda_mlp = runtime.residual_lambdas(
-                layer_idx=layer_idx,
-                num_layers=num_layers,
-                coeffs=coeffs,
-            )
+            _, lambda_mlp = runtime.residual_lambdas(layer_idx=layer_idx, num_layers=num_layers, coeffs=coeffs)
             hidden_states = (hidden_states.float() * float(lambda_mlp)).to(
                 dtype=residual.dtype,
                 device=residual.device,
@@ -413,12 +363,7 @@ def patch_decoder_layer(
         residual = residual.to(hidden_states.device, dtype=hidden_states.dtype, non_blocking=True)
         hidden_states = residual + hidden_states
 
-        outputs = (hidden_states,)
-        if output_attentions:
-            outputs += (self_attn_weights,)
-        if use_cache:
-            outputs += (present_key_value,)
-        return outputs
+        return hidden_states
 
     layer.forward = steered_forward  # type: ignore[method-assign]
 

@@ -1,71 +1,58 @@
-# Deterministic Obfuscation Suite (T1-T8)
+# Obfuscated-Code Runner
 
-This module provides deterministic, semantics-preserving source-to-source obfuscation for Java and Python.
+This trimmed artifact keeps only the runtime entrypoint for evaluating models on a prepared obfuscated Java corpus.
 
-## Safety Defaults
-- Default profile: `safe`
-- No anti-debug behavior effects
-- No packing executable payloads
-- No virtualization
-- No self-modifying code
-- No reflection/exec by default
+It does not include:
 
-## Commands
-- Single file obfuscation:
+- obfuscation generation tooling
+- semantic-equivalence checking
+- dataset-building or post-verification utilities
+
+## Expected Input Layout
+
+Pass a prepared obfuscated corpus with:
+
+- `<source_root>/<snippet>/<technique>/*.java`
+- or the alternate nested layout `<source_root>/<snippet>/<technique>/<tier>/*.java`
+
+For example:
+
+- `/path/to/obf_corpus/Java_000/identifier_renaming/Solution.java`
+
+## Running Qwen2.5 On Obfuscated Code
+
 ```bash
-python -m eyetracking.obfuscation.tools.obfuscate_cli run \
-  --lang java --input eyetracking/Source/Ackerman.java --output /tmp/Ackerman.obf.java \
-  --level level3 --profile safe --seed 1337 --mode level
-```
-
-- One-shot equivalence check:
-```bash
-python -m eyetracking.obfuscation.tools.obfuscate_cli equiv \
-  --lang java --input eyetracking/Source/Ackerman.java --level level3 --profile safe
-```
-
-- Dataset generation + strict verification:
-```bash
-python -m eyetracking.obfuscation.tools.obfuscate_cli dataset \
-  --lang java --input-dir eyetracking/Source --out-root eyetracking/obfuscation/source \
-  --mode both --levels level0,level1,level2,level3,level4,level5 \
-  --techniques T1,T2,T3,T4,T5,T6,T7,T8 --difficulties easy,med,hard \
-  --seeds 1:1 --strict on --clean on
-```
-
-- Output prediction on obfuscated code (reuses eyetracking model pipeline):
-```bash
-python3 eyetracking/obfuscation/main.py \
+python obfuscation/main.py \
+  --dataset humaneval \
+  --source-root /path/to/obf_corpus \
   --model-name Qwen/Qwen2.5-Coder-7B-Instruct \
-  --gpu-ids 0+1+2+3 \
-  --runs-per-snippet 50 \
+  --cache-dir .cache/models \
+  --gpu-ids 0 \
+  --code-snippet Java_000 \
+  --techniques identifier_renaming \
+  --runs-per-snippet 3 \
+  --max-new-tokens 512 \
+  --steer \
+  --prior slice_hybrid \
+  --beta-post 0.8 \
+  --steer-last-n-layers 8 \
+  --head-subset-mode none \
   --record-layers on \
   --auto-run-tag
 ```
-When `--record-layers on`, the run emits a recorder superset:
-1. legacy `model_output.json` attention summaries,
-2. `record_layers_full.json.gz` (all layers/heads/steps, all keys),
-3. `bdv_features_b1.npz` and `bdv_features_b3.npz`,
-4. `bdv_schema.json`.
+
+When `--record-layers on`, the run emits:
+
+1. `model_output.json` attention summaries
+2. `record_layers_full.json.gz`
+3. `bdv_features_b1.npz` and `bdv_features_b3.npz`
+4. `bdv_schema.json`
 
 ## Output Layout
-- Obfuscation source corpus:
-  - `eyetracking/obfuscation/source/java/{snippet}/{technique_name}/{difficulty}/{class}.java`
-- Level mode (combined profiles):
-  - `eyetracking/obfuscation/source/java/_level_profiles/level{N}/{program}__seed_{S}.java`
-- Prediction run outputs:
-  - `/data/xxr230000/eyetracking/obfuscation/result/{model}/{snippet}/{technique}/{difficulty}/{run_tag}/{EM|Mismatch}/{run_idx}/`
-- Metadata sidecar for each source:
-  - `{program}.meta.json`
-- Run reports:
-  - `eyetracking/obfuscation/reports/verify_*.json`
-  - `eyetracking/obfuscation/reports/verify_summary_*.csv`
-  - `eyetracking/obfuscation/reports/verify_details_*.csv`
+
+- prediction runs:
+  - `<artifact_root>/obfuscation/result/{model}/{snippet}/{technique}/{run_tag}/{EM|Mismatch}/{run_idx}/`
 
 ## Reproducibility
-The output is deterministic for `(program_id, language, mode, level/technique, profile, seed)`.
 
-## Test
-```bash
-python -m pytest -q eyetracking/obfuscation/tests
-```
+Given the same prepared obfuscated corpus, model configuration, and generation settings, repeated runs follow the same runtime pipeline. Generation remains stochastic unless you also fix model-side sampling controls.

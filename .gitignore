@@ -2,8 +2,12 @@ attn_viz/
 
 __pycache__/
 **/__pycache__/
+*.pyc
+**/*.pyc
 
 eval/
+!scripts/eval/
+!scripts/eval/**
 scripts/gpu1.sh
 scripts/gpu2.sh
 scripts/gpu3.sh
@@ -15,3 +19,37 @@ Source/metadata/Humaneval/**/*.jsonl
 Source/metadata/Humaneval/manifest.json
 Source/metadata/Cruxeval/**/*.parquet
 Source/metadata/Cruxeval/manifest.json
+
+# Local secrets and editor state
+API KEY
+hf_token
+.vscode/
+.codex_from_old/
+.env
+.env.*
+*.pem
+*.p12
+*.der
+*.crt
+*.key
+*.token
+
+# Generated local outputs
+logs/
+Paper/Attention_Reallocation/generated/
+steering_parity_metrics.json
+steering_parity_report.md
+trace_gold_length_distribution.metadata.json
+trace_gold_length_distribution.png
+trace_token_budget_distribution.metadata.json
+trace_token_budget_distribution.png
+trace_token_budget_records.csv
+trace_token_budget_records.jsonl
+trace_token_budget_skips.json
+*_gold_trace_length_*.txt
+
+# Generated obfuscation artifacts
+obfuscation/result/
+obfuscation/source_new_tmp/
+obfuscation/reports/*.csv
+obfuscation/reports/*.json

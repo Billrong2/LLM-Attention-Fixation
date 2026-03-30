@@ -3,8 +3,8 @@
 Utility script to inspect the architecture configuration of the CodeLlama model
 used in the attention experiments. Example usage:
 
-    python3 eyetracking/model_info.py
-    python3 eyetracking/model_info.py --model codellama/CodeLlama-70b-Instruct-hf --cache-dir /path/to/cache
+    python3 model_info.py
+    python3 model_info.py --model codellama/CodeLlama-70b-Instruct-hf --cache-dir /path/to/cache
 """
 
 from __future__ import annotations

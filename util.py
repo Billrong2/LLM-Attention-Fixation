@@ -1,4 +1,33 @@
 
+import os
+from pathlib import Path
+
+
+DEFAULT_JAVA_LIBS = ("/usr/share/java/javatuples.jar",)
+
+
+def _build_extra_java_classpath() -> str:
+    entries = []
+    for lib in DEFAULT_JAVA_LIBS:
+        if Path(lib).exists():
+            entries.append(lib)
+
+    env_cp = os.environ.get("OBF_JAVA_CLASSPATH") or os.environ.get("CLASSPATH") or ""
+    if env_cp:
+        for item in env_cp.split(os.pathsep):
+            item = item.strip()
+            if item:
+                entries.append(item)
+
+    deduped = []
+    seen = set()
+    for item in entries:
+        if item in seen:
+            continue
+        seen.add(item)
+        deduped.append(item)
+    return os.pathsep.join(deduped)
+
 
 _REGISTERED_TESTS = []
 
@@ -12,10 +41,14 @@ def Test(func):
 
 
 class utity:
-    def run_java_program(java_code_string: str, java_class_name: str) -> str:
+    def run_java_program_with_result(
+        java_code_string: str,
+        java_class_name: str,
+        *,
+        enable_assertions: bool = True,
+    ) -> dict:
         import tempfile
         import subprocess
-        from pathlib import Path
 
         if java_code_string.strip() == "":
             raise ValueError("Empty Java source received.")
@@ -27,30 +60,77 @@ class utity:
             tmp_path = Path(tmp_dir)
             source_path = tmp_path / f"{java_class_name}.java"
             source_path.write_text(java_code_string, encoding="utf-8")
+            extra_cp = _build_extra_java_classpath()
 
+            compile_cmd = ["javac"]
+            if extra_cp:
+                compile_cmd += ["-cp", extra_cp]
+            compile_cmd += [source_path.name]
             compile_proc = subprocess.run(
-                ["javac", source_path.name],
+                compile_cmd,
                 cwd=tmp_dir,
                 capture_output=True,
                 text=True,
                 check=False,
             )
             if compile_proc.returncode != 0:
-                error_msg = compile_proc.stderr.strip() or compile_proc.stdout.strip()
-                raise RuntimeError(f"Compilation failed for {java_class_name}: {error_msg}")
+                return {
+                    "compiled": False,
+                    "ran": False,
+                    "success": False,
+                    "returncode": compile_proc.returncode,
+                    "stdout": compile_proc.stdout.strip(),
+                    "stderr": compile_proc.stderr.strip(),
+                    "compile_error": compile_proc.stderr.strip() or compile_proc.stdout.strip(),
+                    "runtime_error": "",
+                    "assertion_failed": False,
+                }
 
+            run_cmd = ["java"]
+            if enable_assertions:
+                run_cmd.append("-ea")
+            if extra_cp:
+                run_cmd += ["-cp", f".{os.pathsep}{extra_cp}"]
+            run_cmd += [java_class_name]
             run_proc = subprocess.run(
-                ["java", java_class_name],
+                run_cmd,
                 cwd=tmp_dir,
                 capture_output=True,
                 text=True,
                 check=False,
             )
-            if run_proc.returncode != 0:
-                error_msg = run_proc.stderr.strip() or run_proc.stdout.strip()
-                raise RuntimeError(f"Execution failed for {java_class_name}: {error_msg}")
+            run_stdout = run_proc.stdout.strip()
+            run_stderr = run_proc.stderr.strip()
+            runtime_error = run_stderr or run_stdout
+            assertion_failed = "AssertionError" in runtime_error
 
-            return run_proc.stdout.strip()
+            return {
+                "compiled": True,
+                "ran": True,
+                "success": run_proc.returncode == 0,
+                "returncode": run_proc.returncode,
+                "stdout": run_stdout,
+                "stderr": run_stderr,
+                "compile_error": "",
+                "runtime_error": runtime_error,
+                "assertion_failed": assertion_failed,
+            }
+
+    def run_java_program(java_code_string: str, java_class_name: str) -> str:
+        result = utity.run_java_program_with_result(
+            java_code_string,
+            java_class_name,
+            enable_assertions=True,
+        )
+        if not result.get("compiled"):
+            raise RuntimeError(
+                f"Compilation failed for {java_class_name}: {result.get('compile_error', '').strip()}"
+            )
+        if not result.get("success"):
+            raise RuntimeError(
+                f"Execution failed for {java_class_name}: {result.get('runtime_error', '').strip()}"
+            )
+        return str(result.get("stdout", "")).strip()
 
 
 @Test

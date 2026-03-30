@@ -270,9 +270,13 @@ def build_bdv_features(
             head_sum[li, :, bucket, :] += np.where(finite_head, head_features, 0.0)
             head_count[li, :, bucket, :] += finite_head.astype(np.int64)
 
+    head_denom = np.maximum(head_count, 1)
+    layer_denom = np.maximum(layer_count, 1)
+    phi_head = np.zeros_like(head_sum, dtype=np.float64)
+    phi_layer = np.zeros_like(layer_sum, dtype=np.float64)
     with np.errstate(divide="ignore", invalid="ignore"):
-        phi_head = np.divide(head_sum, np.maximum(head_count, 1), where=np.maximum(head_count, 1) > 0)
-        phi_layer = np.divide(layer_sum, np.maximum(layer_count, 1), where=np.maximum(layer_count, 1) > 0)
+        np.divide(head_sum, head_denom, out=phi_head, where=head_count > 0)
+        np.divide(layer_sum, layer_denom, out=phi_layer, where=layer_count > 0)
     phi_head[head_count == 0] = np.nan
     phi_layer[layer_count == 0] = np.nan
 
