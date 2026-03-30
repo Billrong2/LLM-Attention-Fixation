@@ -18,21 +18,19 @@ The main workflow in this repository is:
 3. evaluate trace prediction or counterfactual behavior
 4. analyze metrics across datasets and techniques
 
-The current evaluation pipeline is designed to use standard grouped or trial metrics from generated runs. Cherry-pick reporting based on "best steered trials vs worst baseline trials" is intentionally excluded from the active pipeline.
-
 ## Main Components
 
-- [main.py](/workspace/LLM-Attention-Fixation_gitready/main.py)
+- [main.py](main.py)
   - main attention-collection entrypoint
-- [models.py](/workspace/LLM-Attention-Fixation_gitready/models.py)
+- [models.py](models.py)
   - model loading, generation, attention export, and steering integration
-- [steering](/workspace/LLM-Attention-Fixation_gitready/steering)
+- [steering](steering)
   - steering configs, runtime logic, priors, and backend adapters
-- [obfuscation](/workspace/LLM-Attention-Fixation_gitready/obfuscation)
+- [obfuscation](obfuscation)
   - obfuscated-code evaluation runner
-- [evaluation](/workspace/LLM-Attention-Fixation_gitready/evaluation)
+- [evaluation](evaluation)
   - trace prediction, execution tracing, and evaluation helpers
-- [scripts/steering/compute_head_mask.py](/workspace/LLM-Attention-Fixation_gitready/scripts/steering/compute_head_mask.py)
+- [scripts/steering/compute_head_mask.py](scripts/steering/compute_head_mask.py)
   - optional offline head-mask generation utility
 
 ## Running Qwen2.5
@@ -99,25 +97,3 @@ Large experiment outputs are expected to live outside Git, usually in external s
 - derived metrics tables and plots
 
 Generated artifacts and local machine state are intentionally ignored in Git so the repository stays source-focused.
-
-## Security And Git Hygiene
-
-This repository is configured to avoid committing local secrets and machine-specific files such as:
-
-- API key files
-- Hugging Face token files
-- local editor settings
-- local logs and generated reports
-- certificate and private key material
-
-Before pushing, it is still a good idea to review `git status` and confirm that no local datasets, logs, or secrets are staged.
-
-## Typical Development Notes
-
-- Keep large datasets and run outputs in external storage rather than the repository.
-- Keep prepared obfuscated corpora outside the repository and pass them in with `--source-root`.
-- Prefer grouped evaluation or full trial metrics over cherry-picked summaries.
-
-## Status
-
-This repository is under active research development. The GitHub-facing tree is intentionally lean: it keeps the core runtime and steering code while excluding launch wrappers, progress scripts, obfuscation-generation tooling, and generated artifacts.
