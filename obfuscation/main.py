@@ -121,6 +121,16 @@ def _build_steering_config(args: argparse.Namespace) -> Optional[SteeringConfig]
         prior=args.prior,
         n_bins=max(1, int(args.n_bins)),
         binning=args.binning,
+        joern_cli_dir=args.joern_cli_dir,
+        joern_cache_dir=resolve_artifact_path(PROJECT_ROOT, args.joern_cache_dir) if args.joern_cache_dir else None,
+        joern_direction=args.joern_direction,
+        joern_slice_depth=max(1, int(args.joern_slice_depth)),
+        joern_parallelism=max(1, int(args.joern_parallelism)),
+        joern_timeout_sec=max(1, int(args.joern_timeout_sec)),
+        joern_include_control=(args.joern_include_control == "on"),
+        joern_include_post_dominance=(args.joern_include_post_dominance == "on"),
+        joern_max_hops=args.joern_max_hops,
+        joern_sink_filter=args.joern_sink_filter,
         beta_bias=float(args.beta_bias),
         beta_post=float(args.beta_post),
         lambda_attn=float(args.lambda_attn),
@@ -248,11 +258,21 @@ def parse_args() -> argparse.Namespace:
     )
     ap.add_argument(
         "--prior",
-        choices=["human", "ast", "lex", "rand", "uniform", "cfg", "slice", "slice_hybrid"],
+        choices=["human", "ast", "lex", "rand", "uniform", "cfg", "slice", "slice_hybrid", "joern_slice"],
         default="human",
     )
     ap.add_argument("--n-bins", type=int, default=12)
     ap.add_argument("--binning", choices=["equal_count"], default="equal_count")
+    ap.add_argument("--joern-cli-dir", type=Path, default=Path("/people/cs/x/xxr230000/bin/joern/joern-cli"))
+    ap.add_argument("--joern-cache-dir", type=Path, default=Path(".cache/joern_slice"))
+    ap.add_argument("--joern-direction", choices=["backward", "forward"], default="backward")
+    ap.add_argument("--joern-slice-depth", type=int, default=20)
+    ap.add_argument("--joern-parallelism", type=int, default=1)
+    ap.add_argument("--joern-timeout-sec", type=int, default=180)
+    ap.add_argument("--joern-include-control", choices=["on", "off"], default="on")
+    ap.add_argument("--joern-include-post-dominance", choices=["on", "off"], default="off")
+    ap.add_argument("--joern-max-hops", type=int, default=None)
+    ap.add_argument("--joern-sink-filter", default=None)
     ap.add_argument("--beta-bias", type=float, default=0.0)
     ap.add_argument("--beta-post", type=float, default=0.0)
     ap.add_argument("--lambda-attn", type=float, default=1.0)

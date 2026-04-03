@@ -10,6 +10,14 @@ from typing import Any, Dict, Sequence, List, Optional
 import numpy as np
 import re
 
+from .joern_slice import (
+    DEFAULT_CACHE_DIR as DEFAULT_JOERN_CACHE_DIR,
+    DEFAULT_JOERN_CLI_DIR,
+    DEFAULT_SINK_FILTER as DEFAULT_JOERN_SINK_FILTER,
+    aggregate_line_scores_to_weights,
+    extract_joern_variable_slices,
+)
+
 
 @dataclass
 class PriorContext:
@@ -1858,6 +1866,78 @@ class SlicingHybridPrior(SlicingPrior):
         return self._normalize(combined)
 
 
+class JoernSlicePrior(ASTPrior):
+    """
+    Joern-backed per-variable slicing prior.
+
+    The extractor builds a Joern CPG, runs `joern-slice data-flow`, derives
+    per-variable forward/backward slices, and aggregates the resulting source
+    line weights into a prompt-aligned prior.
+
+    Backward slicing is the default because it is the stronger choice for
+    vulnerability reasoning around sink-adjacent code.
+    """
+
+    def __init__(
+        self,
+        context: PriorContext,
+        *,
+        joern_cli_dir: Path | None = None,
+        cache_dir: Path | None = None,
+        direction: str = "backward",
+        slice_depth: int = 20,
+        parallelism: int = 1,
+        timeout_sec: int = 180,
+        include_control: bool = True,
+        include_post_dominance: bool = False,
+        max_hops: int | None = None,
+        sink_filter: str | None = None,
+    ) -> None:
+        super().__init__(context)
+        self.direction = str(direction or "backward").lower()
+        self.joern_payload = extract_joern_variable_slices(
+            code_text=str(context.code_text or ""),
+            prompt_text=str(getattr(context, "prompt_text", "") or ""),
+            direction=self.direction,
+            joern_cli_dir=Path(joern_cli_dir) if joern_cli_dir is not None else DEFAULT_JOERN_CLI_DIR,
+            cache_dir=Path(cache_dir) if cache_dir is not None else DEFAULT_JOERN_CACHE_DIR,
+            slice_depth=max(1, int(slice_depth)),
+            parallelism=max(1, int(parallelism)),
+            timeout_sec=max(1, int(timeout_sec)),
+            include_control=bool(include_control),
+            include_post_dominance=bool(include_post_dominance),
+            max_hops=None if max_hops is None else max(0, int(max_hops)),
+            sink_filter=sink_filter if sink_filter is not None else DEFAULT_JOERN_SINK_FILTER,
+        )
+        self.line_scores = aggregate_line_scores_to_weights(self.joern_payload)
+
+    def vector(self, bin_idx: int, n_bins: int) -> np.ndarray:
+        total = len(self.context.prompt_tokens)
+        if total <= 0:
+            return np.asarray([], dtype=float)
+
+        vec = np.zeros(total, dtype=float)
+        if not self.line_scores:
+            vec[:] = 1.0
+            return self._normalize(vec)
+
+        line_spans = self._build_prompt_line_spans(self.context.prompt_tokens)
+        if not line_spans:
+            line_spans = self._build_prompt_source_line_spans(self.context.prompt_tokens)
+
+        for line_no, weight in self.line_scores.items():
+            indices = line_spans.get(int(line_no)) or []
+            if not indices:
+                continue
+            share = float(weight) / float(len(indices))
+            for prompt_idx in indices:
+                vec[prompt_idx] += share
+
+        if vec.sum() <= 0:
+            vec[:] = 1.0
+        return self._normalize(vec)
+
+
 PRIOR_REGISTRY = {
     "human": HumanPrior,
     "lex": LexPrior,
@@ -1867,4 +1947,5 @@ PRIOR_REGISTRY = {
     "cfg": CFGPrior,
     "slice": SlicingPrior,
     "slice_hybrid": SlicingHybridPrior,
+    "joern_slice": JoernSlicePrior,
 }

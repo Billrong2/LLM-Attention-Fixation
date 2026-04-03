@@ -70,6 +70,17 @@ class SteeringConfig:
     head_mask_inline: Optional[Any] = None
     head_subset_selected_heads: Dict[str, list[int]] = field(default_factory=dict)
     head_subset_calibration: Dict[str, Any] = field(default_factory=dict)
+    # Joern-backed slicing prior configuration.
+    joern_cli_dir: Optional[Path] = None
+    joern_cache_dir: Optional[Path] = None
+    joern_direction: str = "backward"
+    joern_slice_depth: int = 20
+    joern_parallelism: int = 1
+    joern_timeout_sec: int = 180
+    joern_include_control: bool = True
+    joern_include_post_dominance: bool = False
+    joern_max_hops: Optional[int] = None
+    joern_sink_filter: Optional[str] = None
     # Optional offline head-stat collection.
     collect_head_stats: bool = False
     collect_head_stats_first_decode_only: bool = True

@@ -221,9 +221,73 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Enable the default steering path used in the paper.",
     )
-    parser.add_argument("--prior", choices=["human", "ast", "lex", "rand", "uniform", "cfg", "slice", "slice_hybrid"], default="human")
+    parser.add_argument(
+        "--prior",
+        choices=["human", "ast", "lex", "rand", "uniform", "cfg", "slice", "slice_hybrid", "joern_slice"],
+        default="human",
+    )
     parser.add_argument("--n-bins", type=int, default=8)
     parser.add_argument("--binning", choices=["equal_count"], default="equal_count")
+    parser.add_argument(
+        "--joern-cli-dir",
+        type=Path,
+        default=Path("/people/cs/x/xxr230000/bin/joern/joern-cli"),
+        help="Path to the local Joern CLI installation used by the joern_slice prior.",
+    )
+    parser.add_argument(
+        "--joern-cache-dir",
+        type=Path,
+        default=Path(".cache/joern_slice"),
+        help="Cache directory for Joern slice graphs.",
+    )
+    parser.add_argument(
+        "--joern-direction",
+        choices=["backward", "forward"],
+        default="backward",
+        help="Slice direction for the joern_slice prior. Backward is the stronger VD default.",
+    )
+    parser.add_argument(
+        "--joern-slice-depth",
+        type=int,
+        default=20,
+        help="Joern data-flow slice depth.",
+    )
+    parser.add_argument(
+        "--joern-parallelism",
+        type=int,
+        default=1,
+        help="Parallelism passed to joern-slice.",
+    )
+    parser.add_argument(
+        "--joern-timeout-sec",
+        type=int,
+        default=180,
+        help="Timeout in seconds for Joern frontend and slice generation.",
+    )
+    parser.add_argument(
+        "--joern-include-control",
+        choices=["on", "off"],
+        default="on",
+        help="Whether to expand Joern slices with CFG/DOMINATE context.",
+    )
+    parser.add_argument(
+        "--joern-include-post-dominance",
+        choices=["on", "off"],
+        default="off",
+        help="Whether to expand Joern slices with POST_DOMINATE context.",
+    )
+    parser.add_argument(
+        "--joern-max-hops",
+        type=int,
+        default=None,
+        help="Optional hop cap for REACHING_DEF traversal in the joern_slice prior.",
+    )
+    parser.add_argument(
+        "--joern-sink-filter",
+        type=str,
+        default=None,
+        help="Optional Joern sink regex. If unset, the joern_slice prior uses its built-in vulnerability-oriented sink set.",
+    )
     parser.add_argument("--beta-bias", type=float, default=0.0)
     parser.add_argument("--beta-post", type=float, default=0.0)
     parser.add_argument("--lambda-attn", type=float, default=1.0)
@@ -561,11 +625,26 @@ def build_steering_config(args: argparse.Namespace) -> Optional[SteeringConfig]:
         if args.head_subset_auto_save is not None
         else None
     )
+    joern_cache_dir = (
+        resolve_artifact_path(project_root, args.joern_cache_dir)
+        if args.joern_cache_dir is not None
+        else None
+    )
     return SteeringConfig(
         enabled_levels=enabled,
         prior=args.prior,
         n_bins=args.n_bins,
         binning=args.binning,
+        joern_cli_dir=args.joern_cli_dir,
+        joern_cache_dir=joern_cache_dir,
+        joern_direction=args.joern_direction,
+        joern_slice_depth=max(1, int(args.joern_slice_depth)),
+        joern_parallelism=max(1, int(args.joern_parallelism)),
+        joern_timeout_sec=max(1, int(args.joern_timeout_sec)),
+        joern_include_control=(args.joern_include_control == "on"),
+        joern_include_post_dominance=(args.joern_include_post_dominance == "on"),
+        joern_max_hops=args.joern_max_hops,
+        joern_sink_filter=args.joern_sink_filter,
         beta_bias=args.beta_bias,
         beta_post=args.beta_post,
         lambda_attn=args.lambda_attn,

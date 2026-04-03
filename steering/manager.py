@@ -37,6 +37,19 @@ class SteeringManager:
             prior_kwargs["window"] = config.lex_window
         elif config.prior == "rand":
             prior_kwargs["seed"] = config.rand_seed
+        elif config.prior == "joern_slice":
+            prior_kwargs.update(
+                joern_cli_dir=config.joern_cli_dir,
+                cache_dir=config.joern_cache_dir,
+                direction=config.joern_direction,
+                slice_depth=config.joern_slice_depth,
+                parallelism=config.joern_parallelism,
+                timeout_sec=config.joern_timeout_sec,
+                include_control=config.joern_include_control,
+                include_post_dominance=config.joern_include_post_dominance,
+                max_hops=config.joern_max_hops,
+                sink_filter=config.joern_sink_filter,
+            )
         context = PriorContext(
             prompt_tokens=prompt_tokens,
             code_text=code_text,
