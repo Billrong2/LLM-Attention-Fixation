@@ -13,6 +13,12 @@ if str(PROJECT_ROOT) not in sys.path:
 from steering.joern_slice import extract_joern_variable_slices  # noqa: E402
 
 
+def _public_payload(payload: dict) -> dict:
+    cleaned = dict(payload)
+    cleaned.pop("aggregate_line_scores", None)
+    return cleaned
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Extract per-variable forward/backward slices using Joern.")
     ap.add_argument("source", type=Path, help="Source file to analyze.")
@@ -47,6 +53,7 @@ def main() -> int:
         max_hops=args.max_hops,
         sink_filter=args.sink_filter,
     )
+    payload = _public_payload(payload)
 
     rendered = json.dumps(payload, indent=2)
     if args.output:
