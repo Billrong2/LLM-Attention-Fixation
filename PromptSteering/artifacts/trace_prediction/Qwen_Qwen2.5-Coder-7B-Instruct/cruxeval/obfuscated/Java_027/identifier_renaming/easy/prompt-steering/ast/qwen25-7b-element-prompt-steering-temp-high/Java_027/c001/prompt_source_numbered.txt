@@ -1,0 +1,30 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_027 {
+L009     public static boolean f(String w) {
+L010         List<Character> v1 = new ArrayList<>();
+L011         for (char c : w.toCharArray()) {
+L012             v1.add(c);
+L013         }
+L014         StringBuilder v2 = new StringBuilder();
+L015         while (!v1.isEmpty()) {
+L016             v2.append(v1.remove(0));
+L017             if (v1.size() * 2 > w.length()) {
+L018                 if (w.substring(v1.size()).equals(v2.toString())) {
+L019                     return true;
+L020                 }
+L021             }
+L022         }
+L023         return false;
+L024     }
+L025     public static void main(String[] args) {
+L026     int _obf_t1_main_283511 = 0; _obf_t1_main_283511 += 0;
+L027     assert(f(("flak")) == (false));
+L028     }
+L029 
+L030 }

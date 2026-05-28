@@ -1,0 +1,27 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_167 {
+L009     public static String f(String XAAXX, String s) {
+L010         int v1 = 0;
+L011         int v2 = -1;
+L012         while (XAAXX.indexOf("XXXX", v2 + 1) != -1) {
+L013             v2 = XAAXX.indexOf("XXXX", v2 + 1);
+L014             v1 += 1;
+L015         }
+L016         String v3 = "";
+L017         for (int v4 = 0; v4 < v1; v4++) {
+L018             v3 += s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase();
+L019         }
+L020         return XAAXX.replace("XXXX", v3);
+L021     }
+L022     public static void main(String[] args) {
+L023     int _obf_t1_main_478860 = 0; _obf_t1_main_478860 += 0;
+L024     assert(f(("aaXXXXbbXXXXccXXXXde"), ("QW")).equals(("aaQwQwQwbbQwQwQwccQwQwQwde")));
+L025     }
+L026 
+L027 }

@@ -1,0 +1,28 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_303 {
+L009     public static String f(String text) {
+L010         int v1 = (text.length() + 1) / 2;
+L011         char[] result = text.toCharArray();
+L012         while (v1 < text.length()) {
+L013             char v2 = Character.toLowerCase(result[v1]);
+L014             if (v2 == result[v1]) {
+L015                 v1++;
+L016             } else {
+L017                 result[v1] = v2;
+L018             }
+L019             v1 += 2;
+L020         }
+L021         return new String(result);
+L022     }
+L023     public static void main(String[] args) {
+L024     int _obf_t1_main_769180 = 0; _obf_t1_main_769180 += 0;
+L025     assert(f(("mJkLbn")).equals(("mJklbn")));
+L026     }
+L027 
+L028 }

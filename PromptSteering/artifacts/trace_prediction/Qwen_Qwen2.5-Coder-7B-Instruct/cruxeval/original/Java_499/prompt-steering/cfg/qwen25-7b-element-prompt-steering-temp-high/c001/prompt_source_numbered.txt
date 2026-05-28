@@ -1,0 +1,23 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_499 {
+L009     public static String f(String text, long length, String fillchar) {
+L010         StringBuilder newText = new StringBuilder(text);
+L011         while (newText.length() < length) {
+L012             newText.insert(0, fillchar);
+L013             if (newText.length() < length) {
+L014                 newText.append(fillchar);
+L015             }
+L016         }
+L017         return newText.toString();
+L018     }
+L019     public static void main(String[] args) {
+L020     assert(f(("magazine"), (25l), (".")).equals((".........magazine........")));
+L021     }
+L022 
+L023 }

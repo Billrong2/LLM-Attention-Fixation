@@ -1,0 +1,120 @@
+{
+  "branches_seen": [
+    {
+      "branch_id": "b001",
+      "branch_kind": "if",
+      "line": 19
+    }
+  ],
+  "called_methods": [
+    "main",
+    "isHappy"
+  ],
+  "case_expression": "!s.isHappy(\"a\")",
+  "case_id": "c001",
+  "case_origin": "humaneval.correct_list",
+  "case_pack_source_hash": "fb376e13192684802d53ac244c75445e8280c3760d03836a4deb44c3cf9437ce",
+  "case_result_matches_expected": true,
+  "case_result_observed": true,
+  "class_name": "Java_080",
+  "dataset": "humaneval",
+  "event_count": 10,
+  "events": [
+    {
+      "event_idx": 0,
+      "event_type": "method_enter",
+      "line": 33,
+      "method_name": "main",
+      "prompt_line": 33
+    },
+    {
+      "event_idx": 1,
+      "event_type": "method_enter",
+      "line": 17,
+      "method_name": "isHappy",
+      "prompt_line": 17
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "if",
+      "event_idx": 2,
+      "event_type": "branch_eval",
+      "line": 19,
+      "method_name": "isHappy",
+      "outcome": true,
+      "prompt_line": 19
+    },
+    {
+      "event_idx": 3,
+      "event_type": "return",
+      "line": 20,
+      "method_name": "isHappy",
+      "prompt_line": 20,
+      "value_repr": "false"
+    },
+    {
+      "event_idx": 4,
+      "event_type": "method_exit",
+      "line": 20,
+      "method_name": "isHappy",
+      "prompt_line": 20
+    },
+    {
+      "event_idx": 5,
+      "event_type": "line_exec",
+      "line": 37,
+      "method_name": "main",
+      "prompt_line": 37
+    },
+    {
+      "case_id": "c001",
+      "event_idx": 6,
+      "event_type": "case_result",
+      "line": -1,
+      "method_name": "main",
+      "outcome": true
+    },
+    {
+      "event_idx": 7,
+      "event_type": "line_exec",
+      "line": 39,
+      "method_name": "main",
+      "prompt_line": 39
+    },
+    {
+      "event_idx": 8,
+      "event_type": "method_exit",
+      "line": -1,
+      "method_name": "main"
+    },
+    {
+      "event_idx": 9,
+      "event_type": "line_exec",
+      "line": 40,
+      "method_name": "main",
+      "prompt_line": 40
+    }
+  ],
+  "exec_result": {
+    "assertion_failed": false,
+    "compile_error": "",
+    "compiled": true,
+    "ran": true,
+    "returncode": 0,
+    "runtime_error": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":33},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"isHappy\",\"line\":17},{\"event_idx\":2,\"event_type\":\"branch_eval\",\"method_name\":\"isHappy\",\"line\":19,\"branch_kind\":\"if\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":3,\"event_type\":\"return\",\"method_name\":\"isHappy\",\"line\":20,\"value_repr\":\"false\"},{\"event_idx\":4,\"event_type\":\"method_exit\",\"method_name\":\"isHappy\",\"line\":20},{\"event_idx\":5,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":37},{\"event_idx\":6,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":7,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":39},{\"event_idx\":8,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":9,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":40}]}\nTRACE_JSON_END",
+    "stderr": "",
+    "stdout": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":33},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"isHappy\",\"line\":17},{\"event_idx\":2,\"event_type\":\"branch_eval\",\"method_name\":\"isHappy\",\"line\":19,\"branch_kind\":\"if\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":3,\"event_type\":\"return\",\"method_name\":\"isHappy\",\"line\":20,\"value_repr\":\"false\"},{\"event_idx\":4,\"event_type\":\"method_exit\",\"method_name\":\"isHappy\",\"line\":20},{\"event_idx\":5,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":37},{\"event_idx\":6,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":7,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":39},{\"event_idx\":8,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":9,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":40}]}\nTRACE_JSON_END",
+    "success": true
+  },
+  "executed_line_sequence": [
+    19,
+    20
+  ],
+  "expected_bool": true,
+  "mutation_type": "seed_true",
+  "snippet": "Java_080",
+  "trace_status": "ok",
+  "unsupported_reason": "",
+  "variant": "original",
+  "variant_path": ""
+}

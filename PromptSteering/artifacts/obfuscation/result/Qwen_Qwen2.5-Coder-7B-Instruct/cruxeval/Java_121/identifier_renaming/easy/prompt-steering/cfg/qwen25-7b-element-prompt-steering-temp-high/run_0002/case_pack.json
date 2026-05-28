@@ -1,0 +1,37 @@
+{
+  "balance_stats": {
+    "case_total": 2,
+    "false_count": 1,
+    "true_count": 1,
+    "true_ratio": 0.5
+  },
+  "cases": [
+    {
+      "case_id": "c001",
+      "expected_bool": true,
+      "expr": "f((\"01,001\")).equals((\"1001\"))",
+      "mutation_type": "seed_true",
+      "origin": "cruxeval.assert"
+    },
+    {
+      "case_id": "c002",
+      "expected_bool": false,
+      "expr": "f((\"2,001\")).equals((\"1001\"))",
+      "mutation_type": "literal_perturbation",
+      "origin": "cruxeval.assert"
+    }
+  ],
+  "class_name": "Java_121",
+  "dataset": "cruxeval",
+  "effective_case_count": 2,
+  "generation_policy": "validated_nontrivial_only",
+  "generator_version": "cf-v2",
+  "min_cases_config": 8,
+  "profile": "counterfactual_tf",
+  "snippet": "Java_121",
+  "source_hash": "422dda843602ba83d65530d90158a3ba34494195fdabef4fa815345de55ff767",
+  "target_cases_config": 16,
+  "warnings": [
+    "low_effective_case_count:2 (consider reviewing extraction/mutation coverage)"
+  ]
+}

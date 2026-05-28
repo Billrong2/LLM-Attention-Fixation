@@ -1,0 +1,21 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 
+L009 class Java_531 {
+L010     public static String f(String text, String x) {
+L011         if (!text.startsWith(x)) {
+L012             return f(text.substring(1), x);
+L013         } else {
+L014             return text;
+L015         }
+L016     }
+L017     public static void main(String[] args) {
+L018     assert(f(("Ibaskdjgblw asdl "), ("djgblw")).equals(("djgblw asdl ")));
+L019     }
+L020 
+L021 }

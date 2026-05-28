@@ -1,0 +1,41 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Return a greatest common divisor of two integers a and b
+L007     >>> greatestCommonDivisor(3, 5)
+L008     1
+L009     >>> greatestCommonDivisor(25, 15)
+L010     5
+L011      */
+L012     public int greatestCommonDivisor(int a, int b) {
+L013 
+L014         if (a == 0 || b == 0) {
+L015             return a + b;
+L016         }
+L017         if (a == b) {
+L018             return a;
+L019         }
+L020         if (a > b) {
+L021             return greatestCommonDivisor(a % b, b);
+L022         } else {
+L023             return greatestCommonDivisor(a, b % a);
+L024         }
+L025     }
+L026 }
+L027 
+L028 public class Java_013 {
+L029     public static void main(String[] args) {
+L030         Solution s = new Solution();
+L031         List<Boolean> correct = Arrays.asList(
+L032                 s.greatestCommonDivisor(3, 7) == 1,
+L033                 s.greatestCommonDivisor(10, 15) == 5,
+L034                 s.greatestCommonDivisor(49, 14) == 7,
+L035                 s.greatestCommonDivisor(144, 60) == 12
+L036         );
+L037         if (correct.contains(false)) {
+L038             throw new AssertionError();
+L039         }
+L040     }
+L041 }

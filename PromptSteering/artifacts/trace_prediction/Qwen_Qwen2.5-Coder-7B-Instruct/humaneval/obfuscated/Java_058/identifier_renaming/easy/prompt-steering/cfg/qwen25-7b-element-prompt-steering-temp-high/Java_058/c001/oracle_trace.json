@@ -1,0 +1,236 @@
+{
+  "branches_seen": [],
+  "called_methods": [
+    "main",
+    "common"
+  ],
+  "case_expression": "!(v2.contains(false))",
+  "case_id": "c001",
+  "case_origin": "humaneval.if_throw",
+  "case_pack_source_hash": "062f180654de962f38231335d8651b7f04d205a1625ff559db32306a46e9c44c",
+  "case_result_matches_expected": true,
+  "case_result_observed": true,
+  "class_name": "Java_058",
+  "dataset": "humaneval",
+  "event_count": 26,
+  "events": [
+    {
+      "event_idx": 0,
+      "event_type": "method_enter",
+      "line": 23,
+      "method_name": "main",
+      "prompt_line": 23
+    },
+    {
+      "event_idx": 1,
+      "event_type": "method_enter",
+      "line": 12,
+      "method_name": "common",
+      "prompt_line": 12
+    },
+    {
+      "event_idx": 2,
+      "event_type": "line_exec",
+      "line": 15,
+      "method_name": "common",
+      "prompt_line": 15
+    },
+    {
+      "event_idx": 3,
+      "event_type": "line_exec",
+      "line": 17,
+      "method_name": "common",
+      "prompt_line": 17
+    },
+    {
+      "event_idx": 4,
+      "event_type": "return",
+      "line": 18,
+      "method_name": "common",
+      "prompt_line": 18,
+      "value_repr": "[1, 5, 653]"
+    },
+    {
+      "event_idx": 5,
+      "event_type": "method_exit",
+      "line": 18,
+      "method_name": "common",
+      "prompt_line": 18
+    },
+    {
+      "event_idx": 6,
+      "event_type": "method_enter",
+      "line": 12,
+      "method_name": "common",
+      "prompt_line": 12
+    },
+    {
+      "event_idx": 7,
+      "event_type": "line_exec",
+      "line": 15,
+      "method_name": "common",
+      "prompt_line": 15
+    },
+    {
+      "event_idx": 8,
+      "event_type": "line_exec",
+      "line": 17,
+      "method_name": "common",
+      "prompt_line": 17
+    },
+    {
+      "event_idx": 9,
+      "event_type": "return",
+      "line": 18,
+      "method_name": "common",
+      "prompt_line": 18,
+      "value_repr": "[2, 3]"
+    },
+    {
+      "event_idx": 10,
+      "event_type": "method_exit",
+      "line": 18,
+      "method_name": "common",
+      "prompt_line": 18
+    },
+    {
+      "event_idx": 11,
+      "event_type": "method_enter",
+      "line": 12,
+      "method_name": "common",
+      "prompt_line": 12
+    },
+    {
+      "event_idx": 12,
+      "event_type": "line_exec",
+      "line": 15,
+      "method_name": "common",
+      "prompt_line": 15
+    },
+    {
+      "event_idx": 13,
+      "event_type": "line_exec",
+      "line": 17,
+      "method_name": "common",
+      "prompt_line": 17
+    },
+    {
+      "event_idx": 14,
+      "event_type": "return",
+      "line": 18,
+      "method_name": "common",
+      "prompt_line": 18,
+      "value_repr": "[2, 3, 4]"
+    },
+    {
+      "event_idx": 15,
+      "event_type": "method_exit",
+      "line": 18,
+      "method_name": "common",
+      "prompt_line": 18
+    },
+    {
+      "event_idx": 16,
+      "event_type": "method_enter",
+      "line": 12,
+      "method_name": "common",
+      "prompt_line": 12
+    },
+    {
+      "event_idx": 17,
+      "event_type": "line_exec",
+      "line": 15,
+      "method_name": "common",
+      "prompt_line": 15
+    },
+    {
+      "event_idx": 18,
+      "event_type": "line_exec",
+      "line": 17,
+      "method_name": "common",
+      "prompt_line": 17
+    },
+    {
+      "event_idx": 19,
+      "event_type": "return",
+      "line": 18,
+      "method_name": "common",
+      "prompt_line": 18,
+      "value_repr": "[]"
+    },
+    {
+      "event_idx": 20,
+      "event_type": "method_exit",
+      "line": 18,
+      "method_name": "common",
+      "prompt_line": 18
+    },
+    {
+      "event_idx": 21,
+      "event_type": "line_exec",
+      "line": 33,
+      "method_name": "main",
+      "prompt_line": 33
+    },
+    {
+      "case_id": "c001",
+      "event_idx": 22,
+      "event_type": "case_result",
+      "line": -1,
+      "method_name": "main",
+      "outcome": true
+    },
+    {
+      "event_idx": 23,
+      "event_type": "line_exec",
+      "line": 35,
+      "method_name": "main",
+      "prompt_line": 35
+    },
+    {
+      "event_idx": 24,
+      "event_type": "method_exit",
+      "line": -1,
+      "method_name": "main"
+    },
+    {
+      "event_idx": 25,
+      "event_type": "line_exec",
+      "line": 36,
+      "method_name": "main",
+      "prompt_line": 36
+    }
+  ],
+  "exec_result": {
+    "assertion_failed": false,
+    "compile_error": "",
+    "compiled": true,
+    "ran": true,
+    "returncode": 0,
+    "runtime_error": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":23},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"common\",\"line\":12},{\"event_idx\":2,\"event_type\":\"line_exec\",\"method_name\":\"common\",\"line\":15},{\"event_idx\":3,\"event_type\":\"line_exec\",\"method_name\":\"common\",\"line\":17},{\"event_idx\":4,\"event_type\":\"return\",\"method_name\":\"common\",\"line\":18,\"value_repr\":\"[1, 5, 653]\"},{\"event_idx\":5,\"event_type\":\"method_exit\",\"method_name\":\"common\",\"line\":18},{\"event_idx\":6,\"event_type\":\"method_enter\",\"method_name\":\"common\",\"line\":12},{\"event_idx\":7,\"event_type\":\"line_exec\",\"method_name\":\"common\",\"line\":15},{\"event_idx\":8,\"event_type\":\"line_exec\",\"method_name\":\"common\",\"line\":17},{\"event_idx\":9,\"event_type\":\"return\",\"method_name\":\"common\",\"line\":18,\"value_repr\":\"[2, 3]\"},{\"event_idx\":10,\"event_type\":\"method_exit\",\"method_name\":\"common\",\"line\":18},{\"event_idx\":11,\"event_type\":\"method_enter\",\"method_name\":\"common\",\"line\":12},{\"event_idx\":12,\"event_type\":\"line_exec\",\"method_name\":\"common\",\"line\":15},{\"event_idx\":13,\"event_type\":\"line_exec\",\"method_name\":\"common\",\"line\":17},{\"event_idx\":14,\"event_type\":\"return\",\"method_name\":\"common\",\"line\":18,\"value_repr\":\"[2, 3, 4]\"},{\"event_idx\":15,\"event_type\":\"method_exit\",\"method_name\":\"common\",\"line\":18},{\"event_idx\":16,\"event_type\":\"method_enter\",\"method_name\":\"common\",\"line\":12},{\"event_idx\":17,\"event_type\":\"line_exec\",\"method_name\":\"common\",\"line\":15},{\"event_idx\":18,\"event_type\":\"line_exec\",\"method_name\":\"common\",\"line\":17},{\"event_idx\":19,\"event_type\":\"return\",\"method_name\":\"common\",\"line\":18,\"value_repr\":\"[]\"},{\"event_idx\":20,\"event_type\":\"method_exit\",\"method_name\":\"common\",\"line\":18},{\"event_idx\":21,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":33},{\"event_idx\":22,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":23,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":35},{\"event_idx\":24,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":25,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":36}]}\nTRACE_JSON_END",
+    "stderr": "",
+    "stdout": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":23},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"common\",\"line\":12},{\"event_idx\":2,\"event_type\":\"line_exec\",\"method_name\":\"common\",\"line\":15},{\"event_idx\":3,\"event_type\":\"line_exec\",\"method_name\":\"common\",\"line\":17},{\"event_idx\":4,\"event_type\":\"return\",\"method_name\":\"common\",\"line\":18,\"value_repr\":\"[1, 5, 653]\"},{\"event_idx\":5,\"event_type\":\"method_exit\",\"method_name\":\"common\",\"line\":18},{\"event_idx\":6,\"event_type\":\"method_enter\",\"method_name\":\"common\",\"line\":12},{\"event_idx\":7,\"event_type\":\"line_exec\",\"method_name\":\"common\",\"line\":15},{\"event_idx\":8,\"event_type\":\"line_exec\",\"method_name\":\"common\",\"line\":17},{\"event_idx\":9,\"event_type\":\"return\",\"method_name\":\"common\",\"line\":18,\"value_repr\":\"[2, 3]\"},{\"event_idx\":10,\"event_type\":\"method_exit\",\"method_name\":\"common\",\"line\":18},{\"event_idx\":11,\"event_type\":\"method_enter\",\"method_name\":\"common\",\"line\":12},{\"event_idx\":12,\"event_type\":\"line_exec\",\"method_name\":\"common\",\"line\":15},{\"event_idx\":13,\"event_type\":\"line_exec\",\"method_name\":\"common\",\"line\":17},{\"event_idx\":14,\"event_type\":\"return\",\"method_name\":\"common\",\"line\":18,\"value_repr\":\"[2, 3, 4]\"},{\"event_idx\":15,\"event_type\":\"method_exit\",\"method_name\":\"common\",\"line\":18},{\"event_idx\":16,\"event_type\":\"method_enter\",\"method_name\":\"common\",\"line\":12},{\"event_idx\":17,\"event_type\":\"line_exec\",\"method_name\":\"common\",\"line\":15},{\"event_idx\":18,\"event_type\":\"line_exec\",\"method_name\":\"common\",\"line\":17},{\"event_idx\":19,\"event_type\":\"return\",\"method_name\":\"common\",\"line\":18,\"value_repr\":\"[]\"},{\"event_idx\":20,\"event_type\":\"method_exit\",\"method_name\":\"common\",\"line\":18},{\"event_idx\":21,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":33},{\"event_idx\":22,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":23,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":35},{\"event_idx\":24,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":25,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":36}]}\nTRACE_JSON_END",
+    "success": true
+  },
+  "executed_line_sequence": [
+    15,
+    17,
+    18,
+    15,
+    17,
+    18,
+    15,
+    17,
+    18,
+    15,
+    17,
+    18
+  ],
+  "expected_bool": true,
+  "mutation_type": "seed_true",
+  "snippet": "Java_058",
+  "trace_status": "ok",
+  "unsupported_reason": "",
+  "variant": "obfuscated",
+  "variant_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/artifacts/obfuscation/source/humaneval/java/Java_058/identifier_renaming/easy/Java_058.java"
+}

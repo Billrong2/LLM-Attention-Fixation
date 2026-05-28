@@ -1,0 +1,23 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_298 {
+L009     public static String f(String text) {
+L010         char[] new_text = text.toCharArray();
+L011         for (int v1 = 0; v1 < new_text.length; v1++) {
+L012             char v2 = new_text[v1];
+L013             char v3 = Character.isUpperCase(v2) ? Character.toLowerCase(v2) : Character.toUpperCase(v2);
+L014             new_text[v1] = v3;
+L015         }
+L016         return new String(new_text);
+L017     }
+L018     public static void main(String[] args) {
+L019     int _obf_t1_main_614699 = 0; _obf_t1_main_614699 += 0;
+L020     assert(f(("dst vavf n dmv dfvm gamcu dgcvb.")).equals(("DST VAVF N DMV DFVM GAMCU DGCVB.")));
+L021     }
+L022 
+L023 }

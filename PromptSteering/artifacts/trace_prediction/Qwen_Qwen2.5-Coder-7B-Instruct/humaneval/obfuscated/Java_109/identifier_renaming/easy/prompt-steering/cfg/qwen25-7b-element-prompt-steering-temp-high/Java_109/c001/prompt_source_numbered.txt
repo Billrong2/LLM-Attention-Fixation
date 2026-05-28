@@ -1,0 +1,66 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     We have an array 'arr' of N integers arr[1], arr[2], ..., arr[N].The
+L007     numbers in the array will be randomly ordered. Your task is to determine if
+L008     it is possible to get an array sorted in non-decreasing order by performing
+L009     the following operation on the given array:
+L010         You are allowed to perform right shift operation any number of times.
+L011 
+L012     One right shift operation means shifting all elements of the array by one
+L013     position in the right direction. The last element of the array will be moved to
+L014     the starting position in the array i.e. 0th index.
+L015 
+L016     If it is possible to obtain the sorted array by performing the above operation
+L017     then return true else return False.
+L018     If the given array is empty then return true.
+L019 
+L020     Note: The given list is guaranteed to have unique elements.
+L021 
+L022     For Example:
+L023 
+L024     moveOneBall(Arrays.asList(3, 4, 5, 1, 2))==>true
+L025     Explanation: By performin 2 right shift operations, non-decreasing order can
+L026                  be achieved for the given array.
+L027     moveOneBall(Arrays.asList(3, 5, 4, 1, 2))==>False
+L028     Explanation:It is not possible to get non-decreasing order for the given
+L029                 array by performing any number of right shift operations.
+L030      */
+L031     public boolean moveOneBall(List<Integer> arr) {
+L032 
+L033         if (arr.size() == 0) {
+L034             return true;
+L035         }
+L036         List<Integer> v1 = new ArrayList<>(arr);
+L037         Collections.sort(v1);
+L038 
+L039         int v2 = Collections.min(arr);
+L040         int v3 = arr.indexOf(v2);
+L041         List<Integer> v4 = new ArrayList<>(arr.subList(v3, arr.size()));
+L042         v4.addAll(arr.subList(0, v3));
+L043         for (int v5 = 0; v5 < arr.size(); v5++) {
+L044             if (v4.get(v5) != v1.get(v5)) {
+L045                 return false;
+L046             }
+L047         }
+L048         return true;
+L049     }
+L050 }
+L051 
+L052 public class Java_109 {
+L053     public static void main(String[] args) {
+L054         Solution v1 = new Solution();
+L055         List<Boolean> v2 = Arrays.asList(
+L056                 v1.moveOneBall(new ArrayList<>(Arrays.asList(3, 4, 5, 1, 2))) == true,
+L057                 v1.moveOneBall(new ArrayList<>(Arrays.asList(3, 5, 10, 1, 2))) == true,
+L058                 v1.moveOneBall(new ArrayList<>(Arrays.asList(4, 3, 1, 2))) == false,
+L059                 v1.moveOneBall(new ArrayList<>(Arrays.asList(3, 5, 4, 1, 2))) == false,
+L060                 v1.moveOneBall(new ArrayList<>(Arrays.asList())) == true
+L061         );
+L062         if (v2.contains(false)) {
+L063             throw new AssertionError();
+L064         }
+L065     }
+L066 }

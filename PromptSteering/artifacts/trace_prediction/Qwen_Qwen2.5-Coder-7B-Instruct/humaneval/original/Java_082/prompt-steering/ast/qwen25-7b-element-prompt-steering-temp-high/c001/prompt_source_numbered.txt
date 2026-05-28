@@ -1,0 +1,54 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Write a function that takes a string and returns true if the string
+L007     length is a prime number or false otherwise
+L008     Examples
+L009     primeLength("Hello") == true
+L010     primeLength("abcdcba") == true
+L011     primeLength("kittens") == true
+L012     primeLength("orange") == false
+L013      */
+L014     public boolean primeLength(String string) {
+L015 
+L016         int l = string.length();
+L017         if (l == 0 || l == 1) {
+L018             return false;
+L019         }
+L020         for (int i = 2; i < l; i++) {
+L021             if (l % i == 0) {
+L022                 return false;
+L023             }
+L024         }
+L025         return true;
+L026     }
+L027 }
+L028 
+L029 public class Java_082 {
+L030     public static void main(String[] args) {
+L031         Solution s = new Solution();
+L032         List<Boolean> correct = Arrays.asList(
+L033                 s.primeLength("Hello") == true,
+L034                 s.primeLength("abcdcba") == true,
+L035                 s.primeLength("kittens") == true,
+L036                 s.primeLength("orange") == false,
+L037                 s.primeLength("wow") == true,
+L038                 s.primeLength("world") == true,
+L039                 s.primeLength("MadaM") == true,
+L040                 s.primeLength("Wow") == true,
+L041                 s.primeLength("") == false,
+L042                 s.primeLength("HI") == true,
+L043                 s.primeLength("go") == true,
+L044                 s.primeLength("gogo") == false,
+L045                 s.primeLength("aaaaaaaaaaaaaaa") == false,
+L046                 s.primeLength("Madam") == true,
+L047                 s.primeLength("M") == false,
+L048                 s.primeLength("0") == false
+L049         );
+L050         if (correct.contains(false)) {
+L051             throw new AssertionError();
+L052         }
+L053     }
+L054 }

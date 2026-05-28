@@ -1,0 +1,51 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     This function will take a list of integers. For all entries in the list, the function shall square the integer entry if its index is a
+L007     multiple of 3 and will cube the integer entry if its index is a multiple of 4 and not a multiple of 3. The function will not
+L008     change the entries in the list whose indexes are not a multiple of 3 or 4. The function shall then return the sum of all entries.
+L009 
+L010     Examples:
+L011     For lst = [1,2,3] the output should be 6
+L012     For lst = []  the output should be 0
+L013     For lst = [-1,-5,2,-1,-5]  the output should be -126
+L014      */
+L015     public int sumSquares(List<Integer> lst) {
+L016 
+L017         List<Integer> result = new ArrayList<>();
+L018         for (int i = 0; i < lst.size(); i++) {
+L019             if (i % 3 == 0) {
+L020                 result.add(lst.get(i) * lst.get(i));
+L021             } else if (i % 4 == 0) {
+L022                 result.add((int) Math.pow(lst.get(i), 3));
+L023             } else {
+L024                 result.add(lst.get(i));
+L025             }
+L026         }
+L027         return result.stream().reduce(Integer::sum).orElse(0);
+L028     }
+L029 }
+L030 
+L031 public class Java_142 {
+L032     public static void main(String[] args) {
+L033         Solution s = new Solution();
+L034         List<Boolean> correct = Arrays.asList(
+L035                 s.sumSquares(Arrays.asList(1,2,3)) == 6,
+L036                 s.sumSquares(Arrays.asList(1,4,9)) == 14,
+L037                 s.sumSquares(List.of()) == 0,
+L038                 s.sumSquares(Arrays.asList(1,1,1,1,1,1,1,1,1)) == 9,
+L039                 s.sumSquares(Arrays.asList(-1,-1,-1,-1,-1,-1,-1,-1,-1)) == -3,
+L040                 s.sumSquares(List.of(0)) == 0,
+L041                 s.sumSquares(Arrays.asList(-1,-5,2,-1,-5)) == -126,
+L042                 s.sumSquares(Arrays.asList(-56,-99,1,0,-2)) == 3030,
+L043                 s.sumSquares(Arrays.asList(-1,0,0,0,0,0,0,0,-1)) == 0,
+L044                 s.sumSquares(Arrays.asList(-16, -9, -2, 36, 36, 26, -20, 25, -40, 20, -4, 12, -26, 35, 37)) == -14196,
+L045                 s.sumSquares(Arrays.asList(-1, -3, 17, -1, -15, 13, -1, 14, -14, -12, -5, 14, -14, 6, 13, 11, 16, 16, 4, 10)) == -1448
+L046         );
+L047         if (correct.contains(false)) {
+L048             throw new AssertionError();
+L049         }
+L050     }
+L051 }

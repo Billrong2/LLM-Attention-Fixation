@@ -1,0 +1,20 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_283 {
+L009     public static String f(HashMap<String,Long> dictionary, String key) {
+L010         dictionary.remove(key);
+L011         if (Collections.min(dictionary.keySet()).equals(key)) {
+L012             key = new ArrayList<>(dictionary.keySet()).get(0);
+L013         }
+L014         return key;
+L015     }
+L016     public static void main(String[] args) {
+L017     assert(f((new HashMap<String,Long>(Map.of("Iron Man", 4l, "Captain America", 3l, "Black Panther", 0l, "Thor", 1l, "Ant-Man", 6l))), ("Iron Man")).equals(("Iron Man")));
+L018     }
+L019 
+L020 }

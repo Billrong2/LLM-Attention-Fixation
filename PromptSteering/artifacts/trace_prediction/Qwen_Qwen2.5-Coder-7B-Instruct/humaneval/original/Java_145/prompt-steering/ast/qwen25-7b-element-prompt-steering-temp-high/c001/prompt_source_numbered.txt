@@ -1,0 +1,59 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Write a function which sorts the given list of integers
+L007     in ascending order according to the sum of their digits.
+L008     Note: if there are several items with similar sum of their digits,
+L009     order them based on their index in original list.
+L010 
+L011     For example:
+L012     >>> orderByPoints(Arrays.asList(1, 11, -1, -11, -12)) == [-1, -11, 1, -12, 11]
+L013     >>> orderByPoints(Arrays.asList()) == []
+L014      */
+L015     public List<Integer> orderByPoints(List<Integer> nums) {
+L016 
+L017         List<Integer> result = new ArrayList<>(nums);
+L018         result.sort((o1, o2) -> {
+L019             int sum1 = 0;
+L020             int sum2 = 0;
+L021 
+L022             for (int i = 0; i < String.valueOf(o1).length(); i++) {
+L023                 if (i != 0 || o1 >= 0) {
+L024                     sum1 += (String.valueOf(o1).charAt(i) - '0' );
+L025                     if (i == 1 && o1 < 0) {
+L026                         sum1 = -sum1;
+L027                     }
+L028                 }
+L029             }
+L030             for (int i = 0; i < String.valueOf(o2).length(); i++) {
+L031                 if (i != 0 || o2 >= 0) {
+L032                     sum2 += (String.valueOf(o2).charAt(i) - '0' );
+L033                     if (i == 1 && o2 < 0) {
+L034                         sum2 = -sum2;
+L035                     }
+L036                 }
+L037             }
+L038             return Integer.compare(sum1, sum2);
+L039         });
+L040         return result;
+L041     }
+L042 }
+L043 
+L044 public class Java_145 {
+L045     public static void main(String[] args) {
+L046         Solution s = new Solution();
+L047         List<Boolean> correct = Arrays.asList(
+L048                 s.orderByPoints(new ArrayList<>(Arrays.asList(1, 11, -1, -11, -12))).equals(Arrays.asList(-1, -11, 1, -12, 11)),
+L049                 s.orderByPoints(new ArrayList<>(Arrays.asList(1234, 423, 463, 145, 2, 423, 423, 53, 6, 37, 3457, 3, 56, 0, 46))).equals(Arrays.asList(0, 2, 3, 6, 53, 423, 423, 423, 1234, 145, 37, 46, 56, 463, 3457)),
+L050                 s.orderByPoints(new ArrayList<>(List.of())).equals(List.of()),
+L051                 s.orderByPoints(new ArrayList<>(Arrays.asList(1, -11, -32, 43, 54, -98, 2, -3))).equals(Arrays.asList(-3, -32, -98, -11, 1, 2, 43, 54)),
+L052                 s.orderByPoints(new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))).equals(Arrays.asList(1, 10, 2, 11, 3, 4, 5, 6, 7, 8, 9)),
+L053                 s.orderByPoints(new ArrayList<>(Arrays.asList(0, 6, 6, -76, -21, 23, 4))).equals(Arrays.asList(-76, -21, 0, 4, 23, 6, 6))
+L054         );
+L055         if (correct.contains(false)) {
+L056             throw new AssertionError();
+L057         }
+L058     }
+L059 }

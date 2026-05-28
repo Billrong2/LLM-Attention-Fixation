@@ -1,0 +1,23 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_187 {
+L009     public static long f(HashMap<Long,Long> d, long index) {
+L010         long v1 = d.size();
+L011         long v2 = index % v1;
+L012         long v3 = d.entrySet().iterator().next().getValue();
+L013         for (int v4 = 0; v4 < v2; v4++) {
+L014             d.remove(d.keySet().iterator().next());
+L015         }
+L016         return v3;
+L017     }
+L018     public static void main(String[] args) {
+L019     int _obf_t1_main_487387 = 0; _obf_t1_main_487387 += 0;
+L020     assert(f((new HashMap<Long,Long>(Map.of(27l, 39l))), (1l)) == (39l));
+L021     }
+L022 
+L023 }

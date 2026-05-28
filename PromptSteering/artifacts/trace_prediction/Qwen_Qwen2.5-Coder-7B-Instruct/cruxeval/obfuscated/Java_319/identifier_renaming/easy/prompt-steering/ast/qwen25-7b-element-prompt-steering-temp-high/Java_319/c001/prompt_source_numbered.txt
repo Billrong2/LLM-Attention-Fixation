@@ -1,0 +1,22 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_319 {
+L009     public static long f(String needle, String haystack) {
+L010         int v1 = 0;
+L011         while(haystack.contains(needle)) {
+L012             haystack = haystack.replaceFirst(needle, "");
+L013             v1++;
+L014         }
+L015         return v1;
+L016     }
+L017     public static void main(String[] args) {
+L018     int _obf_t1_main_625812 = 0; _obf_t1_main_625812 += 0;
+L019     assert(f(("a"), ("xxxaaxaaxx")) == (4l));
+L020     }
+L021 
+L022 }

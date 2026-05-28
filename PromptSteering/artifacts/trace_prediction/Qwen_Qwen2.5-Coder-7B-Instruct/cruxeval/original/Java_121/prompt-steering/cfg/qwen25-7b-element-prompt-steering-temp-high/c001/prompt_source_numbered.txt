@@ -1,0 +1,25 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_121 {
+L009     public static String f(String s) {
+L010         String nums = s.replaceAll("\\D", "");
+L011         if (nums.isEmpty()) {
+L012             return "none";
+L013         }
+L014         String[] numArr = nums.split(",");
+L015         int maxNum = Arrays.stream(numArr)
+L016                 .map(Integer::parseInt)
+L017                 .max(Integer::compare)
+L018                 .get();
+L019         return Integer.toString(maxNum);
+L020     }
+L021     public static void main(String[] args) {
+L022     assert(f(("01,001")).equals(("1001")));
+L023     }
+L024 
+L025 }

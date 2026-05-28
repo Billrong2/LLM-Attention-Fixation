@@ -1,0 +1,21 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_012 {
+L009     public static String f(String s, String x) {
+L010         int count = 0;
+L011         while (s.substring(0, Math.min(s.length(), x.length())).equals(x) && count < s.length() - x.length()) {
+L012             s = s.substring(x.length());
+L013             count += x.length();
+L014         }
+L015         return s;
+L016     }
+L017     public static void main(String[] args) {
+L018     assert(f(("If you want to live a happy life! Daniel"), ("Daniel")).equals(("If you want to live a happy life! Daniel")));
+L019     }
+L020 
+L021 }

@@ -1,0 +1,51 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Given list of integers, return list in strange order.
+L007     Strange sorting, is when you start with the minimum value,
+L008     then maximum of the remaining integers, then minimum and so on.
+L009 
+L010     Examples:
+L011     strangeSortList(Arrays.asList(1, 2, 3, 4)) == Arrays.asList(1, 4, 2, 3)
+L012     strangeSortList(Arrays.asList(5, 5, 5, 5)) == Arrays.asList(5, 5, 5, 5)
+L013     strangeSortList(Arrays.asList()) == Arrays.asList()
+L014      */
+L015     public List<Integer> strangeSortList(List<Integer> lst) {
+L016 
+L017         List<Integer> v1 = new ArrayList<>();
+L018         boolean v2 = true;
+L019         List<Integer> v3 = new ArrayList<>(lst);
+L020         while (v3.size() != 0) {
+L021             if (v2) {
+L022                 v1.add(Collections.min(v3));
+L023             } else {
+L024                 v1.add(Collections.max(v3));
+L025             }
+L026             v3.remove(v1.get(v1.size() - 1));
+L027             v2 = !v2;
+L028         }
+L029         return v1;
+L030     }
+L031 }
+L032 
+L033 public class Java_070 {
+L034     public static void main(String[] args) {
+L035         Solution v1 = new Solution();
+L036         List<Boolean> v2 = Arrays.asList(
+L037                 v1.strangeSortList(new ArrayList<>(Arrays.asList(1, 2, 3, 4))).equals(Arrays.asList(1, 4, 2, 3)),
+L038                 v1.strangeSortList(new ArrayList<>(Arrays.asList(5, 6, 7, 8, 9))).equals(Arrays.asList(5, 9, 6, 8, 7)),
+L039                 v1.strangeSortList(new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5))).equals(Arrays.asList(1, 5, 2, 4, 3)),
+L040                 v1.strangeSortList(new ArrayList<>(Arrays.asList(5, 6, 7, 8, 9, 1))).equals(Arrays.asList(1, 9, 5, 8, 6, 7)),
+L041                 v1.strangeSortList(new ArrayList<>(Arrays.asList(5, 5, 5, 5))).equals(Arrays.asList(5, 5, 5, 5)),
+L042                 v1.strangeSortList(new ArrayList<>(List.of())).equals(List.of()),
+L043                 v1.strangeSortList(new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8))).equals(Arrays.asList(1, 8, 2, 7, 3, 6, 4, 5)),
+L044                 v1.strangeSortList(new ArrayList<>(Arrays.asList(0, 2, 2, 2, 5, 5, -5, -5))).equals(Arrays.asList(-5, 5, -5, 5, 0, 2, 2, 2)),
+L045                 v1.strangeSortList(new ArrayList<>(List.of(111111))).equals(List.of(111111))
+L046         );
+L047         if (v2.contains(false)) {
+L048             throw new AssertionError();
+L049         }
+L050     }
+L051 }

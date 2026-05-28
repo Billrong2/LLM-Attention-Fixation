@@ -1,0 +1,24 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_706 {
+L009     public static ArrayList<String> f(String r, String w) {
+L010         ArrayList<String> a = new ArrayList<>();
+L011         if (r.charAt(0) == w.charAt(0) && w.charAt(w.length() - 1) == r.charAt(r.length() - 1)) {
+L012             a.add(r);
+L013             a.add(w);
+L014         } else {
+L015             a.add(w);
+L016             a.add(r);
+L017         }
+L018         return a;
+L019     }
+L020     public static void main(String[] args) {
+L021     assert(f(("ab"), ("xy")).equals((new ArrayList<String>(Arrays.asList((String)"xy", (String)"ab")))));
+L022     }
+L023 
+L024 }

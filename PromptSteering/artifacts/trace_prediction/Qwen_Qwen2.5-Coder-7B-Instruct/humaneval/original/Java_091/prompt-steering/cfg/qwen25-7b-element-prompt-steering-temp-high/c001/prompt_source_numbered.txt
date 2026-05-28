@@ -1,0 +1,44 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     You'll be given a string of words, and your task is to count the number
+L007     of boredoms. A boredom is a sentence that starts with the word "I".
+L008     Sentences are delimited by '.', '?' or '!'.
+L009 
+L010     For example:
+L011     >>> isBored("Hello world")
+L012     0
+L013     >>> isBored("The sky is blue. The sun is shining. I love this weather")
+L014     1
+L015      */
+L016     public int isBored(String S) {
+L017 
+L018         String [] sentences = S.split("[.?!]\s*");
+L019         int count = 0;
+L020         for (String sentence : sentences) {
+L021             if (sentence.subSequence(0, 2).equals("I ")) {
+L022                 count += 1;
+L023             }
+L024         }
+L025         return count;
+L026     }
+L027 }
+L028 
+L029 public class Java_091 {
+L030     public static void main(String[] args) {
+L031         Solution s = new Solution();
+L032         List<Boolean> correct = Arrays.asList(
+L033                 s.isBored("Hello world") == 0,
+L034                 s.isBored("Is the sky blue?") == 0,
+L035                 s.isBored("I love It !") == 1,
+L036                 s.isBored("bIt") == 0,
+L037                 s.isBored("I feel good today. I will be productive. will kill It") == 2,
+L038                 s.isBored("You and I are going for a walk") == 0
+L039         );
+L040         if (correct.contains(false)) {
+L041             throw new AssertionError();
+L042         }
+L043     }
+L044 }

@@ -1,0 +1,21 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_214 {
+L009     public static long f(String sample) {
+L010         int v1 = -1;
+L011         while (sample.indexOf('/', v1+1) != -1) {
+L012             v1 = sample.indexOf('/', v1+1);
+L013         }
+L014         return sample.substring(0, v1).lastIndexOf('/');
+L015     }
+L016     public static void main(String[] args) {
+L017     int _obf_t1_main_374584 = 0; _obf_t1_main_374584 += 0;
+L018     assert(f(("present/here/car%2Fwe")) == (7l));
+L019     }
+L020 
+L021 }

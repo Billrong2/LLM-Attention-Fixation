@@ -1,0 +1,21 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_365 {
+L009     public static String f(String n, String s) {
+L010         if (s.startsWith(n)) {
+L011             String[] v1 = s.split(n, 2);
+L012             return v1[0] + n + s.substring(n.length());
+L013         }
+L014         return s;
+L015     }
+L016     public static void main(String[] args) {
+L017     int _obf_t1_main_804807 = 0; _obf_t1_main_804807 += 0;
+L018     assert(f(("xqc"), ("mRcwVqXsRDRb")).equals(("mRcwVqXsRDRb")));
+L019     }
+L020 
+L021 }

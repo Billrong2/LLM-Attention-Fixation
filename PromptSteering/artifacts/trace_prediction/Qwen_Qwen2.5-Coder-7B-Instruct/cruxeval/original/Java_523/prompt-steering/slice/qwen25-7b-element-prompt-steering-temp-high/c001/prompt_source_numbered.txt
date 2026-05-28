@@ -1,0 +1,31 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_523 {
+L009     public static String f(String text) {
+L010         char[] newText = new char[text.length() * 6]; // allocate enough space for the new characters
+L011         int j = 0;
+L012         for (int i = 0; i < text.length(); i++) {
+L013             char c = text.charAt(i);
+L014             if (Character.isWhitespace(c)) {
+L015                 newText[j++] = '&';
+L016                 newText[j++] = 'n';
+L017                 newText[j++] = 'b';
+L018                 newText[j++] = 's';
+L019                 newText[j++] = 'p';
+L020                 newText[j++] = ';';
+L021             } else {
+L022                 newText[j++] = c;
+L023             }
+L024         }
+L025         return new String(newText, 0, j); // return the substring of the newText array that contains the characters
+L026     }
+L027     public static void main(String[] args) {
+L028     assert(f(("   ")).equals(("&nbsp;&nbsp;&nbsp;")));
+L029     }
+L030 
+L031 }

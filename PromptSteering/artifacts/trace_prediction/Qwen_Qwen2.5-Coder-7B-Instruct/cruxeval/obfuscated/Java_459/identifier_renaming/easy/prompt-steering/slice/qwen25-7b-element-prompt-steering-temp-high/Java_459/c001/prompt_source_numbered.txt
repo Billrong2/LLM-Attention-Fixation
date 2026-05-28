@@ -1,0 +1,20 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_459 {
+L009     public static HashMap<String,String> f(ArrayList<String> arr, HashMap<String,String> d) {
+L010         for (int i = 1; i < arr.size(); i += 2) {
+L011             d.put(arr.get(i), arr.get(i - 1));
+L012         }
+L013         return d;
+L014     }
+L015     public static void main(String[] args) {
+L016     int _obf_t1_main_176636 = 0; _obf_t1_main_176636 += 0;
+L017     assert(f((new ArrayList<String>(Arrays.asList((String)"b", (String)"vzjmc", (String)"f", (String)"ae", (String)"0"))), (new HashMap<String,String>())).equals((new HashMap<String,String>(Map.of("vzjmc", "b", "ae", "f")))));
+L018     }
+L019 
+L020 }

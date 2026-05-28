@@ -1,0 +1,20 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_595 {
+L009     public static String f(String text, String prefix) {
+L010         if (text.startsWith(prefix)) {
+L011             text = text.substring(prefix.length());
+L012         }
+L013         text = text.substring(0, 1).toUpperCase() + text.substring(1);
+L014         return text;
+L015     }
+L016     public static void main(String[] args) {
+L017     assert(f(("qdhstudentamxupuihbuztn"), ("jdm")).equals(("Qdhstudentamxupuihbuztn")));
+L018     }
+L019 
+L020 }

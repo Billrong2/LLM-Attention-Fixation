@@ -1,0 +1,22 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_439 {
+L009     public static String f(String value) {
+L010         String[] v1 = value.split(" ");
+L011         StringBuilder v2 = new StringBuilder();
+L012         for (int v3 = 0; v3 < v1.length; v3 += 2) {
+L013             v2.append(v1[v3]);
+L014         }
+L015         return v2.toString();
+L016     }
+L017     public static void main(String[] args) {
+L018     int _obf_t1_main_110631 = 0; _obf_t1_main_110631 += 0;
+L019     assert(f(("coscifysu")).equals(("coscifysu")));
+L020     }
+L021 
+L022 }

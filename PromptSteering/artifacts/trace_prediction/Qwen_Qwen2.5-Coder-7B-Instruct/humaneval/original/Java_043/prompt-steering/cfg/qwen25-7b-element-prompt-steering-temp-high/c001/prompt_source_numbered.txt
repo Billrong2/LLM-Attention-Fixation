@@ -1,0 +1,51 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     pairsSumToZero takes a list of integers as an input.
+L007     it returns True if there are two distinct elements in the list that
+L008     sum to zero, and False otherwise.
+L009     >>> pairsSumToZero(Arrays.asList(1, 3, 5, 0))
+L010     false
+L011     >>> pairsSumToZero(Arrays.asList(1, 3, -2, 1))
+L012     false
+L013     >>> pairsSumToZero(Arrays.asList(1, 2, 3, 7))
+L014     false
+L015     >>> pairsSumToZero(Arrays.asList(2, 4, -5, 3, 5, 7))
+L016     true
+L017     >>> pairsSumToZero(Arrays.asList(1))
+L018     false
+L019      */
+L020     public boolean pairsSumToZero(List<Integer> l) {
+L021 
+L022         for (int i = 0; i < l.size(); i++) {
+L023             for (int j = i + 1; j < l.size(); j++) {
+L024                 if (l.get(i) + l.get(j) == 0) {
+L025                     return true;
+L026                 }
+L027             }
+L028         }
+L029         return false;
+L030     }
+L031 }
+L032 
+L033 public class Java_043 {
+L034     public static void main(String[] args) {
+L035         Solution s = new Solution();
+L036         List<Boolean> correct = Arrays.asList(
+L037                 !s.pairsSumToZero(new ArrayList<>(Arrays.asList(1, 3, 5, 0))),
+L038                 !s.pairsSumToZero(new ArrayList<>(Arrays.asList(1, 3, -2, 1))),
+L039                 !s.pairsSumToZero(new ArrayList<>(Arrays.asList(1, 2, 3, 7))),
+L040                 s.pairsSumToZero(new ArrayList<>(Arrays.asList(2, 4, -5, 3, 5, 7))),
+L041                 !s.pairsSumToZero(new ArrayList<>(List.of(1))),
+L042                 s.pairsSumToZero(new ArrayList<>(Arrays.asList(-3, 9, -1, 3, 2, 30))),
+L043                 s.pairsSumToZero(new ArrayList<>(Arrays.asList(-3, 9, -1, 3, 2, 31))),
+L044                 !s.pairsSumToZero(new ArrayList<>(Arrays.asList(-3, 9, -1, 4, 2, 30))),
+L045                 !s.pairsSumToZero(new ArrayList<>(Arrays.asList(-3, 9, -1, 4, 2, 31)))
+L046         );
+L047         if (correct.contains(false)) {
+L048             throw new AssertionError();
+L049         }
+L050     }
+L051 }

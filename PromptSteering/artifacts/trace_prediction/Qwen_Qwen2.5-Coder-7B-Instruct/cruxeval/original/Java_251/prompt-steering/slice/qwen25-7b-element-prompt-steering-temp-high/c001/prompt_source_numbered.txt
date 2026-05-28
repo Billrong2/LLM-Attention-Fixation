@@ -1,0 +1,22 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_251 {
+L009     public static String f(ArrayList<ArrayList<String>> messages) {
+L010         String phone_code = "+353";
+L011         ArrayList<String> result = new ArrayList<>();
+L012         for (ArrayList<String> message : messages) {
+L013             message.addAll(Arrays.asList(phone_code.split("")));
+L014             result.add(String.join(";", message));
+L015         }
+L016         return String.join(". ", result);
+L017     }
+L018     public static void main(String[] args) {
+L019     assert(f((new ArrayList<ArrayList<String>>(Arrays.asList((ArrayList<String>)new ArrayList<String>(Arrays.asList((String)"Marie", (String)"Nelson", (String)"Oscar")))))).equals(("Marie;Nelson;Oscar;+;3;5;3")));
+L020     }
+L021 
+L022 }

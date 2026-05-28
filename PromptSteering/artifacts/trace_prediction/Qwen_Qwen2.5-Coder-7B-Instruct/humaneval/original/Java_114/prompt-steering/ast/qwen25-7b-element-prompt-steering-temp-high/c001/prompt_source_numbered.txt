@@ -1,0 +1,50 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Given an array of integers nums, find the minimum sum of any non-empty sub-array
+L007     of nums.
+L008     Example
+L009     minSubArraySum(Arrays.asList(2, 3, 4, 1, 2, 4)) == 1
+L010     minSubArraySum(Arrays.asList(-1, -2, -3)) == -6
+L011      */
+L012     public int minSubArraySum(List<Integer> nums) {
+L013 
+L014         int minSum = Integer.MAX_VALUE;
+L015         int sum = 0;
+L016         for (Integer num : nums) {
+L017             sum += num;
+L018             if (minSum > sum) {
+L019                 minSum = sum;
+L020             }
+L021             if (sum > 0) {
+L022                 sum = 0;
+L023             }
+L024         }
+L025         return minSum;
+L026     }
+L027 }
+L028 
+L029 public class Java_114 {
+L030     public static void main(String[] args) {
+L031         Solution s = new Solution();
+L032         List<Boolean> correct = Arrays.asList(
+L033                 s.minSubArraySum(Arrays.asList(2, 3, 4, 1, 2, 4)) == 1,
+L034                 s.minSubArraySum(Arrays.asList(-1, -2, -3)) == -6,
+L035                 s.minSubArraySum(Arrays.asList(-1, -2, -3, 2, -10)) == -14,
+L036                 s.minSubArraySum(List.of(-999999999)) == -999999999,
+L037                 s.minSubArraySum(Arrays.asList(0, 10, 20, 1000000)) == 0,
+L038                 s.minSubArraySum(Arrays.asList(-1, -2, -3, 10, -5)) == -6,
+L039                 s.minSubArraySum(Arrays.asList(100, -1, -2, -3, 10, -5)) == -6,
+L040                 s.minSubArraySum(Arrays.asList(10, 11, 13, 8, 3, 4)) == 3,
+L041                 s.minSubArraySum(Arrays.asList(100, -33, 32, -1, 0, -2)) == -33,
+L042                 s.minSubArraySum(List.of(-10)) == -10,
+L043                 s.minSubArraySum(List.of(7)) == 7,
+L044                 s.minSubArraySum(Arrays.asList(1, -1)) == -1
+L045         );
+L046         if (correct.contains(false)) {
+L047             throw new AssertionError();
+L048         }
+L049     }
+L050 }

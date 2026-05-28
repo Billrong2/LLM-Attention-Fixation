@@ -1,0 +1,61 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     primeFib returns n-th number that is a Fibonacci number and it's also prime.
+L007     >>> primeFib(1)
+L008     2
+L009     >>> primeFib(2)
+L010     3
+L011     >>> primeFib(3)
+L012     5
+L013     >>> primeFib(4)
+L014     13
+L015     >>> primeFib(5)
+L016     89
+L017      */
+L018     public int primeFib(int n) {
+L019 
+L020         int f0 = 0, f1 = 1;
+L021         while (true) {
+L022             int p = f0 + f1;
+L023             boolean is_prime = p >= 2;
+L024             for (int k = 2; k < Math.min(Math.sqrt(p) + 1, p - 1); k++) {
+L025                 if (p % k == 0) {
+L026                     is_prime = false;
+L027                     break;
+L028                 }
+L029             }
+L030             if (is_prime) {
+L031                 n -= 1;
+L032             }
+L033             if (n == 0) {
+L034                 return p;
+L035             }
+L036             f0 = f1;
+L037             f1 = p;
+L038         }
+L039     }
+L040 }
+L041 
+L042 public class Java_039 {
+L043     public static void main(String[] args) {
+L044         Solution s = new Solution();
+L045         List<Boolean> correct = Arrays.asList(
+L046                 s.primeFib(1) == 2,
+L047                 s.primeFib(2) == 3,
+L048                 s.primeFib(3) == 5,
+L049                 s.primeFib(4) == 13,
+L050                 s.primeFib(5) == 89,
+L051                 s.primeFib(6) == 233,
+L052                 s.primeFib(7) == 1597,
+L053                 s.primeFib(8) == 28657,
+L054                 s.primeFib(9) == 514229,
+L055                 s.primeFib(10) == 433494437
+L056         );
+L057         if (correct.contains(false)) {
+L058             throw new AssertionError();
+L059         }
+L060     }
+L061 }

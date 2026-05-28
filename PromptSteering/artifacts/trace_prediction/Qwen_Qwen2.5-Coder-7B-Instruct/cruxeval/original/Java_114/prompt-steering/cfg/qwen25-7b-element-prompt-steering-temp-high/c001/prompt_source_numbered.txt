@@ -1,0 +1,16 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_114 {
+L009     public static ArrayList<String> f(String text, String sep) {
+L010         return new ArrayList<>(Arrays.asList(text.split(sep, -1)));
+L011     }
+L012     public static void main(String[] args) {
+L013     assert(f(("a-.-.b"), ("-.")).equals((new ArrayList<String>(Arrays.asList((String)"a", (String)"", (String)"b")))));
+L014     }
+L015 
+L016 }

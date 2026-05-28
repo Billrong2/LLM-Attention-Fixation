@@ -1,0 +1,21 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_485 {
+L009     public static String f(String tokens) {
+L010         String[] tokensArray = tokens.split(" ");
+L011         if (tokensArray.length == 2) {
+L012             Collections.reverse(Arrays.asList(tokensArray));
+L013         }
+L014         String result = String.format("%-5s %-5s", tokensArray[0], tokensArray[1]);
+L015         return result;
+L016     }
+L017     public static void main(String[] args) {
+L018     assert(f(("gsd avdropj")).equals(("avdropj gsd  ")));
+L019     }
+L020 
+L021 }

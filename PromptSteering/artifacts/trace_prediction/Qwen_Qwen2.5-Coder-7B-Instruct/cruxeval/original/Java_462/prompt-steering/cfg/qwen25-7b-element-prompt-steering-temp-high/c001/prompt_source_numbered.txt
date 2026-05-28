@@ -1,0 +1,21 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_462 {
+L009     public static String f(String text, String value) {
+L010         int length = text.length();
+L011         char[] letters = text.toCharArray();
+L012         if (text.indexOf(value) == -1) {
+L013             value = String.valueOf(letters[0]);
+L014         }
+L015         return value.repeat(length);
+L016     }
+L017     public static void main(String[] args) {
+L018     assert(f(("ldebgp o"), ("o")).equals(("oooooooo")));
+L019     }
+L020 
+L021 }

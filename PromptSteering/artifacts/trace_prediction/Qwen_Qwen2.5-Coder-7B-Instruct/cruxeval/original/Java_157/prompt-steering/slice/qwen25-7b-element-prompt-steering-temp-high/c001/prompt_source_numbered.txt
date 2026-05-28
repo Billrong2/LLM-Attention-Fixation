@@ -1,0 +1,24 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_157 {
+L009     public static long f(String phrase) {
+L010         int ans = 0;
+L011         for (String w : phrase.split(" ")) {
+L012             for (int i = 0; i < w.length(); i++) {
+L013                 if (w.charAt(i) == '0') {
+L014                     ans++;
+L015                 }
+L016             }
+L017         }
+L018         return ans;
+L019     }
+L020     public static void main(String[] args) {
+L021     assert(f(("aboba 212 has 0 digits")) == (1l));
+L022     }
+L023 
+L024 }

@@ -1,0 +1,23 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_535 {
+L009     public static boolean f(long n) {
+L010         int _obf_t1_f_976995 = 0; _obf_t1_f_976995 += 0;
+L011         for (char c : String.valueOf(n).toCharArray()) {
+L012             if (c != '0' && c != '1' && c != '2' && !(c >= '5' && c <= '9')) {
+L013                 return false;
+L014             }
+L015         }
+L016         return true;
+L017     }
+L018     public static void main(String[] args) {
+L019     int _obf_t1_main_791862 = 0; _obf_t1_main_791862 += 0;
+L020     assert(f((1341240312l)) == (false));
+L021     }
+L022 
+L023 }

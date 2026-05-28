@@ -1,0 +1,78 @@
+{
+  "branches_seen": [],
+  "called_methods": [
+    "main"
+  ],
+  "case_expression": "true",
+  "case_id": "c001",
+  "case_origin": "fallback.program",
+  "case_pack_source_hash": "06a9762ce31557bd62846391258fd1fa87fd44b881b55c79aa369b430f3af801",
+  "case_result_matches_expected": true,
+  "case_result_observed": true,
+  "class_name": "Java_163",
+  "dataset": "cruxeval",
+  "event_count": 6,
+  "events": [
+    {
+      "event_idx": 0,
+      "event_type": "method_enter",
+      "line": 16,
+      "method_name": "main",
+      "prompt_line": 16
+    },
+    {
+      "event_idx": 1,
+      "event_type": "line_exec",
+      "line": 19,
+      "method_name": "main",
+      "prompt_line": 19
+    },
+    {
+      "case_id": "c001",
+      "event_idx": 2,
+      "event_type": "case_result",
+      "line": -1,
+      "method_name": "main",
+      "outcome": true
+    },
+    {
+      "event_idx": 3,
+      "event_type": "line_exec",
+      "line": 21,
+      "method_name": "main",
+      "prompt_line": 21
+    },
+    {
+      "event_idx": 4,
+      "event_type": "method_exit",
+      "line": -1,
+      "method_name": "main"
+    },
+    {
+      "event_idx": 5,
+      "event_type": "line_exec",
+      "line": 22,
+      "method_name": "main",
+      "prompt_line": 22
+    }
+  ],
+  "exec_result": {
+    "assertion_failed": false,
+    "compile_error": "",
+    "compiled": true,
+    "ran": true,
+    "returncode": 0,
+    "runtime_error": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":16},{\"event_idx\":1,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":19},{\"event_idx\":2,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":3,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":21},{\"event_idx\":4,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":5,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":22}]}\nTRACE_JSON_END",
+    "stderr": "",
+    "stdout": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":16},{\"event_idx\":1,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":19},{\"event_idx\":2,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":3,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":21},{\"event_idx\":4,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":5,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":22}]}\nTRACE_JSON_END",
+    "success": true
+  },
+  "executed_line_sequence": [],
+  "expected_bool": true,
+  "mutation_type": "program_truth",
+  "snippet": "Java_163",
+  "trace_status": "ok",
+  "unsupported_reason": "",
+  "variant": "obfuscated",
+  "variant_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/artifacts/obfuscation/source/cruxeval/java/Java_163/identifier_renaming/easy/Java_163.java"
+}

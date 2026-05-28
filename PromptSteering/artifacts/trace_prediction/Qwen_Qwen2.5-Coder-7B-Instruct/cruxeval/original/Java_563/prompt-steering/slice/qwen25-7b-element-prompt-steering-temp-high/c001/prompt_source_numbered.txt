@@ -1,0 +1,20 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_563 {
+L009     public static long f(String text1, String text2) {
+L010         int[] nums = new int[text2.length()];
+L011         for (int i = 0; i < text2.length(); i++) {
+L012             nums[i] = text1.length() - text1.replace(String.valueOf(text2.charAt(i)), "").length();
+L013         }
+L014         return Arrays.stream(nums).sum();
+L015     }
+L016     public static void main(String[] args) {
+L017     assert(f(("jivespdcxc"), ("sx")) == (2l));
+L018     }
+L019 
+L020 }

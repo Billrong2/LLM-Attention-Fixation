@@ -1,0 +1,23 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_182 {
+L009     public static ArrayList<Pair<String, Long>> f(HashMap<String,Long> dic) {
+L010         List<Map.Entry<String, Long>> list = new ArrayList<>(dic.entrySet());
+L011         list.sort(Comparator.comparing(Map.Entry::getKey));
+L012         
+L013         ArrayList<Pair<String, Long>> result = list.stream()
+L014                 .map(entry -> new Pair<>(entry.getKey(), entry.getValue()))
+L015                 .collect(Collectors.toCollection(ArrayList::new));
+L016         
+L017         return result;
+L018     }
+L019     public static void main(String[] args) {
+L020     assert(f((new HashMap<String,Long>(Map.of("b", 1l, "a", 2l)))).equals((new ArrayList<Pair<String, Long>>(Arrays.asList((Pair<String, Long>)Pair.with("a", 2l), (Pair<String, Long>)Pair.with("b", 1l))))));
+L021     }
+L022 
+L023 }

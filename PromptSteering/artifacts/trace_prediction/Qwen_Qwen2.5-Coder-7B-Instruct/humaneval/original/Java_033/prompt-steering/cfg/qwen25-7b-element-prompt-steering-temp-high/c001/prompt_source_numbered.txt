@@ -1,0 +1,42 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     This function takes a list l and returns a list l' such that
+L007     l' is identical to l in the indicies that are not divisible by three, while its values at the indicies that are divisible by three are equal
+L008     to the values of the corresponding indicies of l, but sorted.
+L009     >>> sortThird(Arrays.asList(1, 2, 3))
+L010     [1, 2, 3]
+L011     >>> sortThird(Arrays.asList(5, 6, 3, 4, 8, 9, 2))
+L012     [2, 6, 3, 4, 8, 9, 5]
+L013      */
+L014     public List<Integer> sortThird(List<Integer> l) {
+L015 
+L016         List<Integer> thirds = new ArrayList<>();
+L017         for (int i = 0; i < l.size(); i += 3) {
+L018             thirds.add(l.get(i));
+L019         }
+L020         Collections.sort(thirds);
+L021         List<Integer> result = l;
+L022         for (int i = 0; i < l.size(); i += 3) {
+L023             result.set(i, thirds.get(i / 3));
+L024         }
+L025         return result;
+L026     }
+L027 }
+L028 
+L029 public class Java_033 {
+L030     public static void main(String[] args) {
+L031         Solution s = new Solution();
+L032         List<Boolean> correct = Arrays.asList(
+L033                 s.sortThird(new ArrayList<>(Arrays.asList(5, 6, 3, 4, 8, 9, 2))).equals(Arrays.asList(2, 6, 3, 4, 8, 9, 5)),
+L034                 s.sortThird(new ArrayList<>(Arrays.asList(5, 8, 3, 4, 6, 9, 2))).equals(Arrays.asList(2, 8, 3, 4, 6, 9, 5)),
+L035                 s.sortThird(new ArrayList<>(Arrays.asList(5, 6, 9, 4, 8, 3, 2))).equals(Arrays.asList(2, 6, 9, 4, 8, 3, 5)),
+L036                 s.sortThird(new ArrayList<>(Arrays.asList(5, 6, 3, 4, 8, 9, 2, 1))).equals(Arrays.asList(2, 6, 3, 4, 8, 9, 5, 1))
+L037         );
+L038         if (correct.contains(false)) {
+L039             throw new AssertionError();
+L040         }
+L041     }
+L042 }

@@ -1,0 +1,39 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 
+L009 class Java_320 {
+L010     public static String f(String text) {
+L011         int index = 1;
+L012         while (index < text.length()) {
+L013             if (text.charAt(index) != text.charAt(index - 1)) {
+L014                 index += 1;
+L015             } else {
+L016                 String text1 = text.substring(0, index);
+L017                 String text2 = swapCase(text.substring(index));
+L018                 return text1 + text2;
+L019             }
+L020         }
+L021         return swapCase(text);
+L022     }
+L023 
+L024     private static String swapCase(String str) {
+L025         StringBuilder builder = new StringBuilder();
+L026         for (char c : str.toCharArray()) {
+L027             if (Character.isUpperCase(c)) {
+L028                 builder.append(Character.toLowerCase(c));
+L029             } else {
+L030                 builder.append(Character.toUpperCase(c));
+L031             }
+L032         }
+L033         return builder.toString();
+L034     }
+L035     public static void main(String[] args) {
+L036     assert(f(("USaR")).equals(("usAr")));
+L037     }
+L038 
+L039 }

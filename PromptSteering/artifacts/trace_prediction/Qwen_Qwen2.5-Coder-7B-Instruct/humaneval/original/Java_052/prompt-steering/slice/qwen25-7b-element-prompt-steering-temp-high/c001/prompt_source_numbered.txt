@@ -1,0 +1,38 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Return True if all numbers in the list l are below threshold t.
+L007     >>> belowThreshold(Arrays.asList(1, 2, 4, 10), 100)
+L008     true
+L009     >>> belowThreshold(Arrays.asList(1, 20, 4, 10), 5)
+L010     false
+L011      */
+L012     public boolean belowThreshold(List<Integer> l, int t) {
+L013 
+L014         for (int e : l) {
+L015             if (e >= t) {
+L016                 return false;
+L017             }
+L018         }
+L019         return true;
+L020     }
+L021 }
+L022 
+L023 public class Java_052 {
+L024     public static void main(String[] args) {
+L025         Solution s = new Solution();
+L026         List<Boolean> correct = Arrays.asList(
+L027                 s.belowThreshold(new ArrayList<>(Arrays.asList(1, 2, 4, 10)), 100),
+L028                 !s.belowThreshold(new ArrayList<>(Arrays.asList(1, 20, 4, 10)), 5),
+L029                 s.belowThreshold(new ArrayList<>(Arrays.asList(1, 20, 4, 10)), 21),
+L030                 s.belowThreshold(new ArrayList<>(Arrays.asList(1, 20, 4, 10)), 22),
+L031                 s.belowThreshold(new ArrayList<>(Arrays.asList(1, 8, 4, 10)), 11),
+L032                 !s.belowThreshold(new ArrayList<>(Arrays.asList(1, 8, 4, 10)), 10)
+L033         );
+L034         if (correct.contains(false)) {
+L035             throw new AssertionError();
+L036         }
+L037     }
+L038 }

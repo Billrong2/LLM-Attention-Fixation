@@ -1,0 +1,23 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_310 {
+L009     public static String f(ArrayList<String> strands) {
+L010         ArrayList<String> subs = new ArrayList<>(strands);
+L011         for (int i = 0; i < subs.size(); i++) {
+L012             String j = subs.get(i);
+L013             for (int k = 0; k < j.length() / 2; k++) {
+L014                 subs.set(i, j.charAt(j.length() - 1) + j.substring(1, j.length() - 1) + j.charAt(0));
+L015             }
+L016         }
+L017         return String.join("", subs);
+L018     }
+L019     public static void main(String[] args) {
+L020     assert(f((new ArrayList<String>(Arrays.asList((String)"__", (String)"1", (String)".", (String)"0", (String)"r0", (String)"__", (String)"a_j", (String)"6", (String)"__", (String)"6")))).equals(("__1.00r__j_a6__6")));
+L021     }
+L022 
+L023 }

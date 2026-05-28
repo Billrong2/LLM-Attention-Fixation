@@ -1,0 +1,18 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_075 {
+L009     public static long f(ArrayList<Long> array, long elem) {
+L010         int v1 = array.indexOf(elem);
+L011         return v1 * 2 + array.get(array.size() - v1 - 1) * 3;
+L012     }
+L013     public static void main(String[] args) {
+L014     int _obf_t1_main_404385 = 0; _obf_t1_main_404385 += 0;
+L015     assert(f((new ArrayList<Long>(Arrays.asList((long)-1l, (long)2l, (long)1l, (long)-8l, (long)2l))), (2l)) == (-22l));
+L016     }
+L017 
+L018 }

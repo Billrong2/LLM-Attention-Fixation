@@ -1,0 +1,19 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_227 {
+L009     public static String f(String text) {
+L010         text = text.toLowerCase();
+L011         char head = text.charAt(0);
+L012         String tail = text.substring(1);
+L013         return Character.toUpperCase(head) + tail;
+L014     }
+L015     public static void main(String[] args) {
+L016     assert(f(("Manolo")).equals(("Manolo")));
+L017     }
+L018 
+L019 }

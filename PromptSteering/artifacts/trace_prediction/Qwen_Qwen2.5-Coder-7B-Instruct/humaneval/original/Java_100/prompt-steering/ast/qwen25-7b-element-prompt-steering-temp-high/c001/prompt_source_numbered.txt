@@ -1,0 +1,42 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Given a positive integer n, you have to make a pile of n levels of stones.
+L007     The first level has n stones.
+L008     The number of stones in the next level is:
+L009         - the next odd number if n is odd.
+L010         - the next even number if n is even.
+L011     Return the number of stones in each level in a list, where element at index
+L012     i represents the number of stones in the level (i+1).
+L013 
+L014     Examples:
+L015     >>> makeAPile(3)
+L016     [3, 5, 7]
+L017      */
+L018     public List<Integer> makeAPile(int n) {
+L019 
+L020         List<Integer> result = new ArrayList<>();
+L021         for (int i = 0; i < n; i++) {
+L022             result.add(n + 2 * i);
+L023         }
+L024         return result;
+L025     }
+L026 }
+L027 
+L028 public class Java_100 {
+L029     public static void main(String[] args) {
+L030         Solution s = new Solution();
+L031         List<Boolean> correct = Arrays.asList(
+L032                 s.makeAPile(3).equals(Arrays.asList(3, 5, 7)),
+L033                 s.makeAPile(4).equals(Arrays.asList(4, 6, 8, 10)),
+L034                 s.makeAPile(5).equals(Arrays.asList(5, 7, 9, 11, 13)),
+L035                 s.makeAPile(6).equals(Arrays.asList(6, 8, 10, 12, 14, 16)),
+L036                 s.makeAPile(8).equals(Arrays.asList(8, 10, 12, 14, 16, 18, 20, 22))
+L037         );
+L038         if (correct.contains(false)) {
+L039             throw new AssertionError();
+L040         }
+L041     }
+L042 }

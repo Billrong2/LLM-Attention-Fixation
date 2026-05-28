@@ -1,0 +1,222 @@
+{
+  "branches_seen": [
+    {
+      "branch_id": "b001",
+      "branch_kind": "if",
+      "line": 27
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "for",
+      "line": 31
+    }
+  ],
+  "called_methods": [
+    "main",
+    "fib4"
+  ],
+  "case_expression": "s.fib4(5) == 4",
+  "case_id": "c001",
+  "case_origin": "humaneval.correct_list",
+  "case_pack_source_hash": "6b22f14ae14e76719c8bc0c69393afaa260cb25fd0422b1d0f750bfac0cf6bbe",
+  "case_result_matches_expected": true,
+  "case_result_observed": true,
+  "class_name": "Java_046",
+  "dataset": "humaneval",
+  "event_count": 21,
+  "events": [
+    {
+      "event_idx": 0,
+      "event_type": "method_enter",
+      "line": 40,
+      "method_name": "main",
+      "prompt_line": 40
+    },
+    {
+      "event_idx": 1,
+      "event_type": "method_enter",
+      "line": 20,
+      "method_name": "fib4",
+      "prompt_line": 20
+    },
+    {
+      "event_idx": 2,
+      "event_type": "line_exec",
+      "line": 23,
+      "method_name": "fib4",
+      "prompt_line": 23
+    },
+    {
+      "event_idx": 3,
+      "event_type": "line_exec",
+      "line": 24,
+      "method_name": "fib4",
+      "prompt_line": 24
+    },
+    {
+      "event_idx": 4,
+      "event_type": "line_exec",
+      "line": 25,
+      "method_name": "fib4",
+      "prompt_line": 25
+    },
+    {
+      "event_idx": 5,
+      "event_type": "line_exec",
+      "line": 26,
+      "method_name": "fib4",
+      "prompt_line": 26
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "if",
+      "event_idx": 6,
+      "event_type": "branch_eval",
+      "line": 27,
+      "method_name": "fib4",
+      "outcome": false,
+      "prompt_line": 27
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "for",
+      "event_idx": 7,
+      "event_type": "branch_eval",
+      "line": 31,
+      "method_name": "fib4",
+      "outcome": true,
+      "prompt_line": 31
+    },
+    {
+      "event_idx": 8,
+      "event_type": "line_exec",
+      "line": 32,
+      "method_name": "fib4",
+      "prompt_line": 32
+    },
+    {
+      "event_idx": 9,
+      "event_type": "line_exec",
+      "line": 33,
+      "method_name": "fib4",
+      "prompt_line": 33
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "for",
+      "event_idx": 10,
+      "event_type": "branch_eval",
+      "line": 31,
+      "method_name": "fib4",
+      "outcome": true,
+      "prompt_line": 31
+    },
+    {
+      "event_idx": 11,
+      "event_type": "line_exec",
+      "line": 32,
+      "method_name": "fib4",
+      "prompt_line": 32
+    },
+    {
+      "event_idx": 12,
+      "event_type": "line_exec",
+      "line": 33,
+      "method_name": "fib4",
+      "prompt_line": 33
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "for",
+      "event_idx": 13,
+      "event_type": "branch_eval",
+      "line": 31,
+      "method_name": "fib4",
+      "outcome": false,
+      "prompt_line": 31
+    },
+    {
+      "event_idx": 14,
+      "event_type": "return",
+      "line": 35,
+      "method_name": "fib4",
+      "prompt_line": 35,
+      "value_repr": "4"
+    },
+    {
+      "event_idx": 15,
+      "event_type": "method_exit",
+      "line": 35,
+      "method_name": "fib4",
+      "prompt_line": 35
+    },
+    {
+      "event_idx": 16,
+      "event_type": "line_exec",
+      "line": 44,
+      "method_name": "main",
+      "prompt_line": 44
+    },
+    {
+      "case_id": "c001",
+      "event_idx": 17,
+      "event_type": "case_result",
+      "line": -1,
+      "method_name": "main",
+      "outcome": true
+    },
+    {
+      "event_idx": 18,
+      "event_type": "line_exec",
+      "line": 46,
+      "method_name": "main",
+      "prompt_line": 46
+    },
+    {
+      "event_idx": 19,
+      "event_type": "method_exit",
+      "line": -1,
+      "method_name": "main"
+    },
+    {
+      "event_idx": 20,
+      "event_type": "line_exec",
+      "line": 47,
+      "method_name": "main",
+      "prompt_line": 47
+    }
+  ],
+  "exec_result": {
+    "assertion_failed": false,
+    "compile_error": "",
+    "compiled": true,
+    "ran": true,
+    "returncode": 0,
+    "runtime_error": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":40},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"fib4\",\"line\":20},{\"event_idx\":2,\"event_type\":\"line_exec\",\"method_name\":\"fib4\",\"line\":23},{\"event_idx\":3,\"event_type\":\"line_exec\",\"method_name\":\"fib4\",\"line\":24},{\"event_idx\":4,\"event_type\":\"line_exec\",\"method_name\":\"fib4\",\"line\":25},{\"event_idx\":5,\"event_type\":\"line_exec\",\"method_name\":\"fib4\",\"line\":26},{\"event_idx\":6,\"event_type\":\"branch_eval\",\"method_name\":\"fib4\",\"line\":27,\"branch_kind\":\"if\",\"branch_id\":\"b001\",\"outcome\":false},{\"event_idx\":7,\"event_type\":\"branch_eval\",\"method_name\":\"fib4\",\"line\":31,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":8,\"event_type\":\"line_exec\",\"method_name\":\"fib4\",\"line\":32},{\"event_idx\":9,\"event_type\":\"line_exec\",\"method_name\":\"fib4\",\"line\":33},{\"event_idx\":10,\"event_type\":\"branch_eval\",\"method_name\":\"fib4\",\"line\":31,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":11,\"event_type\":\"line_exec\",\"method_name\":\"fib4\",\"line\":32},{\"event_idx\":12,\"event_type\":\"line_exec\",\"method_name\":\"fib4\",\"line\":33},{\"event_idx\":13,\"event_type\":\"branch_eval\",\"method_name\":\"fib4\",\"line\":31,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":false},{\"event_idx\":14,\"event_type\":\"return\",\"method_name\":\"fib4\",\"line\":35,\"value_repr\":\"4\"},{\"event_idx\":15,\"event_type\":\"method_exit\",\"method_name\":\"fib4\",\"line\":35},{\"event_idx\":16,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":44},{\"event_idx\":17,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":18,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":46},{\"event_idx\":19,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":20,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":47}]}\nTRACE_JSON_END",
+    "stderr": "",
+    "stdout": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":40},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"fib4\",\"line\":20},{\"event_idx\":2,\"event_type\":\"line_exec\",\"method_name\":\"fib4\",\"line\":23},{\"event_idx\":3,\"event_type\":\"line_exec\",\"method_name\":\"fib4\",\"line\":24},{\"event_idx\":4,\"event_type\":\"line_exec\",\"method_name\":\"fib4\",\"line\":25},{\"event_idx\":5,\"event_type\":\"line_exec\",\"method_name\":\"fib4\",\"line\":26},{\"event_idx\":6,\"event_type\":\"branch_eval\",\"method_name\":\"fib4\",\"line\":27,\"branch_kind\":\"if\",\"branch_id\":\"b001\",\"outcome\":false},{\"event_idx\":7,\"event_type\":\"branch_eval\",\"method_name\":\"fib4\",\"line\":31,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":8,\"event_type\":\"line_exec\",\"method_name\":\"fib4\",\"line\":32},{\"event_idx\":9,\"event_type\":\"line_exec\",\"method_name\":\"fib4\",\"line\":33},{\"event_idx\":10,\"event_type\":\"branch_eval\",\"method_name\":\"fib4\",\"line\":31,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":11,\"event_type\":\"line_exec\",\"method_name\":\"fib4\",\"line\":32},{\"event_idx\":12,\"event_type\":\"line_exec\",\"method_name\":\"fib4\",\"line\":33},{\"event_idx\":13,\"event_type\":\"branch_eval\",\"method_name\":\"fib4\",\"line\":31,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":false},{\"event_idx\":14,\"event_type\":\"return\",\"method_name\":\"fib4\",\"line\":35,\"value_repr\":\"4\"},{\"event_idx\":15,\"event_type\":\"method_exit\",\"method_name\":\"fib4\",\"line\":35},{\"event_idx\":16,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":44},{\"event_idx\":17,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":18,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":46},{\"event_idx\":19,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":20,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":47}]}\nTRACE_JSON_END",
+    "success": true
+  },
+  "executed_line_sequence": [
+    23,
+    24,
+    25,
+    26,
+    27,
+    31,
+    32,
+    33,
+    31,
+    32,
+    33,
+    31,
+    35
+  ],
+  "expected_bool": true,
+  "mutation_type": "seed_true",
+  "snippet": "Java_046",
+  "trace_status": "ok",
+  "unsupported_reason": "",
+  "variant": "original",
+  "variant_path": ""
+}

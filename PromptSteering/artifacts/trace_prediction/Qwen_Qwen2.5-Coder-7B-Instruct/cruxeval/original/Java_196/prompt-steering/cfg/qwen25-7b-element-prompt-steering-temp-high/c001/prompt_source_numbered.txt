@@ -1,0 +1,45 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 
+L009 class Java_196 {
+L010     public static String f(String text) {
+L011         text = text.replace(" x", " x.");
+L012         if (text.equals(toTitleCase(text))) {
+L013             return "correct";
+L014         }
+L015         text = text.replace(" x.", " x");
+L016         return "mixed";
+L017     }
+L018 
+L019     private static String toTitleCase(String text) {
+L020         if (text == null || text.isEmpty()) {
+L021             return text;
+L022         }
+L023 
+L024         StringBuilder converted = new StringBuilder();
+L025 
+L026         boolean convertNext = true;
+L027         for (char ch : text.toCharArray()) {
+L028             if (Character.isSpaceChar(ch)) {
+L029                 convertNext = true;
+L030             } else if (convertNext) {
+L031                 ch = Character.toUpperCase(ch);
+L032                 convertNext = false;
+L033             } else {
+L034                 ch = Character.toLowerCase(ch);
+L035             }
+L036             converted.append(ch);
+L037         }
+L038 
+L039         return converted.toString();
+L040     }
+L041     public static void main(String[] args) {
+L042     assert(f(("398 Is A Poor Year To Sow")).equals(("correct")));
+L043     }
+L044 
+L045 }

@@ -1,0 +1,24 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_730 {
+L009     public static long f(String text) {
+L010         int m = 0;
+L011         int cnt = 0;
+L012         for (String i : text.split(" ")) {
+L013             if (i.length() > m) {
+L014                 cnt++;
+L015                 m = i.length();
+L016             }
+L017         }
+L018         return cnt;
+L019     }
+L020     public static void main(String[] args) {
+L021     assert(f(("wys silak v5 e4fi rotbi fwj 78 wigf t8s lcl")) == (2l));
+L022     }
+L023 
+L024 }

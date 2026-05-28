@@ -1,0 +1,28 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_110 {
+L009     public static long f(String text) {
+L010         String[] v1 = {""};
+L011         String v2 = "";
+L012         for (int v3 = 0; v3 < text.length(); v3++) {
+L013             if (!Character.isWhitespace(text.charAt(v3))) {
+L014                 v1 = Arrays.copyOf(v1, v1.length + 1);
+L015                 v1[v1.length - 1] = v2;
+L016                 v2 = "";
+L017             } else {
+L018                 v2 += text.charAt(v3);
+L019             }
+L020         }
+L021         return v1.length;
+L022     }
+L023     public static void main(String[] args) {
+L024     int _obf_t1_main_223145 = 0; _obf_t1_main_223145 += 0;
+L025     assert(f(("       ")) == (1l));
+L026     }
+L027 
+L028 }

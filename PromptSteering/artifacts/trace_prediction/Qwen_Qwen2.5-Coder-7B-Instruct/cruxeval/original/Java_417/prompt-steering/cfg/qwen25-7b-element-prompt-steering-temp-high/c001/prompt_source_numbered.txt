@@ -1,0 +1,19 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_417 {
+L009     public static ArrayList<Long> f(ArrayList<Long> lst) {
+L010         Collections.reverse(lst);
+L011         lst.remove(lst.size() - 1);
+L012         Collections.reverse(lst);
+L013         return lst;
+L014     }
+L015     public static void main(String[] args) {
+L016     assert(f((new ArrayList<Long>(Arrays.asList((long)7l, (long)8l, (long)2l, (long)8l)))).equals((new ArrayList<Long>(Arrays.asList((long)8l, (long)2l, (long)8l)))));
+L017     }
+L018 
+L019 }

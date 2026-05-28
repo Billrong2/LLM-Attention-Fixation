@@ -1,0 +1,65 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     You are given two intervals,
+L007     where each interval is a pair of integers. For example, interval = (start, end) = (1, 2).
+L008     The given intervals are closed which means that the interval (start, end)
+L009     includes both start and end.
+L010     For each given interval, it is assumed that its start is less or equal its end.
+L011     Your task is to determine whether the length of intersection of these two
+L012     intervals is a prime number.
+L013     Example, the intersection of the intervals (1, 3), (2, 4) is (2, 3)
+L014     which its length is 1, which not a prime number.
+L015     If the length of the intersection is a prime number, return "YES",
+L016     otherwise, return "NO".
+L017     If the two intervals don't intersect, return "NO".
+L018 
+L019 
+L020     [input/output] samples:
+L021     intersection((1, 2), (2, 3)) ==> "NO"
+L022     intersection((-1, 1), (0, 4)) ==> "NO"
+L023     intersection((-3, -1), (-5, 5)) ==> "YES"
+L024      */
+L025     public String intersection(List<Integer> interval1, List<Integer> interval2) {
+L026 
+L027         int l = Math.max(interval1.get(0), interval2.get(0));
+L028         int r = Math.min(interval1.get(1), interval2.get(1));
+L029         int length = r - l;
+L030         if (length <= 0) {
+L031             return "NO";
+L032         }
+L033         if (length == 1) {
+L034             return "NO";
+L035         }
+L036         if (length == 2) {
+L037             return "YES";
+L038         }
+L039         for (int i = 2; i < length; i++) {
+L040             if (length % i == 0) {
+L041                 return "NO";
+L042             }
+L043         }
+L044         return "YES";
+L045     }
+L046 }
+L047 
+L048 public class Java_127 {
+L049     public static void main(String[] args) {
+L050         Solution s = new Solution();
+L051         List<Boolean> correct = Arrays.asList(
+L052                 Objects.equals(s.intersection(Arrays.asList(1, 2), Arrays.asList(2, 3)), "NO" ),
+L053                 Objects.equals(s.intersection(Arrays.asList(-1, 1), Arrays.asList(0, 4)), "NO" ),
+L054                 Objects.equals(s.intersection(Arrays.asList(-3, -1), Arrays.asList(-5, 5)), "YES" ),
+L055                 Objects.equals(s.intersection(Arrays.asList(-2, 2), Arrays.asList(-4, 0)), "YES" ),
+L056                 Objects.equals(s.intersection(Arrays.asList(-11, 2), Arrays.asList(-1, -1)), "NO" ),
+L057                 Objects.equals(s.intersection(Arrays.asList(1, 2), Arrays.asList(3, 5)), "NO" ),
+L058                 Objects.equals(s.intersection(Arrays.asList(1, 2), Arrays.asList(1, 2)), "NO" ),
+L059                 Objects.equals(s.intersection(Arrays.asList(-2, -2), Arrays.asList(-3, -2)), "NO" )
+L060         );
+L061         if (correct.contains(false)) {
+L062             throw new AssertionError();
+L063         }
+L064     }
+L065 }

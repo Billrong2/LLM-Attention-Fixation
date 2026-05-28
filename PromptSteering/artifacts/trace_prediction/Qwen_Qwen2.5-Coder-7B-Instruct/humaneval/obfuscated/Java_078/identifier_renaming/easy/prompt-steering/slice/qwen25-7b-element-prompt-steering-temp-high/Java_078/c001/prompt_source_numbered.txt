@@ -1,0 +1,52 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     You have been tasked to write a function that receives
+L007     a hexadecimal number as a string and counts the number of hexadecimal
+L008     digits that are primes (prime number, or a prime, is a natural number
+L009     greater than 1 that is not a product of two smaller natural numbers).
+L010     Hexadecimal digits are 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F.
+L011     Prime numbers are 2, 3, 5, 7, 11, 13, 17,...
+L012     So you have to determine a number of the following digits: 2, 3, 5, 7,
+L013     B (=decimal 11), D (=decimal 13).
+L014     Note: you may assume the input is always correct or empty string,
+L015     and symbols A,B,C,D,E,F are always uppercase.
+L016     Examples:
+L017     For num = "AB" the output should be 1.
+L018     For num = "1077E" the output should be 2.
+L019     For num = "ABED1A33" the output should be 4.
+L020     For num = "123456789ABCDEF0" the output should be 6.
+L021     For num = "2020" the output should be 2.
+L022      */
+L023     public int hexKey(String num) {
+L024 
+L025         String v1 = "2357BD";
+L026         int v2 = 0;
+L027         for (char c : num.toCharArray()) {
+L028             if (v1.indexOf(c) != -1) {
+L029                 v2 += 1;
+L030             }
+L031         }
+L032         return v2;
+L033     }
+L034 }
+L035 
+L036 public class Java_078 {
+L037     public static void main(String[] args) {
+L038         Solution v1 = new Solution();
+L039         List<Boolean> v2 = Arrays.asList(
+L040                 v1.hexKey("AB") == 1,
+L041                 v1.hexKey("1077E") == 2,
+L042                 v1.hexKey("ABED1A33") == 4,
+L043                 v1.hexKey("2020") == 2,
+L044                 v1.hexKey("123456789ABCDEF0") == 6,
+L045                 v1.hexKey("112233445566778899AABBCCDDEEFF00") == 12,
+L046                 v1.hexKey("") == 0
+L047         );
+L048         if (v2.contains(false)) {
+L049             throw new AssertionError();
+L050         }
+L051     }
+L052 }

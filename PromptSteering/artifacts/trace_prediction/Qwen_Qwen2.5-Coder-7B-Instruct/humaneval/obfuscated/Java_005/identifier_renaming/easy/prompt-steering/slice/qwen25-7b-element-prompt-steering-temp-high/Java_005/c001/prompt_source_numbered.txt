@@ -1,0 +1,41 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Insert a number 'delimeter' between every two consecutive elements of input list `numbers'
+L007     >>> intersperse(List.of(), 4)
+L008     []
+L009     >>> intersperse(Arrays.asList(1, 2, 3), 4)
+L010     [1, 4, 2, 4, 3]
+L011      */
+L012     public List<Integer> intersperse(List<Integer> numbers, int delimiter) {
+L013 
+L014         if (numbers.size() == 0) {
+L015             return List.of();
+L016         }
+L017         List<Integer> v1 = new ArrayList<>(List.of());
+L018         for (int v2 = 0; v2 < numbers.size() - 1; v2++) {
+L019             v1.add(numbers.get(v2));
+L020             v1.add(delimiter);
+L021         }
+L022 
+L023         v1.add(numbers.get(numbers.size() - 1));
+L024 
+L025         return v1;
+L026     }
+L027 }
+L028 
+L029 public class Java_005 {
+L030     public static void main(String[] args) {
+L031         Solution v1 = new Solution();
+L032         List<Boolean> v2 = Arrays.asList(
+L033                 v1.intersperse(new ArrayList<>(List.of()), 7).equals(List.of()),
+L034                 v1.intersperse(new ArrayList<>(Arrays.asList(5, 6, 3, 2)), 8).equals(Arrays.asList(5, 8, 6, 8, 3, 8, 2)),
+L035                 v1.intersperse(new ArrayList<>(Arrays.asList(2, 2, 2)), 2).equals(Arrays.asList(2, 2, 2, 2, 2))
+L036         );
+L037         if (v2.contains(false)) {
+L038             throw new AssertionError();
+L039         }
+L040     }
+L041 }

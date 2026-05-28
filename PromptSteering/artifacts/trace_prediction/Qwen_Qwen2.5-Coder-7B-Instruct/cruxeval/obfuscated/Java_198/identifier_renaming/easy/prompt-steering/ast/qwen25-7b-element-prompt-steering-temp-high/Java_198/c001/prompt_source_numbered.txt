@@ -1,0 +1,20 @@
+L001 import java.io.*;
+L002 import java.lang.reflect.*;
+L003 import java.math.*;
+L004 import java.security.*;
+L005 import java.util.*;
+L006 import java.util.regex.Pattern;
+L007 import java.util.stream.*;
+L008 import org.javatuples.*;
+L009 class Java_198 {
+L010     public static String f(String text, String strip_chars) {
+L011         StringBuilder v1 = new StringBuilder(text).reverse();
+L012         String v2 = v1.toString().replaceAll("^[" + Pattern.quote(strip_chars) + "]+|[" + Pattern.quote(strip_chars) + "]+$", "");
+L013         return new StringBuilder(v2).reverse().toString();
+L014     }
+L015     public static void main(String[] args) {
+L016     int _obf_t1_main_567759 = 0; _obf_t1_main_567759 += 0;
+L017     assert(f(("tcmfsmj"), ("cfj")).equals(("tcmfsm")));
+L018     }
+L019 
+L020 }

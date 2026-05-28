@@ -1,0 +1,21 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_163 {
+L009     public static String f(String text, String space_symbol, long size) {
+L010         StringBuilder v1 = new StringBuilder();
+L011         for (int v2 = 0; v2 < size - text.length(); v2++) {
+L012             v1.append(space_symbol);
+L013         }
+L014         return text + v1.toString();
+L015     }
+L016     public static void main(String[] args) {
+L017     int _obf_t1_main_407823 = 0; _obf_t1_main_407823 += 0;
+L018     assert(f(("w"), ("))"), (7l)).equals(("w))))))))))))")));
+L019     }
+L020 
+L021 }

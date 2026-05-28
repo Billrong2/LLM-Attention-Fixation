@@ -1,0 +1,23 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_124 {
+L009     public static String f(String txt, String sep, long sep_count) {
+L010         String v1 = "";
+L011         while (sep_count > 0 && txt.contains(sep)) {
+L012             v1 += txt.substring(0, txt.lastIndexOf(sep) + sep.length());
+L013             txt = txt.substring(txt.lastIndexOf(sep) + sep.length());
+L014             sep_count--;
+L015         }
+L016         return v1 + txt;
+L017     }
+L018     public static void main(String[] args) {
+L019     int _obf_t1_main_817127 = 0; _obf_t1_main_817127 += 0;
+L020     assert(f(("i like you"), (" "), (-1l)).equals(("i like you")));
+L021     }
+L022 
+L023 }

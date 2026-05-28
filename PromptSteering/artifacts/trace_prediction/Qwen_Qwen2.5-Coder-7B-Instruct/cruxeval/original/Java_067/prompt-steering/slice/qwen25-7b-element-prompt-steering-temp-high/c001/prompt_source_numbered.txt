@@ -1,0 +1,19 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_067 {
+L009     public static String f(long num1, long num2, long num3) {
+L010         List<Long> nums = new ArrayList<>(Arrays.asList(num1, num2, num3));
+L011         Collections.sort(nums);
+L012 
+L013         return String.format("%d,%d,%d", nums.get(0), nums.get(1), nums.get(2));
+L014     }
+L015     public static void main(String[] args) {
+L016     assert(f((6l), (8l), (8l)).equals(("6,8,8")));
+L017     }
+L018 
+L019 }

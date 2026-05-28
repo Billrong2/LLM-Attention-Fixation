@@ -1,0 +1,20 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_698 {
+L009     public static String f(String text) {
+L010         return text.chars()
+L011                    .mapToObj(c -> (char) c)
+L012                    .filter(c -> c != ')')
+L013                    .map(String::valueOf)
+L014                    .collect(Collectors.joining());
+L015     }
+L016     public static void main(String[] args) {
+L017     assert(f(("(((((((((((d))))))))).))))(((((")).equals(("(((((((((((d.(((((")));
+L018     }
+L019 
+L020 }

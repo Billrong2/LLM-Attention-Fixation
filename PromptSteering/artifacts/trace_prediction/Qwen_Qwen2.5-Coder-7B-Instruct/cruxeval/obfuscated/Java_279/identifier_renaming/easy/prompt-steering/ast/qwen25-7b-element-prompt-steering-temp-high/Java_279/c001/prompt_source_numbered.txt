@@ -1,0 +1,27 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_279 {
+L009     public static String f(String text) {
+L010         String v1 = "";
+L011         while (!text.isEmpty()) {
+L012             String[] v2 = text.split("\\(", 2);
+L013             String v3 = v2[0];
+L014             String v4 = "(";
+L015             text = v2[1];
+L016             v1 = v3 + v4.replace("(", "|") + v1;
+L017             v1 = v1 + text.charAt(0) + v1;
+L018             text = text.substring(1);
+L019         }
+L020         return v1;
+L021     }
+L022     public static void main(String[] args) {
+L023     int _obf_t1_main_199646 = 0; _obf_t1_main_199646 += 0;
+L024     assert(f(("")).equals(("")));
+L025     }
+L026 
+L027 }

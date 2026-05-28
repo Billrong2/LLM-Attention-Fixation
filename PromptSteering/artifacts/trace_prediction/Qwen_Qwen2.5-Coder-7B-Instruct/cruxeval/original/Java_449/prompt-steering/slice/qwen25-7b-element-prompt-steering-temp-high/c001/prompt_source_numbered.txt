@@ -1,0 +1,21 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_449 {
+L009     public static boolean f(String x) {
+L010         int n = x.length();
+L011         int i = 0;
+L012         while (i < n && Character.isDigit(x.charAt(i))) {
+L013             i++;
+L014         }
+L015         return i == n;
+L016     }
+L017     public static void main(String[] args) {
+L018     assert(f(("1")) == (true));
+L019     }
+L020 
+L021 }

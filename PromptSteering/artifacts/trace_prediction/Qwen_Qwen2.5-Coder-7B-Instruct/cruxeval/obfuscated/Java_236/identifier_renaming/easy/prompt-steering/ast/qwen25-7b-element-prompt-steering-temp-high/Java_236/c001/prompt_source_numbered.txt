@@ -1,0 +1,28 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_236 {
+L009     public static String f(ArrayList<String> array) {
+L010         if (array.size() == 1) {
+L011             return String.join("", array);
+L012         }
+L013         ArrayList<String> v1 = new ArrayList<>(array);
+L014         int v2 = 0;
+L015         while (v2 < array.size() - 1) {
+L016             for (int v3 = 0; v3 < 2; v3++) {
+L017                 v1.set(v2 * 2, array.get(v2));
+L018                 v2++;
+L019             }
+L020         }
+L021         return String.join("", v1);
+L022     }
+L023     public static void main(String[] args) {
+L024     int _obf_t1_main_263750 = 0; _obf_t1_main_263750 += 0;
+L025     assert(f((new ArrayList<String>(Arrays.asList((String)"ac8", (String)"qk6", (String)"9wg")))).equals(("ac8qk6qk6")));
+L026     }
+L027 
+L028 }

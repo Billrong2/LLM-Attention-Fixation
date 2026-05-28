@@ -1,0 +1,56 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Given a string text, replace all spaces in it with underscores,
+L007     and if a string has more than 2 consecutive spaces,
+L008     then replace all consecutive spaces with -
+L009 
+L010     fixSpaces("Example") == "Example"
+L011     fixSpaces("Example 1") == "Example_1"
+L012     fixSpaces(" Example 2") == "_Example_2"
+L013     fixSpaces(" Example   3") == "_Example-3"
+L014      */
+L015     public String fixSpaces(String text) {
+L016 
+L017         StringBuilder sb = new StringBuilder();
+L018         int start = 0, end = 0;
+L019         for (int i = 0; i < text.length(); i++) {
+L020             if (text.charAt(i) == ' ') {
+L021                 end += 1;
+L022             } else {
+L023                 if (end - start > 2) {
+L024                     sb.append('-');
+L025                 } else if (end - start > 0) {
+L026                     sb.append("_".repeat(end - start));
+L027                 }
+L028                 sb.append(text.charAt(i));
+L029                 start = i + 1;
+L030                 end = i + 1;
+L031             }
+L032         }
+L033         if (end - start > 2) {
+L034             sb.append('-');
+L035         } else if (end - start > 0) {
+L036             sb.append("_".repeat(end - start));
+L037         }
+L038         return sb.toString();
+L039     }
+L040 }
+L041 
+L042 public class Java_140 {
+L043     public static void main(String[] args) {
+L044         Solution s = new Solution();
+L045         List<Boolean> correct = Arrays.asList(
+L046                 Objects.equals(s.fixSpaces("Example" ), "Example" ),
+L047                 Objects.equals(s.fixSpaces("Mudasir Hanif " ), "Mudasir_Hanif_" ),
+L048                 Objects.equals(s.fixSpaces("Yellow Yellow  Dirty  Fellow" ), "Yellow_Yellow__Dirty__Fellow" ),
+L049                 Objects.equals(s.fixSpaces("Exa   mple" ), "Exa-mple" ),
+L050                 Objects.equals(s.fixSpaces("   Exa 1 2 2 mple" ), "-Exa_1_2_2_mple" )
+L051         );
+L052         if (correct.contains(false)) {
+L053             throw new AssertionError();
+L054         }
+L055     }
+L056 }

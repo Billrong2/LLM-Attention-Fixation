@@ -1,0 +1,20 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_769 {
+L009     public static String f(String text) {
+L010         char[] textArray = text.toCharArray();
+L011         for (int i = 0; i < textArray.length; i++) {
+L012             textArray[i] = Character.isUpperCase(textArray[i]) ? Character.toLowerCase(textArray[i]) : Character.toUpperCase(textArray[i]);
+L013         }
+L014         return new String(textArray);
+L015     }
+L016     public static void main(String[] args) {
+L017     assert(f(("akA?riu")).equals(("AKa?RIU")));
+L018     }
+L019 
+L020 }

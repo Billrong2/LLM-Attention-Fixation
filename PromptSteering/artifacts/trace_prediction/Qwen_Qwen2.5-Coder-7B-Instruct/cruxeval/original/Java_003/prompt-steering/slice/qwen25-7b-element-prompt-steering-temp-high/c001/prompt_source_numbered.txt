@@ -1,0 +1,25 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_003 {
+L009     public static String f(String text, String value) {
+L010         List<Character> textList = new ArrayList<>();
+L011         for(char c : text.toCharArray()) {
+L012             textList.add(c);
+L013         }
+L014         textList.add(value.charAt(0));
+L015         StringBuilder sb = new StringBuilder();
+L016         for(char c : textList) {
+L017             sb.append(c);
+L018         }
+L019         return sb.toString();
+L020     }
+L021     public static void main(String[] args) {
+L022     assert(f(("bcksrut"), ("q")).equals(("bcksrutq")));
+L023     }
+L024 
+L025 }

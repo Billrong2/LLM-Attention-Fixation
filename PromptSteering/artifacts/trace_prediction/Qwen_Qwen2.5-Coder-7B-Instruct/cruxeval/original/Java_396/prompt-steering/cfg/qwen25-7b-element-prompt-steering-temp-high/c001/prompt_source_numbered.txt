@@ -1,0 +1,25 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_396 {
+L009     public static HashMap<Long,Long> f(HashMap<Long,Long> ets) {
+L010         if (ets.size() == 0) {
+L011             return ets;
+L012         }
+L013         Iterator<Map.Entry<Long, Long>> it = ets.entrySet().iterator();
+L014         while (it.hasNext()) {
+L015             Map.Entry<Long, Long> pair = it.next();
+L016             ets.put(pair.getKey(), (long) Math.pow(pair.getValue(), 2));
+L017             it.remove(); // avoids a ConcurrentModificationException
+L018         }
+L019         return ets;
+L020     }
+L021     public static void main(String[] args) {
+L022     assert(f((new HashMap<Long,Long>(Map.of()))).equals((new HashMap<Long,Long>(Map.of()))));
+L023     }
+L024 
+L025 }

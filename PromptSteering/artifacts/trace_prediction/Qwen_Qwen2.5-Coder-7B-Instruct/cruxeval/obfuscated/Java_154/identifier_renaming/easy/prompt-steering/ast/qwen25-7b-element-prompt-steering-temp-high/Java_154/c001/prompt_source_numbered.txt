@@ -1,0 +1,25 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_154 {
+L009     public static String f(String s, String c) {
+L010         String[] v1 = s.split(" ");
+L011         StringBuilder v2 = new StringBuilder(c + "  ");
+L012         for (int v3 = v1.length - 1; v3 >= 0; v3--) {
+L013             v2.append(v1[v3]);
+L014             if (v3 > 0) {
+L015                 v2.append("  ");
+L016             }
+L017         }
+L018         return v2.toString();
+L019     }
+L020     public static void main(String[] args) {
+L021     int _obf_t1_main_496454 = 0; _obf_t1_main_496454 += 0;
+L022     assert(f(("Hello There"), ("*")).equals(("*  There  Hello")));
+L023     }
+L024 
+L025 }

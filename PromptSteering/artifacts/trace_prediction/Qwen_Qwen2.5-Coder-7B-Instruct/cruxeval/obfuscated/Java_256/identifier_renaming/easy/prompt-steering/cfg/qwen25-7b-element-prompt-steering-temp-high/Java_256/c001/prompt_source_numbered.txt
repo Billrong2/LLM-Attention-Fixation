@@ -1,0 +1,29 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_256 {
+L009     public static long f(String text, String sub) {
+L010         long v1 = 0;
+L011         long v2 = text.length() - 1;
+L012 
+L013         while (v1 <= v2) {
+L014             long v3 = (v1 + v2) / 2;
+L015             if (text.lastIndexOf(sub) >= v3) {
+L016                 v1 = v3 + 1;
+L017             } else {
+L018                 v2 = v3 - 1;
+L019             }
+L020         }
+L021 
+L022         return v1;
+L023     }
+L024     public static void main(String[] args) {
+L025     int _obf_t1_main_171446 = 0; _obf_t1_main_171446 += 0;
+L026     assert(f(("dorfunctions"), ("2")) == (0l));
+L027     }
+L028 
+L029 }

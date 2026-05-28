@@ -1,0 +1,25 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 
+L009 class Java_382 {
+L010     public static String f(HashMap<Long, String> a) {
+L011         HashMap<Long, String> v1 = new HashMap<>();
+L012         for (Map.Entry<Long, String> entry : a.entrySet()) {
+L013             v1.put(entry.getKey(), entry.getValue());
+L014         }
+L015         StringBuilder v2 = new StringBuilder();
+L016         for (Map.Entry<Long, String> entry : v1.entrySet()) {
+L017             v2.append("(").append(entry.getKey()).append(", '").append(entry.getValue()).append("') ");
+L018         }
+L019         return v2.toString().trim();    }
+L020     public static void main(String[] args) {
+L021     int _obf_t1_main_751405 = 0; _obf_t1_main_751405 += 0;
+L022     assert(f((new HashMap<Long,String>(Map.of(15l, "Qltuf", 12l, "Rwrepny")))).equals(("(12, 'Rwrepny') (15, 'Qltuf')")));
+L023     }
+L024 
+L025 }

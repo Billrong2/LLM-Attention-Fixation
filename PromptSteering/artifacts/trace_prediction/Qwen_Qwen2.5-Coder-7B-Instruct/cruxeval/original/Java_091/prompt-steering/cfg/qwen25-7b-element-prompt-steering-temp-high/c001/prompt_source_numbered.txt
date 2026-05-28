@@ -1,0 +1,23 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_091 {
+L009     public static ArrayList<String> f(String s) {
+L010         ArrayList<String> result = new ArrayList<>();
+L011         for (int i = 0; i < s.length(); i++) {
+L012             String character = String.valueOf(s.charAt(i));
+L013             if (!result.contains(character)) {
+L014                 result.add(character);
+L015             }
+L016         }
+L017         return result;
+L018     }
+L019     public static void main(String[] args) {
+L020     assert(f(("12ab23xy")).equals((new ArrayList<String>(Arrays.asList((String)"1", (String)"2", (String)"a", (String)"b", (String)"3", (String)"x", (String)"y")))));
+L021     }
+L022 
+L023 }

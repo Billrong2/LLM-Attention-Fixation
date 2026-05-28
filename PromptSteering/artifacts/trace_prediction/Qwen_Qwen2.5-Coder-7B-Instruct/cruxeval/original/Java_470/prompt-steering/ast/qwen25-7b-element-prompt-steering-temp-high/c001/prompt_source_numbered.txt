@@ -1,0 +1,30 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_470 {
+L009     public static ArrayList<String> f(long number) {
+L010         HashMap<String, Integer> transl = new HashMap<>();
+L011         transl.put("A", 1);
+L012         transl.put("B", 2);
+L013         transl.put("C", 3);
+L014         transl.put("D", 4);
+L015         transl.put("E", 5);
+L016         
+L017         ArrayList<String> result = new ArrayList<>();
+L018         for (Map.Entry<String, Integer> entry : transl.entrySet()) {
+L019             if (entry.getValue() % number == 0) {
+L020                 result.add(entry.getKey());
+L021             }
+L022         }
+L023         
+L024         return result;
+L025     }
+L026     public static void main(String[] args) {
+L027     assert(f((2l)).equals((new ArrayList<String>(Arrays.asList((String)"B", (String)"D")))));
+L028     }
+L029 
+L030 }

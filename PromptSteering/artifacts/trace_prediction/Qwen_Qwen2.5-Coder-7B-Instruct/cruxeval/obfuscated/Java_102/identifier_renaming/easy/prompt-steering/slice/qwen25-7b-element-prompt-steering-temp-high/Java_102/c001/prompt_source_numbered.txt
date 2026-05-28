@@ -1,0 +1,25 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_102 {
+L009     public static ArrayList<Long> f(ArrayList<String> names, ArrayList<String> winners) {
+L010         ArrayList<Long> v1 = new ArrayList<>();
+L011         for (String name : names) {
+L012             int v2 = names.indexOf(name);
+L013             if (winners.contains(name)) {
+L014                 v1.add((long)v2);
+L015             }
+L016         }
+L017         Collections.sort(v1, Collections.reverseOrder());
+L018         return v1;
+L019     }
+L020     public static void main(String[] args) {
+L021     int _obf_t1_main_533926 = 0; _obf_t1_main_533926 += 0;
+L022     assert(f((new ArrayList<String>(Arrays.asList((String)"e", (String)"f", (String)"j", (String)"x", (String)"r", (String)"k"))), (new ArrayList<String>(Arrays.asList((String)"a", (String)"v", (String)"2", (String)"im", (String)"nb", (String)"vj", (String)"z")))).equals((new ArrayList<Long>(Arrays.asList()))));
+L023     }
+L024 
+L025 }

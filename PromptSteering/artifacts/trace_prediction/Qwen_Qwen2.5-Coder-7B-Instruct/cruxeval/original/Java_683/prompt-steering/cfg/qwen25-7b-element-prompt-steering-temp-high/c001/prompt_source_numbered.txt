@@ -1,0 +1,20 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_683 {
+L009     public static HashMap<String,Long> f(HashMap<String,Long> dict1, HashMap<String,Long> dict2) {
+L010         HashMap<String, Long> result = new HashMap<>(dict1);
+L011         for (String key : dict2.keySet()) {
+L012             result.put(key, dict2.get(key));
+L013         }
+L014         return result;
+L015     }
+L016     public static void main(String[] args) {
+L017     assert(f((new HashMap<String,Long>(Map.of("disface", 9l, "cam", 7l))), (new HashMap<String,Long>(Map.of("mforce", 5l)))).equals((new HashMap<String,Long>(Map.of("disface", 9l, "cam", 7l, "mforce", 5l)))));
+L018     }
+L019 
+L020 }

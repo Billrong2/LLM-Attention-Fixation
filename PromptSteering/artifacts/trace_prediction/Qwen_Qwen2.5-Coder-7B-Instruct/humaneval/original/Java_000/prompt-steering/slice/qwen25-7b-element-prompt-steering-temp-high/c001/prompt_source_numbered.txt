@@ -1,0 +1,40 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Check if in given list of numbers, are any two numbers closer to each other than given threshold.
+L007     >>> hasCloseElements(Arrays.asList(1.0, 2.0, 3.0), 0.5)
+L008     false
+L009     >>> hasCloseElements(Arrays.asList(1.0, 2.8, 3.0, 4.0, 5.0, 2.0), 0.3)
+L010     true
+L011      */
+L012     public boolean hasCloseElements(List<Double> numbers, double threshold) {
+L013 
+L014         for (int i = 0; i < numbers.size(); i++) {
+L015             for (int j = i + 1; j < numbers.size(); j++) {
+L016                 double distance = Math.abs(numbers.get(i) - numbers.get(j));
+L017                 if (distance < threshold) return true;
+L018             }
+L019         }
+L020         return false;
+L021     }
+L022 }
+L023 
+L024 public class Java_000 {
+L025     public static void main(String[] args) {
+L026         Solution s = new Solution();
+L027         List<Boolean> correct = Arrays.asList(
+L028                 s.hasCloseElements(new ArrayList<>(Arrays.asList(11.0, 2.0, 3.9, 4.0, 5.0, 2.2)), 0.3),
+L029                 !s.hasCloseElements(new ArrayList<>(Arrays.asList(1.0, 2.0, 3.9, 4.0, 5.0, 2.2)), 0.05),
+L030                 s.hasCloseElements(new ArrayList<>(Arrays.asList(1.0, 2.0, 5.9, 4.0, 5.0)), 0.95),
+L031                 !s.hasCloseElements(new ArrayList<>(Arrays.asList(1.0, 2.0, 5.9, 4.0, 5.0)), 0.8),
+L032                 s.hasCloseElements(new ArrayList<>(Arrays.asList(1.0, 2.0, 3.0, 4.0, 5.0, 2.0)), 0.1),
+L033                 s.hasCloseElements(new ArrayList<>(Arrays.asList(1.1, 2.2, 3.1, 4.1, 5.1)), 1.0),
+L034                 !s.hasCloseElements(new ArrayList<>(Arrays.asList(1.1, 2.2, 3.1, 4.1, 5.1)), 0.5)
+L035         );
+L036         if (correct.contains(false)) {
+L037             throw new AssertionError();
+L038         }
+L039     }
+L040 }

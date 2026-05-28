@@ -1,0 +1,21 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_746 {
+L009     public static HashMap<String,String> f(HashMap<String,String> dct) {
+L010         HashMap<String, String> result = new HashMap<>();
+L011         for (String value : dct.values()) {
+L012             String item = value.split("\\.")[0] + "@pinc.uk";
+L013             result.put(value, item);
+L014         }
+L015         return result;
+L016     }
+L017     public static void main(String[] args) {
+L018     assert(f((new HashMap<String,String>())).equals((new HashMap<String,String>())));
+L019     }
+L020 
+L021 }

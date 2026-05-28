@@ -1,0 +1,128 @@
+{
+  "branches_seen": [
+    {
+      "branch_id": "b001",
+      "branch_kind": "if",
+      "line": 17
+    }
+  ],
+  "called_methods": [
+    "main",
+    "triangleArea"
+  ],
+  "case_expression": "s.triangleArea(3, 4, 5) == 6.00",
+  "case_id": "c001",
+  "case_origin": "humaneval.correct_list",
+  "case_pack_source_hash": "fee61ab1b4194ea98b75095359325a588fba24546864d8a35268f69b51f3ca69",
+  "case_result_matches_expected": true,
+  "case_result_observed": true,
+  "class_name": "Java_071",
+  "dataset": "humaneval",
+  "event_count": 11,
+  "events": [
+    {
+      "event_idx": 0,
+      "event_type": "method_enter",
+      "line": 28,
+      "method_name": "main",
+      "prompt_line": 28
+    },
+    {
+      "event_idx": 1,
+      "event_type": "method_enter",
+      "line": 15,
+      "method_name": "triangleArea",
+      "prompt_line": 15
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "if",
+      "event_idx": 2,
+      "event_type": "branch_eval",
+      "line": 17,
+      "method_name": "triangleArea",
+      "outcome": false,
+      "prompt_line": 17
+    },
+    {
+      "event_idx": 3,
+      "event_type": "line_exec",
+      "line": 22,
+      "method_name": "triangleArea",
+      "prompt_line": 22
+    },
+    {
+      "event_idx": 4,
+      "event_type": "return",
+      "line": 23,
+      "method_name": "triangleArea",
+      "prompt_line": 23,
+      "value_repr": "6.0"
+    },
+    {
+      "event_idx": 5,
+      "event_type": "method_exit",
+      "line": 23,
+      "method_name": "triangleArea",
+      "prompt_line": 23
+    },
+    {
+      "event_idx": 6,
+      "event_type": "line_exec",
+      "line": 32,
+      "method_name": "main",
+      "prompt_line": 32
+    },
+    {
+      "case_id": "c001",
+      "event_idx": 7,
+      "event_type": "case_result",
+      "line": -1,
+      "method_name": "main",
+      "outcome": true
+    },
+    {
+      "event_idx": 8,
+      "event_type": "line_exec",
+      "line": 34,
+      "method_name": "main",
+      "prompt_line": 34
+    },
+    {
+      "event_idx": 9,
+      "event_type": "method_exit",
+      "line": -1,
+      "method_name": "main"
+    },
+    {
+      "event_idx": 10,
+      "event_type": "line_exec",
+      "line": 35,
+      "method_name": "main",
+      "prompt_line": 35
+    }
+  ],
+  "exec_result": {
+    "assertion_failed": false,
+    "compile_error": "",
+    "compiled": true,
+    "ran": true,
+    "returncode": 0,
+    "runtime_error": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":28},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"triangleArea\",\"line\":15},{\"event_idx\":2,\"event_type\":\"branch_eval\",\"method_name\":\"triangleArea\",\"line\":17,\"branch_kind\":\"if\",\"branch_id\":\"b001\",\"outcome\":false},{\"event_idx\":3,\"event_type\":\"line_exec\",\"method_name\":\"triangleArea\",\"line\":22},{\"event_idx\":4,\"event_type\":\"return\",\"method_name\":\"triangleArea\",\"line\":23,\"value_repr\":\"6.0\"},{\"event_idx\":5,\"event_type\":\"method_exit\",\"method_name\":\"triangleArea\",\"line\":23},{\"event_idx\":6,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":32},{\"event_idx\":7,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":8,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":34},{\"event_idx\":9,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":10,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":35}]}\nTRACE_JSON_END",
+    "stderr": "",
+    "stdout": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":28},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"triangleArea\",\"line\":15},{\"event_idx\":2,\"event_type\":\"branch_eval\",\"method_name\":\"triangleArea\",\"line\":17,\"branch_kind\":\"if\",\"branch_id\":\"b001\",\"outcome\":false},{\"event_idx\":3,\"event_type\":\"line_exec\",\"method_name\":\"triangleArea\",\"line\":22},{\"event_idx\":4,\"event_type\":\"return\",\"method_name\":\"triangleArea\",\"line\":23,\"value_repr\":\"6.0\"},{\"event_idx\":5,\"event_type\":\"method_exit\",\"method_name\":\"triangleArea\",\"line\":23},{\"event_idx\":6,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":32},{\"event_idx\":7,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":8,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":34},{\"event_idx\":9,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":10,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":35}]}\nTRACE_JSON_END",
+    "success": true
+  },
+  "executed_line_sequence": [
+    17,
+    22,
+    23
+  ],
+  "expected_bool": true,
+  "mutation_type": "seed_true",
+  "snippet": "Java_071",
+  "trace_status": "ok",
+  "unsupported_reason": "",
+  "variant": "original",
+  "variant_path": ""
+}

@@ -1,0 +1,29 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_347 {
+L009     public static String f(String text) {
+L010         List<Character> v1 = new ArrayList<>();
+L011         for (char c : text.toCharArray()) {
+L012             v1.add(c);
+L013         }
+L014         int v2 = v1.size();
+L015         for (int v3 = 0; v3 < v2; v3++) {
+L016             v1.add(v3, v1.get(v3));
+L017         }
+L018         StringBuilder v4 = new StringBuilder();
+L019         for (Character c : v1) {
+L020             v4.append(c);
+L021         }
+L022         return v4.toString() + String.join("", Collections.nCopies(v2 * 2 - v1.size(), " "));
+L023     }
+L024     public static void main(String[] args) {
+L025     int _obf_t1_main_808588 = 0; _obf_t1_main_808588 += 0;
+L026     assert(f(("hzcw")).equals(("hhhhhzcw")));
+L027     }
+L028 
+L029 }

@@ -1,0 +1,26 @@
+L001 import java.io.*;
+L002 import java.lang.reflect.*;
+L003 import java.math.*;
+L004 import java.security.*;
+L005 import java.util.*;
+L006 import java.util.stream.*;
+L007 import java.util.stream.Collectors;
+L008 import org.javatuples.*;
+L009 import java.util.*;
+L010 
+L011 
+L012 class Java_411 {
+L013     public static boolean f(String text, Object pref) {
+L014         if (pref instanceof List) {
+L015             List<String> v1 = (List<String>) pref;
+L016             return v1.stream().map(s -> text.startsWith(s)).reduce(true, (a, b) -> a && b);
+L017         } else {
+L018             return text.startsWith((String) pref);
+L019         }
+L020     }
+L021     public static void main(String[] args) {
+L022     int _obf_t1_main_460421 = 0; _obf_t1_main_460421 += 0;
+L023     assert(f(("Hello World"), ("W")) == (false));
+L024     }
+L025 
+L026 }

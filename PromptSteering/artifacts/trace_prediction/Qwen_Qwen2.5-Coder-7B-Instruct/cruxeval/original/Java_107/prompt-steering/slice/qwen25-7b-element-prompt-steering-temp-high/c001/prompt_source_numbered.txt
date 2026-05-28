@@ -1,0 +1,27 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_107 {
+L009     public static String f(String text) {
+L010         StringBuilder result = new StringBuilder();
+L011         for (int i = 0; i < text.length(); i++) {
+L012             char currentChar = text.charAt(i);
+L013             if (currentChar > 127) {
+L014                 return "False";
+L015             } else if (Character.isLetterOrDigit(currentChar)) {
+L016                 result.append(Character.toUpperCase(currentChar));
+L017             } else {
+L018                 result.append(currentChar);
+L019             }
+L020         }
+L021         return result.toString();
+L022     }
+L023     public static void main(String[] args) {
+L024     assert(f(("ua6hajq")).equals(("UA6HAJQ")));
+L025     }
+L026 
+L027 }

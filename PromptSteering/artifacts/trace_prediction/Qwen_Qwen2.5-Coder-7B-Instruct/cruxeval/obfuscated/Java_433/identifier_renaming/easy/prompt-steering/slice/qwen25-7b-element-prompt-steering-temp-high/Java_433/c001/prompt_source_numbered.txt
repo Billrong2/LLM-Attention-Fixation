@@ -1,0 +1,24 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_433 {
+L009     public static String f(String text) {
+L010         String[] v1 = text.split(",");
+L011         List<String> v2 = new ArrayList<>(Arrays.asList(v1));
+L012         
+L013         v2.remove(0);
+L014         int v3 = v2.indexOf("T");
+L015         v2.add(0, v2.remove(v3));
+L016 
+L017         return "T," + String.join(",", v2);
+L018     }
+L019     public static void main(String[] args) {
+L020     int _obf_t1_main_787248 = 0; _obf_t1_main_787248 += 0;
+L021     assert(f(("Dmreh,Sspp,T,G ,.tB,Vxk,Cct")).equals(("T,T,Sspp,G ,.tB,Vxk,Cct")));
+L022     }
+L023 
+L024 }

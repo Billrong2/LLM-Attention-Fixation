@@ -1,0 +1,22 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_255 {
+L009     public static String f(String text, String fill, long size) {
+L010         if (size < 0) {
+L011             size = -size;
+L012         }
+L013         if (text.length() > size) {
+L014             return text.substring(text.length() - (int)size);
+L015         }
+L016         return String.format("%" + size + "s", text).replace(' ', fill.charAt(0));
+L017     }
+L018     public static void main(String[] args) {
+L019     assert(f(("no asw"), ("j"), (1l)).equals(("w")));
+L020     }
+L021 
+L022 }

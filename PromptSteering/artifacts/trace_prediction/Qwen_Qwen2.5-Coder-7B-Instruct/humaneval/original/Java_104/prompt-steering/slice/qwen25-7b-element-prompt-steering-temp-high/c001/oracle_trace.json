@@ -1,0 +1,458 @@
+{
+  "branches_seen": [
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "line": 20
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "for",
+      "line": 22
+    },
+    {
+      "branch_id": "b003",
+      "branch_kind": "if",
+      "line": 23
+    },
+    {
+      "branch_id": "b004",
+      "branch_kind": "if",
+      "line": 28
+    }
+  ],
+  "called_methods": [
+    "main",
+    "uniqueDigits"
+  ],
+  "case_expression": "s.uniqueDigits(Arrays.asList(15, 33, 1422, 1)).equals(Arrays.asList(1, 15, 33))",
+  "case_id": "c001",
+  "case_origin": "humaneval.correct_list",
+  "case_pack_source_hash": "3e9c61fb95d16edf097dcba6c0029d88831d186fb933db5b893e5fd741b0d1e3",
+  "case_result_matches_expected": true,
+  "case_result_observed": true,
+  "class_name": "Java_104",
+  "dataset": "humaneval",
+  "event_count": 41,
+  "events": [
+    {
+      "event_idx": 0,
+      "event_type": "method_enter",
+      "line": 38,
+      "method_name": "main",
+      "prompt_line": 38
+    },
+    {
+      "event_idx": 1,
+      "event_type": "method_enter",
+      "line": 17,
+      "method_name": "uniqueDigits",
+      "prompt_line": 17
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 2,
+      "event_type": "branch_eval",
+      "line": 20,
+      "method_name": "uniqueDigits",
+      "outcome": true,
+      "prompt_line": 20
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "for",
+      "event_idx": 3,
+      "event_type": "branch_eval",
+      "line": 22,
+      "method_name": "uniqueDigits",
+      "outcome": true,
+      "prompt_line": 22
+    },
+    {
+      "branch_id": "b003",
+      "branch_kind": "if",
+      "event_idx": 4,
+      "event_type": "branch_eval",
+      "line": 23,
+      "method_name": "uniqueDigits",
+      "outcome": false,
+      "prompt_line": 23
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "for",
+      "event_idx": 5,
+      "event_type": "branch_eval",
+      "line": 22,
+      "method_name": "uniqueDigits",
+      "outcome": true,
+      "prompt_line": 22
+    },
+    {
+      "branch_id": "b003",
+      "branch_kind": "if",
+      "event_idx": 6,
+      "event_type": "branch_eval",
+      "line": 23,
+      "method_name": "uniqueDigits",
+      "outcome": false,
+      "prompt_line": 23
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "for",
+      "event_idx": 7,
+      "event_type": "branch_eval",
+      "line": 22,
+      "method_name": "uniqueDigits",
+      "outcome": false,
+      "prompt_line": 22
+    },
+    {
+      "branch_id": "b004",
+      "branch_kind": "if",
+      "event_idx": 8,
+      "event_type": "branch_eval",
+      "line": 28,
+      "method_name": "uniqueDigits",
+      "outcome": true,
+      "prompt_line": 28
+    },
+    {
+      "event_idx": 9,
+      "event_type": "line_exec",
+      "line": 29,
+      "method_name": "uniqueDigits",
+      "prompt_line": 29
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 10,
+      "event_type": "branch_eval",
+      "line": 20,
+      "method_name": "uniqueDigits",
+      "outcome": true,
+      "prompt_line": 20
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "for",
+      "event_idx": 11,
+      "event_type": "branch_eval",
+      "line": 22,
+      "method_name": "uniqueDigits",
+      "outcome": true,
+      "prompt_line": 22
+    },
+    {
+      "branch_id": "b003",
+      "branch_kind": "if",
+      "event_idx": 12,
+      "event_type": "branch_eval",
+      "line": 23,
+      "method_name": "uniqueDigits",
+      "outcome": false,
+      "prompt_line": 23
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "for",
+      "event_idx": 13,
+      "event_type": "branch_eval",
+      "line": 22,
+      "method_name": "uniqueDigits",
+      "outcome": true,
+      "prompt_line": 22
+    },
+    {
+      "branch_id": "b003",
+      "branch_kind": "if",
+      "event_idx": 14,
+      "event_type": "branch_eval",
+      "line": 23,
+      "method_name": "uniqueDigits",
+      "outcome": false,
+      "prompt_line": 23
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "for",
+      "event_idx": 15,
+      "event_type": "branch_eval",
+      "line": 22,
+      "method_name": "uniqueDigits",
+      "outcome": false,
+      "prompt_line": 22
+    },
+    {
+      "branch_id": "b004",
+      "branch_kind": "if",
+      "event_idx": 16,
+      "event_type": "branch_eval",
+      "line": 28,
+      "method_name": "uniqueDigits",
+      "outcome": true,
+      "prompt_line": 28
+    },
+    {
+      "event_idx": 17,
+      "event_type": "line_exec",
+      "line": 29,
+      "method_name": "uniqueDigits",
+      "prompt_line": 29
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 18,
+      "event_type": "branch_eval",
+      "line": 20,
+      "method_name": "uniqueDigits",
+      "outcome": true,
+      "prompt_line": 20
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "for",
+      "event_idx": 19,
+      "event_type": "branch_eval",
+      "line": 22,
+      "method_name": "uniqueDigits",
+      "outcome": true,
+      "prompt_line": 22
+    },
+    {
+      "branch_id": "b003",
+      "branch_kind": "if",
+      "event_idx": 20,
+      "event_type": "branch_eval",
+      "line": 23,
+      "method_name": "uniqueDigits",
+      "outcome": false,
+      "prompt_line": 23
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "for",
+      "event_idx": 21,
+      "event_type": "branch_eval",
+      "line": 22,
+      "method_name": "uniqueDigits",
+      "outcome": true,
+      "prompt_line": 22
+    },
+    {
+      "branch_id": "b003",
+      "branch_kind": "if",
+      "event_idx": 22,
+      "event_type": "branch_eval",
+      "line": 23,
+      "method_name": "uniqueDigits",
+      "outcome": true,
+      "prompt_line": 23
+    },
+    {
+      "event_idx": 23,
+      "event_type": "line_exec",
+      "line": 24,
+      "method_name": "uniqueDigits",
+      "prompt_line": 24
+    },
+    {
+      "event_idx": 24,
+      "event_type": "line_exec",
+      "line": 25,
+      "method_name": "uniqueDigits",
+      "prompt_line": 25
+    },
+    {
+      "branch_id": "b004",
+      "branch_kind": "if",
+      "event_idx": 25,
+      "event_type": "branch_eval",
+      "line": 28,
+      "method_name": "uniqueDigits",
+      "outcome": false,
+      "prompt_line": 28
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 26,
+      "event_type": "branch_eval",
+      "line": 20,
+      "method_name": "uniqueDigits",
+      "outcome": true,
+      "prompt_line": 20
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "for",
+      "event_idx": 27,
+      "event_type": "branch_eval",
+      "line": 22,
+      "method_name": "uniqueDigits",
+      "outcome": true,
+      "prompt_line": 22
+    },
+    {
+      "branch_id": "b003",
+      "branch_kind": "if",
+      "event_idx": 28,
+      "event_type": "branch_eval",
+      "line": 23,
+      "method_name": "uniqueDigits",
+      "outcome": false,
+      "prompt_line": 23
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "for",
+      "event_idx": 29,
+      "event_type": "branch_eval",
+      "line": 22,
+      "method_name": "uniqueDigits",
+      "outcome": false,
+      "prompt_line": 22
+    },
+    {
+      "branch_id": "b004",
+      "branch_kind": "if",
+      "event_idx": 30,
+      "event_type": "branch_eval",
+      "line": 28,
+      "method_name": "uniqueDigits",
+      "outcome": true,
+      "prompt_line": 28
+    },
+    {
+      "event_idx": 31,
+      "event_type": "line_exec",
+      "line": 29,
+      "method_name": "uniqueDigits",
+      "prompt_line": 29
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 32,
+      "event_type": "branch_eval",
+      "line": 20,
+      "method_name": "uniqueDigits",
+      "outcome": false,
+      "prompt_line": 20
+    },
+    {
+      "event_idx": 33,
+      "event_type": "line_exec",
+      "line": 32,
+      "method_name": "uniqueDigits",
+      "prompt_line": 32
+    },
+    {
+      "event_idx": 34,
+      "event_type": "return",
+      "line": 33,
+      "method_name": "uniqueDigits",
+      "prompt_line": 33,
+      "value_repr": "[1, 15, 33]"
+    },
+    {
+      "event_idx": 35,
+      "event_type": "method_exit",
+      "line": 33,
+      "method_name": "uniqueDigits",
+      "prompt_line": 33
+    },
+    {
+      "event_idx": 36,
+      "event_type": "line_exec",
+      "line": 42,
+      "method_name": "main",
+      "prompt_line": 42
+    },
+    {
+      "case_id": "c001",
+      "event_idx": 37,
+      "event_type": "case_result",
+      "line": -1,
+      "method_name": "main",
+      "outcome": true
+    },
+    {
+      "event_idx": 38,
+      "event_type": "line_exec",
+      "line": 44,
+      "method_name": "main",
+      "prompt_line": 44
+    },
+    {
+      "event_idx": 39,
+      "event_type": "method_exit",
+      "line": -1,
+      "method_name": "main"
+    },
+    {
+      "event_idx": 40,
+      "event_type": "line_exec",
+      "line": 45,
+      "method_name": "main",
+      "prompt_line": 45
+    }
+  ],
+  "exec_result": {
+    "assertion_failed": false,
+    "compile_error": "",
+    "compiled": true,
+    "ran": true,
+    "returncode": 0,
+    "runtime_error": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":38},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"uniqueDigits\",\"line\":17},{\"event_idx\":2,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":20,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":3,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":22,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":4,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":23,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":false},{\"event_idx\":5,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":22,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":6,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":23,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":false},{\"event_idx\":7,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":22,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":false},{\"event_idx\":8,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":28,\"branch_kind\":\"if\",\"branch_id\":\"b004\",\"outcome\":true},{\"event_idx\":9,\"event_type\":\"line_exec\",\"method_name\":\"uniqueDigits\",\"line\":29},{\"event_idx\":10,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":20,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":11,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":22,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":12,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":23,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":false},{\"event_idx\":13,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":22,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":14,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":23,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":false},{\"event_idx\":15,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":22,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":false},{\"event_idx\":16,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":28,\"branch_kind\":\"if\",\"branch_id\":\"b004\",\"outcome\":true},{\"event_idx\":17,\"event_type\":\"line_exec\",\"method_name\":\"uniqueDigits\",\"line\":29},{\"event_idx\":18,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":20,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":19,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":22,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":20,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":23,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":false},{\"event_idx\":21,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":22,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":22,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":23,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":true},{\"event_idx\":23,\"event_type\":\"line_exec\",\"method_name\":\"uniqueDigits\",\"line\":24},{\"event_idx\":24,\"event_type\":\"line_exec\",\"method_name\":\"uniqueDigits\",\"line\":25},{\"event_idx\":25,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":28,\"branch_kind\":\"if\",\"branch_id\":\"b004\",\"outcome\":false},{\"event_idx\":26,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":20,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":27,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":22,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":28,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":23,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":false},{\"event_idx\":29,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":22,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":false},{\"event_idx\":30,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":28,\"branch_kind\":\"if\",\"branch_id\":\"b004\",\"outcome\":true},{\"event_idx\":31,\"event_type\":\"line_exec\",\"method_name\":\"uniqueDigits\",\"line\":29},{\"event_idx\":32,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":20,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":false},{\"event_idx\":33,\"event_type\":\"line_exec\",\"method_name\":\"uniqueDigits\",\"line\":32},{\"event_idx\":34,\"event_type\":\"return\",\"method_name\":\"uniqueDigits\",\"line\":33,\"value_repr\":\"[1, 15, 33]\"},{\"event_idx\":35,\"event_type\":\"method_exit\",\"method_name\":\"uniqueDigits\",\"line\":33},{\"event_idx\":36,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":42},{\"event_idx\":37,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":38,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":44},{\"event_idx\":39,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":40,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":45}]}\nTRACE_JSON_END",
+    "stderr": "",
+    "stdout": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":38},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"uniqueDigits\",\"line\":17},{\"event_idx\":2,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":20,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":3,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":22,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":4,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":23,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":false},{\"event_idx\":5,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":22,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":6,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":23,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":false},{\"event_idx\":7,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":22,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":false},{\"event_idx\":8,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":28,\"branch_kind\":\"if\",\"branch_id\":\"b004\",\"outcome\":true},{\"event_idx\":9,\"event_type\":\"line_exec\",\"method_name\":\"uniqueDigits\",\"line\":29},{\"event_idx\":10,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":20,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":11,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":22,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":12,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":23,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":false},{\"event_idx\":13,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":22,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":14,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":23,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":false},{\"event_idx\":15,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":22,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":false},{\"event_idx\":16,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":28,\"branch_kind\":\"if\",\"branch_id\":\"b004\",\"outcome\":true},{\"event_idx\":17,\"event_type\":\"line_exec\",\"method_name\":\"uniqueDigits\",\"line\":29},{\"event_idx\":18,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":20,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":19,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":22,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":20,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":23,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":false},{\"event_idx\":21,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":22,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":22,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":23,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":true},{\"event_idx\":23,\"event_type\":\"line_exec\",\"method_name\":\"uniqueDigits\",\"line\":24},{\"event_idx\":24,\"event_type\":\"line_exec\",\"method_name\":\"uniqueDigits\",\"line\":25},{\"event_idx\":25,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":28,\"branch_kind\":\"if\",\"branch_id\":\"b004\",\"outcome\":false},{\"event_idx\":26,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":20,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":27,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":22,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":28,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":23,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":false},{\"event_idx\":29,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":22,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":false},{\"event_idx\":30,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":28,\"branch_kind\":\"if\",\"branch_id\":\"b004\",\"outcome\":true},{\"event_idx\":31,\"event_type\":\"line_exec\",\"method_name\":\"uniqueDigits\",\"line\":29},{\"event_idx\":32,\"event_type\":\"branch_eval\",\"method_name\":\"uniqueDigits\",\"line\":20,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":false},{\"event_idx\":33,\"event_type\":\"line_exec\",\"method_name\":\"uniqueDigits\",\"line\":32},{\"event_idx\":34,\"event_type\":\"return\",\"method_name\":\"uniqueDigits\",\"line\":33,\"value_repr\":\"[1, 15, 33]\"},{\"event_idx\":35,\"event_type\":\"method_exit\",\"method_name\":\"uniqueDigits\",\"line\":33},{\"event_idx\":36,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":42},{\"event_idx\":37,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":38,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":44},{\"event_idx\":39,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":40,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":45}]}\nTRACE_JSON_END",
+    "success": true
+  },
+  "executed_line_sequence": [
+    20,
+    22,
+    23,
+    22,
+    23,
+    22,
+    28,
+    29,
+    20,
+    22,
+    23,
+    22,
+    23,
+    22,
+    28,
+    29,
+    20,
+    22,
+    23,
+    22,
+    23,
+    24,
+    25,
+    28,
+    20,
+    22,
+    23,
+    22,
+    28,
+    29,
+    20,
+    32,
+    33
+  ],
+  "expected_bool": true,
+  "mutation_type": "seed_true",
+  "snippet": "Java_104",
+  "trace_status": "ok",
+  "unsupported_reason": "",
+  "variant": "original",
+  "variant_path": ""
+}

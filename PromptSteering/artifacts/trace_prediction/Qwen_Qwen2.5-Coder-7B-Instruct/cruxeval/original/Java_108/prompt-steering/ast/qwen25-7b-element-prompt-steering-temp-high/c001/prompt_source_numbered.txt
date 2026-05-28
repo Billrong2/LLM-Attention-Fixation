@@ -1,0 +1,20 @@
+L001 import java.util.*;
+L002 import java.util.stream.*;
+L003 
+L004 class Java_108 {
+L005     public static long f(Object var) {
+L006         long amount = 0;
+L007 
+L008         if (var instanceof List) {
+L009             amount = ((List<?>)var).size();
+L010         } else if (var instanceof Map) {
+L011             amount = ((Map<?, ?>)var).size();
+L012         }
+L013 
+L014         return amount > 0 ? amount : 0;
+L015     }
+L016     public static void main(String[] args) {
+L017     assert(f((1l)) == (0l));
+L018     }
+L019 
+L020 }

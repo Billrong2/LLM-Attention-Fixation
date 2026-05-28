@@ -1,0 +1,22 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_536 {
+L009     public static long f(String cat) {
+L010         int digits = 0;
+L011         for (char ch : cat.toCharArray()) {
+L012             if (Character.isDigit(ch)) {
+L013                 digits++;
+L014             }
+L015         }
+L016         return digits;
+L017     }
+L018     public static void main(String[] args) {
+L019     assert(f(("C24Bxxx982ab")) == (5l));
+L020     }
+L021 
+L022 }

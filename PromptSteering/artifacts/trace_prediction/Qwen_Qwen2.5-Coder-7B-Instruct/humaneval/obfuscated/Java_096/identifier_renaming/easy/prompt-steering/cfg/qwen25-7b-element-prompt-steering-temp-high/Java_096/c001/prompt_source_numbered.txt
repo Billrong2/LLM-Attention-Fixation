@@ -1,0 +1,54 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Implement a function that takes an non-negative integer and returns an array of the first n
+L007     integers that are prime numbers and less than n.
+L008     for example:
+L009     countUpTo(5) => [2,3]
+L010     countUpTo(11) => [2,3,5,7]
+L011     countUpTo(0) => []
+L012     countUpTo(20) => [2,3,5,7,11,13,17,19]
+L013     countUpTo(1) => []
+L014     countUpTo(18) => [2,3,5,7,11,13,17]
+L015      */
+L016     public List<Integer> countUpTo(int n) {
+L017 
+L018         List<Integer> v1 = new ArrayList<>();
+L019         for (int v2 = 2; v2 < n; v2++) {
+L020             boolean v3 = true;
+L021             for (int v4 = 2; v4 < v2; v4++) {
+L022                 if (v2 % v4 == 0) {
+L023                     v3 = false;
+L024                     break;
+L025                 }
+L026             }
+L027             if (v3) {
+L028                 v1.add(v2);
+L029             }
+L030         }
+L031         return v1;
+L032     }
+L033 }
+L034 
+L035 public class Java_096 {
+L036     public static void main(String[] args) {
+L037         Solution v1 = new Solution();
+L038         List<Boolean> v2 = Arrays.asList(
+L039                 v1.countUpTo(5).equals(Arrays.asList(2, 3)),
+L040                 v1.countUpTo(6).equals(Arrays.asList(2, 3, 5)),
+L041                 v1.countUpTo(7).equals(Arrays.asList(2, 3, 5)),
+L042                 v1.countUpTo(10).equals(Arrays.asList(2, 3, 5, 7)),
+L043                 v1.countUpTo(0).equals(List.of()),
+L044                 v1.countUpTo(22).equals(Arrays.asList(2, 3, 5, 7, 11, 13, 17, 19)),
+L045                 v1.countUpTo(1).equals(List.of()),
+L046                 v1.countUpTo(18).equals(Arrays.asList(2, 3, 5, 7, 11, 13, 17)),
+L047                 v1.countUpTo(47).equals(Arrays.asList(2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43)),
+L048                 v1.countUpTo(101).equals(Arrays.asList(2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97))
+L049         );
+L050         if (v2.contains(false)) {
+L051             throw new AssertionError();
+L052         }
+L053     }
+L054 }

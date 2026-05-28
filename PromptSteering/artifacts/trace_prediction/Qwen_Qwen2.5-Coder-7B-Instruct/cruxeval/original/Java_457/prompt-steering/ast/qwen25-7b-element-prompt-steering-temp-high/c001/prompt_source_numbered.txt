@@ -1,0 +1,26 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_457 {
+L009     public static ArrayList<Long> f(ArrayList<Long> nums) {
+L010         ArrayList<Long> count = new ArrayList<>();
+L011         for (int i = 0; i < nums.size(); i++) {
+L012             count.add((long)i);
+L013         }
+L014         while (!nums.isEmpty()) {
+L015             nums.remove(nums.size() - 1);
+L016             if (!count.isEmpty()) {
+L017                 count.remove(0);
+L018             }
+L019         }
+L020         return nums;
+L021     }
+L022     public static void main(String[] args) {
+L023     assert(f((new ArrayList<Long>(Arrays.asList((long)3l, (long)1l, (long)7l, (long)5l, (long)6l)))).equals((new ArrayList<Long>(Arrays.asList()))));
+L024     }
+L025 
+L026 }

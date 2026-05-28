@@ -1,0 +1,24 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_360 {
+L009     public static String f(String text, long n) {
+L010         if (text.length() <= 2) {
+L011             return text;
+L012         }
+L013         char leadingChar = text.charAt(0);
+L014         StringBuilder leadingChars = new StringBuilder();
+L015         for (int i = 0; i < n - text.length() + 1; i++) {
+L016             leadingChars.append(leadingChar);
+L017         }
+L018         return leadingChars.toString() + text.substring(1, text.length() - 1) + text.charAt(text.length() - 1);
+L019     }
+L020     public static void main(String[] args) {
+L021     assert(f(("g"), (15l)).equals(("g")));
+L022     }
+L023 
+L024 }

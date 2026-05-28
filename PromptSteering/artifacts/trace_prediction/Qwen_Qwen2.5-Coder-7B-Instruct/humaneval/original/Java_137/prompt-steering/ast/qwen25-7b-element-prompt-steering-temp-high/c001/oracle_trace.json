@@ -1,0 +1,184 @@
+{
+  "branches_seen": [
+    {
+      "branch_id": "b001",
+      "branch_kind": "if",
+      "line": 19
+    },
+    {
+      "branch_id": "b004",
+      "branch_kind": "if",
+      "line": 26
+    },
+    {
+      "branch_id": "b007",
+      "branch_kind": "if",
+      "line": 33
+    },
+    {
+      "branch_id": "b008",
+      "branch_kind": "if",
+      "line": 35
+    }
+  ],
+  "called_methods": [
+    "main",
+    "compareOne"
+  ],
+  "case_expression": "(int) s.compareOne(1, 2).get() == 2",
+  "case_id": "c001",
+  "case_origin": "humaneval.correct_list",
+  "case_pack_source_hash": "1a563fa9c367adb36d1ffd3e8e3b09f7dc97e932ec5586e7b2bdce3725ed89f5",
+  "case_result_matches_expected": true,
+  "case_result_observed": true,
+  "class_name": "Java_137",
+  "dataset": "humaneval",
+  "event_count": 15,
+  "events": [
+    {
+      "event_idx": 0,
+      "event_type": "method_enter",
+      "line": 44,
+      "method_name": "main",
+      "prompt_line": 44
+    },
+    {
+      "event_idx": 1,
+      "event_type": "method_enter",
+      "line": 16,
+      "method_name": "compareOne",
+      "prompt_line": 16
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "if",
+      "event_idx": 2,
+      "event_type": "branch_eval",
+      "line": 19,
+      "method_name": "compareOne",
+      "outcome": true,
+      "prompt_line": 19
+    },
+    {
+      "event_idx": 3,
+      "event_type": "line_exec",
+      "line": 20,
+      "method_name": "compareOne",
+      "prompt_line": 20
+    },
+    {
+      "branch_id": "b004",
+      "branch_kind": "if",
+      "event_idx": 4,
+      "event_type": "branch_eval",
+      "line": 26,
+      "method_name": "compareOne",
+      "outcome": true,
+      "prompt_line": 26
+    },
+    {
+      "event_idx": 5,
+      "event_type": "line_exec",
+      "line": 27,
+      "method_name": "compareOne",
+      "prompt_line": 27
+    },
+    {
+      "branch_id": "b007",
+      "branch_kind": "if",
+      "event_idx": 6,
+      "event_type": "branch_eval",
+      "line": 33,
+      "method_name": "compareOne",
+      "outcome": false,
+      "prompt_line": 33
+    },
+    {
+      "branch_id": "b008",
+      "branch_kind": "if",
+      "event_idx": 7,
+      "event_type": "branch_eval",
+      "line": 35,
+      "method_name": "compareOne",
+      "outcome": false,
+      "prompt_line": 35
+    },
+    {
+      "event_idx": 8,
+      "event_type": "return",
+      "line": 38,
+      "method_name": "compareOne",
+      "prompt_line": 38,
+      "value_repr": "Optional[2]"
+    },
+    {
+      "event_idx": 9,
+      "event_type": "method_exit",
+      "line": 38,
+      "method_name": "compareOne",
+      "prompt_line": 38
+    },
+    {
+      "event_idx": 10,
+      "event_type": "line_exec",
+      "line": 48,
+      "method_name": "main",
+      "prompt_line": 48
+    },
+    {
+      "case_id": "c001",
+      "event_idx": 11,
+      "event_type": "case_result",
+      "line": -1,
+      "method_name": "main",
+      "outcome": true
+    },
+    {
+      "event_idx": 12,
+      "event_type": "line_exec",
+      "line": 50,
+      "method_name": "main",
+      "prompt_line": 50
+    },
+    {
+      "event_idx": 13,
+      "event_type": "method_exit",
+      "line": -1,
+      "method_name": "main"
+    },
+    {
+      "event_idx": 14,
+      "event_type": "line_exec",
+      "line": 51,
+      "method_name": "main",
+      "prompt_line": 51
+    }
+  ],
+  "exec_result": {
+    "assertion_failed": false,
+    "compile_error": "",
+    "compiled": true,
+    "ran": true,
+    "returncode": 0,
+    "runtime_error": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":44},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"compareOne\",\"line\":16},{\"event_idx\":2,\"event_type\":\"branch_eval\",\"method_name\":\"compareOne\",\"line\":19,\"branch_kind\":\"if\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":3,\"event_type\":\"line_exec\",\"method_name\":\"compareOne\",\"line\":20},{\"event_idx\":4,\"event_type\":\"branch_eval\",\"method_name\":\"compareOne\",\"line\":26,\"branch_kind\":\"if\",\"branch_id\":\"b004\",\"outcome\":true},{\"event_idx\":5,\"event_type\":\"line_exec\",\"method_name\":\"compareOne\",\"line\":27},{\"event_idx\":6,\"event_type\":\"branch_eval\",\"method_name\":\"compareOne\",\"line\":33,\"branch_kind\":\"if\",\"branch_id\":\"b007\",\"outcome\":false},{\"event_idx\":7,\"event_type\":\"branch_eval\",\"method_name\":\"compareOne\",\"line\":35,\"branch_kind\":\"if\",\"branch_id\":\"b008\",\"outcome\":false},{\"event_idx\":8,\"event_type\":\"return\",\"method_name\":\"compareOne\",\"line\":38,\"value_repr\":\"Optional[2]\"},{\"event_idx\":9,\"event_type\":\"method_exit\",\"method_name\":\"compareOne\",\"line\":38},{\"event_idx\":10,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":48},{\"event_idx\":11,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":12,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":50},{\"event_idx\":13,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":14,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":51}]}\nTRACE_JSON_END",
+    "stderr": "",
+    "stdout": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":44},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"compareOne\",\"line\":16},{\"event_idx\":2,\"event_type\":\"branch_eval\",\"method_name\":\"compareOne\",\"line\":19,\"branch_kind\":\"if\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":3,\"event_type\":\"line_exec\",\"method_name\":\"compareOne\",\"line\":20},{\"event_idx\":4,\"event_type\":\"branch_eval\",\"method_name\":\"compareOne\",\"line\":26,\"branch_kind\":\"if\",\"branch_id\":\"b004\",\"outcome\":true},{\"event_idx\":5,\"event_type\":\"line_exec\",\"method_name\":\"compareOne\",\"line\":27},{\"event_idx\":6,\"event_type\":\"branch_eval\",\"method_name\":\"compareOne\",\"line\":33,\"branch_kind\":\"if\",\"branch_id\":\"b007\",\"outcome\":false},{\"event_idx\":7,\"event_type\":\"branch_eval\",\"method_name\":\"compareOne\",\"line\":35,\"branch_kind\":\"if\",\"branch_id\":\"b008\",\"outcome\":false},{\"event_idx\":8,\"event_type\":\"return\",\"method_name\":\"compareOne\",\"line\":38,\"value_repr\":\"Optional[2]\"},{\"event_idx\":9,\"event_type\":\"method_exit\",\"method_name\":\"compareOne\",\"line\":38},{\"event_idx\":10,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":48},{\"event_idx\":11,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":12,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":50},{\"event_idx\":13,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":14,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":51}]}\nTRACE_JSON_END",
+    "success": true
+  },
+  "executed_line_sequence": [
+    19,
+    20,
+    26,
+    27,
+    33,
+    35,
+    38
+  ],
+  "expected_bool": true,
+  "mutation_type": "seed_true",
+  "snippet": "Java_137",
+  "trace_status": "ok",
+  "unsupported_reason": "",
+  "variant": "original",
+  "variant_path": ""
+}

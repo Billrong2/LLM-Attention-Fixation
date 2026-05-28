@@ -1,0 +1,20 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_718 {
+L009     public static String f(String text) {
+L010         String t = text;
+L011         for (char i : text.toCharArray()) {
+L012             text = text.replace(String.valueOf(i), "");
+L013         }
+L014         return String.valueOf(text.length()) + t;
+L015     }
+L016     public static void main(String[] args) {
+L017     assert(f(("ThisIsSoAtrocious")).equals(("0ThisIsSoAtrocious")));
+L018     }
+L019 
+L020 }

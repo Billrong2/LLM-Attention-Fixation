@@ -1,0 +1,28 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_679 {
+L009     public static boolean f(String text) {
+L010         if (text.equals("")) {
+L011             return false;
+L012         }
+L013         char firstChar = text.charAt(0);
+L014         if (Character.isDigit(firstChar)) {
+L015             return false;
+L016         }
+L017         for (char lastChar : text.toCharArray()) {
+L018             if ((lastChar != '_') && !Character.isJavaIdentifierPart(lastChar)) {
+L019                 return false;
+L020             }
+L021         }
+L022         return true;
+L023     }
+L024     public static void main(String[] args) {
+L025     assert(f(("meet")) == (true));
+L026     }
+L027 
+L028 }

@@ -1,0 +1,79 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     "Given an array representing a branch of a tree that has non-negative integer nodes
+L007     your task is to pluck one of the nodes and return it.
+L008     The plucked node should be the node with the smallest even value.
+L009     If multiple nodes with the same smallest even value are found return the node that has smallest index.
+L010 
+L011     The plucked node should be returned in a list, [ smalest_value, its index ],
+L012     If there are no even values or the given array is empty, return [].
+L013 
+L014     Example 1:
+L015         Input: [4,2,3]
+L016         Output: [2, 1]
+L017         Explanation: 2 has the smallest even value, and 2 has the smallest index.
+L018 
+L019     Example 2:
+L020         Input: [1,2,3]
+L021         Output: [2, 1]
+L022         Explanation: 2 has the smallest even value, and 2 has the smallest index.
+L023 
+L024     Example 3:
+L025         Input: []
+L026         Output: []
+L027 
+L028     Example 4:
+L029         Input: [5, 0, 3, 0, 4, 2]
+L030         Output: [0, 1]
+L031         Explanation: 0 is the smallest value, but  there are two zeros,
+L032                      so we will choose the first zero, which has the smallest index.
+L033 
+L034     Constraints:
+L035         * 1 <= nodes.length <= 10000
+L036         * 0 <= node.value
+L037      */
+L038     public List<Integer> pluck(List<Integer> arr) {
+L039 
+L040         List<Integer> result = new ArrayList<>();
+L041         if (arr.size() == 0) {
+L042             return result;
+L043         }
+L044         int min = Integer.MAX_VALUE;
+L045         int minIndex = -1;
+L046         for (int i = 0; i < arr.size(); i++) {
+L047             if (arr.get(i) % 2 == 0) {
+L048                 if (arr.get(i) < min) {
+L049                     min = arr.get(i);
+L050                     minIndex = i;
+L051                 }
+L052             }
+L053         }
+L054         if (minIndex != -1) {
+L055             result.add(min);
+L056             result.add(minIndex);
+L057         }
+L058         return result;
+L059     }
+L060 }
+L061 
+L062 public class Java_068 {
+L063     public static void main(String[] args) {
+L064         Solution s = new Solution();
+L065         List<Boolean> correct = Arrays.asList(
+L066                 s.pluck(new ArrayList<>(Arrays.asList(4, 2, 3))).equals(Arrays.asList(2, 1)),
+L067                 s.pluck(new ArrayList<>(Arrays.asList(1, 2, 3))).equals(Arrays.asList(2, 1)),
+L068                 s.pluck(new ArrayList<>(List.of())).equals(List.of()),
+L069                 s.pluck(new ArrayList<>(Arrays.asList(5, 0, 3, 0, 4, 2))).equals(Arrays.asList(0, 1)),
+L070                 s.pluck(new ArrayList<>(Arrays.asList(1, 2, 3, 0, 5, 3))).equals(Arrays.asList(0, 3)),
+L071                 s.pluck(new ArrayList<>(Arrays.asList(5, 4, 8, 4, 8))).equals(Arrays.asList(4, 1)),
+L072                 s.pluck(new ArrayList<>(Arrays.asList(7, 6, 7, 1))).equals(Arrays.asList(6, 1)),
+L073                 s.pluck(new ArrayList<>(Arrays.asList(7, 9, 7, 1))).equals(List.of())
+L074         );
+L075         if (correct.contains(false)) {
+L076             throw new AssertionError();
+L077         }
+L078     }
+L079 }

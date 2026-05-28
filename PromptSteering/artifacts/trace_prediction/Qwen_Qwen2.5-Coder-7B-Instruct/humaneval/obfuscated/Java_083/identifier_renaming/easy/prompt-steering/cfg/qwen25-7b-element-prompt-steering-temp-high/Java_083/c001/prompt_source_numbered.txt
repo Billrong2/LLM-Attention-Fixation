@@ -1,0 +1,32 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Given a positive integer n, return the count of the numbers of n-digit
+L007     positive integers that start or end with 1.
+L008      */
+L009     public int startsOneEnds(int n) {
+L010         int _obf_t1_startsOneEnds_66804 = 0; _obf_t1_startsOneEnds_66804 += 0;
+L011         if (n == 1) {
+L012             return 1;
+L013         }
+L014         return 18 * (int) Math.pow(10, n - 2);
+L015     }
+L016 }
+L017 
+L018 public class Java_083 {
+L019     public static void main(String[] args) {
+L020         Solution v1 = new Solution();
+L021         List<Boolean> v2 = Arrays.asList(
+L022                 v1.startsOneEnds(1) == 1,
+L023                 v1.startsOneEnds(2) == 18,
+L024                 v1.startsOneEnds(3) == 180,
+L025                 v1.startsOneEnds(4) == 1800,
+L026                 v1.startsOneEnds(5) == 18000
+L027         );
+L028         if (v2.contains(false)) {
+L029             throw new AssertionError();
+L030         }
+L031     }
+L032 }

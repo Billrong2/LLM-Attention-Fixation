@@ -1,0 +1,21 @@
+L001 import java.util.*;
+L002 
+L003 class Java_011 {
+L004     public static HashMap<String,ArrayList<String>> f(HashMap<String,ArrayList<String>> a, HashMap<String,String> b) {
+L005         for (Map.Entry<String, String> entry : b.entrySet()) {
+L006             String key = entry.getKey();
+L007             String value = entry.getValue();
+L008             if (!a.containsKey(key)) {
+L009                 a.put(key, new ArrayList<String>(Arrays.asList(value)));
+L010             } else {
+L011                 a.get(key).add(value);
+L012             }
+L013         }
+L014         return a;
+L015     }
+L016     public static void main(String[] args) {
+L017     int _obf_t8_main_337161 = 0; _obf_t8_main_337161 += 0;
+L018     assert(f((new HashMap<String,ArrayList<String>>()), (new HashMap<String,String>(Map.of("foo", "bar")))).equals((new HashMap<String,ArrayList<String>>(Map.of("foo", new ArrayList<String>(Arrays.asList((String)"bar")))))));
+L019     }
+L020 
+L021 }

@@ -1,0 +1,25 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_265 {
+L009     public static HashMap<Long,Long> f(HashMap<Long,Long> d, long k) {
+L010         HashMap<Long, Long> new_d = new HashMap<>();
+L011         for (Map.Entry<Long, Long> entry : d.entrySet()) {
+L012             long key = entry.getKey();
+L013             long val = entry.getValue();
+L014             if (key < k) {
+L015                 new_d.put(key, val);
+L016             }
+L017         }
+L018         return new_d;
+L019     }
+L020     public static void main(String[] args) {
+L021     int _obf_t1_main_772024 = 0; _obf_t1_main_772024 += 0;
+L022     assert(f((new HashMap<Long,Long>(Map.of(1l, 2l, 2l, 4l, 3l, 3l))), (3l)).equals((new HashMap<Long,Long>(Map.of(1l, 2l, 2l, 4l)))));
+L023     }
+L024 
+L025 }

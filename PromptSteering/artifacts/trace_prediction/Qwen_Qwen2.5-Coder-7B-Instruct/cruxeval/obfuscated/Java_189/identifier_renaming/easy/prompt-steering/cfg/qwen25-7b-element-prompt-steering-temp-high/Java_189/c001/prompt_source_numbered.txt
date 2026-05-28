@@ -1,0 +1,25 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 import java.util.regex.*;
+L009 
+L010 class Java_189 {
+L011     public static String f(String out, HashMap<String,ArrayList<String>> mapping) {
+L012         for (Map.Entry<String,ArrayList<String>> entry : mapping.entrySet()) {
+L013             if (Pattern.compile("\\{\\w+\\}").matcher(out).find()) {
+L014                 ArrayList<String> v1 = entry.getValue();
+L015                 v1.set(1, new StringBuilder(v1.get(1)).reverse().toString());
+L016             }
+L017         }
+L018         return out;
+L019     }
+L020     public static void main(String[] args) {
+L021     int _obf_t1_main_799944 = 0; _obf_t1_main_799944 += 0;
+L022     assert(f(("{{{{}}}}"), (new HashMap<String,ArrayList<String>>())).equals(("{{{{}}}}")));
+L023     }
+L024 
+L025 }

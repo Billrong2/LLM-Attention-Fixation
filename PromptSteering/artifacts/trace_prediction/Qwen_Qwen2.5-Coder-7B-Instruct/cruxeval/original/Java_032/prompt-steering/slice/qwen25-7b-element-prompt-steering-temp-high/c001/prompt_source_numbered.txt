@@ -1,0 +1,22 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_032 {
+L009     public static String f(String s, String sep) {
+L010         String[] parts = s.split(sep);
+L011         List<String> reversedParts = new ArrayList<>();
+L012         for (String part : parts) {
+L013             reversedParts.add("*" + part);
+L014         }
+L015         Collections.reverse(reversedParts);
+L016         return String.join(";", reversedParts);
+L017     }
+L018     public static void main(String[] args) {
+L019     assert(f(("volume"), ("l")).equals(("*ume;*vo")));
+L020     }
+L021 
+L022 }

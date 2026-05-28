@@ -1,0 +1,25 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_623 {
+L009     public static String f(String text, ArrayList<String> rules) {
+L010         for(String rule : rules) {
+L011             if(rule.equals("@")) {
+L012                 text = new StringBuilder(text).reverse().toString();
+L013             } else if(rule.equals("~")) {
+L014                 text = text.toUpperCase();
+L015             } else if(!text.isEmpty() && text.charAt(text.length() - 1) == rule.charAt(0)) {
+L016                 text = text.substring(0, text.length() - 1);
+L017             }
+L018         }
+L019         return text;
+L020     }
+L021     public static void main(String[] args) {
+L022     assert(f(("hi~!"), (new ArrayList<String>(Arrays.asList((String)"~", (String)"`", (String)"!", (String)"&")))).equals(("HI~")));
+L023     }
+L024 
+L025 }

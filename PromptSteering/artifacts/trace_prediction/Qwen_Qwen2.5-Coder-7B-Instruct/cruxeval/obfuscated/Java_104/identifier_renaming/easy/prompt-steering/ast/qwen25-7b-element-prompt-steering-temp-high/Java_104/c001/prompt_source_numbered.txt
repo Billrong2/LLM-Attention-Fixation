@@ -1,0 +1,27 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_104 {
+L009     public static HashMap<String,Long> f(String text) {
+L010         HashMap<String, Long> dic = new HashMap<>();
+L011         for (int i = 0; i < text.length(); i++) {
+L012             String chara = String.valueOf(text.charAt(i));
+L013             dic.put(chara, dic.getOrDefault(chara, 0L) + 1);
+L014         }
+L015         for (String key : new HashMap<>(dic).keySet()) {
+L016             if (dic.get(key) > 1) {
+L017                 dic.put(key, 1L);
+L018             }
+L019         }
+L020         return dic;
+L021     }
+L022     public static void main(String[] args) {
+L023     int _obf_t1_main_984881 = 0; _obf_t1_main_984881 += 0;
+L024     assert(f(("a")).equals((new HashMap<String,Long>(Map.of("a", 1l)))));
+L025     }
+L026 
+L027 }

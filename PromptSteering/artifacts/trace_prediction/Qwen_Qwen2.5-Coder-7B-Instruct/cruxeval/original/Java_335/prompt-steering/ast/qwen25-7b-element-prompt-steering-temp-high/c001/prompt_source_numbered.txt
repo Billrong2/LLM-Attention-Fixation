@@ -1,0 +1,23 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_335 {
+L009     public static String f(String text, String to_remove) {
+L010         char[] new_text = text.toCharArray();
+L011         if (text.contains(to_remove)) {
+L012             int index = text.indexOf(to_remove);
+L013             new_text[index] = '?';
+L014             String result = new String(new_text);
+L015             return result.replace("?", "");
+L016         }
+L017         return text;
+L018     }
+L019     public static void main(String[] args) {
+L020     assert(f(("sjbrlfqmw"), ("l")).equals(("sjbrfqmw")));
+L021     }
+L022 
+L023 }

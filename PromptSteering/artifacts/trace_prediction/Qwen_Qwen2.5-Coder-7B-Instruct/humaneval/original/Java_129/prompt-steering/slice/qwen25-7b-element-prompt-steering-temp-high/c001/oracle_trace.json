@@ -1,0 +1,593 @@
+{
+  "branches_seen": [
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "line": 38
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "for",
+      "line": 39
+    },
+    {
+      "branch_id": "b003",
+      "branch_kind": "if",
+      "line": 40
+    },
+    {
+      "branch_id": "b004",
+      "branch_kind": "if",
+      "line": 42
+    },
+    {
+      "branch_id": "b005",
+      "branch_kind": "if",
+      "line": 45
+    },
+    {
+      "branch_id": "b006",
+      "branch_kind": "if",
+      "line": 48
+    },
+    {
+      "branch_id": "b007",
+      "branch_kind": "if",
+      "line": 51
+    },
+    {
+      "branch_id": "b008",
+      "branch_kind": "for",
+      "line": 59
+    },
+    {
+      "branch_id": "b009",
+      "branch_kind": "if",
+      "line": 60
+    }
+  ],
+  "called_methods": [
+    "main",
+    "minPath"
+  ],
+  "case_expression": "s.minPath(Arrays.asList(Arrays.asList(1, 2, 3), Arrays.asList(4, 5, 6), Arrays.asList(7, 8, 9)), 3).equals(Arrays.asList(1, 2, 1))",
+  "case_id": "c001",
+  "case_origin": "humaneval.correct_list",
+  "case_pack_source_hash": "b7a86374a5489bf770b36d08d56fb3201e93dc2ab6e91ba55a4e729cb9f47fd4",
+  "case_result_matches_expected": true,
+  "case_result_observed": true,
+  "class_name": "Java_129",
+  "dataset": "humaneval",
+  "event_count": 51,
+  "events": [
+    {
+      "event_idx": 0,
+      "event_type": "method_enter",
+      "line": 71,
+      "method_name": "main",
+      "prompt_line": 71
+    },
+    {
+      "event_idx": 1,
+      "event_type": "method_enter",
+      "line": 34,
+      "method_name": "minPath",
+      "prompt_line": 34
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 2,
+      "event_type": "branch_eval",
+      "line": 38,
+      "method_name": "minPath",
+      "outcome": true,
+      "prompt_line": 38
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "for",
+      "event_idx": 3,
+      "event_type": "branch_eval",
+      "line": 39,
+      "method_name": "minPath",
+      "outcome": true,
+      "prompt_line": 39
+    },
+    {
+      "branch_id": "b003",
+      "branch_kind": "if",
+      "event_idx": 4,
+      "event_type": "branch_eval",
+      "line": 40,
+      "method_name": "minPath",
+      "outcome": true,
+      "prompt_line": 40
+    },
+    {
+      "branch_id": "b004",
+      "branch_kind": "if",
+      "event_idx": 5,
+      "event_type": "branch_eval",
+      "line": 42,
+      "method_name": "minPath",
+      "outcome": false,
+      "prompt_line": 42
+    },
+    {
+      "branch_id": "b005",
+      "branch_kind": "if",
+      "event_idx": 6,
+      "event_type": "branch_eval",
+      "line": 45,
+      "method_name": "minPath",
+      "outcome": false,
+      "prompt_line": 45
+    },
+    {
+      "branch_id": "b006",
+      "branch_kind": "if",
+      "event_idx": 7,
+      "event_type": "branch_eval",
+      "line": 48,
+      "method_name": "minPath",
+      "outcome": true,
+      "prompt_line": 48
+    },
+    {
+      "event_idx": 8,
+      "event_type": "line_exec",
+      "line": 49,
+      "method_name": "minPath",
+      "prompt_line": 49
+    },
+    {
+      "branch_id": "b007",
+      "branch_kind": "if",
+      "event_idx": 9,
+      "event_type": "branch_eval",
+      "line": 51,
+      "method_name": "minPath",
+      "outcome": true,
+      "prompt_line": 51
+    },
+    {
+      "event_idx": 10,
+      "event_type": "line_exec",
+      "line": 52,
+      "method_name": "minPath",
+      "prompt_line": 52
+    },
+    {
+      "event_idx": 11,
+      "event_type": "line_exec",
+      "line": 54,
+      "method_name": "minPath",
+      "prompt_line": 54
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "for",
+      "event_idx": 12,
+      "event_type": "branch_eval",
+      "line": 39,
+      "method_name": "minPath",
+      "outcome": true,
+      "prompt_line": 39
+    },
+    {
+      "branch_id": "b003",
+      "branch_kind": "if",
+      "event_idx": 13,
+      "event_type": "branch_eval",
+      "line": 40,
+      "method_name": "minPath",
+      "outcome": false,
+      "prompt_line": 40
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "for",
+      "event_idx": 14,
+      "event_type": "branch_eval",
+      "line": 39,
+      "method_name": "minPath",
+      "outcome": true,
+      "prompt_line": 39
+    },
+    {
+      "branch_id": "b003",
+      "branch_kind": "if",
+      "event_idx": 15,
+      "event_type": "branch_eval",
+      "line": 40,
+      "method_name": "minPath",
+      "outcome": false,
+      "prompt_line": 40
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "for",
+      "event_idx": 16,
+      "event_type": "branch_eval",
+      "line": 39,
+      "method_name": "minPath",
+      "outcome": false,
+      "prompt_line": 39
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 17,
+      "event_type": "branch_eval",
+      "line": 38,
+      "method_name": "minPath",
+      "outcome": true,
+      "prompt_line": 38
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "for",
+      "event_idx": 18,
+      "event_type": "branch_eval",
+      "line": 39,
+      "method_name": "minPath",
+      "outcome": true,
+      "prompt_line": 39
+    },
+    {
+      "branch_id": "b003",
+      "branch_kind": "if",
+      "event_idx": 19,
+      "event_type": "branch_eval",
+      "line": 40,
+      "method_name": "minPath",
+      "outcome": false,
+      "prompt_line": 40
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "for",
+      "event_idx": 20,
+      "event_type": "branch_eval",
+      "line": 39,
+      "method_name": "minPath",
+      "outcome": true,
+      "prompt_line": 39
+    },
+    {
+      "branch_id": "b003",
+      "branch_kind": "if",
+      "event_idx": 21,
+      "event_type": "branch_eval",
+      "line": 40,
+      "method_name": "minPath",
+      "outcome": false,
+      "prompt_line": 40
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "for",
+      "event_idx": 22,
+      "event_type": "branch_eval",
+      "line": 39,
+      "method_name": "minPath",
+      "outcome": true,
+      "prompt_line": 39
+    },
+    {
+      "branch_id": "b003",
+      "branch_kind": "if",
+      "event_idx": 23,
+      "event_type": "branch_eval",
+      "line": 40,
+      "method_name": "minPath",
+      "outcome": false,
+      "prompt_line": 40
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "for",
+      "event_idx": 24,
+      "event_type": "branch_eval",
+      "line": 39,
+      "method_name": "minPath",
+      "outcome": false,
+      "prompt_line": 39
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 25,
+      "event_type": "branch_eval",
+      "line": 38,
+      "method_name": "minPath",
+      "outcome": true,
+      "prompt_line": 38
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "for",
+      "event_idx": 26,
+      "event_type": "branch_eval",
+      "line": 39,
+      "method_name": "minPath",
+      "outcome": true,
+      "prompt_line": 39
+    },
+    {
+      "branch_id": "b003",
+      "branch_kind": "if",
+      "event_idx": 27,
+      "event_type": "branch_eval",
+      "line": 40,
+      "method_name": "minPath",
+      "outcome": false,
+      "prompt_line": 40
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "for",
+      "event_idx": 28,
+      "event_type": "branch_eval",
+      "line": 39,
+      "method_name": "minPath",
+      "outcome": true,
+      "prompt_line": 39
+    },
+    {
+      "branch_id": "b003",
+      "branch_kind": "if",
+      "event_idx": 29,
+      "event_type": "branch_eval",
+      "line": 40,
+      "method_name": "minPath",
+      "outcome": false,
+      "prompt_line": 40
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "for",
+      "event_idx": 30,
+      "event_type": "branch_eval",
+      "line": 39,
+      "method_name": "minPath",
+      "outcome": true,
+      "prompt_line": 39
+    },
+    {
+      "branch_id": "b003",
+      "branch_kind": "if",
+      "event_idx": 31,
+      "event_type": "branch_eval",
+      "line": 40,
+      "method_name": "minPath",
+      "outcome": false,
+      "prompt_line": 40
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "for",
+      "event_idx": 32,
+      "event_type": "branch_eval",
+      "line": 39,
+      "method_name": "minPath",
+      "outcome": false,
+      "prompt_line": 39
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 33,
+      "event_type": "branch_eval",
+      "line": 38,
+      "method_name": "minPath",
+      "outcome": false,
+      "prompt_line": 38
+    },
+    {
+      "branch_id": "b008",
+      "branch_kind": "for",
+      "event_idx": 34,
+      "event_type": "branch_eval",
+      "line": 59,
+      "method_name": "minPath",
+      "outcome": true,
+      "prompt_line": 59
+    },
+    {
+      "branch_id": "b009",
+      "branch_kind": "if",
+      "event_idx": 35,
+      "event_type": "branch_eval",
+      "line": 60,
+      "method_name": "minPath",
+      "outcome": true,
+      "prompt_line": 60
+    },
+    {
+      "event_idx": 36,
+      "event_type": "line_exec",
+      "line": 61,
+      "method_name": "minPath",
+      "prompt_line": 61
+    },
+    {
+      "branch_id": "b008",
+      "branch_kind": "for",
+      "event_idx": 37,
+      "event_type": "branch_eval",
+      "line": 59,
+      "method_name": "minPath",
+      "outcome": true,
+      "prompt_line": 59
+    },
+    {
+      "branch_id": "b009",
+      "branch_kind": "if",
+      "event_idx": 38,
+      "event_type": "branch_eval",
+      "line": 60,
+      "method_name": "minPath",
+      "outcome": false,
+      "prompt_line": 60
+    },
+    {
+      "event_idx": 39,
+      "event_type": "line_exec",
+      "line": 63,
+      "method_name": "minPath",
+      "prompt_line": 63
+    },
+    {
+      "branch_id": "b008",
+      "branch_kind": "for",
+      "event_idx": 40,
+      "event_type": "branch_eval",
+      "line": 59,
+      "method_name": "minPath",
+      "outcome": true,
+      "prompt_line": 59
+    },
+    {
+      "branch_id": "b009",
+      "branch_kind": "if",
+      "event_idx": 41,
+      "event_type": "branch_eval",
+      "line": 60,
+      "method_name": "minPath",
+      "outcome": true,
+      "prompt_line": 60
+    },
+    {
+      "event_idx": 42,
+      "event_type": "line_exec",
+      "line": 61,
+      "method_name": "minPath",
+      "prompt_line": 61
+    },
+    {
+      "branch_id": "b008",
+      "branch_kind": "for",
+      "event_idx": 43,
+      "event_type": "branch_eval",
+      "line": 59,
+      "method_name": "minPath",
+      "outcome": false,
+      "prompt_line": 59
+    },
+    {
+      "event_idx": 44,
+      "event_type": "return",
+      "line": 66,
+      "method_name": "minPath",
+      "prompt_line": 66,
+      "value_repr": "[1, 2, 1]"
+    },
+    {
+      "event_idx": 45,
+      "event_type": "method_exit",
+      "line": 66,
+      "method_name": "minPath",
+      "prompt_line": 66
+    },
+    {
+      "event_idx": 46,
+      "event_type": "line_exec",
+      "line": 75,
+      "method_name": "main",
+      "prompt_line": 75
+    },
+    {
+      "case_id": "c001",
+      "event_idx": 47,
+      "event_type": "case_result",
+      "line": -1,
+      "method_name": "main",
+      "outcome": true
+    },
+    {
+      "event_idx": 48,
+      "event_type": "line_exec",
+      "line": 77,
+      "method_name": "main",
+      "prompt_line": 77
+    },
+    {
+      "event_idx": 49,
+      "event_type": "method_exit",
+      "line": -1,
+      "method_name": "main"
+    },
+    {
+      "event_idx": 50,
+      "event_type": "line_exec",
+      "line": 78,
+      "method_name": "main",
+      "prompt_line": 78
+    }
+  ],
+  "exec_result": {
+    "assertion_failed": false,
+    "compile_error": "",
+    "compiled": true,
+    "ran": true,
+    "returncode": 0,
+    "runtime_error": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":71},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"minPath\",\"line\":34},{\"event_idx\":2,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":38,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":3,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":39,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":4,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":40,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":true},{\"event_idx\":5,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":42,\"branch_kind\":\"if\",\"branch_id\":\"b004\",\"outcome\":false},{\"event_idx\":6,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":45,\"branch_kind\":\"if\",\"branch_id\":\"b005\",\"outcome\":false},{\"event_idx\":7,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":48,\"branch_kind\":\"if\",\"branch_id\":\"b006\",\"outcome\":true},{\"event_idx\":8,\"event_type\":\"line_exec\",\"method_name\":\"minPath\",\"line\":49},{\"event_idx\":9,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":51,\"branch_kind\":\"if\",\"branch_id\":\"b007\",\"outcome\":true},{\"event_idx\":10,\"event_type\":\"line_exec\",\"method_name\":\"minPath\",\"line\":52},{\"event_idx\":11,\"event_type\":\"line_exec\",\"method_name\":\"minPath\",\"line\":54},{\"event_idx\":12,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":39,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":13,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":40,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":false},{\"event_idx\":14,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":39,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":15,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":40,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":false},{\"event_idx\":16,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":39,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":false},{\"event_idx\":17,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":38,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":18,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":39,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":19,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":40,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":false},{\"event_idx\":20,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":39,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":21,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":40,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":false},{\"event_idx\":22,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":39,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":23,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":40,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":false},{\"event_idx\":24,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":39,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":false},{\"event_idx\":25,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":38,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":26,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":39,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":27,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":40,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":false},{\"event_idx\":28,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":39,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":29,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":40,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":false},{\"event_idx\":30,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":39,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":31,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":40,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":false},{\"event_idx\":32,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":39,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":false},{\"event_idx\":33,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":38,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":false},{\"event_idx\":34,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":59,\"branch_kind\":\"for\",\"branch_id\":\"b008\",\"outcome\":true},{\"event_idx\":35,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":60,\"branch_kind\":\"if\",\"branch_id\":\"b009\",\"outcome\":true},{\"event_idx\":36,\"event_type\":\"line_exec\",\"method_name\":\"minPath\",\"line\":61},{\"event_idx\":37,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":59,\"branch_kind\":\"for\",\"branch_id\":\"b008\",\"outcome\":true},{\"event_idx\":38,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":60,\"branch_kind\":\"if\",\"branch_id\":\"b009\",\"outcome\":false},{\"event_idx\":39,\"event_type\":\"line_exec\",\"method_name\":\"minPath\",\"line\":63},{\"event_idx\":40,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":59,\"branch_kind\":\"for\",\"branch_id\":\"b008\",\"outcome\":true},{\"event_idx\":41,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":60,\"branch_kind\":\"if\",\"branch_id\":\"b009\",\"outcome\":true},{\"event_idx\":42,\"event_type\":\"line_exec\",\"method_name\":\"minPath\",\"line\":61},{\"event_idx\":43,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":59,\"branch_kind\":\"for\",\"branch_id\":\"b008\",\"outcome\":false},{\"event_idx\":44,\"event_type\":\"return\",\"method_name\":\"minPath\",\"line\":66,\"value_repr\":\"[1, 2, 1]\"},{\"event_idx\":45,\"event_type\":\"method_exit\",\"method_name\":\"minPath\",\"line\":66},{\"event_idx\":46,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":75},{\"event_idx\":47,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":48,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":77},{\"event_idx\":49,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":50,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":78}]}\nTRACE_JSON_END",
+    "stderr": "",
+    "stdout": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":71},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"minPath\",\"line\":34},{\"event_idx\":2,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":38,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":3,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":39,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":4,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":40,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":true},{\"event_idx\":5,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":42,\"branch_kind\":\"if\",\"branch_id\":\"b004\",\"outcome\":false},{\"event_idx\":6,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":45,\"branch_kind\":\"if\",\"branch_id\":\"b005\",\"outcome\":false},{\"event_idx\":7,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":48,\"branch_kind\":\"if\",\"branch_id\":\"b006\",\"outcome\":true},{\"event_idx\":8,\"event_type\":\"line_exec\",\"method_name\":\"minPath\",\"line\":49},{\"event_idx\":9,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":51,\"branch_kind\":\"if\",\"branch_id\":\"b007\",\"outcome\":true},{\"event_idx\":10,\"event_type\":\"line_exec\",\"method_name\":\"minPath\",\"line\":52},{\"event_idx\":11,\"event_type\":\"line_exec\",\"method_name\":\"minPath\",\"line\":54},{\"event_idx\":12,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":39,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":13,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":40,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":false},{\"event_idx\":14,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":39,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":15,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":40,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":false},{\"event_idx\":16,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":39,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":false},{\"event_idx\":17,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":38,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":18,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":39,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":19,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":40,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":false},{\"event_idx\":20,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":39,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":21,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":40,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":false},{\"event_idx\":22,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":39,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":23,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":40,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":false},{\"event_idx\":24,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":39,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":false},{\"event_idx\":25,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":38,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":26,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":39,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":27,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":40,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":false},{\"event_idx\":28,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":39,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":29,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":40,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":false},{\"event_idx\":30,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":39,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":31,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":40,\"branch_kind\":\"if\",\"branch_id\":\"b003\",\"outcome\":false},{\"event_idx\":32,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":39,\"branch_kind\":\"for\",\"branch_id\":\"b002\",\"outcome\":false},{\"event_idx\":33,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":38,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":false},{\"event_idx\":34,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":59,\"branch_kind\":\"for\",\"branch_id\":\"b008\",\"outcome\":true},{\"event_idx\":35,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":60,\"branch_kind\":\"if\",\"branch_id\":\"b009\",\"outcome\":true},{\"event_idx\":36,\"event_type\":\"line_exec\",\"method_name\":\"minPath\",\"line\":61},{\"event_idx\":37,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":59,\"branch_kind\":\"for\",\"branch_id\":\"b008\",\"outcome\":true},{\"event_idx\":38,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":60,\"branch_kind\":\"if\",\"branch_id\":\"b009\",\"outcome\":false},{\"event_idx\":39,\"event_type\":\"line_exec\",\"method_name\":\"minPath\",\"line\":63},{\"event_idx\":40,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":59,\"branch_kind\":\"for\",\"branch_id\":\"b008\",\"outcome\":true},{\"event_idx\":41,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":60,\"branch_kind\":\"if\",\"branch_id\":\"b009\",\"outcome\":true},{\"event_idx\":42,\"event_type\":\"line_exec\",\"method_name\":\"minPath\",\"line\":61},{\"event_idx\":43,\"event_type\":\"branch_eval\",\"method_name\":\"minPath\",\"line\":59,\"branch_kind\":\"for\",\"branch_id\":\"b008\",\"outcome\":false},{\"event_idx\":44,\"event_type\":\"return\",\"method_name\":\"minPath\",\"line\":66,\"value_repr\":\"[1, 2, 1]\"},{\"event_idx\":45,\"event_type\":\"method_exit\",\"method_name\":\"minPath\",\"line\":66},{\"event_idx\":46,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":75},{\"event_idx\":47,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":48,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":77},{\"event_idx\":49,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":50,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":78}]}\nTRACE_JSON_END",
+    "success": true
+  },
+  "executed_line_sequence": [
+    38,
+    39,
+    40,
+    42,
+    45,
+    48,
+    49,
+    51,
+    52,
+    54,
+    39,
+    40,
+    39,
+    40,
+    39,
+    38,
+    39,
+    40,
+    39,
+    40,
+    39,
+    40,
+    39,
+    38,
+    39,
+    40,
+    39,
+    40,
+    39,
+    40,
+    39,
+    38,
+    59,
+    60,
+    61,
+    59,
+    60,
+    63,
+    59,
+    60,
+    61,
+    59,
+    66
+  ],
+  "expected_bool": true,
+  "mutation_type": "seed_true",
+  "snippet": "Java_129",
+  "trace_status": "ok",
+  "unsupported_reason": "",
+  "variant": "original",
+  "variant_path": ""
+}

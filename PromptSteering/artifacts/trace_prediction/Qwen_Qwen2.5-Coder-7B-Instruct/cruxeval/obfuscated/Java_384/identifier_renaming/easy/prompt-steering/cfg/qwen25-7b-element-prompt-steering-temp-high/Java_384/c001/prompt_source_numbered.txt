@@ -1,0 +1,38 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_384 {
+L009     public static String f(String text, String chars) {
+L010         char[] charArray = chars.toCharArray();
+L011         char[] textArray = text.toCharArray();
+L012         List<Character> v1 = new ArrayList<>();
+L013         for (char c : charArray) {
+L014             v1.add(c);
+L015         }
+L016         List<Character> v2 = new ArrayList<>();
+L017         for (char c : textArray) {
+L018             v2.add(c);
+L019         }
+L020         while (v2.size() > 0 && textArray.length > 0) {
+L021             if (v1.contains(v2.get(0))) {
+L022                 v2.remove(0);
+L023             } else {
+L024                 break;
+L025             }
+L026         }
+L027         StringBuilder v3 = new StringBuilder();
+L028         for (char c : v2) {
+L029             v3.append(c);
+L030         }
+L031         return v3.toString();
+L032     }
+L033     public static void main(String[] args) {
+L034     int _obf_t1_main_904966 = 0; _obf_t1_main_904966 += 0;
+L035     assert(f(("asfdellos"), ("Ta")).equals(("sfdellos")));
+L036     }
+L037 
+L038 }

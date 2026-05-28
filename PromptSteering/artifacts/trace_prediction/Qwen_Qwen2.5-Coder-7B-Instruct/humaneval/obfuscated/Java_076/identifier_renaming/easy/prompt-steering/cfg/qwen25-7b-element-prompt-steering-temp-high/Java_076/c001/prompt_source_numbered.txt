@@ -1,0 +1,55 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Your task is to write a function that returns true if a number x is a simple
+L007     power of n and false in other cases.
+L008     x is a simple power of n if n**int=x
+L009     For example:
+L010     isSimplePower(1, 4) => true
+L011     isSimplePower(2, 2) => true
+L012     isSimplePower(8, 2) => true
+L013     isSimplePower(3, 2) => false
+L014     isSimplePower(3, 1) => false
+L015     isSimplePower(5, 3) => false
+L016      */
+L017     public boolean isSimplePower(int x, int n) {
+L018 
+L019         if (n == 1) {
+L020             return x == 1;
+L021         }
+L022         int v1 = 1;
+L023         while (v1 < x) {
+L024             v1 = v1 * n;
+L025         }
+L026         return v1 == x;
+L027     }
+L028 }
+L029 
+L030 public class Java_076 {
+L031     public static void main(String[] args) {
+L032         Solution v1 = new Solution();
+L033         List<Boolean> v2 = Arrays.asList(
+L034                 v1.isSimplePower(1, 4),
+L035                 v1.isSimplePower(2, 2),
+L036                 v1.isSimplePower(8, 2),
+L037                 !v1.isSimplePower(3, 2),
+L038                 !v1.isSimplePower(3, 1),
+L039                 !v1.isSimplePower(5, 3),
+L040                 v1.isSimplePower(16, 2),
+L041                 !v1.isSimplePower(143214, 16),
+L042                 v1.isSimplePower(4, 2),
+L043                 v1.isSimplePower(9, 3),
+L044                 v1.isSimplePower(16, 4),
+L045                 !v1.isSimplePower(24, 2),
+L046                 !v1.isSimplePower(128, 4),
+L047                 !v1.isSimplePower(12, 6),
+L048                 v1.isSimplePower(1, 1),
+L049                 v1.isSimplePower(1, 12)
+L050         );
+L051         if (v2.contains(false)) {
+L052             throw new AssertionError();
+L053         }
+L054     }
+L055 }

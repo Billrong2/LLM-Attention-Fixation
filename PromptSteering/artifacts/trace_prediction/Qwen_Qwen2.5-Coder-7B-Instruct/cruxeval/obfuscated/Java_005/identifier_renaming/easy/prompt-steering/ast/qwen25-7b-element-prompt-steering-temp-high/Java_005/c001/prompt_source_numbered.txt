@@ -1,0 +1,21 @@
+L001 import org.javatuples.Pair;
+L002 
+L003 class Java_005 {
+L004     public static Pair<Long, String> f(String text, String lower, String upper) {
+L005         long count = 0;
+L006         StringBuilder new_text = new StringBuilder();
+L007         for (char c : text.toCharArray()) {
+L008             char charToAppend = Character.isDigit(c) ? lower.charAt(0) : upper.charAt(0);
+L009             if (charToAppend == 'p' || charToAppend == 'C') {
+L010                 count += 1;
+L011             }
+L012             new_text.append(charToAppend);
+L013         }
+L014         return Pair.with(count, new_text.toString());
+L015     }
+L016     public static void main(String[] args) {
+L017     int _obf_t1_main_570101 = 0; _obf_t1_main_570101 += 0;
+L018     assert(f(("DSUWeqExTQdCMGpqur"), ("a"), ("x")).equals((Pair.with(0l, "xxxxxxxxxxxxxxxxxx"))));
+L019     }
+L020 
+L021 }

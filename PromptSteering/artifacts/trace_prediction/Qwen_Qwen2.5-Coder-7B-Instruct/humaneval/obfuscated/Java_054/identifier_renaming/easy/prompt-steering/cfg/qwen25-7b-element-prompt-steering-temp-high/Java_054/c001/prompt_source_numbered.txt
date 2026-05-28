@@ -1,0 +1,50 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Check if two words have the same characters.
+L007     >>> sameChars("eabcdzzzz", "dddzzzzzzzddeddabc")
+L008     true
+L009     >>> sameChars("abcd", "dddddddabc")
+L010     true
+L011     >>> sameChars("dddddddabc", "abcd")
+L012     true
+L013     >>> sameChars("eabcd", "dddddddabc")
+L014     false
+L015     >>> sameChars("abcd", "dddddddabce")
+L016     false
+L017     >>> sameChars("eabcdzzzz", "dddzzzzzzzddddabc")
+L018     false
+L019      */
+L020     public boolean sameChars(String s0, String s1) {
+L021 
+L022         Set<Character> v1 = new HashSet<>();
+L023         for (char c : s0.toCharArray()) {
+L024             v1.add(c);
+L025         }
+L026         Set<Character> v2 = new HashSet<>();
+L027         for (char c : s1.toCharArray()) {
+L028             v2.add(c);
+L029         }
+L030         return v1.equals(v2);
+L031     }
+L032 }
+L033 
+L034 public class Java_054 {
+L035     public static void main(String[] args) {
+L036         Solution v1 = new Solution();
+L037         List<Boolean> v2 = Arrays.asList(
+L038                 v1.sameChars("eabcdzzzz", "dddzzzzzzzddeddabc"),
+L039                 v1.sameChars("abcd", "dddddddabc"),
+L040                 v1.sameChars("dddddddabc", "abcd"),
+L041                 !v1.sameChars("eabcd", "dddddddabc"),
+L042                 !v1.sameChars("abcd", "dddddddabcf"),
+L043                 !v1.sameChars("eabcdzzzz", "dddzzzzzzzddddabc"),
+L044                 !v1.sameChars("aabb", "aaccc")
+L045         );
+L046         if (v2.contains(false)) {
+L047             throw new AssertionError();
+L048         }
+L049     }
+L050 }

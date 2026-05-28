@@ -1,0 +1,58 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     You are given a word. Your task is to find the closest vowel that stands between
+L007     two consonants from the right side of the word (case sensitive).
+L008 
+L009     Vowels in the beginning and ending doesn't count. Return empty string if you didn't
+L010     find any vowel met the above condition.
+L011 
+L012     You may assume that the given string contains English letter only.
+L013 
+L014     Example:
+L015     getClosestVowel("yogurt") ==> "u"
+L016     getClosestVowel("FULL") ==> "U"
+L017     getClosestVowel("quick") ==> ""
+L018     getClosestVowel("ab") ==> ""
+L019      */
+L020     public String getClosestVowel(String word) {
+L021 
+L022         if (word.length() < 3) {
+L023             return "";
+L024         }
+L025 
+L026         String vowels = "aeiouAEIOU";
+L027         for (int i = word.length() - 2; i > 0; i--) {
+L028             if (vowels.indexOf(word.charAt(i)) != -1 && vowels.indexOf(word.charAt(i + 1)) == -1 && vowels.indexOf(word.charAt(i - 1)) == -1) {
+L029                 return String.valueOf(word.charAt(i));
+L030             }
+L031         }
+L032         return "";
+L033     }
+L034 }
+L035 
+L036 public class Java_118 {
+L037     public static void main(String[] args) {
+L038         Solution s = new Solution();
+L039         List<Boolean> correct = Arrays.asList(
+L040                 s.getClosestVowel("yogurt").equals("u"),
+L041                 s.getClosestVowel("full").equals("u"),
+L042                 s.getClosestVowel("easy").equals(""),
+L043                 s.getClosestVowel("eAsy").equals(""),
+L044                 s.getClosestVowel("ali").equals(""),
+L045                 s.getClosestVowel("bad").equals("a"),
+L046                 s.getClosestVowel("most").equals("o"),
+L047                 s.getClosestVowel("ab").equals(""),
+L048                 s.getClosestVowel("ba").equals(""),
+L049                 s.getClosestVowel("quick").equals(""),
+L050                 s.getClosestVowel("anime").equals("i"),
+L051                 s.getClosestVowel("Asia").equals(""),
+L052                 s.getClosestVowel("Above").equals("o")
+L053         );
+L054         if (correct.contains(false)) {
+L055             throw new AssertionError();
+L056         }
+L057     }
+L058 }

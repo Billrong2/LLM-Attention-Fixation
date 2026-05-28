@@ -1,0 +1,32 @@
+L001 import java.lang.StringBuilder;
+L002 import java.util.*;
+L003 import java.lang.reflect.*;
+L004 import org.javatuples.*;
+L005 import java.security.*;
+L006 import java.math.*;
+L007 import java.io.*;
+L008 import java.util.stream.*;
+L009 
+L010 class Java_770 {
+L011     public static String f(String line, String charStr) {
+L012         int count = (int)line.chars().filter(ch -> ch == charStr.charAt(0)).count();
+L013         StringBuilder lineBuilder = new StringBuilder(line);
+L014         for (int i = count + 1; i > 0; i--) {
+L015             int newLength = lineBuilder.length() + (i / charStr.length());
+L016             int pad = newLength - lineBuilder.length();
+L017             int leftPad = pad / 2;
+L018             int rightPad = pad - leftPad;
+L019             for (int j = 0; j < leftPad; j++) {
+L020                 lineBuilder.insert(0, charStr);
+L021             }
+L022             for (int j = 0; j < rightPad; j++) {
+L023                 lineBuilder.append(charStr);
+L024             }
+L025         }
+L026         return lineBuilder.toString();
+L027     }
+L028     public static void main(String[] args) {
+L029     assert(f(("$78"), ("$")).equals(("$$78$$")));
+L030     }
+L031 
+L032 }

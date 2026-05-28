@@ -1,0 +1,28 @@
+L001 import java.io.*;
+L002 import java.lang.reflect.*;
+L003 import java.math.*;
+L004 import java.security.*;
+L005 import java.util.*;
+L006 import java.util.HashMap;
+L007 import java.util.Map;
+L008 import java.util.stream.*;
+L009 import org.javatuples.*;
+L010 class Java_458 {
+L011     public static String f(String text, String search_chars, String replace_chars) {
+L012         Map<Character, Character> transMap = new HashMap<>();
+L013         for (int i = 0; i < search_chars.length(); i++) {
+L014             transMap.put(search_chars.charAt(i), replace_chars.charAt(i));
+L015         }
+L016 
+L017         StringBuilder result = new StringBuilder();
+L018         for (char c : text.toCharArray()) {
+L019             result.append(transMap.getOrDefault(c, c));
+L020         }
+L021 
+L022         return result.toString();
+L023     }
+L024     public static void main(String[] args) {
+L025     assert(f(("mmm34mIm"), ("mm3"), (",po")).equals(("pppo4pIp")));
+L026     }
+L027 
+L028 }

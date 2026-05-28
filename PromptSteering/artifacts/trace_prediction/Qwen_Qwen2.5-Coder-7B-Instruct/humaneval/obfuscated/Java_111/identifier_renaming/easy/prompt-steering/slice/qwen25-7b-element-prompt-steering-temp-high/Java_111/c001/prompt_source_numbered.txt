@@ -1,0 +1,80 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Given a string representing a space separated lowercase letters, return a dictionary
+L007     of the letter with the most repetition and containing the corresponding count.
+L008     If several letters have the same occurrence, return all of them.
+L009 
+L010     Example:
+L011     histogram("a b c") == {"a": 1, "b": 1, "c": 1}
+L012     histogram("a b b a") == {"a": 2, "b": 2}
+L013     histogram("a b c a b") == {"a": 2, "b": 2}
+L014     histogram("b b b b a") == {"b": 4}
+L015     histogram("") == {}
+L016      */
+L017     public Map<String, Integer> histogram(String test) {
+L018 
+L019         Map<String, Integer> dict1 = new HashMap<>();
+L020         List<String> list1 = Arrays.asList(test.split(" " ));
+L021         int t = 0;
+L022         for (String i : list1) {
+L023             if (Collections.frequency(list1, i) > t && !i.isEmpty()) {
+L024                 t = Collections.frequency(list1, i);
+L025             }
+L026         }
+L027         if (t > 0) {
+L028             for (String i : list1) {
+L029                 if (Collections.frequency(list1, i) == t) {
+L030                     dict1.put(i, t);
+L031                 }
+L032             }
+L033         }
+L034         return dict1;
+L035     }
+L036 }
+L037 
+L038 public class Java_111 {
+L039     public static void main(String[] args) {
+L040         Solution v1 = new Solution();
+L041         Map<String, Integer> v2 = new HashMap<>();
+L042         v2.put("a", 2);
+L043         v2.put("b", 2);
+L044         Map<String, Integer> v3 = new HashMap<>();
+L045         v3.put("a", 2);
+L046         v3.put("b", 2);
+L047         Map<String, Integer> v4 = new HashMap<>();
+L048         v4.put("a", 1);
+L049         v4.put("b", 1);
+L050         v4.put("c", 1);
+L051         v4.put("d", 1);
+L052         v4.put("g", 1);
+L053         Map<String, Integer> v5 = new HashMap<>();
+L054         v5.put("r", 1);
+L055         v5.put("t", 1);
+L056         v5.put("g", 1);
+L057         Map<String, Integer> v6 = new HashMap<>();
+L058         v6.put("b", 4);
+L059         Map<String, Integer> v7 = new HashMap<>();
+L060         v7.put("r", 1);
+L061         v7.put("t", 1);
+L062         v7.put("g", 1);
+L063         Map<String, Integer> v8 = new HashMap<>();
+L064         Map<String, Integer> v9 = new HashMap<>();
+L065         v9.put("a", 1);
+L066         List<Boolean> v10 = Arrays.asList(
+L067                 v1.histogram("a b b a" ).equals(v2),
+L068                 v1.histogram("a b c a b" ).equals(v3),
+L069                 v1.histogram("a b c d g" ).equals(v4),
+L070                 v1.histogram("r t g" ).equals(v5),
+L071                 v1.histogram("b b b b a" ).equals(v6),
+L072                 v1.histogram("r t g" ).equals(v7),
+L073                 v1.histogram("" ).equals(v8),
+L074                 v1.histogram("a" ).equals(v9)
+L075         );
+L076         if (v10.contains(false)) {
+L077             throw new AssertionError();
+L078         }
+L079     }
+L080 }

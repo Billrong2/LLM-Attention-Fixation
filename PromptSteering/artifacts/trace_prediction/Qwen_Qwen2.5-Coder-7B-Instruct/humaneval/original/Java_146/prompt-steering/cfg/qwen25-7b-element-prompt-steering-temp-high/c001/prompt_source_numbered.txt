@@ -1,0 +1,45 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Write a function that takes an array of numbers as input and returns
+L007     the number of elements in the array that are greater than 10 and both
+L008     first and last digits of a number are odd (1, 3, 5, 7, 9).
+L009     For example:
+L010     specialFilter(Arrays.asList(15, -73, 14, -15)) => 1
+L011     specialFilter(Arrays.asList(33, -2, -3, 45, 21, 109)) => 2
+L012      */
+L013     public int specialFilter(List<Integer> nums) {
+L014 
+L015         int count = 0;
+L016         for (int num : nums) {
+L017             if (num > 10) {
+L018                 String odd_digits = "13579";
+L019                 String number_as_string = String.valueOf(num);
+L020                 if (odd_digits.indexOf(number_as_string.charAt(0)) != -1 && odd_digits.indexOf(number_as_string.charAt(number_as_string.length() - 1)) != -1) {
+L021                     count += 1;
+L022                 }
+L023             }
+L024         }
+L025         return count;
+L026     }
+L027 }
+L028 
+L029 public class Java_146 {
+L030     public static void main(String[] args) {
+L031         Solution s = new Solution();
+L032         List<Boolean> correct = Arrays.asList(
+L033                 s.specialFilter(Arrays.asList(5, -2, 1, -5)) == 0,
+L034                 s.specialFilter(Arrays.asList(15, -73, 14, -15)) == 1,
+L035                 s.specialFilter(Arrays.asList(33, -2, -3, 45, 21, 109)) == 2,
+L036                 s.specialFilter(Arrays.asList(43, -12, 93, 125, 121, 109)) == 4,
+L037                 s.specialFilter(Arrays.asList(71, -2, -33, 75, 21, 19)) == 3,
+L038                 s.specialFilter(List.of(1)) == 0,
+L039                 s.specialFilter(List.of()) == 0
+L040         );
+L041         if (correct.contains(false)) {
+L042             throw new AssertionError();
+L043         }
+L044     }
+L045 }

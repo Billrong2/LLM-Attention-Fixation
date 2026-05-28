@@ -1,0 +1,24 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_403 {
+L009     public static long f(String full, String part) {
+L010         int length = part.length();
+L011         int index = full.indexOf(part);
+L012         int count = 0;
+L013         while (index >= 0) {
+L014             full = full.substring(index + length);
+L015             index = full.indexOf(part);
+L016             count++;
+L017         }
+L018         return count;
+L019     }
+L020     public static void main(String[] args) {
+L021     assert(f(("hrsiajiajieihruejfhbrisvlmmy"), ("hr")) == (2l));
+L022     }
+L023 
+L024 }

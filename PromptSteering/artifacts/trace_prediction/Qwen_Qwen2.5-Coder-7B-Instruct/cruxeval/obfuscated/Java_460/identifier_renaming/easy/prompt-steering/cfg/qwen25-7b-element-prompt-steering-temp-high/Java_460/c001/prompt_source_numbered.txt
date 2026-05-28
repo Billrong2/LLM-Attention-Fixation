@@ -1,0 +1,24 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_460 {
+L009     public static String f(String text, long amount) {
+L010         int v1 = text.length();
+L011         String v2 = "|";
+L012         if (amount >= v1) {
+L013             int v3 = (int) (amount - v1);
+L014             v2 += " ".repeat(v3 / 2);
+L015             return v2 + text + v2;
+L016         }
+L017         return text;
+L018     }
+L019     public static void main(String[] args) {
+L020     int _obf_t1_main_673467 = 0; _obf_t1_main_673467 += 0;
+L021     assert(f(("GENERAL NAGOOR"), (5l)).equals(("GENERAL NAGOOR")));
+L022     }
+L023 
+L024 }

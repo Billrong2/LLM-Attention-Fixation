@@ -1,0 +1,23 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_077 {
+L009     public static String f(String text, String character) {
+L010         int index = text.lastIndexOf(character);
+L011         if (index != -1) {
+L012             String subject = text.substring(index);
+L013             int count = (int) text.chars().filter(ch -> ch == character.charAt(0)).count();
+L014             return subject.repeat(count);
+L015         } else {
+L016             return "";
+L017         }
+L018     }
+L019     public static void main(String[] args) {
+L020     assert(f(("h ,lpvvkohh,u"), ("i")).equals(("")));
+L021     }
+L022 
+L023 }

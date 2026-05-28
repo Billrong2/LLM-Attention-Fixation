@@ -1,0 +1,58 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Create a function that takes a value (string) representing a number
+L007     and returns the closest integer to it. If the number is equidistant
+L008     from two integers, round it away from zero.
+L009 
+L010     Examples
+L011     >>> closest_integer("10")
+L012     10
+L013     >>> closest_integer("15.3")
+L014     15
+L015 
+L016     Note:
+L017     Rounding away from zero means that if the given number is equidistant
+L018     from two integers, the one you should return is the one that is the
+L019     farthest from zero. For example closest_integer("14.5") should
+L020     return 15 and closest_integer("-14.5") should return -15.
+L021      */
+L022     public int countUpper(String value) {
+L023 
+L024         if (value.contains(".")) {
+L025             while (value.charAt(value.length() - 1) == '0') {
+L026                 value = value.substring(0, value.length() - 1);
+L027             }
+L028         }
+L029         double v1 = Double.parseDouble(value);
+L030         int v2 = 0;
+L031         if (value.substring(Math.max(value.length() - 2, 0)).equals(".5")) {
+L032             if (v1 > 0) {
+L033                 v2 = (int) Math.ceil(v1);
+L034             } else {
+L035                 v2 = (int) Math.floor(v1);
+L036             }
+L037         } else if(value.length() > 0) {
+L038             v2 = (int) Math.round(v1);
+L039         }
+L040         return v2;
+L041     }
+L042 }
+L043 
+L044 public class Java_099 {
+L045     public static void main(String[] args) {
+L046         Solution v1 = new Solution();
+L047         List<Boolean> v2 = Arrays.asList(
+L048                 v1.countUpper("10") == 10,
+L049                 v1.countUpper("14.5") == 15,
+L050                 v1.countUpper("-15.5") == -16,
+L051                 v1.countUpper("15.3") == 15,
+L052                 v1.countUpper("0") == 0
+L053         );
+L054         if (v2.contains(false)) {
+L055             throw new AssertionError();
+L056         }
+L057     }
+L058 }

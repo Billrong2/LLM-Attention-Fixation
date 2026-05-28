@@ -1,0 +1,48 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     removeVowels is a function that takes string and returns string without vowels.
+L007     >>> removeVowels("")
+L008     ""
+L009     >>> removeVowels("abcdef\nghijklm")
+L010     "bcdf\nghjklm"
+L011     >>> removeVowels("abcdef")
+L012     "bcdf"
+L013     >>> removeVowels("aaaaa")
+L014     ""
+L015     >>> removeVowels("aaBAA")
+L016     "B"
+L017     >>> removeVowels("zbcd")
+L018     "zbcd"
+L019      */
+L020     public String removeVowels(String text) {
+L021 
+L022         StringBuilder v1 = new StringBuilder();
+L023         for (char ch : text.toCharArray()) {
+L024             if ("aeiou".indexOf(Character.toLowerCase(ch)) == -1) {
+L025                 v1.append(ch);
+L026             }
+L027         }
+L028         return v1.toString();
+L029     }
+L030 }
+L031 
+L032 public class Java_051 {
+L033     public static void main(String[] args) {
+L034         Solution v1 = new Solution();
+L035         List<Boolean> v2 = Arrays.asList(
+L036                 Objects.equals(v1.removeVowels(""), ""),
+L037                 Objects.equals(v1.removeVowels("abcdef\nghijklm"), "bcdf\nghjklm"),
+L038                 Objects.equals(v1.removeVowels("fedcba"), "fdcb"),
+L039                 Objects.equals(v1.removeVowels("eeeee"), ""),
+L040                 Objects.equals(v1.removeVowels("acBAA"), "cB"),
+L041                 Objects.equals(v1.removeVowels("EcBOO"), "cB"),
+L042                 Objects.equals(v1.removeVowels("ybcd"), "ybcd")
+L043         );
+L044         if (v2.contains(false)) {
+L045             throw new AssertionError();
+L046         }
+L047     }
+L048 }

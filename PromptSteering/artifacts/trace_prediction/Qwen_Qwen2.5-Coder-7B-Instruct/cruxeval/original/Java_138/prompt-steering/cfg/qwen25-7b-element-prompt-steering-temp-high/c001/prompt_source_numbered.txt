@@ -1,0 +1,24 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_138 {
+L009     public static String f(String text, String chars) {
+L010         List<Character> listchars = new ArrayList<>();
+L011         for(char c : chars.toCharArray()) {
+L012             listchars.add(c);
+L013         }
+L014         char first = listchars.remove(listchars.size() - 1);
+L015         for(char i : listchars) {
+L016             text = text.substring(0, text.indexOf(i)) + i + text.substring(text.indexOf(i) + 1);
+L017         }
+L018         return text;
+L019     }
+L020     public static void main(String[] args) {
+L021     assert(f(("tflb omn rtt"), ("m")).equals(("tflb omn rtt")));
+L022     }
+L023 
+L024 }

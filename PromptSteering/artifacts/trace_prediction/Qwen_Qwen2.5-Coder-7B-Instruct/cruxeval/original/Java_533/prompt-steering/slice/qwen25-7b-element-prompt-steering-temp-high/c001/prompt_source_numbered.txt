@@ -1,0 +1,26 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_533 {
+L009     public static long f(String query, HashMap<String,Long> base) {
+L010         long net_sum = 0;
+L011         for (Map.Entry<String, Long> entry : base.entrySet()) {
+L012             String key = entry.getKey();
+L013             long val = entry.getValue();
+L014             if (key.charAt(0) == query.charAt(0) && key.length() == 3) {
+L015                 net_sum -= val;
+L016             } else if (key.charAt(2) == query.charAt(0) && key.length() == 3) {
+L017                 net_sum += val;
+L018             }
+L019         }
+L020         return net_sum;
+L021     }
+L022     public static void main(String[] args) {
+L023     assert(f(("a"), (new HashMap<String,Long>())) == (0l));
+L024     }
+L025 
+L026 }

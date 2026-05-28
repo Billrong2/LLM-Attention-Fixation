@@ -1,0 +1,18 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_040 {
+L009     public static String f(String text) {
+L010         StringBuilder sb = new StringBuilder(text);
+L011         sb.append("#");
+L012         return sb.toString();
+L013     }
+L014     public static void main(String[] args) {
+L015     assert(f(("the cow goes moo")).equals(("the cow goes moo#")));
+L016     }
+L017 
+L018 }

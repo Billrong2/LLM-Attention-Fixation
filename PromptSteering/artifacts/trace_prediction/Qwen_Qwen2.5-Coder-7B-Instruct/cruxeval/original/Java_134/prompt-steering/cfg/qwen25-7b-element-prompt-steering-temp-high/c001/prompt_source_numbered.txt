@@ -1,0 +1,37 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_134 {
+L009     public static String f(long n) {
+L010         long t = 0;
+L011         String b = "";
+L012         String nStr = Long.toString(n);
+L013         List<Integer> digits = new ArrayList<>();
+L014         for (int i = 0; i < nStr.length(); i++) {
+L015             digits.add(Character.getNumericValue(nStr.charAt(i)));
+L016         }
+L017         
+L018         for (int d : digits) {
+L019             if (d == 0) {
+L020                 t++;
+L021             } else {
+L022                 break;
+L023             }
+L024         }
+L025         
+L026         for (int i = 0; i < t; i++) {
+L027             b += "1" + "0" + "4";
+L028         }
+L029         b += nStr;
+L030         
+L031         return b;
+L032     }
+L033     public static void main(String[] args) {
+L034     assert(f((372359l)).equals(("372359")));
+L035     }
+L036 
+L037 }

@@ -1,0 +1,32 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_473 {
+L009     public static String f(String text, String value) {
+L010         List<Integer> indexes = new ArrayList<>();
+L011         for (int i = 0; i < text.length(); i++) {
+L012             if (text.charAt(i) == value.charAt(0)) {
+L013                 indexes.add(i);
+L014             }
+L015         }
+L016         char[] newText = text.toCharArray();
+L017         for (int i : indexes) {
+L018             newText[i] = '\0';
+L019         }
+L020         StringBuilder sb = new StringBuilder();
+L021         for (char c : newText) {
+L022             if (c != '\0') {
+L023                 sb.append(c);
+L024             }
+L025         }
+L026         return sb.toString();
+L027     }
+L028     public static void main(String[] args) {
+L029     assert(f(("scedvtvotkwqfoqn"), ("o")).equals(("scedvtvtkwqfqn")));
+L030     }
+L031 
+L032 }

@@ -1,0 +1,25 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_677 {
+L009     public static String f(String text, long length) {
+L010         length = length < 0 ? -length : length;
+L011         String output = "";
+L012         for (int idx = 0; idx < length; idx++) {
+L013             if (text.charAt(idx % text.length()) != ' ') {
+L014                 output += text.charAt(idx % text.length());
+L015             } else {
+L016                 break;
+L017             }
+L018         }
+L019         return output;
+L020     }
+L021     public static void main(String[] args) {
+L022     assert(f(("I got 1 and 0."), (5l)).equals(("I")));
+L023     }
+L024 
+L025 }

@@ -1,0 +1,30 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_259 {
+L009     public static String f(String text) {
+L010         List<Character> new_text = new ArrayList<>();
+L011         for (int i = 0; i < text.length(); i++) {
+L012             char character = text.charAt(i);
+L013             if (Character.isUpperCase(character)) {
+L014                 new_text.add(new_text.size() / 2, character);
+L015             }
+L016         }
+L017         if (new_text.size() == 0) {
+L018             new_text.add('-');
+L019         }
+L020         StringBuilder result = new StringBuilder();
+L021         for (char c : new_text) {
+L022             result.append(c);
+L023         }
+L024         return result.toString();
+L025     }
+L026     public static void main(String[] args) {
+L027     assert(f(("String matching is a big part of RexEx library.")).equals(("RES")));
+L028     }
+L029 
+L030 }

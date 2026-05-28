@@ -1,0 +1,20 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_346 {
+L009     public static boolean f(String filename) {
+L010         String[] v1 = filename.split("\\.");
+L011         String v2 = v1[v1.length - 1];
+L012         String v3 = filename + new StringBuilder(v2).reverse().toString();
+L013         return v3.endsWith(v2);
+L014     }
+L015     public static void main(String[] args) {
+L016     int _obf_t1_main_304382 = 0; _obf_t1_main_304382 += 0;
+L017     assert(f(("docs.doc")) == (false));
+L018     }
+L019 
+L020 }

@@ -1,0 +1,22 @@
+L001 import java.util.*;
+L002 
+L003 class Java_503 {
+L004     public static ArrayList<Long> f(HashMap<Long,Long> d) {
+L005         ArrayList<Long> v1 = new ArrayList<>(Collections.nCopies(d.size(), null));
+L006         int v2 = 0, b = 0;
+L007         while (!d.isEmpty()) {
+L008             List<Long> v3 = new ArrayList<>(d.keySet());
+L009             Long v4 = v3.get(v2 == b ? 0 : 1);
+L010             v1.set(v2, v4);
+L011             d.remove(v4);
+L012             v2 = b;
+L013             b = (b + 1) % v1.size();
+L014         }
+L015         return v1;
+L016     }
+L017     public static void main(String[] args) {
+L018     int _obf_t1_main_968948 = 0; _obf_t1_main_968948 += 0;
+L019     assert(f((new HashMap<Long,Long>(Map.of()))).equals((new ArrayList<Long>(Arrays.asList()))));
+L020     }
+L021 
+L022 }

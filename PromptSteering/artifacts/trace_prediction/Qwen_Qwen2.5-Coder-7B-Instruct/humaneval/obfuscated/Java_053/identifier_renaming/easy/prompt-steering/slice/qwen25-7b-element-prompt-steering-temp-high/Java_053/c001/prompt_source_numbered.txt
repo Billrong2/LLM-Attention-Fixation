@@ -1,0 +1,39 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Add two numbers x and y
+L007     >>> add(2, 3)
+L008     5
+L009     >>> add(5, 7)
+L010     12
+L011      */
+L012     public int add(int x, int y) {
+L013         int _obf_t1_add_499773 = 0; _obf_t1_add_499773 += 0;
+L014         return x + y;
+L015     }
+L016 }
+L017 
+L018 public class Java_053 {
+L019     public static void main(String[] args) {
+L020         Solution v1 = new Solution();
+L021         Random v2 = new Random(42);
+L022         List<Boolean> v3 = Arrays.asList(
+L023                 v1.add(0, 1) == 1,
+L024                 v1.add(1, 0) == 1,
+L025                 v1.add(2, 3) == 5,
+L026                 v1.add(5, 7) == 12,
+L027                 v1.add(7, 5) == 12
+L028         );
+L029         if (v3.contains(false)) {
+L030             throw new AssertionError();
+L031         }
+L032         for (int v4 = 0; v4 < 100; v4++) {
+L033             int v5 = v2.nextInt(1000), y = v2.nextInt(1000);
+L034             if (v1.add(v5, y) != v5 + y) {
+L035                 throw new AssertionError();
+L036             }
+L037         }
+L038     }
+L039 }

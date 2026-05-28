@@ -1,0 +1,29 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_356 {
+L009     public static ArrayList<Long> f(ArrayList<Long> array, long num) {
+L010         boolean reverse = false;
+L011         if (num < 0) {
+L012             reverse = true;
+L013             num *= -1;
+L014         }
+L015         Collections.reverse(array);
+L016         ArrayList<Long> newArray = new ArrayList<>();
+L017         for (long i = 0; i < num; i++) {
+L018             newArray.addAll(array);
+L019         }
+L020         if (reverse) {
+L021             Collections.reverse(newArray);
+L022         }
+L023         return newArray;
+L024     }
+L025     public static void main(String[] args) {
+L026     assert(f((new ArrayList<Long>(Arrays.asList((long)1l, (long)2l))), (1l)).equals((new ArrayList<Long>(Arrays.asList((long)2l, (long)1l)))));
+L027     }
+L028 
+L029 }

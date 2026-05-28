@@ -1,0 +1,22 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_442 {
+L009     public static ArrayList<Long> f(ArrayList<Long> lst) {
+L010         ArrayList<Long> res = new ArrayList<>();
+L011         for (long num : lst) {
+L012             if (num % 2 == 0) {
+L013                 res.add(num);
+L014             }
+L015         }
+L016         return new ArrayList<>(lst);
+L017     }
+L018     public static void main(String[] args) {
+L019     assert(f((new ArrayList<Long>(Arrays.asList((long)1l, (long)2l, (long)3l, (long)4l)))).equals((new ArrayList<Long>(Arrays.asList((long)1l, (long)2l, (long)3l, (long)4l)))));
+L020     }
+L021 
+L022 }

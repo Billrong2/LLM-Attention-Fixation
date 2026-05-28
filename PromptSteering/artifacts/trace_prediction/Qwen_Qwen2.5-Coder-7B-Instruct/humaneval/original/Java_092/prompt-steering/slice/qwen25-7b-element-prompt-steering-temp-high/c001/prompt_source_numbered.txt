@@ -1,0 +1,47 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Create a function that takes 3 numbers.
+L007     Returns true if one of the numbers is equal to the sum of the other two, and all numbers are integers.
+L008     Returns false in any other cases.
+L009 
+L010     Examples
+L011     anyInt(5, 2, 7) -> true
+L012 
+L013     anyInt(3, 2, 2) -> false
+L014 
+L015     anyInt(3, -2, 1) -> true
+L016 
+L017     anyInt(3.6, -2.2, 2) -> false
+L018      */
+L019     public boolean anyInt(Object x, Object y, Object z) {
+L020 
+L021         if (x instanceof Integer && y instanceof Integer && z instanceof Integer) {
+L022             return (int) x + (int) y == (int) z || (int) x + (int) z == (int) y || (int) y + (int) z == (int) x;
+L023         }
+L024         return false;
+L025     }
+L026 }
+L027 
+L028 public class Java_092 {
+L029     public static void main(String[] args) {
+L030         Solution s = new Solution();
+L031         List<Boolean> correct = Arrays.asList(
+L032                 s.anyInt(2, 3, 1) == true,
+L033                 s.anyInt(2.5, 2, 3) == false,
+L034                 s.anyInt(1.5, 5, 3.5) == false,
+L035                 s.anyInt(2, 6, 2) == false,
+L036                 s.anyInt(4, 2, 2) == true,
+L037                 s.anyInt(2.2, 2.2, 2.2) == false,
+L038                 s.anyInt(-4, 6, 2) == true,
+L039                 s.anyInt(2, 1, 1) == true,
+L040                 s.anyInt(3, 4, 7) == true,
+L041                 s.anyInt(3.0, 4, 7) == false
+L042         );
+L043         if (correct.contains(false)) {
+L044             throw new AssertionError();
+L045         }
+L046     }
+L047 }

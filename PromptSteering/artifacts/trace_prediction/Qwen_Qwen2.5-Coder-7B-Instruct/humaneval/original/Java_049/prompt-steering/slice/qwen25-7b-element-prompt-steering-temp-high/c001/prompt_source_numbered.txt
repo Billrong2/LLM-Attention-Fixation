@@ -1,0 +1,44 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Return 2^n modulo p (be aware of numerics).
+L007     >>> modp(3, 5)
+L008     3
+L009     >>> modp(1101, 101)
+L010     2
+L011     >>> modp(0, 101)
+L012     1
+L013     >>> modp(3, 11)
+L014     8
+L015     >>> modp(100, 101)
+L016     1
+L017      */
+L018     public int modp(int n, int p) {
+L019 
+L020         int ret = 1;
+L021         for (int i = 0; i < n; i++) {
+L022             ret = (ret * 2) % p;
+L023         }
+L024         return ret;
+L025     }
+L026 }
+L027 
+L028 public class Java_049 {
+L029     public static void main(String[] args) {
+L030         Solution s = new Solution();
+L031         List<Boolean> correct = Arrays.asList(
+L032                 s.modp(3, 5) == 3,
+L033                 s.modp(1101, 101) == 2,
+L034                 s.modp(0, 101) == 1,
+L035                 s.modp(3, 11) == 8,
+L036                 s.modp(100, 101) == 1,
+L037                 s.modp(30, 5) == 4,
+L038                 s.modp(31, 5) == 3
+L039         );
+L040         if (correct.contains(false)) {
+L041             throw new AssertionError();
+L042         }
+L043     }
+L044 }

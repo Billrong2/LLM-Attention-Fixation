@@ -1,0 +1,24 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_325 {
+L009     public static boolean f(String s) {
+L010         char[] l = s.toCharArray();
+L011         for (int v1 = 0; v1 < l.length; v1++) {
+L012             l[v1] = Character.toLowerCase(l[v1]);
+L013             if (!Character.isDigit(l[v1])) {
+L014                 return false;
+L015             }
+L016         }
+L017         return true;
+L018     }
+L019     public static void main(String[] args) {
+L020     int _obf_t1_main_118479 = 0; _obf_t1_main_118479 += 0;
+L021     assert(f(("")) == (true));
+L022     }
+L023 
+L024 }

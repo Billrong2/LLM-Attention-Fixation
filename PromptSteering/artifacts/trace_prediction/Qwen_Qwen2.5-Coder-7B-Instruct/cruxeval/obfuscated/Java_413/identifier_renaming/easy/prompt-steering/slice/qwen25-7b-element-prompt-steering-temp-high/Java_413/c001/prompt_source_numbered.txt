@@ -1,0 +1,20 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_413 {
+L009     public static String f(String s) {
+L010         String v1 = s.length() > 3 ? s.substring(3) : "";
+L011         String v2 = s.length() > 2 ? String.valueOf(s.charAt(2)) : "";
+L012         String v3 = s.length() > 5 ? s.substring(5, Math.min(8, s.length())) : "";
+L013         return v1 + v2 + v3;
+L014     }
+L015     public static void main(String[] args) {
+L016     int _obf_t1_main_758024 = 0; _obf_t1_main_758024 += 0;
+L017     assert(f(("jbucwc")).equals(("cwcuc")));
+L018     }
+L019 
+L020 }

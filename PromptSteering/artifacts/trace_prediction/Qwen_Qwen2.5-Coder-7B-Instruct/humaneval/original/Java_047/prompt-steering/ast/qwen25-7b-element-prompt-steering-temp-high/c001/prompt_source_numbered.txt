@@ -1,0 +1,37 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Return median of elements in the list l.
+L007     >>> median(Arrays.asList(3, 1, 2, 4, 5))
+L008     3
+L009     >>> median(Arrays.asList(-10, 4, 6, 1000, 10, 20))
+L010     15.0
+L011      */
+L012     public double median(List<Integer> l) {
+L013 
+L014         List<Integer> list = l;
+L015         Collections.sort(list);
+L016         if (l.size() % 2 == 1) {
+L017             return l.get(l.size() / 2);
+L018         } else {
+L019             return (l.get(l.size() / 2 - 1) + l.get(l.size() / 2)) / 2.0;
+L020         }
+L021     }
+L022 }
+L023 
+L024 public class Java_047 {
+L025     public static void main(String[] args) {
+L026         Solution s = new Solution();
+L027         List<Boolean> correct = Arrays.asList(
+L028                 s.median(new ArrayList<>(Arrays.asList(3, 1, 2, 4, 5))) == 3,
+L029                 s.median(new ArrayList<>(Arrays.asList(-10, 4, 6, 1000, 10, 20))) == 8.0,
+L030                 s.median(new ArrayList<>(Arrays.asList(5))) == 5,
+L031                 s.median(new ArrayList<>(Arrays.asList(6, 5))) == 5.5
+L032         );
+L033         if (correct.contains(false)) {
+L034             throw new AssertionError();
+L035         }
+L036     }
+L037 }

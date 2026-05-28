@@ -1,0 +1,23 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_754 {
+L009     public static ArrayList<String> f(ArrayList<String> nums) {
+L010         int width = Integer.parseInt(nums.get(0));
+L011         ArrayList<String> result = new ArrayList<>();
+L012         for (int i = 1; i < nums.size(); i++) {
+L013             String val = nums.get(i);
+L014             String formattedVal = String.format("%" + width + "s", val).replace(' ', '0');
+L015             result.add(formattedVal);
+L016         }
+L017         return result;
+L018     }
+L019     public static void main(String[] args) {
+L020     assert(f((new ArrayList<String>(Arrays.asList((String)"1", (String)"2", (String)"2", (String)"44", (String)"0", (String)"7", (String)"20257")))).equals((new ArrayList<String>(Arrays.asList((String)"2", (String)"2", (String)"44", (String)"0", (String)"7", (String)"20257")))));
+L021     }
+L022 
+L023 }

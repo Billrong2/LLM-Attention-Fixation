@@ -1,0 +1,16 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_773 {
+L009     public static long f(ArrayList<Long> nums, long n) {
+L010         return nums.remove((int)n);
+L011     }
+L012     public static void main(String[] args) {
+L013     assert(f((new ArrayList<Long>(Arrays.asList((long)-7l, (long)3l, (long)1l, (long)-1l, (long)-1l, (long)0l, (long)4l))), (6l)) == (4l));
+L014     }
+L015 
+L016 }

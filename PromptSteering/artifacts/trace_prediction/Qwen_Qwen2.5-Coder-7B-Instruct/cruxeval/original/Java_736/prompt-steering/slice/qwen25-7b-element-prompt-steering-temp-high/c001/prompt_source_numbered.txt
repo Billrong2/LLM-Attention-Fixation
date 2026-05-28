@@ -1,0 +1,27 @@
+L001 import java.io.*;
+L002 import java.lang.reflect.*;
+L003 import java.math.*;
+L004 import java.security.*;
+L005 import java.util.*;
+L006 import java.util.stream.*;
+L007 import org.javatuples.*;
+L008 import java.util.*;
+L009 
+L010 class Java_736 {
+L011     public static String f(String text, String insert) {
+L012         Set<Character> whitespaces = new HashSet<>(Arrays.asList('\t', '\r', '\u000B', ' ', '\f', '\n'));
+L013         StringBuilder clean = new StringBuilder();
+L014         for (char ch : text.toCharArray()) {
+L015             if (whitespaces.contains(ch)) {
+L016                 clean.append(insert);
+L017             } else {
+L018                 clean.append(ch);
+L019             }
+L020         }
+L021         return clean.toString();
+L022     }
+L023     public static void main(String[] args) {
+L024     assert(f(("pi wa"), ("chi")).equals(("pichiwa")));
+L025     }
+L026 
+L027 }

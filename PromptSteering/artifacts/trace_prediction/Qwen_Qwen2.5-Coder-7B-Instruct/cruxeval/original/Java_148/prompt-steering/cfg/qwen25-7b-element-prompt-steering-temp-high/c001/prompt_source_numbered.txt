@@ -1,0 +1,25 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_148 {
+L009     public static String f(String forest, String animal) {
+L010         int index = forest.indexOf(animal);
+L011         char[] result = forest.toCharArray();
+L012         while (index < forest.length()-1) {
+L013             result[index] = forest.charAt(index+1);
+L014             index++;
+L015         }
+L016         if (index == forest.length()-1) {
+L017             result[index] = '-';
+L018         }
+L019         return new String(result);
+L020     }
+L021     public static void main(String[] args) {
+L022     assert(f(("2imo 12 tfiqr."), ("m")).equals(("2io 12 tfiqr.-")));
+L023     }
+L024 
+L025 }

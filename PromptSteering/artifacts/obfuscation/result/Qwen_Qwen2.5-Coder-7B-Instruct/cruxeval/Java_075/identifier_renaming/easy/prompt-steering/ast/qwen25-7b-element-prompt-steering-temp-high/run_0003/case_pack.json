@@ -1,0 +1,37 @@
+{
+  "balance_stats": {
+    "case_total": 2,
+    "false_count": 1,
+    "true_count": 1,
+    "true_ratio": 0.5
+  },
+  "cases": [
+    {
+      "case_id": "c001",
+      "expected_bool": true,
+      "expr": "f((new ArrayList<Long>(Arrays.asList((long)-1l, (long)2l, (long)1l, (long)-8l, (long)2l))), (2l)) == (-22l)",
+      "mutation_type": "seed_true",
+      "origin": "cruxeval.assert"
+    },
+    {
+      "case_id": "c002",
+      "expected_bool": false,
+      "expr": "f((new ArrayList<Long>(Arrays.asList((long)-1l, (long)2l, (long)1l, (long)-8l, (long)2l))), (2l)) != (-22l)",
+      "mutation_type": "comparator_flip:==->!=",
+      "origin": "cruxeval.assert"
+    }
+  ],
+  "class_name": "Java_075",
+  "dataset": "cruxeval",
+  "effective_case_count": 2,
+  "generation_policy": "validated_nontrivial_only",
+  "generator_version": "cf-v2",
+  "min_cases_config": 8,
+  "profile": "counterfactual_tf",
+  "snippet": "Java_075",
+  "source_hash": "ee357e202f9a79d75ba1f53e8d366bab9af52ef06be3d4ff422d3b4d055b179b",
+  "target_cases_config": 16,
+  "warnings": [
+    "low_effective_case_count:2 (consider reviewing extraction/mutation coverage)"
+  ]
+}

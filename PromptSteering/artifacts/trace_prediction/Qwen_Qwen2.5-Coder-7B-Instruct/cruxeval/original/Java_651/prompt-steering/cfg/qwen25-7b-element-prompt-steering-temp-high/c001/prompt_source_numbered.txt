@@ -1,0 +1,26 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_651 {
+L009     public static String f(String text, String letter) {
+L010         if (Character.isLowerCase(letter.charAt(0))) {
+L011             letter = letter.toUpperCase();
+L012         }
+L013         char[] charArray = text.toCharArray();
+L014         for (int i = 0; i < text.length(); i++) {
+L015             if (Character.toLowerCase(charArray[i]) == letter.charAt(0)) {
+L016                 charArray[i] = letter.charAt(0);
+L017             }
+L018         }
+L019         String newText = new String(charArray);
+L020         return newText.substring(0, 1).toUpperCase() + newText.substring(1);
+L021     }
+L022     public static void main(String[] args) {
+L023     assert(f(("E wrestled evil until upperfeat"), ("e")).equals(("E wrestled evil until upperfeat")));
+L024     }
+L025 
+L026 }

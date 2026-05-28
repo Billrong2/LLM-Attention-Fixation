@@ -1,0 +1,49 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Implement the function f that takes n as a parameter,
+L007     and returns a list of size n, such that the value of the element at index i is the factorial of i if i is even
+L008     or the sum of numbers from 1 to i otherwise.
+L009     i starts from 1.
+L010     the factorial of i is the multiplication of the numbers from 1 to i (1 * 2 * ... * i).
+L011     Example:
+L012     f(5) == [1, 2, 6, 24, 15]
+L013      */
+L014     public List<Integer> f(int n) {
+L015 
+L016         List<Integer> ret = new ArrayList<>();
+L017         for (int i = 1; i <= n; i++) {
+L018             if (i % 2 == 0) {
+L019                 int x = 1;
+L020                 for (int j = 1; j <= i; j++) {
+L021                     x *= j;
+L022                 }
+L023                 ret.add(x);
+L024             } else {
+L025                 int x = 0;
+L026                 for (int j = 1; j <= i; j++) {
+L027                     x += j;
+L028                 }
+L029                 ret.add(x);
+L030             }
+L031         }
+L032         return ret;
+L033     }
+L034 }
+L035 
+L036 public class Java_106 {
+L037     public static void main(String[] args) {
+L038         Solution s = new Solution();
+L039         List<Boolean> correct = Arrays.asList(
+L040                 s.f(5).equals(Arrays.asList(1, 2, 6, 24, 15)),
+L041                 s.f(7).equals(Arrays.asList(1, 2, 6, 24, 15, 720, 28)),
+L042                 s.f(1).equals(List.of(1)),
+L043                 s.f(3).equals(Arrays.asList(1, 2, 6))
+L044         );
+L045         if (correct.contains(false)) {
+L046             throw new AssertionError();
+L047         }
+L048     }
+L049 }

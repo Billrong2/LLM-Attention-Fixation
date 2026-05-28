@@ -1,0 +1,36 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     For a given string, flip lowercase characters to uppercase and uppercase to lowercase.
+L007     >>> flipCase("Hello")
+L008     "hELLO"
+L009      */
+L010     public String flipCase(String string) {
+L011 
+L012         StringBuilder sb = new StringBuilder();
+L013         for (int i = 0; i < string.length(); i++) {
+L014             if (Character.isLowerCase(string.charAt(i))) {
+L015                 sb.append(Character.toUpperCase(string.charAt(i)));
+L016             } else {
+L017                 sb.append(Character.toLowerCase(string.charAt(i)));
+L018             }
+L019         }
+L020         return sb.toString();
+L021     }
+L022 }
+L023 
+L024 public class Java_027 {
+L025     public static void main(String[] args) {
+L026         Solution s = new Solution();
+L027         List<Boolean> correct = Arrays.asList(
+L028                 Objects.equals(s.flipCase(""), ""),
+L029                 Objects.equals(s.flipCase("Hello!"), "hELLO!"),
+L030                 Objects.equals(s.flipCase("These violent delights have violent ends"), "tHESE VIOLENT DELIGHTS HAVE VIOLENT ENDS")
+L031         );
+L032         if (correct.contains(false)) {
+L033             throw new AssertionError();
+L034         }
+L035     }
+L036 }

@@ -1,0 +1,27 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 
+L009 class Java_495 {
+L010     public static Pair<String, String> f(String s) {
+L011         if (s.length() >= 5 && isAscii(s.substring(s.length() - 5))) {
+L012             return new Pair<>(s.substring(s.length() - 5), s.substring(0, 3));
+L013         } else if (s.length() >= 5 && isAscii(s.substring(0, 5))) {
+L014             return new Pair<>(s.substring(0, 5), s.substring(s.length() - 2));
+L015         } else {
+L016             return new Pair<>(s, "");
+L017         }
+L018     }
+L019 
+L020     public static boolean isAscii(String s) {
+L021         return s.chars().allMatch(c -> c < 128);
+L022     }
+L023     public static void main(String[] args) {
+L024     assert(f(("a1234år")).equals((Pair.with("a1234", "år"))));
+L025     }
+L026 
+L027 }

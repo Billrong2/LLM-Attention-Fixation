@@ -1,0 +1,27 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_529 {
+L009     public static ArrayList<Long> f(ArrayList<Long> array) {
+L010         long prev = array.get(0);
+L011         ArrayList<Long> newArray = new ArrayList<>(array);
+L012         for (int i = 1; i < array.size(); i++) {
+L013             if (prev != array.get(i)) {
+L014                 newArray.set(i, array.get(i));
+L015             } else {
+L016                 newArray.remove(i);
+L017                 i--; // Adjust the index after removing an element
+L018             }
+L019             prev = array.get(i);
+L020         }
+L021         return newArray;
+L022     }
+L023     public static void main(String[] args) {
+L024     assert(f((new ArrayList<Long>(Arrays.asList((long)1l, (long)2l, (long)3l)))).equals((new ArrayList<Long>(Arrays.asList((long)1l, (long)2l, (long)3l)))));
+L025     }
+L026 
+L027 }

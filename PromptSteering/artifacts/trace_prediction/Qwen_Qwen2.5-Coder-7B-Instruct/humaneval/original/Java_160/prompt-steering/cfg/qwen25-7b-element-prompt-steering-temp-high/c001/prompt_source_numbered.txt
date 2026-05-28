@@ -1,0 +1,82 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Given two lists operator, and operand. The first list has basic algebra operations, and
+L007     the second list is a list of integers. Use the two given lists to build the algebric
+L008     expression and return the evaluation of this expression.
+L009 
+L010     The basic algebra operations:
+L011     Addition ( + )
+L012     Subtraction ( - )
+L013     Multiplication ( * )
+L014     Floor division ( / )
+L015     Exponentiation ( ** )
+L016 
+L017     Example:
+L018     operator["+", "*", "-"]
+L019     array = [2, 3, 4, 5]
+L020     result = 2 + 3 * 4 - 5
+L021     => result = 9
+L022 
+L023     Note:
+L024         The length of operator list is equal to the length of operand list minus one.
+L025         Operand is a list of of non-negative integers.
+L026         Operator list has at least one operator, and operand list has at least two operands.
+L027      */
+L028     public int doAlgebra(List<String> operator, List<Integer> operand) {
+L029 
+L030         List<String> ops = new ArrayList<>(operator);
+L031         List<Integer> nums = new ArrayList<>(operand);
+L032         for (int i = ops.size() - 1; i >= 0; i--) {
+L033             if (ops.get(i).equals("**")) {
+L034                 nums.set(i, (int) Math.round(Math.pow(nums.get(i), nums.get(i + 1))));
+L035                 nums.remove(i + 1);
+L036                 ops.remove(i);
+L037             }
+L038         }
+L039         for (int i = 0; i < ops.size(); i++) {
+L040             if (ops.get(i).equals("*")) {
+L041                 nums.set(i, nums.get(i) * nums.get(i + 1));
+L042                 nums.remove(i + 1);
+L043                 ops.remove(i);
+L044                 i--;
+L045             } else if (ops.get(i).equals("/")) {
+L046                 nums.set(i, nums.get(i) / nums.get(i + 1));
+L047                 nums.remove(i + 1);
+L048                 ops.remove(i);
+L049                 i--;
+L050             }
+L051         }
+L052         for (int i = 0; i < ops.size(); i++) {
+L053             if (ops.get(i).equals("+")) {
+L054                 nums.set(i, nums.get(i) + nums.get(i + 1));
+L055                 nums.remove(i + 1);
+L056                 ops.remove(i);
+L057                 i--;
+L058             } else if (ops.get(i).equals("-")) {
+L059                 nums.set(i, nums.get(i) - nums.get(i + 1));
+L060                 nums.remove(i + 1);
+L061                 ops.remove(i);
+L062                 i--;
+L063             }
+L064         }
+L065         return nums.get(0);
+L066     }
+L067 }
+L068 
+L069 public class Java_160 {
+L070     public static void main(String[] args) {
+L071         Solution s = new Solution();
+L072         List<Boolean> correct = Arrays.asList(
+L073                 s.doAlgebra(new ArrayList<>(Arrays.asList("**", "*", "+")), new ArrayList<>(Arrays.asList(2, 3, 4, 5))) == 37,
+L074                 s.doAlgebra(new ArrayList<>(Arrays.asList("+", "*", "-")), new ArrayList<>(Arrays.asList(2, 3, 4, 5))) == 9,
+L075                 s.doAlgebra(new ArrayList<>(Arrays.asList("/", "*")), new ArrayList<>(Arrays.asList(7, 3, 4))) == 8,
+L076                 s.doAlgebra(new ArrayList<>(Arrays.asList("+", "**", "**")), new ArrayList<>(Arrays.asList(7, 5, 3, 2))) == 1953132
+L077         );
+L078         if (correct.contains(false)) {
+L079             throw new AssertionError();
+L080         }
+L081     }
+L082 }

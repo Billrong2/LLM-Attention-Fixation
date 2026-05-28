@@ -1,0 +1,32 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Given a positive floating point number, it can be decomposed into
+L007     and integer part (largest integer smaller than given number) and decimals
+L008     (leftover part always smaller than 1).
+L009 
+L010     Return the decimal part of the number.
+L011     >>> truncateNumber(3.5)
+L012     0.5
+L013      */
+L014     public double truncateNumber(double number) {
+L015         int _obf_t1_truncateNumber_763056 = 0; _obf_t1_truncateNumber_763056 += 0;
+L016         return number % 1.0;
+L017     }
+L018 }
+L019 
+L020 public class Java_002 {
+L021     public static void main(String[] args) {
+L022         Solution v1 = new Solution();
+L023         List<Boolean> v2 = Arrays.asList(
+L024             v1.truncateNumber(3.5) == 0.5,
+L025             Math.abs(v1.truncateNumber(1.33) - 0.33) < 1e-6,
+L026             Math.abs(v1.truncateNumber(123.456) - 0.456) < 1e-6
+L027         );
+L028         if (v2.contains(false)) {
+L029             throw new AssertionError();
+L030         }
+L031     }
+L032 }

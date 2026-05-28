@@ -1,0 +1,31 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_262 {
+L009     public static String f(ArrayList<Long> nums) {
+L010         int count = nums.size();
+L011         Map<Integer, String> score = new HashMap<>();
+L012         score.put(0, "F");
+L013         score.put(1, "E");
+L014         score.put(2, "D");
+L015         score.put(3, "C");
+L016         score.put(4, "B");
+L017         score.put(5, "A");
+L018         score.put(6, "");
+L019         
+L020         List<String> result = new ArrayList<>();
+L021         for (int i = 0; i < count; i++) {
+L022             result.add(score.get(nums.get(i).intValue()));
+L023         }
+L024         
+L025         return String.join("", result);
+L026     }
+L027     public static void main(String[] args) {
+L028     assert(f((new ArrayList<Long>(Arrays.asList((long)4l, (long)5l)))).equals(("BA")));
+L029     }
+L030 
+L031 }

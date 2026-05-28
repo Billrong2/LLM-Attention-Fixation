@@ -1,0 +1,30 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_468 {
+L009     public static String f(String a, String b, long n) {
+L010         String v1 = b;
+L011         String v2 = b;
+L012         for (int v3 = 0; v3 < n; v3++) {
+L013             if (v2 != null) {
+L014                 String[] v4 = a.split(v2, 2);
+L015                 if (v4.length == 2) {
+L016                     a = v4[0] + v4[1];  
+L017                     v2 = null;
+L018                 }
+L019                 v1 = v2;
+L020             }
+L021         }
+L022         String[] v5 = a.split(b);
+L023         return String.join(v1, v5);
+L024     }
+L025     public static void main(String[] args) {
+L026     int _obf_t1_main_73790 = 0; _obf_t1_main_73790 += 0;
+L027     assert(f(("unrndqafi"), ("c"), (2l)).equals(("unrndqafi")));
+L028     }
+L029 
+L030 }

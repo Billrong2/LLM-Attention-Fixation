@@ -1,0 +1,47 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Return the largest prime factor of n. Assume n > 1 and is not a prime.
+L007     >>> largestPrimeFactor(13195)
+L008     29
+L009     >>> largestPrimeFactor(2048)
+L010     2
+L011      */
+L012     public int largestPrimeFactor(int n) {
+L013 
+L014         int v1 = 1;
+L015         for (int v2 = 2; v2 <= n; v2++) {
+L016             if (n % v2 == 0) {
+L017                 boolean v3 = v2 >= 2;
+L018                 for (int v4 = 2; v4 < v2 - 1; v4++) {
+L019                     if (v2 % v4 == 0) {
+L020                         v3 = false;
+L021                         break;
+L022                     }
+L023                 }
+L024                 if (v3) {
+L025                     v1 = Math.max(v1, v2);
+L026                 }
+L027             }
+L028         }
+L029         return v1;
+L030     }
+L031 }
+L032 
+L033 public class Java_059 {
+L034     public static void main(String[] args) {
+L035         Solution v1 = new Solution();
+L036         List<Boolean> v2 = Arrays.asList(
+L037                 v1.largestPrimeFactor(15) == 5,
+L038                 v1.largestPrimeFactor(27) == 3,
+L039                 v1.largestPrimeFactor(63) == 7,
+L040                 v1.largestPrimeFactor(330) == 11,
+L041                 v1.largestPrimeFactor(13195) == 29
+L042         );
+L043         if (v2.contains(false)) {
+L044             throw new AssertionError();
+L045         }
+L046     }
+L047 }

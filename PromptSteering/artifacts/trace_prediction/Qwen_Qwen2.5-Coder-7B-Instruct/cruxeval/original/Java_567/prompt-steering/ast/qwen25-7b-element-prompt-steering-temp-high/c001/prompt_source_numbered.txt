@@ -1,0 +1,25 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_567 {
+L009     public static ArrayList<String> f(String s, long n) {
+L010         ArrayList<String> ls = new ArrayList<>(Arrays.asList(s.split(" ")));
+L011         List<String> out = new ArrayList<>();
+L012         while (ls.size() >= n) {
+L013             for(int i=0; i<n; i++){
+L014                 out.add(ls.remove(ls.size()-1));
+L015             }
+L016         }
+L017         Collections.reverse(out);
+L018         ls.add(String.join("_", out));
+L019         return ls;
+L020     }
+L021     public static void main(String[] args) {
+L022     assert(f(("one two three four five"), (3l)).equals((new ArrayList<String>(Arrays.asList((String)"one", (String)"two", (String)"three_four_five")))));
+L023     }
+L024 
+L025 }

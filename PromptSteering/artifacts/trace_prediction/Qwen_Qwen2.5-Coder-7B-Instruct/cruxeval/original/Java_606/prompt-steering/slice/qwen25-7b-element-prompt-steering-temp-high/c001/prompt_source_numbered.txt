@@ -1,0 +1,28 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_606 {
+L009     public static String f(String value) {
+L010         List<Character> ls = new ArrayList<Character>();
+L011         for (char c : value.toCharArray()) {
+L012             ls.add(c);
+L013         }
+L014         ls.add('N');
+L015         ls.add('H');
+L016         ls.add('I');
+L017         ls.add('B');
+L018         StringBuilder sb = new StringBuilder();
+L019         for (Character c : ls) {
+L020             sb.append(c);
+L021         }
+L022         return sb.toString();
+L023     }
+L024     public static void main(String[] args) {
+L025     assert(f(("ruam")).equals(("ruamNHIB")));
+L026     }
+L027 
+L028 }

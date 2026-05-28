@@ -1,0 +1,29 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_506 {
+L009     public static String f(long n) {
+L010         String p = "";
+L011         if (n % 2 == 1) {
+L012             p += "sn";
+L013         } else {
+L014             return String.valueOf(n * n);
+L015         }
+L016         for (int x = 1; x <= n; x++) {
+L017             if (x % 2 == 0) {
+L018                 p += "to";
+L019             } else {
+L020                 p += "ts";
+L021             }
+L022         }
+L023         return p;
+L024     }
+L025     public static void main(String[] args) {
+L026     assert(f((1l)).equals(("snts")));
+L027     }
+L028 
+L029 }

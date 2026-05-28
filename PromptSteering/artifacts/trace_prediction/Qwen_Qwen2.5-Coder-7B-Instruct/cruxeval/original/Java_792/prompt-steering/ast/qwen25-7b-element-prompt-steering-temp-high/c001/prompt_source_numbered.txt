@@ -1,0 +1,23 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_792 {
+L009     public static HashMap<String,ArrayList<String>> f(ArrayList<String> l1, ArrayList<String> l2) {
+L010         if (l1.size() != l2.size()) {
+L011             return new HashMap<>();
+L012         }
+L013         HashMap<String, ArrayList<String>> map = new HashMap<>();
+L014         for (String key : l1) {
+L015             map.put(key, new ArrayList<>(l2));
+L016         }
+L017         return map;
+L018     }
+L019     public static void main(String[] args) {
+L020     assert(f((new ArrayList<String>(Arrays.asList((String)"a", (String)"b"))), (new ArrayList<String>(Arrays.asList((String)"car", (String)"dog")))).equals((new HashMap<String,ArrayList<String>>(Map.of("a", new ArrayList<String>(Arrays.asList((String)"car", (String)"dog")), "b", new ArrayList<String>(Arrays.asList((String)"car", (String)"dog")))))));
+L021     }
+L022 
+L023 }

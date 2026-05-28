@@ -1,0 +1,53 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Check if in given list of numbers, are any two numbers closer to each other than given threshold.
+L007     >>> hasCloseElements(Arrays.asList(1.0, 2.0, 3.0), 0.5)
+L008     false
+L009     >>> hasCloseElements(Arrays.asList(1.0, 2.8, 3.0, 4.0, 5.0, 2.0), 0.3)
+L010     true
+L011      */
+L012     public boolean hasCloseElements(List<Double> numbers, double threshold) {
+L013         do {
+L014             {
+L015                 int _obf_t6_easy_473134 = 0;
+L016                 _obf_t6_easy_473134 += 0;
+L017                     for (int i = 0; i < numbers.size(); i++) {
+L018                     for (int j = i + 1; j < numbers.size(); j++) {
+L019                     double distance = Math.abs(numbers.get(i) - numbers.get(j));
+L020                     if (distance < threshold) return true;
+L021                     }
+L022                     }
+L023                     return false;
+L024                     
+L025             }
+L026         } while (false);
+L027 }
+L028 }
+L029 
+L030 public class Java_000 {
+L031     public static void main(String[] args) {
+L032         do {
+L033             {
+L034                 int _obf_t6_easy_729219 = 0;
+L035                 _obf_t6_easy_729219 += 0;
+L036                     Solution s = new Solution();
+L037                     List<Boolean> correct = Arrays.asList(
+L038                     s.hasCloseElements(new ArrayList<>(Arrays.asList(11.0, 2.0, 3.9, 4.0, 5.0, 2.2)), 0.3),
+L039                     !s.hasCloseElements(new ArrayList<>(Arrays.asList(1.0, 2.0, 3.9, 4.0, 5.0, 2.2)), 0.05),
+L040                     s.hasCloseElements(new ArrayList<>(Arrays.asList(1.0, 2.0, 5.9, 4.0, 5.0)), 0.95),
+L041                     !s.hasCloseElements(new ArrayList<>(Arrays.asList(1.0, 2.0, 5.9, 4.0, 5.0)), 0.8),
+L042                     s.hasCloseElements(new ArrayList<>(Arrays.asList(1.0, 2.0, 3.0, 4.0, 5.0, 2.0)), 0.1),
+L043                     s.hasCloseElements(new ArrayList<>(Arrays.asList(1.1, 2.2, 3.1, 4.1, 5.1)), 1.0),
+L044                     !s.hasCloseElements(new ArrayList<>(Arrays.asList(1.1, 2.2, 3.1, 4.1, 5.1)), 0.5)
+L045                     );
+L046                     if (correct.contains(false)) {
+L047                     throw new AssertionError();
+L048                     }
+L049                     
+L050             }
+L051         } while (false);
+L052 }
+L053 }

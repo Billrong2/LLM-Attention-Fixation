@@ -1,0 +1,24 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_231 {
+L009     public static long f(ArrayList<Long> years) {
+L010         long a10 = years.stream().filter(x -> x <= 1900).count();
+L011         long a90 = years.stream().filter(x -> x > 1910).count();
+L012         if (a10 > 3) {
+L013             return 3;
+L014         } else if (a90 > 3) {
+L015             return 1;
+L016         } else {
+L017             return 2;
+L018         }
+L019     }
+L020     public static void main(String[] args) {
+L021     assert(f((new ArrayList<Long>(Arrays.asList((long)1872l, (long)1995l, (long)1945l)))) == (2l));
+L022     }
+L023 
+L024 }

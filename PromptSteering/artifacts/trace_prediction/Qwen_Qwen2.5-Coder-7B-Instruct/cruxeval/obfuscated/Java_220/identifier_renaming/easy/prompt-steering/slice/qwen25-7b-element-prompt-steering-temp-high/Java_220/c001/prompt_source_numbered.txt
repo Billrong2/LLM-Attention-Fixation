@@ -1,0 +1,22 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_220 {
+L009     public static String f(String text, long m, long n) {
+L010         text = text + text.substring(0, (int)m) + text.substring((int)n);
+L011         String v1 = "";
+L012         for (int v2 = (int)n; v2 < text.length() - m; v2++) {
+L013             v1 = text.charAt(v2) + v1;
+L014         }
+L015         return v1;
+L016     }
+L017     public static void main(String[] args) {
+L018     int _obf_t1_main_104898 = 0; _obf_t1_main_104898 += 0;
+L019     assert(f(("abcdefgabc"), (1l), (2l)).equals(("bagfedcacbagfedc")));
+L020     }
+L021 
+L022 }

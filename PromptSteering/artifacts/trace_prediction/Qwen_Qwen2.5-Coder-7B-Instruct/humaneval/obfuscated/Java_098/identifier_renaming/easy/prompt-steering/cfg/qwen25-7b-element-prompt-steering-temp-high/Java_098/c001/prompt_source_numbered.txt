@@ -1,0 +1,41 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Given a string s, count the number of uppercase vowels in even indices.
+L007     
+L008     For example:
+L009     countUpper("aBCdEf") returns 1
+L010     countUpper("abcdefg") returns 0
+L011     countUpper("dBBE") returns 0
+L012      */    
+L013     public int countUpper(String s) {
+L014 
+L015         int v1 = 0;
+L016         for (int v2 = 0; v2 < s.length(); v2 += 2) {
+L017             if ("AEIOU".indexOf(s.charAt(v2)) != -1) {
+L018                 v1 += 1;
+L019             }
+L020         }
+L021         return v1;
+L022     }
+L023 }
+L024 
+L025 public class Java_098 {
+L026     public static void main(String[] args) {
+L027         Solution v1 = new Solution();
+L028         List<Boolean> v2 = Arrays.asList(
+L029                 v1.countUpper("aBCdEf")  == 1,
+L030                 v1.countUpper("abcdefg") == 0,
+L031                 v1.countUpper("dBBE") == 0,
+L032                 v1.countUpper("B")  == 0,
+L033                 v1.countUpper("U")  == 1,
+L034                 v1.countUpper("") == 0,
+L035                 v1.countUpper("EEEE") == 2
+L036         );
+L037         if (v2.contains(false)) {
+L038             throw new AssertionError();
+L039         }
+L040     }
+L041 }

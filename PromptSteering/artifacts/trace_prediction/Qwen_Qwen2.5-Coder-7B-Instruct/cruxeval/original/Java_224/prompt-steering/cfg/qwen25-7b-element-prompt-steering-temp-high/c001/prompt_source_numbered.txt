@@ -1,0 +1,28 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_224 {
+L009     public static HashMap<String,Long> f(ArrayList<String> array, long value) {
+L010         Collections.reverse(array);
+L011         array.remove(array.size() - 1);
+L012         List<HashMap<String, Long>> odd = new ArrayList<>();
+L013         while (!array.isEmpty()) {
+L014             HashMap<String, Long> tmp = new HashMap<>();
+L015             tmp.put(array.remove(array.size() - 1), value);
+L016             odd.add(tmp);
+L017         }
+L018         HashMap<String, Long> result = new HashMap<>();
+L019         while (!odd.isEmpty()) {
+L020             result.putAll(odd.remove(odd.size() - 1));
+L021         }
+L022         return result;
+L023     }
+L024     public static void main(String[] args) {
+L025     assert(f((new ArrayList<String>(Arrays.asList((String)"23"))), (123l)).equals((new HashMap<String,Long>())));
+L026     }
+L027 
+L028 }

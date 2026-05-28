@@ -1,0 +1,17 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_615 {
+L009     public static long f(ArrayList<Long> in_list, long num) {
+L010         in_list.add(num);
+L011         return in_list.indexOf(Collections.max(in_list.subList(0, in_list.size() - 1)));
+L012     }
+L013     public static void main(String[] args) {
+L014     assert(f((new ArrayList<Long>(Arrays.asList((long)-1l, (long)12l, (long)-6l, (long)-2l))), (-1l)) == (1l));
+L015     }
+L016 
+L017 }

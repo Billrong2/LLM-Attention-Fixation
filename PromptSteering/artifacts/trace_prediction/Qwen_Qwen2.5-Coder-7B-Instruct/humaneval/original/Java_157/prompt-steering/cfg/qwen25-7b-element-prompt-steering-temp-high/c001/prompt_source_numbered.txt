@@ -1,0 +1,40 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Given the lengths of the three sides of a triangle. Return true if the three
+L007     sides form a right-angled triangle, false otherwise.
+L008     A right-angled triangle is a triangle in which one angle is right angle or
+L009     90 degree.
+L010     Example:
+L011     rightAngleTriangle(3, 4, 5) == true
+L012     rightAngleTriangle(1, 2, 3) == false
+L013      */
+L014     public boolean rightAngleTriangle(int a, int b, int c) {
+L015 
+L016         return a * a == b * b + c * c || b * b == a * a + c * c || c * c == a * a + b * b;
+L017     }
+L018 }
+L019 
+L020 public class Java_157 {
+L021     public static void main(String[] args) {
+L022         Solution s = new Solution();
+L023         List<Boolean> correct = Arrays.asList(
+L024                 s.rightAngleTriangle(3, 4, 5) == true,
+L025                 s.rightAngleTriangle(1, 2, 3) == false,
+L026                 s.rightAngleTriangle(10, 6, 8) == true,
+L027                 s.rightAngleTriangle(2, 2, 2) == false,
+L028                 s.rightAngleTriangle(7, 24, 25) == true,
+L029                 s.rightAngleTriangle(10, 5, 7) == false,
+L030                 s.rightAngleTriangle(5, 12, 13) == true,
+L031                 s.rightAngleTriangle(15, 8, 17) == true,
+L032                 s.rightAngleTriangle(48, 55, 73) == true,
+L033                 s.rightAngleTriangle(1, 1, 1) == false,
+L034                 s.rightAngleTriangle(2, 2, 10) == false
+L035         );
+L036         if (correct.contains(false)) {
+L037             throw new AssertionError();
+L038         }
+L039     }
+L040 }

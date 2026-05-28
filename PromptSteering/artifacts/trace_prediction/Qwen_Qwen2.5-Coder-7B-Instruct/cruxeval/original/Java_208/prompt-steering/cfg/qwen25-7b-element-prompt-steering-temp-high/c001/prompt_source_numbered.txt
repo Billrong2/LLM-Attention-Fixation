@@ -1,0 +1,24 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_208 {
+L009     public static ArrayList<String> f(ArrayList<String> items) {
+L010         ArrayList<String> result = new ArrayList<>();
+L011         for (String item : items) {
+L012             for (char d : item.toCharArray()) {
+L013                 if (!Character.isDigit(d)) {
+L014                     result.add(String.valueOf(d));
+L015                 }
+L016             }
+L017         }
+L018         return result;
+L019     }
+L020     public static void main(String[] args) {
+L021     assert(f((new ArrayList<String>(Arrays.asList((String)"123", (String)"cat", (String)"d dee")))).equals((new ArrayList<String>(Arrays.asList((String)"c", (String)"a", (String)"t", (String)"d", (String)" ", (String)"d", (String)"e", (String)"e")))));
+L022     }
+L023 
+L024 }

@@ -1,0 +1,21 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_450 {
+L009     public static String f(String strs) {
+L010         String[] v1 = strs.split(" ");
+L011         for (int v2 = 1; v2 < v1.length; v2 += 2) {
+L012             v1[v2] = new StringBuilder(v1[v2]).reverse().toString();
+L013         }
+L014         return String.join(" ", v1);
+L015     }
+L016     public static void main(String[] args) {
+L017     int _obf_t1_main_190855 = 0; _obf_t1_main_190855 += 0;
+L018     assert(f(("K zBK")).equals(("K KBz")));
+L019     }
+L020 
+L021 }

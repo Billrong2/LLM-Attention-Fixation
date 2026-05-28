@@ -1,0 +1,27 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_223 {
+L009     public static long f(ArrayList<Long> array, long target) {
+L010         long count = 0;
+L011         long i = 1;
+L012         for (int j = 1; j < array.size(); j++) {
+L013             if (array.get(j) > array.get(j - 1) && array.get(j) <= target) {
+L014                 count += i;
+L015             } else if (array.get(j) <= array.get(j - 1)) {
+L016                 i = 1;
+L017             } else {
+L018                 i++;
+L019             }
+L020         }
+L021         return count;
+L022     }
+L023     public static void main(String[] args) {
+L024     assert(f((new ArrayList<Long>(Arrays.asList((long)1l, (long)2l, (long)-1l, (long)4l))), (2l)) == (1l));
+L025     }
+L026 
+L027 }

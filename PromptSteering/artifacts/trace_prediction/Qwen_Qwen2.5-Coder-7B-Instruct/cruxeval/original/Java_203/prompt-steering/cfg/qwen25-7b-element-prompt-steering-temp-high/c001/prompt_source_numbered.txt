@@ -1,0 +1,17 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_203 {
+L009     public static HashMap<String,String> f(HashMap<String,String> d) {
+L010         d.clear();
+L011         return d;
+L012     }
+L013     public static void main(String[] args) {
+L014     assert(f((new HashMap<String,String>(Map.of("a", "3", "b", "-1", "c", "Dum")))).equals((new HashMap<String,String>())));
+L015     }
+L016 
+L017 }

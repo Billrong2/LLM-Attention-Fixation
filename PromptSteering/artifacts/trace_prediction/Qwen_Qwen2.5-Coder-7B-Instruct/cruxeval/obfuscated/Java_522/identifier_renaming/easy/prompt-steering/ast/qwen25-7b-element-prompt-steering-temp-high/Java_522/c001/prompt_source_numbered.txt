@@ -1,0 +1,21 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_522 {
+L009     public static ArrayList<Float> f(ArrayList<Long> numbers) {
+L010         ArrayList<Float> v1 = new ArrayList<>();
+L011         for (Long n : numbers) {
+L012             v1.add(n % 1.0f);
+L013         }
+L014         return v1.contains(1.0f) ? v1 : new ArrayList<>();
+L015     }
+L016     public static void main(String[] args) {
+L017     int _obf_t1_main_839167 = 0; _obf_t1_main_839167 += 0;
+L018     assert(f((new ArrayList<Long>(Arrays.asList((long)100l, (long)101l, (long)102l, (long)103l, (long)104l, (long)105l, (long)106l, (long)107l, (long)108l, (long)109l, (long)110l, (long)111l, (long)112l, (long)113l, (long)114l, (long)115l, (long)116l, (long)117l, (long)118l, (long)119l)))).equals((new ArrayList<Float>(Arrays.asList()))));
+L019     }
+L020 
+L021 }

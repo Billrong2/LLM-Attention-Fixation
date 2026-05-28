@@ -1,0 +1,29 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_585 {
+L009     public static String f(String text) {
+L010         int count = 0;
+L011         char firstChar = text.charAt(0);
+L012         for (int i = 0; i < text.length(); i++) {
+L013             if (text.charAt(i) == firstChar) {
+L014                 count++;
+L015             } else {
+L016                 break;
+L017             }
+L018         }
+L019         char[] chars = text.toCharArray();
+L020         for (int i = 0; i < count; i++) {
+L021             chars[i] = ' ';
+L022         }
+L023         return new String(chars).trim();
+L024     }
+L025     public static void main(String[] args) {
+L026     assert(f((";,,,?")).equals((",,,?")));
+L027     }
+L028 
+L029 }

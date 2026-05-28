@@ -1,0 +1,32 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.Stream;
+L008 
+L009 class Java_098 {
+L010     public static long f(String s) {
+L011         String[] words = s.split(" ");
+L012         return Arrays.stream(words)
+L013                 .map(word -> isTitleCase(word))
+L014                 .filter(x -> x)
+L015                 .count();
+L016     }
+L017 
+L018     private static boolean isTitleCase(String word) {
+L019         if (word.length() == 0) {
+L020             return false;
+L021         }
+L022 
+L023         boolean restLowerCase = word.substring(1).equals(word.substring(1).toLowerCase());
+L024         boolean firstUpperCase = Character.isUpperCase(word.charAt(0));
+L025 
+L026         return firstUpperCase && restLowerCase;
+L027     }
+L028     public static void main(String[] args) {
+L029     assert(f(("SOME OF THIS Is uknowN!")) == (1l));
+L030     }
+L031 
+L032 }

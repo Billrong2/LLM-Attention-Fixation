@@ -1,0 +1,21 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 
+L009 class Java_135 {
+L010     public static ArrayList<String> f() {
+L011         LinkedHashMap<String, List<Pair<String, String>>> v1 = new LinkedHashMap<>();
+L012         v1.put("Russia", Arrays.asList(new Pair<>("Moscow", "Russia"), new Pair<>("Vladivostok", "Russia")));
+L013         v1.put("Kazakhstan", Arrays.asList(new Pair<>("Astana", "Kazakhstan")));
+L014         return new ArrayList<>(v1.keySet());
+L015     }
+L016     public static void main(String[] args) {
+L017     int _obf_t1_main_475386 = 0; _obf_t1_main_475386 += 0;
+L018     assert(f().equals((new ArrayList<String>(Arrays.asList((String)"Russia", (String)"Kazakhstan")))));
+L019     }
+L020 
+L021 }

@@ -1,0 +1,21 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_372 {
+L009     public static ArrayList<String> f(ArrayList<String> list_, long num) {
+L010         ArrayList<String> temp = new ArrayList<>();
+L011         for (String i : list_) {
+L012             i = String.join("", Collections.nCopies((int)(num / 2), i + ","));
+L013             temp.add(i);
+L014         }
+L015         return temp;
+L016     }
+L017     public static void main(String[] args) {
+L018     assert(f((new ArrayList<String>(Arrays.asList((String)"v"))), (1l)).equals((new ArrayList<String>(Arrays.asList((String)"")))));
+L019     }
+L020 
+L021 }

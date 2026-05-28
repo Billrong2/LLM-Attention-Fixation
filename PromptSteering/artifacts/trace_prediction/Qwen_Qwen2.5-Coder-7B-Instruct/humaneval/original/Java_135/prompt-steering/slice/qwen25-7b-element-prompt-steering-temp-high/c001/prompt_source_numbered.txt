@@ -1,0 +1,42 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Create a function which returns the largest index of an element which
+L007     is not greater than or equal to the element immediately preceding it. If
+L008     no such element exists then return -1. The given array will not contain
+L009     duplicate values.
+L010 
+L011     Examples:
+L012     canArrange(Arrays.asList(1,2,4,3,5)) = 3
+L013     canArrange(Arrays.asList(1,2,3)) = -1
+L014      */
+L015     public int canArrange(List<Integer> arr) {
+L016 
+L017         int ind = -1, i = 1;
+L018         while (i < arr.size()) {
+L019             if (arr.get(i) < arr.get(i - 1)) {
+L020                 ind = i;
+L021             }
+L022             i += 1;
+L023         }
+L024         return ind;
+L025     }
+L026 }
+L027 
+L028 public class Java_135 {
+L029     public static void main(String[] args) {
+L030         Solution s = new Solution();
+L031         List<Boolean> correct = Arrays.asList(
+L032                 s.canArrange(Arrays.asList(1, 2, 4, 3, 5)) == 3,
+L033                 s.canArrange(Arrays.asList(1, 2, 4, 5)) == -1,
+L034                 s.canArrange(Arrays.asList(1, 4, 2, 5, 6, 7, 8, 9, 10)) == 2,
+L035                 s.canArrange(Arrays.asList(4, 8, 5, 7, 3)) == 4,
+L036                 s.canArrange(List.of()) == -1
+L037         );
+L038         if (correct.contains(false)) {
+L039             throw new AssertionError();
+L040         }
+L041     }
+L042 }

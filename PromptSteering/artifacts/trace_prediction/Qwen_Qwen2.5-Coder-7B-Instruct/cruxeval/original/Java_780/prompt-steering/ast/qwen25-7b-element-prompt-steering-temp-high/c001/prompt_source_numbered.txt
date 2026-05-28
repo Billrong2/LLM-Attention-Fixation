@@ -1,0 +1,31 @@
+L001 import java.io.*;
+L002 import java.lang.reflect.*;
+L003 import java.math.*;
+L004 import java.security.*;
+L005 import java.util.*;
+L006 import java.util.stream.*;
+L007 import org.javatuples.*;
+L008 import java.util.*;
+L009 
+L010 class Java_780 {
+L011     public static String f(ArrayList<Long> ints) {
+L012         int[] counts = new int[301];
+L013 
+L014         for (long i : ints) {
+L015             counts[(int)i] += 1;
+L016         }
+L017 
+L018         ArrayList<String> r = new ArrayList<>();
+L019         for (int i = 0; i < counts.length; i++) {
+L020             if (counts[i] >= 3) {
+L021                 r.add(String.valueOf(i));
+L022             }
+L023         }
+L024         Arrays.fill(counts, 0);
+L025         return String.join(" ", r);
+L026     }
+L027     public static void main(String[] args) {
+L028     assert(f((new ArrayList<Long>(Arrays.asList((long)2l, (long)3l, (long)5l, (long)2l, (long)4l, (long)5l, (long)2l, (long)89l)))).equals(("2")));
+L029     }
+L030 
+L031 }

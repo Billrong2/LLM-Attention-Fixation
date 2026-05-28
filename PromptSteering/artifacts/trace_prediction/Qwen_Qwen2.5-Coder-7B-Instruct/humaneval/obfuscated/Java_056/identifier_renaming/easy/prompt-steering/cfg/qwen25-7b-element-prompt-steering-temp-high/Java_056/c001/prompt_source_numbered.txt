@@ -1,0 +1,56 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     brackets is a string of "<" and ">".
+L007     return True if every opening bracket has a corresponding closing bracket.
+L008     
+L009     >>> correctBracketing("<")
+L010     false
+L011     >>> correctBracketing("<>")
+L012     true
+L013     >>> correctBracketing("<<><>>")
+L014     true
+L015     >>> correctBracketing("><<>")
+L016     false
+L017      */
+L018     public boolean correctBracketing(String brackets) {
+L019 
+L020         int v1 = 0;
+L021         for (char b : brackets.toCharArray()) {
+L022             if (b == '<') {
+L023                 v1 += 1;
+L024             } else {
+L025                 v1 -= 1;
+L026             }
+L027             if (v1 < 0) {
+L028                 return false;
+L029             }
+L030         }
+L031         return v1 == 0;
+L032     }
+L033 }
+L034 
+L035 public class Java_056 {
+L036     public static void main(String[] args) {
+L037         Solution v1 = new Solution();
+L038         List<Boolean> v2 = Arrays.asList(
+L039                 v1.correctBracketing("<>"),
+L040                 v1.correctBracketing("<<><>>"),
+L041                 v1.correctBracketing("<><><<><>><>"),
+L042                 v1.correctBracketing("<><><<<><><>><>><<><><<>>>"),
+L043                 !v1.correctBracketing("<<<><>>>>"),
+L044                 !v1.correctBracketing("><<>"),
+L045                 !v1.correctBracketing("<"),
+L046                 !v1.correctBracketing("<<<<"),
+L047                 !v1.correctBracketing(">"),
+L048                 !v1.correctBracketing("<<>"),
+L049                 !v1.correctBracketing("<><><<><>><>><<>"),
+L050                 !v1.correctBracketing("<><><<><>><>>><>")
+L051         );
+L052         if (v2.contains(false)) {
+L053             throw new AssertionError();
+L054         }
+L055     }
+L056 }

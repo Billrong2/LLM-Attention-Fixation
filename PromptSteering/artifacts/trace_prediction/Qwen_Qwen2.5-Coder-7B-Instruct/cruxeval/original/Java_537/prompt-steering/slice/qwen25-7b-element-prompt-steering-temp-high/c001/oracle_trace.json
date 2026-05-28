@@ -1,0 +1,193 @@
+{
+  "branches_seen": [
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "line": 16
+    }
+  ],
+  "called_methods": [
+    "main",
+    "f"
+  ],
+  "case_expression": "f((\"abv\"), (\"a\")).equals((\"[4]\"))",
+  "case_id": "c001",
+  "case_origin": "cruxeval.assert",
+  "case_pack_source_hash": "f1ba3fba62a3db9e16337bb88d4c0a8089a536ebaf5035f80f7c2562049490e4",
+  "case_result_matches_expected": true,
+  "case_result_observed": true,
+  "class_name": "Java_537",
+  "dataset": "cruxeval",
+  "event_count": 18,
+  "events": [
+    {
+      "event_idx": 0,
+      "event_type": "method_enter",
+      "line": 26,
+      "method_name": "main",
+      "prompt_line": 26
+    },
+    {
+      "event_idx": 1,
+      "event_type": "method_enter",
+      "line": 11,
+      "method_name": "f",
+      "prompt_line": 11
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 2,
+      "event_type": "branch_eval",
+      "line": 16,
+      "method_name": "f",
+      "outcome": true,
+      "prompt_line": 16
+    },
+    {
+      "event_idx": 3,
+      "event_type": "line_exec",
+      "line": 17,
+      "method_name": "f",
+      "prompt_line": 17
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 4,
+      "event_type": "branch_eval",
+      "line": 16,
+      "method_name": "f",
+      "outcome": true,
+      "prompt_line": 16
+    },
+    {
+      "event_idx": 5,
+      "event_type": "line_exec",
+      "line": 17,
+      "method_name": "f",
+      "prompt_line": 17
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 6,
+      "event_type": "branch_eval",
+      "line": 16,
+      "method_name": "f",
+      "outcome": true,
+      "prompt_line": 16
+    },
+    {
+      "event_idx": 7,
+      "event_type": "line_exec",
+      "line": 17,
+      "method_name": "f",
+      "prompt_line": 17
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 8,
+      "event_type": "branch_eval",
+      "line": 16,
+      "method_name": "f",
+      "outcome": false,
+      "prompt_line": 16
+    },
+    {
+      "event_idx": 9,
+      "event_type": "line_exec",
+      "line": 19,
+      "method_name": "f",
+      "prompt_line": 19
+    },
+    {
+      "event_idx": 10,
+      "event_type": "line_exec",
+      "line": 20,
+      "method_name": "f",
+      "prompt_line": 20
+    },
+    {
+      "event_idx": 11,
+      "event_type": "return",
+      "line": 24,
+      "method_name": "f",
+      "prompt_line": 24,
+      "value_repr": "[4]"
+    },
+    {
+      "event_idx": 12,
+      "event_type": "method_exit",
+      "line": 24,
+      "method_name": "f",
+      "prompt_line": 24
+    },
+    {
+      "event_idx": 13,
+      "event_type": "line_exec",
+      "line": 29,
+      "method_name": "main",
+      "prompt_line": 29
+    },
+    {
+      "case_id": "c001",
+      "event_idx": 14,
+      "event_type": "case_result",
+      "line": -1,
+      "method_name": "main",
+      "outcome": true
+    },
+    {
+      "event_idx": 15,
+      "event_type": "line_exec",
+      "line": 31,
+      "method_name": "main",
+      "prompt_line": 31
+    },
+    {
+      "event_idx": 16,
+      "event_type": "method_exit",
+      "line": -1,
+      "method_name": "main"
+    },
+    {
+      "event_idx": 17,
+      "event_type": "line_exec",
+      "line": 32,
+      "method_name": "main",
+      "prompt_line": 32
+    }
+  ],
+  "exec_result": {
+    "assertion_failed": false,
+    "compile_error": "",
+    "compiled": true,
+    "ran": true,
+    "returncode": 0,
+    "runtime_error": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":26},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"f\",\"line\":11},{\"event_idx\":2,\"event_type\":\"branch_eval\",\"method_name\":\"f\",\"line\":16,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":3,\"event_type\":\"line_exec\",\"method_name\":\"f\",\"line\":17},{\"event_idx\":4,\"event_type\":\"branch_eval\",\"method_name\":\"f\",\"line\":16,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":5,\"event_type\":\"line_exec\",\"method_name\":\"f\",\"line\":17},{\"event_idx\":6,\"event_type\":\"branch_eval\",\"method_name\":\"f\",\"line\":16,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":7,\"event_type\":\"line_exec\",\"method_name\":\"f\",\"line\":17},{\"event_idx\":8,\"event_type\":\"branch_eval\",\"method_name\":\"f\",\"line\":16,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":false},{\"event_idx\":9,\"event_type\":\"line_exec\",\"method_name\":\"f\",\"line\":19},{\"event_idx\":10,\"event_type\":\"line_exec\",\"method_name\":\"f\",\"line\":20},{\"event_idx\":11,\"event_type\":\"return\",\"method_name\":\"f\",\"line\":24,\"value_repr\":\"[4]\"},{\"event_idx\":12,\"event_type\":\"method_exit\",\"method_name\":\"f\",\"line\":24},{\"event_idx\":13,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":29},{\"event_idx\":14,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":15,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":31},{\"event_idx\":16,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":17,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":32}]}\nTRACE_JSON_END",
+    "stderr": "",
+    "stdout": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":26},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"f\",\"line\":11},{\"event_idx\":2,\"event_type\":\"branch_eval\",\"method_name\":\"f\",\"line\":16,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":3,\"event_type\":\"line_exec\",\"method_name\":\"f\",\"line\":17},{\"event_idx\":4,\"event_type\":\"branch_eval\",\"method_name\":\"f\",\"line\":16,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":5,\"event_type\":\"line_exec\",\"method_name\":\"f\",\"line\":17},{\"event_idx\":6,\"event_type\":\"branch_eval\",\"method_name\":\"f\",\"line\":16,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":7,\"event_type\":\"line_exec\",\"method_name\":\"f\",\"line\":17},{\"event_idx\":8,\"event_type\":\"branch_eval\",\"method_name\":\"f\",\"line\":16,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":false},{\"event_idx\":9,\"event_type\":\"line_exec\",\"method_name\":\"f\",\"line\":19},{\"event_idx\":10,\"event_type\":\"line_exec\",\"method_name\":\"f\",\"line\":20},{\"event_idx\":11,\"event_type\":\"return\",\"method_name\":\"f\",\"line\":24,\"value_repr\":\"[4]\"},{\"event_idx\":12,\"event_type\":\"method_exit\",\"method_name\":\"f\",\"line\":24},{\"event_idx\":13,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":29},{\"event_idx\":14,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":15,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":31},{\"event_idx\":16,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":17,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":32}]}\nTRACE_JSON_END",
+    "success": true
+  },
+  "executed_line_sequence": [
+    16,
+    17,
+    16,
+    17,
+    16,
+    17,
+    16,
+    19,
+    20,
+    24
+  ],
+  "expected_bool": true,
+  "mutation_type": "seed_true",
+  "snippet": "Java_537",
+  "trace_status": "ok",
+  "unsupported_reason": "",
+  "variant": "original",
+  "variant_path": ""
+}

@@ -1,0 +1,30 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Return length of given string
+L007     >>> strlen("")
+L008     0
+L009     >>> strlen("abc")
+L010     3
+L011      */
+L012     public int strlen(String string) {
+L013         int _obf_t1_strlen_320441 = 0; _obf_t1_strlen_320441 += 0;
+L014         return string.length();
+L015     }
+L016 }
+L017 
+L018 public class Java_023 {
+L019     public static void main(String[] args) {
+L020         Solution v1 = new Solution();
+L021         List<Boolean> v2 = Arrays.asList(
+L022                 v1.strlen("") == 0,
+L023                 v1.strlen("x") == 1,
+L024                 v1.strlen("asdasnakj") == 9
+L025         );
+L026         if (v2.contains(false)) {
+L027             throw new AssertionError();
+L028         }
+L029     }
+L030 }

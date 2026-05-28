@@ -1,0 +1,22 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_188 {
+L009     public static ArrayList<String> f(ArrayList<String> strings) {
+L010         ArrayList<String> new_strings = new ArrayList<>();
+L011         for (String string : strings) {
+L012             if (string.startsWith("a") || string.startsWith("p")) {
+L013                 new_strings.add(string.substring(0, Math.min(string.length(), 2)));
+L014             }
+L015         }
+L016         return new_strings;
+L017     }
+L018     public static void main(String[] args) {
+L019     assert(f((new ArrayList<String>(Arrays.asList((String)"a", (String)"b", (String)"car", (String)"d")))).equals((new ArrayList<String>(Arrays.asList((String)"a")))));
+L020     }
+L021 
+L022 }

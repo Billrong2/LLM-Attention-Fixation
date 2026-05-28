@@ -1,0 +1,22 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_172 {
+L009     public static ArrayList<Long> f(ArrayList<Long> array) {
+L010         for (int i = 0; i < array.size(); i++) {
+L011             if (array.get(i) < 0) {
+L012                 array.remove(i);
+L013                 i--; // adjust the index after removal
+L014             }
+L015         }
+L016         return array;
+L017     }
+L018     public static void main(String[] args) {
+L019     assert(f((new ArrayList<Long>(Arrays.asList()))).equals((new ArrayList<Long>(Arrays.asList()))));
+L020     }
+L021 
+L022 }

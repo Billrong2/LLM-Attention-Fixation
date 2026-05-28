@@ -1,0 +1,52 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     returns encoded string by cycling groups of three characters.
+L007      */
+L008     public String encodeCyclic(String s) {
+L009         // split string to v1. Each of length 3.
+L010         List<String> v1 = new ArrayList<>();
+L011         for (int v2 = 0; v2 < s.length(); v2 += 3) {
+L012             v1.add(s.substring(v2, Math.min(v2 + 3, s.length())));
+L013         }
+L014         // cycle elements in each group. Unless group has fewer elements than 3.
+L015         for (int v2 = 0; v2 < v1.size(); v2++) {
+L016             if (v1.get(v2).length() == 3) {
+L017                 v1.set(v2, v1.get(v2).substring(1) + v1.get(v2).charAt(0));
+L018             }
+L019         }
+L020         return String.join("", v1);
+L021     }
+L022 
+L023     /**
+L024     takes as input string encoded with encodeCyclic function. Returns decoded string.
+L025      */
+L026     public String decodeCyclic(String s) {
+L027         int _obf_t1_decodeCyclic_16817 = 0; _obf_t1_decodeCyclic_16817 += 0;
+L028         return encodeCyclic(encodeCyclic(s));
+L029     }
+L030 }
+L031 
+L032 public class Java_038 {
+L033     static char[] letters = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+L034     static Random rand = new Random(42);
+L035     public static String random_string(int length) {
+L036         StringBuilder v1 = new StringBuilder();
+L037         for (int v2 = 0; v2 < length; v2++) {
+L038             v1.append(letters[rand.nextInt(26)]);
+L039         }
+L040         return v1.toString();
+L041     }
+L042     public static void main(String[] args) {
+L043         Solution v1 = new Solution();
+L044         for (int v2 = 0; v2 < 100; v2++) {
+L045             String v3 = random_string(rand.nextInt(10) + 10);
+L046             String v4 = v1.encodeCyclic(v3);
+L047             if (!v1.decodeCyclic(v4).equals(v3)) {
+L048                 throw new AssertionError();
+L049             }
+L050         }
+L051     }
+L052 }

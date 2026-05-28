@@ -1,0 +1,120 @@
+{
+  "branches_seen": [
+    {
+      "branch_id": "b001",
+      "branch_kind": "if",
+      "line": 14
+    }
+  ],
+  "called_methods": [
+    "main",
+    "intersperse"
+  ],
+  "case_expression": "s.intersperse(new ArrayList<>(List.of()), 7).equals(List.of())",
+  "case_id": "c001",
+  "case_origin": "humaneval.correct_list",
+  "case_pack_source_hash": "2a6772f16b4dfd6e2b67e5043acee3b01543f11eca043707e0596b2e73a5fee3",
+  "case_result_matches_expected": true,
+  "case_result_observed": true,
+  "class_name": "Java_005",
+  "dataset": "humaneval",
+  "event_count": 10,
+  "events": [
+    {
+      "event_idx": 0,
+      "event_type": "method_enter",
+      "line": 30,
+      "method_name": "main",
+      "prompt_line": 30
+    },
+    {
+      "event_idx": 1,
+      "event_type": "method_enter",
+      "line": 12,
+      "method_name": "intersperse",
+      "prompt_line": 12
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "if",
+      "event_idx": 2,
+      "event_type": "branch_eval",
+      "line": 14,
+      "method_name": "intersperse",
+      "outcome": true,
+      "prompt_line": 14
+    },
+    {
+      "event_idx": 3,
+      "event_type": "return",
+      "line": 15,
+      "method_name": "intersperse",
+      "prompt_line": 15,
+      "value_repr": "[]"
+    },
+    {
+      "event_idx": 4,
+      "event_type": "method_exit",
+      "line": 15,
+      "method_name": "intersperse",
+      "prompt_line": 15
+    },
+    {
+      "event_idx": 5,
+      "event_type": "line_exec",
+      "line": 34,
+      "method_name": "main",
+      "prompt_line": 34
+    },
+    {
+      "case_id": "c001",
+      "event_idx": 6,
+      "event_type": "case_result",
+      "line": -1,
+      "method_name": "main",
+      "outcome": true
+    },
+    {
+      "event_idx": 7,
+      "event_type": "line_exec",
+      "line": 36,
+      "method_name": "main",
+      "prompt_line": 36
+    },
+    {
+      "event_idx": 8,
+      "event_type": "method_exit",
+      "line": -1,
+      "method_name": "main"
+    },
+    {
+      "event_idx": 9,
+      "event_type": "line_exec",
+      "line": 37,
+      "method_name": "main",
+      "prompt_line": 37
+    }
+  ],
+  "exec_result": {
+    "assertion_failed": false,
+    "compile_error": "",
+    "compiled": true,
+    "ran": true,
+    "returncode": 0,
+    "runtime_error": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":30},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"intersperse\",\"line\":12},{\"event_idx\":2,\"event_type\":\"branch_eval\",\"method_name\":\"intersperse\",\"line\":14,\"branch_kind\":\"if\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":3,\"event_type\":\"return\",\"method_name\":\"intersperse\",\"line\":15,\"value_repr\":\"[]\"},{\"event_idx\":4,\"event_type\":\"method_exit\",\"method_name\":\"intersperse\",\"line\":15},{\"event_idx\":5,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":34},{\"event_idx\":6,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":7,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":36},{\"event_idx\":8,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":9,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":37}]}\nTRACE_JSON_END",
+    "stderr": "",
+    "stdout": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":30},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"intersperse\",\"line\":12},{\"event_idx\":2,\"event_type\":\"branch_eval\",\"method_name\":\"intersperse\",\"line\":14,\"branch_kind\":\"if\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":3,\"event_type\":\"return\",\"method_name\":\"intersperse\",\"line\":15,\"value_repr\":\"[]\"},{\"event_idx\":4,\"event_type\":\"method_exit\",\"method_name\":\"intersperse\",\"line\":15},{\"event_idx\":5,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":34},{\"event_idx\":6,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":7,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":36},{\"event_idx\":8,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":9,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":37}]}\nTRACE_JSON_END",
+    "success": true
+  },
+  "executed_line_sequence": [
+    14,
+    15
+  ],
+  "expected_bool": true,
+  "mutation_type": "seed_true",
+  "snippet": "Java_005",
+  "trace_status": "ok",
+  "unsupported_reason": "",
+  "variant": "original",
+  "variant_path": ""
+}

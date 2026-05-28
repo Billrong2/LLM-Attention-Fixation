@@ -1,0 +1,61 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Given a positive integer n, return a tuple that has the number of even and odd
+L007     integer palindromes that fall within the range(1, n), inclusive.
+L008 
+L009     Example 1:
+L010 
+L011         Input: 3
+L012         Output: (1, 2)
+L013         Explanation:
+L014         Integer palindrome are 1, 2, 3. one of them is even, and two of them are odd.
+L015 
+L016     Example 2:
+L017 
+L018         Input: 12
+L019         Output: (4, 6)
+L020         Explanation:
+L021         Integer palindrome are 1, 2, 3, 4, 5, 6, 7, 8, 9, 11. four of them are even, and 6 of them are odd.
+L022 
+L023     Note:
+L024         1. 1 <= n <= 10^3
+L025         2. returned tuple has the number of even and odd integer palindromes respectively.
+L026      */
+L027     public List<Integer> evenOddPalindrome(int n) {
+L028 
+L029         int v1 = 0, odd_palindrome_count = 0;
+L030 
+L031         for (int v2 = 1; v2 <= n; v2++) {
+L032             if (String.valueOf(v2).equals(new StringBuilder(String.valueOf(v2)).reverse().toString())) {
+L033                 if (v2 % 2 == 1) {
+L034                     odd_palindrome_count += 1;
+L035                 } else {
+L036                     v1 += 1;
+L037                 }
+L038             }
+L039         }
+L040         return Arrays.asList(v1, odd_palindrome_count);
+L041     }
+L042 }
+L043 
+L044 public class Java_107 {
+L045     public static void main(String[] args) {
+L046         Solution v1 = new Solution();
+L047         List<Boolean> v2 = Arrays.asList(
+L048                 v1.evenOddPalindrome(123).equals(Arrays.asList(8, 13)),
+L049                 v1.evenOddPalindrome(12).equals(Arrays.asList(4, 6)),
+L050                 v1.evenOddPalindrome(3).equals(Arrays.asList(1, 2)),
+L051                 v1.evenOddPalindrome(63).equals(Arrays.asList(6, 8)),
+L052                 v1.evenOddPalindrome(25).equals(Arrays.asList(5, 6)),
+L053                 v1.evenOddPalindrome(19).equals(Arrays.asList(4, 6)),
+L054                 v1.evenOddPalindrome(9).equals(Arrays.asList(4, 5)),
+L055                 v1.evenOddPalindrome(1).equals(Arrays.asList(0, 1))
+L056         );
+L057         if (v2.contains(false)) {
+L058             throw new AssertionError();
+L059         }
+L060     }
+L061 }

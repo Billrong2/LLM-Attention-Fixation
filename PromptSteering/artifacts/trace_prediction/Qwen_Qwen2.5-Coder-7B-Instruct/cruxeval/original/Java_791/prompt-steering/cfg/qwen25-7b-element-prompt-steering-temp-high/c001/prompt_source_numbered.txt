@@ -1,0 +1,21 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_791 {
+L009     public static String f(long integer, long n) {
+L010         long i = 1;
+L011         String text = Long.toString(integer);
+L012         while (i + text.length() < n) {
+L013             i += text.length();
+L014         }
+L015         return String.format("%1$" + (i + text.length()) + "s", text).replace(' ', '0');
+L016     }
+L017     public static void main(String[] args) {
+L018     assert(f((8999l), (2l)).equals(("08999")));
+L019     }
+L020 
+L021 }

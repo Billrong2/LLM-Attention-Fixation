@@ -1,0 +1,16 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_456 {
+L009     public static String f(String s, long tab) {
+L010         return s.replace("\t", " ".repeat((int) tab));
+L011     }
+L012     public static void main(String[] args) {
+L013     assert(f(("Join us in Hungary"), (4l)).equals(("Join us in Hungary")));
+L014     }
+L015 
+L016 }

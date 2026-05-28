@@ -1,0 +1,44 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     You are given 2 words. You need to return true if the second word or any of its rotations is a substring in the first word
+L007     cycpatternCheck("abcd","abd") => false
+L008     cycpatternCheck("hello","ell") => true
+L009     cycpatternCheck("whassup","psus") => false
+L010     cycpatternCheck("abab","baa") => true
+L011     cycpatternCheck("efef","eeff") => false
+L012     cycpatternCheck("himenss","simen") => true
+L013      */
+L014     public boolean cycpatternCheck(String a, String b) {
+L015 
+L016         int l = b.length();
+L017         String pat = b + b;
+L018         for (int i = 0; i <= a.length() - l; i++) {
+L019             for (int j = 0; j <= l; j++) {
+L020                 if (a.substring(i, i + l).equals(pat.substring(j, j + l))) {
+L021                     return true;
+L022                 }
+L023             }
+L024         }
+L025         return false;
+L026     }
+L027 }
+L028 
+L029 public class Java_154 {
+L030     public static void main(String[] args) {
+L031         Solution s = new Solution();
+L032         List<Boolean> correct = Arrays.asList(
+L033                 s.cycpatternCheck("xyzw", "xyw") == false,
+L034                 s.cycpatternCheck("yello", "ell") == true,
+L035                 s.cycpatternCheck("whattup", "ptut") == false,
+L036                 s.cycpatternCheck("efef", "fee") == true,
+L037                 s.cycpatternCheck("abab", "aabb") == false,
+L038                 s.cycpatternCheck("winemtt", "tinem") == true
+L039         );
+L040         if (correct.contains(false)) {
+L041             throw new AssertionError();
+L042         }
+L043     }
+L044 }

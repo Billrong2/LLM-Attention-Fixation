@@ -1,0 +1,27 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_699 {
+L009     public static ArrayList<String> f(String text, String elem) {
+L010         if (!elem.equals("")) {
+L011             while (text.startsWith(elem)) {
+L012                 text = text.replaceFirst(elem, "");
+L013             }
+L014             while (elem.startsWith(text)) {
+L015                 elem = elem.replaceFirst(text, "");
+L016             }
+L017         }
+L018         ArrayList<String> result = new ArrayList<>();
+L019         result.add(elem);
+L020         result.add(text);
+L021         return result;
+L022     }
+L023     public static void main(String[] args) {
+L024     assert(f(("some"), ("1")).equals((new ArrayList<String>(Arrays.asList((String)"1", (String)"some")))));
+L025     }
+L026 
+L027 }

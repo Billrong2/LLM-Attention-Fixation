@@ -1,0 +1,17 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_193 {
+L009     public static String f(String string) {
+L010         int count = (int) string.chars().filter(ch -> ch == ':').count();
+L011         return string.replaceFirst("(:){" + (count - 1) + "}", "");
+L012     }
+L013     public static void main(String[] args) {
+L014     assert(f(("1::1")).equals(("1:1")));
+L015     }
+L016 
+L017 }

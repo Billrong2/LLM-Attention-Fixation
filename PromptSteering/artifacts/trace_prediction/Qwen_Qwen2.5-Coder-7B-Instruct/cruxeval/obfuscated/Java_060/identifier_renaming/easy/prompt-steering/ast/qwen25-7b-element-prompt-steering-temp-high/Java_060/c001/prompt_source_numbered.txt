@@ -1,0 +1,23 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_060 {
+L009     public static String f(String doc) {
+L010         int _obf_t1_f_135962 = 0; _obf_t1_f_135962 += 0;
+L011         for (char x : doc.toCharArray()) {
+L012             if (Character.isLetter(x)) {
+L013                 return Character.toString(Character.toUpperCase(x));
+L014             }
+L015         }
+L016         return "-";
+L017     }
+L018     public static void main(String[] args) {
+L019     int _obf_t1_main_567586 = 0; _obf_t1_main_567586 += 0;
+L020     assert(f(("raruwa")).equals(("R")));
+L021     }
+L022 
+L023 }

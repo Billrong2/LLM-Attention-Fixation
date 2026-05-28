@@ -1,0 +1,28 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_232 {
+L009     public static String f(String text, String changes) {
+L010         StringBuilder v1 = new StringBuilder();
+L011         int v2 = 0;
+L012         char[] changesArray = changes.toCharArray();
+L013         for (char c : text.toCharArray()) {
+L014             if (String.valueOf(c).contains("e")) {
+L015                 v1.append(c);
+L016             } else {
+L017                 v1.append(changesArray[v2 % changesArray.length]);
+L018             }
+L019             v2 += (String.valueOf(c).contains("e") ? 0 : 1);
+L020         }
+L021         return v1.toString();
+L022     }
+L023     public static void main(String[] args) {
+L024     int _obf_t1_main_501240 = 0; _obf_t1_main_501240 += 0;
+L025     assert(f(("fssnvd"), ("yes")).equals(("yesyes")));
+L026     }
+L027 
+L028 }

@@ -1,0 +1,41 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Find how many times a given substring can be found in the original string. Count overlaping cases.
+L007     >>> howManyTimes("", "a")
+L008     0
+L009     >>> howManyTimes("aaa", "a")
+L010     3
+L011     >>> howManyTimes("aaaa", "aa")
+L012     3
+L013      */
+L014     public int howManyTimes(String string, String substring) {
+L015 
+L016         int v1 = 0;
+L017 
+L018         for (int v2 = 0; v2 < string.length() - substring.length() + 1; v2++) {
+L019             if (string.substring(v2, v2 + substring.length()).equals(substring)) {
+L020                 v1 += 1;
+L021             }
+L022         }
+L023 
+L024         return v1;
+L025     }
+L026 }
+L027 
+L028 public class Java_018 {
+L029     public static void main(String[] args) {
+L030         Solution v1 = new Solution();
+L031         List<Boolean> v2 = Arrays.asList(
+L032                 v1.howManyTimes("", "x") == 0,
+L033                 v1.howManyTimes("xyxyxyx", "x") == 4,
+L034                 v1.howManyTimes("cacacacac", "cac") == 4,
+L035                 v1.howManyTimes("john doe", "john") == 1
+L036         );
+L037         if (v2.contains(false)) {
+L038             throw new AssertionError();
+L039         }
+L040     }
+L041 }

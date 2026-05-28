@@ -1,0 +1,22 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_680 {
+L009     public static String f(String text) {
+L010         String letters = "";
+L011         for (int i = 0; i < text.length(); i++) {
+L012             if (Character.isLetterOrDigit(text.charAt(i))) {
+L013                 letters += text.charAt(i);
+L014             }
+L015         }
+L016         return letters;
+L017     }
+L018     public static void main(String[] args) {
+L019     assert(f(("we@32r71g72ug94=(823658*!@324")).equals(("we32r71g72ug94823658324")));
+L020     }
+L021 
+L022 }

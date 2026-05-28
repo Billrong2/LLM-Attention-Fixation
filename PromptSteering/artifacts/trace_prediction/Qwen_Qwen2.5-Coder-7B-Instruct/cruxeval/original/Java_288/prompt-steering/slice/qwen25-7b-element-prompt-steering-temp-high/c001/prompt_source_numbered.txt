@@ -1,0 +1,28 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_288 {
+L009     public static ArrayList<Pair<Long, Long>> f(HashMap<Long,Long> d) {
+L010         List<Map.Entry<Long, Long>> sortedPairs = new ArrayList<>(d.entrySet());
+L011         sortedPairs.sort((entry1, entry2) -> Long.compare(
+L012                 String.valueOf(entry1.getKey()).length() + String.valueOf(entry1.getValue()).length(),
+L013                 String.valueOf(entry2.getKey()).length() + String.valueOf(entry2.getValue()).length()));
+L014 
+L015         ArrayList<Pair<Long, Long>> result = new ArrayList<>();
+L016         for (Map.Entry<Long, Long> entry : sortedPairs) {
+L017             if (entry.getKey() < entry.getValue()) {
+L018                 result.add(new Pair<>(entry.getKey(), entry.getValue()));
+L019             }
+L020         }
+L021         
+L022         return result;
+L023     }
+L024     public static void main(String[] args) {
+L025     assert(f((new HashMap<Long,Long>(Map.of(55l, 4l, 4l, 555l, 1l, 3l, 99l, 21l, 499l, 4l, 71l, 7l, 12l, 6l)))).equals((new ArrayList<Pair<Long, Long>>(Arrays.asList((Pair<Long, Long>)Pair.with(1l, 3l), (Pair<Long, Long>)Pair.with(4l, 555l))))));
+L026     }
+L027 
+L028 }

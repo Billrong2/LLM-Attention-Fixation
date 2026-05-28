@@ -1,0 +1,40 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Return True is list elements are monotonically increasing or decreasing.
+L007     >>> monotonic(Arrays.asList(1, 2, 4, 20))
+L008     true
+L009     >>> monotonic(Arrays.asList(1, 20, 4, 10))
+L010     false
+L011     >>> monotonic(Arrays.asList(4, 1, 0, -10))
+L012     true
+L013      */
+L014     public boolean monotonic(List<Integer> l) {
+L015 
+L016         List<Integer> v1 = new ArrayList<>(l), l2 = new ArrayList<>(l);
+L017         Collections.sort(v1);
+L018         l2.sort(Collections.reverseOrder());
+L019         return l.equals(v1) || l.equals(l2);
+L020     }
+L021 }
+L022 
+L023 public class Java_057 {
+L024     public static void main(String[] args) {
+L025         Solution v1 = new Solution();
+L026         List<Boolean> v2 = Arrays.asList(
+L027                 v1.monotonic(new ArrayList<>(Arrays.asList(1, 2, 4, 10))),
+L028                 v1.monotonic(new ArrayList<>(Arrays.asList(1, 2, 4, 20))),
+L029                 !v1.monotonic(new ArrayList<>(Arrays.asList(1, 20, 4, 10))),
+L030                 v1.monotonic(new ArrayList<>(Arrays.asList(4, 1, 0, -10))),
+L031                 v1.monotonic(new ArrayList<>(Arrays.asList(4, 1, 1, 0))),
+L032                 !v1.monotonic(new ArrayList<>(Arrays.asList(1, 2, 3, 2, 5, 60))),
+L033                 v1.monotonic(new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 60))),
+L034                 v1.monotonic(new ArrayList<>(Arrays.asList(9, 9, 9, 9)))
+L035         );
+L036         if (v2.contains(false)) {
+L037             throw new AssertionError();
+L038         }
+L039     }
+L040 }

@@ -1,0 +1,68 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Evaluates polynomial with coefficients xs at point x.
+L007     return xs[0] + xs[1] * x + xs[1] * x^2 + .... xs[n] * x^n
+L008      */
+L009     public double poly(List<Double> xs, double x) {
+L010         double result = 0;
+L011         for (int i = 0; i < xs.size(); i++) {
+L012             result += xs.get(i) * Math.pow(x, i);
+L013         }
+L014         return result;
+L015     }
+L016     
+L017     /**
+L018     xs are coefficients of a polynomial.
+L019     findZero find x such that poly(x) = 0.
+L020     findZero returns only only zero point, even if there are many.
+L021     Moreover, findZero only takes list xs having even number of coefficients
+L022     and largest non zero coefficient as it guarantees
+L023     a solution.
+L024     >>> findZero(Arrays.asList(1, 2)) // f(x) = 1 + 2x
+L025     -0.5
+L026     >>> findZero(Arrays.asList(-6, 11, -6, 1)) // (x - 1) * (x - 2) * (x - 3) = -6 + 11x - 6x^2 + x^3
+L027     1.0
+L028      */
+L029     public double findZero(List<Double> xs) {
+L030 
+L031         double begin = -1, end = 1;
+L032         while (poly(xs, begin) * poly(xs, end) > 0) {
+L033             begin *= 2;
+L034             end *= 2;
+L035         }
+L036         while (end - begin > 1e-10) {
+L037             double center = (begin + end) / 2;
+L038             if (poly(xs, begin) * poly(xs, center) > 0) {
+L039                 begin = center;
+L040             } else {
+L041                 end = center;
+L042             }
+L043         }
+L044         return begin;
+L045     }
+L046 }
+L047 
+L048 public class Java_032 {
+L049     public static void main(String[] args) {
+L050         Solution s = new Solution();
+L051         Random rand = new Random(42);
+L052         for (int i = 0; i < 100; i++) {
+L053             int ncoeff = 2 * (rand.nextInt(3) + 1);
+L054             List<Double> coeffs = new ArrayList<>();
+L055             for (int j = 0; j < ncoeff; j++) {
+L056                 int coeff = rand.nextInt(20) - 10;
+L057                 if (coeff == 0) {
+L058                     coeff = 1;
+L059                 }
+L060                 coeffs.add((double) coeff);
+L061             }
+L062             double solution = s.findZero(coeffs);
+L063             if (Math.abs(s.poly(coeffs, solution)) > 1e-4) {
+L064                 throw new AssertionError();
+L065             }
+L066         }
+L067     }
+L068 }

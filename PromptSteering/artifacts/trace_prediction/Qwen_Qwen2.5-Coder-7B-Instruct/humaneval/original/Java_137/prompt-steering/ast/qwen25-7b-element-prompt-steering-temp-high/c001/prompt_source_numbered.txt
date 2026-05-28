@@ -1,0 +1,60 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Create a function that takes integers, floats, or strings representing
+L007     real numbers, and returns the larger variable in its given variable type.
+L008     Return None if the values are equal.
+L009     Note: If a real number is represented as a string, the floating point might be . or ,
+L010 
+L011     compareOne(1, 2.5) -> Optional.of(2.5)
+L012     compareOne(1, "2,3") -> Optional.of("2,3")
+L013     compareOne("5,1", "6") -> Optional.of("6")
+L014     compareOne("1", 1) -> Optional.empty()
+L015      */
+L016     public Optional<Object> compareOne(Object a, Object b) {
+L017 
+L018         double temp_a = 0, temp_b = 0;
+L019         if (a instanceof Integer) {
+L020             temp_a = (Integer) a * 1.0;
+L021         } else if (a instanceof Double) {
+L022             temp_a = (double) a;
+L023         } else if (a instanceof String) {
+L024             temp_a = Double.parseDouble(((String) a).replace(',', '.'));
+L025         }
+L026         if (b instanceof Integer) {
+L027             temp_b = (Integer) b * 1.0;
+L028         } else if (b instanceof Double) {
+L029             temp_b = (double) b;
+L030         } else if (b instanceof String) {
+L031             temp_b = Double.parseDouble(((String) b).replace(',', '.'));
+L032         }
+L033         if (temp_a == temp_b) {
+L034             return Optional.empty();
+L035         } else if (temp_a > temp_b) {
+L036             return Optional.of(a);
+L037         } else {
+L038             return Optional.of(b);
+L039         }
+L040     }
+L041 }
+L042 
+L043 public class Java_137 {
+L044     public static void main(String[] args) {
+L045         Solution s = new Solution();
+L046         List<Boolean> correct = Arrays.asList(
+L047                 (int) s.compareOne(1, 2).get() == 2,
+L048                 (double) s.compareOne(1, 2.5).get() == 2.5,
+L049                 (int) s.compareOne(2, 3).get() == 3,
+L050                 (int) s.compareOne(5, 6).get() == 6,
+L051                 (String) s.compareOne(1, "2,3").get() == "2,3",
+L052                 (String) s.compareOne("5,1", "6").get() == "6",
+L053                 (String) s.compareOne("1", "2").get() == "2",
+L054                 s.compareOne("1", 1).isEmpty()
+L055         );
+L056         if (correct.contains(false)) {
+L057             throw new AssertionError();
+L058         }
+L059     }
+L060 }

@@ -1,0 +1,46 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     You are given an array arr of integers and you need to return
+L007     sum of magnitudes of integers multiplied by product of all signs
+L008     of each number in the array, represented by 1, -1 or 0.
+L009     Note: return None for empty arr.
+L010 
+L011     Example:
+L012     >>> prodSigns(Arrays.asList(1, 2, 2, -4)) == -9
+L013     >>> prodSigns(Arrays.asList(0, 1)) == 0
+L014     >>> prodSigns(Arrays.asList()) == None
+L015      */
+L016     public Optional<Integer> prodSigns(List<Integer> arr) {
+L017 
+L018         if (arr.size() == 0) {
+L019             return Optional.empty();
+L020         }
+L021         if (arr.contains(0)) {
+L022             return Optional.of(0);
+L023         }
+L024         int prod = (int) (-2 * (arr.stream().filter(p -> p < 0).count() % 2) + 1);
+L025         return Optional.of(prod * (arr.stream().map(Math::abs).reduce(Integer::sum)).get());
+L026     }
+L027 }
+L028 
+L029 public class Java_128 {
+L030     public static void main(String[] args) {
+L031         Solution s = new Solution();
+L032         List<Boolean> correct = Arrays.asList(
+L033                 s.prodSigns(Arrays.asList(1, 2, 2, -4)).get() == -9,
+L034                 s.prodSigns(Arrays.asList(0, 1)).get() == 0,
+L035                 s.prodSigns(Arrays.asList(1, 1, 1, 2, 3, -1, 1)).get() == -10,
+L036                 s.prodSigns(List.of()).isEmpty(),
+L037                 s.prodSigns(Arrays.asList(2, 4,1, 2, -1, -1, 9)).get() == 20,
+L038                 s.prodSigns(Arrays.asList(-1, 1, -1, 1)).get() == 4,
+L039                 s.prodSigns(Arrays.asList(-1, 1, 1, 1)).get() == -4,
+L040                 s.prodSigns(Arrays.asList(-1, 1, 1, 0)).get() == 0
+L041         );
+L042         if (correct.contains(false)) {
+L043             throw new AssertionError();
+L044         }
+L045     }
+L046 }

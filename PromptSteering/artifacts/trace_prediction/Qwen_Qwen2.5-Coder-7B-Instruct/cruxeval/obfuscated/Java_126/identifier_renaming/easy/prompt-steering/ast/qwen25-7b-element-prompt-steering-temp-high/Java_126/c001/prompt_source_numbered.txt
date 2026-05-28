@@ -1,0 +1,20 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_126 {
+L009     public static String f(String text) {
+L010         int v1 = text.lastIndexOf('o');
+L011         String v2 = v1 == -1 ? "-" : text.substring(0, v1);
+L012         String v3 = v1 == -1 ? "-" : text.substring(v1 + 1);
+L013         return v1 == -1 ? "-" + text : text.charAt(v1) + v2 + text.charAt(v1) + v3;
+L014     }
+L015     public static void main(String[] args) {
+L016     int _obf_t1_main_822785 = 0; _obf_t1_main_822785 += 0;
+L017     assert(f(("kkxkxxfck")).equals(("-kkxkxxfck")));
+L018     }
+L019 
+L020 }

@@ -1,0 +1,41 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     For a given list of input numbers, calculate Mean Absolute Deviation
+L007     around the mean of this dataset.
+L008     Mean Absolute Deviation is the average absolute difference between each
+L009     element and a centerpoint (mean in this case):
+L010     MAD = average | x - x_mean |
+L011     >>> meanAbsoluteDeviation(Arrays.asList(1.0, 2.0, 3.0, 4.0))
+L012     1.0
+L013      */
+L014     public double meanAbsoluteDeviation(List<Double> numbers) {
+L015 
+L016         double sum = 0.0;
+L017         for (double num : numbers) {
+L018             sum += num;
+L019         }
+L020         double mean = sum / numbers.size();
+L021         double sum_abs_diff = 0.0;
+L022         for (double num : numbers) {
+L023             sum_abs_diff += Math.abs(num - mean);
+L024         }
+L025         return sum_abs_diff / numbers.size();
+L026     }
+L027 }
+L028 
+L029 public class Java_004 {
+L030     public static void main(String[] args) {
+L031         Solution s = new Solution();
+L032         List<Boolean> correct = Arrays.asList(
+L033                 Math.abs(s.meanAbsoluteDeviation(new ArrayList<>(Arrays.asList(1.0, 2.0, 3.0))) - 2.0/3.0) < 1e-6,
+L034                 Math.abs(s.meanAbsoluteDeviation(new ArrayList<>(Arrays.asList(1.0, 2.0, 3.0, 4.0))) - 1.0) < 1e-6,
+L035                 Math.abs(s.meanAbsoluteDeviation(new ArrayList<>(Arrays.asList(1.0, 2.0, 3.0, 4.0, 5.0))) - 6.0/5.0) < 1e-6
+L036         );
+L037         if (correct.contains(false)) {
+L038             throw new AssertionError();
+L039         }
+L040     }
+L041 }

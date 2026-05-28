@@ -1,0 +1,17 @@
+L001 import java.util.*;
+L002 
+L003 class Java_130 {
+L004     public static String f(HashMap<String,Long> m) {
+L005         ArrayList<Map.Entry<String, Long>> items = new ArrayList<>(m.entrySet());
+L006         for (int i = items.size() - 2; i >= 0; i--) {
+L007             Map.Entry<String, Long> tmp = items.get(i);
+L008             items.set(i, items.get(i+1));
+L009             items.set(i+1, tmp);
+L010         }
+L011         return String.format("%s=%s", m.keySet().toArray());
+L012     }
+L013     public static void main(String[] args) {
+L014     assert(f((new HashMap<String,Long>(Map.of("l", 4l, "h", 6l, "o", 9l)))).equals(("h=l")));
+L015     }
+L016 
+L017 }

@@ -1,0 +1,155 @@
+{
+  "branches_seen": [
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "line": 14
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "if",
+      "line": 15
+    }
+  ],
+  "called_methods": [
+    "main",
+    "add"
+  ],
+  "case_expression": "s.add(new ArrayList<>(Arrays.asList(4, 88))) == 88",
+  "case_id": "c001",
+  "case_origin": "humaneval.correct_list",
+  "case_pack_source_hash": "62dd0fac6908c6d3dec1edbe2431d6fa0dc87ecc39d52c148055f604af180970",
+  "case_result_matches_expected": true,
+  "case_result_observed": true,
+  "class_name": "Java_085",
+  "dataset": "humaneval",
+  "event_count": 13,
+  "events": [
+    {
+      "event_idx": 0,
+      "event_type": "method_enter",
+      "line": 24,
+      "method_name": "main",
+      "prompt_line": 24
+    },
+    {
+      "event_idx": 1,
+      "event_type": "method_enter",
+      "line": 11,
+      "method_name": "add",
+      "prompt_line": 11
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 2,
+      "event_type": "branch_eval",
+      "line": 14,
+      "method_name": "add",
+      "outcome": true,
+      "prompt_line": 14
+    },
+    {
+      "branch_id": "b002",
+      "branch_kind": "if",
+      "event_idx": 3,
+      "event_type": "branch_eval",
+      "line": 15,
+      "method_name": "add",
+      "outcome": true,
+      "prompt_line": 15
+    },
+    {
+      "event_idx": 4,
+      "event_type": "line_exec",
+      "line": 16,
+      "method_name": "add",
+      "prompt_line": 16
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 5,
+      "event_type": "branch_eval",
+      "line": 14,
+      "method_name": "add",
+      "outcome": false,
+      "prompt_line": 14
+    },
+    {
+      "event_idx": 6,
+      "event_type": "return",
+      "line": 19,
+      "method_name": "add",
+      "prompt_line": 19,
+      "value_repr": "88"
+    },
+    {
+      "event_idx": 7,
+      "event_type": "method_exit",
+      "line": 19,
+      "method_name": "add",
+      "prompt_line": 19
+    },
+    {
+      "event_idx": 8,
+      "event_type": "line_exec",
+      "line": 28,
+      "method_name": "main",
+      "prompt_line": 28
+    },
+    {
+      "case_id": "c001",
+      "event_idx": 9,
+      "event_type": "case_result",
+      "line": -1,
+      "method_name": "main",
+      "outcome": true
+    },
+    {
+      "event_idx": 10,
+      "event_type": "line_exec",
+      "line": 30,
+      "method_name": "main",
+      "prompt_line": 30
+    },
+    {
+      "event_idx": 11,
+      "event_type": "method_exit",
+      "line": -1,
+      "method_name": "main"
+    },
+    {
+      "event_idx": 12,
+      "event_type": "line_exec",
+      "line": 31,
+      "method_name": "main",
+      "prompt_line": 31
+    }
+  ],
+  "exec_result": {
+    "assertion_failed": false,
+    "compile_error": "",
+    "compiled": true,
+    "ran": true,
+    "returncode": 0,
+    "runtime_error": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":24},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"add\",\"line\":11},{\"event_idx\":2,\"event_type\":\"branch_eval\",\"method_name\":\"add\",\"line\":14,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":3,\"event_type\":\"branch_eval\",\"method_name\":\"add\",\"line\":15,\"branch_kind\":\"if\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":4,\"event_type\":\"line_exec\",\"method_name\":\"add\",\"line\":16},{\"event_idx\":5,\"event_type\":\"branch_eval\",\"method_name\":\"add\",\"line\":14,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":false},{\"event_idx\":6,\"event_type\":\"return\",\"method_name\":\"add\",\"line\":19,\"value_repr\":\"88\"},{\"event_idx\":7,\"event_type\":\"method_exit\",\"method_name\":\"add\",\"line\":19},{\"event_idx\":8,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":28},{\"event_idx\":9,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":10,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":30},{\"event_idx\":11,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":12,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":31}]}\nTRACE_JSON_END",
+    "stderr": "",
+    "stdout": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":24},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"add\",\"line\":11},{\"event_idx\":2,\"event_type\":\"branch_eval\",\"method_name\":\"add\",\"line\":14,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":3,\"event_type\":\"branch_eval\",\"method_name\":\"add\",\"line\":15,\"branch_kind\":\"if\",\"branch_id\":\"b002\",\"outcome\":true},{\"event_idx\":4,\"event_type\":\"line_exec\",\"method_name\":\"add\",\"line\":16},{\"event_idx\":5,\"event_type\":\"branch_eval\",\"method_name\":\"add\",\"line\":14,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":false},{\"event_idx\":6,\"event_type\":\"return\",\"method_name\":\"add\",\"line\":19,\"value_repr\":\"88\"},{\"event_idx\":7,\"event_type\":\"method_exit\",\"method_name\":\"add\",\"line\":19},{\"event_idx\":8,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":28},{\"event_idx\":9,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":10,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":30},{\"event_idx\":11,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":12,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":31}]}\nTRACE_JSON_END",
+    "success": true
+  },
+  "executed_line_sequence": [
+    14,
+    15,
+    16,
+    14,
+    19
+  ],
+  "expected_bool": true,
+  "mutation_type": "seed_true",
+  "snippet": "Java_085",
+  "trace_status": "ok",
+  "unsupported_reason": "",
+  "variant": "original",
+  "variant_path": ""
+}

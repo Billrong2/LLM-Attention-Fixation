@@ -1,0 +1,20 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_404 {
+L009     public static long f(ArrayList<String> no) {
+L010         HashMap<String, Boolean> d = new HashMap<>();
+L011         for (String str : no) {
+L012             d.put(str, false);
+L013         }
+L014         return d.size();
+L015     }
+L016     public static void main(String[] args) {
+L017     assert(f((new ArrayList<String>(Arrays.asList((String)"l", (String)"f", (String)"h", (String)"g", (String)"s", (String)"b")))) == (6l));
+L018     }
+L019 
+L020 }

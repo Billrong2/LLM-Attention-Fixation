@@ -1,0 +1,65 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     You are given a non-empty list of positive integers. Return the greatest integer that is greater than
+L007     zero, and has a frequency greater than or equal to the value of the integer itself.
+L008     The frequency of an integer is the number of times it appears in the list.
+L009     If no such a value exist, return -1.
+L010     Examples:
+L011         search(Arrays.asList(4, 1, 2, 2, 3, 1)) == 2
+L012         search(Arrays.asList(1, 2, 2, 3, 3, 3, 4, 4, 4)) == 3
+L013         search(Arrays.asList(5, 5, 4, 4, 4)) == -1
+L014      */
+L015     public int search(List<Integer> lst) {
+L016 
+L017         int[] frq = new int[Collections.max(lst) + 1];
+L018         for (int v2 : lst) {
+L019             frq[v2] += 1;
+L020         }
+L021         int v1 = -1;
+L022         for (int v2 = 1; v2 < frq.length; v2++) {
+L023             if (frq[v2] >= v2) {
+L024                 v1 = v2;
+L025             }
+L026         }
+L027         return v1;
+L028     }
+L029 }
+L030 
+L031 public class Java_069 {
+L032     public static void main(String[] args) {
+L033         Solution v1 = new Solution();
+L034         List<Boolean> v2 = Arrays.asList(
+L035                 v1.search(new ArrayList<>(Arrays.asList(5, 5, 5, 5, 1))) == 1,
+L036                 v1.search(new ArrayList<>(Arrays.asList(4, 1, 4, 1, 4, 4))) == 4,
+L037                 v1.search(new ArrayList<>(Arrays.asList(3, 3))) == -1,
+L038                 v1.search(new ArrayList<>(Arrays.asList(8, 8, 8, 8, 8, 8, 8, 8))) == 8,
+L039                 v1.search(new ArrayList<>(Arrays.asList(2, 3, 3, 2, 2))) == 2,
+L040                 v1.search(new ArrayList<>(Arrays.asList(2, 7, 8, 8, 4, 8, 7, 3, 9, 6, 5, 10, 4, 3, 6, 7, 1, 7, 4, 10, 8, 1))) == 1,
+L041                 v1.search(new ArrayList<>(Arrays.asList(3, 2, 8, 2))) == 2,
+L042                 v1.search(new ArrayList<>(Arrays.asList(6, 7, 1, 8, 8, 10, 5, 8, 5, 3, 10))) == 1,
+L043                 v1.search(new ArrayList<>(Arrays.asList(8, 8, 3, 6, 5, 6, 4))) == -1,
+L044                 v1.search(new ArrayList<>(Arrays.asList(6, 9, 6, 7, 1, 4, 7, 1, 8, 8, 9, 8, 10, 10, 8, 4, 10, 4, 10, 1, 2, 9, 5, 7, 9))) == 1,
+L045                 v1.search(new ArrayList<>(Arrays.asList(1, 9, 10, 1, 3))) == 1,
+L046                 v1.search(new ArrayList<>(Arrays.asList(6, 9, 7, 5, 8, 7, 5, 3, 7, 5, 10, 10, 3, 6, 10, 2, 8, 6, 5, 4, 9, 5, 3, 10))) == 5,
+L047                 v1.search(new ArrayList<>(List.of(1))) == 1,
+L048                 v1.search(new ArrayList<>(Arrays.asList(8, 8, 10, 6, 4, 3, 5, 8, 2, 4, 2, 8, 4, 6, 10, 4, 2, 1, 10, 2, 1, 1, 5))) == 4,
+L049                 v1.search(new ArrayList<>(Arrays.asList(2, 10, 4, 8, 2, 10, 5, 1, 2, 9, 5, 5, 6, 3, 8, 6, 4, 10))) == 2,
+L050                 v1.search(new ArrayList<>(Arrays.asList(1, 6, 10, 1, 6, 9, 10, 8, 6, 8, 7, 3))) == 1,
+L051                 v1.search(new ArrayList<>(Arrays.asList(9, 2, 4, 1, 5, 1, 5, 2, 5, 7, 7, 7, 3, 10, 1, 5, 4, 2, 8, 4, 1, 9, 10, 7, 10, 2, 8, 10, 9, 4))) == 4,
+L052                 v1.search(new ArrayList<>(Arrays.asList(2, 6, 4, 2, 8, 7, 5, 6, 4, 10, 4, 6, 3, 7, 8, 8, 3, 1, 4, 2, 2, 10, 7))) == 4,
+L053                 v1.search(new ArrayList<>(Arrays.asList(9, 8, 6, 10, 2, 6, 10, 2, 7, 8, 10, 3, 8, 2, 6, 2, 3, 1))) == 2,
+L054                 v1.search(new ArrayList<>(Arrays.asList(5, 5, 3, 9, 5, 6, 3, 2, 8, 5, 6, 10, 10, 6, 8, 4, 10, 7, 7, 10, 8))) == -1,
+L055                 v1.search(new ArrayList<>(List.of(10))) == -1,
+L056                 v1.search(new ArrayList<>(Arrays.asList(9, 7, 7, 2, 4, 7, 2, 10, 9, 7, 5, 7, 2))) == 2,
+L057                 v1.search(new ArrayList<>(Arrays.asList(5, 4, 10, 2, 1, 1, 10, 3, 6, 1, 8))) == 1,
+L058                 v1.search(new ArrayList<>(Arrays.asList(7, 9, 9, 9, 3, 4, 1, 5, 9, 1, 2, 1, 1, 10, 7, 5, 6, 7, 6, 7, 7, 6))) == 1,
+L059                 v1.search(new ArrayList<>(Arrays.asList(3, 10, 10, 9, 2))) == -1
+L060         );
+L061         if (v2.contains(false)) {
+L062             throw new AssertionError();
+L063         }
+L064     }
+L065 }

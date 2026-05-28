@@ -1,0 +1,128 @@
+{
+  "branches_seen": [
+    {
+      "branch_id": "b001",
+      "branch_kind": "if",
+      "line": 11
+    }
+  ],
+  "called_methods": [
+    "main",
+    "f"
+  ],
+  "case_expression": "f((5l), (1l)).equals((\"5\"))",
+  "case_id": "c001",
+  "case_origin": "cruxeval.assert",
+  "case_pack_source_hash": "80a32b023387f7857bb989488c7bdcfdef9199942b7b9a0d1b50eef774ee6f89",
+  "case_result_matches_expected": true,
+  "case_result_observed": true,
+  "class_name": "Java_509",
+  "dataset": "cruxeval",
+  "event_count": 11,
+  "events": [
+    {
+      "event_idx": 0,
+      "event_type": "method_enter",
+      "line": 17,
+      "method_name": "main",
+      "prompt_line": 17
+    },
+    {
+      "event_idx": 1,
+      "event_type": "method_enter",
+      "line": 9,
+      "method_name": "f",
+      "prompt_line": 9
+    },
+    {
+      "event_idx": 2,
+      "event_type": "line_exec",
+      "line": 10,
+      "method_name": "f",
+      "prompt_line": 10
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "if",
+      "event_idx": 3,
+      "event_type": "branch_eval",
+      "line": 11,
+      "method_name": "f",
+      "outcome": true,
+      "prompt_line": 11
+    },
+    {
+      "event_idx": 4,
+      "event_type": "return",
+      "line": 12,
+      "method_name": "f",
+      "prompt_line": 12,
+      "value_repr": "5"
+    },
+    {
+      "event_idx": 5,
+      "event_type": "method_exit",
+      "line": 12,
+      "method_name": "f",
+      "prompt_line": 12
+    },
+    {
+      "event_idx": 6,
+      "event_type": "line_exec",
+      "line": 20,
+      "method_name": "main",
+      "prompt_line": 20
+    },
+    {
+      "case_id": "c001",
+      "event_idx": 7,
+      "event_type": "case_result",
+      "line": -1,
+      "method_name": "main",
+      "outcome": true
+    },
+    {
+      "event_idx": 8,
+      "event_type": "line_exec",
+      "line": 22,
+      "method_name": "main",
+      "prompt_line": 22
+    },
+    {
+      "event_idx": 9,
+      "event_type": "method_exit",
+      "line": -1,
+      "method_name": "main"
+    },
+    {
+      "event_idx": 10,
+      "event_type": "line_exec",
+      "line": 23,
+      "method_name": "main",
+      "prompt_line": 23
+    }
+  ],
+  "exec_result": {
+    "assertion_failed": false,
+    "compile_error": "",
+    "compiled": true,
+    "ran": true,
+    "returncode": 0,
+    "runtime_error": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":17},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"f\",\"line\":9},{\"event_idx\":2,\"event_type\":\"line_exec\",\"method_name\":\"f\",\"line\":10},{\"event_idx\":3,\"event_type\":\"branch_eval\",\"method_name\":\"f\",\"line\":11,\"branch_kind\":\"if\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":4,\"event_type\":\"return\",\"method_name\":\"f\",\"line\":12,\"value_repr\":\"5\"},{\"event_idx\":5,\"event_type\":\"method_exit\",\"method_name\":\"f\",\"line\":12},{\"event_idx\":6,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":20},{\"event_idx\":7,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":8,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":22},{\"event_idx\":9,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":10,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":23}]}\nTRACE_JSON_END",
+    "stderr": "",
+    "stdout": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":17},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"f\",\"line\":9},{\"event_idx\":2,\"event_type\":\"line_exec\",\"method_name\":\"f\",\"line\":10},{\"event_idx\":3,\"event_type\":\"branch_eval\",\"method_name\":\"f\",\"line\":11,\"branch_kind\":\"if\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":4,\"event_type\":\"return\",\"method_name\":\"f\",\"line\":12,\"value_repr\":\"5\"},{\"event_idx\":5,\"event_type\":\"method_exit\",\"method_name\":\"f\",\"line\":12},{\"event_idx\":6,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":20},{\"event_idx\":7,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":8,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":22},{\"event_idx\":9,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":10,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":23}]}\nTRACE_JSON_END",
+    "success": true
+  },
+  "executed_line_sequence": [
+    10,
+    11,
+    12
+  ],
+  "expected_bool": true,
+  "mutation_type": "seed_true",
+  "snippet": "Java_509",
+  "trace_status": "ok",
+  "unsupported_reason": "",
+  "variant": "obfuscated",
+  "variant_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/artifacts/obfuscation/source/cruxeval/java/Java_509/identifier_renaming/easy/Java_509.java"
+}

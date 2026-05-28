@@ -1,0 +1,24 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_657 {
+L009     public static String f(String text) {
+L010         for (char punct : new char[]{'!', '.', '?', ',', ':', ';'}) {
+L011             if (text.chars().filter(c -> c == punct).count() > 1) {
+L012                 return "no";
+L013             }
+L014             if (text.endsWith(String.valueOf(punct))) {
+L015                 return "no";
+L016             }
+L017         }
+L018         return text.substring(0, 1).toUpperCase() + text.substring(1);
+L019     }
+L020     public static void main(String[] args) {
+L021     assert(f(("djhasghasgdha")).equals(("Djhasghasgdha")));
+L022     }
+L023 
+L024 }

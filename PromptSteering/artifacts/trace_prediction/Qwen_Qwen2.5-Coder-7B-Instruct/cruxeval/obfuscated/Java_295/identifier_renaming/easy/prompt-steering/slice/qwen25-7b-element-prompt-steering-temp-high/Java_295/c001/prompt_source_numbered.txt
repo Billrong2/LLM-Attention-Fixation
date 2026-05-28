@@ -1,0 +1,27 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_295 {
+L009     public static ArrayList<String> f(ArrayList<String> fruits) {
+L010         if (fruits.get(fruits.size() - 1).equals(fruits.get(0))) {
+L011             ArrayList<String> v1 = new ArrayList<>();
+L012             v1.add("no");
+L013             return v1;
+L014         } else {
+L015             fruits.remove(0);
+L016             fruits.remove(fruits.size() - 1);
+L017             fruits.remove(0);
+L018             fruits.remove(fruits.size() - 1);
+L019             return fruits;
+L020         }
+L021     }
+L022     public static void main(String[] args) {
+L023     int _obf_t1_main_797436 = 0; _obf_t1_main_797436 += 0;
+L024     assert(f((new ArrayList<String>(Arrays.asList((String)"apple", (String)"apple", (String)"pear", (String)"banana", (String)"pear", (String)"orange", (String)"orange")))).equals((new ArrayList<String>(Arrays.asList((String)"pear", (String)"banana", (String)"pear")))));
+L025     }
+L026 
+L027 }

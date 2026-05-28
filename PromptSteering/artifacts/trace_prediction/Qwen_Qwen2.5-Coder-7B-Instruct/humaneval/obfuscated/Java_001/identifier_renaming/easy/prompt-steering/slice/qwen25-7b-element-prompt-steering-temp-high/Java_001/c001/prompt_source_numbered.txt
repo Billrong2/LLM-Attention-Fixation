@@ -1,0 +1,57 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Input to this function is a string containing multiple groups of nested parentheses. Your goal is to
+L007     separate those group into separate strings and return the list of those.
+L008     Separate groups are balanced (each open brace is properly closed) and not nested within each other
+L009     Ignore any spaces in the input string.
+L010     >>> separateParenGroups("( ) (( )) (( )( ))")
+L011     ["()", "(())", "(()())"]
+L012      */
+L013     public List<String> separateParenGroups(String paren_string) {
+L014 
+L015         List<String> v1 = new ArrayList<>();
+L016         StringBuilder v2 = new StringBuilder();
+L017         int v3 = 0;
+L018 
+L019         for (char c : paren_string.toCharArray()) {
+L020             if (c == '(') {
+L021                 v3 += 1;
+L022                 v2.append(c);
+L023             } else if (c == ')') {
+L024                 v3 -= 1;
+L025                 v2.append(c);
+L026 
+L027                 if (v3 == 0) {
+L028                     v1.add(v2.toString());
+L029                     v2.setLength(0);
+L030                 }
+L031             }
+L032         }
+L033         return v1;
+L034 
+L035     }
+L036 }
+L037 
+L038 public class Java_001 {
+L039     public static void main(String[] args) {
+L040         Solution v1 = new Solution();
+L041         List<Boolean> v2 = Arrays.asList(
+L042                 v1.separateParenGroups("(()()) ((())) () ((())()())").equals(Arrays.asList(
+L043                         "(()())", "((()))", "()", "((())()())"
+L044                 )),
+L045                 v1.separateParenGroups("() (()) ((())) (((())))").equals(Arrays.asList(
+L046                         "()", "(())", "((()))", "(((())))"
+L047                 )),
+L048                 v1.separateParenGroups("(()(())((())))").equals(Arrays.asList(
+L049                         "(()(())((())))"
+L050                 )),
+L051                 v1.separateParenGroups("( ) (( )) (( )( ))").equals(Arrays.asList("()", "(())", "(()())"))
+L052         );
+L053         if (v2.contains(false)) {
+L054             throw new AssertionError();
+L055         }
+L056     }
+L057 }

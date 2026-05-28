@@ -1,0 +1,33 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.Stream;
+L008 
+L009 class Java_098 {
+L010     public static long f(String s) {
+L011         String[] v1 = s.split(" ");
+L012         return Arrays.stream(v1)
+L013                 .map(word -> _m1(word))
+L014                 .filter(x -> x)
+L015                 .count();
+L016     }
+L017 
+L018     private static boolean _m1(String word) {
+L019         if (word.length() == 0) {
+L020             return false;
+L021         }
+L022 
+L023         boolean v1 = word.substring(1).equals(word.substring(1).toLowerCase());
+L024         boolean v2 = Character.isUpperCase(word.charAt(0));
+L025 
+L026         return v2 && v1;
+L027     }
+L028     public static void main(String[] args) {
+L029     int _obf_t1_main_918798 = 0; _obf_t1_main_918798 += 0;
+L030     assert(f(("SOME OF THIS Is uknowN!")) == (1l));
+L031     }
+L032 
+L033 }

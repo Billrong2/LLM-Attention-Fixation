@@ -1,0 +1,26 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_230 {
+L009     public static String f(String text) {
+L010         String v1 = "";
+L011         int v2 = text.length() - 1;
+L012         while (v2 >= 0) {
+L013             char v3 = text.charAt(v2);
+L014             if (Character.isLetter(v3)) {
+L015                 v1 += v3;
+L016             }
+L017             v2--;
+L018         }
+L019         return v1;
+L020     }
+L021     public static void main(String[] args) {
+L022     int _obf_t1_main_586805 = 0; _obf_t1_main_586805 += 0;
+L023     assert(f(("102x0zoq")).equals(("qozx")));
+L024     }
+L025 
+L026 }

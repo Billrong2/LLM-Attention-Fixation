@@ -1,0 +1,484 @@
+{
+  "branches_seen": [
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "line": 17
+    }
+  ],
+  "called_methods": [
+    "main",
+    "derivative"
+  ],
+  "case_expression": "!(v2.contains(false))",
+  "case_id": "c001",
+  "case_origin": "humaneval.if_throw",
+  "case_pack_source_hash": "c6c5c90bd14e5d00fbb488dff12027091c464bb4b91d7c7f93cc46d4d503c167",
+  "case_result_matches_expected": true,
+  "case_result_observed": true,
+  "class_name": "Java_062",
+  "dataset": "humaneval",
+  "event_count": 50,
+  "events": [
+    {
+      "event_idx": 0,
+      "event_type": "method_enter",
+      "line": 25,
+      "method_name": "main",
+      "prompt_line": 25
+    },
+    {
+      "event_idx": 1,
+      "event_type": "method_enter",
+      "line": 14,
+      "method_name": "derivative",
+      "prompt_line": 14
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 2,
+      "event_type": "branch_eval",
+      "line": 17,
+      "method_name": "derivative",
+      "outcome": true,
+      "prompt_line": 17
+    },
+    {
+      "event_idx": 3,
+      "event_type": "line_exec",
+      "line": 18,
+      "method_name": "derivative",
+      "prompt_line": 18
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 4,
+      "event_type": "branch_eval",
+      "line": 17,
+      "method_name": "derivative",
+      "outcome": true,
+      "prompt_line": 17
+    },
+    {
+      "event_idx": 5,
+      "event_type": "line_exec",
+      "line": 18,
+      "method_name": "derivative",
+      "prompt_line": 18
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 6,
+      "event_type": "branch_eval",
+      "line": 17,
+      "method_name": "derivative",
+      "outcome": true,
+      "prompt_line": 17
+    },
+    {
+      "event_idx": 7,
+      "event_type": "line_exec",
+      "line": 18,
+      "method_name": "derivative",
+      "prompt_line": 18
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 8,
+      "event_type": "branch_eval",
+      "line": 17,
+      "method_name": "derivative",
+      "outcome": true,
+      "prompt_line": 17
+    },
+    {
+      "event_idx": 9,
+      "event_type": "line_exec",
+      "line": 18,
+      "method_name": "derivative",
+      "prompt_line": 18
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 10,
+      "event_type": "branch_eval",
+      "line": 17,
+      "method_name": "derivative",
+      "outcome": false,
+      "prompt_line": 17
+    },
+    {
+      "event_idx": 11,
+      "event_type": "return",
+      "line": 20,
+      "method_name": "derivative",
+      "prompt_line": 20,
+      "value_repr": "[1, 4, 12, 20]"
+    },
+    {
+      "event_idx": 12,
+      "event_type": "method_exit",
+      "line": 20,
+      "method_name": "derivative",
+      "prompt_line": 20
+    },
+    {
+      "event_idx": 13,
+      "event_type": "method_enter",
+      "line": 14,
+      "method_name": "derivative",
+      "prompt_line": 14
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 14,
+      "event_type": "branch_eval",
+      "line": 17,
+      "method_name": "derivative",
+      "outcome": true,
+      "prompt_line": 17
+    },
+    {
+      "event_idx": 15,
+      "event_type": "line_exec",
+      "line": 18,
+      "method_name": "derivative",
+      "prompt_line": 18
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 16,
+      "event_type": "branch_eval",
+      "line": 17,
+      "method_name": "derivative",
+      "outcome": true,
+      "prompt_line": 17
+    },
+    {
+      "event_idx": 17,
+      "event_type": "line_exec",
+      "line": 18,
+      "method_name": "derivative",
+      "prompt_line": 18
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 18,
+      "event_type": "branch_eval",
+      "line": 17,
+      "method_name": "derivative",
+      "outcome": false,
+      "prompt_line": 17
+    },
+    {
+      "event_idx": 19,
+      "event_type": "return",
+      "line": 20,
+      "method_name": "derivative",
+      "prompt_line": 20,
+      "value_repr": "[2, 6]"
+    },
+    {
+      "event_idx": 20,
+      "event_type": "method_exit",
+      "line": 20,
+      "method_name": "derivative",
+      "prompt_line": 20
+    },
+    {
+      "event_idx": 21,
+      "event_type": "method_enter",
+      "line": 14,
+      "method_name": "derivative",
+      "prompt_line": 14
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 22,
+      "event_type": "branch_eval",
+      "line": 17,
+      "method_name": "derivative",
+      "outcome": true,
+      "prompt_line": 17
+    },
+    {
+      "event_idx": 23,
+      "event_type": "line_exec",
+      "line": 18,
+      "method_name": "derivative",
+      "prompt_line": 18
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 24,
+      "event_type": "branch_eval",
+      "line": 17,
+      "method_name": "derivative",
+      "outcome": true,
+      "prompt_line": 17
+    },
+    {
+      "event_idx": 25,
+      "event_type": "line_exec",
+      "line": 18,
+      "method_name": "derivative",
+      "prompt_line": 18
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 26,
+      "event_type": "branch_eval",
+      "line": 17,
+      "method_name": "derivative",
+      "outcome": false,
+      "prompt_line": 17
+    },
+    {
+      "event_idx": 27,
+      "event_type": "return",
+      "line": 20,
+      "method_name": "derivative",
+      "prompt_line": 20,
+      "value_repr": "[2, 2]"
+    },
+    {
+      "event_idx": 28,
+      "event_type": "method_exit",
+      "line": 20,
+      "method_name": "derivative",
+      "prompt_line": 20
+    },
+    {
+      "event_idx": 29,
+      "event_type": "method_enter",
+      "line": 14,
+      "method_name": "derivative",
+      "prompt_line": 14
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 30,
+      "event_type": "branch_eval",
+      "line": 17,
+      "method_name": "derivative",
+      "outcome": true,
+      "prompt_line": 17
+    },
+    {
+      "event_idx": 31,
+      "event_type": "line_exec",
+      "line": 18,
+      "method_name": "derivative",
+      "prompt_line": 18
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 32,
+      "event_type": "branch_eval",
+      "line": 17,
+      "method_name": "derivative",
+      "outcome": true,
+      "prompt_line": 17
+    },
+    {
+      "event_idx": 33,
+      "event_type": "line_exec",
+      "line": 18,
+      "method_name": "derivative",
+      "prompt_line": 18
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 34,
+      "event_type": "branch_eval",
+      "line": 17,
+      "method_name": "derivative",
+      "outcome": true,
+      "prompt_line": 17
+    },
+    {
+      "event_idx": 35,
+      "event_type": "line_exec",
+      "line": 18,
+      "method_name": "derivative",
+      "prompt_line": 18
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 36,
+      "event_type": "branch_eval",
+      "line": 17,
+      "method_name": "derivative",
+      "outcome": true,
+      "prompt_line": 17
+    },
+    {
+      "event_idx": 37,
+      "event_type": "line_exec",
+      "line": 18,
+      "method_name": "derivative",
+      "prompt_line": 18
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 38,
+      "event_type": "branch_eval",
+      "line": 17,
+      "method_name": "derivative",
+      "outcome": false,
+      "prompt_line": 17
+    },
+    {
+      "event_idx": 39,
+      "event_type": "return",
+      "line": 20,
+      "method_name": "derivative",
+      "prompt_line": 20,
+      "value_repr": "[2, 2, 0, 16]"
+    },
+    {
+      "event_idx": 40,
+      "event_type": "method_exit",
+      "line": 20,
+      "method_name": "derivative",
+      "prompt_line": 20
+    },
+    {
+      "event_idx": 41,
+      "event_type": "method_enter",
+      "line": 14,
+      "method_name": "derivative",
+      "prompt_line": 14
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "for",
+      "event_idx": 42,
+      "event_type": "branch_eval",
+      "line": 17,
+      "method_name": "derivative",
+      "outcome": false,
+      "prompt_line": 17
+    },
+    {
+      "event_idx": 43,
+      "event_type": "return",
+      "line": 20,
+      "method_name": "derivative",
+      "prompt_line": 20,
+      "value_repr": "[]"
+    },
+    {
+      "event_idx": 44,
+      "event_type": "method_exit",
+      "line": 20,
+      "method_name": "derivative",
+      "prompt_line": 20
+    },
+    {
+      "event_idx": 45,
+      "event_type": "line_exec",
+      "line": 36,
+      "method_name": "main",
+      "prompt_line": 36
+    },
+    {
+      "case_id": "c001",
+      "event_idx": 46,
+      "event_type": "case_result",
+      "line": -1,
+      "method_name": "main",
+      "outcome": true
+    },
+    {
+      "event_idx": 47,
+      "event_type": "line_exec",
+      "line": 38,
+      "method_name": "main",
+      "prompt_line": 38
+    },
+    {
+      "event_idx": 48,
+      "event_type": "method_exit",
+      "line": -1,
+      "method_name": "main"
+    },
+    {
+      "event_idx": 49,
+      "event_type": "line_exec",
+      "line": 39,
+      "method_name": "main",
+      "prompt_line": 39
+    }
+  ],
+  "exec_result": {
+    "assertion_failed": false,
+    "compile_error": "",
+    "compiled": true,
+    "ran": true,
+    "returncode": 0,
+    "runtime_error": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":25},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"derivative\",\"line\":14},{\"event_idx\":2,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":3,\"event_type\":\"line_exec\",\"method_name\":\"derivative\",\"line\":18},{\"event_idx\":4,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":5,\"event_type\":\"line_exec\",\"method_name\":\"derivative\",\"line\":18},{\"event_idx\":6,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":7,\"event_type\":\"line_exec\",\"method_name\":\"derivative\",\"line\":18},{\"event_idx\":8,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":9,\"event_type\":\"line_exec\",\"method_name\":\"derivative\",\"line\":18},{\"event_idx\":10,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":false},{\"event_idx\":11,\"event_type\":\"return\",\"method_name\":\"derivative\",\"line\":20,\"value_repr\":\"[1, 4, 12, 20]\"},{\"event_idx\":12,\"event_type\":\"method_exit\",\"method_name\":\"derivative\",\"line\":20},{\"event_idx\":13,\"event_type\":\"method_enter\",\"method_name\":\"derivative\",\"line\":14},{\"event_idx\":14,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":15,\"event_type\":\"line_exec\",\"method_name\":\"derivative\",\"line\":18},{\"event_idx\":16,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":17,\"event_type\":\"line_exec\",\"method_name\":\"derivative\",\"line\":18},{\"event_idx\":18,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":false},{\"event_idx\":19,\"event_type\":\"return\",\"method_name\":\"derivative\",\"line\":20,\"value_repr\":\"[2, 6]\"},{\"event_idx\":20,\"event_type\":\"method_exit\",\"method_name\":\"derivative\",\"line\":20},{\"event_idx\":21,\"event_type\":\"method_enter\",\"method_name\":\"derivative\",\"line\":14},{\"event_idx\":22,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":23,\"event_type\":\"line_exec\",\"method_name\":\"derivative\",\"line\":18},{\"event_idx\":24,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":25,\"event_type\":\"line_exec\",\"method_name\":\"derivative\",\"line\":18},{\"event_idx\":26,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":false},{\"event_idx\":27,\"event_type\":\"return\",\"method_name\":\"derivative\",\"line\":20,\"value_repr\":\"[2, 2]\"},{\"event_idx\":28,\"event_type\":\"method_exit\",\"method_name\":\"derivative\",\"line\":20},{\"event_idx\":29,\"event_type\":\"method_enter\",\"method_name\":\"derivative\",\"line\":14},{\"event_idx\":30,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":31,\"event_type\":\"line_exec\",\"method_name\":\"derivative\",\"line\":18},{\"event_idx\":32,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":33,\"event_type\":\"line_exec\",\"method_name\":\"derivative\",\"line\":18},{\"event_idx\":34,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":35,\"event_type\":\"line_exec\",\"method_name\":\"derivative\",\"line\":18},{\"event_idx\":36,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":37,\"event_type\":\"line_exec\",\"method_name\":\"derivative\",\"line\":18},{\"event_idx\":38,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":false},{\"event_idx\":39,\"event_type\":\"return\",\"method_name\":\"derivative\",\"line\":20,\"value_repr\":\"[2, 2, 0, 16]\"},{\"event_idx\":40,\"event_type\":\"method_exit\",\"method_name\":\"derivative\",\"line\":20},{\"event_idx\":41,\"event_type\":\"method_enter\",\"method_name\":\"derivative\",\"line\":14},{\"event_idx\":42,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":false},{\"event_idx\":43,\"event_type\":\"return\",\"method_name\":\"derivative\",\"line\":20,\"value_repr\":\"[]\"},{\"event_idx\":44,\"event_type\":\"method_exit\",\"method_name\":\"derivative\",\"line\":20},{\"event_idx\":45,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":36},{\"event_idx\":46,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":47,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":38},{\"event_idx\":48,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":49,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":39}]}\nTRACE_JSON_END",
+    "stderr": "",
+    "stdout": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":25},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"derivative\",\"line\":14},{\"event_idx\":2,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":3,\"event_type\":\"line_exec\",\"method_name\":\"derivative\",\"line\":18},{\"event_idx\":4,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":5,\"event_type\":\"line_exec\",\"method_name\":\"derivative\",\"line\":18},{\"event_idx\":6,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":7,\"event_type\":\"line_exec\",\"method_name\":\"derivative\",\"line\":18},{\"event_idx\":8,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":9,\"event_type\":\"line_exec\",\"method_name\":\"derivative\",\"line\":18},{\"event_idx\":10,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":false},{\"event_idx\":11,\"event_type\":\"return\",\"method_name\":\"derivative\",\"line\":20,\"value_repr\":\"[1, 4, 12, 20]\"},{\"event_idx\":12,\"event_type\":\"method_exit\",\"method_name\":\"derivative\",\"line\":20},{\"event_idx\":13,\"event_type\":\"method_enter\",\"method_name\":\"derivative\",\"line\":14},{\"event_idx\":14,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":15,\"event_type\":\"line_exec\",\"method_name\":\"derivative\",\"line\":18},{\"event_idx\":16,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":17,\"event_type\":\"line_exec\",\"method_name\":\"derivative\",\"line\":18},{\"event_idx\":18,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":false},{\"event_idx\":19,\"event_type\":\"return\",\"method_name\":\"derivative\",\"line\":20,\"value_repr\":\"[2, 6]\"},{\"event_idx\":20,\"event_type\":\"method_exit\",\"method_name\":\"derivative\",\"line\":20},{\"event_idx\":21,\"event_type\":\"method_enter\",\"method_name\":\"derivative\",\"line\":14},{\"event_idx\":22,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":23,\"event_type\":\"line_exec\",\"method_name\":\"derivative\",\"line\":18},{\"event_idx\":24,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":25,\"event_type\":\"line_exec\",\"method_name\":\"derivative\",\"line\":18},{\"event_idx\":26,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":false},{\"event_idx\":27,\"event_type\":\"return\",\"method_name\":\"derivative\",\"line\":20,\"value_repr\":\"[2, 2]\"},{\"event_idx\":28,\"event_type\":\"method_exit\",\"method_name\":\"derivative\",\"line\":20},{\"event_idx\":29,\"event_type\":\"method_enter\",\"method_name\":\"derivative\",\"line\":14},{\"event_idx\":30,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":31,\"event_type\":\"line_exec\",\"method_name\":\"derivative\",\"line\":18},{\"event_idx\":32,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":33,\"event_type\":\"line_exec\",\"method_name\":\"derivative\",\"line\":18},{\"event_idx\":34,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":35,\"event_type\":\"line_exec\",\"method_name\":\"derivative\",\"line\":18},{\"event_idx\":36,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":true},{\"event_idx\":37,\"event_type\":\"line_exec\",\"method_name\":\"derivative\",\"line\":18},{\"event_idx\":38,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":false},{\"event_idx\":39,\"event_type\":\"return\",\"method_name\":\"derivative\",\"line\":20,\"value_repr\":\"[2, 2, 0, 16]\"},{\"event_idx\":40,\"event_type\":\"method_exit\",\"method_name\":\"derivative\",\"line\":20},{\"event_idx\":41,\"event_type\":\"method_enter\",\"method_name\":\"derivative\",\"line\":14},{\"event_idx\":42,\"event_type\":\"branch_eval\",\"method_name\":\"derivative\",\"line\":17,\"branch_kind\":\"for\",\"branch_id\":\"b001\",\"outcome\":false},{\"event_idx\":43,\"event_type\":\"return\",\"method_name\":\"derivative\",\"line\":20,\"value_repr\":\"[]\"},{\"event_idx\":44,\"event_type\":\"method_exit\",\"method_name\":\"derivative\",\"line\":20},{\"event_idx\":45,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":36},{\"event_idx\":46,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":47,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":38},{\"event_idx\":48,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":49,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":39}]}\nTRACE_JSON_END",
+    "success": true
+  },
+  "executed_line_sequence": [
+    17,
+    18,
+    17,
+    18,
+    17,
+    18,
+    17,
+    18,
+    17,
+    20,
+    17,
+    18,
+    17,
+    18,
+    17,
+    20,
+    17,
+    18,
+    17,
+    18,
+    17,
+    20,
+    17,
+    18,
+    17,
+    18,
+    17,
+    18,
+    17,
+    18,
+    17,
+    20,
+    17,
+    20
+  ],
+  "expected_bool": true,
+  "mutation_type": "seed_true",
+  "snippet": "Java_062",
+  "trace_status": "ok",
+  "unsupported_reason": "",
+  "variant": "obfuscated",
+  "variant_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/artifacts/obfuscation/source/humaneval/java/Java_062/identifier_renaming/easy/Java_062.java"
+}

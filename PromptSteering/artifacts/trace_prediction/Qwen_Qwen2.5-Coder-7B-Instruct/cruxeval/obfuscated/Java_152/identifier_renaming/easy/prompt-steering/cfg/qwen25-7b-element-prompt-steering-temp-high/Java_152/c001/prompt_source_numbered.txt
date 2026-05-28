@@ -1,0 +1,23 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_152 {
+L009     public static long f(String text) {
+L010         long v1 = 0;
+L011         for (char char_ : text.toCharArray()) {
+L012             if (Character.isUpperCase(char_)) {
+L013                 v1 += 1;
+L014             }
+L015         }
+L016         return v1;
+L017     }
+L018     public static void main(String[] args) {
+L019     int _obf_t1_main_3980 = 0; _obf_t1_main_3980 += 0;
+L020     assert(f(("AAAAAAAAAAAAAAAAAAAA")) == (20l));
+L021     }
+L022 
+L023 }

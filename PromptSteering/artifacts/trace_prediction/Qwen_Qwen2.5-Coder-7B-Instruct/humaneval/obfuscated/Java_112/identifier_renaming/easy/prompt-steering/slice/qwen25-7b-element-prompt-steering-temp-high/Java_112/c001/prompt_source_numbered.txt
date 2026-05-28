@@ -1,0 +1,46 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Task
+L007     We are given two strings s and c, you have to deleted all the characters in s that are equal to any character in c
+L008     then check if the result string is palindrome.
+L009     A string is called palindrome if it reads the same backward as forward.
+L010     You should return a tuple containing the result string and true/false for the check.
+L011     Example
+L012     For s = "abcde", c = "ae", the result should be ("bcd",false)
+L013     For s = "abcdef", c = "b"  the result should be ("acdef",false)
+L014     For s = "abcdedcba", c = "ab", the result should be ("cdedc",true)
+L015      */
+L016     public List<Object> reverseDelete(String s, String c) {
+L017 
+L018         StringBuilder v1 = new StringBuilder();
+L019         for (char ch : s.toCharArray()) {
+L020             if (c.indexOf(ch) == -1) {
+L021                 v1.append(ch);
+L022             }
+L023         }
+L024         return Arrays.asList(v1.toString(), v1.toString().equals(v1.reverse().toString()));
+L025     }
+L026 }
+L027 
+L028 public class Java_112 {
+L029     public static void main(String[] args) {
+L030         Solution v1 = new Solution();
+L031         List<Boolean> v2 = Arrays.asList(
+L032                 v1.reverseDelete("abcde", "ae" ).equals(Arrays.asList("bcd", false)),
+L033                 v1.reverseDelete("abcdef", "b" ).equals(Arrays.asList("acdef", false)),
+L034                 v1.reverseDelete("abcdedcba", "ab" ).equals(Arrays.asList("cdedc", true)),
+L035                 v1.reverseDelete("dwik", "w" ).equals(Arrays.asList("dik", false)),
+L036                 v1.reverseDelete("a", "a" ).equals(Arrays.asList("", true)),
+L037                 v1.reverseDelete("abcdedcba", "" ).equals(Arrays.asList("abcdedcba", true)),
+L038                 v1.reverseDelete("abcdedcba", "v" ).equals(Arrays.asList("abcdedcba", true)),
+L039                 v1.reverseDelete("vabba", "v" ).equals(Arrays.asList("abba", true)),
+L040                 v1.reverseDelete("mamma", "mia" ).equals(Arrays.asList("", true))
+L041         );
+L042         if (v2.contains(false)) {
+L043             throw new AssertionError();
+L044         }
+L045     }
+L046 }

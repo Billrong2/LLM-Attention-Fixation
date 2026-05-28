@@ -1,0 +1,22 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_638 {
+L009     public static String f(String s, String suffix) {
+L010         if (suffix.isEmpty()) {
+L011             return s;
+L012         }
+L013         while (s.endsWith(suffix)) {
+L014             s = s.substring(0, s.length() - suffix.length());
+L015         }
+L016         return s;
+L017     }
+L018     public static void main(String[] args) {
+L019     assert(f(("ababa"), ("ab")).equals(("ababa")));
+L020     }
+L021 
+L022 }

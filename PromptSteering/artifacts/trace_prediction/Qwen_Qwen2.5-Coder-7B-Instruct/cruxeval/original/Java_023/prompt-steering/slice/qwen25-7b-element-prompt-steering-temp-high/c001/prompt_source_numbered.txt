@@ -1,0 +1,24 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_023 {
+L009     public static String f(String text, String chars) {
+L010         if (!chars.isEmpty()) {
+L011             text = text.replaceAll("[" + chars + "]+$", "");
+L012         } else {
+L013             text = text.trim();
+L014         }
+L015         if (text.isEmpty()) {
+L016             return "-";
+L017         }
+L018         return text;
+L019     }
+L020     public static void main(String[] args) {
+L021     assert(f(("new-medium-performing-application - XQuery 2.2"), ("0123456789-")).equals(("new-medium-performing-application - XQuery 2.")));
+L022     }
+L023 
+L024 }

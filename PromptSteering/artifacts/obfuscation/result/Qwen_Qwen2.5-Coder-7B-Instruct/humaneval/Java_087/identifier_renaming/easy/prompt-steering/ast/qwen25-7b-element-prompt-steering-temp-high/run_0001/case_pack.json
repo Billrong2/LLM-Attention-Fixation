@@ -1,0 +1,37 @@
+{
+  "balance_stats": {
+    "case_total": 2,
+    "false_count": 1,
+    "true_count": 1,
+    "true_ratio": 0.5
+  },
+  "cases": [
+    {
+      "case_id": "c001",
+      "expected_bool": true,
+      "expr": "!(v2.contains(false))",
+      "mutation_type": "seed_true",
+      "origin": "humaneval.if_throw"
+    },
+    {
+      "case_id": "c002",
+      "expected_bool": false,
+      "expr": "!(!(v2.contains(false)))",
+      "mutation_type": "negation_fallback",
+      "origin": "humaneval.if_throw"
+    }
+  ],
+  "class_name": "Java_087",
+  "dataset": "humaneval",
+  "effective_case_count": 2,
+  "generation_policy": "validated_nontrivial_only",
+  "generator_version": "cf-v2",
+  "min_cases_config": 8,
+  "profile": "counterfactual_tf",
+  "snippet": "Java_087",
+  "source_hash": "60310c072023ae6df43ce59e2f5bcb5ffb3956a98471900fd92054e37bd0b9cf",
+  "target_cases_config": 16,
+  "warnings": [
+    "low_effective_case_count:2 (consider reviewing extraction/mutation coverage)"
+  ]
+}

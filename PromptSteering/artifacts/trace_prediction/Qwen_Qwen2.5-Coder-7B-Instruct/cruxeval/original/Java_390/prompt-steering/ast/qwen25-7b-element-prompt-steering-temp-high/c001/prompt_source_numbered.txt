@@ -1,0 +1,19 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_390 {
+L009     public static long f(String text) {
+L010         if (text.trim().isEmpty()) {
+L011             return text.trim().length();
+L012         }
+L013         return -1;
+L014     }
+L015     public static void main(String[] args) {
+L016     assert(f((" 	 ")) == (0l));
+L017     }
+L018 
+L019 }

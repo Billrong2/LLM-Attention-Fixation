@@ -1,0 +1,24 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_061 {
+L009     public static String f(String text) {
+L010         String[] v1 = text.split(" ");
+L011         if (v1.length > 0) {
+L012             List<String> v2 = Arrays.stream(v1)
+L013                     .filter(t -> t.matches("\\p{ASCII}") && !Arrays.asList("nada", "0").contains(t))
+L014                     .collect(Collectors.toList());
+L015             return v2.stream().max(Comparator.comparing(String::length)).orElse("nada");
+L016         }
+L017         return "nada";
+L018     }
+L019     public static void main(String[] args) {
+L020     int _obf_t1_main_164501 = 0; _obf_t1_main_164501 += 0;
+L021     assert(f(("")).equals(("nada")));
+L022     }
+L023 
+L024 }

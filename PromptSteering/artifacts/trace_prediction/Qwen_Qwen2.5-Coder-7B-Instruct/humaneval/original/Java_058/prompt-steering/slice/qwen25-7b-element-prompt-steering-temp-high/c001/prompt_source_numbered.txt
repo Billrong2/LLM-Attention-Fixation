@@ -1,0 +1,35 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Return sorted unique common elements for two lists.
+L007     >>> common(Arrays.asList(1, 4, 3, 34, 653, 2, 5), Arrays.asList(5, 7, 1, 5, 9, 653, 121))
+L008     [1, 5, 653]
+L009     >>> common(Arrays.asList(5, 3, 2, 8), Arrays.asList(3, 2))
+L010     [2, 3]
+L011      */
+L012     public List<Integer> common(List<Integer> l1, List<Integer> l2) {
+L013 
+L014         Set<Integer> ret = new HashSet<>(l1);
+L015         ret.retainAll(new HashSet<>(l2));
+L016         List<Integer> result = new ArrayList<>(ret);
+L017         Collections.sort(result);
+L018         return result;
+L019     }
+L020 }
+L021 
+L022 public class Java_058 {
+L023     public static void main(String[] args) {
+L024         Solution s = new Solution();
+L025         List<Boolean> correct = Arrays.asList(
+L026                 s.common(new ArrayList<>(Arrays.asList(1, 4, 3, 34, 653, 2, 5)), new ArrayList<>(Arrays.asList(5, 7, 1, 5, 9, 653, 121))).equals(Arrays.asList(1, 5, 653)),
+L027                 s.common(new ArrayList<>(Arrays.asList(5, 3, 2, 8)), new ArrayList<>(Arrays.asList(3, 2))).equals(Arrays.asList(2, 3)),
+L028                 s.common(new ArrayList<>(Arrays.asList(4, 3, 2, 8)), new ArrayList<>(Arrays.asList(3, 2, 4))).equals(Arrays.asList(2, 3, 4)),
+L029                 s.common(new ArrayList<>(Arrays.asList(4, 3, 2, 8)), new ArrayList<>(List.of())).equals(List.of())
+L030         );
+L031         if (correct.contains(false)) {
+L032             throw new AssertionError();
+L033         }
+L034     }
+L035 }

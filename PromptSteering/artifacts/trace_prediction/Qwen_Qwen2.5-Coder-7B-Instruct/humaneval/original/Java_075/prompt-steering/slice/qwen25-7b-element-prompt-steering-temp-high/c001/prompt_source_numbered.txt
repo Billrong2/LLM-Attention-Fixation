@@ -1,0 +1,66 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Write a function that returns true if the given number is the multiplication of 3 prime numbers
+L007     and false otherwise.
+L008     Knowing that (a) is less then 100.
+L009     Example:
+L010     isMultiplyPrime(30) == true
+L011     30 = 2 * 3 * 5
+L012      */
+L013     public boolean isMultiplyPrime(int a) {
+L014 
+L015         class IsPrime {
+L016             public static boolean is_prime(int n) {
+L017                 for (int j = 2; j < n; j++) {
+L018                     if (n % j == 0) {
+L019                         return false;
+L020                     }
+L021                 }
+L022                 return true;
+L023             }
+L024         }
+L025         for (int i = 2; i < 101; i++) {
+L026             if (!IsPrime.is_prime(i)) {
+L027                 continue;
+L028             }
+L029             for (int j = i; j < 101; j++) {
+L030                 if (!IsPrime.is_prime(j)) {
+L031                     continue;
+L032                 }
+L033                 for (int k = j; k < 101; k++) {
+L034                     if (!IsPrime.is_prime(k)) {
+L035                         continue;
+L036                     }
+L037                     if (i * j * k == a) {
+L038                         return true;
+L039                     }
+L040                 }
+L041             }
+L042         }
+L043         return false;
+L044     }
+L045 }
+L046 
+L047 public class Java_075 {
+L048     public static void main(String[] args) {
+L049         Solution s = new Solution();
+L050         List<Boolean> correct = Arrays.asList(
+L051                 !s.isMultiplyPrime(5),
+L052                 s.isMultiplyPrime(30),
+L053                 s.isMultiplyPrime(8),
+L054                 !s.isMultiplyPrime(10),
+L055                 s.isMultiplyPrime(125),
+L056                 s.isMultiplyPrime(3 * 5 * 7),
+L057                 !s.isMultiplyPrime(3 * 6 * 7),
+L058                 !s.isMultiplyPrime(9 * 9 * 9),
+L059                 !s.isMultiplyPrime(11 * 9 * 9),
+L060                 s.isMultiplyPrime(11 * 13 * 7)
+L061         );
+L062         if (correct.contains(false)) {
+L063             throw new AssertionError();
+L064         }
+L065     }
+L066 }

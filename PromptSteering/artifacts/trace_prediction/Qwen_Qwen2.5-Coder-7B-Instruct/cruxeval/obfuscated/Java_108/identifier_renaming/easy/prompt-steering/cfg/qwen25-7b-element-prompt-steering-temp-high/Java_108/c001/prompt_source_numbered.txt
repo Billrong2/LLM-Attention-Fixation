@@ -1,0 +1,21 @@
+L001 import java.util.*;
+L002 import java.util.stream.*;
+L003 
+L004 class Java_108 {
+L005     public static long f(Object var) {
+L006         long v1 = 0;
+L007 
+L008         if (var instanceof List) {
+L009             v1 = ((List<?>)var).size();
+L010         } else if (var instanceof Map) {
+L011             v1 = ((Map<?, ?>)var).size();
+L012         }
+L013 
+L014         return v1 > 0 ? v1 : 0;
+L015     }
+L016     public static void main(String[] args) {
+L017     int _obf_t1_main_424473 = 0; _obf_t1_main_424473 += 0;
+L018     assert(f((1l)) == (0l));
+L019     }
+L020 
+L021 }

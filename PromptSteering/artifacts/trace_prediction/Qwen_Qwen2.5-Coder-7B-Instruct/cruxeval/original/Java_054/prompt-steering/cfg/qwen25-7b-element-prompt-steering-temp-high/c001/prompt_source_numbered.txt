@@ -1,0 +1,20 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_054 {
+L009     public static long f(String text, long s, long e) {
+L010         String sublist = text.substring((int)s, (int)e);
+L011         if (sublist.isEmpty()) {
+L012             return -1;
+L013         }
+L014         return sublist.indexOf(Collections.min(sublist.codePoints().mapToObj(c -> String.valueOf((char) c)).collect(Collectors.toList())));
+L015     }
+L016     public static void main(String[] args) {
+L017     assert(f(("happy"), (0l), (3l)) == (1l));
+L018     }
+L019 
+L020 }

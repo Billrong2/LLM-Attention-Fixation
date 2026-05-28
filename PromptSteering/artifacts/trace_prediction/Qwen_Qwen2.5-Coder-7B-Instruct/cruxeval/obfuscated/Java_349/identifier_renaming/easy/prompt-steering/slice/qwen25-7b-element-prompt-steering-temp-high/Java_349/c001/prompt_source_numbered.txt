@@ -1,0 +1,21 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_349 {
+L009     public static HashMap<String,Long> f(HashMap<String,Long> dictionary) {
+L010         dictionary.put("1049", 55l);
+L011         Map.Entry<String,Long> entry = dictionary.entrySet().iterator().next();
+L012         dictionary.remove(entry.getKey());
+L013         dictionary.put(entry.getKey(), entry.getValue());
+L014         return dictionary;
+L015     }
+L016     public static void main(String[] args) {
+L017     int _obf_t1_main_597475 = 0; _obf_t1_main_597475 += 0;
+L018     assert(f((new HashMap<String,Long>(Map.of("noeohqhk", 623l)))).equals((new HashMap<String,Long>(Map.of("noeohqhk", 623l, "1049", 55l)))));
+L019     }
+L020 
+L021 }

@@ -1,0 +1,18 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_765 {
+L009     public static long f(String text) {
+L010         return text.chars().mapToObj(c -> (char)c)
+L011                           .filter(Character::isDigit)
+L012                           .count();
+L013     }
+L014     public static void main(String[] args) {
+L015     assert(f(("so456")) == (3l));
+L016     }
+L017 
+L018 }

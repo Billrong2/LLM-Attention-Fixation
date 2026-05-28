@@ -1,0 +1,44 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Given an array arr of integers, find the minimum number of elements that
+L007     need to be changed to make the array palindromic. A palindromic array is an array that
+L008     is read the same backwards and forwards. In one change, you can change one element to any other element.
+L009 
+L010     For example:
+L011     smallestChange(Arrays.asList(1,2,3,5,4,7,9,6)) == 4
+L012     smallestChange(Arrays.asList(1, 2, 3, 4, 3, 2, 2)) == 1
+L013     smallestChange(Arrays.asList(1, 2, 3, 2, 1)) == 0
+L014      */
+L015     public int smallestChange(List<Integer> arr) {
+L016 
+L017         int v1 = 0;
+L018         for (int v2 = 0; v2 < arr.size() / 2; v2++) {
+L019             if (!Objects.equals(arr.get(v2), arr.get(arr.size() - v2 - 1))) {
+L020                 v1 += 1;
+L021             }
+L022         }
+L023         return v1;
+L024     }
+L025 }
+L026 
+L027 public class Java_073 {
+L028     public static void main(String[] args) {
+L029         Solution v1 = new Solution();
+L030         List<Boolean> v2 = Arrays.asList(
+L031                 v1.smallestChange(new ArrayList<>(Arrays.asList(1, 2, 3, 5, 4, 7, 9, 6))) == 4,
+L032                 v1.smallestChange(new ArrayList<>(Arrays.asList(1, 2, 3, 4, 3, 2, 2))) == 1,
+L033                 v1.smallestChange(new ArrayList<>(Arrays.asList(1, 4, 2))) == 1,
+L034                 v1.smallestChange(new ArrayList<>(Arrays.asList(1, 4, 4, 2))) == 1,
+L035                 v1.smallestChange(new ArrayList<>(Arrays.asList(1, 2, 3, 2, 1))) == 0,
+L036                 v1.smallestChange(new ArrayList<>(Arrays.asList(3, 1, 1, 3))) == 0,
+L037                 v1.smallestChange(new ArrayList<>(List.of(1))) == 0,
+L038                 v1.smallestChange(new ArrayList<>(Arrays.asList(0, 1))) == 1
+L039         );
+L040         if (v2.contains(false)) {
+L041             throw new AssertionError();
+L042         }
+L043     }
+L044 }

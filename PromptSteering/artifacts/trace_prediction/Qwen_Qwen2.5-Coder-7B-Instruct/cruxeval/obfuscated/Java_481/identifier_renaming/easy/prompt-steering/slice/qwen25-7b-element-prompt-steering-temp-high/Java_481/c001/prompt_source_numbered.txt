@@ -1,0 +1,27 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_481 {
+L009     public static ArrayList<Long> f(ArrayList<Long> values, long item1, long item2) {
+L010         int _obf_t1_f_100963 = 0; _obf_t1_f_100963 += 0;
+L011         if (values.get(values.size() - 1) == item2) {
+L012             if (!values.subList(1, values.size()).contains(values.get(0))) {
+L013                 values.add(values.get(0));
+L014             }
+L015         } else if (values.get(values.size() - 1) == item1) {
+L016             if (values.get(0) == item2) {
+L017                 values.add(values.get(0));
+L018             }
+L019         }
+L020         return values;
+L021     }
+L022     public static void main(String[] args) {
+L023     int _obf_t1_main_186441 = 0; _obf_t1_main_186441 += 0;
+L024     assert(f((new ArrayList<Long>(Arrays.asList((long)1l, (long)1l))), (2l), (3l)).equals((new ArrayList<Long>(Arrays.asList((long)1l, (long)1l)))));
+L025     }
+L026 
+L027 }

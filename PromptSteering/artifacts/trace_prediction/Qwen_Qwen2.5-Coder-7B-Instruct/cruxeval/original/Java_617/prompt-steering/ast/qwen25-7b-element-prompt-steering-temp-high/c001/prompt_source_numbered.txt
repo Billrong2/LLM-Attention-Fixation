@@ -1,0 +1,21 @@
+L001 import java.io.*;
+L002 import java.lang.reflect.*;
+L003 import java.math.*;
+L004 import java.nio.charset.Charset;
+L005 import java.security.*;
+L006 import java.util.*;
+L007 import java.util.stream.*;
+L008 import org.javatuples.*;
+L009 class Java_617 {
+L010     public static String f(String text) {
+L011         if (Charset.forName("US-ASCII").newEncoder().canEncode(text)) {
+L012             return "ascii";
+L013         } else {
+L014             return "non ascii";
+L015         }
+L016     }
+L017     public static void main(String[] args) {
+L018     assert(f(("<<<<")).equals(("ascii")));
+L019     }
+L020 
+L021 }

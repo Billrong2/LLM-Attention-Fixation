@@ -1,0 +1,22 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_357 {
+L009     public static String f(String s) {
+L010         char[] r = new char[s.length()];
+L011         int v1 = 0;
+L012         for (int v2 = s.length() - 1; v2 >= 0; v2--) {
+L013             r[v1++] = s.charAt(v2);
+L014         }
+L015         return new String(r);
+L016     }
+L017     public static void main(String[] args) {
+L018     int _obf_t1_main_736815 = 0; _obf_t1_main_736815 += 0;
+L019     assert(f(("crew")).equals(("werc")));
+L020     }
+L021 
+L022 }

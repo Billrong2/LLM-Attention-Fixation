@@ -1,0 +1,20 @@
+L001 import java.util.*;
+L002 
+L003 class Java_263 {
+L004     public static ArrayList<String> f(ArrayList<String> base, ArrayList<ArrayList<String>> delta) {
+L005         for (int v1 = 0; v1 < delta.size(); v1++) {
+L006             for (int v2 = 0; v2 < base.size(); v2++) {
+L007                 if (base.get(v2).equals(delta.get(v1).get(0))) {
+L008                     assert !delta.get(v1).get(1).equals(base.get(v2));
+L009                     base.set(v2, delta.get(v1).get(1));
+L010                 }
+L011             }
+L012         }
+L013         return base;
+L014     }
+L015     public static void main(String[] args) {
+L016     int _obf_t1_main_581015 = 0; _obf_t1_main_581015 += 0;
+L017     assert(f((new ArrayList<String>(Arrays.asList((String)"gloss", (String)"banana", (String)"barn", (String)"lawn"))), (new ArrayList<ArrayList<String>>(Arrays.asList()))).equals((new ArrayList<String>(Arrays.asList((String)"gloss", (String)"banana", (String)"barn", (String)"lawn")))));
+L018     }
+L019 
+L020 }

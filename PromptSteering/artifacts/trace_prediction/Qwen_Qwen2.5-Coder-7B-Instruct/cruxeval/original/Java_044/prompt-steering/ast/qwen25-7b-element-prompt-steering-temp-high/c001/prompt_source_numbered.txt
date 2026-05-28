@@ -1,0 +1,23 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_044 {
+L009     public static String f(String text) {
+L010         char[] ls = text.toCharArray();
+L011         for (int i = 0; i < ls.length; i++) {
+L012             if (ls[i] != '+') {
+L013                 ls = new StringBuilder(new String(ls)).insert(i, "*+").toString().toCharArray();
+L014                 break;
+L015             }
+L016         }
+L017         return String.join("+", new String(ls).split(""));
+L018     }
+L019     public static void main(String[] args) {
+L020     assert(f(("nzoh")).equals(("*+++n+z+o+h")));
+L021     }
+L022 
+L023 }

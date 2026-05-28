@@ -1,0 +1,22 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_574 {
+L009     public static String f(ArrayList<String> simpons) {
+L010         while (!simpons.isEmpty()) {
+L011             String pop = simpons.remove(simpons.size() - 1);
+L012             if (pop.equals(pop.substring(0, 1).toUpperCase() + pop.substring(1))) {
+L013                 return pop;
+L014             }
+L015         }
+L016         return simpons.get(simpons.size() - 1);
+L017     }
+L018     public static void main(String[] args) {
+L019     assert(f((new ArrayList<String>(Arrays.asList((String)"George", (String)"Michael", (String)"George", (String)"Costanza")))).equals(("Costanza")));
+L020     }
+L021 
+L022 }

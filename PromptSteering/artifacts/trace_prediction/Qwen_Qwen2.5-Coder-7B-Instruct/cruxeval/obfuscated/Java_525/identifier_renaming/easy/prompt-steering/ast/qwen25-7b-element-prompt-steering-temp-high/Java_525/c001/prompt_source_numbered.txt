@@ -1,0 +1,25 @@
+L001 import java.util.*;
+L002 import org.javatuples.*;
+L003 
+L004 class Java_525 {
+L005     public static Pair<String, String> f(HashMap<String,Long> c, long st, long ed) {
+L006         HashMap<Long, String> d = new HashMap<>();
+L007         String a = "", b = "";
+L008         for (Map.Entry<String,Long> entry : c.entrySet()) {
+L009             d.put(entry.getValue(), entry.getKey());
+L010             if (entry.getValue() == st) {
+L011                 a = entry.getKey();
+L012             }
+L013             if (entry.getValue() == ed) {
+L014                 b = entry.getKey();
+L015             }
+L016         }
+L017         String w = d.get(st);
+L018         return (w.compareTo(b) > 0) ? Pair.with(w, b) : Pair.with(b, w);
+L019     }
+L020     public static void main(String[] args) {
+L021     int _obf_t1_main_713196 = 0; _obf_t1_main_713196 += 0;
+L022     assert(f((new HashMap<String,Long>(Map.of("TEXT", 7l, "CODE", 3l))), (7l), (3l)).equals((Pair.with("TEXT", "CODE"))));
+L023     }
+L024 
+L025 }

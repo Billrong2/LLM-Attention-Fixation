@@ -1,0 +1,27 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_538 {
+L009     public static String f(String text, long width) {
+L010         if (text.length() > width) {
+L011             return text.substring(0, (int) width).replace(' ', 'z');
+L012         } else {
+L013             StringBuilder sb = new StringBuilder(text);
+L014             while (sb.length() < width) {
+L015                 sb.insert(0, 'z');
+L016                 if (sb.length() < width) {
+L017                     sb.append('z');
+L018                 }
+L019             }
+L020             return sb.toString();
+L021         }
+L022     }
+L023     public static void main(String[] args) {
+L024     assert(f(("0574"), (9l)).equals(("zzz0574zz")));
+L025     }
+L026 
+L027 }

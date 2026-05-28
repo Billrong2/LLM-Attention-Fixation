@@ -1,0 +1,41 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Given a non-empty list of integers, return the sum of all of the odd elements that are in even positions.
+L007 
+L008     Examples
+L009     solution(Arrays.asList(5, 8, 7, 1)) ==> 12
+L010     solution(Arrays.asList(3, 3, 3, 3, 3)) ==> 9
+L011     solution(Arrays.asList(30, 13, 24, 321)) ==>0
+L012      */
+L013     public int solution(List<Integer> lst) {
+L014 
+L015         int sum = 0;
+L016         for (int i = 0; i < lst.size(); i += 2) {
+L017             if ((lst.get(i) % 2) == 1) {
+L018                 sum += lst.get(i);
+L019             }
+L020         }
+L021         return sum;
+L022     }
+L023 }
+L024 
+L025 public class Java_121 {
+L026     public static void main(String[] args) {
+L027         Solution s = new Solution();
+L028         List<Boolean> correct = Arrays.asList(
+L029                 s.solution(Arrays.asList(5, 8, 7, 1)) == 12,
+L030                 s.solution(Arrays.asList(3, 3, 3, 3, 3)) == 9,
+L031                 s.solution(Arrays.asList(30, 13, 24, 321)) == 0,
+L032                 s.solution(Arrays.asList(5, 9)) == 5,
+L033                 s.solution(Arrays.asList(2, 4, 8)) == 0,
+L034                 s.solution(Arrays.asList(30, 13, 23, 32)) == 23,
+L035                 s.solution(Arrays.asList(3, 13, 2, 9)) == 3
+L036         );
+L037         if (correct.contains(false)) {
+L038             throw new AssertionError();
+L039         }
+L040     }
+L041 }

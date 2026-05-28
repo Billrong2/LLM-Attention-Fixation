@@ -1,0 +1,119 @@
+{
+  "balance_stats": {
+    "case_total": 14,
+    "false_count": 7,
+    "true_count": 7,
+    "true_ratio": 0.5
+  },
+  "cases": [
+    {
+      "case_id": "c001",
+      "expected_bool": true,
+      "expr": "s.hasCloseElements(new ArrayList<>(Arrays.asList(11.0, 2.0, 3.9, 4.0, 5.0, 2.2)), 0.3)",
+      "mutation_type": "seed_true",
+      "origin": "humaneval.correct_list"
+    },
+    {
+      "case_id": "c002",
+      "expected_bool": false,
+      "expr": "!(s.hasCloseElements(new ArrayList<>(Arrays.asList(11.0, 2.0, 3.9, 4.0, 5.0, 2.2)), 0.3))",
+      "mutation_type": "negation_fallback",
+      "origin": "humaneval.correct_list"
+    },
+    {
+      "case_id": "c003",
+      "expected_bool": true,
+      "expr": "!s.hasCloseElements(new ArrayList<>(Arrays.asList(1.0, 2.0, 3.9, 4.0, 5.0, 2.2)), 0.05)",
+      "mutation_type": "seed_true",
+      "origin": "humaneval.correct_list"
+    },
+    {
+      "case_id": "c004",
+      "expected_bool": false,
+      "expr": "!(!s.hasCloseElements(new ArrayList<>(Arrays.asList(1.0, 2.0, 3.9, 4.0, 5.0, 2.2)), 0.05))",
+      "mutation_type": "negation_fallback",
+      "origin": "humaneval.correct_list"
+    },
+    {
+      "case_id": "c005",
+      "expected_bool": true,
+      "expr": "s.hasCloseElements(new ArrayList<>(Arrays.asList(1.0, 2.0, 5.9, 4.0, 5.0)), 0.95)",
+      "mutation_type": "seed_true",
+      "origin": "humaneval.correct_list"
+    },
+    {
+      "case_id": "c006",
+      "expected_bool": false,
+      "expr": "!(s.hasCloseElements(new ArrayList<>(Arrays.asList(1.0, 2.0, 5.9, 4.0, 5.0)), 0.95))",
+      "mutation_type": "negation_fallback",
+      "origin": "humaneval.correct_list"
+    },
+    {
+      "case_id": "c007",
+      "expected_bool": true,
+      "expr": "!s.hasCloseElements(new ArrayList<>(Arrays.asList(1.0, 2.0, 5.9, 4.0, 5.0)), 0.8)",
+      "mutation_type": "seed_true",
+      "origin": "humaneval.correct_list"
+    },
+    {
+      "case_id": "c008",
+      "expected_bool": false,
+      "expr": "!(!s.hasCloseElements(new ArrayList<>(Arrays.asList(1.0, 2.0, 5.9, 4.0, 5.0)), 0.8))",
+      "mutation_type": "negation_fallback",
+      "origin": "humaneval.correct_list"
+    },
+    {
+      "case_id": "c009",
+      "expected_bool": true,
+      "expr": "s.hasCloseElements(new ArrayList<>(Arrays.asList(1.0, 2.0, 3.0, 4.0, 5.0, 2.0)), 0.1)",
+      "mutation_type": "seed_true",
+      "origin": "humaneval.correct_list"
+    },
+    {
+      "case_id": "c010",
+      "expected_bool": false,
+      "expr": "!(s.hasCloseElements(new ArrayList<>(Arrays.asList(1.0, 2.0, 3.0, 4.0, 5.0, 2.0)), 0.1))",
+      "mutation_type": "negation_fallback",
+      "origin": "humaneval.correct_list"
+    },
+    {
+      "case_id": "c011",
+      "expected_bool": true,
+      "expr": "s.hasCloseElements(new ArrayList<>(Arrays.asList(1.1, 2.2, 3.1, 4.1, 5.1)), 1.0)",
+      "mutation_type": "seed_true",
+      "origin": "humaneval.correct_list"
+    },
+    {
+      "case_id": "c012",
+      "expected_bool": false,
+      "expr": "!(s.hasCloseElements(new ArrayList<>(Arrays.asList(1.1, 2.2, 3.1, 4.1, 5.1)), 1.0))",
+      "mutation_type": "negation_fallback",
+      "origin": "humaneval.correct_list"
+    },
+    {
+      "case_id": "c013",
+      "expected_bool": true,
+      "expr": "!s.hasCloseElements(new ArrayList<>(Arrays.asList(1.1, 2.2, 3.1, 4.1, 5.1)), 0.5)",
+      "mutation_type": "seed_true",
+      "origin": "humaneval.correct_list"
+    },
+    {
+      "case_id": "c014",
+      "expected_bool": false,
+      "expr": "!s.hasCloseElements(new ArrayList<>(Arrays.asList(2.1, 2.2, 3.1, 4.1, 5.1)), 0.5)",
+      "mutation_type": "literal_perturbation",
+      "origin": "humaneval.correct_list"
+    }
+  ],
+  "class_name": "Java_000",
+  "dataset": "humaneval",
+  "effective_case_count": 14,
+  "generation_policy": "validated_nontrivial_only",
+  "generator_version": "cf-v2",
+  "min_cases_config": 8,
+  "profile": "counterfactual_tf",
+  "snippet": "Java_000",
+  "source_hash": "d0406db9587358f4c78257d7c1aa97651ea1c7c46c9e80519411fd22ee4123e3",
+  "target_cases_config": 16,
+  "warnings": []
+}

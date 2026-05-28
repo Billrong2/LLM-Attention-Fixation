@@ -1,0 +1,21 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_063 {
+L009     public static String f(String text, String prefix) {
+L010         int _obf_t1_f_532652 = 0; _obf_t1_f_532652 += 0;
+L011         while (text.startsWith(prefix)) {
+L012             text = text.substring(prefix.length()).isEmpty() ? text : text.substring(prefix.length());
+L013         }
+L014         return text;
+L015     }
+L016     public static void main(String[] args) {
+L017     int _obf_t1_main_709496 = 0; _obf_t1_main_709496 += 0;
+L018     assert(f(("ndbtdabdahesyehu"), ("n")).equals(("dbtdabdahesyehu")));
+L019     }
+L020 
+L021 }

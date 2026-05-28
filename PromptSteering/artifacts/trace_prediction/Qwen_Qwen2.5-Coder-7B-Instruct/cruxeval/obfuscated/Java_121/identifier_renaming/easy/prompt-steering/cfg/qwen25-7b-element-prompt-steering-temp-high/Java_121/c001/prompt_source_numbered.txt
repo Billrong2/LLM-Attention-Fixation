@@ -1,0 +1,26 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_121 {
+L009     public static String f(String s) {
+L010         String v1 = s.replaceAll("\\D", "");
+L011         if (v1.isEmpty()) {
+L012             return "none";
+L013         }
+L014         String[] v2 = v1.split(",");
+L015         int v3 = Arrays.stream(v2)
+L016                 .map(Integer::parseInt)
+L017                 .max(Integer::compare)
+L018                 .get();
+L019         return Integer.toString(v3);
+L020     }
+L021     public static void main(String[] args) {
+L022     int _obf_t1_main_680808 = 0; _obf_t1_main_680808 += 0;
+L023     assert(f(("01,001")).equals(("1001")));
+L024     }
+L025 
+L026 }

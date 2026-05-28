@@ -1,0 +1,26 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_279 {
+L009     public static String f(String text) {
+L010         String ans = "";
+L011         while (!text.isEmpty()) {
+L012             String[] parts = text.split("\\(", 2);
+L013             String x = parts[0];
+L014             String sep = "(";
+L015             text = parts[1];
+L016             ans = x + sep.replace("(", "|") + ans;
+L017             ans = ans + text.charAt(0) + ans;
+L018             text = text.substring(1);
+L019         }
+L020         return ans;
+L021     }
+L022     public static void main(String[] args) {
+L023     assert(f(("")).equals(("")));
+L024     }
+L025 
+L026 }

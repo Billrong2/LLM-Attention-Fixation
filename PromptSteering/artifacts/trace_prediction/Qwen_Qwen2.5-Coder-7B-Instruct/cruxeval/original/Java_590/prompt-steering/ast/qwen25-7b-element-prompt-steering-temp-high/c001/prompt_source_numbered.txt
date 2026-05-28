@@ -1,0 +1,19 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_590 {
+L009     public static String f(String text) {
+L010         for (int i = 10; i > 0; i--) {
+L011             text = text.replaceFirst("^" + i, "");
+L012         }
+L013         return text;
+L014     }
+L015     public static void main(String[] args) {
+L016     assert(f(("25000   $")).equals(("5000   $")));
+L017     }
+L018 
+L019 }

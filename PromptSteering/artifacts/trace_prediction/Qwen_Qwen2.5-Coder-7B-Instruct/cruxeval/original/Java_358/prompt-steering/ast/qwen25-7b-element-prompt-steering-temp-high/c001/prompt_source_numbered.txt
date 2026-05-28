@@ -1,0 +1,25 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_358 {
+L009     public static String f(String text, String value) {
+L010         List<Integer> indexes = new ArrayList<>();
+L011         for (int i = 0; i < text.length(); i++) {
+L012             if (text.charAt(i) == value.charAt(0) && (i == 0 || text.charAt(i-1) != value.charAt(0))) {
+L013                 indexes.add(i);
+L014             }
+L015         }
+L016         if (indexes.size() % 2 == 1) {
+L017             return text;
+L018         }
+L019         return text.substring(indexes.get(0) + 1, indexes.get(indexes.size() - 1));
+L020     }
+L021     public static void main(String[] args) {
+L022     assert(f(("btrburger"), ("b")).equals(("tr")));
+L023     }
+L024 
+L025 }

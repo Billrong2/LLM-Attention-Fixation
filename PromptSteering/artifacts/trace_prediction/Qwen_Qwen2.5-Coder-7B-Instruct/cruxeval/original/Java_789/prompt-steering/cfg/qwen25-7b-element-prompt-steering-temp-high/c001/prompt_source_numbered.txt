@@ -1,0 +1,27 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_789 {
+L009     public static String f(String text, long n) {
+L010         if (n < 0 || text.length() <= n) {
+L011             return text;
+L012         }
+L013         String result = text.substring(0, (int)n);
+L014         int i = result.length() - 1;
+L015         while (i >= 0) {
+L016             if (result.charAt(i) != text.charAt(i)) {
+L017                 break;
+L018             }
+L019             i--;
+L020         }
+L021         return text.substring(0, i + 1);
+L022     }
+L023     public static void main(String[] args) {
+L024     assert(f(("bR"), (-1l)).equals(("bR")));
+L025     }
+L026 
+L027 }

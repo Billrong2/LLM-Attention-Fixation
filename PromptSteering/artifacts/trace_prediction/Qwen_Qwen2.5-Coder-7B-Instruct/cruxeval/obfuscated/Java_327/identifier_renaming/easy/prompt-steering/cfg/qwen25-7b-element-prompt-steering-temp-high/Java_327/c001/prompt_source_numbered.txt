@@ -1,0 +1,27 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_327 {
+L009     public static ArrayList<Long> f(ArrayList<Long> lst) {
+L010         ArrayList<Long> v1 = new ArrayList<>();
+L011         int v2 = lst.size() - 1;
+L012         for (int v3 = 0; v3 < lst.size(); v3++) {
+L013             if (v2 % 2 == 0) {
+L014                 v1.add(-lst.get(v2));
+L015             } else {
+L016                 v1.add(lst.get(v2));
+L017             }
+L018             v2--;
+L019         }
+L020         return v1;
+L021     }
+L022     public static void main(String[] args) {
+L023     int _obf_t1_main_725422 = 0; _obf_t1_main_725422 += 0;
+L024     assert(f((new ArrayList<Long>(Arrays.asList((long)1l, (long)7l, (long)-1l, (long)-3l)))).equals((new ArrayList<Long>(Arrays.asList((long)-3l, (long)1l, (long)7l, (long)-1l)))));
+L025     }
+L026 
+L027 }

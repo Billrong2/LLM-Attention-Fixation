@@ -1,0 +1,20 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_691 {
+L009     public static String f(String text, String suffix) {
+L010         if (suffix != null && suffix.length() > 0 && text.contains(String.valueOf(suffix.charAt(suffix.length() - 1)))) {
+L011             return f(text.replaceAll(suffix.charAt(suffix.length() - 1) + "$", ""), suffix.substring(0, suffix.length() - 1));
+L012         } else {
+L013             return text;
+L014         }
+L015     }
+L016     public static void main(String[] args) {
+L017     assert(f(("rpyttc"), ("cyt")).equals(("rpytt")));
+L018     }
+L019 
+L020 }

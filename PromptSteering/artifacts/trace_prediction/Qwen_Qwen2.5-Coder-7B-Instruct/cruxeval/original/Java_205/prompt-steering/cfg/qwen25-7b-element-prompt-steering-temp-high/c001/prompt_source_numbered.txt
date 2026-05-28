@@ -1,0 +1,27 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_205 {
+L009     public static String f(String a) {
+L010         for (int i = 0; i < 10; i++) {
+L011             for (int j = 0; j < a.length(); j++) {
+L012                 if (a.charAt(j) != '#') {
+L013                     a = a.substring(j);
+L014                     break;
+L015                 }
+L016             }
+L017         }
+L018         while (a.charAt(a.length() - 1) == '#') {
+L019             a = a.substring(0, a.length() - 1);
+L020         }
+L021         return a;
+L022     }
+L023     public static void main(String[] args) {
+L024     assert(f(("##fiu##nk#he###wumun##")).equals(("fiu##nk#he###wumun")));
+L025     }
+L026 
+L027 }

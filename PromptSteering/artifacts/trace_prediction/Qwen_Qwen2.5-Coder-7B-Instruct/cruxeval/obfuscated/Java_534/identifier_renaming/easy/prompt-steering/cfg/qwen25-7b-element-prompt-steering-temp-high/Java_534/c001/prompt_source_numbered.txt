@@ -1,0 +1,27 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_534 {
+L009     public static String f(String sequence, String value) {
+L010         int v1 = Math.max(sequence.indexOf(value) - sequence.length() / 3, 0);
+L011         StringBuilder v2 = new StringBuilder();
+L012         for (int v3 = 0; v3 < sequence.substring(v1).length(); v3++) {
+L013             char v4 = sequence.charAt(v1 + v3);
+L014             if (v4 == '+') {
+L015                 v2.append(value);
+L016             } else {
+L017                 v2.append(v4);
+L018             }
+L019         }
+L020         return v2.toString();
+L021     }
+L022     public static void main(String[] args) {
+L023     int _obf_t1_main_488795 = 0; _obf_t1_main_488795 += 0;
+L024     assert(f(("hosu"), ("o")).equals(("hosu")));
+L025     }
+L026 
+L027 }

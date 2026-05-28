@@ -1,0 +1,25 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_465 {
+L009     public static HashMap<String,String> f(ArrayList<String> seq, String value) {
+L010         HashMap<String, String> roles = new HashMap<>();
+L011         for (String s : seq) {
+L012             roles.put(s, "north");
+L013         }
+L014         if (!value.isEmpty()) {
+L015             for (String key : value.split(", ")) {
+L016                 roles.put(key.trim(), "");
+L017             }
+L018         }
+L019         return roles;
+L020     }
+L021     public static void main(String[] args) {
+L022     assert(f((new ArrayList<String>(Arrays.asList((String)"wise king", (String)"young king"))), ("")).equals((new HashMap<String,String>(Map.of("wise king", "north", "young king", "north")))));
+L023     }
+L024 
+L025 }

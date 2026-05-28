@@ -1,0 +1,27 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_155 {
+L009     public static String f(String ip, long n) {
+L010         int v1 = 0;
+L011         StringBuilder v2 = new StringBuilder();
+L012         for (char c : ip.toCharArray()) {
+L013             if (v1 == n) {
+L014                 v2.append('\n');
+L015                 v1 = 0;
+L016             }
+L017             v1++;
+L018             v2.append(c);
+L019         }
+L020         return v2.toString();
+L021     }
+L022     public static void main(String[] args) {
+L023     int _obf_t1_main_633611 = 0; _obf_t1_main_633611 += 0;
+L024     assert(f(("dskjs hjcdjnxhjicnn"), (4l)).equals(("dskj\ns hj\ncdjn\nxhji\ncnn")));
+L025     }
+L026 
+L027 }

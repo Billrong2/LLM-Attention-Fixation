@@ -1,0 +1,26 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_111 {
+L009     public static Pair<Long, Long> f(HashMap<String,Long> marks) {
+L010         long highest = 0;
+L011         long lowest = 100;
+L012         for (long value : marks.values()) {
+L013             if (value > highest) {
+L014                 highest = value;
+L015             }
+L016             if (value < lowest) {
+L017                 lowest = value;
+L018             }
+L019         }
+L020         return new Pair<Long, Long>(highest, lowest);
+L021     }
+L022     public static void main(String[] args) {
+L023     assert(f((new HashMap<String,Long>(Map.of("x", 67l, "v", 89l, "", 4l, "alij", 11l, "kgfsd", 72l, "yafby", 83l)))).equals((Pair.with(89l, 4l))));
+L024     }
+L025 
+L026 }

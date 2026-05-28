@@ -1,0 +1,29 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_151 {
+L009     public static String f(String text) {
+L010         StringBuilder v1 = new StringBuilder();
+L011         for (char c : text.toCharArray()) {
+L012             if (Character.isDigit(c)) {
+L013                 if (c == '0') {
+L014                     v1.append('.');
+L015                 } else {
+L016                     v1.append(c == '1' ? '0' : c);
+L017                 }
+L018             } else {
+L019                 v1.append(c);
+L020             }
+L021         }
+L022         return v1.toString().replace('.', '0');
+L023     }
+L024     public static void main(String[] args) {
+L025     int _obf_t1_main_523161 = 0; _obf_t1_main_523161 += 0;
+L026     assert(f(("697 this is the ultimate 7 address to attack")).equals(("697 this is the ultimate 7 address to attack")));
+L027     }
+L028 
+L029 }

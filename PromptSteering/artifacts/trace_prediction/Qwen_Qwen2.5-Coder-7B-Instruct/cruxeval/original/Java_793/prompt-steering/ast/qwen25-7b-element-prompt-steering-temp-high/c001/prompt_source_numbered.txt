@@ -1,0 +1,24 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_793 {
+L009     public static long f(ArrayList<Long> lst, long start, long end) {
+L010         long count = 0;
+L011         for (long i = start; i < end; i++) {
+L012             for (long j = i; j < end; j++) {
+L013                 if (!lst.get((int)i).equals(lst.get((int)j))) {
+L014                     count += 1;
+L015                 }
+L016             }
+L017         }
+L018         return count;
+L019     }
+L020     public static void main(String[] args) {
+L021     assert(f((new ArrayList<Long>(Arrays.asList((long)1l, (long)2l, (long)4l, (long)3l, (long)2l, (long)1l))), (0l), (3l)) == (3l));
+L022     }
+L023 
+L024 }

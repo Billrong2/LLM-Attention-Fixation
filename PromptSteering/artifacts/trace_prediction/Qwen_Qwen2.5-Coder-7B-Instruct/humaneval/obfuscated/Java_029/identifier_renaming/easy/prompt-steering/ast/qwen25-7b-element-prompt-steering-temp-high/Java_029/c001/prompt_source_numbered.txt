@@ -1,0 +1,30 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 import java.util.stream.Collectors;
+L004 
+L005 class Solution {
+L006     /**
+L007     Filter an input list of strings only for ones that start with a given prefix.
+L008     >>> filterByPrefix(List.of(), "a")
+L009     []
+L010     >>> filterByPrefix(Arrays.asList("abc", "bcd", "cde", "array"), "a")
+L011     ["abc", "array"]
+L012      */
+L013     public List<String> filterByPrefix(List<String> strings, String prefix) {
+L014         int _obf_t1_filterByPrefix_169682 = 0; _obf_t1_filterByPrefix_169682 += 0;
+L015         return strings.stream().filter(p -> p.startsWith(prefix)).collect(Collectors.toList());
+L016     }
+L017 }
+L018 
+L019 public class Java_029 {
+L020     public static void main(String[] args) {
+L021         Solution v1 = new Solution();
+L022         List<Boolean> v2 = Arrays.asList(
+L023                 v1.filterByPrefix(new ArrayList<>(List.of()), "john").equals(List.of()),
+L024                 v1.filterByPrefix(new ArrayList<>(Arrays.asList("xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx")), "xxx").equals(Arrays.asList("xxx", "xxxAAA", "xxx"))
+L025         );
+L026         if (v2.contains(false)) {
+L027             throw new AssertionError();
+L028         }
+L029     }
+L030 }

@@ -1,0 +1,61 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Create a function that takes a string as input which contains only square brackets.
+L007     The function should return true if and only if there is a valid subsequence of brackets
+L008     where at least one bracket in the subsequence is nested.
+L009 
+L010     isNested("[[]]") -> true
+L011     isNested("[]]]]]]][[[[[]") -> false
+L012     isNested("[][]") -> false
+L013     isNested("[]") -> false
+L014     isNested("[[][]]") -> true
+L015     isNested("[[]][[") -> true
+L016      */
+L017     public boolean isNested(String string) {
+L018 
+L019         List<Integer> opening_bracket_index = new ArrayList<>(), closing_bracket_index = new ArrayList<>();
+L020         for (int i = 0; i < string.length(); i++) {
+L021             if (string.charAt(i) == '[') {
+L022                 opening_bracket_index.add(i);
+L023             } else {
+L024                 closing_bracket_index.add(i);
+L025             }
+L026         }
+L027         Collections.reverse(closing_bracket_index);
+L028         int i = 0, l = closing_bracket_index.size();
+L029         for (int idx : opening_bracket_index) {
+L030             if (i < l && idx < closing_bracket_index.get(i)) {
+L031                 i += 1;
+L032             }
+L033         }
+L034         return i >= 2;
+L035     }
+L036 }
+L037 
+L038 public class Java_132 {
+L039     public static void main(String[] args) {
+L040         Solution s = new Solution();
+L041         List<Boolean> correct = Arrays.asList(
+L042                 s.isNested("[[]]" ),
+L043                 !s.isNested("[]]]]]]][[[[[]" ),
+L044                 !s.isNested("[][]" ),
+L045                 !s.isNested("[]" ),
+L046                 s.isNested("[[[[]]]]" ),
+L047                 !s.isNested("[]]]]]]]]]]" ),
+L048                 s.isNested("[][][[]]" ),
+L049                 !s.isNested("[[]" ),
+L050                 !s.isNested("[]]" ),
+L051                 s.isNested("[[]][[" ),
+L052                 s.isNested("[[][]]" ),
+L053                 !s.isNested("" ),
+L054                 !s.isNested("[[[[[[[[" ),
+L055                 !s.isNested("]]]]]]]]" )
+L056         );
+L057         if (correct.contains(false)) {
+L058             throw new AssertionError();
+L059         }
+L060     }
+L061 }

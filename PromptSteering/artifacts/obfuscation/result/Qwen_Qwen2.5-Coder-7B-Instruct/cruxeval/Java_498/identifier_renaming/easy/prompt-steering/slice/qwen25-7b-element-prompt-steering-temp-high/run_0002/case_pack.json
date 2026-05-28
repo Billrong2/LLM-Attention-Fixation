@@ -1,0 +1,37 @@
+{
+  "balance_stats": {
+    "case_total": 2,
+    "false_count": 1,
+    "true_count": 1,
+    "true_ratio": 0.5
+  },
+  "cases": [
+    {
+      "case_id": "c001",
+      "expected_bool": true,
+      "expr": "f((new ArrayList<Long>(Arrays.asList((long)2l, (long)2l, (long)2l, (long)3l, (long)3l))), (2l), (3l)).equals((new ArrayList<Long>(Arrays.asList((long)2l, (long)2l, (long)3l, (long)2l, (long)3l, (long)3l))))",
+      "mutation_type": "seed_true",
+      "origin": "cruxeval.assert"
+    },
+    {
+      "case_id": "c002",
+      "expected_bool": false,
+      "expr": "f((new ArrayList<Long>(Arrays.asList((long)3l, (long)2l, (long)2l, (long)3l, (long)3l))), (2l), (3l)).equals((new ArrayList<Long>(Arrays.asList((long)2l, (long)2l, (long)3l, (long)2l, (long)3l, (long)3l))))",
+      "mutation_type": "literal_perturbation",
+      "origin": "cruxeval.assert"
+    }
+  ],
+  "class_name": "Java_498",
+  "dataset": "cruxeval",
+  "effective_case_count": 2,
+  "generation_policy": "validated_nontrivial_only",
+  "generator_version": "cf-v2",
+  "min_cases_config": 8,
+  "profile": "counterfactual_tf",
+  "snippet": "Java_498",
+  "source_hash": "334642444f3ba6f42bbdd3718de8c1608862565205290730fcc034923796479f",
+  "target_cases_config": 16,
+  "warnings": [
+    "low_effective_case_count:2 (consider reviewing extraction/mutation coverage)"
+  ]
+}

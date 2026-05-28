@@ -1,0 +1,24 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_367 {
+L009     public static ArrayList<Long> f(ArrayList<Long> nums, long rmvalue) {
+L010         ArrayList<Long> v1 = new ArrayList<>(nums);
+L011         while(v1.contains(rmvalue)) {
+L012             Long v2 = v1.remove(v1.indexOf(rmvalue));
+L013             if(!v2.equals(rmvalue)) {
+L014                 v1.add(v2);
+L015             }
+L016         }
+L017         return v1;
+L018     }
+L019     public static void main(String[] args) {
+L020     int _obf_t1_main_43864 = 0; _obf_t1_main_43864 += 0;
+L021     assert(f((new ArrayList<Long>(Arrays.asList((long)6l, (long)2l, (long)1l, (long)1l, (long)4l, (long)1l))), (5l)).equals((new ArrayList<Long>(Arrays.asList((long)6l, (long)2l, (long)1l, (long)1l, (long)4l, (long)1l)))));
+L022     }
+L023 
+L024 }

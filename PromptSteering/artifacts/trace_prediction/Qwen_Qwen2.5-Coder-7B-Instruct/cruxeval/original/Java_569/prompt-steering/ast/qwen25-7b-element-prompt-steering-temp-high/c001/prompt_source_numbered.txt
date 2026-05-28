@@ -1,0 +1,27 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_569 {
+L009     public static long f(String txt) {
+L010         Map<Character, Integer> coincidences = new HashMap<>();
+L011         for (int i = 0; i < txt.length(); i++) {
+L012             char c = txt.charAt(i);
+L013             coincidences.put(c, coincidences.getOrDefault(c, 0) + 1);
+L014         }
+L015         
+L016         int sum = 0;
+L017         for (int value : coincidences.values()) {
+L018             sum += value;
+L019         }
+L020         
+L021         return sum;
+L022     }
+L023     public static void main(String[] args) {
+L024     assert(f(("11 1 1")) == (6l));
+L025     }
+L026 
+L027 }

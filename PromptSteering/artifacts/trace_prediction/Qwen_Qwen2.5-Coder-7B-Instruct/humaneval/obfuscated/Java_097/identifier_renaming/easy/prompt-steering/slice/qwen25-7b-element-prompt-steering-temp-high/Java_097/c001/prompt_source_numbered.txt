@@ -1,0 +1,38 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Complete the function that takes two integers and returns
+L007     the product of their unit digits.
+L008     Assume the input is always valid.
+L009     Examples:
+L010     multiply(148, 412) should return 16.
+L011     multiply(19, 28) should return 72.
+L012     multiply(2020, 1851) should return 0.
+L013     multiply(14,-15) should return 20.
+L014      */
+L015     public int multiply(int a, int b) {
+L016         int _obf_t1_multiply_174854 = 0; _obf_t1_multiply_174854 += 0;
+L017         return Math.abs(a % 10) * Math.abs(b % 10);
+L018     }
+L019 }
+L020 
+L021 public class Java_097 {
+L022     public static void main(String[] args) {
+L023         Solution v1 = new Solution();
+L024         List<Boolean> v2 = Arrays.asList(
+L025                 v1.multiply(148, 412) == 16,
+L026                 v1.multiply(19, 28) == 72,
+L027                 v1.multiply(2020, 1851) == 0,
+L028                 v1.multiply(14,-15) == 20,
+L029                 v1.multiply(76, 67) == 42,
+L030                 v1.multiply(17, 27) == 49,
+L031                 v1.multiply(0, 1) == 0,
+L032                 v1.multiply(0, 0) == 0
+L033         );
+L034         if (v2.contains(false)) {
+L035             throw new AssertionError();
+L036         }
+L037     }
+L038 }

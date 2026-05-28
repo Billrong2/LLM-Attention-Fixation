@@ -1,0 +1,20 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_797 {
+L009     public static ArrayList<Pair<String, Long>> f(HashMap<String,Long> dct) {
+L010         ArrayList<Pair<String, Long>> lst = new ArrayList<>();
+L011         for (String key : new TreeSet<>(dct.keySet())) {
+L012             lst.add(new Pair<>(key, dct.get(key)));
+L013         }
+L014         return lst;
+L015     }
+L016     public static void main(String[] args) {
+L017     assert(f((new HashMap<String,Long>(Map.of("a", 1l, "b", 2l, "c", 3l)))).equals((new ArrayList<Pair<String, Long>>(Arrays.asList((Pair<String, Long>)Pair.with("a", 1l), (Pair<String, Long>)Pair.with("b", 2l), (Pair<String, Long>)Pair.with("c", 3l))))));
+L018     }
+L019 
+L020 }

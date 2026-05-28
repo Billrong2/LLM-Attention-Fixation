@@ -1,0 +1,40 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Return n-th Fibonacci number.
+L007     >>> fib(10)
+L008     55
+L009     >>> fib(1)
+L010     1
+L011     >>> fib(8)
+L012     21
+L013      */
+L014     public int fib(int n) {
+L015 
+L016         if (n == 0) {
+L017             return 0;
+L018         }
+L019         if (n == 1) {
+L020             return 1;
+L021         }
+L022         return fib(n - 1) + fib(n - 2);
+L023     }
+L024 }
+L025 
+L026 public class Java_055 {
+L027     public static void main(String[] args) {
+L028         Solution s = new Solution();
+L029         List<Boolean> correct = Arrays.asList(
+L030                 s.fib(10) == 55,
+L031                 s.fib(1) == 1,
+L032                 s.fib(8) == 21,
+L033                 s.fib(11) == 89,
+L034                 s.fib(12) == 144
+L035         );
+L036         if (correct.contains(false)) {
+L037             throw new AssertionError();
+L038         }
+L039     }
+L040 }

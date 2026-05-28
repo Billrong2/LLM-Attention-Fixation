@@ -1,0 +1,128 @@
+{
+  "branches_seen": [
+    {
+      "branch_id": "b001",
+      "branch_kind": "if",
+      "line": 31
+    }
+  ],
+  "called_methods": [
+    "main",
+    "maximum"
+  ],
+  "case_expression": "s.maximum(new ArrayList<>(Arrays.asList(-3, -4, 5)), 3).equals(Arrays.asList(-4, -3, 5))",
+  "case_id": "c001",
+  "case_origin": "humaneval.correct_list",
+  "case_pack_source_hash": "8f1babdc8282836162a3c43875041557e457a1f52329bdc6eb3f34c46f4cd105",
+  "case_result_matches_expected": true,
+  "case_result_observed": true,
+  "class_name": "Java_120",
+  "dataset": "humaneval",
+  "event_count": 11,
+  "events": [
+    {
+      "event_idx": 0,
+      "event_type": "method_enter",
+      "line": 41,
+      "method_name": "main",
+      "prompt_line": 41
+    },
+    {
+      "event_idx": 1,
+      "event_type": "method_enter",
+      "line": 29,
+      "method_name": "maximum",
+      "prompt_line": 29
+    },
+    {
+      "branch_id": "b001",
+      "branch_kind": "if",
+      "event_idx": 2,
+      "event_type": "branch_eval",
+      "line": 31,
+      "method_name": "maximum",
+      "outcome": false,
+      "prompt_line": 31
+    },
+    {
+      "event_idx": 3,
+      "event_type": "line_exec",
+      "line": 35,
+      "method_name": "maximum",
+      "prompt_line": 35
+    },
+    {
+      "event_idx": 4,
+      "event_type": "return",
+      "line": 36,
+      "method_name": "maximum",
+      "prompt_line": 36,
+      "value_repr": "[-4, -3, 5]"
+    },
+    {
+      "event_idx": 5,
+      "event_type": "method_exit",
+      "line": 36,
+      "method_name": "maximum",
+      "prompt_line": 36
+    },
+    {
+      "event_idx": 6,
+      "event_type": "line_exec",
+      "line": 45,
+      "method_name": "main",
+      "prompt_line": 45
+    },
+    {
+      "case_id": "c001",
+      "event_idx": 7,
+      "event_type": "case_result",
+      "line": -1,
+      "method_name": "main",
+      "outcome": true
+    },
+    {
+      "event_idx": 8,
+      "event_type": "line_exec",
+      "line": 47,
+      "method_name": "main",
+      "prompt_line": 47
+    },
+    {
+      "event_idx": 9,
+      "event_type": "method_exit",
+      "line": -1,
+      "method_name": "main"
+    },
+    {
+      "event_idx": 10,
+      "event_type": "line_exec",
+      "line": 48,
+      "method_name": "main",
+      "prompt_line": 48
+    }
+  ],
+  "exec_result": {
+    "assertion_failed": false,
+    "compile_error": "",
+    "compiled": true,
+    "ran": true,
+    "returncode": 0,
+    "runtime_error": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":41},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"maximum\",\"line\":29},{\"event_idx\":2,\"event_type\":\"branch_eval\",\"method_name\":\"maximum\",\"line\":31,\"branch_kind\":\"if\",\"branch_id\":\"b001\",\"outcome\":false},{\"event_idx\":3,\"event_type\":\"line_exec\",\"method_name\":\"maximum\",\"line\":35},{\"event_idx\":4,\"event_type\":\"return\",\"method_name\":\"maximum\",\"line\":36,\"value_repr\":\"[-4, -3, 5]\"},{\"event_idx\":5,\"event_type\":\"method_exit\",\"method_name\":\"maximum\",\"line\":36},{\"event_idx\":6,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":45},{\"event_idx\":7,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":8,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":47},{\"event_idx\":9,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":10,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":48}]}\nTRACE_JSON_END",
+    "stderr": "",
+    "stdout": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":41},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"maximum\",\"line\":29},{\"event_idx\":2,\"event_type\":\"branch_eval\",\"method_name\":\"maximum\",\"line\":31,\"branch_kind\":\"if\",\"branch_id\":\"b001\",\"outcome\":false},{\"event_idx\":3,\"event_type\":\"line_exec\",\"method_name\":\"maximum\",\"line\":35},{\"event_idx\":4,\"event_type\":\"return\",\"method_name\":\"maximum\",\"line\":36,\"value_repr\":\"[-4, -3, 5]\"},{\"event_idx\":5,\"event_type\":\"method_exit\",\"method_name\":\"maximum\",\"line\":36},{\"event_idx\":6,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":45},{\"event_idx\":7,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":8,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":47},{\"event_idx\":9,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":10,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":48}]}\nTRACE_JSON_END",
+    "success": true
+  },
+  "executed_line_sequence": [
+    31,
+    35,
+    36
+  ],
+  "expected_bool": true,
+  "mutation_type": "seed_true",
+  "snippet": "Java_120",
+  "trace_status": "ok",
+  "unsupported_reason": "",
+  "variant": "original",
+  "variant_path": ""
+}

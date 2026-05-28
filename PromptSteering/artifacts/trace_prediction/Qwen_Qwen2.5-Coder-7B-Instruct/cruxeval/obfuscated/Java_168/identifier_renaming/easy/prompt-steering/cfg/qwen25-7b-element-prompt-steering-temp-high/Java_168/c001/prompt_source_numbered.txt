@@ -1,0 +1,20 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_168 {
+L009     public static String f(String text, String new_value, long index) {
+L010         int _obf_t1_f_382018 = 0; _obf_t1_f_382018 += 0;
+L011         char[] charArray = text.toCharArray();
+L012         charArray[(int)index] = new_value.charAt(0);
+L013         return new String(charArray);
+L014     }
+L015     public static void main(String[] args) {
+L016     int _obf_t1_main_910993 = 0; _obf_t1_main_910993 += 0;
+L017     assert(f(("spain"), ("b"), (4l)).equals(("spaib")));
+L018     }
+L019 
+L020 }

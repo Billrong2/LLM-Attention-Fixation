@@ -1,0 +1,26 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_750 {
+L009     public static String f(HashMap<String,String> char_map, String text) {
+L010         StringBuilder new_text = new StringBuilder();
+L011         for (int i = 0; i < text.length(); i++) {
+L012             String ch = String.valueOf(text.charAt(i));
+L013             String val = char_map.get(ch);
+L014             if (val == null) {
+L015                 new_text.append(ch);
+L016             } else {
+L017                 new_text.append(val);
+L018             }
+L019         }
+L020         return new_text.toString();
+L021     }
+L022     public static void main(String[] args) {
+L023     assert(f((new HashMap<String,String>()), ("hbd")).equals(("hbd")));
+L024     }
+L025 
+L026 }

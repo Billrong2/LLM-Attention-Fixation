@@ -1,0 +1,24 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_200 {
+L009     public static String f(String text, String value) {
+L010         int v1 = text.length();
+L011         int v2 = 0;
+L012         while (v1 > 0) {
+L013             value = text.charAt(v2) + value;
+L014             v1--;
+L015             v2++;
+L016         }
+L017         return value;
+L018     }
+L019     public static void main(String[] args) {
+L020     int _obf_t1_main_132780 = 0; _obf_t1_main_132780 += 0;
+L021     assert(f(("jao mt"), ("house")).equals(("tm oajhouse")));
+L022     }
+L023 
+L024 }

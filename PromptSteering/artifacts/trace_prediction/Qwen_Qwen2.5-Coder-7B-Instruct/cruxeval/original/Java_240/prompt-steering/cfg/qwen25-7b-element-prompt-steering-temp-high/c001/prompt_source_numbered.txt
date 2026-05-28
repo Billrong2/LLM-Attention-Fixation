@@ -1,0 +1,21 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_240 {
+L009     public static String f(float float_number) {
+L010         String number = String.valueOf(float_number);
+L011         int dot = number.indexOf('.');
+L012         if (dot != -1) {
+L013             return number.substring(0, dot) + '.' + String.format("%-2s", number.substring(dot + 1)).replace(' ', '0');
+L014         }
+L015         return number + ".00";
+L016     }
+L017     public static void main(String[] args) {
+L018     assert(f((3.121f)).equals(("3.121")));
+L019     }
+L020 
+L021 }

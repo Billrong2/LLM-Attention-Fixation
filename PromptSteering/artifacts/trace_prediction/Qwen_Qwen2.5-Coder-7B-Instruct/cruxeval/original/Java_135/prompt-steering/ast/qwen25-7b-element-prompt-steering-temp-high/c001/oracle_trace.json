@@ -1,0 +1,119 @@
+{
+  "branches_seen": [],
+  "called_methods": [
+    "main",
+    "f"
+  ],
+  "case_expression": "f().equals((new ArrayList<String>(Arrays.asList((String)\"Russia\", (String)\"Kazakhstan\"))))",
+  "case_id": "c001",
+  "case_origin": "cruxeval.assert",
+  "case_pack_source_hash": "f59cf44e4cba4da97fe0c8b2641c969d55e15c383c3bae7cefe9596e015cc615",
+  "case_result_matches_expected": true,
+  "case_result_observed": true,
+  "class_name": "Java_135",
+  "dataset": "cruxeval",
+  "event_count": 11,
+  "events": [
+    {
+      "event_idx": 0,
+      "event_type": "method_enter",
+      "line": 16,
+      "method_name": "main",
+      "prompt_line": 16
+    },
+    {
+      "event_idx": 1,
+      "event_type": "method_enter",
+      "line": 10,
+      "method_name": "f",
+      "prompt_line": 10
+    },
+    {
+      "event_idx": 2,
+      "event_type": "line_exec",
+      "line": 12,
+      "method_name": "f",
+      "prompt_line": 12
+    },
+    {
+      "event_idx": 3,
+      "event_type": "line_exec",
+      "line": 13,
+      "method_name": "f",
+      "prompt_line": 13
+    },
+    {
+      "event_idx": 4,
+      "event_type": "return",
+      "line": 14,
+      "method_name": "f",
+      "prompt_line": 14,
+      "value_repr": "[Russia, Kazakhstan]"
+    },
+    {
+      "event_idx": 5,
+      "event_type": "method_exit",
+      "line": 14,
+      "method_name": "f",
+      "prompt_line": 14
+    },
+    {
+      "event_idx": 6,
+      "event_type": "line_exec",
+      "line": 19,
+      "method_name": "main",
+      "prompt_line": 19
+    },
+    {
+      "case_id": "c001",
+      "event_idx": 7,
+      "event_type": "case_result",
+      "line": -1,
+      "method_name": "main",
+      "outcome": true
+    },
+    {
+      "event_idx": 8,
+      "event_type": "line_exec",
+      "line": 21,
+      "method_name": "main",
+      "prompt_line": 21
+    },
+    {
+      "event_idx": 9,
+      "event_type": "method_exit",
+      "line": -1,
+      "method_name": "main"
+    },
+    {
+      "event_idx": 10,
+      "event_type": "line_exec",
+      "line": 22,
+      "method_name": "main",
+      "prompt_line": 22
+    }
+  ],
+  "exec_result": {
+    "assertion_failed": false,
+    "compile_error": "",
+    "compiled": true,
+    "ran": true,
+    "returncode": 0,
+    "runtime_error": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":16},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"f\",\"line\":10},{\"event_idx\":2,\"event_type\":\"line_exec\",\"method_name\":\"f\",\"line\":12},{\"event_idx\":3,\"event_type\":\"line_exec\",\"method_name\":\"f\",\"line\":13},{\"event_idx\":4,\"event_type\":\"return\",\"method_name\":\"f\",\"line\":14,\"value_repr\":\"[Russia, Kazakhstan]\"},{\"event_idx\":5,\"event_type\":\"method_exit\",\"method_name\":\"f\",\"line\":14},{\"event_idx\":6,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":19},{\"event_idx\":7,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":8,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":21},{\"event_idx\":9,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":10,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":22}]}\nTRACE_JSON_END",
+    "stderr": "",
+    "stdout": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":16},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"f\",\"line\":10},{\"event_idx\":2,\"event_type\":\"line_exec\",\"method_name\":\"f\",\"line\":12},{\"event_idx\":3,\"event_type\":\"line_exec\",\"method_name\":\"f\",\"line\":13},{\"event_idx\":4,\"event_type\":\"return\",\"method_name\":\"f\",\"line\":14,\"value_repr\":\"[Russia, Kazakhstan]\"},{\"event_idx\":5,\"event_type\":\"method_exit\",\"method_name\":\"f\",\"line\":14},{\"event_idx\":6,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":19},{\"event_idx\":7,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":8,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":21},{\"event_idx\":9,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":10,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":22}]}\nTRACE_JSON_END",
+    "success": true
+  },
+  "executed_line_sequence": [
+    12,
+    13,
+    14
+  ],
+  "expected_bool": true,
+  "mutation_type": "seed_true",
+  "snippet": "Java_135",
+  "trace_status": "ok",
+  "unsupported_reason": "",
+  "variant": "original",
+  "variant_path": ""
+}

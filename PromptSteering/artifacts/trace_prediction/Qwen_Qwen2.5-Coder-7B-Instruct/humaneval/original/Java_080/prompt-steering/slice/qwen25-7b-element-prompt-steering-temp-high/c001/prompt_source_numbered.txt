@@ -1,0 +1,49 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     You are given a string s.
+L007     Your task is to check if the string is happy or not.
+L008     A string is happy if its length is at least 3 and every 3 consecutive letters are distinct
+L009     For example:
+L010     isHappy(a) => false
+L011     isHappy(aa) => false
+L012     isHappy(abcd) => true
+L013     isHappy(aabb) => false
+L014     isHappy(adb) => true
+L015     isHappy(xyy) => false
+L016      */
+L017     public boolean isHappy(String s) {
+L018 
+L019         if (s.length() < 3) {
+L020             return false;
+L021         }
+L022 
+L023         for (int i = 0; i < s.length() - 2; i++) {
+L024             if (s.charAt(i) == s.charAt(i + 1) || s.charAt(i + 1) == s.charAt(i + 2) || s.charAt(i) == s.charAt(i + 2)) {
+L025                 return false;
+L026             }
+L027         }
+L028         return true;
+L029     }
+L030 }
+L031 
+L032 public class Java_080 {
+L033     public static void main(String[] args) {
+L034         Solution s = new Solution();
+L035         List<Boolean> correct = Arrays.asList(
+L036                 !s.isHappy("a"),
+L037                 !s.isHappy("aa"),
+L038                 s.isHappy("abcd"),
+L039                 !s.isHappy("aabb"),
+L040                 s.isHappy("adb"),
+L041                 !s.isHappy("xyy"),
+L042                 s.isHappy("iopaxpoi"),
+L043                 !s.isHappy("iopaxioi")
+L044         );
+L045         if (correct.contains(false)) {
+L046             throw new AssertionError();
+L047         }
+L048     }
+L049 }

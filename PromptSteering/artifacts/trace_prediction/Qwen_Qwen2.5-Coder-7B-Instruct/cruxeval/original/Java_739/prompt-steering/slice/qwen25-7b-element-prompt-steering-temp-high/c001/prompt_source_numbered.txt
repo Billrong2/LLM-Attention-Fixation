@@ -1,0 +1,22 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_739 {
+L009     public static boolean f(String st, ArrayList<String> pattern) {
+L010         for (String p : pattern) {
+L011             if (!st.startsWith(p)) {
+L012                 return false;
+L013             }
+L014             st = st.substring(p.length());
+L015         }
+L016         return true;
+L017     }
+L018     public static void main(String[] args) {
+L019     assert(f(("qwbnjrxs"), (new ArrayList<String>(Arrays.asList((String)"jr", (String)"b", (String)"r", (String)"qw")))) == (false));
+L020     }
+L021 
+L022 }

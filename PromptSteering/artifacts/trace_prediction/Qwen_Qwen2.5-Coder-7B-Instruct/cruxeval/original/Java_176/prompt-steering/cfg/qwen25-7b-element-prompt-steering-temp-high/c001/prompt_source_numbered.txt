@@ -1,0 +1,19 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_176 {
+L009     public static String f(String text, String to_place) {
+L010         int index = text.indexOf(to_place, 0) + 1;
+L011         String afterPlace = text.substring(0, index);
+L012         String beforePlace = text.substring(index);
+L013         return afterPlace + beforePlace;
+L014     }
+L015     public static void main(String[] args) {
+L016     assert(f(("some text"), ("some")).equals(("some text")));
+L017     }
+L018 
+L019 }

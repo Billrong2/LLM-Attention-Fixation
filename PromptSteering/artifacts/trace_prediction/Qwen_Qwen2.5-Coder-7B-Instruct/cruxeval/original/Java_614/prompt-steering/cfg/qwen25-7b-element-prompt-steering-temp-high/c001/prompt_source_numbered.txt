@@ -1,0 +1,28 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_614 {
+L009     public static long f(String text, String substr, long occ) {
+L010         long n = 0;
+L011         while (true) {
+L012             long i = text.lastIndexOf(substr);
+L013             if (i == -1) {
+L014                 break;
+L015             } else if (n == occ) {
+L016                 return i;
+L017             } else {
+L018                 n++;
+L019                 text = text.substring(0, (int)i);
+L020             }
+L021         }
+L022         return -1;
+L023     }
+L024     public static void main(String[] args) {
+L025     assert(f(("zjegiymjc"), ("j"), (2l)) == (-1l));
+L026     }
+L027 
+L028 }

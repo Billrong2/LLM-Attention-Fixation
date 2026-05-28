@@ -1,0 +1,83 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     You have to write a function which validates a given date string and
+L007     returns true if the date is valid otherwise false.
+L008     The date is valid if all of the following rules are satisfied:
+L009     1. The date string is not empty.
+L010     2. The number of days is not less than 1 or higher than 31 days for months 1,3,5,7,8,10,12. And the number of days is not less than 1 or higher than 30 days for months 4,6,9,11. And, the number of days is not less than 1 or higher than 29 for the month 2.
+L011     3. The months should not be less than 1 or higher than 12.
+L012     4. The date should be in the format: mm-dd-yyyy
+L013 
+L014     for example:
+L015     validDate("03-11-2000") => true
+L016     validDate("15-01-2012") => false
+L017     validDate("04-0-2040") => false
+L018     validDate("06-04-2020") => true
+L019     validDate("06/04/2020") => false
+L020      */
+L021     public boolean validDate(String date) {
+L022 
+L023         try {
+L024             date = date.strip();
+L025             String[] dates = date.split("-" );
+L026             String m = dates[0];
+L027             while (!m.isEmpty() && m.charAt(0) == '0') {
+L028                 m = m.substring(1);
+L029             }
+L030             String d = dates[1];
+L031             while (!d.isEmpty() && d.charAt(0) == '0') {
+L032                 d = d.substring(1);
+L033             }
+L034             String y = dates[2];
+L035             while (!y.isEmpty() && y.charAt(0) == '0') {
+L036                 y = y.substring(1);
+L037             }
+L038             int month = Integer.parseInt(m), day = Integer.parseInt(d), year = Integer.parseInt(y);
+L039             if (month < 1 || month > 12) {
+L040                 return false;
+L041             }
+L042             if (Arrays.asList(1, 3, 5, 7, 8, 10, 12).contains(month) && (day < 1 || day > 31)) {
+L043                 return false;
+L044             }
+L045             if (Arrays.asList(4, 6, 9, 11).contains(month) && (day < 1 || day > 30)) {
+L046                 return false;
+L047             }
+L048             if (month == 2 && (day < 1 || day > 29)) {
+L049                 return false;
+L050             }
+L051             return true;
+L052         } catch (Exception e) {
+L053             return false;
+L054         }
+L055     }
+L056 }
+L057 
+L058 public class Java_124 {
+L059     public static void main(String[] args) {
+L060         Solution s = new Solution();
+L061         List<Boolean> correct = Arrays.asList(
+L062                 s.validDate("03-11-2000" ) == true,
+L063                 s.validDate("15-01-2012" ) == false,
+L064                 s.validDate("04-0-2040" ) == false,
+L065                 s.validDate("06-04-2020" ) == true,
+L066                 s.validDate("01-01-2007" ) == true,
+L067                 s.validDate("03-32-2011" ) == false,
+L068                 s.validDate("" ) == false,
+L069                 s.validDate("04-31-3000" ) == false,
+L070                 s.validDate("06-06-2005" ) == true,
+L071                 s.validDate("21-31-2000" ) == false,
+L072                 s.validDate("04-12-2003" ) == true,
+L073                 s.validDate("04122003" ) == false,
+L074                 s.validDate("20030412" ) == false,
+L075                 s.validDate("2003-04" ) == false,
+L076                 s.validDate("2003-04-12" ) == false,
+L077                 s.validDate("04-2003" ) == false
+L078         );
+L079         if (correct.contains(false)) {
+L080             throw new AssertionError();
+L081         }
+L082     }
+L083 }

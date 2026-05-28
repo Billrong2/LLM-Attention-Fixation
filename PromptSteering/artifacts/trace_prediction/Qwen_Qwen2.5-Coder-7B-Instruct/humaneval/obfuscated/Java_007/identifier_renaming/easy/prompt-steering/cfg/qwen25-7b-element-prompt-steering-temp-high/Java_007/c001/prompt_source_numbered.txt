@@ -1,0 +1,37 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Filter an input list of strings only for ones that contain given substring
+L007     >>> filterBySubstring(List.of(), "a")
+L008     []
+L009     >>> filterBySubstring(Arrays.asList("abc", "bacd", "cde", "array"), "a")
+L010     ["abc", "bacd", "array"]
+L011      */
+L012     public List<String> filterBySubstring(List<String> strings, String substring) {
+L013 
+L014         List<String> v1 = new ArrayList<>();
+L015         for (String x : strings) {
+L016             if (x.contains(substring)) {
+L017                 v1.add(x);
+L018             }
+L019         }
+L020         return v1;
+L021     }
+L022 }
+L023 
+L024 public class Java_007 {
+L025     public static void main(String[] args) {
+L026         Solution v1 = new Solution();
+L027         List<Boolean> v2 = Arrays.asList(
+L028                 v1.filterBySubstring(new ArrayList<>(List.of()), "john").equals(List.of()),
+L029                 v1.filterBySubstring(new ArrayList<>(Arrays.asList("xxx", "asd", "xxy", "john doe", "xxxAAA", "xxx")), "xxx").equals(Arrays.asList("xxx", "xxxAAA", "xxx")),
+L030                 v1.filterBySubstring(new ArrayList<>(Arrays.asList("xxx", "asd", "aaaxxy", "john doe", "xxxAAA", "xxx")), "xx").equals(Arrays.asList("xxx", "aaaxxy", "xxxAAA", "xxx")),
+L031                 v1.filterBySubstring(new ArrayList<>(Arrays.asList("grunt", "trumpet", "prune", "gruesome")), "run").equals(Arrays.asList("grunt", "prune"))
+L032         );
+L033         if (v2.contains(false)) {
+L034             throw new AssertionError();
+L035         }
+L036     }
+L037 }

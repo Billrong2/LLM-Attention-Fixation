@@ -1,0 +1,44 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     You're given a list of deposit and withdrawal operations on a bank account that starts with
+L007     zero balance. Your task is to detect if at any point the balance of account fallls below zero, and
+L008     at that point function should return True. Otherwise it should return False.
+L009     >>> belowZero(Arrays.asList(1, 2, 3))
+L010     false
+L011     >>> belowZero(Arrays.asList(1, 2, -4, 5))
+L012     true
+L013      */
+L014     public boolean belowZero(List<Integer> operations) {
+L015 
+L016         int v1 = 0;
+L017 
+L018         for (int op : operations) {
+L019             v1 += op;
+L020             if (v1 < 0) {
+L021                 return true;
+L022             }
+L023         }
+L024 
+L025         return false;
+L026     }
+L027 }
+L028 
+L029 public class Java_003 {
+L030     public static void main(String[] args) {
+L031         Solution v1 = new Solution();
+L032         List<Boolean> v2 = Arrays.asList(
+L033                 !v1.belowZero(new ArrayList<>(Arrays.asList())),
+L034                 !v1.belowZero(new ArrayList<>(Arrays.asList(1, 2, -3, 1, 2, -3))),
+L035                 v1.belowZero(new ArrayList<>(Arrays.asList(1, 2, -4, 5, 6))),
+L036                 !v1.belowZero(new ArrayList<>(Arrays.asList(1, -1, 2, -2, 5, -5, 4, -4))),
+L037                 v1.belowZero(new ArrayList<>(Arrays.asList(1, -1, 2, -2, 5, -5, 4, -5))),
+L038                 v1.belowZero(new ArrayList<>(Arrays.asList(1, -2, 2, -2, 5, -5, 4, -4)))
+L039         );
+L040         if (v2.contains(false)) {
+L041             throw new AssertionError();
+L042         }
+L043     }
+L044 }

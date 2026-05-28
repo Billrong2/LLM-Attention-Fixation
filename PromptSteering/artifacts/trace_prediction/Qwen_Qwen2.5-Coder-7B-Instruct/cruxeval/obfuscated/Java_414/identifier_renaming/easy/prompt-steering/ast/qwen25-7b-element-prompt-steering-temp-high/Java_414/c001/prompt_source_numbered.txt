@@ -1,0 +1,24 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_414 {
+L009     public static HashMap<String,ArrayList<String>> f(HashMap<String,ArrayList<String>> d) {
+L010         HashMap<String, ArrayList<String>> dCopy = new HashMap<>(d);
+L011         for (Map.Entry<String, ArrayList<String>> entry : dCopy.entrySet()) {
+L012             ArrayList<String> value = entry.getValue();
+L013             for (int i = 0; i < value.size(); i++) {
+L014                 value.set(i, value.get(i).toUpperCase());
+L015             }
+L016         }
+L017         return dCopy;
+L018     }
+L019     public static void main(String[] args) {
+L020     int _obf_t1_main_369632 = 0; _obf_t1_main_369632 += 0;
+L021     assert(f((new HashMap<String,ArrayList<String>>(Map.of("X", new ArrayList<String>(Arrays.asList((String)"x", (String)"y")))))).equals((new HashMap<String,ArrayList<String>>(Map.of("X", new ArrayList<String>(Arrays.asList((String)"X", (String)"Y")))))));
+L022     }
+L023 
+L024 }

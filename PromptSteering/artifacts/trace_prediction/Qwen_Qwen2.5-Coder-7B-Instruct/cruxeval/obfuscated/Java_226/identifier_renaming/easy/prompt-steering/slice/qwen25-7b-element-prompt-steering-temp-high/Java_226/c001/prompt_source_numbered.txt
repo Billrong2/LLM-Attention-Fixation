@@ -1,0 +1,23 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_226 {
+L009     public static ArrayList<Long> f(ArrayList<Long> nums) {
+L010         int v1 = nums.size();
+L011         for (int v2 = 0; v2 < v1; v2++) {
+L012             if (nums.get(v2) % 3 == 0) {
+L013                 nums.add(nums.get(v2));
+L014             }
+L015         }
+L016         return nums;
+L017     }
+L018     public static void main(String[] args) {
+L019     int _obf_t1_main_474464 = 0; _obf_t1_main_474464 += 0;
+L020     assert(f((new ArrayList<Long>(Arrays.asList((long)1l, (long)3l)))).equals((new ArrayList<Long>(Arrays.asList((long)1l, (long)3l, (long)3l)))));
+L021     }
+L022 
+L023 }

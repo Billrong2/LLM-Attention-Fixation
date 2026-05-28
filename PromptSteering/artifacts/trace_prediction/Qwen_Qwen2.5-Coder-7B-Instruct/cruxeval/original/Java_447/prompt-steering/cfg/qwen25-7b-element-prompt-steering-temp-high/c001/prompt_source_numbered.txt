@@ -1,0 +1,25 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_447 {
+L009     public static String f(String text, long tab_size) {
+L010         String res = "";
+L011         text = text.replace("\t", " ".repeat((int)tab_size - 1));
+L012         for (int i = 0; i < text.length(); i++) {
+L013             if (text.charAt(i) == ' ') {
+L014                 res += "|";
+L015             } else {
+L016                 res += text.charAt(i);
+L017             }
+L018         }
+L019         return res;
+L020     }
+L021     public static void main(String[] args) {
+L022     assert(f(("	a"), (3l)).equals(("||a")));
+L023     }
+L024 
+L025 }

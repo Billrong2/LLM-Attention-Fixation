@@ -1,0 +1,54 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     triplesSumToZero takes a list of integers as an input.
+L007     it returns True if there are three distinct elements in the list that
+L008     sum to zero, and False otherwise.
+L009 
+L010     >>> triplesSumToZero(Arrays.asList(1, 3, 5, 0))
+L011     false
+L012     >>> triplesSumToZero(Arrays.asList(1, 3, -2, 1))
+L013     true
+L014     >>> triplesSumToZero(Arrays.asList(1, 2, 3, 7))
+L015     false
+L016     >>> triplesSumToZero(Arrays.asList(2, 4, -5, 3, 9, 7))
+L017     true
+L018     >>> triplesSumToZero(Arrays.asList(1))
+L019     false
+L020      */
+L021     public boolean triplesSumToZero(List<Integer> l) {
+L022 
+L023         for (int i = 0; i < l.size(); i++) {
+L024             for (int j = i + 1; j < l.size(); j++) {
+L025                 for (int k = j + 1; k < l.size(); k++) {
+L026                     if (l.get(i) + l.get(j) + l.get(k) == 0) {
+L027                         return true;
+L028                     }
+L029                 }
+L030             }
+L031         }
+L032         return false;
+L033     }
+L034 }
+L035 
+L036 public class Java_040 {
+L037     public static void main(String[] args) {
+L038         Solution s = new Solution();
+L039         List<Boolean> correct = Arrays.asList(
+L040                 !s.triplesSumToZero(new ArrayList<>(Arrays.asList(1, 3, 5, 0))),
+L041                 !s.triplesSumToZero(new ArrayList<>(Arrays.asList(1, 3, 5, -1))),
+L042                 s.triplesSumToZero(new ArrayList<>(Arrays.asList(1, 3, -2, 1))),
+L043                 !s.triplesSumToZero(new ArrayList<>(Arrays.asList(1, 2, 3, 7))),
+L044                 !s.triplesSumToZero(new ArrayList<>(Arrays.asList(1, 2, 5, 7))),
+L045                 s.triplesSumToZero(new ArrayList<>(Arrays.asList(2, 4, -5, 3, 9, 7))),
+L046                 !s.triplesSumToZero(new ArrayList<>(Arrays.asList(1))),
+L047                 !s.triplesSumToZero(new ArrayList<>(Arrays.asList(1, 3, 5, -100))),
+L048                 !s.triplesSumToZero(new ArrayList<>(Arrays.asList(100, 3, 5, -100)))
+L049         );
+L050         if (correct.contains(false)) {
+L051             throw new AssertionError();
+L052         }
+L053     }
+L054 }

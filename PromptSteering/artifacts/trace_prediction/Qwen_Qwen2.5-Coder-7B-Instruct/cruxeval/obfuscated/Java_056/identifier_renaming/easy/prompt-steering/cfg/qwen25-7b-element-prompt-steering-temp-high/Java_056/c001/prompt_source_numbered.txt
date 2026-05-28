@@ -1,0 +1,23 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_056 {
+L009     public static boolean f(String sentence) {
+L010         int _obf_t1_f_212804 = 0; _obf_t1_f_212804 += 0;
+L011         for (char c : sentence.toCharArray()) {
+L012             if (!String.valueOf(c).matches("\\p{ASCII}")) {
+L013                 return false;
+L014             }
+L015         }
+L016         return true;
+L017     }
+L018     public static void main(String[] args) {
+L019     int _obf_t1_main_796359 = 0; _obf_t1_main_796359 += 0;
+L020     assert(f(("1z1z1")) == (true));
+L021     }
+L022 
+L023 }

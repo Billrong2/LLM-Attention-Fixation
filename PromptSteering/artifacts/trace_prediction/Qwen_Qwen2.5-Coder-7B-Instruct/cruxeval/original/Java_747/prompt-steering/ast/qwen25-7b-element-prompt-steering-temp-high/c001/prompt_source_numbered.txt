@@ -1,0 +1,24 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_747 {
+L009     public static boolean f(String text) {
+L010         if (text.equals("42.42")) {
+L011             return true;
+L012         }
+L013         for (int i = 3; i < text.length() - 3; i++) {
+L014             if (text.charAt(i) == '.' && text.substring(i - 3).matches("\\d+") && text.substring(0, i).matches("\\d+")) {
+L015                 return true;
+L016             }
+L017         }
+L018         return false;
+L019     }
+L020     public static void main(String[] args) {
+L021     assert(f(("123E-10")) == (false));
+L022     }
+L023 
+L024 }

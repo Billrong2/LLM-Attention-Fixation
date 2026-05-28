@@ -1,0 +1,21 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_060 {
+L009     public static String f(String doc) {
+L010         for (char x : doc.toCharArray()) {
+L011             if (Character.isLetter(x)) {
+L012                 return Character.toString(Character.toUpperCase(x));
+L013             }
+L014         }
+L015         return "-";
+L016     }
+L017     public static void main(String[] args) {
+L018     assert(f(("raruwa")).equals(("R")));
+L019     }
+L020 
+L021 }

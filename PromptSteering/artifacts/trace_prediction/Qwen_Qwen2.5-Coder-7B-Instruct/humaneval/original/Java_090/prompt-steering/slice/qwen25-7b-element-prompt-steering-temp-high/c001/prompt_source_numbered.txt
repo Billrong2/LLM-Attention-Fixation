@@ -1,0 +1,44 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     You are given a list of integers.
+L007     Write a function nextSmallest() that returns the 2nd smallest element of the list.
+L008     Return null if there is no such element.
+L009     <p>
+L010     nextSmallest(Arrays.asList(1, 2, 3, 4, 5)) == Optional[2]
+L011     nextSmallest(Arrays.asList(5, 1, 4, 3, 2)) == Optional[2]
+L012     nextSmallest(Arrays.asList()) == Optional.empty
+L013     nextSmallest(Arrays.asList(1, 1)) == Optional.empty
+L014      */
+L015     public Optional<Integer> nextSmallest(List<Integer> lst) {
+L016 
+L017                 Set < Integer > set = new HashSet<>(lst);
+L018         List<Integer> l = new ArrayList<>(set);
+L019         Collections.sort(l);
+L020         if (l.size() < 2) {
+L021             return Optional.empty();
+L022         } else {
+L023             return Optional.of(l.get(1));
+L024         }
+L025     }
+L026 }
+L027 
+L028 public class Java_090 {
+L029     public static void main(String[] args) {
+L030         Solution s = new Solution();
+L031         List<Boolean> correct = Arrays.asList(
+L032                 s.nextSmallest(new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5))).get() == 2,
+L033                 s.nextSmallest(new ArrayList<>(Arrays.asList(5, 1, 4, 3, 2))).get() == 2,
+L034                 s.nextSmallest(new ArrayList<>(List.of())).isEmpty(),
+L035                 s.nextSmallest(new ArrayList<>(Arrays.asList(1, 1))).isEmpty(),
+L036                 s.nextSmallest(new ArrayList<>(Arrays.asList(1, 1, 1, 1, 0))).get() == 1,
+L037                 s.nextSmallest(new ArrayList<>(Arrays.asList(1, (int) Math.pow(0.0, 0.0)))).isEmpty(),
+L038                 s.nextSmallest(new ArrayList<>(Arrays.asList(-35, 34, 12, -45))).get() == -35
+L039         );
+L040         if (correct.contains(false)) {
+L041             throw new AssertionError();
+L042         }
+L043     }
+L044 }

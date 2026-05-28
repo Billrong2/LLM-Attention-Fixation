@@ -1,0 +1,33 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Return list of all prefixes from shortest to longest of the input string
+L007     >>> allPrefixes("abc")
+L008     ["a", "ab", "abc"]
+L009      */
+L010     public List<String> allPrefixes(String string) {
+L011 
+L012         List<String> result = new ArrayList<>();
+L013 
+L014         for (int i = 1; i <= string.length(); i++) {
+L015             result.add(string.substring(0, i));
+L016         }
+L017         return result;
+L018     }
+L019 }
+L020 
+L021 public class Java_014 {
+L022     public static void main(String[] args) {
+L023         Solution s = new Solution();
+L024         List<Boolean> correct = Arrays.asList(
+L025                 s.allPrefixes("").equals(List.of()),
+L026                 s.allPrefixes("asdfgh").equals(Arrays.asList("a", "as", "asd", "asdf", "asdfg", "asdfgh")),
+L027                 s.allPrefixes("WWW").equals(Arrays.asList("W", "WW", "WWW"))
+L028         );
+L029         if (correct.contains(false)) {
+L030             throw new AssertionError();
+L031         }
+L032     }
+L033 }

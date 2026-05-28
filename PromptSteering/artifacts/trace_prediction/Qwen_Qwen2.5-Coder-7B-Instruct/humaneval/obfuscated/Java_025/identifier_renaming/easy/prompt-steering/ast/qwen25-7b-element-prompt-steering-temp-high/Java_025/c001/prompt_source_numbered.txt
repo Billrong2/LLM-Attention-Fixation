@@ -1,0 +1,49 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Return list of prime factors of given integer in the order from smallest to largest.
+L007     Each of the factors should be listed number of times corresponding to how many times it appeares in factorization.
+L008     Input number should be equal to the product of all factors
+L009     >>> factorize(8)
+L010     [2, 2, 2]
+L011     >>> factorize(25)
+L012     [5, 5]
+L013     >>> factorize(70)
+L014     [2, 5, 7]
+L015      */
+L016     public List<Integer> factorize(int n) {
+L017 
+L018         List<Integer> v1 = new ArrayList<>();
+L019         int v2 = 2;
+L020         while (n > 1) {
+L021             if (n % v2 == 0) {
+L022                 v1.add(v2);
+L023                 n /= v2;
+L024             } else {
+L025                 v2++;
+L026             }
+L027         }
+L028         return v1;
+L029     }
+L030 }
+L031 
+L032 public class Java_025 {
+L033     public static void main(String[] args) {
+L034         Solution v1 = new Solution();
+L035         List<Boolean> v2 = Arrays.asList(
+L036                 v1.factorize(2).equals(List.of(2)),
+L037                 v1.factorize(4).equals(Arrays.asList(2, 2)),
+L038                 v1.factorize(8).equals(Arrays.asList(2, 2, 2)),
+L039                 v1.factorize(3 * 19).equals(Arrays.asList(3, 19)),
+L040                 v1.factorize(3 * 19 * 3 * 19).equals(Arrays.asList(3, 3, 19, 19)),
+L041                 v1.factorize(3 * 19 * 3 * 19 * 3 * 19).equals(Arrays.asList(3, 3, 3, 19, 19, 19)),
+L042                 v1.factorize(3 * 19 * 19 * 19).equals(Arrays.asList(3, 19, 19, 19)),
+L043                 v1.factorize(3 * 2 * 3).equals(Arrays.asList(2, 3, 3))
+L044         );
+L045         if (v2.contains(false)) {
+L046             throw new AssertionError();
+L047         }
+L048     }
+L049 }

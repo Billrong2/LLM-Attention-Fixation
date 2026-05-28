@@ -1,0 +1,52 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     There are eight planets in our solar system: the closerst to the Sun
+L007     is Mercury, the next one is Venus, then Earth, Mars, Jupiter, Saturn,
+L008     Uranus, Neptune.
+L009     Write a function that takes two planet names as strings planet1 and planet2.
+L010     The function should return a tuple containing all planets whose orbits are
+L011     located between the orbit of planet1 and the orbit of planet2, sorted by
+L012     the proximity to the sun.
+L013     The function should return an empty tuple if planet1 or planet2
+L014     are not correct planet names.
+L015     Examples
+L016     bf("Jupiter", "Neptune") ==> ["Saturn", "Uranus"]
+L017     bf("Earth", "Mercury") ==> ["Venus"]
+L018     bf("Mercury", "Uranus") ==> ["Venus", "Earth", "Mars", "Jupiter", "Saturn"]
+L019      */
+L020     public List<String> bf(String planet1, String planet2) {
+L021 
+L022         List<String> planet_names = Arrays.asList("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune");
+L023         if (!planet_names.contains(planet1) || !planet_names.contains(planet2) || planet1.equals(planet2)) {
+L024             return List.of();
+L025         }
+L026         int planet1_index = planet_names.indexOf(planet1);
+L027         int planet2_index = planet_names.indexOf(planet2);
+L028         if (planet1_index < planet2_index) {
+L029             return planet_names.subList(planet1_index + 1, planet2_index);
+L030         } else {
+L031             return planet_names.subList(planet2_index + 1, planet1_index);
+L032         }
+L033     }
+L034 }
+L035 
+L036 public class Java_148 {
+L037     public static void main(String[] args) {
+L038         Solution s = new Solution();
+L039         List<Boolean> correct = Arrays.asList(
+L040                 s.bf("Jupiter", "Neptune").equals(Arrays.asList("Saturn", "Uranus")),
+L041                 s.bf("Earth", "Mercury").equals(List.of("Venus")),
+L042                 s.bf("Mercury", "Uranus").equals(Arrays.asList("Venus", "Earth", "Mars", "Jupiter", "Saturn")),
+L043                 s.bf("Neptune", "Venus").equals(Arrays.asList("Earth", "Mars", "Jupiter", "Saturn", "Uranus")),
+L044                 s.bf("Earth", "Earth").equals(List.of()),
+L045                 s.bf("Mars", "Earth").equals(List.of()),
+L046                 s.bf("Jupiter", "Makemake").equals(List.of())
+L047         );
+L048         if (correct.contains(false)) {
+L049             throw new AssertionError();
+L050         }
+L051     }
+L052 }

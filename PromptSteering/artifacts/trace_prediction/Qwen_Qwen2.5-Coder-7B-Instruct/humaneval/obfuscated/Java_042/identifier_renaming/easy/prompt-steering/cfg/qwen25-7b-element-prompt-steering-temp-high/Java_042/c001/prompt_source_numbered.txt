@@ -1,0 +1,31 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 import java.util.stream.Collectors;
+L004 
+L005 class Solution {
+L006     /**
+L007     Return list with elements incremented by 1.
+L008     >>> incrList(Arrays.asList(1, 2, 3))
+L009     [2, 3, 4]
+L010     >>> incrList(Arrays.asList(5, 3, 5, 2, 3, 3, 9, 0, 123))
+L011     [6, 4, 6, 3, 4, 4, 10, 1, 124]
+L012      */
+L013     public List<Integer> incrList(List<Integer> l) {
+L014         int _obf_t1_incrList_415193 = 0; _obf_t1_incrList_415193 += 0;
+L015         return l.stream().map(p -> p + 1).collect(Collectors.toList());
+L016     }
+L017 }
+L018 
+L019 public class Java_042 {
+L020     public static void main(String[] args) {
+L021         Solution v1 = new Solution();
+L022         List<Boolean> v2 = Arrays.asList(
+L023                 v1.incrList(new ArrayList<>(Arrays.asList())).equals(List.of()),
+L024                 v1.incrList(new ArrayList<>(Arrays.asList(3, 2, 1))).equals(Arrays.asList(4, 3, 2)),
+L025                 v1.incrList(new ArrayList<>(Arrays.asList(5, 2, 5, 2, 3, 3, 9, 0, 123))).equals(Arrays.asList(6, 3, 6, 3, 4, 4, 10, 1, 124))
+L026         );
+L027         if (v2.contains(false)) {
+L028             throw new AssertionError();
+L029         }
+L030     }
+L031 }

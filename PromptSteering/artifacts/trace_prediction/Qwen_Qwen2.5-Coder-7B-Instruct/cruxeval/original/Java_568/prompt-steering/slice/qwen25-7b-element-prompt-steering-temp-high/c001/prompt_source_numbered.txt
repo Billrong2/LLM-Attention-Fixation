@@ -1,0 +1,26 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_568 {
+L009     public static String f(String num) {
+L010         int letter = 1;
+L011         for (char i : "1234567890".toCharArray()) {
+L012             num = num.replace(String.valueOf(i), "");
+L013             if (num.length() == 0) break;
+L014             num = num.substring(letter) + num.substring(0, letter);
+L015             letter += 1;
+L016             if (letter > num.length()) {
+L017                 letter = letter % num.length();
+L018             }
+L019         }
+L020         return num;
+L021     }
+L022     public static void main(String[] args) {
+L023     assert(f(("bwmm7h")).equals(("mhbwm")));
+L024     }
+L025 
+L026 }

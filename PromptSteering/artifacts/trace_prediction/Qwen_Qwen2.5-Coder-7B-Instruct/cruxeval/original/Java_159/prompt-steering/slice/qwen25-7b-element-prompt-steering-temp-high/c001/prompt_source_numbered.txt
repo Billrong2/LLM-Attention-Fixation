@@ -1,0 +1,21 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_159 {
+L009     public static String f(String st) {
+L010         StringBuilder swapped = new StringBuilder();
+L011         for (int i = st.length() - 1; i >= 0; i--) {
+L012             swapped.append(Character.toString(st.charAt(i)).toUpperCase().equals(Character.toString(st.charAt(i))) ?
+L013                     Character.toString(st.charAt(i)).toLowerCase() : Character.toString(st.charAt(i)).toUpperCase());
+L014         }
+L015         return swapped.toString();
+L016     }
+L017     public static void main(String[] args) {
+L018     assert(f(("RTiGM")).equals(("mgItr")));
+L019     }
+L020 
+L021 }

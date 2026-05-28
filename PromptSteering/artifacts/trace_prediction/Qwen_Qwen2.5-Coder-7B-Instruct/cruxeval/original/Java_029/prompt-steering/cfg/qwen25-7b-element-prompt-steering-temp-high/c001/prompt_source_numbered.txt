@@ -1,0 +1,28 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_029 {
+L009     public static String f(String text) {
+L010         List<Character> nums = text.chars()
+L011                 .mapToObj(c -> (char) c)
+L012                 .filter(Character::isDigit)
+L013                 .collect(Collectors.toList());
+L014         
+L015         assert nums.size() > 0;
+L016 
+L017         StringBuilder sb = new StringBuilder();
+L018         for (char num : nums) {
+L019             sb.append(num);
+L020         }
+L021         
+L022         return sb.toString();
+L023     }
+L024     public static void main(String[] args) {
+L025     assert(f(("-123   	+314")).equals(("123314")));
+L026     }
+L027 
+L028 }

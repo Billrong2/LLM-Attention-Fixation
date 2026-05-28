@@ -1,0 +1,21 @@
+L001 import java.io.*;
+L002 import java.lang.reflect.*;
+L003 import java.math.*;
+L004 import java.security.*;
+L005 import java.util.*;
+L006 import java.util.stream.*;
+L007 import org.javatuples.*;
+L008 import java.util.*;
+L009 
+L010 class Java_299 {
+L011     public static String f(String text, String character) {
+L012         if (!text.endsWith(character)) {
+L013             return f(character + text, character);
+L014         }
+L015         return text;
+L016     }
+L017     public static void main(String[] args) {
+L018     assert(f(("staovk"), ("k")).equals(("staovk")));
+L019     }
+L020 
+L021 }

@@ -1,0 +1,67 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Create a function which takes a string representing a file's name, and returns
+L007     "Yes" if the the file's name is valid, and returns "No" otherwise.
+L008     A file's name is considered to be valid if and only if all the following conditions
+L009     are met:
+L010     - There should not be more than three digits ('0'-'9') in the file's name.
+L011     - The file's name contains exactly one dot '.'
+L012     - The substring before the dot should not be empty, and it starts with a letter from
+L013     the latin alphapet ('a'-'z' and 'A'-'Z').
+L014     - The substring after the dot should be one of these: ["txt", "exe", "dll"]
+L015     Examples:
+L016     file_name_check("example.txt") # => "Yes"
+L017     file_name_check("1example.dll") # => "No" (the name should start with a latin alphapet letter)
+L018      */
+L019     public String filenameCheck(String file_name) {
+L020 
+L021         List<String> suf = Arrays.asList("txt", "exe", "dll");
+L022         String[] lst = file_name.split("\\." );
+L023         if (lst.length != 2 || !suf.contains(lst[1]) || lst[0].isEmpty() || !Character.isLetter(lst[0].charAt(0))) {
+L024             return "No";
+L025         }
+L026         int t = (int) lst[0].chars().map(x -> (char) x).filter(Character::isDigit).count();
+L027         if (t > 3) {
+L028             return "No";
+L029         }
+L030         return "Yes";
+L031     }
+L032 }
+L033 
+L034 public class Java_141 {
+L035     public static void main(String[] args) {
+L036         Solution s = new Solution();
+L037         List<Boolean> correct = Arrays.asList(
+L038                 Objects.equals(s.filenameCheck("example.txt" ), "Yes" ),
+L039                 Objects.equals(s.filenameCheck("1example.dll" ), "No" ),
+L040                 Objects.equals(s.filenameCheck("s1sdf3.asd" ), "No" ),
+L041                 Objects.equals(s.filenameCheck("K.dll" ), "Yes" ),
+L042                 Objects.equals(s.filenameCheck("MY16FILE3.exe" ), "Yes" ),
+L043                 Objects.equals(s.filenameCheck("His12FILE94.exe" ), "No" ),
+L044                 Objects.equals(s.filenameCheck("_Y.txt" ), "No" ),
+L045                 Objects.equals(s.filenameCheck("?aREYA.exe" ), "No" ),
+L046                 Objects.equals(s.filenameCheck("/this_is_valid.dll" ), "No" ),
+L047                 Objects.equals(s.filenameCheck("this_is_valid.wow" ), "No" ),
+L048                 Objects.equals(s.filenameCheck("this_is_valid.txt" ), "Yes" ),
+L049                 Objects.equals(s.filenameCheck("this_is_valid.txtexe" ), "No" ),
+L050                 Objects.equals(s.filenameCheck("#this2_i4s_5valid.ten" ), "No" ),
+L051                 Objects.equals(s.filenameCheck("@this1_is6_valid.exe" ), "No" ),
+L052                 Objects.equals(s.filenameCheck("this_is_12valid.6exe4.txt" ), "No" ),
+L053                 Objects.equals(s.filenameCheck("all.exe.txt" ), "No" ),
+L054                 Objects.equals(s.filenameCheck("I563_No.exe" ), "Yes" ),
+L055                 Objects.equals(s.filenameCheck("Is3youfault.txt" ), "Yes" ),
+L056                 Objects.equals(s.filenameCheck("no_one#knows.dll" ), "Yes" ),
+L057                 Objects.equals(s.filenameCheck("1I563_Yes3.exe" ), "No" ),
+L058                 Objects.equals(s.filenameCheck("I563_Yes3.txtt" ), "No" ),
+L059                 Objects.equals(s.filenameCheck("final..txt" ), "No" ),
+L060                 Objects.equals(s.filenameCheck("final132" ), "No" ),
+L061                 Objects.equals(s.filenameCheck("_f4indsartal132." ), "No" )
+L062         );
+L063         if (correct.contains(false)) {
+L064             throw new AssertionError();
+L065         }
+L066     }
+L067 }

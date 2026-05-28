@@ -1,0 +1,22 @@
+L001 import java.util.*;
+L002 import java.lang.reflect.*;
+L003 import org.javatuples.*;
+L004 import java.security.*;
+L005 import java.math.*;
+L006 import java.io.*;
+L007 import java.util.stream.*;
+L008 class Java_634 {
+L009     public static String f(String input_string) {
+L010         while (input_string.contains("a") || input_string.contains("A")) {
+L011             input_string = input_string.replace('a', 'i').replace('A', 'i');
+L012             input_string = input_string.replace('o', 'u').replace('O', 'U');
+L013             input_string = input_string.replace('i', 'o').replace('I', 'O');
+L014             input_string = input_string.replace('u', 'a').replace('U', 'A');
+L015         }
+L016         return input_string;
+L017     }
+L018     public static void main(String[] args) {
+L019     assert(f(("biec")).equals(("biec")));
+L020     }
+L021 
+L022 }

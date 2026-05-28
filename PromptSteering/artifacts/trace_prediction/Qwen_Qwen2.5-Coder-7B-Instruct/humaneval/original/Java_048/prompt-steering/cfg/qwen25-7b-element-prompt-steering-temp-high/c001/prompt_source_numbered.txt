@@ -1,0 +1,43 @@
+L001 import java.util.*;
+L002 import java.lang.*;
+L003 
+L004 class Solution {
+L005     /**
+L006     Checks if given string is a palindrome
+L007     >>> isPalindrome("")
+L008     true
+L009     >>> isPalindrome("aba")
+L010     true
+L011     >>> isPalindrome("aaaaa")
+L012     true
+L013     >>> isPalindrome("zbcd")
+L014     false
+L015      */
+L016     public boolean isPalindrome(String text) {
+L017 
+L018         for (int i = 0; i < text.length(); i++) {
+L019             if (text.charAt(i) != text.charAt(text.length() - 1 - i)) {
+L020                 return false;
+L021             }
+L022         }
+L023         return true;
+L024     }
+L025 }
+L026 
+L027 public class Java_048 {
+L028     public static void main(String[] args) {
+L029         Solution s = new Solution();
+L030         List<Boolean> correct = Arrays.asList(
+L031                 s.isPalindrome(""),
+L032                 s.isPalindrome("aba"),
+L033                 s.isPalindrome("aaaaa"),
+L034                 !s.isPalindrome("zbcd"),
+L035                 s.isPalindrome("xywyx"),
+L036                 !s.isPalindrome("xywyz"),
+L037                 !s.isPalindrome("xywzx")
+L038         );
+L039         if (correct.contains(false)) {
+L040             throw new AssertionError();
+L041         }
+L042     }
+L043 }

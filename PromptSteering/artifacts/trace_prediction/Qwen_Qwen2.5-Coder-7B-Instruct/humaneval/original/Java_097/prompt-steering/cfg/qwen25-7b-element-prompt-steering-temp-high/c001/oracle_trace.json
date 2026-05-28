@@ -1,0 +1,103 @@
+{
+  "branches_seen": [],
+  "called_methods": [
+    "main",
+    "multiply"
+  ],
+  "case_expression": "s.multiply(148, 412) == 16",
+  "case_id": "c001",
+  "case_origin": "humaneval.correct_list",
+  "case_pack_source_hash": "11fbb738ee406e0ecb5e735251c316947dff6ed05584342fb91231d34ec920b0",
+  "case_result_matches_expected": true,
+  "case_result_observed": true,
+  "class_name": "Java_097",
+  "dataset": "humaneval",
+  "event_count": 9,
+  "events": [
+    {
+      "event_idx": 0,
+      "event_type": "method_enter",
+      "line": 22,
+      "method_name": "main",
+      "prompt_line": 22
+    },
+    {
+      "event_idx": 1,
+      "event_type": "method_enter",
+      "line": 15,
+      "method_name": "multiply",
+      "prompt_line": 15
+    },
+    {
+      "event_idx": 2,
+      "event_type": "return",
+      "line": 17,
+      "method_name": "multiply",
+      "prompt_line": 17,
+      "value_repr": "16"
+    },
+    {
+      "event_idx": 3,
+      "event_type": "method_exit",
+      "line": 17,
+      "method_name": "multiply",
+      "prompt_line": 17
+    },
+    {
+      "event_idx": 4,
+      "event_type": "line_exec",
+      "line": 26,
+      "method_name": "main",
+      "prompt_line": 26
+    },
+    {
+      "case_id": "c001",
+      "event_idx": 5,
+      "event_type": "case_result",
+      "line": -1,
+      "method_name": "main",
+      "outcome": true
+    },
+    {
+      "event_idx": 6,
+      "event_type": "line_exec",
+      "line": 28,
+      "method_name": "main",
+      "prompt_line": 28
+    },
+    {
+      "event_idx": 7,
+      "event_type": "method_exit",
+      "line": -1,
+      "method_name": "main"
+    },
+    {
+      "event_idx": 8,
+      "event_type": "line_exec",
+      "line": 29,
+      "method_name": "main",
+      "prompt_line": 29
+    }
+  ],
+  "exec_result": {
+    "assertion_failed": false,
+    "compile_error": "",
+    "compiled": true,
+    "ran": true,
+    "returncode": 0,
+    "runtime_error": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":22},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"multiply\",\"line\":15},{\"event_idx\":2,\"event_type\":\"return\",\"method_name\":\"multiply\",\"line\":17,\"value_repr\":\"16\"},{\"event_idx\":3,\"event_type\":\"method_exit\",\"method_name\":\"multiply\",\"line\":17},{\"event_idx\":4,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":26},{\"event_idx\":5,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":6,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":28},{\"event_idx\":7,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":8,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":29}]}\nTRACE_JSON_END",
+    "stderr": "",
+    "stdout": "TRACE_JSON_BEGIN\n{\"events\":[{\"event_idx\":0,\"event_type\":\"method_enter\",\"method_name\":\"main\",\"line\":22},{\"event_idx\":1,\"event_type\":\"method_enter\",\"method_name\":\"multiply\",\"line\":15},{\"event_idx\":2,\"event_type\":\"return\",\"method_name\":\"multiply\",\"line\":17,\"value_repr\":\"16\"},{\"event_idx\":3,\"event_type\":\"method_exit\",\"method_name\":\"multiply\",\"line\":17},{\"event_idx\":4,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":26},{\"event_idx\":5,\"event_type\":\"case_result\",\"method_name\":\"main\",\"line\":-1,\"case_id\":\"c001\",\"outcome\":true},{\"event_idx\":6,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":28},{\"event_idx\":7,\"event_type\":\"method_exit\",\"method_name\":\"main\",\"line\":-1},{\"event_idx\":8,\"event_type\":\"line_exec\",\"method_name\":\"main\",\"line\":29}]}\nTRACE_JSON_END",
+    "success": true
+  },
+  "executed_line_sequence": [
+    17
+  ],
+  "expected_bool": true,
+  "mutation_type": "seed_true",
+  "snippet": "Java_097",
+  "trace_status": "ok",
+  "unsupported_reason": "",
+  "variant": "original",
+  "variant_path": ""
+}

@@ -1,0 +1,37 @@
+{
+  "balance_stats": {
+    "case_total": 2,
+    "false_count": 1,
+    "true_count": 1,
+    "true_ratio": 0.5
+  },
+  "cases": [
+    {
+      "case_id": "c001",
+      "expected_bool": true,
+      "expr": "f((new HashMap<Long,Long>(Map.of(2l, 3l, 17l, 3l, 16l, 6l, 18l, 6l, 87l, 7l)))).equals((new HashMap<Long,Long>(Map.of(87l, 7l, 18l, 6l))))",
+      "mutation_type": "seed_true",
+      "origin": "cruxeval.assert"
+    },
+    {
+      "case_id": "c002",
+      "expected_bool": false,
+      "expr": "!(f((new HashMap<Long,Long>(Map.of(2l, 3l, 17l, 3l, 16l, 6l, 18l, 6l, 87l, 7l)))).equals((new HashMap<Long,Long>(Map.of(87l, 7l, 18l, 6l)))))",
+      "mutation_type": "expected_value_mutation",
+      "origin": "cruxeval.assert"
+    }
+  ],
+  "class_name": "Java_304",
+  "dataset": "cruxeval",
+  "effective_case_count": 2,
+  "generation_policy": "validated_nontrivial_only",
+  "generator_version": "cf-v2",
+  "min_cases_config": 8,
+  "profile": "counterfactual_tf",
+  "snippet": "Java_304",
+  "source_hash": "3f57e868f63bc8101de365ab09fdb79ea2ceda0d17f21e554a3441e3ede0cd6e",
+  "target_cases_config": 16,
+  "warnings": [
+    "low_effective_case_count:2 (consider reviewing extraction/mutation coverage)"
+  ]
+}
