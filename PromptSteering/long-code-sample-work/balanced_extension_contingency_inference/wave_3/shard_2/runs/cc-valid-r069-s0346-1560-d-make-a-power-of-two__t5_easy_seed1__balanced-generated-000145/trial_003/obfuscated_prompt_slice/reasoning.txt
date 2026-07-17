@@ -1,0 +1,14 @@
+Reasoning:
+- The target method is `buscarGreedy` at L221.
+- The method parameter is `numero`, and we're interested in its behavior with the concrete value "366323".
+- The return value is at L235, where it's set to `minimo`.
+- `minimo` is initialized at L224 to `Integer.MAX_VALUE`.
+- The `for` loop at L225 iterates `i` from 0 to 61 (inclusive).
+- At each iteration, `Long.toString(pot)` is called, then `comparar` is called to compare the string representation of `pot` with `numero`. If the result is less than `minimo`, `minimo` is updated.
+- Finally, `minimo` is returned as the output of the method.
+
+For the concrete case `numero="366323"`, the loop will iterate 62 times, updating `minimo` as needed. Given the input, `minimo` will be updated to the length of the longest prefix of "366323" that matches a power of two in string form.
+
+Given the constraints and the nature of the algorithm, the longest matching prefix would be "36", as "36" is a prefix of "366323" and "36" is the binary representation of a power of two ("26").
+
+Therefore, the output is `2`.

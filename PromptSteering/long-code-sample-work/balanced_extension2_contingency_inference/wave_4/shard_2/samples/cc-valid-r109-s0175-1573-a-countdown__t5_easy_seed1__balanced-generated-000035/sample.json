@@ -1,0 +1,481 @@
+{
+  "argv": [],
+  "metadata": {
+    "argv": [],
+    "balanced_extension2_contingency_selection": {
+      "canonical_problem_identity": "deepmind/code_contests@802411c3010cb00d1b05bad57ca77365a3c699d6:valid:row-000109",
+      "continued_accepted_ranks": [
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "protocol": "../BALANCED_EXTENSION2_CONTINGENCY_PROTOCOL.md",
+      "schema_version": "long-code-balanced-extension2-contingency-v1",
+      "selected_source_rule": "same first tokenizer-eligible source used by frozen balanced Waves 1--3",
+      "source_denominator_unchanged": true,
+      "wave_id": "balanced_wave_4"
+    },
+    "candidate_id": "cc-valid-r109-s0175-1573-a-countdown",
+    "candidate_metadata": {
+      "expected_stdout": "7\n2\n2\n5\n6\n53\n115\n",
+      "expected_stdout_path": "candidates/cc-valid-r109-s0175-1573-a-countdown/io/00-generated-007.out",
+      "id": "cc-valid-r109-s0175-1573-a-countdown",
+      "input": "7\n3\n007\n4\n1000\n5\n00010\n3\n103\n4\n2020\n9\n123456789\n30\n001678294039710047203946100020\n",
+      "input_path": "candidates/cc-valid-r109-s0175-1573-a-countdown/io/00-generated-007.in",
+      "inputs": [
+        {
+          "dataset_test_index": 7,
+          "expected_stdout": "7\n2\n2\n5\n6\n53\n115\n",
+          "expected_stdout_path": "candidates/cc-valid-r109-s0175-1573-a-countdown/io/00-generated-007.out",
+          "expected_stdout_sha256": "77816cf4b5f52eb6b8be80efd4e363dc4fd8e1850eef53fdc83e482f2f93dc84",
+          "id": "00-generated-007",
+          "input": "7\n3\n007\n4\n1000\n5\n00010\n3\n103\n4\n2020\n9\n123456789\n30\n001678294039710047203946100020\n",
+          "input_path": "candidates/cc-valid-r109-s0175-1573-a-countdown/io/00-generated-007.in",
+          "input_sha256": "4309c196fda7f799196166221c5d0ee4397b509dcae6c3e18972c0ce497b6017",
+          "suite": "generated_tests",
+          "validation": {
+            "compiled_with_jdk17": true,
+            "exit_code": 0,
+            "stderr_bytes": 0,
+            "timed_out": false
+          }
+        }
+      ],
+      "loc_definition": "Python str.splitlines(); final newline does not add an empty physical line",
+      "main_class": "Codeforces1",
+      "nonblank_loc": 221,
+      "original_path": "candidates/cc-valid-r109-s0175-1573-a-countdown/original.java",
+      "physical_loc": 271,
+      "prevalidation": {
+        "all_retained_tests_exact": true,
+        "compiled": true,
+        "compiler_exit_code": 0,
+        "compiler_stderr_bytes": 0,
+        "compiler_stdout_bytes": 0,
+        "jdk_major": 17
+      },
+      "problem_key": "codeforces-1573-A",
+      "problem_name": "1573_A. Countdown",
+      "provenance": {
+        "cf_contest_id": 1573,
+        "cf_index": "A",
+        "cf_points": 500.0,
+        "cf_rating": 800,
+        "cf_tags": [
+          "greedy"
+        ],
+        "dataset_file": "codecontests-valid-802411c3.parquet",
+        "dataset_file_sha256": "02e8c1ccedae716f1e43cc813fcb7823c3db666ea92638820aba80e8cef451ab",
+        "dataset_id": "deepmind/code_contests",
+        "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+        "dataset_url": "https://huggingface.co/datasets/deepmind/code_contests/resolve/802411c3010cb00d1b05bad57ca77365a3c699d6/data/valid-00000-of-00001-5e672c5751f060d3.parquet",
+        "difficulty": 7,
+        "language": "Java",
+        "language_code": 4,
+        "problem_name": "1573_A. Countdown",
+        "row_index": 109,
+        "solution_container": "solutions",
+        "solution_index": 175,
+        "solution_label": "correct human solution",
+        "source_code": 2,
+        "split": "valid"
+      },
+      "source_bytes": 7878,
+      "source_sha256": "a1aedda73fa68adbacd505e753b9737e86b7ec0dd223bfe26e533dca1814d1af",
+      "target": {
+        "arity": 2,
+        "body_nonblank_loc": 10,
+        "body_physical_loc": 11,
+        "class": "Codeforces1",
+        "codesteer_selector": {
+          "declaration_line": 107,
+          "fallback_used": false,
+          "implementation": "steering.priors.SlicingPrior._select_target_method",
+          "name": "find",
+          "parameter_count": 2,
+          "parse_status": "javalang",
+          "top_level_body_statement_count": 4
+        },
+        "control_node_count": 2,
+        "end_line": 118,
+        "loop_node_count": 1,
+        "main_call_path": [
+          {
+            "arity": 1,
+            "class": "Codeforces1",
+            "end_line": 105,
+            "name": "main",
+            "parameter_types": [
+              "String[]"
+            ],
+            "return_type": "void",
+            "start_line": 93
+          },
+          {
+            "arity": 2,
+            "class": "Codeforces1",
+            "end_line": 118,
+            "name": "find",
+            "parameter_types": [
+              "int",
+              "char[]"
+            ],
+            "return_type": "int",
+            "start_line": 107
+          }
+        ],
+        "main_reachable": true,
+        "name": "find",
+        "output_caller": {
+          "arity": 1,
+          "class": "Codeforces1",
+          "end_line": 105,
+          "name": "main",
+          "parameter_types": [
+            "String[]"
+          ],
+          "return_type": "void",
+          "start_line": 93
+        },
+        "output_evidence": "out.println(find(n, ch))",
+        "output_relevance_kind": "direct_print_argument",
+        "output_relevance_variable": null,
+        "parameter_types": [
+          "int",
+          "char[]"
+        ],
+        "recursive_call_count": 0,
+        "return_type": "int",
+        "return_value_output_relevant": true,
+        "source_sha256": "0faa4d4ce10fd905a6cdde79f4700cce991d52c94014c3e1e989d41de24b8734",
+        "start_line": 107
+      },
+      "target_method": "find",
+      "target_signature": "int Codeforces1.find(int, char[])",
+      "tests": [
+        {
+          "dataset_test_index": 7,
+          "expected_stdout": "7\n2\n2\n5\n6\n53\n115\n",
+          "expected_stdout_path": "candidates/cc-valid-r109-s0175-1573-a-countdown/io/00-generated-007.out",
+          "expected_stdout_sha256": "77816cf4b5f52eb6b8be80efd4e363dc4fd8e1850eef53fdc83e482f2f93dc84",
+          "id": "00-generated-007",
+          "input": "7\n3\n007\n4\n1000\n5\n00010\n3\n103\n4\n2020\n9\n123456789\n30\n001678294039710047203946100020\n",
+          "input_path": "candidates/cc-valid-r109-s0175-1573-a-countdown/io/00-generated-007.in",
+          "input_sha256": "4309c196fda7f799196166221c5d0ee4397b509dcae6c3e18972c0ce497b6017",
+          "suite": "generated_tests",
+          "validation": {
+            "compiled_with_jdk17": true,
+            "exit_code": 0,
+            "stderr_bytes": 0,
+            "timed_out": false
+          }
+        }
+      ]
+    },
+    "codesteer_target_method": "find",
+    "concrete_case": {
+      "accepted_rank": 13,
+      "argv": [],
+      "canonical_case_key": [
+        109,
+        "generated_tests",
+        35
+      ],
+      "case_id": "balanced-generated-000035",
+      "dataset_test_index": 35,
+      "expected_output_bytes": 18,
+      "expected_output_lines": 7,
+      "expected_output_path": "../../tests/cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1/balanced-generated-000035/oracle_stdout.txt",
+      "input_bytes": 82,
+      "input_sha256": "f741edc272cd191f8510ba5d28b7b37f5d1cc1a25710747bdca487b1c3808158",
+      "obfuscated_stderr_path": "../../tests/cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1/balanced-generated-000035/obfuscated.stderr",
+      "obfuscated_stdout_path": "../../tests/cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1/balanced-generated-000035/obfuscated.stdout",
+      "obfuscated_trimmed_exact_to_oracle": true,
+      "original_obfuscated_trimmed_agreement": true,
+      "original_stderr_path": "../../tests/cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1/balanced-generated-000035/original.stderr",
+      "original_stdout_path": "../../tests/cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1/balanced-generated-000035/original.stdout",
+      "original_trimmed_exact_to_oracle": true,
+      "rank_key": [
+        1,
+        7,
+        18,
+        2,
+        35
+      ],
+      "raw_expected_stdout_sha256": "07afdb35a4cb0298ab245f47bbfd8e866fc5c38a223e690ef65e0e3d1713f416",
+      "raw_obfuscated_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_obfuscated_stdout_sha256": "07afdb35a4cb0298ab245f47bbfd8e866fc5c38a223e690ef65e0e3d1713f416",
+      "raw_original_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_original_stdout_sha256": "07afdb35a4cb0298ab245f47bbfd8e866fc5c38a223e690ef65e0e3d1713f416",
+      "source_case_metadata": {
+        "dataset_id": "deepmind/code_contests",
+        "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+        "dataset_test_index": 35,
+        "row_index": 109,
+        "selection_stage": "balanced_extension2_adaptive_outcome_independent_ranking",
+        "split": "valid",
+        "suite": "generated_tests",
+        "wave_id": "balanced_wave_4"
+      },
+      "stdin_path": "../../tests/cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1/balanced-generated-000035/stdin.txt",
+      "suite": "generated_tests",
+      "validation_path": "../../validation/cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1/balanced-generated-000035.json"
+    },
+    "difficulty": "easy",
+    "eligible": true,
+    "expected_stdout_path": "../../tests/cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1/balanced-generated-000035/oracle_stdout.txt",
+    "id": "cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1__balanced-generated-000035",
+    "main_class": "Codeforces1",
+    "method_coverage_policy": "force_all",
+    "obfuscated": {
+      "codesteer_target": {
+        "called_directly_from_main": true,
+        "eligible_parameter_to_return_target": true,
+        "genuine_return_sink_count": 1,
+        "main_called_method_names": [
+          "close",
+          "find",
+          "nextInt",
+          "nextLine",
+          "println",
+          "toCharArray"
+        ],
+        "method_names": [
+          "next",
+          "nextInt",
+          "readIntArray",
+          "readLongArray",
+          "nextLong",
+          "nextDouble",
+          "nextLine",
+          "main",
+          "find",
+          "gcd",
+          "gcd",
+          "lcm",
+          "lcm",
+          "pow",
+          "modPow",
+          "mul",
+          "fact",
+          "fastPow",
+          "debug",
+          "debug",
+          "debugMatrix",
+          "debugMatrix",
+          "reverseArray",
+          "reverseArray",
+          "toString",
+          "compare"
+        ],
+        "parameter_count": 2,
+        "parameters": [
+          {
+            "name": "n",
+            "type": "int"
+          },
+          {
+            "name": "ch",
+            "type": "char[]"
+          }
+        ],
+        "parse_status": "javalang",
+        "return_sink_count": 1,
+        "return_type": "int",
+        "selected_method": "find",
+        "selected_method_line": 133,
+        "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+        "selector_implementation_owner": "steering.priors.SlicingPrior",
+        "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+      },
+      "execution_validation": {
+        "accepted": true,
+        "cases": [
+          {
+            "accepted": true,
+            "actual_trimmed": "7\n2\n2\n5\n6\n53\n115",
+            "case_id": "00-generated-007",
+            "command": [
+              "java",
+              "-Dfile.encoding=UTF-8",
+              "-Djava.io.tmpdir=<scratch>",
+              "-Duser.home=<scratch>",
+              "-XX:-UsePerfData",
+              "-cp",
+              "<classes>",
+              "Codeforces1"
+            ],
+            "duration_seconds": 0.034104,
+            "exit_code": 0,
+            "expected_trimmed": "7\n2\n2\n5\n6\n53\n115",
+            "raw_expected_stdout_sha256": "77816cf4b5f52eb6b8be80efd4e363dc4fd8e1850eef53fdc83e482f2f93dc84",
+            "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "raw_stdout_sha256": "77816cf4b5f52eb6b8be80efd4e363dc4fd8e1850eef53fdc83e482f2f93dc84",
+            "stderr": "",
+            "stdout": "7\n2\n2\n5\n6\n53\n115\n",
+            "timed_out": false,
+            "trimmed_exact_match": true
+          }
+        ],
+        "compile": {
+          "accepted": true,
+          "command": [
+            "javac",
+            "-encoding",
+            "UTF-8",
+            "-J-Djava.io.tmpdir=<scratch>",
+            "-J-Duser.home=<scratch>",
+            "-J-XX:-UsePerfData",
+            "-Xlint:none",
+            "-nowarn",
+            "-d",
+            "<classes>",
+            "<scratch>/Codeforces1.java"
+          ],
+          "exit_code": 0,
+          "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false
+        },
+        "entry": {
+          "compile_class": "Codeforces1",
+          "main_class": "Codeforces1",
+          "package": "",
+          "parse_status": "javalang"
+        }
+      },
+      "main_class": "Codeforces1",
+      "metadata_path": "candidates/cc-valid-r109-s0175-1573-a-countdown/variants/T5_bogus_control_flow/easy/seed_1/Codeforces1.java.meta.json",
+      "method_coverage": {
+        "main_touched": true,
+        "method_coverage_total": 26,
+        "method_coverage_touched": 26,
+        "untouched_methods": []
+      },
+      "path": "../../../prepared_variants/candidates/cc-valid-r109-s0175-1573-a-countdown/variants/T5_bogus_control_flow/easy/seed_1/Codeforces1.java",
+      "selected_target_touch_evidence": {
+        "method_block_parser": "eyetracking.obfuscation.java.passes.utils.iter_method_blocks",
+        "obfuscated_block_name": "find",
+        "obfuscated_match_count": 1,
+        "obfuscated_method_bytes": 339,
+        "obfuscated_method_index": 8,
+        "obfuscated_method_sha256": "ff68e35d29e0f820160d01944d9ca457ef9ded3be7aa6284684cf80ee3238eb6",
+        "obfuscated_method_start_line": 132,
+        "obfuscated_name_matches_codesteer_target": true,
+        "obfuscated_target_line": 133,
+        "obfuscated_target_method": "find",
+        "original_block_name": "find",
+        "original_match_count": 1,
+        "original_method_bytes": 276,
+        "original_method_index": 8,
+        "original_method_sha256": "2a20153d1cd8dd24664d291bd430ee6146ae02db8d4f5e67837902c1f88e5660",
+        "original_method_start_line": 106,
+        "original_target_line": 107,
+        "original_target_method": "find",
+        "reason": "method_source_changed",
+        "touched": true,
+        "verifiable": true
+      },
+      "sha256": "f48fc0f518091a1e3540748b17a1a0986078f4e421aa4cc66ac3bbd5e0030e57",
+      "target_method": "find"
+    },
+    "obfuscated_main_class": "Codeforces1",
+    "obfuscated_path": "../../../prepared_variants/candidates/cc-valid-r109-s0175-1573-a-countdown/variants/T5_bogus_control_flow/easy/seed_1/Codeforces1.java",
+    "obfuscated_target_method": "find",
+    "obfuscation_metadata_path": "candidates/cc-valid-r109-s0175-1573-a-countdown/variants/T5_bogus_control_flow/easy/seed_1/Codeforces1.java.meta.json",
+    "original": {
+      "codesteer_target": {
+        "called_directly_from_main": true,
+        "eligible_parameter_to_return_target": true,
+        "genuine_return_sink_count": 1,
+        "main_called_method_names": [
+          "close",
+          "find",
+          "nextInt",
+          "nextLine",
+          "println",
+          "toCharArray"
+        ],
+        "method_names": [
+          "next",
+          "nextInt",
+          "readIntArray",
+          "readLongArray",
+          "nextLong",
+          "nextDouble",
+          "nextLine",
+          "main",
+          "find",
+          "gcd",
+          "gcd",
+          "lcm",
+          "lcm",
+          "pow",
+          "modPow",
+          "mul",
+          "fact",
+          "fastPow",
+          "debug",
+          "debug",
+          "debugMatrix",
+          "debugMatrix",
+          "reverseArray",
+          "reverseArray",
+          "toString",
+          "compare"
+        ],
+        "parameter_count": 2,
+        "parameters": [
+          {
+            "name": "n",
+            "type": "int"
+          },
+          {
+            "name": "ch",
+            "type": "char[]"
+          }
+        ],
+        "parse_status": "javalang",
+        "return_sink_count": 1,
+        "return_type": "int",
+        "selected_method": "find",
+        "selected_method_line": 107,
+        "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+        "selector_implementation_owner": "steering.priors.SlicingPrior",
+        "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+      },
+      "execution_validation_path": "candidates/cc-valid-r109-s0175-1573-a-countdown/original/validation.json",
+      "main_class": "Codeforces1",
+      "path": "../../../prepared_variants/candidates/cc-valid-r109-s0175-1573-a-countdown/original/Codeforces1.java",
+      "sha256": "a1aedda73fa68adbacd505e753b9737e86b7ec0dd223bfe26e533dca1814d1af",
+      "target_method": "find"
+    },
+    "original_main_class": "Codeforces1",
+    "original_path": "../../../prepared_variants/candidates/cc-valid-r109-s0175-1573-a-countdown/original/Codeforces1.java",
+    "original_target_method": "find",
+    "parent_candidate_id": "cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1",
+    "profile": "safe",
+    "rejection_reasons": [],
+    "seed": 1,
+    "stdin_path": "../../tests/cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1/balanced-generated-000035/stdin.txt",
+    "target_method": {
+      "obfuscated": "find",
+      "original": "find"
+    },
+    "technique": "T5",
+    "technique_name": "bogus_control_flow",
+    "variant_id": "cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1",
+    "warnings": []
+  },
+  "obfuscated_sha256": "f48fc0f518091a1e3540748b17a1a0986078f4e421aa4cc66ac3bbd5e0030e57",
+  "obfuscated_source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r109-s0175-1573-a-countdown/variants/T5_bogus_control_flow/easy/seed_1/Codeforces1.java",
+  "obfuscated_target_method": "find",
+  "original_sha256": "a1aedda73fa68adbacd505e753b9737e86b7ec0dd223bfe26e533dca1814d1af",
+  "original_source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r109-s0175-1573-a-countdown/original/Codeforces1.java",
+  "original_target_method": "find",
+  "sample_id": "cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1__balanced-generated-000035"
+}

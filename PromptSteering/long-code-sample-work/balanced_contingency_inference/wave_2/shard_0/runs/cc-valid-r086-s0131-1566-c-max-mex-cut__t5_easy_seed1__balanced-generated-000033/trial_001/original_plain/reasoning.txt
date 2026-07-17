@@ -1,0 +1,11 @@
+### Reasoning
+1. The program is a Java program, which reads input using a `Scanner` and prints output to `System.out`.
+2. The program reads the number of test cases `T`, and for each test case:
+    1. It reads an integer `n` and two binary strings `data` of length `n`.
+    2. It initializes the `dp` array to all `-1`s and then calls the `cal` function with `0`, `n`, and the `nxt` matrix.
+    3. The `cal` function uses dynamic programming to find the maximum score that can be achieved by matching the binary strings `data` with a given pattern.
+    4. The `cal` function returns the maximum score achieved.
+3. The program prints the maximum score achieved by each test case to the standard output.
+
+### Final Output
+```json

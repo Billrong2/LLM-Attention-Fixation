@@ -1,0 +1,11 @@
+The program is reading input from stdin and performing a specific calculation for each test case. 
+
+For the first test case, it reads an integer `n` which represents the length of the array. Then it reads `n` integers from stdin and stores them in the array `a`. It counts the number of even and odd numbers in the array and stores them in the `f` array. If the difference between the counts is greater than 1, it prints "-1". If the length of the array is even, it prints the minimum of two possible values based on the counts. If the length of the array is odd, it prints one of the two possible values based on the counts.
+
+For this concrete case, the program reads the input as follows:
+- The first integer is 7, which means the length of the array is 7.
+- The next 7 integers are 3, 2, 6, 5, 3, 12, and 1.
+
+The program then counts the number of even and odd numbers in the array and finds that there are 5 odd numbers and 2 even numbers. Since the difference between the counts is greater than 1, the program prints "-1" as the output.
+
+Therefore, the exact standard output of this program for the given concrete case is:

@@ -1,0 +1,126 @@
+{
+  "codesteer_target": {
+    "called_directly_from_main": true,
+    "eligible_parameter_to_return_target": true,
+    "genuine_return_sink_count": 1,
+    "main_called_method_names": [
+      "add",
+      "flush",
+      "getMin",
+      "nextInt",
+      "println"
+    ],
+    "method_names": [
+      "main",
+      "getMin",
+      "LowerBound",
+      "UpperBound",
+      "sieve",
+      "primeFactors",
+      "gcd",
+      "swap",
+      "nCrModp",
+      "sort",
+      "update",
+      "makeKids",
+      "query",
+      "findSet",
+      "isSameSet",
+      "unionSet",
+      "numDisjointSets",
+      "sizeOfSet",
+      "next",
+      "nextInt",
+      "nextIntArray",
+      "nextLong",
+      "nextLongArray",
+      "nextDouble"
+    ],
+    "parameter_count": 2,
+    "parameters": [
+      {
+        "name": "string",
+        "type": "String"
+      },
+      {
+        "name": "items",
+        "type": "ArrayList<...>"
+      }
+    ],
+    "parse_status": "javalang",
+    "return_sink_count": 1,
+    "return_type": "int",
+    "selected_method": "getMin",
+    "selected_method_line": 35,
+    "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+    "selector_implementation_owner": "steering.priors.SlicingPrior",
+    "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+  },
+  "entry": {
+    "compile_class": "Solve",
+    "main_class": "Solve",
+    "package": "",
+    "parse_status": "javalang"
+  },
+  "execution_validation": {
+    "accepted": true,
+    "cases": [
+      {
+        "accepted": true,
+        "actual_trimmed": "2\n3\n0\n2\n1\n0\n2\n3\n3\n3\n9\n2",
+        "case_id": "00-generated-028",
+        "command": [
+          "java",
+          "-Dfile.encoding=UTF-8",
+          "-Djava.io.tmpdir=<scratch>",
+          "-Duser.home=<scratch>",
+          "-XX:-UsePerfData",
+          "-cp",
+          "<classes>",
+          "Solve"
+        ],
+        "duration_seconds": 0.050261,
+        "exit_code": 0,
+        "expected_trimmed": "2\n3\n0\n2\n1\n0\n2\n3\n3\n3\n9\n2",
+        "raw_expected_stdout_sha256": "5baebee41b367ae4527196e5813447ff204843c5db37be08423b33238a610bb4",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "5baebee41b367ae4527196e5813447ff204843c5db37be08423b33238a610bb4",
+        "stderr": "",
+        "stdout": "2\n3\n0\n2\n1\n0\n2\n3\n3\n3\n9\n2\n",
+        "timed_out": false,
+        "trimmed_exact_match": true
+      }
+    ],
+    "compile": {
+      "accepted": true,
+      "command": [
+        "javac",
+        "-encoding",
+        "UTF-8",
+        "-J-Djava.io.tmpdir=<scratch>",
+        "-J-Duser.home=<scratch>",
+        "-J-XX:-UsePerfData",
+        "-Xlint:none",
+        "-nowarn",
+        "-d",
+        "<classes>",
+        "<scratch>/Solve.java"
+      ],
+      "exit_code": 0,
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    "entry": {
+      "compile_class": "Solve",
+      "main_class": "Solve",
+      "package": "",
+      "parse_status": "javalang"
+    }
+  },
+  "physical_loc": 321,
+  "source_path": "candidates/cc-valid-r069-s0054-1560-d-make-a-power-of-two/original/Solve.java",
+  "source_sha256": "477dfb22f2b83cb04006b7d3c1031bb197dc100a664c801a1a83e787c2b268f8"
+}

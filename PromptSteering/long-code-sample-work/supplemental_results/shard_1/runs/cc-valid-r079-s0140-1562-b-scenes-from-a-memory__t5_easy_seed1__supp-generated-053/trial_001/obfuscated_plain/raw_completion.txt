@@ -1,0 +1,20 @@
+ The output is as follows:
+
+```
+2
+2
+```
+
+The program first takes three inputs, which represent the number of cases, followed by the input values. For the first case, the program takes the input `1` and `3`, and checks if they are prime numbers. It prints `"2"` and the input value `2`. For the second case, the program takes the input `131`, which is not a prime number, so it prints `"1"` and the input value `3`.
+
+The program then prints the final output in the form of a JSON string.
+
+The output is generated based on the following steps:
+
+1. The program reads the input from `stdin` and parses it using the `FastReader` class.
+2. The program initializes a `StringBuilder` object to store the output.
+3. The program reads the input values and checks if they are prime numbers using the `isPrime` method.
+4. If a prime number is found, the program prints `"1"` followed by the prime number. If not, it prints `"2"` followed by the input value.
+5. The program then prints the final output in the form of a JSON string.
+
+FINAL_OUTPUT_JSON: {"stdout":"2\n2\n"}

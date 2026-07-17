@@ -1,0 +1,199 @@
+{
+  "activation_steering": false,
+  "codesteer_prior_preflight": null,
+  "condition": "obfuscated_prompt_slice",
+  "fingerprint": "70ef11198b8b9fefe19fdeba105207cc714029842837db26f082ddaa5a2b1e53",
+  "generation": {
+    "do_sample": true,
+    "max_new_tokens": 512,
+    "temperature": 1.05,
+    "top_k": 7,
+    "top_p": 0.95
+  },
+  "manifest_sha256": "77c56a24424561d210e0267af98bca99de1261d4a6a99419abf86459ac9a9281",
+  "model_name": "Qwen/Qwen2.5-14B",
+  "model_snapshot_commit": "97e1e76335b7017d8f67c08a19d103c0504298c9",
+  "obfuscated_sha256": "983e74c4794d1215812f29feae5431cc2fed6a50640fe453d20bc1750ea17e73",
+  "original_sha256": "85e165471ce3f8be8cb6b6974d6af27ec1d86f686e2b57f5d048250611ddd27d",
+  "paired_design": "same seed for all four conditions in this sample/trial",
+  "paired_seed": 1798881361,
+  "prompt_metadata": {
+    "artifact_name": "Program Slicing / backward slice",
+    "elements": [
+      {
+        "code": "static boolean check(String s, String o, String t) {",
+        "description": "target method check(s, o, t)",
+        "kind": "MethodDeclaration",
+        "line": 105,
+        "line_label": "L105"
+      },
+      {
+        "code": "static boolean check(String s, String o, String t) {",
+        "description": "method parameter s",
+        "kind": "SliceMethodParameter",
+        "line": 105,
+        "line_label": "L105"
+      },
+      {
+        "code": "static boolean check(String s, String o, String t) {",
+        "description": "method parameter o",
+        "kind": "SliceMethodParameter",
+        "line": 105,
+        "line_label": "L105"
+      },
+      {
+        "code": "static boolean check(String s, String o, String t) {",
+        "description": "method parameter t",
+        "kind": "SliceMethodParameter",
+        "line": 105,
+        "line_label": "L105"
+      },
+      {
+        "code": "return builder.toString().equals(t);",
+        "description": "return value expression using builder, toString, equals, t",
+        "kind": "SliceReturnValue",
+        "line": 121,
+        "line_label": "L121"
+      },
+      {
+        "code": "if (((3 * 3) - 9) != 0) {",
+        "description": "control predicate over _obf_t5_check_267827",
+        "kind": "SliceControlDependency",
+        "line": 106,
+        "line_label": "L106"
+      },
+      {
+        "code": "StringBuilder builder = new StringBuilder(s);",
+        "description": "definition of builder",
+        "kind": "SliceDefinition",
+        "line": 110,
+        "line_label": "L110"
+      },
+      {
+        "code": "for (int i = 0; i < o.length(); i++) {",
+        "description": "control predicate over i, o, length, check, charAt, j, s, builder, append",
+        "kind": "SliceControlDependency",
+        "line": 112,
+        "line_label": "L112"
+      },
+      {
+        "code": "for (int i = 0; i < o.length(); i++) {",
+        "description": "method call o.length in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 112,
+        "line_label": "L112"
+      },
+      {
+        "code": "check[o.charAt(i) - 'a'] = true;",
+        "description": "method call o.charAt in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 113,
+        "line_label": "L113"
+      },
+      {
+        "code": "for (int j = 0; j < s.length(); j++) {",
+        "description": "control predicate over j, s, length, check, charAt, builder, append",
+        "kind": "SliceControlDependency",
+        "line": 114,
+        "line_label": "L114"
+      },
+      {
+        "code": "for (int j = 0; j < s.length(); j++) {",
+        "description": "method call s.length in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 114,
+        "line_label": "L114"
+      },
+      {
+        "code": "if (check[s.charAt(j) - 'a']) {",
+        "description": "control predicate over check, s, charAt, j",
+        "kind": "SliceControlDependency",
+        "line": 115,
+        "line_label": "L115"
+      },
+      {
+        "code": "if (check[s.charAt(j) - 'a']) {",
+        "description": "method call s.charAt in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 115,
+        "line_label": "L115"
+      },
+      {
+        "code": "builder.append(s.charAt(j));",
+        "description": "method call builder.append in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 118,
+        "line_label": "L118"
+      },
+      {
+        "code": "builder.append(s.charAt(j));",
+        "description": "method call s.charAt in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 118,
+        "line_label": "L118"
+      },
+      {
+        "code": "return builder.toString().equals(t);",
+        "description": "method call builder.toString in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 121,
+        "line_label": "L121"
+      },
+      {
+        "code": "return builder.toString().equals(t);",
+        "description": "method call equals in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 121,
+        "line_label": "L121"
+      }
+    ],
+    "eligible_count_is_lower_bound": false,
+    "eligible_element_count": 18,
+    "emitted_element_count": 18,
+    "emitted_over_eligible": 1.0,
+    "enabled": true,
+    "guidance_text": "Prompt-only steering guidance (Program Slicing / backward slice, artifact-conditioned):\nUse the following static program-analysis elements as the main reasoning anchors.\nThese elements are static only; they do not reveal the correct output, branch outcomes, or gold execution trace.\n\nStatic elements to emphasize:\n1. MethodDeclaration at L105: target method check(s, o, t) (static boolean check(String s, String o, String t) {)\n2. SliceMethodParameter at L105: method parameter s (static boolean check(String s, String o, String t) {)\n3. SliceMethodParameter at L105: method parameter o (static boolean check(String s, String o, String t) {)\n4. SliceMethodParameter at L105: method parameter t (static boolean check(String s, String o, String t) {)\n5. SliceReturnValue at L121: return value expression using builder, toString, equals, t (return builder.toString().equals(t);)\n6. SliceControlDependency at L106: control predicate over _obf_t5_check_267827 (if (((3 * 3) - 9) != 0) {)\n7. SliceDefinition at L110: definition of builder (StringBuilder builder = new StringBuilder(s);)\n8. SliceControlDependency at L112: control predicate over i, o, length, check, charAt, j, s, builder, append (for (int i = 0; i < o.length(); i++) {)\n9. SliceMethodCall at L112: method call o.length in static data/control context (for (int i = 0; i < o.length(); i++) {)\n10. SliceMethodCall at L113: method call o.charAt in static data/control context (check[o.charAt(i) - 'a'] = true;)\n11. SliceControlDependency at L114: control predicate over j, s, length, check, charAt, builder, append (for (int j = 0; j < s.length(); j++) {)\n12. SliceMethodCall at L114: method call s.length in static data/control context (for (int j = 0; j < s.length(); j++) {)\n13. SliceControlDependency at L115: control predicate over check, s, charAt, j (if (check[s.charAt(j) - 'a']) {)\n14. SliceMethodCall at L115: method call s.charAt in static data/control context (if (check[s.charAt(j) - 'a']) {)\n15. SliceMethodCall at L118: method call builder.append in static data/control context (builder.append(s.charAt(j));)\n16. SliceMethodCall at L118: method call s.charAt in static data/control context (builder.append(s.charAt(j));)\n17. SliceMethodCall at L121: method call builder.toString in static data/control context (return builder.toString().equals(t);)\n18. SliceMethodCall at L121: method call equals in static data/control context (return builder.toString().equals(t);)",
+    "max_elements": 24,
+    "mechanism": "artifact_conditioned_natural_language_instruction_only",
+    "mode": "slice",
+    "parse_status": "javalang",
+    "prompt_items": [
+      "MethodDeclaration at L105: target method check(s, o, t) (static boolean check(String s, String o, String t) {)",
+      "SliceMethodParameter at L105: method parameter s (static boolean check(String s, String o, String t) {)",
+      "SliceMethodParameter at L105: method parameter o (static boolean check(String s, String o, String t) {)",
+      "SliceMethodParameter at L105: method parameter t (static boolean check(String s, String o, String t) {)",
+      "SliceReturnValue at L121: return value expression using builder, toString, equals, t (return builder.toString().equals(t);)",
+      "SliceControlDependency at L106: control predicate over _obf_t5_check_267827 (if (((3 * 3) - 9) != 0) {)",
+      "SliceDefinition at L110: definition of builder (StringBuilder builder = new StringBuilder(s);)",
+      "SliceControlDependency at L112: control predicate over i, o, length, check, charAt, j, s, builder, append (for (int i = 0; i < o.length(); i++) {)",
+      "SliceMethodCall at L112: method call o.length in static data/control context (for (int i = 0; i < o.length(); i++) {)",
+      "SliceMethodCall at L113: method call o.charAt in static data/control context (check[o.charAt(i) - 'a'] = true;)",
+      "SliceControlDependency at L114: control predicate over j, s, length, check, charAt, builder, append (for (int j = 0; j < s.length(); j++) {)",
+      "SliceMethodCall at L114: method call s.length in static data/control context (for (int j = 0; j < s.length(); j++) {)",
+      "SliceControlDependency at L115: control predicate over check, s, charAt, j (if (check[s.charAt(j) - 'a']) {)",
+      "SliceMethodCall at L115: method call s.charAt in static data/control context (if (check[s.charAt(j) - 'a']) {)",
+      "SliceMethodCall at L118: method call builder.append in static data/control context (builder.append(s.charAt(j));)",
+      "SliceMethodCall at L118: method call s.charAt in static data/control context (builder.append(s.charAt(j));)",
+      "SliceMethodCall at L121: method call builder.toString in static data/control context (return builder.toString().equals(t);)",
+      "SliceMethodCall at L121: method call equals in static data/control context (return builder.toString().equals(t);)"
+    ],
+    "recorded_target_method": "check",
+    "target_method": "check"
+  },
+  "prompt_sha256": "b91bb009dff5a8bd94950bf50104b976df0c29633176ad4846887ad70a9a6bc4",
+  "protocol_version": "long-code-output-v1",
+  "sample_id": "cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1__balanced-generated-000020",
+  "source_kind": "obfuscated",
+  "source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation/variants/T5_bogus_control_flow/easy/seed_1/E_Round_739_Div3.java",
+  "steering": null,
+  "target_method": "check",
+  "token_preflight": {
+    "context_limit": 131072,
+    "context_margin_tokens": 126988,
+    "fits_context": true,
+    "max_new_tokens": 512,
+    "prompt_sha256": "b91bb009dff5a8bd94950bf50104b976df0c29633176ad4846887ad70a9a6bc4",
+    "prompt_token_count": 3572
+  },
+  "trial": 1
+}

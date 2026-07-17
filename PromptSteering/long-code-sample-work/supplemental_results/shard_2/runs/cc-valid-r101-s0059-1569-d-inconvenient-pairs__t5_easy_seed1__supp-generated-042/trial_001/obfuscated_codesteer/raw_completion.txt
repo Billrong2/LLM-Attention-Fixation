@@ -1,0 +1,14 @@
+ ### Reasoning:
+
+1. The main function reads the number of test cases \( t \) from the input.
+2. For each test case, it reads the values \( n \), \( m \), \( k \), and arrays \( yline \), \( xline \), \( px \), and \( py \).
+3. It then calls the `solve` method with these parameters.
+4. The `solve` method initializes several data structures:
+   - `yset` and `xset` to keep track of unique y and x values in `yline` and `xline`.
+   - `xlist` and `ylist` to store pairs of `(y, -1)` or `(x, -1)` and `(x, y)` pairs from `px` and `py`.
+5. It sorts `xlist` and `ylist` and then iterates over them to calculate the answer based on certain conditions.
+6. The calculated answer is returned by the `solve` method.
+7. The main method prints the result of the `solve` method for each test case.
+
+### Machine-readable output:
+FINAL_OUTPUT_JSON: {"stdout":"2\n"}

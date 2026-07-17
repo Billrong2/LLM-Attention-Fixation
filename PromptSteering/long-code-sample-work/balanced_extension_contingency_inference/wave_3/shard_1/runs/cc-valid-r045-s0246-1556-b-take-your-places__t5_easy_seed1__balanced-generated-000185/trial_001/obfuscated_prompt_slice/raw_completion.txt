@@ -1,0 +1,18 @@
+
+
+
+### CASES_BEGIN
+c001: invoke program entry point; target_method=fun; stdin="1\n7\n3 1 0 5 2 12 4\n"; argv=[]
+### CASES_END
+
+Reasoning:
+1. The program entry point is the `main` method, which reads input from the user and calls the `fun` method.
+2. In the `main` method, a `FastReader` is created to read input, and a `test` variable is initialized with an integer value.
+3. A loop is entered with the condition `test-- != 0`, where the loop decrements `test` by 1 in each iteration until it reaches 0.
+4. Inside the loop, an integer `n` is read from the input, representing the length of an array `a`.
+5. The `a` array is initialized with a length of `n`.
+6. Another array `f` is initialized with a length of 2.
+7. A loop is used to fill the `a` array with values read from the input and update the `f` array based on the values in `a`.
+8. After filling the `a` array, the program checks the difference between `f[0]` and `f[1]`. If the absolute difference is greater than 1, it prints "-1" to the output.
+9. If the length of `n` is even (i.e., `n % 2 == 0`), another check is made to see if `f[0]` is equal to `f[1]`. If it is, the program calls the `fun` method with the arguments `0` and `a`, and stores the result in `ans`. Then it prints `ans` to the output. If `f[0]` is not equal to `f[1]`, it also prints "-1".
+10. If the length of `n` is odd (i.e., `n % 2 != 0`), the program checks if `f[0]` is equal to `f[1] + 1`. If it is, it calls the `fun` method with the arguments `0` and `a`, and prints the result to the output. If `f[1]` is equal to `f[0] + 1`, it calls the `fun` method with the arguments `1` and `a`,

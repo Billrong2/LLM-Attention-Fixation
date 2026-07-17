@@ -1,0 +1,13 @@
+ The program starts by reading input from the standard input, which includes a single integer representing the number of cases, followed by input specific to each case.
+
+The program then calls the `solve` method for each case. The `solve` method processes the input for the case and returns the result, which is written to the standard output.
+
+For each case, the program reads an integer `n`, followed by `n` integers representing `yline`, then an integer `m`, followed by `m` integers representing `xline`, then an integer `k`, and finally `k` pairs of integers representing `px` and `py`.
+
+The program then sorts the `xline` and `yline` arrays, and calculates the number of pairs that can be formed by taking one element from each array. This is done by iterating over the sorted arrays, and adding the number of elements in the current array that are greater than or equal to the current element in the other array. The result is then printed to the standard output.
+
+For the given input, the output would be:
+```
+3
+```
+FINAL_OUTPUT_JSON: {"stdout":"3"}

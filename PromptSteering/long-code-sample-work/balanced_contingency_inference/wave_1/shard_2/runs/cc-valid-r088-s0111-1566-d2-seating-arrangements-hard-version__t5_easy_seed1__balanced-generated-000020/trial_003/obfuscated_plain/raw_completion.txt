@@ -1,0 +1,8 @@
+
+
+
+CASES_BEGIN
+c001: invoke program entry point; target_method=getLastEmpty; stdin="7\n1 2\n1 2\n3 2\n1 1 2 2 3 6\n3 3\n3 4 4 1 1 1 1 1 0\n2 2\n1 4 2 1\n4 2\n50 60 50 9 1 50 50 50\n4 2\n6 6 6 6 2 2 9 6\n2 9\n1 4 3 1 3 3 1 1 3 1 3 1 1 3 3 1 1 3\n"; argv=[]
+CASES_END
+
+FINAL_OUTPUT_JSON: {"stdout":"3\n6\n10\n16\n"}

@@ -1,0 +1,95 @@
+Sliding Window Attention is enabled but not implemented for `eager`; unexpected results may be encountered.
+[preflight] samples=6 trials=3 conditions=['original_plain', 'obfuscated_plain', 'obfuscated_prompt_slice', 'obfuscated_codesteer'] model=Qwen/Qwen2.5-14B
+Loading model: Qwen/Qwen2.5-14B
+USE_4BIT=False  |  GPUs visible=1
+Limiting to 1 GPU(s) (of 1).
+Per-GPU max_memory cap: {0: '42GiB'}
+hidden_size = None
+num_hidden_layers = None
+num_attention_heads = None
+num_key_value_heads = None
+intermediate_size = None
+rms_norm_eps = None
+rope_theta = None
+max_position_embeddings = None
+vocab_size = 151643
+tie_word_embeddings = None
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:01<00:08,  1.15s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:02<00:06,  1.00s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:03<00:05,  1.03s/it]Loading checkpoint shards:  50%|█████     | 4/8 [00:04<00:04,  1.01s/it]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:04<00:02,  1.05it/s]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:05<00:01,  1.12it/s]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:06<00:00,  1.14it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:06<00:00,  1.44it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:06<00:00,  1.17it/s]
+[INFO] Loaded model with torch_dtype=torch.bfloat16.
+[Steering] Installed backend=qwen2.
+
+=== Device map (layer -> GPU) ===
+{'': 0}
+[done] cc-valid-r110-s0039-1573-c-book__t5_easy_seed1__00-generated-000 trial=1 condition=original_plain exact=False seed=1639324876
+[done] cc-valid-r110-s0039-1573-c-book__t5_easy_seed1__00-generated-000 trial=1 condition=obfuscated_plain exact=False seed=1639324876
+[done] cc-valid-r110-s0039-1573-c-book__t5_easy_seed1__00-generated-000 trial=1 condition=obfuscated_prompt_slice exact=False seed=1639324876
+[done] cc-valid-r110-s0039-1573-c-book__t5_easy_seed1__00-generated-000 trial=1 condition=obfuscated_codesteer exact=False seed=1639324876
+[done] cc-valid-r110-s0039-1573-c-book__t5_easy_seed1__00-generated-000 trial=2 condition=original_plain exact=False seed=951880267
+[done] cc-valid-r110-s0039-1573-c-book__t5_easy_seed1__00-generated-000 trial=2 condition=obfuscated_plain exact=False seed=951880267
+[done] cc-valid-r110-s0039-1573-c-book__t5_easy_seed1__00-generated-000 trial=2 condition=obfuscated_prompt_slice exact=False seed=951880267
+[done] cc-valid-r110-s0039-1573-c-book__t5_easy_seed1__00-generated-000 trial=2 condition=obfuscated_codesteer exact=False seed=951880267
+[done] cc-valid-r110-s0039-1573-c-book__t5_easy_seed1__00-generated-000 trial=3 condition=original_plain exact=False seed=1578795199
+[done] cc-valid-r110-s0039-1573-c-book__t5_easy_seed1__00-generated-000 trial=3 condition=obfuscated_plain exact=False seed=1578795199
+[done] cc-valid-r110-s0039-1573-c-book__t5_easy_seed1__00-generated-000 trial=3 condition=obfuscated_prompt_slice exact=False seed=1578795199
+[done] cc-valid-r110-s0039-1573-c-book__t5_easy_seed1__00-generated-000 trial=3 condition=obfuscated_codesteer exact=False seed=1578795199
+[done] cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1__00-generated-001 trial=1 condition=original_plain exact=False seed=565731367
+[done] cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1__00-generated-001 trial=1 condition=obfuscated_plain exact=False seed=565731367
+[done] cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1__00-generated-001 trial=1 condition=obfuscated_prompt_slice exact=False seed=565731367
+[done] cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1__00-generated-001 trial=1 condition=obfuscated_codesteer exact=False seed=565731367
+[done] cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1__00-generated-001 trial=2 condition=original_plain exact=False seed=371422333
+[done] cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1__00-generated-001 trial=2 condition=obfuscated_plain exact=False seed=371422333
+[done] cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1__00-generated-001 trial=2 condition=obfuscated_prompt_slice exact=False seed=371422333
+[done] cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1__00-generated-001 trial=2 condition=obfuscated_codesteer exact=False seed=371422333
+[done] cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1__00-generated-001 trial=3 condition=original_plain exact=False seed=265745065
+[done] cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1__00-generated-001 trial=3 condition=obfuscated_plain exact=False seed=265745065
+[done] cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1__00-generated-001 trial=3 condition=obfuscated_prompt_slice exact=False seed=265745065
+[done] cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1__00-generated-001 trial=3 condition=obfuscated_codesteer exact=False seed=265745065
+[done] cc-valid-r045-s0246-1556-b-take-your-places__t5_easy_seed1__00-private-001 trial=1 condition=original_plain exact=False seed=1779289658
+[done] cc-valid-r045-s0246-1556-b-take-your-places__t5_easy_seed1__00-private-001 trial=1 condition=obfuscated_plain exact=False seed=1779289658
+[done] cc-valid-r045-s0246-1556-b-take-your-places__t5_easy_seed1__00-private-001 trial=1 condition=obfuscated_prompt_slice exact=False seed=1779289658
+[done] cc-valid-r045-s0246-1556-b-take-your-places__t5_easy_seed1__00-private-001 trial=1 condition=obfuscated_codesteer exact=False seed=1779289658
+[done] cc-valid-r045-s0246-1556-b-take-your-places__t5_easy_seed1__00-private-001 trial=2 condition=original_plain exact=False seed=736654681
+[done] cc-valid-r045-s0246-1556-b-take-your-places__t5_easy_seed1__00-private-001 trial=2 condition=obfuscated_plain exact=False seed=736654681
+[done] cc-valid-r045-s0246-1556-b-take-your-places__t5_easy_seed1__00-private-001 trial=2 condition=obfuscated_prompt_slice exact=False seed=736654681
+[done] cc-valid-r045-s0246-1556-b-take-your-places__t5_easy_seed1__00-private-001 trial=2 condition=obfuscated_codesteer exact=False seed=736654681
+[done] cc-valid-r045-s0246-1556-b-take-your-places__t5_easy_seed1__00-private-001 trial=3 condition=original_plain exact=False seed=1472533302
+[done] cc-valid-r045-s0246-1556-b-take-your-places__t5_easy_seed1__00-private-001 trial=3 condition=obfuscated_plain exact=False seed=1472533302
+[done] cc-valid-r045-s0246-1556-b-take-your-places__t5_easy_seed1__00-private-001 trial=3 condition=obfuscated_prompt_slice exact=False seed=1472533302
+[done] cc-valid-r045-s0246-1556-b-take-your-places__t5_easy_seed1__00-private-001 trial=3 condition=obfuscated_codesteer exact=False seed=1472533302
+[done] cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1__00-generated-007 trial=1 condition=original_plain exact=False seed=1269630350
+[done] cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1__00-generated-007 trial=1 condition=obfuscated_plain exact=False seed=1269630350
+[done] cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1__00-generated-007 trial=1 condition=obfuscated_prompt_slice exact=False seed=1269630350
+[done] cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1__00-generated-007 trial=1 condition=obfuscated_codesteer exact=False seed=1269630350
+[done] cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1__00-generated-007 trial=2 condition=original_plain exact=False seed=173806134
+[done] cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1__00-generated-007 trial=2 condition=obfuscated_plain exact=False seed=173806134
+[done] cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1__00-generated-007 trial=2 condition=obfuscated_prompt_slice exact=False seed=173806134
+[done] cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1__00-generated-007 trial=2 condition=obfuscated_codesteer exact=False seed=173806134
+[done] cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1__00-generated-007 trial=3 condition=original_plain exact=False seed=1533604013
+[done] cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1__00-generated-007 trial=3 condition=obfuscated_plain exact=False seed=1533604013
+[done] cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1__00-generated-007 trial=3 condition=obfuscated_prompt_slice exact=False seed=1533604013
+[done] cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1__00-generated-007 trial=3 condition=obfuscated_codesteer exact=False seed=1533604013
+[done] cc-valid-r088-s0102-1566-d2-seating-arrangements-hard-version__t5_easy_seed1__00-generated-122 trial=1 condition=original_plain exact=False seed=1181518223
+[done] cc-valid-r088-s0102-1566-d2-seating-arrangements-hard-version__t5_easy_seed1__00-generated-122 trial=1 condition=obfuscated_plain exact=False seed=1181518223
+[done] cc-valid-r088-s0102-1566-d2-seating-arrangements-hard-version__t5_easy_seed1__00-generated-122 trial=1 condition=obfuscated_prompt_slice exact=False seed=1181518223
+[done] cc-valid-r088-s0102-1566-d2-seating-arrangements-hard-version__t5_easy_seed1__00-generated-122 trial=1 condition=obfuscated_codesteer exact=False seed=1181518223
+[done] cc-valid-r088-s0102-1566-d2-seating-arrangements-hard-version__t5_easy_seed1__00-generated-122 trial=2 condition=original_plain exact=False seed=1675542399
+[done] cc-valid-r088-s0102-1566-d2-seating-arrangements-hard-version__t5_easy_seed1__00-generated-122 trial=2 condition=obfuscated_plain exact=False seed=1675542399
+[done] cc-valid-r088-s0102-1566-d2-seating-arrangements-hard-version__t5_easy_seed1__00-generated-122 trial=2 condition=obfuscated_prompt_slice exact=False seed=1675542399
+[done] cc-valid-r088-s0102-1566-d2-seating-arrangements-hard-version__t5_easy_seed1__00-generated-122 trial=2 condition=obfuscated_codesteer exact=False seed=1675542399
+[done] cc-valid-r088-s0102-1566-d2-seating-arrangements-hard-version__t5_easy_seed1__00-generated-122 trial=3 condition=original_plain exact=False seed=1007893841
+[done] cc-valid-r088-s0102-1566-d2-seating-arrangements-hard-version__t5_easy_seed1__00-generated-122 trial=3 condition=obfuscated_plain exact=False seed=1007893841
+[done] cc-valid-r088-s0102-1566-d2-seating-arrangements-hard-version__t5_easy_seed1__00-generated-122 trial=3 condition=obfuscated_prompt_slice exact=False seed=1007893841
+[done] cc-valid-r088-s0102-1566-d2-seating-arrangements-hard-version__t5_easy_seed1__00-generated-122 trial=3 condition=obfuscated_codesteer exact=False seed=1007893841
+[done] cc-valid-r065-s0055-1559-e-mocha-and-stars__t5_easy_seed1__00-private-006 trial=1 condition=original_plain exact=False seed=629903339
+[done] cc-valid-r065-s0055-1559-e-mocha-and-stars__t5_easy_seed1__00-private-006 trial=1 condition=obfuscated_plain exact=False seed=629903339
+[done] cc-valid-r065-s0055-1559-e-mocha-and-stars__t5_easy_seed1__00-private-006 trial=1 condition=obfuscated_prompt_slice exact=False seed=629903339
+[done] cc-valid-r065-s0055-1559-e-mocha-and-stars__t5_easy_seed1__00-private-006 trial=1 condition=obfuscated_codesteer exact=False seed=629903339
+[done] cc-valid-r065-s0055-1559-e-mocha-and-stars__t5_easy_seed1__00-private-006 trial=2 condition=original_plain exact=False seed=1644853622
+[done] cc-valid-r065-s0055-1559-e-mocha-and-stars__t5_easy_seed1__00-private-006 trial=2 condition=obfuscated_plain exact=False seed=1644853622
+[done] cc-valid-r065-s0055-1559-e-mocha-and-stars__t5_easy_seed1__00-private-006 trial=2 condition=obfuscated_prompt_slice exact=False seed=1644853622
+[done] cc-valid-r065-s0055-1559-e-mocha-and-stars__t5_easy_seed1__00-private-006 trial=2 condition=obfuscated_codesteer exact=False seed=1644853622
+[done] cc-valid-r065-s0055-1559-e-mocha-and-stars__t5_easy_seed1__00-private-006 trial=3 condition=original_plain exact=False seed=923235029
+[done] cc-valid-r065-s0055-1559-e-mocha-and-stars__t5_easy_seed1__00-private-006 trial=3 condition=obfuscated_plain exact=False seed=923235029
+[done] cc-valid-r065-s0055-1559-e-mocha-and-stars__t5_easy_seed1__00-private-006 trial=3 condition=obfuscated_prompt_slice exact=False seed=923235029
+[done] cc-valid-r065-s0055-1559-e-mocha-and-stars__t5_easy_seed1__00-private-006 trial=3 condition=obfuscated_codesteer exact=False seed=923235029
+[complete] results=/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/full_results_cached/shard_1/results_index.json

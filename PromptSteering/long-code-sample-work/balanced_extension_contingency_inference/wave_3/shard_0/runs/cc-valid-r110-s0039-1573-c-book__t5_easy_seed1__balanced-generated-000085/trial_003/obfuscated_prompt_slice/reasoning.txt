@@ -1,0 +1,19 @@
+Reasoning:
+1. Read the number of test cases, T, from the input.
+2. For each test case, read the number of nodes, n, from the input.
+3. Create an n x k 2D array, data, to store the neighbors of each node.
+4. For each node i, read the number of neighbors, k, from the input, and store the neighbors in data[i].
+5. Initialize a dynamic programming array, dp, with -2 values.
+6. Create a boolean array, s, to keep track of visited nodes.
+7. For each node i, call the cal function with arguments i, s, and data.
+8. The cal function performs a depth-first search (DFS) to find the maximum distance from node i to any other node.
+   - The DFS uses a boolean array, s, to keep track of visited nodes.
+   - If s[i] is true, it means that the DFS has already visited node i, so the function returns -1.
+   - If dp[i] is not -2, it means that the distance from node i to any other node has already been computed, so the function returns dp[i].
+   - Otherwise, the function sets s[i] to true and performs a DFS on each neighbor of node i.
+     - If the DFS on a neighbor returns -1, it means that there is no path from that neighbor to any other node, so the function returns -1.
+     - Otherwise, the function updates the result to the maximum of result and the DFS return value.
+     - If the neighbor is greater than node i, the DFS return value is incremented by 1 to account for the distance between the neighbor and node i.
+   - Finally, the function sets s[i] back to false and returns the maximum distance from node i to any other node.
+9. If the result is -1, it means that there is no path from the current node to any other node, so print -1.
+10. Otherwise, print the maximum distance from node i to any other node.

@@ -1,0 +1,18 @@
+### CASE c001
+
+#### Reasoning
+1. The program starts by reading an integer `t` from the input stream. This value is used as the number of iterations.
+2. For each iteration, it reads a string `s` and converts its characters into an array `arr`.
+3. It initializes a `long[][] dp` array to store intermediate results.
+4. It calls the `eval` method with the initial parameters: `arr`, `in=0`, `carry=0`, `n=arr.length`, `dp`, `a=false`, and `b=false`.
+5. Inside the `eval` method:
+    - It checks if `in` is equal to `n`. If true, it checks if both `a` and `b` are true. If so, it returns 1; otherwise, it returns 0.
+    - It initializes `ans` to 0 and gets the value of the current character in the array.
+    - It updates the value based on the carry.
+    - It handles different cases for values 0, 1, 2, and other numbers.
+    - It recursively calls itself with updated parameters.
+6. The program repeats the above steps `t` times.
+7. After processing all inputs, it prints the final result for each input.
+
+#### FINAL_OUTPUT_JSON
+```json

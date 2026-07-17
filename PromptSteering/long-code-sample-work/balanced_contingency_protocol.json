@@ -1,0 +1,93 @@
+{
+  "schema_version": "long-code-balanced-contingency-v1",
+  "protocol_freeze_date": "2026-07-13",
+  "timing_disclosure": "Specified after the initial 23-case screen and while the corrected 60-case supplemental screen was running, before corrected supplemental model outputs or scores were inspected.",
+  "trigger": {
+    "audit_must_be_complete_and_valid": true,
+    "metric": "distinct canonical CodeContests rows with at least one strict eligible sample",
+    "run_wave_1_when_metric_below": 10,
+    "run_wave_2_when_post_wave_1_metric_below": 10,
+    "interim_looks_within_wave_allowed": false
+  },
+  "immutable_population": {
+    "dataset_id": "deepmind/code_contests",
+    "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+    "split": "valid",
+    "dataset_file_sha256": "02e8c1ccedae716f1e43cc813fcb7823c3db666ea92638820aba80e8cef451ab",
+    "frozen_source_denominator": 25,
+    "tokenizer_eligible_source_count": 23,
+    "canonical_problem_count": 19,
+    "source_choice": "first tokenizer-eligible variant per canonical row in prepared-variant manifest order"
+  },
+  "case_selection": {
+    "selection_unit": ["canonical_dataset_row", "suite", "dataset_test_index"],
+    "suites": ["private_tests", "generated_tests"],
+    "public_tests_policy": "not loaded, inspected, ranked, or selected",
+    "exclude_every_initial_and_supplemental_selection_unit": true,
+    "strict_utf8": true,
+    "input_bytes_inclusive": [5, 512],
+    "expected_output_max_bytes": 60,
+    "expected_output_max_lines": 7,
+    "output_line_definition": "len(str.splitlines()); a terminal newline adds no line",
+    "rank_key": [
+      "suite: private_tests=0, generated_tests=1",
+      "expected_output_lines ascending",
+      "expected_output_bytes ascending",
+      "abs(input_bytes-80) ascending",
+      "dataset_test_index ascending"
+    ],
+    "jdk_acceptance": "both frozen source variants compile and run without timeout; exit zero and empty stderr; both outputs historical-trimmed-exact to the oracle and one another",
+    "scan_past_rejections": true
+  },
+  "waves": [
+    {
+      "wave_id": "balanced_wave_1",
+      "accepted_ranks_per_problem": [1, 2],
+      "canonical_problem_count": 19,
+      "case_count": 38
+    },
+    {
+      "wave_id": "balanced_wave_2",
+      "accepted_ranks_per_problem": [3, 4],
+      "canonical_problem_count": 19,
+      "case_count": 38
+    }
+  ],
+  "tokenizer_gate": {
+    "model_id": "Qwen/Qwen2.5-14B",
+    "snapshot_commit": "97e1e76335b7017d8f67c08a19d103c0504298c9",
+    "model_weights_loaded": false,
+    "max_new_tokens_for_context_check": 512,
+    "requirements": [
+      "non-positional SlicingPrior vector",
+      "active SliceHybrid CASES signal",
+      "prompt plus generation budget fits context"
+    ],
+    "scan_deeper_after_rejection": true
+  },
+  "inference": {
+    "model_id": "Qwen/Qwen2.5-14B",
+    "model_type": "base",
+    "trials_per_case": 3,
+    "conditions": [
+      "original_plain",
+      "obfuscated_plain",
+      "obfuscated_prompt_slice",
+      "obfuscated_codesteer"
+    ],
+    "do_sample": true,
+    "temperature": 1.05,
+    "top_p": 0.95,
+    "top_k": 7,
+    "max_new_tokens": 512,
+    "base_seed": 20260713,
+    "codesteer_profile": "registered long-code level-2 post-softmax slice_hybrid profile"
+  },
+  "strict_rule": "complete valid matched 3x4 runs; at least one trimmed-exact CodeSteer marker-JSON trial; zero trimmed-exact trials for each of the three baselines",
+  "reporting": {
+    "case_finding_is_outcome_selected": true,
+    "retain_complete_screened_pool": true,
+    "unique_problem_key": "dataset id + revision + split + row index",
+    "display_pass_at_k": false
+  }
+}

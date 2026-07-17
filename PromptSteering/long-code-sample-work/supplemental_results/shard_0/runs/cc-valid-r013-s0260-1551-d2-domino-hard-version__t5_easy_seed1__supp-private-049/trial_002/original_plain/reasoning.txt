@@ -1,0 +1,18 @@
+### CASES_BEGIN
+c001: invoke program entry point; target_method=cal; stdin="1\n86 51 2176\n"; argv=[]
+### CASES_END
+
+**Reasoning:**
+
+1. The input specifies `1` test case. The program will process one test case.
+2. The dimensions of the grid are read: `86` (rows) and `51` (columns), and `2176` is an additional number which doesn't seem to be used in this case based on the provided code snippet.
+3. The function `cal` is called with arguments `(0, 2176, 86, 51)`.
+4. The `cal` function checks if `horizontal` is zero:
+    - If `horizontal` is zero, it checks if `n` (rows) is odd. If so, it returns `false`.
+    - Since `n` is even (`86`), it fills the grid by alternating characters in pairs of rows.
+5. The `cal` function then checks if `horizontal` is not zero:
+    - It first checks if `n` is even. Since `n` is even (`86`), it proceeds to fill the grid with characters.
+6. The characters are filled in such a way that they form a sequence where each pair of rows has alternating characters.
+7. The `re` array is filled with characters and then printed.
+
+**

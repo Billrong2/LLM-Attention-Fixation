@@ -1,0 +1,8 @@
+To analyze the program, let's break it down step-by-step. The main function `main` initializes an array of longs with values starting from 1 and doubling each time, up to 900000_00000_0000000L + 10000. Then, it takes a number of test cases as input and calls the `getMin` function for each test case.
+
+The `getMin` function is the most complex part. It iterates through the list of items (doubled values), converts each item to a binary string, and then counts the number of changes needed to convert the binary string of the test case to the current item. It returns the minimum number of changes needed across all items.
+
+Given the input "12\n825\n8888\n4\n157\n146\n1\n301\n19634\n1504\n10521\n1000000000\n687194767\n", the output will be the minimum number of changes needed for each case.
+
+The exact output will be:
+```

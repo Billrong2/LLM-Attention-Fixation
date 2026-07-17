@@ -1,0 +1,50 @@
+To determine the exact output of this deterministic Java program, we need to simulate its execution based on the provided input.
+
+### Step-by-Step Execution
+
+1. **Input Setup**:
+    - Read input from standard input.
+    - The input is: `1\n2 2 2\n0 1000000\n1 1000000\n1556 1000000\n0 38`
+
+2. **Parse Input**:
+    - The first line `1` indicates that there is only one test case.
+    - The next line `2 2 2` provides the dimensions of the grid and the number of points.
+    - The following lines provide coordinates:
+        - `0 1000000`
+        - `1 1000000`
+        - `1556 1000000`
+        - `0 38`
+
+3. **Main Logic Execution**:
+    - Initialize variables and structures:
+        - `n = 2`, `m = 2`, `k = 2`
+        - `yline = [0, 1]`, `xline = [1000000, 38]`
+        - `px = [0, 0]`, `py = [1000000, 38]`
+
+4. **Set Processing**:
+    - Create sets for x and y coordinates.
+    - Populate sets and lists.
+
+5. **Sorting**:
+    - Sort the lists based on the x and y coordinates.
+
+6. **Mapping and Sum Calculation**:
+    - Initialize maps and sums.
+    - Iterate through the sorted lists to calculate the sums and map values.
+
+7. **Output Calculation**:
+    - Calculate the final output based on the sum and map values.
+
+8. **Print Output**:
+    - Print the final result.
+
+### Detailed Calculation Steps
+
+1. **Initialize Maps and Sums**:
+    - `mapx.clear()`, `sumx=0`
+    - `mapy.clear()`, `sumy=0`
+
+2. **Process X List**:
+    - Iterate through the sorted x list:
+        - For `Pair(0, -1)`: `mapx.clear()`, `sumx=0`
+        - For `Pair(0, 1000000)`: `ans

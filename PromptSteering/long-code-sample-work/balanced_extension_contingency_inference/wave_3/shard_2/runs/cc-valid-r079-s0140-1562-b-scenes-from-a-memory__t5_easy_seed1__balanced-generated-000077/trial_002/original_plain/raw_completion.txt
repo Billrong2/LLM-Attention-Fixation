@@ -1,0 +1,18 @@
+ ### CASES_BEGIN
+c001: invoke program entry point; target_method=isPrime; stdin="1\n1\n105\n"; argv=[]
+### CASES_END
+
+**Reasoning:**
+
+* We have a single test case (`t = 1`) to process.
+* In the test case, `n = 1`, and the input string `s` is "105".
+* We iterate through each character of `s`:
+	+ The first character is '1'. Since it's not 2, 3, 5, or 7, we immediately print "1\n" and break out of the outer loop.
+* No further processing occurs.
+
+Therefore, the exact standard output of this program is:
+```plain
+1
+1
+```
+FINAL_OUTPUT_JSON: {"stdout":"1\n1\n"}

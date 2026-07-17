@@ -1,0 +1,32 @@
+ ### CASE c001
+- **Input**: "7\n3\n237\n5\n44444\n3\n221\n2\n35\n3\n1270\n1\n4\n19\n626221626221626221626221626221\n"
+- **Expected Output**:
+
+```
+2
+2
+2
+1
+1
+2
+2
+2
+```
+- **Reasoning**:
+
+    - For each number, the program checks if it is a valid prime number. It also checks pairs of digits within the string representation of each number.
+    - The first number "7" is prime, so the program prints "1 7".
+    - The second number "3" is prime, so the program prints "1 3".
+    - The third number "237" has digits "2" and "3", both of which are prime, so it prints "2 23".
+    - The fourth number "5" is prime, so the program prints "1 5".
+    - The fifth number "44444" has no prime digits, so the program prints "1".
+    - The sixth number "3" is prime, so the program prints "1 3".
+    - The seventh number "221" has digits "2" and "2", both of which are prime, so it prints "2 22".
+    - The eighth number "2" is prime, so the program prints "1 2".
+    - The ninth number "35" has digits "3" and "5", both of which are prime, so it prints "2 35".
+    - The tenth number "1270" has no prime digits, so the program prints "1".
+    - The eleventh number "4" is not prime, so the program prints "2 4".
+    - The twelfth number "19" has digits "1" and "9", neither of which are prime, so the program prints "1".
+    - The thirteenth number "626221626221626221626221626221" has no prime digits, so the program prints "1".
+
+FINAL_OUTPUT_JSON: {"stdout":"2\n2\n

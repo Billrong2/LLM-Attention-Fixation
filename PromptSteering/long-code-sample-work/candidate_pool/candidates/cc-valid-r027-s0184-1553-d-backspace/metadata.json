@@ -1,0 +1,161 @@
+{
+  "expected_stdout": "YES\nYES\nYES\nYES\nYES\nYES\nNO\nNO\nNO\nNO\n",
+  "expected_stdout_path": "candidates/cc-valid-r027-s0184-1553-d-backspace/io/00-private-005.out",
+  "id": "cc-valid-r027-s0184-1553-d-backspace",
+  "input": "10\npaxghjnihn\nhn\nhdmevxvn\nn\nazdfhfxem\nxem\neowhldode\ndode\nwlclsnht\nct\nbpflheocamv\nv\nflejfh\nhixqqbnikthccagc\ndugt\neebmbpykcsmi\noivgrzwppny\nzhfyiuu\nebkqjcbcwviqkojnzyruwygtbvwws\nbofzr\n",
+  "input_path": "candidates/cc-valid-r027-s0184-1553-d-backspace/io/00-private-005.in",
+  "inputs": [
+    {
+      "dataset_test_index": 5,
+      "expected_stdout": "YES\nYES\nYES\nYES\nYES\nYES\nNO\nNO\nNO\nNO\n",
+      "expected_stdout_path": "candidates/cc-valid-r027-s0184-1553-d-backspace/io/00-private-005.out",
+      "expected_stdout_sha256": "c95dbdce7bd72dfba65ee405cbe26abaed1a712f517e089dd369a34b04ed87e8",
+      "id": "00-private-005",
+      "input": "10\npaxghjnihn\nhn\nhdmevxvn\nn\nazdfhfxem\nxem\neowhldode\ndode\nwlclsnht\nct\nbpflheocamv\nv\nflejfh\nhixqqbnikthccagc\ndugt\neebmbpykcsmi\noivgrzwppny\nzhfyiuu\nebkqjcbcwviqkojnzyruwygtbvwws\nbofzr\n",
+      "input_path": "candidates/cc-valid-r027-s0184-1553-d-backspace/io/00-private-005.in",
+      "input_sha256": "64f1e49b3c09df73a7a53770a58ecbf8653d9153e0212ffd8a05cb2e61d2629f",
+      "suite": "private_tests",
+      "validation": {
+        "compiled_with_jdk17": true,
+        "exit_code": 0,
+        "stderr_bytes": 0,
+        "stdout_exact_byte_match": true,
+        "timed_out": false
+      }
+    }
+  ],
+  "loc_definition": "Python str.splitlines(); final newline does not add an empty physical line",
+  "main_class": "codeforces",
+  "nonblank_loc": 251,
+  "original_path": "candidates/cc-valid-r027-s0184-1553-d-backspace/original.java",
+  "physical_loc": 270,
+  "prevalidation": {
+    "all_retained_tests_exact": true,
+    "compiled": true,
+    "compiler_exit_code": 0,
+    "compiler_stderr_bytes": 0,
+    "compiler_stdout_bytes": 0,
+    "jdk_major": 17
+  },
+  "problem_key": "codeforces-1553-D",
+  "problem_name": "1553_D. Backspace",
+  "provenance": {
+    "cf_contest_id": 1553,
+    "cf_index": "D",
+    "cf_points": 1250.0,
+    "cf_rating": 1500,
+    "cf_tags": [
+      "dp",
+      "greedy",
+      "strings",
+      "two pointers"
+    ],
+    "dataset_file": "codecontests-valid-802411c3.parquet",
+    "dataset_file_sha256": "02e8c1ccedae716f1e43cc813fcb7823c3db666ea92638820aba80e8cef451ab",
+    "dataset_id": "deepmind/code_contests",
+    "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+    "dataset_url": "https://huggingface.co/datasets/deepmind/code_contests/resolve/802411c3010cb00d1b05bad57ca77365a3c699d6/data/valid-00000-of-00001-5e672c5751f060d3.parquet",
+    "difficulty": 10,
+    "language": "Java",
+    "language_code": 4,
+    "problem_name": "1553_D. Backspace",
+    "row_index": 27,
+    "solution_container": "solutions",
+    "solution_index": 184,
+    "solution_label": "correct human solution",
+    "source_code": 2,
+    "split": "valid"
+  },
+  "source_bytes": 6626,
+  "source_sha256": "8db5a93da3cfb0b932bf71518e4148e8de0a0eec887f6c223f19350100582a32",
+  "target": {
+    "arity": 2,
+    "body_nonblank_loc": 15,
+    "body_physical_loc": 15,
+    "class": "codeforces",
+    "codesteer_selector": {
+      "declaration_line": 33,
+      "fallback_used": false,
+      "implementation": "steering.priors.SlicingPrior._select_target_method",
+      "name": "solve",
+      "parameter_count": 2,
+      "parse_status": "javalang",
+      "top_level_body_statement_count": 4
+    },
+    "control_node_count": 3,
+    "end_line": 47,
+    "loop_node_count": 1,
+    "main_call_path": [
+      {
+        "arity": 1,
+        "class": "codeforces",
+        "end_line": 32,
+        "name": "main",
+        "parameter_types": [
+          "String[]"
+        ],
+        "return_type": "void",
+        "start_line": 19
+      },
+      {
+        "arity": 2,
+        "class": "codeforces",
+        "end_line": 47,
+        "name": "solve",
+        "parameter_types": [
+          "String",
+          "String"
+        ],
+        "return_type": "String",
+        "start_line": 33
+      }
+    ],
+    "main_reachable": true,
+    "name": "solve",
+    "output_caller": {
+      "arity": 1,
+      "class": "codeforces",
+      "end_line": 32,
+      "name": "main",
+      "parameter_types": [
+        "String[]"
+      ],
+      "return_type": "void",
+      "start_line": 19
+    },
+    "output_evidence": "pw.println(solve(s, t))",
+    "output_relevance_kind": "direct_print_argument",
+    "output_relevance_variable": null,
+    "parameter_types": [
+      "String",
+      "String"
+    ],
+    "recursive_call_count": 0,
+    "return_type": "String",
+    "return_value_output_relevant": true,
+    "source_sha256": "1737b3c154de379cab0f52061338f7007421fe46e425a2edd0f66664a40056cd",
+    "start_line": 33
+  },
+  "target_method": "solve",
+  "target_signature": "String codeforces.solve(String, String)",
+  "tests": [
+    {
+      "dataset_test_index": 5,
+      "expected_stdout": "YES\nYES\nYES\nYES\nYES\nYES\nNO\nNO\nNO\nNO\n",
+      "expected_stdout_path": "candidates/cc-valid-r027-s0184-1553-d-backspace/io/00-private-005.out",
+      "expected_stdout_sha256": "c95dbdce7bd72dfba65ee405cbe26abaed1a712f517e089dd369a34b04ed87e8",
+      "id": "00-private-005",
+      "input": "10\npaxghjnihn\nhn\nhdmevxvn\nn\nazdfhfxem\nxem\neowhldode\ndode\nwlclsnht\nct\nbpflheocamv\nv\nflejfh\nhixqqbnikthccagc\ndugt\neebmbpykcsmi\noivgrzwppny\nzhfyiuu\nebkqjcbcwviqkojnzyruwygtbvwws\nbofzr\n",
+      "input_path": "candidates/cc-valid-r027-s0184-1553-d-backspace/io/00-private-005.in",
+      "input_sha256": "64f1e49b3c09df73a7a53770a58ecbf8653d9153e0212ffd8a05cb2e61d2629f",
+      "suite": "private_tests",
+      "validation": {
+        "compiled_with_jdk17": true,
+        "exit_code": 0,
+        "stderr_bytes": 0,
+        "stdout_exact_byte_match": true,
+        "timed_out": false
+      }
+    }
+  ]
+}

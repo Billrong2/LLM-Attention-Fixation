@@ -1,0 +1,20 @@
+ The program prompts the user to input 5 lines:
+* The first line is an integer, n, which represents the size of the array.
+* The next n lines contain integers separated by a space, which represent the elements of the array.
+* The next line is an integer, m, which represents the size of the set.
+* The next m lines contain longs separated by a space, which represent the elements of the set.
+* The final line is an integer, k, which represents the number of test cases to run.
+
+For each test case, the program prompts the user to input two longs separated by a space, representing the attack and defense values. The program then calls the find method with the array, set, attack, and defense values as arguments.
+
+The find method takes an array, a set, and two longs representing attack and defense values as arguments. It first checks if the difference between the squares of 3 and 9 is not equal to 0, which is always true. It then initializes two integer variables, s and e, with the first and last indices of the array, respectively.
+
+The method enters a while loop that continues until s is less than e. Within the loop, it calculates the middle index of the array, mid, by dividing the sum of s and e by 2. If the middle element of the array is equal to the attack value, the s and e variables are updated to mid, and the loop is exited. Otherwise, if the middle element is less than the attack value, s is updated to mid+1, otherwise, e is updated to mid.
+
+After the loop, the method initializes an answer variable, ans1, to the maximum long value. It then calculates three intermediate values, t1, t2, and t3, which are calculated based on the attack, defense, and sum of the set. The method then sets ans1 to the sum of t1 and t3.
+
+Next, the method initializes another answer variable, ans2, to the maximum long value. If s-1 is greater than or equal to 0, the method calculates three intermediate values, t1, t2, and t3, which are calculated based on the attack, defense, and sum of the set. The method then sets ans2 to the sum of t1 and t3.
+
+Finally, the method returns the minimum of ans1 and ans2.
+
+The main method reads the input from the console using a custom reader class, and calls the find method

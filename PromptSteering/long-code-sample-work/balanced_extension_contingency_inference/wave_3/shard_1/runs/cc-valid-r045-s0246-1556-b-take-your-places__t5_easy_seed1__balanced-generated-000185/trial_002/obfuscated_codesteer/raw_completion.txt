@@ -1,0 +1,20 @@
+ To predict the exact standard output for the given input, we need to follow the flow of the program step by step:
+
+1. The input is `1\n7\n3 1 0 5 2 12 4\n`.
+2. The program reads the first number `1` which is the number of test cases.
+3. It then reads the second number `7` which is the length of the array.
+4. The program reads the array of numbers `3 1 0 5 2 12 4`.
+5. The program then processes the array by counting the number of 0s and 1s (after taking modulo 2).
+6. It checks if the absolute difference between the counts of 0s and 1s is more than 1. If it is, it prints `-1`.
+7. If the absolute difference is not more than 1, it proceeds to check if the count of 0s and 1s is equal.
+8. If they are equal, it calculates the minimum of `fun(0, a)` and `fun(1, a)`.
+9. If they are not equal, it checks the parity of the counts and prints the result of the appropriate `fun` call.
+10. If the counts are not equal and the difference is exactly 1, it prints the result of the `fun` call with the appropriate starting value.
+
+Given the input:
+- The counts of 0s and 1s in the array `3 1 0 5 2 12 4` are 2 and 5 respectively.
+- The absolute difference is 3, which is greater than 1, so the program prints `-1`.
+
+Thus, the exact output is `-1`.
+
+FINAL_OUTPUT_JSON: {"stdout":"-1\n"}

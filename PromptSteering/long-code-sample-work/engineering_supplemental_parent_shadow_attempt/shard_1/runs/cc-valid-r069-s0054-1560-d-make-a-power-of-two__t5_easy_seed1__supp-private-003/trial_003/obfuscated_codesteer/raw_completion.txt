@@ -1,0 +1,18 @@
+
+
+
+### Reasoning:
+
+1. The program starts by initializing an `ArrayList` named `items` containing powers of 2, up to a limit of 900000_00000_0000000L + 10000.
+2. It reads an integer from the standard input (`nextInt()`) and enters a loop that runs `t` times.
+3. Within the loop, it reads another integer (`n`) from the standard input and calls the `getMin` method with `n + ""` as the first argument and the `items` list as the second argument.
+4. The `getMin` method calculates the minimum number of character replacements required to transform `string` into one of the strings in `items`. It iterates over each item in `items` and counts the number of character replacements needed to match the corresponding substring of `string`. It then returns the minimum count found.
+5. The result of the `getMin` call is printed to the standard output using `println()`.
+
+### FINAL_OUTPUT_JSON
+
+Based on the input provided ("12\n825\n8888\n4\n157\n146\n1\n301\n19634\n1504\n10521\n1000000000\n687194767\n"), the program will produce the following output:
+
+```
+FINAL_OUTPUT_JSON: {"stdout":"1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n"}
+```

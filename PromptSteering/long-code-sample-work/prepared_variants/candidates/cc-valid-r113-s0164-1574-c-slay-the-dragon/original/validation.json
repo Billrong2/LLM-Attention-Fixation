@@ -1,0 +1,121 @@
+{
+  "codesteer_target": {
+    "called_directly_from_main": true,
+    "eligible_parameter_to_return_target": true,
+    "genuine_return_sink_count": 1,
+    "main_called_method_names": [
+      "abs",
+      "flush",
+      "get",
+      "min",
+      "nextInt",
+      "nextLong",
+      "nextLongArray",
+      "println",
+      "sort"
+    ],
+    "method_names": [
+      "get",
+      "main",
+      "toString",
+      "compareTo",
+      "next",
+      "readAllLines",
+      "nextInt",
+      "nextLong",
+      "nextLine",
+      "nextDouble",
+      "nextlongArray",
+      "nextLongArray",
+      "nextIntArray",
+      "nextIntegerArray",
+      "ready"
+    ],
+    "parameter_count": 2,
+    "parameters": [
+      {
+        "name": "a",
+        "type": "Long[]"
+      },
+      {
+        "name": "x",
+        "type": "long"
+      }
+    ],
+    "parse_status": "javalang",
+    "return_sink_count": 1,
+    "return_type": "long",
+    "selected_method": "get",
+    "selected_method_line": 6,
+    "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+    "selector_implementation_owner": "steering.priors.SlicingPrior",
+    "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+  },
+  "entry": {
+    "compile_class": "ferrisWheel",
+    "main_class": "ferrisWheel",
+    "package": "",
+    "parse_status": "javalang"
+  },
+  "execution_validation": {
+    "accepted": true,
+    "cases": [
+      {
+        "accepted": true,
+        "actual_trimmed": "14",
+        "case_id": "00-generated-156",
+        "command": [
+          "java",
+          "-Dfile.encoding=UTF-8",
+          "-Djava.io.tmpdir=<scratch>",
+          "-Duser.home=<scratch>",
+          "-XX:-UsePerfData",
+          "-cp",
+          "<classes>",
+          "ferrisWheel"
+        ],
+        "duration_seconds": 0.034254,
+        "exit_code": 0,
+        "expected_trimmed": "14",
+        "raw_expected_stdout_sha256": "9a92adbc0cee38ef658c71ce1b1bf8c65668f166bfb213644c895ccb1ad07a25",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "9a92adbc0cee38ef658c71ce1b1bf8c65668f166bfb213644c895ccb1ad07a25",
+        "stderr": "",
+        "stdout": "14\n",
+        "timed_out": false,
+        "trimmed_exact_match": true
+      }
+    ],
+    "compile": {
+      "accepted": true,
+      "command": [
+        "javac",
+        "-encoding",
+        "UTF-8",
+        "-J-Djava.io.tmpdir=<scratch>",
+        "-J-Duser.home=<scratch>",
+        "-J-XX:-UsePerfData",
+        "-Xlint:none",
+        "-nowarn",
+        "-d",
+        "<classes>",
+        "<scratch>/ferrisWheel.java"
+      ],
+      "exit_code": 0,
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    "entry": {
+      "compile_class": "ferrisWheel",
+      "main_class": "ferrisWheel",
+      "package": "",
+      "parse_status": "javalang"
+    }
+  },
+  "physical_loc": 266,
+  "source_path": "candidates/cc-valid-r113-s0164-1574-c-slay-the-dragon/original/ferrisWheel.java",
+  "source_sha256": "c7971bc02d69fd7f9d0e0f8a359c1b09ca82eb1d13be091d5386f9f1d5b44ac3"
+}

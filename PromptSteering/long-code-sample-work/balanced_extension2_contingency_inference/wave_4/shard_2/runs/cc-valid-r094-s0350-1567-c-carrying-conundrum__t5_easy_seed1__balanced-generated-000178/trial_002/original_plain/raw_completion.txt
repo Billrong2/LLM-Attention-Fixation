@@ -1,0 +1,21 @@
+ The provided Java program calculates the number of binary strings that can be formed from a given string `s` such that the binary representation does not have three consecutive `1`s or two consecutive `0`s. The input is read as the number of test cases followed by the test cases themselves.
+
+The program uses dynamic programming to calculate the number of valid binary strings. It iterates through each character of the input string, considering two possibilities for each character: `0` or `1`. For each possibility, it updates the count based on the previous characters and the current character.
+
+The final output is the sum of all valid binary strings for each test case.
+
+For the concrete case `c001`, the input is `1\n10481\n`, which means there is one test case with the string `"10481"`. The output is calculated as follows:
+
+1. For the first character `'1'`, there is one valid binary string: `"1"`.
+2. For the second character `'0'`, there are two valid binary strings: `"10"` and `"100"`.
+3. For the third character `'4'`, there are four valid binary strings: `"104"`, `"1040"`, `"1041"`, and `"10401"`.
+4. For the fourth character `'8'`, there are eight valid binary strings: `"1048"`, `"10480"`, `"10481"`, `"104801"`, `"104810"`, `"104800"`, `"1048001"`, and `"1048010"`.
+5. For the fifth character `'1'`, there is one valid binary string: `"10481"`.
+
+The final output is the sum of all valid binary strings for each test case: `1 + 2 + 4 + 8 + 1 = 16`.
+
+Therefore, the machine-readable line is:
+
+```
+FINAL_OUTPUT_JSON: {"stdout":"16\n"}
+```

@@ -1,0 +1,48 @@
+The provided Java code snippet defines a class `C_Round_735_Div2` that solves a problem from a programming contest. The main method reads input from the standard input, processes it, and prints output to the standard output. The `cal` method is a recursive function that calculates a value based on the bits of two integers, `n` and `m`.
+
+Given the input:
+```
+5
+2 1
+5 0
+6 1
+000 425
+528350 179212
+```
+The program will process each line as a separate test case. For each test case, it compares the values of `n` and `m` and prints a result.
+
+Let's break down the processing for each test case:
+
+1. **Test Case 1**: `2 1`
+   - `n = 2`, `m = 1`
+   - Since `n > m`, it prints `0`.
+
+2. **Test Case 2**: `5 0`
+   - `n = 5`, `m = 0`
+   - Since `n > m`, it prints `0`.
+
+3. **Test Case 3**: `6 1`
+   - `n = 6`, `m = 1`
+   - Since `n > m`, it prints `0`.
+
+4. **Test Case 4**: `000 425`
+   - `n = 0`, `m = 425`
+   - Since `n < m`, it calls `cal` with parameters `30`, `0`, `0`, `425`.
+   - The result of `cal` is calculated recursively and stored in `dp` array.
+   - The result is printed.
+
+5. **Test Case 5**: `528350 179212`
+   - `n = 528350`, `m = 179212`
+   - Since `n > m`, it prints `0`.
+
+The final output for the given input is:
+```
+0
+0
+0
+5301
+0
+```
+
+### Machine-Readable Line
+```json

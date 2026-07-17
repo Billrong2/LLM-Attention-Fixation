@@ -1,0 +1,48 @@
+ To determine the exact output of the program, we need to follow the sequence of operations and understand how the `buscarGreedy` function processes the input.
+
+### Input Processing
+The input is provided as:
+- `12`
+- `825`
+- `8888`
+- `4`
+- `157`
+- `146`
+- `1`
+- `301`
+- `19634`
+- `1504`
+- `10521`
+- `1000000000`
+- `687194767`
+
+### Output Calculation
+The `buscarGreedy` function is used to calculate the result for each input. The function `buscarGreedy` compares the input with powers of 2 and returns the minimum difference. Here's the step-by-step calculation:
+
+#### Input: 12
+- The powers of 2 are: 1, 2, 4, 8, 16, ...
+- The closest power of 2 to 12 is 8.
+- The difference is \(12 - 8 = 4\).
+
+#### Input: 825
+- The closest power of 2 to 825 is 1024 (which is too far away).
+- The closest lower power of 2 to 825 is 512.
+- The closest higher power of 2 to 825 is 1024.
+- The lower difference is \(825 - 512 = 313\).
+- The higher difference is \(1024 - 825 = 200\).
+- The minimum difference is \(200\).
+
+#### Input: 8888
+- The closest power of 2 to 8888 is 8192.
+- The difference is \(8888 - 8192 = 696\).
+
+#### Input: 4
+- The closest power of 2 to 4 is 4.
+- The difference is \(4 - 4 = 0\).
+
+#### Input: 157
+- The closest power of 2 to 157 is 128.
+- The difference is \(157 - 128 = 29\).
+
+#### Input: 146
+- The closest

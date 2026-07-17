@@ -1,0 +1,21 @@
+
+
+
+### CASES_BEGIN
+c001: invoke program entry point; target_method=cal; stdin="5\n2522 4467\n426 3791\n772 4195\n1447 2006\n5497 2673\n"; argv=[]
+### CASES_END
+
+
+1. MethodDeclaration at L063: target method cal(index, larger, n, twoPowerN, other) (static long cal(int index, int larger, int n, long twoPowerN, long other) {)
+2. SliceMethodParameter at L063: method parameter index (static long cal(int index, int larger, int n, long twoPowerN, long other) {)
+3. SliceMethodParameter at L063: method parameter larger (static long cal(int index, int larger, int n, long twoPowerN, long other) {)
+4. SliceMethodParameter at L063: method parameter n (static long cal(int index, int larger, int n, long twoPowerN, long other) {)
+5. SliceMethodParameter at L063: method parameter twoPowerN (static long cal(int index, int larger, int n, long twoPowerN, long other) {)
+6. SliceMethodParameter at L063: method parameter other (static long cal(int index, int larger, int n, long twoPowerN, long other) {)
+7. SliceReturnValue at L066: return value expression (return 1;)
+8. SliceReturnValue at L069: return value expression using dp, larger, index (return dp[larger][index];)
+9. SliceReturnValue at L083: return value expression using dp, larger, index, result (return dp[larger][index] = result;)
+10. SliceControlDependency at L065: control predicate over index (if (index < 0) {)
+11. SliceControlDependency at L068: control predicate over dp, larger, index (if (dp[larger][index] != -1) {)
+12. SliceDefinition at L071: definition of result (long result = 0;)
+13. SliceControlDependency at L072: control predicate over larger, result, twoPowerN, cal, index, n, other, MOD (

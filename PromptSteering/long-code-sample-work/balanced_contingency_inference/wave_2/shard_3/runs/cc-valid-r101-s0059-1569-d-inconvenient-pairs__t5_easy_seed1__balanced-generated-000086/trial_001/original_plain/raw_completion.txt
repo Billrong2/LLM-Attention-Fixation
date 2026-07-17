@@ -1,0 +1,39 @@
+ The provided Java program reads input values from standard input, processes them, and outputs the result to standard output. Here's a step-by-step breakdown of the execution for the given input:
+
+1. **Initialization and Input Reading:**
+   - The program initializes an `InputReader` to read input from the standard input stream.
+   - It reads the number of test cases `t`.
+   - For each test case, it reads the values of `n`, `m`, and `k`, followed by arrays of integers for `yline`, `xline`, `px`, and `py`.
+
+2. **Main Execution:**
+   - The program calls the `solve` method for each test case with the provided parameters.
+   - The `solve` method processes the input data by creating sets and lists of coordinates, sorting them, and calculating a result based on these coordinates.
+
+3. **Output:**
+   - The final result from the `solve` method is written to the standard output.
+
+Given the input:
+```
+1
+2 2 0
+0 1000000
+0 1000000
+1472 1000000
+1 34
+```
+The program will perform the following operations:
+- Initialize the `InputReader` and read the input.
+- Call the `solve` method with the input values.
+- The `solve` method will process the input and return the calculated result.
+- The result is printed to the standard output.
+
+After analyzing the code and the input, the program will output:
+```
+500000000
+```
+This is because the `solve` method calculates the sum of all elements in the `xlist` and `ylist` arrays and returns it as the result.
+
+### FINAL_OUTPUT_JSON
+```json
+{"stdout":"500000000\n"}
+```

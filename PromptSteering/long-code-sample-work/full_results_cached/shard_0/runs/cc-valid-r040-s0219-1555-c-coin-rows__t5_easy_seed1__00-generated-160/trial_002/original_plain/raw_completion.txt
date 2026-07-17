@@ -1,0 +1,47 @@
+ To determine the output of the provided Java program, we need to analyze the `game` method and its input processing step by step. The `main` method reads input from standard input, processes it, and then calls the `game` method. The `game` method calculates a result based on the input arrays and prints the result to standard output.
+
+### Input Processing and Control Flow
+
+1. **Main Method Execution**:
+   - The main method reads the number of test cases \( t \).
+   - For each test case, it reads an integer \( m \) followed by two lines of space-separated integers representing arrays.
+
+2. **Reading Input for Each Test Case**:
+   - Each test case starts with reading \( m \).
+   - Then, it reads two lines of space-separated integers and stores them in arrays `arr` and `arr2`.
+
+3. **Calling the `game` Method**:
+   - For each test case, the `game` method is called with arrays `arr1`, `arr2`, and integer `m`.
+
+4. **Calculating the Result in the `game` Method**:
+   - The `game` method initializes a 2D array `dp` and fills it based on the input arrays.
+   - It calculates the maximum of two subarrays (one from the start and one from the end) and returns the minimum value.
+
+### Detailed Calculation
+
+Let's break down the input and the calculations:
+
+#### Test Case 1
+- Input: "3\n3\n2 3 12\n2 10 2\n3\n-1 4 17\n3 5 0\n1\n4\n3\n"
+
+#### Parsing Input
+- \( m = 3 \)
+- Arrays:
+  - First array: `arr = [2, 3, 12]`
+  - Second array: `arr2 = [2, 10, 2]`
+
+#### Calculation in `game` Method
+- Initialize 2D array `dp`:
+  ```java
+  dp = [
+    [0, 0, 0],
+    [0, 0, 0]
+  ]
+  ```
+- Fill `dp[0]`:
+  ```java
+  dp[0] = [0, 2, 12] // 2 + 0, 10 + 2
+  ```
+- Fill `dp[1]`:
+  ```java
+  dp[

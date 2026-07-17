@@ -1,0 +1,23 @@
+
+
+
+FINAL_OUTPUT_JSON: {"stdout":"\nYES\nbc\ndc\n"}
+
+
+Reasoning:
+
+1. MethodDeclaration at L062: target method cal(index, horizontal, n, m) (static boolean cal(int index, int horizontal, int n, int m) {) is invoked.
+2. SliceMethodParameter at L062: method parameter index (static boolean cal(int index, int horizontal, int n, int m) {) is passed the value 1.
+3. SliceMethodParameter at L062: method parameter horizontal (static boolean cal(int index, int horizontal, int n, int m) {) is passed the value 0.
+4. SliceMethodParameter at L062: method parameter n (static boolean cal(int index, int horizontal, int n, int m) {) is passed the value 1.
+5. SliceMethodParameter at L062: method parameter m (static boolean cal(int index, int horizontal, int n, int m) {) is passed the value 2.
+6. SliceReturnValue at L069: return value expression using horizontal (return horizontal == 0;) is evaluated as false (since horizontal != 0).
+7. SliceReturnValue at L072: return value expression (return false;) is evaluated.
+8. SliceReturnValue at L076: return value expression (return false;) is evaluated.
+9. SliceReturnValue at L085: return value expression (return true;) is evaluated.
+10. SliceReturnValue at L088: return value expression (return false;) is evaluated.
+11. SliceReturnValue at L124: return value expression using result (return result;) is evaluated.
+12. SliceControlDependency at L063: control predicate over _obf_t5_cal_219867 (if (((3 * 3) - 9) != 0) {) is true.
+13. SliceControlDependency at L067: control predicate over index, m (if (index == m) {) is false (since index != m).
+14. SliceControlDependency at L071: control predicate over index, m (if (index > m) {) is false (since index < m).
+15. SliceControlDependency at L074: control predicate over horizontal, n, index, j, m, i, find, re, tmp, cur (if

@@ -1,0 +1,22 @@
+### OUTPUT:
+1
+2
+4
+7
+2
+4
+10
+4
+7
+
+
+### REASONING:
+The program starts by reading an integer `casos` from the input stream, which represents the number of test cases. Then, for each test case, it reads a string `numero` and calls the `buscarGreedy` method with this string as an argument. The `buscarGreedy` method returns an integer, which is printed to the console.
+
+The `buscarGreedy` method works by initializing a variable `pot` to 1, and then iterating over a range of 62 values. For each iteration, it converts the current value of `pot` to a string `numPot`, and compares this string to the input string `numero` using the `comparar` method. The result of this comparison is an integer `res`, which is compared to the current minimum value `minimo`. If `res` is less than `minimo`, then `minimo` is updated to the new value of `res`.
+
+After the loop has completed, the value of `minimo` is returned as the result of the `buscarGreedy` method.
+
+The `comparar` method works by recursively comparing the first character of the input strings `patron` and `num`. If the first characters are equal, then the method is called again with the remaining substrings of both strings. If the first characters are not equal, then the method returns 1 plus the result of calling itself with the remaining substring of `num` and the entire `patron` string.
+
+In summary, the program reads a series of test cases, each consisting of a single integer `numero`, and prints the result of calling the `buscarGreedy` method with this integer as an argument. The `buscarGreedy` method uses a loop to compare the input integer to a range of powers of 2, and returns the minimum number of operations required to transform the input integer into a power of 2.

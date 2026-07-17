@@ -1,0 +1,30 @@
+
+
+
+### Reasoning:
+
+1. The input for this problem is read by the FastReader class, which is initialized in the main method.
+2. The first line of the input is read as an integer, which represents the number of test cases.
+3. The main method contains a while loop that runs until the number of test cases is zero.
+4. The input for each test case is read as follows:
+* The first line is read as an integer, which represents the number of elements in the array.
+* The next line is read as an array of integers, which is the input array.
+5. The array is processed as follows:
+* The elements of the array are modified in place to be either 0 or 1, based on whether they are odd or even.
+* The frequency of each element is counted, and stored in a frequency array.
+6. The output for each test case is determined as follows:
+* If the absolute difference between the frequencies of 0 and 1 is greater than 1, the output is "-1".
+* If the number of elements in the array is even, the output is determined as follows:
+	+ If the frequencies of 0 and 1 are equal, the output is the minimum of the results of the fun(0, a) and fun(1, a) methods.
+	+ Otherwise, the output is "-1".
+* If the number of elements in the array is odd, the output is determined as follows:
+	+ If the frequency of 0 is equal to the frequency of 1 plus 1, the output is the result of the fun(0, a) method.
+	+ If the frequency of 1 is equal to the frequency of 0 plus 1, the output is the result of the fun(1, a) method.
+	+ Otherwise, the output is "-1".
+7. The fun method calculates the number of inversions in the array, and returns the result.
+8. The fun method iterates through the array, and calculates the number of inversions based on the parity of the elements.
+9. The fun method uses a helper function to calculate the number of inversions for each element in the array.
+10. The fun method returns the total number of inversions in the array.
+11. The helper function calculates the number of inversions for a given element in the array.
+12. The helper function uses a helper function to calculate the number of inversions for a given element in the array.
+1

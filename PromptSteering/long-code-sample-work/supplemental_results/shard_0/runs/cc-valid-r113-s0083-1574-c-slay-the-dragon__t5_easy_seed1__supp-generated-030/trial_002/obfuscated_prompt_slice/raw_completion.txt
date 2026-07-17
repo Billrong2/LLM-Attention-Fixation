@@ -1,0 +1,16 @@
+
+
+
+### Reasoning:
+
+1. The `main` method starts by reading `n` from the input and then reading `n` integers to compute the sum and create a `HashSet` of unique integers.
+2. The `find` method is called with the computed `sum` and `HashSet`, along with the array of unique integers `a` and the values of `attack` and `defend`.
+3. The method initializes `ans1` and `ans2` to `Long.MAX_VALUE`.
+4. The `while` loop is executed to find the closest element in the sorted array `a` that is greater than or equal to `attack`.
+5. If `s` is greater than or equal to 0, `ans2` is updated based on the calculated values.
+6. The method returns the minimum of `ans1` and `ans2`.
+7. The `main` method then reads the number of test cases `y` and calls the `find` method for each test case, printing the result to the standard output.
+
+### Output:
+
+FINAL_OUTPUT_JSON: {"stdout":"2\n1\n2"}

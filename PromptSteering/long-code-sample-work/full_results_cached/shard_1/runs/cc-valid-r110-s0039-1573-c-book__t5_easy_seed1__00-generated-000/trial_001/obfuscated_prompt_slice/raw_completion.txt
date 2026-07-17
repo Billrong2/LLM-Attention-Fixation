@@ -1,0 +1,23 @@
+
+
+
+Reasoning:
+
+1. The input consists of 5 test cases.
+2. In each test case, we are given the number of vertices `n` in a tree, and an adjacency list `data`.
+3. We are also given a boolean array `s` which represents whether a vertex is visited or not.
+4. We are asked to find the maximum number of vertices that can be visited by performing a depth-first search (DFS) starting from each vertex.
+
+For each test case, we initialize `dp` with all values set to `-2`. We then iterate through all vertices `i` and perform a DFS from each vertex. If a vertex `i` is visited (i.e., `s[i] == true`), we return `-1`. Otherwise, we set `s[i]` to `true` and recursively call `cal` on all its adjacent vertices `data[i][j]`. We then update `result` by taking the maximum of `result` and `v + (i > index ? 1 : 0)`.
+
+After iterating through all vertices, we return the maximum number of vertices that can be visited.
+
+The output for the given input is:
+```
+1
+1
+1
+1
+1
+```
+FINAL_OUTPUT_JSON: {"stdout":"1\n1\n1\n1\n1\n"}

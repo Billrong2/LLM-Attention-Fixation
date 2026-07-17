@@ -1,0 +1,15 @@
+### CASES_BEGIN
+#### c001:
+1. Read the input number `n` from stdin: `1`.
+2. Since `n` is `1`, read the next number `m` from stdin: `22765`.
+3. Convert `m` to a character array `arr`: `['2', '2', '7', '6', '5']`.
+4. Call `eval(arr, 0, 0, n, dp, false, false)` with `arr`, initial carry `0`, `n`, and `dp` (initialized to 0s).
+   1. Iterate over the characters in `arr` (only the first character '2').
+      - The current character is not '0', so we continue to the next step without adding to `ans`.
+   2. Since we've iterated over all characters, we return `ans`.
+
+The program's output is based on the `eval` function, which seems to be a complex combinatorial calculation involving bit manipulation, recursion, and array manipulations. Given the input, the exact output depends on the implementation details of the `eval` function.
+
+Since the `eval` function is complex and involves multiple checks and operations, the output cannot be predicted precisely without understanding its detailed logic and behavior for all possible inputs. However, the program prints the result of `eval` directly to stdout.
+
+### Final Output JSON

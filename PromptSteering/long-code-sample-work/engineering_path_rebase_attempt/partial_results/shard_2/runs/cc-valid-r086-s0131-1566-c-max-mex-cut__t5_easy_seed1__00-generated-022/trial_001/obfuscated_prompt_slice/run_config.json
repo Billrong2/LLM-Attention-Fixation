@@ -1,0 +1,247 @@
+{
+  "activation_steering": false,
+  "codesteer_prior_preflight": null,
+  "condition": "obfuscated_prompt_slice",
+  "fingerprint": "f6337d666882ea0b4c97968d4fc28c6d5988b059b4f4f2ad67f6667d006c6b1e",
+  "generation": {
+    "do_sample": true,
+    "max_new_tokens": 512,
+    "temperature": 1.05,
+    "top_k": 7,
+    "top_p": 0.95
+  },
+  "manifest_sha256": "584238ee4eb8e01df8b2047f0d133414619b17d032ceefb3475c32ed1ad281c7",
+  "model_name": "Qwen/Qwen2.5-14B",
+  "model_snapshot_commit": "97e1e76335b7017d8f67c08a19d103c0504298c9",
+  "obfuscated_sha256": "2f6a9be2eb46f5ee77c8dfa343ce7f23a3478a22568fd59b16b5ab21c5726bb1",
+  "original_sha256": "3b2c546a718cf6d11c2926c175b85c80f1331094673f55b19e8f58be275198ac",
+  "paired_design": "same seed for all four conditions in this sample/trial",
+  "paired_seed": 1728705183,
+  "prompt_metadata": {
+    "artifact_name": "Program Slicing / backward slice",
+    "elements": [
+      {
+        "code": "static int cal(int index, int n, int[][] nxt) {",
+        "description": "target method cal(index, n, nxt)",
+        "kind": "MethodDeclaration",
+        "line": 66,
+        "line_label": "L066"
+      },
+      {
+        "code": "static int cal(int index, int n, int[][] nxt) {",
+        "description": "method parameter index",
+        "kind": "SliceMethodParameter",
+        "line": 66,
+        "line_label": "L066"
+      },
+      {
+        "code": "static int cal(int index, int n, int[][] nxt) {",
+        "description": "method parameter n",
+        "kind": "SliceMethodParameter",
+        "line": 66,
+        "line_label": "L066"
+      },
+      {
+        "code": "static int cal(int index, int n, int[][] nxt) {",
+        "description": "method parameter nxt",
+        "kind": "SliceMethodParameter",
+        "line": 66,
+        "line_label": "L066"
+      },
+      {
+        "code": "return 0;",
+        "description": "return value expression",
+        "kind": "SliceReturnValue",
+        "line": 72,
+        "line_label": "L072"
+      },
+      {
+        "code": "return dp[index];",
+        "description": "return value expression using dp, index",
+        "kind": "SliceReturnValue",
+        "line": 75,
+        "line_label": "L075"
+      },
+      {
+        "code": "return dp[index] = result;",
+        "description": "return value expression using dp, index, result",
+        "kind": "SliceReturnValue",
+        "line": 91,
+        "line_label": "L091"
+      },
+      {
+        "code": "if (((3 * 3) - 9) != 0) {",
+        "description": "control predicate over _obf_t5_cal_124541",
+        "kind": "SliceControlDependency",
+        "line": 67,
+        "line_label": "L067"
+      },
+      {
+        "code": "if (index == n) {",
+        "description": "control predicate over index, n",
+        "kind": "SliceControlDependency",
+        "line": 71,
+        "line_label": "L071"
+      },
+      {
+        "code": "if (dp[index] != -1) {",
+        "description": "control predicate over dp, index",
+        "kind": "SliceControlDependency",
+        "line": 74,
+        "line_label": "L074"
+      },
+      {
+        "code": "int result = 0;",
+        "description": "definition of result",
+        "kind": "SliceDefinition",
+        "line": 77,
+        "line_label": "L077"
+      },
+      {
+        "code": "if (nxt[0][index] == index && nxt[1][index] == index) {",
+        "description": "control predicate over nxt, index, result, cal, n, Integer, max",
+        "kind": "SliceControlDependency",
+        "line": 78,
+        "line_label": "L078"
+      },
+      {
+        "code": "",
+        "description": "assignment/update influencing result",
+        "kind": "SliceAssignment",
+        "line": null,
+        "line_label": ""
+      },
+      {
+        "code": "result = 2 + cal(index + 1, n, nxt);",
+        "description": "method call cal in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 79,
+        "line_label": "L079"
+      },
+      {
+        "code": "} else if (nxt[0][index] == index) {",
+        "description": "control predicate over nxt, index, result, cal, n, Integer, max",
+        "kind": "SliceControlDependency",
+        "line": 80,
+        "line_label": "L080"
+      },
+      {
+        "code": "result = 1 + cal(index + 1, n, nxt);",
+        "description": "method call cal in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 81,
+        "line_label": "L081"
+      },
+      {
+        "code": "if (nxt[1][index] != -1) {",
+        "description": "control predicate over nxt, index, result, Integer, max, cal, n",
+        "kind": "SliceControlDependency",
+        "line": 82,
+        "line_label": "L082"
+      },
+      {
+        "code": "result = Integer.max(result, 2 + cal(nxt[1][index] + 1, n, nxt));",
+        "description": "method call Integer.max in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 83,
+        "line_label": "L083"
+      },
+      {
+        "code": "result = Integer.max(result, 2 + cal(nxt[1][index] + 1, n, nxt));",
+        "description": "method call cal in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 83,
+        "line_label": "L083"
+      },
+      {
+        "code": "result = cal(index + 1, n, nxt);",
+        "description": "method call cal in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 86,
+        "line_label": "L086"
+      },
+      {
+        "code": "if (nxt[0][index] != -1) {",
+        "description": "control predicate over nxt, index, result, Integer, max, cal, n",
+        "kind": "SliceControlDependency",
+        "line": 87,
+        "line_label": "L087"
+      },
+      {
+        "code": "result = Integer.max(result, 2 + cal(nxt[0][index] + 1, n, nxt));",
+        "description": "method call Integer.max in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 88,
+        "line_label": "L088"
+      },
+      {
+        "code": "result = Integer.max(result, 2 + cal(nxt[0][index] + 1, n, nxt));",
+        "description": "method call cal in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 88,
+        "line_label": "L088"
+      },
+      {
+        "code": "",
+        "description": "assignment/update influencing dp",
+        "kind": "SliceAssignment",
+        "line": null,
+        "line_label": ""
+      }
+    ],
+    "eligible_count_is_lower_bound": false,
+    "eligible_element_count": 24,
+    "emitted_element_count": 24,
+    "emitted_over_eligible": 1.0,
+    "enabled": true,
+    "guidance_text": "Prompt-only steering guidance (Program Slicing / backward slice, artifact-conditioned):\nUse the following static program-analysis elements as the main reasoning anchors.\nThese elements are static only; they do not reveal the correct output, branch outcomes, or gold execution trace.\n\nStatic elements to emphasize:\n1. MethodDeclaration at L066: target method cal(index, n, nxt) (static int cal(int index, int n, int[][] nxt) {)\n2. SliceMethodParameter at L066: method parameter index (static int cal(int index, int n, int[][] nxt) {)\n3. SliceMethodParameter at L066: method parameter n (static int cal(int index, int n, int[][] nxt) {)\n4. SliceMethodParameter at L066: method parameter nxt (static int cal(int index, int n, int[][] nxt) {)\n5. SliceReturnValue at L072: return value expression (return 0;)\n6. SliceReturnValue at L075: return value expression using dp, index (return dp[index];)\n7. SliceReturnValue at L091: return value expression using dp, index, result (return dp[index] = result;)\n8. SliceControlDependency at L067: control predicate over _obf_t5_cal_124541 (if (((3 * 3) - 9) != 0) {)\n9. SliceControlDependency at L071: control predicate over index, n (if (index == n) {)\n10. SliceControlDependency at L074: control predicate over dp, index (if (dp[index] != -1) {)\n11. SliceDefinition at L077: definition of result (int result = 0;)\n12. SliceControlDependency at L078: control predicate over nxt, index, result, cal, n, Integer, max (if (nxt[0][index] == index && nxt[1][index] == index) {)\n13. SliceAssignment: assignment/update influencing result\n14. SliceMethodCall at L079: method call cal in static data/control context (result = 2 + cal(index + 1, n, nxt);)\n15. SliceControlDependency at L080: control predicate over nxt, index, result, cal, n, Integer, max (} else if (nxt[0][index] == index) {)\n16. SliceMethodCall at L081: method call cal in static data/control context (result = 1 + cal(index + 1, n, nxt);)\n17. SliceControlDependency at L082: control predicate over nxt, index, result, Integer, max, cal, n (if (nxt[1][index] != -1) {)\n18. SliceMethodCall at L083: method call Integer.max in static data/control context (result = Integer.max(result, 2 + cal(nxt[1][index] + 1, n, nxt));)\n19. SliceMethodCall at L083: method call cal in static data/control context (result = Integer.max(result, 2 + cal(nxt[1][index] + 1, n, nxt));)\n20. SliceMethodCall at L086: method call cal in static data/control context (result = cal(index + 1, n, nxt);)\n21. SliceControlDependency at L087: control predicate over nxt, index, result, Integer, max, cal, n (if (nxt[0][index] != -1) {)\n22. SliceMethodCall at L088: method call Integer.max in static data/control context (result = Integer.max(result, 2 + cal(nxt[0][index] + 1, n, nxt));)\n23. SliceMethodCall at L088: method call cal in static data/control context (result = Integer.max(result, 2 + cal(nxt[0][index] + 1, n, nxt));)\n24. SliceAssignment: assignment/update influencing dp",
+    "max_elements": 24,
+    "mechanism": "artifact_conditioned_natural_language_instruction_only",
+    "mode": "slice",
+    "parse_status": "javalang",
+    "prompt_items": [
+      "MethodDeclaration at L066: target method cal(index, n, nxt) (static int cal(int index, int n, int[][] nxt) {)",
+      "SliceMethodParameter at L066: method parameter index (static int cal(int index, int n, int[][] nxt) {)",
+      "SliceMethodParameter at L066: method parameter n (static int cal(int index, int n, int[][] nxt) {)",
+      "SliceMethodParameter at L066: method parameter nxt (static int cal(int index, int n, int[][] nxt) {)",
+      "SliceReturnValue at L072: return value expression (return 0;)",
+      "SliceReturnValue at L075: return value expression using dp, index (return dp[index];)",
+      "SliceReturnValue at L091: return value expression using dp, index, result (return dp[index] = result;)",
+      "SliceControlDependency at L067: control predicate over _obf_t5_cal_124541 (if (((3 * 3) - 9) != 0) {)",
+      "SliceControlDependency at L071: control predicate over index, n (if (index == n) {)",
+      "SliceControlDependency at L074: control predicate over dp, index (if (dp[index] != -1) {)",
+      "SliceDefinition at L077: definition of result (int result = 0;)",
+      "SliceControlDependency at L078: control predicate over nxt, index, result, cal, n, Integer, max (if (nxt[0][index] == index && nxt[1][index] == index) {)",
+      "SliceAssignment: assignment/update influencing result",
+      "SliceMethodCall at L079: method call cal in static data/control context (result = 2 + cal(index + 1, n, nxt);)",
+      "SliceControlDependency at L080: control predicate over nxt, index, result, cal, n, Integer, max (} else if (nxt[0][index] == index) {)",
+      "SliceMethodCall at L081: method call cal in static data/control context (result = 1 + cal(index + 1, n, nxt);)",
+      "SliceControlDependency at L082: control predicate over nxt, index, result, Integer, max, cal, n (if (nxt[1][index] != -1) {)",
+      "SliceMethodCall at L083: method call Integer.max in static data/control context (result = Integer.max(result, 2 + cal(nxt[1][index] + 1, n, nxt));)",
+      "SliceMethodCall at L083: method call cal in static data/control context (result = Integer.max(result, 2 + cal(nxt[1][index] + 1, n, nxt));)",
+      "SliceMethodCall at L086: method call cal in static data/control context (result = cal(index + 1, n, nxt);)",
+      "SliceControlDependency at L087: control predicate over nxt, index, result, Integer, max, cal, n (if (nxt[0][index] != -1) {)",
+      "SliceMethodCall at L088: method call Integer.max in static data/control context (result = Integer.max(result, 2 + cal(nxt[0][index] + 1, n, nxt));)",
+      "SliceMethodCall at L088: method call cal in static data/control context (result = Integer.max(result, 2 + cal(nxt[0][index] + 1, n, nxt));)",
+      "SliceAssignment: assignment/update influencing dp"
+    ],
+    "recorded_target_method": "cal",
+    "target_method": "cal"
+  },
+  "prompt_sha256": "420f783135297433aa52c13edb0cd3ed37fadf75bffb4ce2c636379e4ff28845",
+  "protocol_version": "long-code-output-v1",
+  "sample_id": "cc-valid-r086-s0131-1566-c-max-mex-cut__t5_easy_seed1__00-generated-022",
+  "source_kind": "obfuscated",
+  "source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r086-s0131-1566-c-max-mex-cut/variants/T5_bogus_control_flow/easy/seed_1/C_Global_Round16.java",
+  "steering": null,
+  "target_method": "cal",
+  "token_preflight": {
+    "context_limit": 131072,
+    "context_margin_tokens": 126832,
+    "fits_context": true,
+    "max_new_tokens": 512,
+    "prompt_sha256": "420f783135297433aa52c13edb0cd3ed37fadf75bffb4ce2c636379e4ff28845",
+    "prompt_token_count": 3728
+  },
+  "trial": 1
+}

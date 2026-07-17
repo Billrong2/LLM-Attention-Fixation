@@ -1,0 +1,286 @@
+{
+  "obfuscated_line_count": 341,
+  "obfuscated_method_analysis": {
+    "codesteer_selected_target_method": "helper",
+    "codesteer_target_matches_recorded": true,
+    "fallback_used": false,
+    "method_names": [
+      "helper",
+      "main",
+      "power",
+      "countSetBits",
+      "swap",
+      "getSum",
+      "isPrime",
+      "reverse",
+      "isPrimeInt",
+      "reverse",
+      "getPrimes",
+      "lcm",
+      "gcd",
+      "shuffleArray",
+      "shuffleList",
+      "factorize",
+      "shuffleArrayL",
+      "hasNext",
+      "next",
+      "nextInt",
+      "nextLong",
+      "nextDouble",
+      "nextLine"
+    ],
+    "parameter_count": 6,
+    "parse_status": "javalang",
+    "recorded_target_found": true,
+    "recorded_target_method": "helper",
+    "return_sink_count": 7
+  },
+  "original_line_count": 277,
+  "original_method_analysis": {
+    "codesteer_selected_target_method": "helper",
+    "codesteer_target_matches_recorded": true,
+    "fallback_used": false,
+    "method_names": [
+      "helper",
+      "main",
+      "power",
+      "countSetBits",
+      "swap",
+      "getSum",
+      "isPrime",
+      "reverse",
+      "isPrimeInt",
+      "reverse",
+      "getPrimes",
+      "lcm",
+      "gcd",
+      "shuffleArray",
+      "shuffleList",
+      "factorize",
+      "shuffleArrayL",
+      "hasNext",
+      "next",
+      "nextInt",
+      "nextLong",
+      "nextDouble",
+      "nextLine"
+    ],
+    "parameter_count": 6,
+    "parse_status": "javalang",
+    "recorded_target_found": true,
+    "recorded_target_method": "helper",
+    "return_sink_count": 7
+  },
+  "prompt_slice": {
+    "artifact_name": "Program Slicing / backward slice",
+    "elements": [
+      {
+        "code": "static int helper(int index, int f, int s, int k1, int k2, char[] s1) {",
+        "description": "target method helper(index, f, s, k1, k2, s1)",
+        "kind": "MethodDeclaration",
+        "line": 20,
+        "line_label": "L020"
+      },
+      {
+        "code": "static int helper(int index, int f, int s, int k1, int k2, char[] s1) {",
+        "description": "method parameter index",
+        "kind": "SliceMethodParameter",
+        "line": 20,
+        "line_label": "L020"
+      },
+      {
+        "code": "static int helper(int index, int f, int s, int k1, int k2, char[] s1) {",
+        "description": "method parameter f",
+        "kind": "SliceMethodParameter",
+        "line": 20,
+        "line_label": "L020"
+      },
+      {
+        "code": "static int helper(int index, int f, int s, int k1, int k2, char[] s1) {",
+        "description": "method parameter s",
+        "kind": "SliceMethodParameter",
+        "line": 20,
+        "line_label": "L020"
+      },
+      {
+        "code": "static int helper(int index, int f, int s, int k1, int k2, char[] s1) {",
+        "description": "method parameter k1",
+        "kind": "SliceMethodParameter",
+        "line": 20,
+        "line_label": "L020"
+      },
+      {
+        "code": "static int helper(int index, int f, int s, int k1, int k2, char[] s1) {",
+        "description": "method parameter k2",
+        "kind": "SliceMethodParameter",
+        "line": 20,
+        "line_label": "L020"
+      },
+      {
+        "code": "static int helper(int index, int f, int s, int k1, int k2, char[] s1) {",
+        "description": "method parameter s1",
+        "kind": "SliceMethodParameter",
+        "line": 20,
+        "line_label": "L020"
+      },
+      {
+        "code": "return 0;",
+        "description": "return value expression",
+        "kind": "SliceReturnValue",
+        "line": 26,
+        "line_label": "L026"
+      },
+      {
+        "code": "return 0;",
+        "description": "return value expression",
+        "kind": "SliceReturnValue",
+        "line": 29,
+        "line_label": "L029"
+      },
+      {
+        "code": "return 0;",
+        "description": "return value expression",
+        "kind": "SliceReturnValue",
+        "line": 32,
+        "line_label": "L032"
+      },
+      {
+        "code": "return 1 + helper(index + 1, f, s, k1, k2, s1);",
+        "description": "return value expression using helper, index, f, s, k1, k2, s1",
+        "kind": "SliceReturnValue",
+        "line": 42,
+        "line_label": "L042"
+      },
+      {
+        "code": "return 1 + helper(index + 1, f, s, k1, k2, s1);",
+        "description": "return value expression using helper, index, f, s, k1, k2, s1",
+        "kind": "SliceReturnValue",
+        "line": 49,
+        "line_label": "L049"
+      },
+      {
+        "code": "return 1 + Math.min(helper(index + 1, f + 1, s, k1 - 1, k2, s1), helper(index + 1, f, s, k1 - 1, k2, s1));",
+        "description": "return value expression using Math, min, helper, index, f, s, k1, k2, s1",
+        "kind": "SliceReturnValue",
+        "line": 52,
+        "line_label": "L052"
+      },
+      {
+        "code": "return 1 + Math.min(helper(index + 1, f, s + 1, k1, k2 - 1, s1), helper(index + 1, f, s, k1, k2 - 1, s1));",
+        "description": "return value expression using Math, min, helper, index, f, s, k1, k2, s1",
+        "kind": "SliceReturnValue",
+        "line": 54,
+        "line_label": "L054"
+      },
+      {
+        "code": "if (((3 * 3) - 9) != 0) {",
+        "description": "control predicate over _obf_t5_helper_788576",
+        "kind": "SliceControlDependency",
+        "line": 21,
+        "line_label": "L021"
+      },
+      {
+        "code": "if (index == 10) {",
+        "description": "control predicate over index",
+        "kind": "SliceControlDependency",
+        "line": 25,
+        "line_label": "L025"
+      },
+      {
+        "code": "if (f + k1 < s) {",
+        "description": "control predicate over f, k1, s",
+        "kind": "SliceControlDependency",
+        "line": 28,
+        "line_label": "L028"
+      },
+      {
+        "code": "if (s + k2 < f) {",
+        "description": "control predicate over s, k2, f",
+        "kind": "SliceControlDependency",
+        "line": 31,
+        "line_label": "L031"
+      },
+      {
+        "code": "if (s1[index] == '1') {",
+        "description": "control predicate over s1, index, f, k1, s, k2, helper, Math, min",
+        "kind": "SliceControlDependency",
+        "line": 34,
+        "line_label": "L034"
+      },
+      {
+        "code": "if (index % 2 == 0) {",
+        "description": "control predicate over index, f, k1, s, k2",
+        "kind": "SliceControlDependency",
+        "line": 35,
+        "line_label": "L035"
+      },
+      {
+        "code": "return 1 + helper(index + 1, f, s, k1, k2, s1);",
+        "description": "method call helper in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 42,
+        "line_label": "L042"
+      },
+      {
+        "code": "} else if (s1[index] == '0') {",
+        "description": "control predicate over s1, index, k1, k2, helper, f, s, Math, min",
+        "kind": "SliceControlDependency",
+        "line": 43,
+        "line_label": "L043"
+      },
+      {
+        "code": "if (index % 2 == 0) {",
+        "description": "control predicate over index, k1, k2",
+        "kind": "SliceControlDependency",
+        "line": 44,
+        "line_label": "L044"
+      },
+      {
+        "code": "return 1 + helper(index + 1, f, s, k1, k2, s1);",
+        "description": "method call helper in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 49,
+        "line_label": "L049"
+      }
+    ],
+    "eligible_count_is_lower_bound": false,
+    "eligible_element_count": 29,
+    "emitted_element_count": 24,
+    "emitted_over_eligible": 0.8275862068965517,
+    "enabled": true,
+    "guidance_text": "Prompt-only steering guidance (Program Slicing / backward slice, artifact-conditioned):\nUse the following static program-analysis elements as the main reasoning anchors.\nThese elements are static only; they do not reveal the correct output, branch outcomes, or gold execution trace.\n\nStatic elements to emphasize:\n1. MethodDeclaration at L020: target method helper(index, f, s, k1, k2, s1) (static int helper(int index, int f, int s, int k1, int k2, char[] s1) {)\n2. SliceMethodParameter at L020: method parameter index (static int helper(int index, int f, int s, int k1, int k2, char[] s1) {)\n3. SliceMethodParameter at L020: method parameter f (static int helper(int index, int f, int s, int k1, int k2, char[] s1) {)\n4. SliceMethodParameter at L020: method parameter s (static int helper(int index, int f, int s, int k1, int k2, char[] s1) {)\n5. SliceMethodParameter at L020: method parameter k1 (static int helper(int index, int f, int s, int k1, int k2, char[] s1) {)\n6. SliceMethodParameter at L020: method parameter k2 (static int helper(int index, int f, int s, int k1, int k2, char[] s1) {)\n7. SliceMethodParameter at L020: method parameter s1 (static int helper(int index, int f, int s, int k1, int k2, char[] s1) {)\n8. SliceReturnValue at L026: return value expression (return 0;)\n9. SliceReturnValue at L029: return value expression (return 0;)\n10. SliceReturnValue at L032: return value expression (return 0;)\n11. SliceReturnValue at L042: return value expression using helper, index, f, s, k1, k2, s1 (return 1 + helper(index + 1, f, s, k1, k2, s1);)\n12. SliceReturnValue at L049: return value expression using helper, index, f, s, k1, k2, s1 (return 1 + helper(index + 1, f, s, k1, k2, s1);)\n13. SliceReturnValue at L052: return value expression using Math, min, helper, index, f, s, k1, k2, s1 (return 1 + Math.min(helper(index + 1, f + 1, s, k1 - 1, k2, s1), helper(index + 1, f, s, k1 - 1, k2, s1));)\n14. SliceReturnValue at L054: return value expression using Math, min, helper, index, f, s, k1, k2, s1 (return 1 + Math.min(helper(index + 1, f, s + 1, k1, k2 - 1, s1), helper(index + 1, f, s, k1, k2 - 1, s1));)\n15. SliceControlDependency at L021: control predicate over _obf_t5_helper_788576 (if (((3 * 3) - 9) != 0) {)\n16. SliceControlDependency at L025: control predicate over index (if (index == 10) {)\n17. SliceControlDependency at L028: control predicate over f, k1, s (if (f + k1 < s) {)\n18. SliceControlDependency at L031: control predicate over s, k2, f (if (s + k2 < f) {)\n19. SliceControlDependency at L034: control predicate over s1, index, f, k1, s, k2, helper, Math, min (if (s1[index] == '1') {)\n20. SliceControlDependency at L035: control predicate over index, f, k1, s, k2 (if (index % 2 == 0) {)\n21. SliceMethodCall at L042: method call helper in static data/control context (return 1 + helper(index + 1, f, s, k1, k2, s1);)\n22. SliceControlDependency at L043: control predicate over s1, index, k1, k2, helper, f, s, Math, min (} else if (s1[index] == '0') {)\n23. SliceControlDependency at L044: control predicate over index, k1, k2 (if (index % 2 == 0) {)\n24. SliceMethodCall at L049: method call helper in static data/control context (return 1 + helper(index + 1, f, s, k1, k2, s1);)",
+    "max_elements": 24,
+    "mechanism": "artifact_conditioned_natural_language_instruction_only",
+    "mode": "slice",
+    "parse_status": "javalang",
+    "prompt_items": [
+      "MethodDeclaration at L020: target method helper(index, f, s, k1, k2, s1) (static int helper(int index, int f, int s, int k1, int k2, char[] s1) {)",
+      "SliceMethodParameter at L020: method parameter index (static int helper(int index, int f, int s, int k1, int k2, char[] s1) {)",
+      "SliceMethodParameter at L020: method parameter f (static int helper(int index, int f, int s, int k1, int k2, char[] s1) {)",
+      "SliceMethodParameter at L020: method parameter s (static int helper(int index, int f, int s, int k1, int k2, char[] s1) {)",
+      "SliceMethodParameter at L020: method parameter k1 (static int helper(int index, int f, int s, int k1, int k2, char[] s1) {)",
+      "SliceMethodParameter at L020: method parameter k2 (static int helper(int index, int f, int s, int k1, int k2, char[] s1) {)",
+      "SliceMethodParameter at L020: method parameter s1 (static int helper(int index, int f, int s, int k1, int k2, char[] s1) {)",
+      "SliceReturnValue at L026: return value expression (return 0;)",
+      "SliceReturnValue at L029: return value expression (return 0;)",
+      "SliceReturnValue at L032: return value expression (return 0;)",
+      "SliceReturnValue at L042: return value expression using helper, index, f, s, k1, k2, s1 (return 1 + helper(index + 1, f, s, k1, k2, s1);)",
+      "SliceReturnValue at L049: return value expression using helper, index, f, s, k1, k2, s1 (return 1 + helper(index + 1, f, s, k1, k2, s1);)",
+      "SliceReturnValue at L052: return value expression using Math, min, helper, index, f, s, k1, k2, s1 (return 1 + Math.min(helper(index + 1, f + 1, s, k1 - 1, k2, s1), helper(index + 1, f, s, k1 - 1, k2, s1));)",
+      "SliceReturnValue at L054: return value expression using Math, min, helper, index, f, s, k1, k2, s1 (return 1 + Math.min(helper(index + 1, f, s + 1, k1, k2 - 1, s1), helper(index + 1, f, s, k1, k2 - 1, s1));)",
+      "SliceControlDependency at L021: control predicate over _obf_t5_helper_788576 (if (((3 * 3) - 9) != 0) {)",
+      "SliceControlDependency at L025: control predicate over index (if (index == 10) {)",
+      "SliceControlDependency at L028: control predicate over f, k1, s (if (f + k1 < s) {)",
+      "SliceControlDependency at L031: control predicate over s, k2, f (if (s + k2 < f) {)",
+      "SliceControlDependency at L034: control predicate over s1, index, f, k1, s, k2, helper, Math, min (if (s1[index] == '1') {)",
+      "SliceControlDependency at L035: control predicate over index, f, k1, s, k2 (if (index % 2 == 0) {)",
+      "SliceMethodCall at L042: method call helper in static data/control context (return 1 + helper(index + 1, f, s, k1, k2, s1);)",
+      "SliceControlDependency at L043: control predicate over s1, index, k1, k2, helper, f, s, Math, min (} else if (s1[index] == '0') {)",
+      "SliceControlDependency at L044: control predicate over index, k1, k2 (if (index % 2 == 0) {)",
+      "SliceMethodCall at L049: method call helper in static data/control context (return 1 + helper(index + 1, f, s, k1, k2, s1);)"
+    ],
+    "recorded_target_method": "helper",
+    "target_method": "helper"
+  },
+  "sample_id": "cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1__00-generated-001"
+}

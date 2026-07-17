@@ -1,0 +1,468 @@
+{
+  "argv": [],
+  "metadata": {
+    "argv": [],
+    "candidate_id": "cc-valid-r054-s0229-1557-c-moamen-and-xor",
+    "candidate_metadata": {
+      "expected_stdout": "387599759\n635311356\n552472895\n752772609\n931791909\n",
+      "expected_stdout_path": "candidates/cc-valid-r054-s0229-1557-c-moamen-and-xor/io/00-private-017.out",
+      "id": "cc-valid-r054-s0229-1557-c-moamen-and-xor",
+      "input": "5\n2522 4467\n426 3791\n772 4195\n1447 2006\n5497 2673\n",
+      "input_path": "candidates/cc-valid-r054-s0229-1557-c-moamen-and-xor/io/00-private-017.in",
+      "inputs": [
+        {
+          "dataset_test_index": 17,
+          "expected_stdout": "387599759\n635311356\n552472895\n752772609\n931791909\n",
+          "expected_stdout_path": "candidates/cc-valid-r054-s0229-1557-c-moamen-and-xor/io/00-private-017.out",
+          "expected_stdout_sha256": "af78c792ec266f5f692f9e8dddc6c896a181f46132a745a5281d02f8225788eb",
+          "id": "00-private-017",
+          "input": "5\n2522 4467\n426 3791\n772 4195\n1447 2006\n5497 2673\n",
+          "input_path": "candidates/cc-valid-r054-s0229-1557-c-moamen-and-xor/io/00-private-017.in",
+          "input_sha256": "825699813c3f92193d508c187dd4cf106b7a22968b4da563f83a405cca44c1ed",
+          "suite": "private_tests",
+          "validation": {
+            "compiled_with_jdk17": true,
+            "exit_code": 0,
+            "stderr_bytes": 0,
+            "timed_out": false
+          }
+        }
+      ],
+      "loc_definition": "Python str.splitlines(); final newline does not add an empty physical line",
+      "main_class": "C_Round_737_Div2",
+      "nonblank_loc": 231,
+      "original_path": "candidates/cc-valid-r054-s0229-1557-c-moamen-and-xor/original.java",
+      "physical_loc": 271,
+      "prevalidation": {
+        "all_retained_tests_exact": true,
+        "compiled": true,
+        "compiler_exit_code": 0,
+        "compiler_stderr_bytes": 0,
+        "compiler_stdout_bytes": 0,
+        "jdk_major": 17
+      },
+      "problem_key": "codeforces-1557-C",
+      "problem_name": "1557_C. Moamen and XOR",
+      "provenance": {
+        "cf_contest_id": 1557,
+        "cf_index": "C",
+        "cf_points": 1750.0,
+        "cf_rating": 1700,
+        "cf_tags": [
+          "bitmasks",
+          "combinatorics",
+          "dp",
+          "math",
+          "matrices"
+        ],
+        "dataset_file": "codecontests-valid-802411c3.parquet",
+        "dataset_file_sha256": "02e8c1ccedae716f1e43cc813fcb7823c3db666ea92638820aba80e8cef451ab",
+        "dataset_id": "deepmind/code_contests",
+        "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+        "dataset_url": "https://huggingface.co/datasets/deepmind/code_contests/resolve/802411c3010cb00d1b05bad57ca77365a3c699d6/data/valid-00000-of-00001-5e672c5751f060d3.parquet",
+        "difficulty": 9,
+        "language": "Java",
+        "language_code": 4,
+        "problem_name": "1557_C. Moamen and XOR",
+        "row_index": 54,
+        "solution_container": "solutions",
+        "solution_index": 229,
+        "solution_label": "correct human solution",
+        "source_code": 2,
+        "split": "valid"
+      },
+      "source_bytes": 6785,
+      "source_sha256": "fd623d88396159818355d4815589509618bc1f3376f02378eaa553fb1fd12ec2",
+      "target": {
+        "arity": 5,
+        "body_nonblank_loc": 21,
+        "body_physical_loc": 21,
+        "class": "C_Round_737_Div2",
+        "codesteer_selector": {
+          "declaration_line": 63,
+          "fallback_used": false,
+          "implementation": "steering.priors.SlicingPrior._select_target_method",
+          "name": "cal",
+          "parameter_count": 5,
+          "parse_status": "javalang",
+          "top_level_body_statement_count": 5
+        },
+        "control_node_count": 4,
+        "end_line": 83,
+        "loop_node_count": 0,
+        "main_call_path": [
+          {
+            "arity": 1,
+            "class": "C_Round_737_Div2",
+            "end_line": 61,
+            "name": "main",
+            "parameter_types": [
+              "String[]"
+            ],
+            "return_type": "void",
+            "start_line": 36
+          },
+          {
+            "arity": 5,
+            "class": "C_Round_737_Div2",
+            "end_line": 83,
+            "name": "cal",
+            "parameter_types": [
+              "int",
+              "int",
+              "int",
+              "long",
+              "long"
+            ],
+            "return_type": "long",
+            "start_line": 63
+          }
+        ],
+        "main_reachable": true,
+        "name": "cal",
+        "output_caller": {
+          "arity": 1,
+          "class": "C_Round_737_Div2",
+          "end_line": 61,
+          "name": "main",
+          "parameter_types": [
+            "String[]"
+          ],
+          "return_type": "void",
+          "start_line": 36
+        },
+        "output_evidence": "out.println(cal(k - 1, 0, n, pow, other))",
+        "output_relevance_kind": "direct_print_argument",
+        "output_relevance_variable": null,
+        "parameter_types": [
+          "int",
+          "int",
+          "int",
+          "long",
+          "long"
+        ],
+        "recursive_call_count": 3,
+        "return_type": "long",
+        "return_value_output_relevant": true,
+        "source_sha256": "5db2c929672800e22a8b841e909ebbeac677b16ebb315a51ac261e8998172e85",
+        "start_line": 63
+      },
+      "target_method": "cal",
+      "target_signature": "long C_Round_737_Div2.cal(int, int, int, long, long)",
+      "tests": [
+        {
+          "dataset_test_index": 17,
+          "expected_stdout": "387599759\n635311356\n552472895\n752772609\n931791909\n",
+          "expected_stdout_path": "candidates/cc-valid-r054-s0229-1557-c-moamen-and-xor/io/00-private-017.out",
+          "expected_stdout_sha256": "af78c792ec266f5f692f9e8dddc6c896a181f46132a745a5281d02f8225788eb",
+          "id": "00-private-017",
+          "input": "5\n2522 4467\n426 3791\n772 4195\n1447 2006\n5497 2673\n",
+          "input_path": "candidates/cc-valid-r054-s0229-1557-c-moamen-and-xor/io/00-private-017.in",
+          "input_sha256": "825699813c3f92193d508c187dd4cf106b7a22968b4da563f83a405cca44c1ed",
+          "suite": "private_tests",
+          "validation": {
+            "compiled_with_jdk17": true,
+            "exit_code": 0,
+            "stderr_bytes": 0,
+            "timed_out": false
+          }
+        }
+      ]
+    },
+    "codesteer_target_method": "cal",
+    "concrete_case": {
+      "argv": [],
+      "case_id": "00-private-017",
+      "expected_output": "387599759\n635311356\n552472895\n752772609\n931791909\n",
+      "expected_stdout": "387599759\n635311356\n552472895\n752772609\n931791909\n",
+      "expected_stdout_trimmed": "387599759\n635311356\n552472895\n752772609\n931791909",
+      "input": "5\n2522 4467\n426 3791\n772 4195\n1447 2006\n5497 2673\n",
+      "input_sha256": "825699813c3f92193d508c187dd4cf106b7a22968b4da563f83a405cca44c1ed",
+      "raw_expected_stdout_sha256": "af78c792ec266f5f692f9e8dddc6c896a181f46132a745a5281d02f8225788eb",
+      "source_case_metadata": {
+        "dataset_test_index": 17,
+        "expected_stdout": "387599759\n635311356\n552472895\n752772609\n931791909\n",
+        "expected_stdout_path": "candidates/cc-valid-r054-s0229-1557-c-moamen-and-xor/io/00-private-017.out",
+        "expected_stdout_sha256": "af78c792ec266f5f692f9e8dddc6c896a181f46132a745a5281d02f8225788eb",
+        "id": "00-private-017",
+        "input": "5\n2522 4467\n426 3791\n772 4195\n1447 2006\n5497 2673\n",
+        "input_path": "candidates/cc-valid-r054-s0229-1557-c-moamen-and-xor/io/00-private-017.in",
+        "input_sha256": "825699813c3f92193d508c187dd4cf106b7a22968b4da563f83a405cca44c1ed",
+        "suite": "private_tests",
+        "validation": {
+          "compiled_with_jdk17": true,
+          "exit_code": 0,
+          "stderr_bytes": 0,
+          "timed_out": false
+        }
+      },
+      "stdin": "5\n2522 4467\n426 3791\n772 4195\n1447 2006\n5497 2673\n"
+    },
+    "difficulty": "easy",
+    "eligible": true,
+    "expected_output": "387599759\n635311356\n552472895\n752772609\n931791909\n",
+    "expected_stdout": "387599759\n635311356\n552472895\n752772609\n931791909\n",
+    "id": "cc-valid-r054-s0229-1557-c-moamen-and-xor__t5_easy_seed1__00-private-017",
+    "input": "5\n2522 4467\n426 3791\n772 4195\n1447 2006\n5497 2673\n",
+    "main_class": "C_Round_737_Div2",
+    "method_coverage_policy": "force_all",
+    "obfuscated": {
+      "codesteer_target": {
+        "called_directly_from_main": true,
+        "eligible_parameter_to_return_target": true,
+        "genuine_return_sink_count": 3,
+        "main_called_method_names": [
+          "cal",
+          "close",
+          "fill",
+          "nextInt",
+          "pow",
+          "println"
+        ],
+        "method_names": [
+          "main",
+          "cal",
+          "abs",
+          "KMP",
+          "nextPer",
+          "digit",
+          "dist",
+          "toString",
+          "update",
+          "get",
+          "gcd",
+          "pow",
+          "next",
+          "nextLong",
+          "nextInt",
+          "nextDouble",
+          "nextLine",
+          "endLine"
+        ],
+        "parameter_count": 5,
+        "parameters": [
+          {
+            "name": "index",
+            "type": "int"
+          },
+          {
+            "name": "larger",
+            "type": "int"
+          },
+          {
+            "name": "n",
+            "type": "int"
+          },
+          {
+            "name": "twoPowerN",
+            "type": "long"
+          },
+          {
+            "name": "other",
+            "type": "long"
+          }
+        ],
+        "parse_status": "javalang",
+        "return_sink_count": 3,
+        "return_type": "long",
+        "selected_method": "cal",
+        "selected_method_line": 63,
+        "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+        "selector_implementation_owner": "steering.priors.SlicingPrior",
+        "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+      },
+      "execution_validation": {
+        "accepted": true,
+        "cases": [
+          {
+            "accepted": true,
+            "actual_trimmed": "387599759\n635311356\n552472895\n752772609\n931791909",
+            "case_id": "00-private-017",
+            "command": [
+              "java",
+              "-Dfile.encoding=UTF-8",
+              "-Djava.io.tmpdir=<scratch>",
+              "-Duser.home=<scratch>",
+              "-XX:-UsePerfData",
+              "-cp",
+              "<classes>",
+              "C_Round_737_Div2"
+            ],
+            "duration_seconds": 0.036295,
+            "exit_code": 0,
+            "expected_trimmed": "387599759\n635311356\n552472895\n752772609\n931791909",
+            "raw_expected_stdout_sha256": "af78c792ec266f5f692f9e8dddc6c896a181f46132a745a5281d02f8225788eb",
+            "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "raw_stdout_sha256": "af78c792ec266f5f692f9e8dddc6c896a181f46132a745a5281d02f8225788eb",
+            "stderr": "",
+            "stdout": "387599759\n635311356\n552472895\n752772609\n931791909\n",
+            "timed_out": false,
+            "trimmed_exact_match": true
+          }
+        ],
+        "compile": {
+          "accepted": true,
+          "command": [
+            "javac",
+            "-encoding",
+            "UTF-8",
+            "-J-Djava.io.tmpdir=<scratch>",
+            "-J-Duser.home=<scratch>",
+            "-J-XX:-UsePerfData",
+            "-Xlint:none",
+            "-nowarn",
+            "-d",
+            "<classes>",
+            "<scratch>/C_Round_737_Div2.java"
+          ],
+          "exit_code": 0,
+          "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false
+        },
+        "entry": {
+          "compile_class": "C_Round_737_Div2",
+          "main_class": "C_Round_737_Div2",
+          "package": "",
+          "parse_status": "javalang"
+        }
+      },
+      "main_class": "C_Round_737_Div2",
+      "metadata_path": "../prepared_variants/candidates/cc-valid-r054-s0229-1557-c-moamen-and-xor/variants/T5_bogus_control_flow/easy/seed_1/C_Round_737_Div2.java.meta.json",
+      "method_coverage": {
+        "main_touched": false,
+        "method_coverage_total": 17,
+        "method_coverage_touched": 17,
+        "untouched_methods": []
+      },
+      "path": "../prepared_variants/candidates/cc-valid-r054-s0229-1557-c-moamen-and-xor/variants/T5_bogus_control_flow/easy/seed_1/C_Round_737_Div2.java",
+      "selected_target_touch_evidence": {
+        "method_block_parser": "eyetracking.obfuscation.java.passes.utils.iter_method_blocks",
+        "obfuscated_block_name": "cal",
+        "obfuscated_match_count": 1,
+        "obfuscated_method_bytes": 760,
+        "obfuscated_method_index": 0,
+        "obfuscated_method_sha256": "06b25c252b3504e4563b789cf4f80359adad312e232c6d52cfcaec55c59e64eb",
+        "obfuscated_method_start_line": 62,
+        "obfuscated_name_matches_codesteer_target": true,
+        "obfuscated_target_line": 63,
+        "obfuscated_target_method": "cal",
+        "original_block_name": "cal",
+        "original_match_count": 1,
+        "original_method_bytes": 699,
+        "original_method_index": 0,
+        "original_method_sha256": "ad5c1f9a037ee2c589b38b95a04577917a09ee80e128a8985043e40df80e1894",
+        "original_method_start_line": 62,
+        "original_target_line": 63,
+        "original_target_method": "cal",
+        "reason": "method_source_changed",
+        "touched": true,
+        "verifiable": true
+      },
+      "sha256": "33173863f7948971d5ebecbd581eab3744e6c83b5960912d735773e24999a765",
+      "target_method": "cal"
+    },
+    "obfuscated_main_class": "C_Round_737_Div2",
+    "obfuscated_path": "../prepared_variants/candidates/cc-valid-r054-s0229-1557-c-moamen-and-xor/variants/T5_bogus_control_flow/easy/seed_1/C_Round_737_Div2.java",
+    "obfuscated_target_method": "cal",
+    "obfuscation_metadata_path": "../prepared_variants/candidates/cc-valid-r054-s0229-1557-c-moamen-and-xor/variants/T5_bogus_control_flow/easy/seed_1/C_Round_737_Div2.java.meta.json",
+    "original": {
+      "codesteer_target": {
+        "called_directly_from_main": true,
+        "eligible_parameter_to_return_target": true,
+        "genuine_return_sink_count": 3,
+        "main_called_method_names": [
+          "cal",
+          "close",
+          "fill",
+          "nextInt",
+          "pow",
+          "println"
+        ],
+        "method_names": [
+          "main",
+          "cal",
+          "abs",
+          "KMP",
+          "nextPer",
+          "digit",
+          "dist",
+          "toString",
+          "update",
+          "get",
+          "gcd",
+          "pow",
+          "next",
+          "nextLong",
+          "nextInt",
+          "nextDouble",
+          "nextLine",
+          "endLine"
+        ],
+        "parameter_count": 5,
+        "parameters": [
+          {
+            "name": "index",
+            "type": "int"
+          },
+          {
+            "name": "larger",
+            "type": "int"
+          },
+          {
+            "name": "n",
+            "type": "int"
+          },
+          {
+            "name": "twoPowerN",
+            "type": "long"
+          },
+          {
+            "name": "other",
+            "type": "long"
+          }
+        ],
+        "parse_status": "javalang",
+        "return_sink_count": 3,
+        "return_type": "long",
+        "selected_method": "cal",
+        "selected_method_line": 63,
+        "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+        "selector_implementation_owner": "steering.priors.SlicingPrior",
+        "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+      },
+      "execution_validation_path": "../prepared_variants/candidates/cc-valid-r054-s0229-1557-c-moamen-and-xor/original/validation.json",
+      "main_class": "C_Round_737_Div2",
+      "path": "../prepared_variants/candidates/cc-valid-r054-s0229-1557-c-moamen-and-xor/original/C_Round_737_Div2.java",
+      "sha256": "fd623d88396159818355d4815589509618bc1f3376f02378eaa553fb1fd12ec2",
+      "target_method": "cal"
+    },
+    "original_main_class": "C_Round_737_Div2",
+    "original_path": "../prepared_variants/candidates/cc-valid-r054-s0229-1557-c-moamen-and-xor/original/C_Round_737_Div2.java",
+    "original_target_method": "cal",
+    "parent_candidate_id": "cc-valid-r054-s0229-1557-c-moamen-and-xor__t5_easy_seed1",
+    "profile": "safe",
+    "rejection_reasons": [],
+    "seed": 1,
+    "stdin": "5\n2522 4467\n426 3791\n772 4195\n1447 2006\n5497 2673\n",
+    "target_method": {
+      "obfuscated": "cal",
+      "original": "cal"
+    },
+    "technique": "T5",
+    "technique_name": "bogus_control_flow",
+    "variant_id": "cc-valid-r054-s0229-1557-c-moamen-and-xor__t5_easy_seed1",
+    "warnings": [
+      "canonical_main_touched_unobserved_regex_may_not_parse_throws_clause"
+    ]
+  },
+  "obfuscated_sha256": "33173863f7948971d5ebecbd581eab3744e6c83b5960912d735773e24999a765",
+  "obfuscated_source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r054-s0229-1557-c-moamen-and-xor/variants/T5_bogus_control_flow/easy/seed_1/C_Round_737_Div2.java",
+  "obfuscated_target_method": "cal",
+  "original_sha256": "fd623d88396159818355d4815589509618bc1f3376f02378eaa553fb1fd12ec2",
+  "original_source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r054-s0229-1557-c-moamen-and-xor/original/C_Round_737_Div2.java",
+  "original_target_method": "cal",
+  "sample_id": "cc-valid-r054-s0229-1557-c-moamen-and-xor__t5_easy_seed1__00-private-017"
+}

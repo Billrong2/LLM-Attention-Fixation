@@ -1,0 +1,363 @@
+Prompt-only steering guidance (Program Slicing / backward slice, artifact-conditioned):
+Use the following static program-analysis elements as the main reasoning anchors.
+These elements are static only; they do not reveal the correct output, branch outcomes, or gold execution trace.
+
+Static elements to emphasize:
+1. MethodDeclaration at L221: target method buscarGreedy(numero) (public static int buscarGreedy(String numero) {)
+2. SliceMethodParameter at L221: method parameter numero (public static int buscarGreedy(String numero) {)
+3. SliceReturnValue at L235: return value expression using minimo (return minimo;)
+4. SliceDefinition at L224: definition of minimo (int minimo = Integer.MAX_VALUE;)
+5. SliceControlDependency at L225: control predicate over i, Long, toString, pot, comparar, numPot, numero, res, minimo (for (int i=0;i<62;i++){)
+6. SliceMethodCall at L226: method call Long.toString in static data/control context (String numPot = Long.toString(pot);)
+7. SliceMethodCall at L227: method call comparar in static data/control context (int res = comparar(numPot, numero);)
+8. SliceControlDependency at L228: control predicate over res, minimo (if (res < minimo))
+9. SliceAssignment: assignment/update influencing minimo
+
+Predict the exact standard output of this deterministic Java program for the concrete case below. The recorded algorithm method is `buscarGreedy`. This is output prediction, not code generation.
+### CASES_BEGIN
+c001: invoke program entry point; target_method=buscarGreedy; stdin="2\n1\n1\n"; argv=[]
+### CASES_END
+
+Give concise reasoning that tracks only state and control flow needed for the output. Then end with exactly one machine-readable line in this form:
+FINAL_OUTPUT_JSON: {"stdout":"exact output with newlines encoded as \n"}
+The JSON stdout string must contain only what the program prints, with no commentary or code fence.
+
+```java
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Scanner;
+
+
+public class PowerTwo {
+    public static int sol = Integer.MAX_VALUE;
+    public static HashSet<Long> potencias = new HashSet<Long>();
+    public static HashSet<String> memo = new HashSet<String>();
+    
+    static long quitar(long n, int pos){
+        int _obf_t5_quitar_897447 = 0; _obf_t5_quitar_897447 += 0;
+        int base = (int)Math.pow(10, pos);
+        long aux = n;
+        aux /= base*10;
+        n = n%base;
+        n = aux*base+n;
+        //System.out.println(base + "    " +aux+" "+n);
+        //System.out.println(n);
+                
+        return n;
+    }
+    
+    static ArrayList<Long> quitar22(long n){
+        int _obf_t5_quitar22_62164 = 0; _obf_t5_quitar22_62164 += 0;
+        ArrayList<Long> ret = new ArrayList<Long>();
+        int pos = 0;
+        long aux = quitar(n,pos);
+        while (n!=aux){
+            ret.add(aux);
+            pos++;
+            aux = quitar(n,pos);
+        }
+        return ret;
+    }
+    
+    static ArrayList<String> quitar(String n){
+        int _obf_t5_quitar_535972 = 0; _obf_t5_quitar_535972 += 0;
+        ArrayList<String> ret = new ArrayList<>();
+        String str = n;
+        
+        for(int i=0;i<str.length();i++){
+            String str2 = str.substring(0, i);
+            str2 += str.substring(i+1);
+            if (!ret.contains(str2))
+                ret.add(str2);
+        }
+        
+        return ret;
+    }
+    /*
+    static void solucion(long n, int tot){
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_solucion_933106 = 0;
+            _obf_t5_solucion_933106++;
+        }
+        if (memo.contains(n)) 
+            return;
+        else
+            memo.add(n);
+        if (tot>sol)
+            return;
+        System.out.println(n + " sol: " + sol);
+        if (potencias.contains(n)){
+            if (tot<sol)
+                sol = tot;
+        }
+        else{
+            
+            ArrayList<String> quitar = quitar(n);
+            for (String aux:quitar)
+                solucion(aux, 1 + tot);
+            
+            for (int i=0;i<=9;i++){
+                solucion(n*10+i, 1 + tot);
+            }
+        }
+    }*/
+
+    
+    
+    //**************************************************************************
+    public static class Par{
+        String numero;
+        int tot;
+
+        public Par(String numero, int tot) {
+            this.numero = numero;
+            this.tot = tot;
+        }
+        
+        
+        
+    }
+    public static java.util.LinkedList<Par> cola = new java.util.LinkedList<Par>();
+    public static java.util.LinkedList<Par> colaAgregar = new java.util.LinkedList<Par>();
+    
+    public static void solucionBFS(boolean usarquita){
+        int _obf_t5_solucionBFS_585842 = 0; _obf_t5_solucionBFS_585842 += 0;
+        String num = cola.peekFirst().numero;
+        memo.add(num);
+        sol = num.length()+1;//Math.max(1,num.length()-1);
+        int minimo = num.length();
+        Par actual ;
+        boolean quita ;
+        while( ! cola.isEmpty() || ! colaAgregar.isEmpty()){
+            if (! cola.isEmpty()){
+                actual = cola.pollFirst();
+                quita = true;
+            }
+            else{
+                quita = false;
+                actual = colaAgregar.pollFirst();
+            }
+            /*
+            {
+                Iterator<Par> it = colaAgregar.iterator();
+                while (it.hasNext()){
+                    Par next = it.next();
+                    System.out.println("\t\t" + sol + "\t" + next.numero + "\t" + next.tot);
+                }
+            }*/
+            String n = actual.numero;
+            int tot = actual.tot;
+            System.out.println(sol+" " +cola.size() + " " +colaAgregar.size());
+
+            if(tot <= sol){
+                if ( (!(n.equals(""))) && n.charAt(0)!='0' && potencias.contains(Long.parseLong(n))){
+                    if (tot<sol){
+                        sol = tot;
+                        
+                        Iterator<Par> it = cola.iterator();
+                        java.util.LinkedList<Par> colaNueva = new java.util.LinkedList<Par>();
+                        while (it.hasNext()){
+                            Par next = it.next();
+                            if (next.tot <= sol)
+                                colaNueva.addLast(next);
+                        }
+                        cola = colaNueva;
+                        
+                        colaNueva = new java.util.LinkedList<Par>();
+                        it = colaAgregar.iterator();
+                        while (it.hasNext()){
+                            Par next = it.next();
+                            if (next.tot <= sol)
+                                colaNueva.addLast(next);
+                        }
+                        colaAgregar = colaNueva;
+                        //System.out.println(sol);
+                    }
+                }
+                else{
+
+                    ArrayList<String> quitar = quitar(n);
+                    if(quita || usarquita)
+                    for (String aux:quitar){
+                        Par nuevo = new Par(aux,1+tot);
+                        if( 1+ tot <= sol){
+                            if ( ! memo.contains(aux)){
+                                if (aux.length() < Math.max(minimo,sol)){
+                                    cola.addLast(nuevo);
+                                    minimo = aux.length();
+                                }
+                                else{
+                                    cola.addLast(nuevo);
+                                }
+                                memo.add(aux);
+                            }
+                        }
+                    }
+
+                    if (!quita || usarquita)
+                    for (int i=0;i<=9;i++){
+                        String auxiliar = n+i;
+                        
+                        Par nuevo = new Par(auxiliar, 1+tot);
+                        //if (!auxiliar.equals("") && auxiliar.charAt(0)!='0')
+                        if( 1+ tot <= sol){
+                            if ( ! memo.contains(auxiliar)){
+                                if (auxiliar.length() < Math.max(minimo,sol) ){
+                                    colaAgregar.addLast(nuevo);
+                                    minimo = auxiliar.length();
+                                }
+                                else{
+                                    colaAgregar.addLast(nuevo);
+                                }
+                                memo.add(auxiliar);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    //**************************************************************************
+    private static int comparar(String patron, String num) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_comparar_586194 = 0;
+            _obf_t5_comparar_586194++;
+        }
+        //System.out.println(patron +"  "+num);
+        
+        if (num.equals("")){
+            return patron.length();
+        }
+        else
+        if (patron.equals("")){
+            return num.length();
+        }
+        else
+        if (patron.charAt(0)==num.charAt(0)){
+            return comparar(patron.substring(1), num.substring(1));
+        }
+        else{
+            return 1 + comparar(patron, num.substring(1));
+        }
+        //return res;
+    }
+    //**************************************************************************
+    public static int buscarGreedy(String numero) {
+        int _obf_t5_buscarGreedy_471299 = 0; _obf_t5_buscarGreedy_471299 += 0;
+        long pot = 1;
+        int minimo = Integer.MAX_VALUE;
+        for (int i=0;i<62;i++){
+            String numPot = Long.toString(pot);
+            int res = comparar(numPot, numero);
+            if (res < minimo)
+                minimo = res;
+            
+            //System.out.println(numPot+" "+ res + " " +minimo);
+            
+            pot = 2*pot;
+        }
+        return minimo;
+    }
+    //**************************************************************************
+    
+    public static void main(String[] args) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_main_824156 = 0;
+            _obf_t5_main_824156++;
+        }
+        //inicializarPotencias();
+        //int res = comparar("128","9715");
+        //System.out.println("Res: " + res);
+        
+        /*
+        {
+            int res = buscarGreedy("8888");
+            System.out.println("Respuesta " + res);
+        }*/
+        /*
+        ArrayList<String> quitar = quitar("9876543210");
+        
+            Par nuevo = new Par("1000000000",0);
+                nuevo = new Par("1111111111",0);
+                nuevo = new Par("9876543210",0);
+            //nuevo = new Par("687194767",0);
+            sol = Integer.MAX_VALUE;
+            cola.add(nuevo);
+            solucionBFS(false);
+            cola.add(nuevo);
+            System.out.println("sol "+sol);
+            solucionBFS(true);
+            System.out.println("sol "+sol);
+        */
+        
+        
+        Scanner sc = new Scanner(System.in);
+        int casos = Integer.parseInt(sc.nextLine());
+        
+        for (int k=0;k<casos;k++){
+            System.out.println(buscarGreedy(sc.nextLine()));
+        }
+        
+        
+        
+        
+        
+        
+        
+        //solucion(1052,0);
+        //System.out.println(sol);
+        
+        //System.out.println("ABCD".substring(0,0));
+        
+        //ArrayList<Long> quitar = quitar(1234);
+        
+        /*
+        Par nuevo = new Par(1052,0);
+        cola.add(nuevo);
+        solucionBFS();
+        System.out.println(sol);
+        
+        sol = Integer.MAX_VALUE;
+        nuevo = new Par(8888,0);
+        cola.add(nuevo);
+        solucionBFS();
+        System.out.println(sol);
+        
+        sol = Integer.MAX_VALUE;
+        nuevo = new Par(687194767,0);
+        cola.add(nuevo);
+        solucionBFS();
+        System.out.println(sol);
+        */
+        
+        
+        /*long n = 1352;
+        int pos = 0;
+        long aux = quitar(n,pos);
+        while (n!=aux){
+        System.out.println(aux);
+        pos++;
+        aux = quitar(n,pos);
+        }*/
+        
+    }
+
+    
+
+    public static void inicializarPotencias() {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_inicializarPotencias_234463 = 0;
+            _obf_t5_inicializarPotencias_234463++;
+        }
+        long pot = 1;
+        for (int i=0;i<62;i++){
+            potencias.add(pot);
+            //System.out.println(i+" "+pot);
+            pot = 2*pot;
+        }
+    }
+    
+}
+
+```

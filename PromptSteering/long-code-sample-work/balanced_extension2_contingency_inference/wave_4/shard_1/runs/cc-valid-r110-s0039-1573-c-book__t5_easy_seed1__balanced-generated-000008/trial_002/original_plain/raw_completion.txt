@@ -1,0 +1,19 @@
+ FINAL_OUTPUT_JSON: {"stdout":"2\n-1\n4\n-1\n5\n"}
+
+Reasoning:
+
+- The program initializes the number of test cases `T` from the input.
+- For each test case, it takes an integer `n` and an array of integers `data` with size `n`.
+- It initializes `dp` as an array of size `n` with all elements set to -2.
+- It initializes an integer `result` to 0 and a boolean array `s` of size `n` with all elements set to false.
+- It calls `cal(index, s, data)` to calculate the result for each index `i` in the array.
+- The `cal(index, s, data)` method checks if the `dp` array already has a value for `index`, if it does, it returns that value.
+- If the `s` array at `index` is true, it returns -1.
+- It sets `s[index]` to true and initializes `result` to 1.
+- It loops through all values in the `data[index]` array and recursively calls `cal` for each value.
+- If `v` is -1, it sets `result` to -1 and breaks out of the loop.
+- If the `i` is greater than `index`, it adds 1 to `v`.
+- It updates `result` to the maximum value between `result` and `v`.
+- It sets `s[index]` to false and returns the value of `dp[index]` as `result`.
+- It updates the maximum value of `result` for all indices `i` and sets `dp[index]` to `result`.
+- It prints the final result of each test case.

@@ -1,0 +1,20 @@
+The program takes two inputs n and m, and then reads n intervals of the form [a, b]. It then computes the sum of the number of integers in each interval that is divisible by a given number k, where 1 <= k <= 100000.
+
+The program uses the Möbius function to calculate the sum of the number of integers in each interval that is divisible by k. It also uses a lazy segment tree to keep track of the number of integers in each interval that is divisible by k.
+
+After computing the sum for each k, the program prints the final result. The final result is a single integer.
+
+For the given input of c001: invoke program entry point; target_method=ans; stdin="2 82949\n3069 17191\n63122 72590\n"; argv=[], the program will print the result of 4648. The program will compute the sum of the number of integers in each interval that is divisible by k, where 1 <= k <= 100000. The sum for each k is calculated using the Möbius function and the lazy segment tree.
+
+The Möbius function is a mathematical function that is used to calculate the sum of the divisors of a given number. It is defined as follows:
+
+- mu[1] = 1
+- mu[n] = -1 if n is a prime number
+- mu[n] = 0 if n is not a prime number and has a square factor
+- mu[n] = 1 if n is a prime number
+
+The program uses the Möbius function to calculate the sum of the number of integers in each interval that is divisible by k. For each k, it calculates the sum of the number of integers in each interval that is divisible by k, and multiplies the result by mu[k]. The final result is the sum of all the values obtained for each k.
+
+The lazy segment tree is used to keep track of the number of integers in each interval that is divisible by k. It is a data structure that is used to efficiently update and query the number of integers in each interval that is divisible by k. The program uses the lazy segment tree to update the number of integers in each interval that is divisible by k as it reads the intervals from the input.
+
+The program then computes the sum of the number of integers in each interval that is divisible by k using

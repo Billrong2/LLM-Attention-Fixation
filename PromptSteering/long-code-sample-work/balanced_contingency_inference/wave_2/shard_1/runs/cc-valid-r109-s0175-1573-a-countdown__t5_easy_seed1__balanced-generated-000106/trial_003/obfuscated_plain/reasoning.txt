@@ -1,0 +1,31 @@
+The program reads a series of test cases and for each test case, it calculates and prints the number of moves needed to reach the last element of a given number represented as a character array. Each test case is represented by an integer \( n \) and a string of \( n \) digits.
+
+The `find` method calculates the number of moves as follows:
+1. If the last digit is non-zero, it increments the count by that digit.
+2. For all other digits except the last one, if the digit is non-zero, it increments the count by that digit plus one.
+
+### Case Analysis:
+1. **Case 1:** `n = 7`, `ch = "007"` (3 digits)
+   - The last digit is '7', so the moves are incremented by 7.
+   - The first two digits are '0', so no moves are added from these digits.
+   - Total moves: 7
+
+2. **Case 2:** `n = 4`, `ch = "1100"` (4 digits)
+   - The last digit is '0', so no moves are added from this digit.
+   - The third digit is '0', so no moves are added from this digit.
+   - The first two digits are '1', so moves are incremented by 1 + 1 = 2 each.
+   - Total moves: 2 + 2 = 4
+
+3. **Case 3:** `n = 5`, `ch = "00010"` (5 digits)
+   - The last digit is '0', so no moves are added from this digit.
+   - The fourth digit is '1', so moves are incremented by 1 + 1 = 2.
+   - The first three digits are '0', so no moves are added from these digits.
+   - Total moves: 2
+
+4. **Case 4:** `n = 3`, `ch = "103"` (3 digits)
+   - The last digit is '3', so moves are incremented by 3.
+   - The second digit is '0', so no moves are added from this digit.
+   - The first digit is '1', so moves are incremented by 1 + 1 = 2.
+   - Total moves: 3 + 2 = 5
+
+5. **Case 5:** `n = 4`, `ch = "2020"` (4 digits)

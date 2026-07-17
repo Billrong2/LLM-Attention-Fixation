@@ -1,0 +1,21 @@
+
+
+
+The target method solve(n, m, k, yline, xline, px, py) is invoked with the following input parameters:
+n = 2
+m = 2
+k = 2
+yline = [0, 1000000]
+xline = [1, 1000000]
+px = [1556, 1000000]
+py = [0, 38]
+
+Inside the solve method, two hash sets yset and xset are created to store the yline and xline values, respectively. Two hash maps mapx and mapy are also created to store the count of each unique pair of x and y values from xlist and ylist, respectively.
+
+Then, the xlist and ylist are created by iterating through yline and xline, and adding pairs (y, -1) to xlist and (x, -1) to ylist, respectively. Next, the k pairs (px[i], py[i]) are added to either xlist or ylist based on whether py[i] or px[i] is present in xset or yset, respectively. If both are present, the pair is skipped.
+
+After that, xlist and ylist are sorted, and mapx, mapy, sumx, sumy, and ans are initialized. The loop iterates through xlist and ylist and checks if the current pair is (-1, -1). If it is, mapx and mapy are cleared, and sumx and sumy are reset to 0. If not, the pair is a real pair, and ans is updated based on the values in mapx and mapy.
+
+Finally, the ans value is returned as the output of the method. In this case, the output would be the final value of ans, which is 1.
+
+FINAL_OUTPUT_JSON: {"stdout":"1"}

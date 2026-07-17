@@ -1,0 +1,40 @@
+To determine the exact standard output of the given Java program for the specified input, we need to follow the logic and steps executed by the `fun` method and the main program flow.
+
+### Steps to Follow:
+
+1. **Input Processing**:
+   - Read the number of test cases `test`.
+   - For each test case:
+     - Read the number `n` which represents the size of the array `a`.
+     - Read `n` values into the array `a`.
+
+2. **Logic Execution**:
+   - For each array `a`, calculate the number of 0s and 1s.
+   - Determine if the difference between the number of 0s and 1s is more than 1, in which case print `-1`.
+   - If the number of elements `n` is even:
+     - Check if the number of 0s and 1s are equal.
+     - If they are equal, calculate the minimum value between `fun(0, a)` and `fun(1, a)`.
+     - If they are not equal, print `-1`.
+   - If the number of elements `n` is odd:
+     - Check if the number of 0s is one more than the number of 1s, in which case print `fun(0, a)`.
+     - Check if the number of 1s is one more than the number of 0s, in which case print `fun(1, a)`.
+     - If neither condition is met, print `-1`.
+
+3. **Function `fun` Execution**:
+   - The function `fun` iterates over the array `a` and calculates the total absolute differences based on the XOR operation with `x` (either 0 or 1).
+   - It returns the total sum of these differences.
+
+### Detailed Execution for the Given Case:
+
+- **Input**:
+  - `test = 1`
+  - `n = 7`
+  - `a = [0, 0, 0, 1, 1, 0, 1]`
+
+- **Processing**:
+  - Count the number of 0s and 1s in `a`.
+  - `f[0]` (number of 0s) = 4
+  - `f[1]` (number of 1s) = 3
+
+- **Check Conditions**:
+  - Since `n` is odd and `f[0]`

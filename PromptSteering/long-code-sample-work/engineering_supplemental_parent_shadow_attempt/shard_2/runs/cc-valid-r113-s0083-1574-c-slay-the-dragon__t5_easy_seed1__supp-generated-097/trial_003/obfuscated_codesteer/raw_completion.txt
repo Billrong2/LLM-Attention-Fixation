@@ -1,0 +1,36 @@
+ The program reads input from `stdin` and processes it according to a defined algorithm. Here's the step-by-step breakdown of the execution:
+
+1. **Input Reading**:
+   - The program reads the first integer `n` which is 4.
+   - It then reads four integers: 12, 11, 1, and 2.
+   - These values are stored in an array `arr` and also added to a set `hs`.
+
+2. **Sorting and Finding**:
+   - The array `arr` is sorted.
+   - The program then reads the number of queries `y`, which is 1.
+   - For the first query, it reads `attack` as 12 and `defend` as 28.
+   - The `find` method is called with these parameters.
+
+3. **Finding Minimum Cost**:
+   - The `find` method calculates the minimum cost based on the given formula.
+   - The method returns the minimum of two possible costs.
+
+4. **Output**:
+   - The result of the `find` method is printed to `stdout`.
+
+Given the input:
+```
+4
+12 11 1 2
+1
+12 28
+```
+The expected output is:
+```
+16
+```
+
+**FINAL_OUTPUT_JSON:**
+```
+{"stdout":"16\n"}
+```

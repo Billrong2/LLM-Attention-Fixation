@@ -1,0 +1,9 @@
+Reasoning:
+
+1. The program starts by reading the number of test cases `t` from the input.
+2. For each test case, it reads a string of digits from the input and converts it to an array of characters `arr`.
+3. The `eval` function is called with the initial parameters `0`, `0`, `n`, `dp`, `false`, `false` to compute the result.
+4. The `eval` function uses dynamic programming to compute the result based on the input digits and some additional parameters.
+5. The function recursively calls itself with different parameters until it reaches the base case where `in == n`.
+6. The final result is stored in `ans` and printed as the output.
+7. The program repeats steps 2-6 for each test case.

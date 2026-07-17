@@ -1,0 +1,210 @@
+{
+  "schema_version": "long-code-paired-trial-manual-trace-review-v1",
+  "publishable": true,
+  "post_hoc_outcome_and_oracle_aware": true,
+  "separate_from_outcome_blind_case_generation": true,
+  "audit_inputs": {
+    "json_sha256": "29f7d788e0142777b7e9c8468f50f2c7461437f16178c972ba7cb8f6ed1e9b89",
+    "candidates_csv_sha256": "493b14c93599d990cc70c6d51716b8439e64a6c9a0c96681f053ad685e7968c3",
+    "runs_csv_sha256": "0defea1e9873cb24e4d610e41c226c5d3de95ae3df236ecf79d36d0e1bda8e4f"
+  },
+  "selection_mode": "same_seed_paired_trial_contrast",
+  "selection_unit": "distinct_sample_id",
+  "required_distinct_sample_id_count": 10,
+  "baseline_zero_of_three_required": false,
+  "canonical_problem_repeats_allowed": true,
+  "display_pass_at_k": false,
+  "aggregate_performance_claim_supported": false,
+  "ten_problem_generalization_claim_supported": false,
+  "reported_distinct_canonical_problem_count": 5,
+  "reported_canonical_problem_repeat_entry_count": 5,
+  "reported_sample_count_by_canonical_problem": {
+    "deepmind/code_contests@802411c3010cb00d1b05bad57ca77365a3c699d6:valid:row-000027": 1,
+    "deepmind/code_contests@802411c3010cb00d1b05bad57ca77365a3c699d6:valid:row-000069": 2,
+    "deepmind/code_contests@802411c3010cb00d1b05bad57ca77365a3c699d6:valid:row-000070": 1,
+    "deepmind/code_contests@802411c3010cb00d1b05bad57ca77365a3c699d6:valid:row-000079": 1,
+    "deepmind/code_contests@802411c3010cb00d1b05bad57ca77365a3c699d6:valid:row-000101": 5
+  },
+  "entries": [
+    {
+      "selection_order": 1,
+      "sample_id": "cc-valid-r027-s0184-1553-d-backspace__t5_easy_seed1__balanced-private-000001",
+      "canonical_problem_identity": "deepmind/code_contests@802411c3010cb00d1b05bad57ca77365a3c699d6:valid:row-000027",
+      "selected_codesteer_trial": 2,
+      "paired_baseline_trial": 2,
+      "paired_seed": 2052082749,
+      "selected_codesteer_fingerprint": "1bd302718103564be36425a34386b9b10e137966b1aa2bf5fe06bdae5f2a55ef",
+      "publishable": true,
+      "reasoning_quality": "coherent",
+      "grounding_scores": {"source": 2, "input": 2, "state": 2},
+      "review_note": "The trace correctly initializes i=2 and j=1, matches b/b, reaches i=1 and j=0, then handles the actual b/a mismatch by subtracting two from i. Since j remains zero when i becomes negative, solve returns NO. The oracle has a terminal newline while the prediction does not, but they match under the registered trimmed comparator.",
+      "baseline_failure_notes": {
+        "original_plain": "Marker JSON predicts YES; its trace incorrectly reads s[1] as a instead of the actual b.",
+        "obfuscated_plain": "Its reasoning reaches the correct NO, but generation truncates at FINAL_OUTPUT without a valid JSON marker, leaving no scored prediction.",
+        "obfuscated_prompt_slice": "Empty completion with no marker or reasoning."
+      }
+    },
+    {
+      "selection_order": 2,
+      "sample_id": "cc-valid-r069-s0346-1560-d-make-a-power-of-two__t5_easy_seed1__supp-private-002",
+      "canonical_problem_identity": "deepmind/code_contests@802411c3010cb00d1b05bad57ca77365a3c699d6:valid:row-000069",
+      "selected_codesteer_trial": 2,
+      "paired_baseline_trial": 2,
+      "paired_seed": 160179803,
+      "selected_codesteer_fingerprint": "c225e4350389748613742ca0c82d0b18543852b1089e3dd746a8d1327103ca1e",
+      "publishable": true,
+      "reasoning_quality": "coherent",
+      "grounding_scores": {"source": 1, "input": 2, "state": 2},
+      "review_note": "The trace correctly identifies that all three inputs are 1, recognizes each as already a power of two, and derives zero edits for all three outputs. It is concise and sufficiently grounded in the concrete input.",
+      "baseline_failure_notes": {
+        "original_plain": "Produces no prediction and no valid final marker.",
+        "obfuscated_plain": "Incorrectly emits four zero lines instead of the oracle's three lines and has no valid marker.",
+        "obfuscated_prompt_slice": "Produces no prediction and no valid final marker."
+      }
+    },
+    {
+      "selection_order": 3,
+      "sample_id": "cc-valid-r079-s0140-1562-b-scenes-from-a-memory__t5_easy_seed1__balanced-generated-000085",
+      "canonical_problem_identity": "deepmind/code_contests@802411c3010cb00d1b05bad57ca77365a3c699d6:valid:row-000079",
+      "selected_codesteer_trial": 2,
+      "paired_baseline_trial": 2,
+      "paired_seed": 1213338101,
+      "selected_codesteer_fingerprint": "bbdb32fcd670797b2fef0fe20d2df79050fcf1e025ef5517f874e059b44fd4bf",
+      "publishable": true,
+      "reasoning_quality": "mostly_coherent",
+      "grounding_scores": {"source": 2, "input": 2, "state": 2},
+      "review_note": "The trace correctly parses t=1, n=2, and s=117, then follows the first invalid digit 1 to the two printed lines. Its prose compresses the output as 11, but the final JSON correctly preserves the newline-separated oracle.",
+      "baseline_failure_notes": {
+        "original_plain": "Misparses the input and truncates before producing a valid final marker.",
+        "obfuscated_plain": "Returns a fenced single-line 11 rather than the required two-line output and provides no valid marker.",
+        "obfuscated_prompt_slice": "Empty completion with no marker or reasoning."
+      }
+    },
+    {
+      "selection_order": 4,
+      "sample_id": "cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1__balanced-generated-000117",
+      "canonical_problem_identity": "deepmind/code_contests@802411c3010cb00d1b05bad57ca77365a3c699d6:valid:row-000101",
+      "selected_codesteer_trial": 1,
+      "paired_baseline_trial": 1,
+      "paired_seed": 1956018768,
+      "selected_codesteer_fingerprint": "7bf29f579dbf55223550eba289b422b338a763a4763df33da1cf2c1f4aff5fee",
+      "publishable": true,
+      "reasoning_quality": "mostly_coherent",
+      "grounding_scores": {"source": 1, "input": 2, "state": 1},
+      "review_note": "The trace correctly parses k=0, empty point arrays, and concludes that no point contributes, so the result is zero. It omits the sentinel and reset mechanics, but the decisive state is sound.",
+      "baseline_failure_notes": {
+        "original_plain": "Invents nonempty point arrays despite k=0 and truncates before a final result.",
+        "obfuscated_plain": "Parses k=0 correctly but truncates before producing a final output marker.",
+        "obfuscated_prompt_slice": "Empty completion with no marker or reasoning."
+      }
+    },
+    {
+      "selection_order": 5,
+      "sample_id": "cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1__balanced-generated-000086",
+      "canonical_problem_identity": "deepmind/code_contests@802411c3010cb00d1b05bad57ca77365a3c699d6:valid:row-000101",
+      "selected_codesteer_trial": 1,
+      "paired_baseline_trial": 1,
+      "paired_seed": 1553466767,
+      "selected_codesteer_fingerprint": "9012c041868ace27914536b1939fb88a82c4a254e02d3f4a71fbdf9a0a03ba61",
+      "publishable": true,
+      "reasoning_quality": "mostly_coherent",
+      "grounding_scores": {"source": 1, "input": 2, "state": 1},
+      "review_note": "The trace correctly uses k=0 to conclude that no point pair is counted and the output is zero. It incorrectly says the two line arrays each contain only one distinct value, so the supporting state description is incomplete.",
+      "baseline_failure_notes": {
+        "original_plain": "Its fenced prediction is 500000000 rather than oracle 0.",
+        "obfuscated_plain": "Truncates before producing a final result or valid marker.",
+        "obfuscated_prompt_slice": "Emits the literal final-output template placeholder instead of a prediction."
+      }
+    },
+    {
+      "selection_order": 6,
+      "sample_id": "cc-valid-r069-s0346-1560-d-make-a-power-of-two__t5_easy_seed1__balanced-generated-000095",
+      "canonical_problem_identity": "deepmind/code_contests@802411c3010cb00d1b05bad57ca77365a3c699d6:valid:row-000069",
+      "selected_codesteer_trial": 1,
+      "paired_baseline_trial": 1,
+      "paired_seed": 160844230,
+      "selected_codesteer_fingerprint": "d3cc5502f2c92799724a20a6e6e0140c6593ec41c07c33127e87fdf62038c1f1",
+      "publishable": true,
+      "reasoning_quality": "output_correct_reasoning_limited",
+      "grounding_scores": {"source": 2, "input": 2, "state": 0},
+      "review_note": "The trace describes buscarGreedy and comparar but never computes the minimum for input 165947. It leaves the answer as placeholder x before asserting the exact value 4 in the final JSON, so the correct output is weakly supported.",
+      "baseline_failure_notes": {
+        "original_plain": "Valid marker predicts 6 rather than oracle 4.",
+        "obfuscated_plain": "Without a valid marker, claims 1 using incorrect nearest-power and Levenshtein reasoning.",
+        "obfuscated_prompt_slice": "Truncates before producing a result or valid marker."
+      }
+    },
+    {
+      "selection_order": 7,
+      "sample_id": "cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1__balanced-generated-000189",
+      "canonical_problem_identity": "deepmind/code_contests@802411c3010cb00d1b05bad57ca77365a3c699d6:valid:row-000101",
+      "selected_codesteer_trial": 3,
+      "paired_baseline_trial": 3,
+      "paired_seed": 2105977250,
+      "selected_codesteer_fingerprint": "6869fcf5915f06e27d4477e1d4d532f55ce09f6cc43144e3c09bfc16c549ba69",
+      "publishable": true,
+      "reasoning_quality": "output_correct_reasoning_limited",
+      "grounding_scores": {"source": 1, "input": 2, "state": 0},
+      "review_note": "The trace parses every array and point correctly but only asserts that no qualifying pair exists. It omits the decisive state: each inserted point is isolated in its interval, so neither scan contributes a pair and ans remains zero.",
+      "baseline_failure_notes": {
+        "original_plain": "Empty completion with no marker or reasoning.",
+        "obfuscated_plain": "Parses the input and summarizes the algorithm but truncates at an empty final-output section without a marker.",
+        "obfuscated_prompt_slice": "Valid marker predicts 4 rather than oracle 0 and gives no list or map state supporting four."
+      }
+    },
+    {
+      "selection_order": 8,
+      "sample_id": "cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1__supp-generated-063",
+      "canonical_problem_identity": "deepmind/code_contests@802411c3010cb00d1b05bad57ca77365a3c699d6:valid:row-000101",
+      "selected_codesteer_trial": 2,
+      "paired_baseline_trial": 2,
+      "paired_seed": 1831614264,
+      "selected_codesteer_fingerprint": "5e5868b16c1a9f47bd1df303aa6df444aa5b4097b81cc1c52d3ab8422cb27aea",
+      "publishable": true,
+      "reasoning_quality": "output_correct_reasoning_limited",
+      "grounding_scores": {"source": 1, "input": 1, "state": 0},
+      "review_note": "The trace misstates the first special point and says the answer is zero because lines are parallel. The actual zero follows because each interval contains only one isolated point, so no qualifying pair is counted.",
+      "baseline_failure_notes": {
+        "original_plain": "Truncates while constructing ylist and never produces a valid final marker.",
+        "obfuscated_plain": "Truncates before the result and never produces a valid final marker.",
+        "obfuscated_prompt_slice": "Empty completion with no marker or reasoning."
+      }
+    },
+    {
+      "selection_order": 9,
+      "sample_id": "cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1__supp-generated-002",
+      "canonical_problem_identity": "deepmind/code_contests@802411c3010cb00d1b05bad57ca77365a3c699d6:valid:row-000101",
+      "selected_codesteer_trial": 3,
+      "paired_baseline_trial": 3,
+      "paired_seed": 46533517,
+      "selected_codesteer_fingerprint": "4e60cc7a16a2ef596dbf49e0714c92acd9313851d999e0c3f3f2a29c0c162b03",
+      "publishable": true,
+      "reasoning_quality": "output_correct_reasoning_limited",
+      "grounding_scores": {"source": 1, "input": 2, "state": 0},
+      "review_note": "The trace parses the input correctly but inaccurately describes the computation as summing sets and says the lists have no elements. The lists actually contain sentinels and isolated inserted points, so the exact zero is not adequately derived.",
+      "baseline_failure_notes": {
+        "original_plain": "Truncates during list processing before producing a final output marker.",
+        "obfuscated_plain": "Truncates during list processing before producing a final output marker.",
+        "obfuscated_prompt_slice": "Truncates mid-trace without producing a final output marker."
+      }
+    },
+    {
+      "selection_order": 10,
+      "sample_id": "cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1__00-generated-003",
+      "canonical_problem_identity": "deepmind/code_contests@802411c3010cb00d1b05bad57ca77365a3c699d6:valid:row-000070",
+      "selected_codesteer_trial": 3,
+      "paired_baseline_trial": 3,
+      "paired_seed": 2082455332,
+      "selected_codesteer_fingerprint": "26082c4927ee3ebc2a23d3d6a0253a3dec408cec4a00df2dff79bf4ca9ac7700",
+      "publishable": true,
+      "reasoning_quality": "output_correct_reasoning_limited",
+      "grounding_scores": {"source": 1, "input": 2, "state": 0},
+      "review_note": "The trace gives no per-string execution supporting the seven -1 outputs and incorrectly claims that check uses KMP. The relevant check builds a string and compares equality, so the exact final JSON is not supported by the stated reasoning.",
+      "baseline_failure_notes": {
+        "original_plain": "Empty completion with no marker or predicted output.",
+        "obfuscated_plain": "Empty completion with no marker or predicted output.",
+        "obfuscated_prompt_slice": "Empty completion with no marker or predicted output."
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+ The target method `eval` is invoked with the following input:
+
+* `arr` is an array of characters: "1\n7323\n"
+* `in` is 0
+* `carry` is 0
+* `n` is 5 (the length of `arr`)
+* `dp` is an uninitialized 2D array of long integers with dimensions `n` x 1100
+* `a` is false
+* `b` is false
+
+The program begins by checking if `in` is equal to `n`, which it is not. It then sets `ans` to 0, and initializes `val` to the integer value of the character at index `in` in `arr`. In this case, `val` is 1.
+
+The program then checks if `val` is equal to 0, which it is not. It then enters an `if` block that checks if `in` is less than `n-2`. In this case, it is not. Therefore, the program enters the `else` block, which checks if `val` is equal to 2, which it is not. The program then enters the `else` block, which checks if `val` is not equal to 1, which it is. The program then adds the result of a recursive call to `eval` to `ans`, with `val` set to `val-1`. In this case, the result is `eval("1\n7323\n", 1, 0, 5, dp, true, true)`.
+
+The program then sets `carry` to `carry` XOR `1<<in`, which is `1<<1` or 2. The program then calls `eval` recursively with the updated values of `carry` and `in`. In this case, the result is `eval("1\n7323\n", 1, 2, 5, dp, true, true)`.
+
+The program then updates `dp` by storing the result of the recursive call in `dp[in][carry]`. The program then returns `ans`.
+
+The output of the program is:
+
+FINAL_OUTPUT_JSON: {"stdout":"1"}

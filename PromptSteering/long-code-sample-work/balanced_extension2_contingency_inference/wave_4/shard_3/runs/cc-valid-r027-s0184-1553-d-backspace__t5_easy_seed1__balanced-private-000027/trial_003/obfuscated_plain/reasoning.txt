@@ -1,0 +1,42 @@
+To predict the exact standard output of the given Java program, we need to analyze how the `solve` method behaves with the provided inputs:
+
+1. **Program Entry Point**:
+   - The `main` method is called with the input parameters.
+
+2. **Input Processing**:
+   - The number of test cases (`tc`) is read from the input.
+   - For each test case, two strings `s` and `t` are read.
+
+3. **Execution of `solve` Method**:
+   - The `solve` method checks whether there exists a substring of `s` that matches `t` after skipping every other character.
+   - If such a substring exists, the method returns "YES", otherwise it returns "NO".
+
+Given the input:
+```
+1
+abba
+bb
+```
+- We have one test case.
+- `s` is "abba".
+- `t` is "bb".
+
+Let's trace the execution of `solve`:
+1. **Initial Values**:
+   - `i` (index of `s`) starts at 3.
+   - `j` (index of `t`) starts at 1.
+
+2. **Loop Execution**:
+   - Check `s.charAt(i)` == `t.charAt(j)`:
+     - `s.charAt(3) == 'a'` and `t.charAt(1) == 'b'` -> False
+     - Move `i` backwards by 2, i.e., `i = 3 - 2 = 1`.
+   - Check `s.charAt(i)` == `t.charAt(j)`:
+     - `s.charAt(1) == 'b'` and `t.charAt(1) == 'b'` -> True
+     - Move both `i` and `j` backwards, i.e., `i = 1 - 1 = 0` and `j = 1 - 1 = 0`.
+   - Check `s.charAt(i)` == `t.charAt(j)`:
+     - `s.charAt(0) == 'a'` and `t.charAt(0) == 'b'` -> False
+     - Move `i` backwards by 2, i.e., `i = 0 - 2 = -2`. Since `i` is now less than 0, we stop the loop.
+   - `j` is still 0, which means we have not found a matching substring.
+
+3. **Output**:
+   -

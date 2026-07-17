@@ -1,0 +1,128 @@
+{
+  "codesteer_target": {
+    "called_directly_from_main": true,
+    "eligible_parameter_to_return_target": true,
+    "genuine_return_sink_count": 4,
+    "main_called_method_names": [
+      "cal",
+      "close",
+      "fill",
+      "nextInt",
+      "println"
+    ],
+    "method_names": [
+      "main",
+      "cal",
+      "abs",
+      "KMP",
+      "nextPer",
+      "digit",
+      "dist",
+      "toString",
+      "update",
+      "get",
+      "gcd",
+      "pow",
+      "next",
+      "nextLong",
+      "nextInt",
+      "nextDouble",
+      "nextLine",
+      "endLine"
+    ],
+    "parameter_count": 4,
+    "parameters": [
+      {
+        "name": "index",
+        "type": "int"
+      },
+      {
+        "name": "larger",
+        "type": "int"
+      },
+      {
+        "name": "n",
+        "type": "int"
+      },
+      {
+        "name": "m",
+        "type": "int"
+      }
+    ],
+    "parse_status": "javalang",
+    "return_sink_count": 4,
+    "return_type": "int",
+    "selected_method": "cal",
+    "selected_method_line": 59,
+    "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+    "selector_implementation_owner": "steering.priors.SlicingPrior",
+    "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+  },
+  "entry": {
+    "compile_class": "C_Round_735_Div2",
+    "main_class": "C_Round_735_Div2",
+    "package": "",
+    "parse_status": "javalang"
+  },
+  "execution_validation": {
+    "accepted": true,
+    "cases": [
+      {
+        "accepted": true,
+        "actual_trimmed": "0\n0\n0\n1280\n524288",
+        "case_id": "00-generated-110",
+        "command": [
+          "java",
+          "-Dfile.encoding=UTF-8",
+          "-Djava.io.tmpdir=<scratch>",
+          "-Duser.home=<scratch>",
+          "-XX:-UsePerfData",
+          "-cp",
+          "<classes>",
+          "C_Round_735_Div2"
+        ],
+        "duration_seconds": 0.034392,
+        "exit_code": 0,
+        "expected_trimmed": "0\n0\n0\n1280\n524288",
+        "raw_expected_stdout_sha256": "01303dd718e0e8a2f89decbac68d7834bfd3e1828c11275c7eb7c259ab320379",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "01303dd718e0e8a2f89decbac68d7834bfd3e1828c11275c7eb7c259ab320379",
+        "stderr": "",
+        "stdout": "0\n0\n0\n1280\n524288\n",
+        "timed_out": false,
+        "trimmed_exact_match": true
+      }
+    ],
+    "compile": {
+      "accepted": true,
+      "command": [
+        "javac",
+        "-encoding",
+        "UTF-8",
+        "-J-Djava.io.tmpdir=<scratch>",
+        "-J-Duser.home=<scratch>",
+        "-J-XX:-UsePerfData",
+        "-Xlint:none",
+        "-nowarn",
+        "-d",
+        "<classes>",
+        "<scratch>/C_Round_735_Div2.java"
+      ],
+      "exit_code": 0,
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    "entry": {
+      "compile_class": "C_Round_735_Div2",
+      "main_class": "C_Round_735_Div2",
+      "package": "",
+      "parse_status": "javalang"
+    }
+  },
+  "physical_loc": 272,
+  "source_path": "candidates/cc-valid-r035-s0234-1554-c-mikasa/original/C_Round_735_Div2.java",
+  "source_sha256": "d530c46da4fd0ade255d55168f51b8abc9fde7fead5d5904fcfa2bcc6b234ea1"
+}

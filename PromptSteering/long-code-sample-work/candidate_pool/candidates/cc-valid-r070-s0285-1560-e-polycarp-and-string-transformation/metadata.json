@@ -1,0 +1,163 @@
+{
+  "expected_stdout": "-1\n-1\n-1\n-1\n-1\n-1\n-1\n",
+  "expected_stdout_path": "candidates/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation/io/00-generated-003.out",
+  "id": "cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation",
+  "input": "7\nabacbbaaadaac\noovyouknowuhat\npolycarppoycarppoyarppyarppyrpprqpp\nish\neverywherevrywhrvryhrvhhrvrv\nhaaha\nqweqeewew\n",
+  "input_path": "candidates/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation/io/00-generated-003.in",
+  "inputs": [
+    {
+      "dataset_test_index": 3,
+      "expected_stdout": "-1\n-1\n-1\n-1\n-1\n-1\n-1\n",
+      "expected_stdout_path": "candidates/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation/io/00-generated-003.out",
+      "expected_stdout_sha256": "e60bceab817dad3eba536bd02198ab4eebefee208dc1a206cceb2a07b0897157",
+      "id": "00-generated-003",
+      "input": "7\nabacbbaaadaac\noovyouknowuhat\npolycarppoycarppoyarppyarppyrpprqpp\nish\neverywherevrywhrvryhrvhhrvrv\nhaaha\nqweqeewew\n",
+      "input_path": "candidates/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation/io/00-generated-003.in",
+      "input_sha256": "4fd54b9045d2767ec8b741b84ea64a49303eb09ce071694142c04b09ab89865a",
+      "suite": "generated_tests",
+      "validation": {
+        "compiled_with_jdk17": true,
+        "exit_code": 0,
+        "stderr_bytes": 0,
+        "stdout_exact_byte_match": true,
+        "timed_out": false
+      }
+    }
+  ],
+  "loc_definition": "Python str.splitlines(); final newline does not add an empty physical line",
+  "main_class": "E_Round_739_Div3",
+  "nonblank_loc": 282,
+  "original_path": "candidates/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation/original.java",
+  "physical_loc": 324,
+  "prevalidation": {
+    "all_retained_tests_exact": true,
+    "compiled": true,
+    "compiler_exit_code": 0,
+    "compiler_stderr_bytes": 0,
+    "compiler_stdout_bytes": 0,
+    "jdk_major": 17
+  },
+  "problem_key": "codeforces-1560-E",
+  "problem_name": "1560_E. Polycarp and String Transformation",
+  "provenance": {
+    "cf_contest_id": 1560,
+    "cf_index": "E",
+    "cf_points": 0.0,
+    "cf_rating": 1800,
+    "cf_tags": [
+      "binary search",
+      "implementation",
+      "sortings",
+      "strings"
+    ],
+    "dataset_file": "codecontests-valid-802411c3.parquet",
+    "dataset_file_sha256": "02e8c1ccedae716f1e43cc813fcb7823c3db666ea92638820aba80e8cef451ab",
+    "dataset_id": "deepmind/code_contests",
+    "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+    "dataset_url": "https://huggingface.co/datasets/deepmind/code_contests/resolve/802411c3010cb00d1b05bad57ca77365a3c699d6/data/valid-00000-of-00001-5e672c5751f060d3.parquet",
+    "difficulty": 11,
+    "language": "Java",
+    "language_code": 4,
+    "problem_name": "1560_E. Polycarp and String Transformation",
+    "row_index": 70,
+    "solution_container": "solutions",
+    "solution_index": 285,
+    "solution_label": "correct human solution",
+    "source_code": 2,
+    "split": "valid"
+  },
+  "source_bytes": 8437,
+  "source_sha256": "85e165471ce3f8be8cb6b6974d6af27ec1d86f686e2b57f5d048250611ddd27d",
+  "target": {
+    "arity": 3,
+    "body_nonblank_loc": 14,
+    "body_physical_loc": 14,
+    "class": "E_Round_739_Div3",
+    "codesteer_selector": {
+      "declaration_line": 105,
+      "fallback_used": false,
+      "implementation": "steering.priors.SlicingPrior._select_target_method",
+      "name": "check",
+      "parameter_count": 3,
+      "parse_status": "javalang",
+      "top_level_body_statement_count": 4
+    },
+    "control_node_count": 3,
+    "end_line": 118,
+    "loop_node_count": 2,
+    "main_call_path": [
+      {
+        "arity": 1,
+        "class": "E_Round_739_Div3",
+        "end_line": 103,
+        "name": "main",
+        "parameter_types": [
+          "String[]"
+        ],
+        "return_type": "void",
+        "start_line": 36
+      },
+      {
+        "arity": 3,
+        "class": "E_Round_739_Div3",
+        "end_line": 118,
+        "name": "check",
+        "parameter_types": [
+          "String",
+          "String",
+          "String"
+        ],
+        "return_type": "boolean",
+        "start_line": 105
+      }
+    ],
+    "main_reachable": true,
+    "name": "check",
+    "output_caller": {
+      "arity": 1,
+      "class": "E_Round_739_Div3",
+      "end_line": 103,
+      "name": "main",
+      "parameter_types": [
+        "String[]"
+      ],
+      "return_type": "void",
+      "start_line": 36
+    },
+    "output_evidence": "check(S, O, v) controls out.println(S + \" \" + O)",
+    "output_relevance_kind": "output_control_predicate",
+    "output_relevance_variable": null,
+    "parameter_types": [
+      "String",
+      "String",
+      "String"
+    ],
+    "recursive_call_count": 0,
+    "return_type": "boolean",
+    "return_value_output_relevant": true,
+    "source_sha256": "55b2dc5e30b9761b92814f99a9ea1bf00a977ea3f0830d7fc2fde25d49d4705b",
+    "start_line": 105
+  },
+  "target_method": "check",
+  "target_signature": "boolean E_Round_739_Div3.check(String, String, String)",
+  "tests": [
+    {
+      "dataset_test_index": 3,
+      "expected_stdout": "-1\n-1\n-1\n-1\n-1\n-1\n-1\n",
+      "expected_stdout_path": "candidates/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation/io/00-generated-003.out",
+      "expected_stdout_sha256": "e60bceab817dad3eba536bd02198ab4eebefee208dc1a206cceb2a07b0897157",
+      "id": "00-generated-003",
+      "input": "7\nabacbbaaadaac\noovyouknowuhat\npolycarppoycarppoyarppyarppyrpprqpp\nish\neverywherevrywhrvryhrvhhrvrv\nhaaha\nqweqeewew\n",
+      "input_path": "candidates/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation/io/00-generated-003.in",
+      "input_sha256": "4fd54b9045d2767ec8b741b84ea64a49303eb09ce071694142c04b09ab89865a",
+      "suite": "generated_tests",
+      "validation": {
+        "compiled_with_jdk17": true,
+        "exit_code": 0,
+        "stderr_bytes": 0,
+        "stdout_exact_byte_match": true,
+        "timed_out": false
+      }
+    }
+  ]
+}

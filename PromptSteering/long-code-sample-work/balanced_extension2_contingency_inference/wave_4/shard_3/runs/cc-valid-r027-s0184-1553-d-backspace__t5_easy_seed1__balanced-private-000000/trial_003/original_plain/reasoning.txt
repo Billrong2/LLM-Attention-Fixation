@@ -1,0 +1,11 @@
+### CASE 001:
+Input:
+1
+baa
+ba
+
+The algorithm method solve checks if a given string s can be reduced to a given string t by deleting 2 consecutive characters at a time. In this case, the given strings are "baa" and "ba". The method iterates through the strings from the last character to the first character. When the characters in s and t at corresponding positions are the same, it moves to the next pair. If the characters are different, it skips the current character in s and moves to the next pair. If t becomes an empty string at any point, it returns "YES", otherwise it returns "NO".
+
+For the given input, the method first compares the last character of "baa" and "ba", which are "a" and "a" respectively. It moves to the next pair. The method then compares "b" and "b", which are the second last characters in "baa" and "ba" respectively. It moves to the next pair. Now s is "ba" and t is "". Since t is an empty string, the method returns "YES".
+
+Therefore, the exact output is "YES".

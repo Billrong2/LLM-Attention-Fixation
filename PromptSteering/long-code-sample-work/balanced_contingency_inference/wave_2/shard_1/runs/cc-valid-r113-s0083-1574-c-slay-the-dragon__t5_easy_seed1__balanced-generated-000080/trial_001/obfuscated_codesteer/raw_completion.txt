@@ -1,0 +1,53 @@
+ The provided Java program reads input from `stdin`, processes it, and outputs the results to `stdout`. Let's break down the steps:
+
+1. **Input Reading**: The program uses a custom `Reader` class to read inputs.
+   - `n`: Number of elements (4).
+   - Array `arr` with values: `0 6 2 0`.
+   - `m`: Number of elements in `hs` (2).
+   - `y`: Number of queries (1).
+   - First query: `1 9`.
+   - Second query: `7 10`.
+   - Third query: `1 28`.
+   - Fourth query: `0 15`.
+   - Fifth query: `8 7`.
+
+2. **Processing**:
+   - The input array `arr` is converted into a set `hs` to remove duplicates.
+   - The unique elements from `hs` are sorted and stored back into `arr`.
+
+3. **Finding the Minimum Difference**:
+   - For each query, the function `find` is called to calculate the minimum difference.
+   - It performs binary search to find the closest element in `arr` that is not less than `attack`.
+   - It then calculates two possible differences based on whether the closest element is included or not.
+
+4. **Output Calculation**:
+   - For each query, the result is printed.
+
+Let's simulate the execution step-by-step:
+
+- **Query 1: `1 9`**
+  - Closest element to 1 in `[0, 2]` is 2.
+  - Result: `1`.
+
+- **Query 2: `7 10`**
+  - Closest element to 7 in `[0, 2]` is 2.
+  - Result: `5`.
+
+- **Query 3: `1 28`**
+  - Closest element to 1 in `[0, 2]` is 2.
+  - Result: `25`.
+
+- **Query 4: `0 15`**
+  - Closest element to 0 in `[0, 2]` is 0.
+  - Result: `0`.
+
+- **Query 5: `8 7`**
+  - Closest element to 8 in `[0, 2]` is 2.
+  - Result: `6`.
+
+Thus, the exact output is:
+```
+1
+5
+25
+0

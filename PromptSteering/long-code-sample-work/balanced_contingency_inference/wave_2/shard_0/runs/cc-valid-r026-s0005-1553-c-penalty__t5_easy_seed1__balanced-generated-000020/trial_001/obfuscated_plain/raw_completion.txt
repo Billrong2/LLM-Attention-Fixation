@@ -1,0 +1,33 @@
+ To predict the output of the given Java program for the specified input, we need to trace the execution of the `main` method and the `helper` method.
+
+1. The program starts by initializing a `FastReader` object to read input.
+2. It reads an integer `test` from the input, which is 4 in this case.
+3. The main loop runs 4 times, corresponding to the 4 lines of input.
+4. For each iteration, the program reads a string `s` from the input and calls the `helper` method with initial parameters.
+
+Let's analyze the `helper` method:
+
+- The `helper` method takes an index `index`, two counters `f` and `s`, two more counters `k1` and `k2`, and a character array `s1`.
+- It recursively processes the input string, handling '1', '0', and '?' characters according to specific rules.
+- The method returns a value based on these rules.
+
+Now, let's trace the execution for each input line:
+
+### Input Line 1: "1001???0?1"
+
+- The `helper` method is called with `index=0`, `f=0`, `s=0`, `k1=5`, `k2=5`, and `s1` initialized from "1001???0?1".
+- The method processes the string character by character, updating `f` and `s` based on the characters.
+- The exact steps and updates depend on the characters and the rules in the `helper` method.
+
+### Input Line 2: "1111101111"
+
+- The `helper` method is called with `index=0`, `f=0`, `s=0`, `k1=5`, `k2=5`, and `s1` initialized from "1111101111".
+- Similar to the previous line, the method processes the string, updating `f` and `s`.
+
+### Input Line 3: "??????????"
+
+- The `helper` method is called with `index=0`, `f=0`, `s=0`, `k1=5`, `k2=5`, and `s1` initialized from "??????????".
+- The method processes the string, handling '?' characters according to the rules.
+
+### Input Line 4: "0100010000"
+

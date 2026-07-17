@@ -1,0 +1,40 @@
+
+
+
+### CASES_BEGIN
+c001: invoke program entry point; target_method=cal; stdin="4\n7\n1100000\n1110100\n5\n01100\n10101\n2\n01\n01\n6\n001100\n111111\n"; argv=[]
+### CASES_END
+
+The program reads input for a number of test cases, where each test case consists of two strings of 1s and 0s. The strings have equal length and contain only 0 and 1 characters. The strings are processed to generate a table `nxt` where `nxt[0][i]` is the position of the rightmost 0 in the substring starting from the `i`th index in the first string, and `nxt[1][i]` is the position of the rightmost 1 in the substring starting from the `i`th index in the second string. Then, the program calculates the maximum length of a subsequence that can be formed by taking elements from both the first and the second string such that no two adjacent elements in the subsequence are from the same string. The result is printed for each test case.
+
+For the given input:
+
+```
+4
+7
+1100000
+1110100
+5
+01100
+10101
+2
+01
+01
+6
+001100
+111111
+```
+
+The output is:
+
+```
+5
+3
+4
+6
+```
+
+The final machine-readable line is:
+
+```FINAL_OUTPUT_JSON: {"stdout":"5\n3\n4\n6\n"}
+```

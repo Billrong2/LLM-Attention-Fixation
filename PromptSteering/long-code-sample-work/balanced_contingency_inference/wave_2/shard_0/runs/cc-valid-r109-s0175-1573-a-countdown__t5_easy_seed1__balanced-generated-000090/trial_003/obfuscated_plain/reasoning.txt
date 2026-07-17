@@ -1,0 +1,25 @@
+### CASE c001
+- The program reads the number of test cases \(t\), which is 7.
+- For each test case, it reads an integer \(n\) and a string representing a number in char array form.
+- The `find` method calculates the number of moves needed based on the input number and its length.
+- For each test case, it prints the result of calling the `find` method.
+
+#### Control Flow and State Tracking
+- Initialize `FastReader` object.
+- Read the number of test cases \(t\).
+- For each test case:
+  - Read the integer \(n\) (length of the number).
+  - Read the number as a string and convert it to a character array.
+  - Call the `find` method with \(n\) and the character array.
+  - Print the result of the `find` method.
+
+#### Reasoning
+- The `find` method calculates the number of moves based on the digits of the number.
+- For the number 007 (3 digits), the calculation is 7 (last digit) + 0 (second digit) + 1 (first digit) = 8.
+- For the number 4 (1 digit), the calculation is 4.
+- For the number 1000 (4 digits), the calculation is 0 (last digit) + 0 (second to last digit) + 1 (third to last digit) + 10 (first digit) = 11.
+- For the number 5 (1 digit), the calculation is 5.
+- For the number 00000 (5 digits), the calculation is 0 (last digit) + 0 (second to last digit) + 0 (third to last digit) + 0 (fourth to last digit) + 1 (first digit) = 1.
+- For the number 220 (3 digits), the calculation is 0 (last digit) + 3 (second digit) + 3 (first digit) = 6.
+- For the number 2020 (4 digits), the calculation is 0 (last digit) + 3 (second to last digit) + 3 (third to last digit) + 3 (first digit) = 9.
+- For the number 123456789 (9 digits), the calculation is 9 (last digit) + 10 (second to

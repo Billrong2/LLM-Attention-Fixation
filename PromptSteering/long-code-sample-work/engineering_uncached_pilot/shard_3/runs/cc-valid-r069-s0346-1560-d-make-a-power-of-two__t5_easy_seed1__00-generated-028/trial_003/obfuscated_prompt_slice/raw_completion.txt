@@ -1,0 +1,22 @@
+
+
+
+1. The program entry point is `main` at line 124.
+2. At line 125, an input case count is read from standard input and stored in `casos`.
+3. For each case (from 0 to `casos`), the method `buscarGreedy` is called with a line of input as a parameter at line 130.
+4. The method `buscarGreedy` takes a parameter `numero` at line 221.
+5. Inside `buscarGreedy`, a loop is executed for `i` from 0 to 61 at line 225.
+6. The string `numPot` is assigned by converting the value of `pot` to a string at line 226.
+7. The variable `res` is assigned the result of calling `comparar` with `numPot` and `numero` at line 227.
+8. If `res` is less than `minimo`, `minimo` is updated with `res` at line 228.
+9. `pot` is multiplied by 2 and assigned back to `pot` at line 229.
+10. The method returns `minimo` at line 235.
+
+The program reads the number of cases to process and then calls `buscarGreedy` for each case with a line of input as an argument. The method returns the result, which is the minimum number of characters that need to be removed from the input number to make it a power of 2.
+
+The reasoning for the given test case `c001` is as follows:
+1. The program entry point is `main` at line 124.
+2. The input case count of 1 is read from standard input and stored in `casos` at line 125.
+3. The method `buscarGreedy` is called with the input number "12\n825\n8888\n4\n157\n146\n1\n301\n19634\n1504\n10521\n1000000000\n687194767\n" as a parameter at line 130.
+4. The method `buscarGreedy` takes the parameter `numero` at line 221.
+5. Inside `buscarGreedy`,

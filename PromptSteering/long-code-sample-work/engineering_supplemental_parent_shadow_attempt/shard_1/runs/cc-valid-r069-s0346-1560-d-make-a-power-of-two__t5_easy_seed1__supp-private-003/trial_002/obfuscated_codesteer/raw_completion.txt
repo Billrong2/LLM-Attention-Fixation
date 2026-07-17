@@ -1,0 +1,17 @@
+ The exact standard output of this deterministic Java program is:
+
+```json
+FINAL_OUTPUT_JSON: {"stdout":"11\n3\n2\n1\n2\n3\n1\n3\n1\n1\n1\n3\n1\n1\n3\n1\n3\n1\n3\n1\n"}
+```
+
+To determine the output, the program reads from standard input and processes each line as follows:
+
+1. It first reads the number of cases to be processed.
+2. Then, it iterates through each case, calling the `buscarGreedy` method for each line of input.
+3. The `buscarGreedy` method calculates and outputs the minimum number of characters needed to convert the input number into a power of two.
+
+For example, for the input "12":
+- The method iterates through powers of two and compares the number of characters required to convert the input to each power of two.
+- In this case, the output is "11" because converting "12" to the nearest power of two (16) requires adding one character (1).
+
+The output for each input case is concatenated and returned as a single string.

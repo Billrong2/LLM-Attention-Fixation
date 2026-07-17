@@ -1,0 +1,83 @@
+{
+  "manifest_oracle_verified": true,
+  "normalization": "CRLF/CR to LF, then strip leading/trailing whitespace; internal whitespace preserved",
+  "obfuscated_execution": {
+    "compile_command": [
+      "/home/cs/x/xxr230000/jdks/jdk-17.0.11+9/bin/javac",
+      "-J-Djava.io.tmpdir=/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/long-code-sample-work/full_results_cached/shard_0/scratch/java/long-code-java-ty3avapk",
+      "-J-Duser.home=/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/long-code-sample-work/full_results_cached/shard_0/scratch/java/long-code-java-ty3avapk",
+      "-J-XX:-UsePerfData",
+      "-encoding",
+      "UTF-8",
+      "-Xlint:none",
+      "-nowarn",
+      "-d",
+      "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/long-code-sample-work/full_results_cached/shard_0/scratch/java/long-code-java-ty3avapk/classes",
+      "-cp",
+      "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/artifacts/java_compat/javatuples-compat.jar",
+      "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/long-code-sample-work/full_results_cached/shard_0/scratch/java/long-code-java-ty3avapk/LoveJava.java"
+    ],
+    "compile_returncode": 0,
+    "compile_stderr": "",
+    "compile_stdout": "",
+    "compiled": true,
+    "main_class": "LoveJava",
+    "ran": true,
+    "run_command": [
+      "/home/cs/x/xxr230000/jdks/jdk-17.0.11+9/bin/java",
+      "-Dfile.encoding=UTF-8",
+      "-Djava.io.tmpdir=/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/long-code-sample-work/full_results_cached/shard_0/scratch/java/long-code-java-ty3avapk",
+      "-Duser.home=/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/long-code-sample-work/full_results_cached/shard_0/scratch/java/long-code-java-ty3avapk",
+      "-XX:-UsePerfData",
+      "-ea",
+      "-cp",
+      "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/long-code-sample-work/full_results_cached/shard_0/scratch/java/long-code-java-ty3avapk/classes:/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/artifacts/java_compat/javatuples-compat.jar",
+      "LoveJava"
+    ],
+    "run_returncode": 0,
+    "stderr": "",
+    "stdout": "12\n8\n0\n",
+    "success": true
+  },
+  "oracle_stdout": "12\n8\n0\n",
+  "oracle_stdout_canonical": "12\n8\n0",
+  "original_execution": {
+    "compile_command": [
+      "/home/cs/x/xxr230000/jdks/jdk-17.0.11+9/bin/javac",
+      "-J-Djava.io.tmpdir=/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/long-code-sample-work/full_results_cached/shard_0/scratch/java/long-code-java-r9r3lv4h",
+      "-J-Duser.home=/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/long-code-sample-work/full_results_cached/shard_0/scratch/java/long-code-java-r9r3lv4h",
+      "-J-XX:-UsePerfData",
+      "-encoding",
+      "UTF-8",
+      "-Xlint:none",
+      "-nowarn",
+      "-d",
+      "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/long-code-sample-work/full_results_cached/shard_0/scratch/java/long-code-java-r9r3lv4h/classes",
+      "-cp",
+      "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/artifacts/java_compat/javatuples-compat.jar",
+      "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/long-code-sample-work/full_results_cached/shard_0/scratch/java/long-code-java-r9r3lv4h/LoveJava.java"
+    ],
+    "compile_returncode": 0,
+    "compile_stderr": "",
+    "compile_stdout": "",
+    "compiled": true,
+    "main_class": "LoveJava",
+    "ran": true,
+    "run_command": [
+      "/home/cs/x/xxr230000/jdks/jdk-17.0.11+9/bin/java",
+      "-Dfile.encoding=UTF-8",
+      "-Djava.io.tmpdir=/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/long-code-sample-work/full_results_cached/shard_0/scratch/java/long-code-java-r9r3lv4h",
+      "-Duser.home=/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/long-code-sample-work/full_results_cached/shard_0/scratch/java/long-code-java-r9r3lv4h",
+      "-XX:-UsePerfData",
+      "-ea",
+      "-cp",
+      "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/long-code-sample-work/full_results_cached/shard_0/scratch/java/long-code-java-r9r3lv4h/classes:/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/artifacts/java_compat/javatuples-compat.jar",
+      "LoveJava"
+    ],
+    "run_returncode": 0,
+    "stderr": "",
+    "stdout": "12\n8\n0\n",
+    "success": true
+  },
+  "semantic_equivalence_verified": true
+}

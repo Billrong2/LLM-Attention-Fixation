@@ -1,0 +1,35 @@
+To determine the exact standard output for the given Java program, let's break down the problem step-by-step.
+
+### Input Analysis
+The input consists of multiple test cases. Each test case contains a string of 10 characters, where each character can be '1', '0', or '?'.
+
+For each test case, the program calls the `helper` function with the following parameters:
+- `index`: Initially 0, it represents the current position in the string.
+- `f`: Initially 0, it represents the count of '1's at even indices.
+- `s`: Initially 0, it represents the count of '1's at odd indices.
+- `k1`: Initially 5, it represents the number of '?'s that can be replaced with '1' at even indices.
+- `k2`: Initially 5, it represents the number of '?'s that can be replaced with '1' at odd indices.
+- `s1`: The array representation of the input string.
+
+### Helper Function Logic
+The `helper` function recursively processes the string to calculate the minimum number of changes required to balance the counts of '1's at even and odd indices while respecting the constraints on '?'. Here’s a breakdown of the logic:
+
+1. **Base Case**: If `index` reaches 10, return 0.
+2. **Constraint Check**: Ensure `f + k1 >= s` and `s + k2 >= f`.
+3. **Fixed Characters**:
+   - If `s1[index]` is '1':
+     - If `index` is even, increment `f` and decrement `k1`.
+     - If `index` is odd, increment `s` and decrement `k2`.
+   - If `s1[index]` is '0':
+     - If `index` is even, decrement `k1`.
+     - If `index` is odd, decrement `k2`.
+4. **Wildcard Characters**:
+   - If `index` is even, try replacing '?' with '1' and '0', then take the minimum.
+   - If `index` is odd, try replacing '?' with '1' and '0', then take the minimum.
+
+### Execution Flow
+Given the input:
+- First test case: `"4"` (number of test cases)
+- Second test case: `"1011???0?1"`
+- Third test case: `"1110101101"`
+- Fourth test case:

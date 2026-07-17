@@ -1,0 +1,25 @@
+
+
+
+### CASES_BEGIN
+c001: invoke program entry point; target_method=game; stdin="3\n3\n2 3 12\n2 10 2\n3\n-1 4 17\n3 5 0\n1\n4\n3\n"; argv=[]
+### CASES_END
+
+
+1. The target method is `game(String[], String[], int)`.
+2. The method `main` invokes `game` with arguments `arr1 = ["2", "3", "12"]`, `arr2 = ["2", "10", "2"]`, and `m = 3`.
+3. `game` is executed with the given arguments.
+4. Inside the `game` method, `m` is not equal to 1.
+5. `dp` is initialized as a 2D array with 2 rows and `m` columns, filled with zeros.
+6. The first loop iterates over the second row of `dp` (i.e., `i` ranges from 1 to 2):
+	* The value at `dp[0][i]` is set to the sum of the integer value of the `i-1`-th element of `arr2` and `dp[0][i-1]`.
+7. The second loop iterates over the first row of `dp` (i.e., `i` ranges from 1 to 2):
+	* The value at `dp[1][m-1-i]` is set to the sum of the integer value of the `m-i`-th element of `arr1` and `dp[1][m-i]`.
+8. `min` is initialized to `10000000000L`.
+9. The third loop iterates over all columns of `dp`:
+	* `min` is updated to be the minimum value between its current value and the maximum value of the `i`-th column of `dp`.
+10. The method returns the value of `min`.
+
+The program's output is the result of the `game` method, which is the minimum value found in the last step.
+
+FINAL_OUTPUT_JSON: {"stdout":"1\n17\n4\n"}

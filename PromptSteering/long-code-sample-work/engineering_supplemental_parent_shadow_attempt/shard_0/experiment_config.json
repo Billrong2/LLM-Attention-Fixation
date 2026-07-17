@@ -1,0 +1,141 @@
+{
+  "base_seed": 20260713,
+  "cache_dir": "/data/xxr230000/model_cache",
+  "codesteer_registered_profile": {
+    "beta_bias": 0.0,
+    "beta_post": 0.8,
+    "binning": "equal_count",
+    "enabled_levels": [
+      2
+    ],
+    "head_mask_apply_to": "both",
+    "head_subset_mode": "none",
+    "n_bins": 12,
+    "only_first_decode_step": false,
+    "prior": "slice_hybrid",
+    "recency_apply_after_prompt": true,
+    "recency_mix": true,
+    "recency_rho": 0.2,
+    "recency_scope": "prefer_generated",
+    "recency_window": 64,
+    "steer_last_n_layers": 8
+  },
+  "conditions": [
+    "original_plain",
+    "obfuscated_plain",
+    "obfuscated_prompt_slice",
+    "obfuscated_codesteer"
+  ],
+  "created_at_unix": 1783984140.8704784,
+  "generation": {
+    "do_sample": true,
+    "max_new_tokens": 512,
+    "temperature": 1.05,
+    "top_k": 7,
+    "top_p": 0.95
+  },
+  "manifest_metadata": {
+    "criteria": {
+      "acceptance": "both frozen sources compile and run without timeout; runtime exit 0 and empty stderr; both outputs trimmed-exact to oracle and to each other",
+      "exclude_frozen_suite_index_pairs": true,
+      "expected_output_max_bytes": 60,
+      "expected_output_max_lines": 3,
+      "input_bytes_inclusive": [
+        5,
+        512
+      ],
+      "max_selected_per_source": 4,
+      "output_line_definition": "len(str.splitlines()); terminal newline adds no line",
+      "public_tests_policy": "not loaded, inspected, ranked, or selected",
+      "rank_key": [
+        "suite(private_tests=0, generated_tests=1)",
+        "expected_output_lines ascending",
+        "expected_output_bytes ascending",
+        "abs(input_bytes-80) ascending",
+        "dataset_test_index ascending"
+      ],
+      "runtime_comparator": "replace CRLF with LF, then outer strip; internal whitespace exact",
+      "strict_utf8_input_and_expected_output": true,
+      "suites_considered": [
+        "private_tests",
+        "generated_tests"
+      ]
+    },
+    "denominator_disclosure": "The exact 25 frozen source/obfuscation variants are reused, so the screened-source denominator remains 25; supplemental cases are repeated measurements, not new source-level observations.",
+    "executed_candidate_count": 60,
+    "frozen_source_denominator": 25,
+    "inference_source_count": 15,
+    "inference_true_problem_count": 12,
+    "inference_true_problem_keys": [
+      "codeforces-1549-B",
+      "codeforces-1551-D2",
+      "codeforces-1553-D",
+      "codeforces-1555-C",
+      "codeforces-1556-B",
+      "codeforces-1557-C",
+      "codeforces-1559-E",
+      "codeforces-1560-D",
+      "codeforces-1562-B",
+      "codeforces-1567-C",
+      "codeforces-1569-D",
+      "codeforces-1574-C"
+    ],
+    "outcome_blind_disclosure": "The rules were fixed and cases were selected without reading or using any model response, score, or other model outcome; this preparer performs no model inference.",
+    "protocol_date": "2026-07-13",
+    "purpose": "runner-compatible outcome-blind supplemental tests for the frozen 25-source long-code screen",
+    "schema_version": "long-code-supplemental-cases-v2",
+    "selected_supplemental_case_count": 60,
+    "selection_stage": "tokenizer_exact_prior_preflight",
+    "source_denominator_audit": "source_denominator_audit.json",
+    "supplemental_cases_change_source_denominator": false,
+    "timing_disclosure": "This expansion was designed after the initial 25-source full screen had started but before that screen completed.",
+    "tokenizer_preflight": {
+      "exclusions": "exclusions.jsonl",
+      "full_report": "full_report.json",
+      "input_top_level_count": 15,
+      "retained_exploded_sample_count": 60,
+      "retained_top_level_count": 15,
+      "schema_version": "long-code-tokenizer-preflight-v1",
+      "selection_rule": "Retain only cases whose exact Qwen2.5-14B-tokenized CodeSteer prompt yields a non-positional SlicingPrior vector, an active CASES signal, and fits context.",
+      "source_manifest": "../supplemental_cases/supplemental_manifest.json",
+      "source_manifest_sha256": "39d57ffd25f57fef8335895088e3531b2732de6286ee20204a9c9dd897eec058"
+    },
+    "validation_rejection_count": 0,
+    "variant_count": 15
+  },
+  "manifest_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/supplemental_tokenizer_preflight/inference_eligible_variants.json",
+  "manifest_sha256": "803aa5c06fe748f84081c35c4ccb01972db9a0ff01d916023c4fc83da5e131ab",
+  "model_name": "Qwen/Qwen2.5-14B",
+  "model_snapshot_commit": "97e1e76335b7017d8f67c08a19d103c0504298c9",
+  "outcome_selection_note": "The complete screened pool is retained. Any later all-baselines-fail/CodeSteer-succeeds case-study subset is outcome-selected and must be labeled as such.",
+  "protocol_version": "long-code-output-v1",
+  "sample_ids": [
+    "cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__supp-generated-030",
+    "cc-valid-r069-s0346-1560-d-make-a-power-of-two__t5_easy_seed1__supp-private-001",
+    "cc-valid-r069-s0054-1560-d-make-a-power-of-two__t5_easy_seed1__supp-private-001",
+    "cc-valid-r040-s0219-1555-c-coin-rows__t5_easy_seed1__supp-generated-044",
+    "cc-valid-r045-s0246-1556-b-take-your-places__t5_easy_seed1__supp-private-000",
+    "cc-valid-r094-s0350-1567-c-carrying-conundrum__t5_easy_seed1__supp-private-000",
+    "cc-valid-r054-s0229-1557-c-moamen-and-xor__t5_easy_seed1__supp-private-035",
+    "cc-valid-r027-s0184-1553-d-backspace__t5_easy_seed1__supp-private-019",
+    "cc-valid-r113-s0164-1574-c-slay-the-dragon__t5_easy_seed1__supp-generated-030",
+    "cc-valid-r079-s0140-1562-b-scenes-from-a-memory__t5_easy_seed1__supp-private-000",
+    "cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game__t5_easy_seed1__supp-generated-003",
+    "cc-valid-r013-s0260-1551-d2-domino-hard-version__t5_easy_seed1__supp-private-049",
+    "cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1__supp-generated-002",
+    "cc-valid-r065-s0055-1559-e-mocha-and-stars__t5_easy_seed1__supp-private-007",
+    "cc-valid-r079-s0377-1562-b-scenes-from-a-memory__t5_easy_seed1__supp-private-000"
+  ],
+  "score_definition": {
+    "canonicalization": "CRLF/CR to LF, then strip leading/trailing whitespace; internal whitespace preserved",
+    "name": "trimmed_exact_match"
+  },
+  "static_prior_cache": {
+    "enabled": true,
+    "key": "(current_bin, number_of_bins)",
+    "reason": "The unmodified runtime requests the same prompt-static slice once per steered layer and decode token. Recomputing it changes neither the vector nor sampling, but is prohibitively expensive for 250--350-line programs.",
+    "scope": "one SteeringManager instance",
+    "semantic_effect": "none; memoizes a deterministic prompt-static prior vector"
+  },
+  "trials": 3
+}

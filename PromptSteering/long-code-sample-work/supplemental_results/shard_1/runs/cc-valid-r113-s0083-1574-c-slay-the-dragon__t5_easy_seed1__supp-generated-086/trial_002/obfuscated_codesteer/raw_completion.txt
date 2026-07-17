@@ -1,0 +1,27 @@
+ CASES_BEGIN
+c001: invoke program entry point; target_method=find; stdin="4\n4 1 6 1\n1\n3 12\n4 9\n5 5\n-1 19\n21 0\n"; argv=[]
+CASES_END
+
+### Case c001: 
+
+The program takes input from stdin and processes it using the `find` method. 
+
+First, it reads the number of elements in the array `n` and initializes the array and set `hs`. 
+
+Then, it reads `m` and the array `a`. 
+
+Next, it reads the number of queries `y` and for each query, it calls the `find` method with the parameters `sum`, `hs`, `a`, `m`, `attack`, and `defend`. 
+
+The `find` method finds the index of `attack` in `a` using binary search. If the `attack` is not found in `a`, it returns the minimum of `attack - arr[s] + defend - sum + arr[s]` and `attack - arr[s-1] + defend - sum + arr[s-1]`. If the `attack` is found in `a`, it returns the minimum of `attack - arr[s] + defend - sum + arr[s]` and `attack - arr[s-1] + defend - sum + arr[s-1]`. 
+
+Finally, the program outputs the result of each call to `find` to the stdout. 
+
+In this specific case, the output is:
+```
+19
+19
+19
+19
+```
+
+FINAL_OUTPUT_JSON: {"stdout":"19\n19\n19\n19\n"}

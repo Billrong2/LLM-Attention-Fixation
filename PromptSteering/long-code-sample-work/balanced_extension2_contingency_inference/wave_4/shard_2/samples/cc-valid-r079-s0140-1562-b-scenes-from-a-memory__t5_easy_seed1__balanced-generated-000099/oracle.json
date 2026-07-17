@@ -1,0 +1,83 @@
+{
+  "manifest_oracle_verified": true,
+  "normalization": "CRLF/CR to LF, then strip leading/trailing whitespace; internal whitespace preserved",
+  "obfuscated_execution": {
+    "compile_command": [
+      "/home/cs/x/xxr230000/jdks/jdk-17.0.11+9/bin/javac",
+      "-J-Djava.io.tmpdir=/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/balanced_extension2_contingency_inference/wave_4/shard_2/scratch/java/long-code-java-nqc9ojhy",
+      "-J-Duser.home=/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/balanced_extension2_contingency_inference/wave_4/shard_2/scratch/java/long-code-java-nqc9ojhy",
+      "-J-XX:-UsePerfData",
+      "-encoding",
+      "UTF-8",
+      "-Xlint:none",
+      "-nowarn",
+      "-d",
+      "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/balanced_extension2_contingency_inference/wave_4/shard_2/scratch/java/long-code-java-nqc9ojhy/classes",
+      "-cp",
+      "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/artifacts/java_compat/javatuples-compat.jar",
+      "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/balanced_extension2_contingency_inference/wave_4/shard_2/scratch/java/long-code-java-nqc9ojhy/Main.java"
+    ],
+    "compile_returncode": 0,
+    "compile_stderr": "",
+    "compile_stdout": "",
+    "compiled": true,
+    "main_class": "Main",
+    "ran": true,
+    "run_command": [
+      "/home/cs/x/xxr230000/jdks/jdk-17.0.11+9/bin/java",
+      "-Dfile.encoding=UTF-8",
+      "-Djava.io.tmpdir=/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/balanced_extension2_contingency_inference/wave_4/shard_2/scratch/java/long-code-java-nqc9ojhy",
+      "-Duser.home=/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/balanced_extension2_contingency_inference/wave_4/shard_2/scratch/java/long-code-java-nqc9ojhy",
+      "-XX:-UsePerfData",
+      "-ea",
+      "-cp",
+      "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/balanced_extension2_contingency_inference/wave_4/shard_2/scratch/java/long-code-java-nqc9ojhy/classes:/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/artifacts/java_compat/javatuples-compat.jar",
+      "Main"
+    ],
+    "run_returncode": 0,
+    "stderr": "",
+    "stdout": "1\n1\n",
+    "success": true
+  },
+  "oracle_stdout": "1\n1\n",
+  "oracle_stdout_canonical": "1\n1",
+  "original_execution": {
+    "compile_command": [
+      "/home/cs/x/xxr230000/jdks/jdk-17.0.11+9/bin/javac",
+      "-J-Djava.io.tmpdir=/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/balanced_extension2_contingency_inference/wave_4/shard_2/scratch/java/long-code-java-v0gzo3vz",
+      "-J-Duser.home=/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/balanced_extension2_contingency_inference/wave_4/shard_2/scratch/java/long-code-java-v0gzo3vz",
+      "-J-XX:-UsePerfData",
+      "-encoding",
+      "UTF-8",
+      "-Xlint:none",
+      "-nowarn",
+      "-d",
+      "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/balanced_extension2_contingency_inference/wave_4/shard_2/scratch/java/long-code-java-v0gzo3vz/classes",
+      "-cp",
+      "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/artifacts/java_compat/javatuples-compat.jar",
+      "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/balanced_extension2_contingency_inference/wave_4/shard_2/scratch/java/long-code-java-v0gzo3vz/Main.java"
+    ],
+    "compile_returncode": 0,
+    "compile_stderr": "",
+    "compile_stdout": "",
+    "compiled": true,
+    "main_class": "Main",
+    "ran": true,
+    "run_command": [
+      "/home/cs/x/xxr230000/jdks/jdk-17.0.11+9/bin/java",
+      "-Dfile.encoding=UTF-8",
+      "-Djava.io.tmpdir=/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/balanced_extension2_contingency_inference/wave_4/shard_2/scratch/java/long-code-java-v0gzo3vz",
+      "-Duser.home=/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/balanced_extension2_contingency_inference/wave_4/shard_2/scratch/java/long-code-java-v0gzo3vz",
+      "-XX:-UsePerfData",
+      "-ea",
+      "-cp",
+      "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/balanced_extension2_contingency_inference/wave_4/shard_2/scratch/java/long-code-java-v0gzo3vz/classes:/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/artifacts/java_compat/javatuples-compat.jar",
+      "Main"
+    ],
+    "run_returncode": 0,
+    "stderr": "",
+    "stdout": "1\n1\n",
+    "success": true
+  },
+  "semantic_equivalence_verified": true
+}

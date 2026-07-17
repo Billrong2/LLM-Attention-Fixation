@@ -1,0 +1,32 @@
+ The program `ferrisWheel` is a Java program that includes a method `get`. The `get` method is used to perform binary search on a sorted array of long integers (`Long[]`) to find the index of the first element that is not smaller than a given value `x`.
+
+### CASES_BEGIN
+c001: invoke program entry point; target_method=get; stdin="4\n3 5 4 4\n1\n3 12\n7 9\n1 11\n-1 10\n8 7\n"; argv=[]
+### CASES_END
+
+Given the input:
+- The first line contains the size of the array, which is 4.
+- The next line contains the elements of the array: 3, 5, 4, 4. These elements are sorted in non-decreasing order.
+- The next line specifies the number of test cases, which is 1.
+- The following line contains the values `d` and `p` for the test case: `3` and `12`.
+
+### Reasoning
+1. **Initialization**:
+    - `arr` is initialized with the sorted array: `[3, 4, 4, 5]`.
+    - `sums` is initialized with the prefix sums of the array, resulting in `[3, 7, 11, 16]`.
+
+2. **Binary Search**:
+    - `x` is computed as the index of the first element not smaller than `d = 3` in the sorted array.
+    - Since `d = 3` is present in the array at index 0, `x` is set to 0.
+
+3. **Main Logic**:
+    - The sum `sum` is computed by subtracting `arr[x]` from the last element of `sums`, resulting in `16 - 3 = 13`.
+    - If `sum` is less than `p`, then `p - sum` is added to `ans`, which is `12 - 13 = -1` (not added since `sum` is not less than `p`).
+
+4. **Output**:
+    - The final answer is printed as `0`, which is the minimum between `ans` and `ans2`.
+
+### FINAL_OUTPUT_JSON
+```json
+{"stdout":"0\n"}
+```

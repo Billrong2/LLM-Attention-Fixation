@@ -1,0 +1,44 @@
+To determine the exact standard output for the given program, let's break down the execution step by step.
+
+### Execution Steps:
+
+1. **Input Reading**:
+   - Read the first integer `n` which represents the number of elements in the array.
+   - Read the array elements into the list `arr`.
+   - Calculate the sum of the array elements and store it in `sum`.
+   - Store each unique element of the array in a `HashSet` `hs`.
+
+2. **Sorting the Unique Elements**:
+   - Extract the unique elements from the `HashSet` and sort them.
+
+3. **Processing Queries**:
+   - Read the number of queries `y`.
+   - For each query, read the attack and defend values.
+   - Call the `find` function with the sorted array and the given values.
+
+4. **Finding Minimum Cost**:
+   - In the `find` function, perform binary search to find the closest element in the sorted array to the attack value.
+   - Calculate the cost as the difference between the attack value and the found array element, and the difference between the defense value and the sum of the elements from the found index to the end of the array.
+   - Return the minimum cost.
+
+### Detailed Execution for the Given Input:
+
+- **Input**:
+  - `n = 4`
+  - `arr = [0, 6, 2, 0]`
+  - `sum = 8`
+  - `hs = {0, 2, 6}`
+  - `m = 3`
+  - `a = [0, 2, 6]`
+  - `y = 3`
+  - `queries = [(3, 9), (7, 9), (0, 14), (0, 10), (8, 7)]`
+
+### Queries:
+
+1. **Query 1: (3, 9)**
+   - Find the index of 3 in the sorted array `a` which is 2.
+   - Calculate the cost as `|3 - 3| + |9 - (8 - 3)| = 0 + 1 = 1`.
+
+2. **Query 2: (7, 9)**
+   - Find the index of 7 in the sorted array `a` which is 2.
+   - Calculate the cost as `|7 - 3| + |9 - (8 - 3)| = 4 +

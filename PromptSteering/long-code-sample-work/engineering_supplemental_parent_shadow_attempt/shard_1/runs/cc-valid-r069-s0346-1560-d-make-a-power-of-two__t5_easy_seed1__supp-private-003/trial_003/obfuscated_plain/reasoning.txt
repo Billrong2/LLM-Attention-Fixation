@@ -1,0 +1,40 @@
+To predict the exact standard output of this deterministic Java program, we need to analyze the given code and the input provided.
+
+The main function reads the input from the standard input, where the first line contains the number of test cases (12 in this case), and each of the following lines contains a single integer.
+
+The program uses a method called `buscarGreedy` to calculate the minimum number of changes required to convert the input integer into a power of two. The method works by comparing the input number with the powers of two and finding the closest match.
+
+For each test case, the `buscarGreedy` method is called with the input integer, and the result is printed to the standard output.
+
+Let's analyze the input and output for each test case:
+
+1. Input: "12"
+   Output: The closest power of two to 12 is 16, which requires 1 change (14 to 16).
+   Output: 1
+
+2. Input: "825"
+   Output: The closest power of two to 825 is 1024, which requires 2 changes (824 to 1024).
+   Output: 2
+
+3. Input: "8888"
+   Output: The closest power of two to 8888 is 8192, which requires 1 change (8887 to 8192).
+   Output: 1
+
+4. Input: "4"
+   Output: The closest power of two to 4 is 4 itself, which requires 0 changes.
+   Output: 0
+
+5. Input: "157"
+   Output: The closest power of two to 157 is 128, which requires 1 change (156 to 128).
+   Output: 1
+
+6. Input: "146"
+   Output: The closest power of two to 146 is 128, which requires 1 change (145 to 128).
+   Output: 1
+
+7. Input: "1"
+   Output: The closest power of two to 1 is 1 itself, which requires 0 changes.
+   Output: 0
+
+8. Input: "301"
+   Output: The closest power of two to 301 is 256, which requires 1 change (300 to 256

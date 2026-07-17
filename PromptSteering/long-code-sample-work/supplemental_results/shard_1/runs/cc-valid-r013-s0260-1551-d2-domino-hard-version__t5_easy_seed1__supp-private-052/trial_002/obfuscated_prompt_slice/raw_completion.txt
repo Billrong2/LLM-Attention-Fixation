@@ -1,0 +1,14 @@
+
+
+
+Reasoning: This is a program that determines if a given input is valid for a certain condition and prints "YES" if it is and "NO" if it is not. The program takes in three integers as input: n, m, and k. The program then checks if there is a way to arrange a set of characters such that a certain condition is met.
+
+The program starts by creating a boolean 2D array dp with m rows and k+1 columns, where each cell is initialized to false. It also creates a 2D array re of size n x m to store the arranged characters.
+
+The program calls the cal function with initial values index=0, horizontal=k, n=n, and m=m. The cal function checks if the given input is valid by performing several conditions and recursive calls to itself.
+
+If the input is valid, the program prints "YES" and prints the arranged characters in the 2D array re. If the input is not valid, the program prints "NO".
+
+The program also contains several helper functions such as abs, KMP, nextPer, digit, dist, Point, FT, gcd, and pow. These functions are used in other parts of the program for various calculations and manipulations.
+
+FINAL_OUTPUT_JSON: {"stdout":"YES\na b\nc d\ne f\ng h\n"}

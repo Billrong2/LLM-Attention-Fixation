@@ -1,0 +1,28 @@
+The provided Java program performs a series of operations based on user input. Here's a concise explanation of its behavior:
+
+1. It reads an integer `n`, then `n` integers, storing them in an array `arr` and adding their sum to a variable `sum`.
+2. It reads another integer `m`, then `m` pairs of integers representing attacks and defenses.
+3. For each pair, it calls the `find` method, which calculates a score based on the attack and defense values.
+4. The `find` method finds the nearest attack value in the sorted array `arr` and calculates the score using the attack value, the total sum `sum`, and the defense value.
+
+For the given input:
+```
+4
+6 1 5 1
+1
+3 30
+4 3
+5 0
+-1 19
+21 0
+```
+
+The program will output:
+```
+0
+0
+0
+0
+```
+
+The `find` method always returns 0 because the attack and defense values are such that the calculated scores are always 0.

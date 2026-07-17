@@ -1,0 +1,266 @@
+{
+  "codesteer_layer_end": 47,
+  "codesteer_layer_start": 40,
+  "codesteer_prior": {
+    "algorithm_fallback_detected": false,
+    "algorithm_vector_length": 3604,
+    "algorithm_vs_fallback_l1": 2.0,
+    "case_signal_active": true,
+    "case_vector_count": 1,
+    "fallback_vector_length": 3604,
+    "n_bins": 12,
+    "parsed_case_ids": [
+      "c001"
+    ],
+    "prompt_sha256": "0e461f11f20443eb049ad492138c9848c120dcf3a889935945242d4f7575bd91"
+  },
+  "eligible_for_inference": true,
+  "model_num_hidden_layers": 48,
+  "obfuscated_line_count": 387,
+  "obfuscated_method_analysis": {
+    "codesteer_selected_target_method": "pawnLineal",
+    "codesteer_target_matches_recorded": true,
+    "fallback_used": false,
+    "method_names": [
+      "subsecuencias",
+      "subsecuencias",
+      "solucion",
+      "main22",
+      "pawn",
+      "reemplazar",
+      "contar",
+      "pawn2",
+      "pawnAux",
+      "pawnLineal",
+      "main"
+    ],
+    "parameter_count": 2,
+    "parse_status": "javalang",
+    "recorded_target_found": true,
+    "recorded_target_method": "pawnLineal",
+    "return_sink_count": 1
+  },
+  "original_line_count": 344,
+  "original_method_analysis": {
+    "codesteer_selected_target_method": "pawnLineal",
+    "codesteer_target_matches_recorded": true,
+    "fallback_used": false,
+    "method_names": [
+      "subsecuencias",
+      "subsecuencias",
+      "solucion",
+      "main22",
+      "pawn",
+      "reemplazar",
+      "contar",
+      "pawn2",
+      "pawnAux",
+      "pawnLineal",
+      "main"
+    ],
+    "parameter_count": 2,
+    "parse_status": "javalang",
+    "recorded_target_found": true,
+    "recorded_target_method": "pawnLineal",
+    "return_sink_count": 1
+  },
+  "prompt_slice": {
+    "artifact_name": "Program Slicing / backward slice",
+    "elements": [
+      {
+        "code": "public static int pawnLineal(String scr1, String dst1) {",
+        "description": "target method pawnLineal(scr1, dst1)",
+        "kind": "MethodDeclaration",
+        "line": 296,
+        "line_label": "L296"
+      },
+      {
+        "code": "public static int pawnLineal(String scr1, String dst1) {",
+        "description": "method parameter scr1",
+        "kind": "SliceMethodParameter",
+        "line": 296,
+        "line_label": "L296"
+      },
+      {
+        "code": "public static int pawnLineal(String scr1, String dst1) {",
+        "description": "method parameter dst1",
+        "kind": "SliceMethodParameter",
+        "line": 296,
+        "line_label": "L296"
+      },
+      {
+        "code": "return ret;",
+        "description": "return value expression using ret",
+        "kind": "SliceReturnValue",
+        "line": 325,
+        "line_label": "L325"
+      },
+      {
+        "code": "int ret = 0;",
+        "description": "definition of ret",
+        "kind": "SliceDefinition",
+        "line": 298,
+        "line_label": "L298"
+      },
+      {
+        "code": "for (int i=1;i<scr.length()-1;i++){",
+        "description": "control predicate over i, scr, length, charAt, dst, setCharAt, ret",
+        "kind": "SliceControlDependency",
+        "line": 305,
+        "line_label": "L305"
+      },
+      {
+        "code": "for (int i=1;i<scr.length()-1;i++){",
+        "description": "method call scr.length in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 305,
+        "line_label": "L305"
+      },
+      {
+        "code": "if (scr.charAt(i)=='1'){",
+        "description": "control predicate over scr, charAt, i, dst, setCharAt, ret",
+        "kind": "SliceControlDependency",
+        "line": 308,
+        "line_label": "L308"
+      },
+      {
+        "code": "if (scr.charAt(i)=='1'){",
+        "description": "method call scr.charAt in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 308,
+        "line_label": "L308"
+      },
+      {
+        "code": "if (dst.charAt(i-1)=='1'){",
+        "description": "control predicate over dst, charAt, i, setCharAt, ret",
+        "kind": "SliceControlDependency",
+        "line": 309,
+        "line_label": "L309"
+      },
+      {
+        "code": "if (dst.charAt(i-1)=='1'){",
+        "description": "method call dst.charAt in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 309,
+        "line_label": "L309"
+      },
+      {
+        "code": "dst.setCharAt(i-1,'X');",
+        "description": "method call dst.setCharAt in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 310,
+        "line_label": "L310"
+      },
+      {
+        "code": "if (dst.charAt(i)=='0'){",
+        "description": "control predicate over dst, charAt, i, setCharAt, ret",
+        "kind": "SliceControlDependency",
+        "line": 314,
+        "line_label": "L314"
+      },
+      {
+        "code": "if (dst.charAt(i)=='0'){",
+        "description": "method call dst.charAt in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 314,
+        "line_label": "L314"
+      },
+      {
+        "code": "dst.setCharAt(i,'X');",
+        "description": "method call dst.setCharAt in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 315,
+        "line_label": "L315"
+      },
+      {
+        "code": "if (dst.charAt(i+1)=='1'){",
+        "description": "control predicate over dst, charAt, i, setCharAt, ret",
+        "kind": "SliceControlDependency",
+        "line": 319,
+        "line_label": "L319"
+      },
+      {
+        "code": "if (dst.charAt(i+1)=='1'){",
+        "description": "method call dst.charAt in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 319,
+        "line_label": "L319"
+      },
+      {
+        "code": "dst.setCharAt(i+1,'X');",
+        "description": "method call dst.setCharAt in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 320,
+        "line_label": "L320"
+      }
+    ],
+    "eligible_count_is_lower_bound": false,
+    "eligible_element_count": 18,
+    "emitted_element_count": 18,
+    "emitted_over_eligible": 1.0,
+    "enabled": true,
+    "guidance_text": "Prompt-only steering guidance (Program Slicing / backward slice, artifact-conditioned):\nUse the following static program-analysis elements as the main reasoning anchors.\nThese elements are static only; they do not reveal the correct output, branch outcomes, or gold execution trace.\n\nStatic elements to emphasize:\n1. MethodDeclaration at L296: target method pawnLineal(scr1, dst1) (public static int pawnLineal(String scr1, String dst1) {)\n2. SliceMethodParameter at L296: method parameter scr1 (public static int pawnLineal(String scr1, String dst1) {)\n3. SliceMethodParameter at L296: method parameter dst1 (public static int pawnLineal(String scr1, String dst1) {)\n4. SliceReturnValue at L325: return value expression using ret (return ret;)\n5. SliceDefinition at L298: definition of ret (int ret = 0;)\n6. SliceControlDependency at L305: control predicate over i, scr, length, charAt, dst, setCharAt, ret (for (int i=1;i<scr.length()-1;i++){)\n7. SliceMethodCall at L305: method call scr.length in static data/control context (for (int i=1;i<scr.length()-1;i++){)\n8. SliceControlDependency at L308: control predicate over scr, charAt, i, dst, setCharAt, ret (if (scr.charAt(i)=='1'){)\n9. SliceMethodCall at L308: method call scr.charAt in static data/control context (if (scr.charAt(i)=='1'){)\n10. SliceControlDependency at L309: control predicate over dst, charAt, i, setCharAt, ret (if (dst.charAt(i-1)=='1'){)\n11. SliceMethodCall at L309: method call dst.charAt in static data/control context (if (dst.charAt(i-1)=='1'){)\n12. SliceMethodCall at L310: method call dst.setCharAt in static data/control context (dst.setCharAt(i-1,'X');)\n13. SliceControlDependency at L314: control predicate over dst, charAt, i, setCharAt, ret (if (dst.charAt(i)=='0'){)\n14. SliceMethodCall at L314: method call dst.charAt in static data/control context (if (dst.charAt(i)=='0'){)\n15. SliceMethodCall at L315: method call dst.setCharAt in static data/control context (dst.setCharAt(i,'X');)\n16. SliceControlDependency at L319: control predicate over dst, charAt, i, setCharAt, ret (if (dst.charAt(i+1)=='1'){)\n17. SliceMethodCall at L319: method call dst.charAt in static data/control context (if (dst.charAt(i+1)=='1'){)\n18. SliceMethodCall at L320: method call dst.setCharAt in static data/control context (dst.setCharAt(i+1,'X');)",
+    "max_elements": 24,
+    "mechanism": "artifact_conditioned_natural_language_instruction_only",
+    "mode": "slice",
+    "parse_status": "javalang",
+    "prompt_items": [
+      "MethodDeclaration at L296: target method pawnLineal(scr1, dst1) (public static int pawnLineal(String scr1, String dst1) {)",
+      "SliceMethodParameter at L296: method parameter scr1 (public static int pawnLineal(String scr1, String dst1) {)",
+      "SliceMethodParameter at L296: method parameter dst1 (public static int pawnLineal(String scr1, String dst1) {)",
+      "SliceReturnValue at L325: return value expression using ret (return ret;)",
+      "SliceDefinition at L298: definition of ret (int ret = 0;)",
+      "SliceControlDependency at L305: control predicate over i, scr, length, charAt, dst, setCharAt, ret (for (int i=1;i<scr.length()-1;i++){)",
+      "SliceMethodCall at L305: method call scr.length in static data/control context (for (int i=1;i<scr.length()-1;i++){)",
+      "SliceControlDependency at L308: control predicate over scr, charAt, i, dst, setCharAt, ret (if (scr.charAt(i)=='1'){)",
+      "SliceMethodCall at L308: method call scr.charAt in static data/control context (if (scr.charAt(i)=='1'){)",
+      "SliceControlDependency at L309: control predicate over dst, charAt, i, setCharAt, ret (if (dst.charAt(i-1)=='1'){)",
+      "SliceMethodCall at L309: method call dst.charAt in static data/control context (if (dst.charAt(i-1)=='1'){)",
+      "SliceMethodCall at L310: method call dst.setCharAt in static data/control context (dst.setCharAt(i-1,'X');)",
+      "SliceControlDependency at L314: control predicate over dst, charAt, i, setCharAt, ret (if (dst.charAt(i)=='0'){)",
+      "SliceMethodCall at L314: method call dst.charAt in static data/control context (if (dst.charAt(i)=='0'){)",
+      "SliceMethodCall at L315: method call dst.setCharAt in static data/control context (dst.setCharAt(i,'X');)",
+      "SliceControlDependency at L319: control predicate over dst, charAt, i, setCharAt, ret (if (dst.charAt(i+1)=='1'){)",
+      "SliceMethodCall at L319: method call dst.charAt in static data/control context (if (dst.charAt(i+1)=='1'){)",
+      "SliceMethodCall at L320: method call dst.setCharAt in static data/control context (dst.setCharAt(i+1,'X');)"
+    ],
+    "recorded_target_method": "pawnLineal",
+    "target_method": "pawnLineal"
+  },
+  "prompt_tokens_by_condition": {
+    "obfuscated_codesteer": {
+      "context_limit": 131072,
+      "context_margin_tokens": 126956,
+      "fits_context": true,
+      "max_new_tokens": 512,
+      "prompt_sha256": "0e461f11f20443eb049ad492138c9848c120dcf3a889935945242d4f7575bd91",
+      "prompt_token_count": 3604
+    },
+    "obfuscated_plain": {
+      "context_limit": 131072,
+      "context_margin_tokens": 126956,
+      "fits_context": true,
+      "max_new_tokens": 512,
+      "prompt_sha256": "0e461f11f20443eb049ad492138c9848c120dcf3a889935945242d4f7575bd91",
+      "prompt_token_count": 3604
+    },
+    "obfuscated_prompt_slice": {
+      "context_limit": 131072,
+      "context_margin_tokens": 126291,
+      "fits_context": true,
+      "max_new_tokens": 512,
+      "prompt_sha256": "461e42f3b395283c13d76c6ff11d99eda74a70c5b50c1533b7893d97e20daeba",
+      "prompt_token_count": 4269
+    },
+    "original_plain": {
+      "context_limit": 131072,
+      "context_margin_tokens": 127640,
+      "fits_context": true,
+      "max_new_tokens": 512,
+      "prompt_sha256": "9a6488394c6d8822d8b0f1f603e450b82e0de07396bbdbf5ee45556d4c3ab916",
+      "prompt_token_count": 2920
+    }
+  },
+  "rejection_reasons": [],
+  "sample_id": "cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game__t5_easy_seed1__balanced-generated-000002"
+}

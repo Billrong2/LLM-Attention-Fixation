@@ -1,0 +1,40 @@
+To determine the exact standard output of the given Java program for the provided input, let's follow the steps and understand the program's logic:
+
+1. **Input Handling**: The program reads the number of test cases (`t`), then for each test case, it reads the number of steps (`m`) and two strings (`arr` and `arr2`) representing the steps and their values.
+2. **Function `game`**: The function `game` takes two arrays `arr1` and `arr2` and calculates the minimum of the maximum values of the two arrays for each step.
+3. **Main Logic**: The main function processes each test case by calling the `game` function and printing the result.
+
+### Detailed Steps:
+
+1. **Reading Input**:
+   - `t = 3` (Number of test cases)
+   - For each test case:
+     - `m = 3`
+     - `arr1 = ["1 2 7"]`
+     - `arr2 = ["3 17 0"]`
+
+2. **Processing Each Test Case**:
+   - For `m = 3`:
+     - `arr1 = [1, 2, 7]`
+     - `arr2 = [3, 17, 0]`
+   - Calculate the sum for each row:
+     - `dp[0] = [0, 3, 20]` (Sum of `arr2` up to each index)
+     - `dp[1] = [0, 20, 9]` (Sum of `arr1` up to each index in reverse)
+   - Find the maximum of the sums at each index:
+     - `Math.max(0, 0) = 0`
+     - `Math.max(3, 20) = 20`
+     - `Math.max(20, 9) = 20`
+   - The minimum of these maximum values is `20`.
+
+3. **Output**:
+   - The program prints `20` for the first test case.
+
+### Final Output:
+
+```plaintext
+20
+```
+
+### JSON Representation:
+
+```json

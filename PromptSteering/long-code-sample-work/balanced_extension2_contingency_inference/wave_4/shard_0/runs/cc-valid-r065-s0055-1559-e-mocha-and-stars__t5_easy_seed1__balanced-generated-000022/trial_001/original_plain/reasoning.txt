@@ -1,0 +1,15 @@
+### CASES_BEGIN
+c001: invoke program entry point; target_method=ans; stdin="1 1\n1 1\n1 1\n4 1\n"; argv=[]
+### CASES_END
+
+The program first reads in two integers `n` and `m` and initializes a 2D array `intervals` of size `n` x 2. It then reads in `n` pairs of integers representing the intervals.
+
+Next, the program initializes a static array `mu` and `isPrime` and calls `mobiusAndPrime(100000)` to populate them. The function `mobiusAndPrime(n)` calculates the Möbius function for all numbers up to `n` and marks prime numbers in the `isPrime` array.
+
+The program then iterates over the numbers `1` to `100000` and calculates the value `ans`. For each number `j`, it first checks if any interval `[a, b]` in `intervals` satisfies `b - a < j`. If any interval does, the iteration continues to the next number. Otherwise, it calculates the number of valid permutations `ans(j)` of the intervals modulo `mod`. The function `ans(max, intervals, sum)` calculates the number of valid permutations of the intervals modulo `mod` by using a segment tree.
+
+The segment tree has two arrays, `sum` and `lazy`, and two functions, `querySum` and `update`. The function `querySum` returns the sum of the values in a given range of the segment tree. The function `update` updates the values in a given range of the segment tree.
+
+Finally, the program prints the value of `ans` modulo `mod` to the standard output.
+
+For the given input `1 1\n1 1\n1 1\n4 1\n`, the program prints `0` to the standard output. This is because the number of valid permutations of the intervals modulo `mod` is `0`.

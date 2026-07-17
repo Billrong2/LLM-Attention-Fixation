@@ -1,0 +1,15 @@
+Reasoning:
+The program starts by reading the number of test cases T.
+For each test case, it reads an integer n and two strings of length n.
+It creates a 2D array nxt of size 2 x n and initializes all elements to -1.
+It then iterates backwards from n-1 to 0 and sets the elements of nxt based on the characters in the strings.
+It initializes a dp array of size n and fills it with -1.
+The program then calls the cal method with the parameters 0, n, and nxt, and prints the result.
+The cal method recursively calculates the result based on the values in nxt and dp.
+If the index is equal to n, it returns 0.
+If dp[index] is not equal to -1, it returns dp[index].
+If the values of nxt[0][index] and nxt[1][index] are equal to index, it sets result to 2 plus the result of calling cal with the parameters index + 1, n, and nxt.
+If nxt[0][index] is equal to index, it sets result to 1 plus the result of calling cal with the parameters index + 1, n, and nxt.
+If nxt[1][index] is not equal to -1, it sets result to the maximum of result and 2 plus the result of calling cal with the parameters nxt[1][index] + 1, n, and nxt.
+If nxt[0][index] is not equal to -1, it sets result to the maximum of result and 2 plus the result of calling cal with the parameters nxt[0][index] + 1, n, and nxt.
+It then returns dp[index] which is set to result.

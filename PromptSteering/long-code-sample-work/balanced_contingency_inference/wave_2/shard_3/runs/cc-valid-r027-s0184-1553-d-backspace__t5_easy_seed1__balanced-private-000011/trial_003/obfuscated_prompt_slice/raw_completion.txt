@@ -1,0 +1,24 @@
+
+
+
+1. The input is read using a FastScanner, which is initialized at L127. The input string "1\nabab\naba\n" is split into tokens at L134, and the first token is "1".
+
+2. The solve method is invoked at L140 with s = "abab" and t = "aba" as arguments.
+
+3. Inside the solve method, L038 initializes _obf_t5_solve_181246 to 0.
+
+4. L039 and L040 calculate the length of strings t and s respectively, and store them in variables j and i respectively.
+
+5. The while loop at L041 runs until i becomes less than 0.
+
+6. Inside the while loop, at L042, it checks whether the characters at position i of s and j of t are equal. If they are equal, it decrements j and i at L043 and L044 respectively.
+
+7. If the characters are not equal, it decrements i by 2 at L046.
+
+8. At L049, if j becomes -1, the method returns "YES".
+
+9. Otherwise, it returns "NO".
+
+10. The output of the program is the result of the solve method, which is "YES".
+
+FINAL_OUTPUT_JSON: {"stdout": "YES\n"}

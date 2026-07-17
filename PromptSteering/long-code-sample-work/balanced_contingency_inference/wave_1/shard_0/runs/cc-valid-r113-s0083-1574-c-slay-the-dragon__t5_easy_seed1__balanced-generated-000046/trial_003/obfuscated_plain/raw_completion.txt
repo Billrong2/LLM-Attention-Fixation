@@ -1,0 +1,20 @@
+ The program reads input from the console and performs the following steps:
+
+1. It reads the number of elements `n` from the input.
+2. It reads `n` integers from the input and stores them in an array `arr` while also storing them in a set `hs`.
+3. It calculates the sum of all the elements in `arr` and stores it in a variable `sum`.
+4. It reads an integer `y` from the input.
+5. It enters a loop that iterates `y` times. In each iteration, it reads two integers `attack` and `defend` from the input.
+6. It calls the `find` method with `sum`, `hs`, `a`, `m`, `attack`, and `defend` as arguments.
+7. The `find` method performs a binary search on the sorted array `a` to find the element closest to `attack`. It then calculates the minimum difference between `attack` and the elements in `a`, as well as the minimum difference between `defend` and the sums of the elements in `hs`. It returns the sum of these two minimum differences.
+8. The program prints the result of each call to `find` on a new line.
+
+Now, let's consider the concrete case:
+
+* The input is `4\n2 6 2 0\n1\n3 12\n7 9\n4 14\n2 10\n8 7\n`
+* The first line of the input contains the number of elements `n`, which is `4`.
+* The next line contains four integers separated by spaces, which are added to the array `arr` and the set `hs`.
+* The next line contains the integer `y`, which is `1`.
+* The next line contains the integers `3 12`, which are assigned to the variables `attack` and `defend` respectively.
+* The `find` method is called with `sum`, `hs`, `a`, `m`, `attack`, and `defend` as arguments. The binary search finds the element closest to `3` in the sorted array `a`, which is `2`. The minimum difference between `3` and the elements in `a` is `1`. The minimum difference between `12` and the sums of the elements in `hs` is `4`. The sum of these two minimum differences is `5`.
+* The program prints the result of the `find`

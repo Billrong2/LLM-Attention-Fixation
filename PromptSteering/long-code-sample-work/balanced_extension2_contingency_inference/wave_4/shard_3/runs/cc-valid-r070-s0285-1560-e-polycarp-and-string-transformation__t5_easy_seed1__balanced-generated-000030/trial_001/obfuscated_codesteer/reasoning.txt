@@ -1,0 +1,36 @@
+The program reads the number of test cases and then processes each case as follows:
+
+1. Reads a string `v`.
+2. Counts the frequency of each character in `v`.
+3. Constructs a string `builder` by appending the characters in `v` in reverse order, ensuring that the frequency of each character in `builder` matches the frequency in `v`.
+4. Constructs a string `s` by appending the characters in `v` in the original order, ensuring that the frequency of each character in `s` matches the frequency in `v`.
+5. If the constructed strings `s` and `builder` match the input string `v`, it prints `s` and `builder`; otherwise, it prints `-1`.
+
+Let's analyze the given input:
+
+- `invoke program entry point; target_method=check; stdin="7\nabacbbaaacaad\noovyouknowuhat\nppqrppryppraypprayoppracyoppracylop\nhsi\nevyrewherevrywhrvryhrvhhrwrv\nabhha\nwewdepewp\n"; argv=[]`
+
+The program will process 7 test cases with the following inputs:
+1. `"abacbbaaacaad"`
+2. `"oovyouknowuhat"`
+3. `"ppqrppryppraypprayoppracyoppracylop"`
+4. `"hsi"`
+5. `"evyrewherevrywhrvryhrvhhrwrv"`
+6. `"abhha"`
+7. `"wewdepewp"`
+
+For each case, the program will construct two strings and compare them with the input string. Since the program's logic is to construct the strings in a specific way, let's consider a few cases:
+
+1. **Input: "abhha"**
+   - The program will try to construct two strings with the same characters and frequencies.
+   - It will construct "hhaab" (reverse order) and "hhaab" (original order).
+   - Since the constructed strings do not match the input, it will print "-1".
+
+2. **Input: "wewdepewp"**
+   - The program will construct "ppweeedpw" (reverse order) and "ppweeedpw" (original order).
+   - Since the constructed strings match the input, it will print "ppweeedpw" and "ppweeedpw".
+
+Based on the above analysis, the output will be:
+
+```json
+FINAL_OUTPUT

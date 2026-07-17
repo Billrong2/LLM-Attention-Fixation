@@ -1,0 +1,15 @@
+ CASE 001:
+1
+abba
+bb
+
+Reasoning:
+1. The `main` method initializes the scanner and PrintWriter objects.
+2. The method reads the number of test cases (1 in this case) and the input strings 'abba' and 'bb'.
+3. The `solve` method is called with 'abba' and 'bb' as arguments.
+4. In the `solve` method, the algorithm starts from the end of both strings. If the characters at the current positions are equal, it moves to the previous position in both strings. Otherwise, it skips two positions in the first string.
+5. The loop continues until the algorithm has processed the entire first string.
+6. If the algorithm reaches the end of the second string (j == -1), it returns "YES". Otherwise, it returns "NO".
+7. The result of the `solve` method is printed by the `main` method.
+
+FINAL_OUTPUT_JSON: {"stdout":"YES\n"}

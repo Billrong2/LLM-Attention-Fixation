@@ -1,0 +1,26 @@
+
+
+
+Reasoning:
+
+The program starts by reading a single integer `t` from standard input using the `nextInt()` method of the `InputReader` class. This integer represents the number of test cases to solve.
+
+Next, the program enters a loop that iterates `t` times. In each iteration, it reads three integers `n`, `m`, and `k` using the `nextInt()` method. These integers represent the dimensions of a grid and the number of points.
+
+The program then reads `n` integers representing the y-coordinates of the points using the `nextIntArray()` method. It also reads `m` integers representing the x-coordinates of the points using the same method.
+
+After that, the program reads `k` pairs of integers representing the x and y coordinates of additional points using the `nextInt()` method. These points are stored in two separate arrays `px` and `py`.
+
+The program then calls the `solve` method, passing in the values of `n`, `m`, `k`, `yline`, `xline`, `px`, and `py` as arguments.
+
+The `solve` method creates two sets `yset` and `xset` to store the unique y and x coordinates, respectively. It also creates two lists `xlist` and `ylist` to store pairs of coordinates.
+
+Next, the method iterates through the `yline` array and adds the y-coordinates to the `yset` set and creates pairs of (y-coordinate, -1) and adds them to the `xlist` list.
+
+Similarly, the method iterates through the `xline` array and adds the x-coordinates to the `xset` set and creates pairs of (x-coordinate, -1) and adds them to the `ylist` list.
+
+Then, the method iterates through the `py` array and checks if the y-coordinate is already in the `xset` set. If it is, the method moves on to the next iteration. Otherwise, it creates a pair of (y-coordinate, x-coordinate) and adds it to the `xlist` list.
+
+Similarly, the method iterates through the `px` array and checks if the x-coordinate is already in the `yset` set. If it is, the method moves on to the next iteration. Otherwise, it creates a pair of (x-coordinate, y-coordinate) and adds it to the `ylist` list.
+
+After that, the method sorts both `

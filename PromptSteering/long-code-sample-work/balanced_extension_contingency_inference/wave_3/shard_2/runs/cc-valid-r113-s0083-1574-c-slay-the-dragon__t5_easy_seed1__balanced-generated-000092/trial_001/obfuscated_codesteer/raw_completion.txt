@@ -1,0 +1,63 @@
+ To determine the output of the Java program for the given input, we need to analyze each step and how it affects the state and control flow of the program. Let's break it down:
+
+### Input Breakdown
+```plaintext
+stdin="4\n6 1 5 1\n1\n3 30\n4 3\n5 0\n-1 19\n21 0"
+```
+This means:
+- The first line indicates there are 4 elements in the array.
+- The second line provides the elements of the array: `6 1 5 1`.
+- The third line indicates there is 1 test case.
+- The next line provides the test case details: `3 30`.
+
+### Array Processing
+1. **Reading Input and Creating Array:**
+   ```java
+   int n = sc.nextInt(); // n = 4
+   int arr[] = new int[n];
+   Set<Long> hs = new HashSet<>();
+   long sum = 0;
+   for (int i = 0; i < n; i++) {
+       long t1 = sc.nextLong();
+       sum += t1;
+       hs.add(t1);
+   }
+   ```
+   - `hs` will contain `{6, 1, 5}`.
+   - `sum` will be `6 + 1 + 5 + 1 = 13`.
+   - `arr` will be `[6, 1, 5, 1]`.
+
+2. **Sorting the Array**:
+   ```java
+   Arrays.sort(a);
+   ```
+   - `a` will be `[1, 1, 5, 6]`.
+
+3. **Processing the Test Case**:
+   ```java
+   int m = hs.size();
+   long a[] = new long[m];
+   int ind = 0;
+   Iterator<Long> it = hs.iterator();
+   while (it.hasNext()) {
+       a[ind++] = it.next();
+   }
+   ```
+
+### Finding the Result
+```java
+public static long find(long sum, Set<Long> hs, long[] arr, int n, long attack, long defend) {
+    // ...
+}
+```
+
+### Main Function
+```java
+for (int i = 0; i < y; i++) {
+    long attack = sc.nextLong();
+    long defend = sc.nextLong();
+    out.println(find(sum, hs, a, m, attack, defend));
+}
+```
+
+### Execution Details

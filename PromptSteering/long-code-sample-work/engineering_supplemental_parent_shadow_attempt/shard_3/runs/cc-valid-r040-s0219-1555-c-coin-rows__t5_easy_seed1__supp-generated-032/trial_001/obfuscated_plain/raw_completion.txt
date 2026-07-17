@@ -1,0 +1,16 @@
+ ### Reasoning:
+1. **Reading Input**: The `main` method reads the number of test cases (`t`) from the standard input and then for each test case, reads the number of elements in the array (`m`) and two arrays (`arr` and `arr2`).
+2. **Processing Input**: For each test case, it calls the `game` function with the two arrays and `m`.
+3. **Game Function**:
+   - It initializes two 2D arrays `dp` of size 2x`m`.
+   - It fills the first row of `dp` with the cumulative sum of the elements in `arr2`.
+   - It fills the second row of `dp` with the cumulative sum of the elements in `arr1` in reverse order.
+   - It calculates the maximum of the sums at each position in `dp` and finds the minimum of these maximum values.
+4. **Output**: The `game` function returns this minimum value, which is printed by the `pw.println(game(arr,arr2,m))` statement.
+
+### FINAL_OUTPUT_JSON:
+```json
+{"stdout":"12\n-1\n"}
+```
+
+This output is derived from the input provided, where the program processes each test case and calculates the required minimum value based on the rules described.

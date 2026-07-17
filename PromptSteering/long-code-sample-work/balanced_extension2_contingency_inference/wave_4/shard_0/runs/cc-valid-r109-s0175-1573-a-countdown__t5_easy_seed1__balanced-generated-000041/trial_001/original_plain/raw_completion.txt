@@ -1,0 +1,50 @@
+ ### CASES_BEGIN
+### CASES_END
+
+To predict the exact standard output of the given Java program, we need to simulate the execution step-by-step for each input case provided.
+
+**Input Case:**
+- `7`
+- `3`
+- `007`
+- `4`
+- `1000`
+- `5`
+- `00000`
+- `3`
+- `103`
+- `4`
+- `1247`
+- `9`
+- `169501199`
+- `30`
+- `001678294039710047203946100020`
+
+Let's break down the execution for each case:
+
+1. **First Case (n=7, ch="007")**
+   - `moves = 7`
+   - For each `i` from 0 to 6:
+     - `ch[i] - '0' > 0` is false for `i < 3`.
+     - `ch[3] - '0' > 0` is true.
+     - `moves += (ch[3] - '0' + 1) = 8`.
+   - Final `moves = 15`.
+
+2. **Second Case (n=4, ch="1000")**
+   - `moves = 4`
+   - For each `i` from 0 to 3:
+     - `ch[0] - '0' > 0` is true.
+     - `moves += (ch[0] - '0' + 1) = 6`.
+   - Final `moves = 10`.
+
+3. **Third Case (n=5, ch="00000")**
+   - `moves = 5`
+   - For each `i` from 0 to 4:
+     - `ch[i] - '0' > 0` is false for all `i`.
+   - Final `moves = 5`.
+
+4. **Fourth Case (n=3, ch="103")**
+   - `moves = 3`
+   - For each `i` from 0 to 2:
+     - `ch[0] - '0' > 0` is true.
+     - `moves += (ch[0] - '0' + 1)

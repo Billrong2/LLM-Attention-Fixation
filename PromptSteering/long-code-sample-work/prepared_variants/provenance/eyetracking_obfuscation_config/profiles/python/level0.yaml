@@ -1,0 +1,22 @@
+pass_order: [T2, T1, T8, T4, T3, T5, T6, T7]
+shuffle_group: []
+profiles:
+  safe:
+    budget:
+      max_new_ast_nodes_percent: 50
+      max_new_helpers: 2
+      max_expr_depth_increase: 2
+      max_cfg_states_for_flattening: 4
+      max_added_branches_per_100_stmts: 5
+    python_allow_exec: false
+    java_allow_reflection: false
+  aggressive:
+    budget:
+      max_new_ast_nodes_percent: 200
+      max_new_helpers: 8
+      max_expr_depth_increase: 8
+      max_cfg_states_for_flattening: 20
+      max_added_branches_per_100_stmts: 25
+    python_allow_exec: false
+    java_allow_reflection: false
+passes: {}

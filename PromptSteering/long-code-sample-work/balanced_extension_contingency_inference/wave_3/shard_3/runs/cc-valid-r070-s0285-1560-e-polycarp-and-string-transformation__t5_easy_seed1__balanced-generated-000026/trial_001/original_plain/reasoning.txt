@@ -1,0 +1,45 @@
+### OUTPUT:
+```
+2
+20
+15
+14
+14
+14
+14
+14
+14
+14
+14
+14
+14
+14
+14
+14
+14
+14
+14
+14
+14
+```
+
+### REASONING:
+
+- The program initializes `T` with the value `1`.
+- The main method is called, and a `PrintWriter` object `out` is created to write the output.
+- A `Scanner` object `in` is created to read input from the console.
+- The program reads the input `2`, which is stored in the variable `T`.
+- The program enters a `for` loop that iterates `2` times.
+- The first iteration of the loop:
+  - The program reads the input `20` and `15`, and stores them in the variables `a` and `b`, respectively.
+  - The program checks if `a` is equal to `b`, which is not the case.
+  - The program prints the value `20` to the console.
+  - The program reads the next line, which is an empty line.
+- The second iteration of the loop:
+  - The program reads the input `14` and `14`, and stores them in the variables `a` and `b`, respectively.
+  - The program checks if `a` is equal to `b`, which is the case.
+  - The program enters another `for` loop that iterates `14` times.
+  - Each iteration of the inner loop, the program prints the value `14` to the console.
+- The program exits the main method and closes the `PrintWriter` object `out`.
+
+###

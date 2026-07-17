@@ -1,0 +1,32 @@
+### Case 001:
+
+Input:
+4
+7
+0101000
+1100000
+5
+01000
+10101
+2
+01
+01
+6
+000011
+111111
+
+Output:
+2
+4
+1
+1
+
+The program reads a number of test cases and for each test case, it reads an integer `n` and two binary strings of length `n`, which are stored in the `data` array. It then constructs a 2D array `nxt` of size `2 x n`, where `nxt[0][i]` and `nxt[1][i]` store the indices of the next occurrence of '0' and '1' respectively in the binary strings starting from index `i`.
+
+The program then calls the `cal` function with the initial index `0`, the length of the binary strings `n`, and the `nxt` array. The `cal` function recursively computes the maximum number of pairs of characters that can be selected in the binary strings such that no two selected characters are adjacent and the first character of each pair is '0' and the second character is '1'. 
+
+The base case for the recursion is when the index reaches `n`, where the function returns `0` indicating that no more characters can be selected. If `dp[index]` is already computed and stored in the `dp` array, the function returns the stored value, otherwise, it computes the result and stores it in the `dp` array for future use.
+
+In the recursive function, the function checks if the current index contains both '0' and '1', in which case it can choose both characters and recursively call the function with the next index `index + 1`. If only '0' is present at the current index, the function can choose it and recursively call the function with the next index `index + 1`. It also checks if the next index contains '1' and if so, it can choose the pair of '0' and '1' and recursively call the function with the next index of '1' `nxt[1][index] + 1`. If only '1' is present at the current index, the function recursively calls the function with the next index `index + 1`. 
+
+Finally, the program prints the result of the `cal` function for

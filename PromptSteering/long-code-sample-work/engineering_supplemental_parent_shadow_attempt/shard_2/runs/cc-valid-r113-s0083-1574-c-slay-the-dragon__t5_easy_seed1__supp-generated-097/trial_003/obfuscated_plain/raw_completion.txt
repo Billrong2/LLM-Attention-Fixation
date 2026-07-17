@@ -1,0 +1,9 @@
+ The program reads input from `System.in`. The input is processed in the `main` method. It reads `n`, then an array of `n` longs, then `m`, then a set of longs of size `m`, then `y`, and then a series of `y` pairs of longs representing attacks and defends.
+
+For each attack and defend pair, it calls `find`, which calculates the minimum value of the sum of two differences: the difference between the attack and the largest number in the array that is less than or equal to the attack, and the difference between the defend and the sum of the rest of the array minus the largest number that is less than or equal to the attack. The minimum of these two values is the output.
+
+The input for the given case is `4`, followed by the array `12 11 1 2`, followed by `1`, followed by the set `12 28`, followed by `7 2`, followed by `4 10`, followed by `0 13`, followed by `8 7`. The program will read the input and output `10`, `10`, `10`, and `10`. 
+
+```json
+FINAL_OUTPUT_JSON: {"stdout":"10\n10\n10\n10\n"}
+```

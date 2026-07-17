@@ -1,0 +1,34 @@
+ ### Reasoning
+The program starts by reading the number of test cases `t` and then proceeds to handle each test case individually. Each test case is processed as follows:
+
+1. **Input Processing**: For each test case, the program reads the dimensions of two arrays (`n` and `m`) and the size of a third array (`k`). It also reads two arrays (`yline` and `xline`) and an array of pairs (`px` and `py`).
+   
+2. **Data Structures Initialization**: Two sets (`yset` and `xset`) are initialized to store the unique elements from the arrays `yline` and `xline`, respectively. Two lists (`xlist` and `ylist`) are initialized to store the elements of `yline` and `xline`, along with their corresponding indices or pairs.
+   
+3. **Pair Processing**: The program iterates over the pairs in `px` and `py`. If a pair's element is already present in either `yset` or `xset`, it skips processing that pair. Otherwise, it adds the pair to the respective list.
+   
+4. **Sorting**: The lists `xlist` and `ylist` are sorted based on the first element of the pairs.
+   
+5. **Calculations**: Two maps (`mapx` and `mapy`) are used to keep track of counts for each unique value in the arrays. Two sums (`sumx` and `sumy`) are initialized to zero. The program iterates over the sorted lists, updating the maps and sums accordingly and calculating the total count of unique pairs that meet the specified conditions.
+   
+6. **Output**: Finally, the program prints the total count for each test case.
+
+### Final Output
+Given the input:
+```
+1
+2 2 2
+0 1010000
+0 1000000
+1556 1000000
+0 18
+```
+The output of the program will be:
+```
+3
+```
+### JSON Output
+```json
+FINAL_OUTPUT_JSON: {"stdout":"3\n"}
+```
+This output represents the total count of unique pairs that meet the specified conditions for the given test case.

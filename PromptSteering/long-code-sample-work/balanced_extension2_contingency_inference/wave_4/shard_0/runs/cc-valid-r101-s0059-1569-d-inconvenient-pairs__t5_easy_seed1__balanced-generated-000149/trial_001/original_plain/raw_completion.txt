@@ -1,0 +1,33 @@
+ ### CASES_BEGIN
+c001: invoke program entry point; target_method=solve; stdin="1\n2 2 0\n0 1011000\n1 1000000\n1556 1010000\n0 14\n"; argv=[]
+### CASES_END
+
+The program reads the input, which consists of:
+- The number of test cases, `t`.
+- The number of rows, columns, and points (`n`, `m`, and `k`), respectively.
+- The `y` coordinates for each row in the matrix.
+- The `x` coordinates for each column in the matrix.
+- The `x` and `y` coordinates for each point.
+
+The `solve` function is called for each test case. Here's a breakdown of the logic within the function:
+
+1. Create hash sets `yset` and `xset` to store the `y` and `x` coordinates of the rows and columns, respectively.
+2. Populate `xlist` and `ylist` with `Pair` objects containing `x` and `y` coordinates, where `Pair.y == -1` indicates the coordinates for a row or column, and `Pair.y == -1` indicates the coordinates for a point.
+3. Sort `xlist` and `ylist`.
+4. Initialize hash maps `mapx` and `mapy` to store the count of each `y` and `x` coordinate, respectively.
+5. Initialize `sumx` and `sumy` to store the cumulative sum of the `x` and `y` coordinates, respectively.
+6. Iterate through `xlist` and `ylist`, updating the hash maps and sums accordingly. When encountering a row or column, update the sum and subtract the count of that coordinate from the current sum. When encountering a point, simply update the sum.
+7. Return the final value of `ans`.
+
+Given the input:
+```
+1
+2 2 0
+0 1011000
+1 1000000
+1556 1010000
+0 14
+```
+The program will read the test case and call the `solve` function. The function will process the input, update the necessary variables, and calculate the final value of `ans`. The output will be the result of this calculation.
+
+FINAL_OUTPUT

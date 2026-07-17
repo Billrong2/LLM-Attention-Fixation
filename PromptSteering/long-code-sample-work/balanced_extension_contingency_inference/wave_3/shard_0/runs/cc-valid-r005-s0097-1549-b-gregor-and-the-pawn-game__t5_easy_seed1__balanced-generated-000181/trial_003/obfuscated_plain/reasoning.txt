@@ -1,0 +1,24 @@
+The program's main functionality is handled by the `main` method, which reads input and prints the output. The input is read line by line, with the first line representing the number of test cases, the second line representing the length of the input strings, and the subsequent lines representing the source and destination strings.
+
+For the given input:
+
+```
+1
+20
+01101100110111000100
+00101100011010001110
+```
+
+The program reads the first line, "1", as the number of test cases. It then reads the second line, "20", as the length of the input strings. The subsequent two lines represent the source and destination strings, "01101100110111000100" and "00101100011010001110", respectively.
+
+The program then calls the `pawnLineal` method with the source and destination strings as arguments. This method iterates over the characters of the strings and checks the conditions for moving the pawn. It increments the return value `ret` for each valid move.
+
+Finally, the program prints the result of the `pawnLineal` method call, which represents the maximum number of moves the pawn can make to reach the destination string from the source string.
+
+In this case, the output will be:
+
+```
+10
+```
+
+The `pawnLineal` method checks for valid moves and increments the return value `ret` for each valid move. In this specific input, the pawn can make a total of 10 valid moves to reach the destination string from the source string.

@@ -1,0 +1,37 @@
+ ```text
+FINAL_OUTPUT_JSON: {"stdout":"2\n2\n"}
+```
+**Reasoning:**
+
+1. The input to the `game` method is:
+   - arr1 = ["2", "3", "12"]
+   - arr2 = ["2", "10", "2"]
+   - m = 3
+
+2. The `game` method initializes a 2x3 array `dp` with zeros.
+   - dp = [[0, 0, 0], [0, 0, 0]]
+
+3. The first loop populates the first row of `dp`.
+   - For i = 1: dp[0][1] = Integer.parseInt("2") + 0 = 2
+   - For i = 2: dp[0][2] = Integer.parseInt("10") + 2 = 12
+   - dp becomes: [[2, 12, 0], [0, 0, 0]]
+
+4. The second loop populates the second row of `dp` in reverse order.
+   - For i = 1: dp[1][1] = Integer.parseInt("12") + 0 = 12
+   - For i = 2: dp[1][0] = Integer.parseInt("3") + 12 = 15
+   - dp becomes: [[2, 12, 0], [15, 12, 0]]
+
+5. The loop to find the minimum maximum value iterates over the columns.
+   - For i = 0: max(dp[0][0], dp[1][0]) = max(2, 15) = 15
+   - For i = 1: max(dp[0][1], dp[1][1]) = max(12, 12) = 12
+   - The minimum of these max values is min(15, 12) = 12
+
+6. The output of the first call to `game` is "2" (from the first row).
+
+7. For the second call to `game`:
+   - arr1 = ["-1", "4", "17"]
+   - arr2 = ["3", "5", "0"]
+   - m = 3
+
+8. The first row of `dp` is populated as before.
+   - For i = 1: dp

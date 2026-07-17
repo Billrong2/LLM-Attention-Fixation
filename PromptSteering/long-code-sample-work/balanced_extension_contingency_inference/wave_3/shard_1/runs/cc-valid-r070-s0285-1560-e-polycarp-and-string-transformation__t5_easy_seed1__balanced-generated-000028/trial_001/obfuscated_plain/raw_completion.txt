@@ -1,0 +1,37 @@
+ The given Java program takes an input string `v`, counts the occurrences of each character, and constructs a new string by appending characters in a specific order based on their occurrences in the original string. It also checks if the constructed string matches a predefined pattern.
+
+### Reasoning
+
+1. **Input and Initialization**:
+   - The program reads an integer `T`, which represents the number of test cases.
+   - For each test case, it reads a string `v`.
+
+2. **Counting Character Occurrences**:
+   - It initializes an array `num` of size 26 to store the count of each character in the alphabet.
+   - It iterates through the string `v` to count the occurrences of each character and stores these counts in the `num` array.
+
+3. **Constructing the New String**:
+   - It constructs a `StringBuilder` object `builder` to build the new string.
+   - It iterates through the string `v` in reverse order.
+   - If a character's occurrence count is zero, it skips it.
+   - Otherwise, it appends the character to `builder` and decrements its count in `num`.
+   - It also keeps track of the number of unique characters in `count`.
+
+4. **Output Determination**:
+   - If the constructed string matches the predefined pattern (checked by the `check` method), it prints the constructed string and the original string.
+   - Otherwise, it prints `-1`.
+
+5. **Case Analysis**:
+   - The input string is `"abacbbaaacaac"`.
+   - The character counts are: `a: 6, b: 3, c: 3`.
+   - The `check` method will construct a string with unique characters in reverse order and ensure that the counts match the original string.
+
+### Final Output
+
+For the given input, the program will construct the string `caabbaaccabba` and print it along with the original string.
+
+### Machine-Readable Line
+
+```plaintext
+FINAL_OUTPUT_JSON: {"stdout":"abacbbaaacaac caabbaaccabba\n"}
+```

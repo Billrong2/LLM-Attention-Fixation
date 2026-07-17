@@ -1,0 +1,516 @@
+{
+  "argv": [],
+  "metadata": {
+    "argv": [],
+    "balanced_extension2_contingency_selection": {
+      "canonical_problem_identity": "deepmind/code_contests@802411c3010cb00d1b05bad57ca77365a3c699d6:valid:row-000026",
+      "continued_accepted_ranks": [
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "protocol": "../BALANCED_EXTENSION2_CONTINGENCY_PROTOCOL.md",
+      "schema_version": "long-code-balanced-extension2-contingency-v1",
+      "selected_source_rule": "same first tokenizer-eligible source used by frozen balanced Waves 1--3",
+      "source_denominator_unchanged": true,
+      "wave_id": "balanced_wave_4"
+    },
+    "candidate_id": "cc-valid-r026-s0005-1553-c-penalty",
+    "candidate_metadata": {
+      "expected_stdout": "8\n9\n6\n9\n",
+      "expected_stdout_path": "candidates/cc-valid-r026-s0005-1553-c-penalty/io/00-generated-001.out",
+      "id": "cc-valid-r026-s0005-1553-c-penalty",
+      "input": "4\n1001???0?1\n1111101111\n??????????\n0100000000\n",
+      "input_path": "candidates/cc-valid-r026-s0005-1553-c-penalty/io/00-generated-001.in",
+      "inputs": [
+        {
+          "dataset_test_index": 1,
+          "expected_stdout": "8\n9\n6\n9\n",
+          "expected_stdout_path": "candidates/cc-valid-r026-s0005-1553-c-penalty/io/00-generated-001.out",
+          "expected_stdout_sha256": "e18fcce299151a21286ffeb3fd700f584a67332b0297f20b7fc648581aa6c8e4",
+          "id": "00-generated-001",
+          "input": "4\n1001???0?1\n1111101111\n??????????\n0100000000\n",
+          "input_path": "candidates/cc-valid-r026-s0005-1553-c-penalty/io/00-generated-001.in",
+          "input_sha256": "ac44189e6ca00a5a296e77feb87658b6fb07d2bb6fc8c471b98ca97e497a527c",
+          "suite": "generated_tests",
+          "validation": {
+            "compiled_with_jdk17": true,
+            "exit_code": 0,
+            "stderr_bytes": 0,
+            "timed_out": false
+          }
+        }
+      ],
+      "loc_definition": "Python str.splitlines(); final newline does not add an empty physical line",
+      "main_class": "Main",
+      "nonblank_loc": 246,
+      "original_path": "candidates/cc-valid-r026-s0005-1553-c-penalty/original.java",
+      "physical_loc": 277,
+      "prevalidation": {
+        "all_retained_tests_exact": true,
+        "compiled": true,
+        "compiler_exit_code": 0,
+        "compiler_stderr_bytes": 0,
+        "compiler_stdout_bytes": 0,
+        "jdk_major": 17
+      },
+      "problem_key": "codeforces-1553-C",
+      "problem_name": "1553_C. Penalty",
+      "provenance": {
+        "cf_contest_id": 1553,
+        "cf_index": "C",
+        "cf_points": 750.0,
+        "cf_rating": 1200,
+        "cf_tags": [
+          "bitmasks",
+          "brute force",
+          "dp",
+          "greedy"
+        ],
+        "dataset_file": "codecontests-valid-802411c3.parquet",
+        "dataset_file_sha256": "02e8c1ccedae716f1e43cc813fcb7823c3db666ea92638820aba80e8cef451ab",
+        "dataset_id": "deepmind/code_contests",
+        "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+        "dataset_url": "https://huggingface.co/datasets/deepmind/code_contests/resolve/802411c3010cb00d1b05bad57ca77365a3c699d6/data/valid-00000-of-00001-5e672c5751f060d3.parquet",
+        "difficulty": 9,
+        "language": "Java",
+        "language_code": 4,
+        "problem_name": "1553_C. Penalty",
+        "row_index": 26,
+        "solution_container": "solutions",
+        "solution_index": 5,
+        "solution_label": "correct human solution",
+        "source_code": 2,
+        "split": "valid"
+      },
+      "source_bytes": 7030,
+      "source_sha256": "6ad8318f5093996eba47f21e5e2f7c77fc40691045b8503059e681e083b5d3ce",
+      "target": {
+        "arity": 6,
+        "body_nonblank_loc": 34,
+        "body_physical_loc": 34,
+        "class": "Main",
+        "codesteer_selector": {
+          "declaration_line": 20,
+          "fallback_used": false,
+          "implementation": "steering.priors.SlicingPrior._select_target_method",
+          "name": "helper",
+          "parameter_count": 6,
+          "parse_status": "javalang",
+          "top_level_body_statement_count": 4
+        },
+        "control_node_count": 8,
+        "end_line": 53,
+        "loop_node_count": 0,
+        "main_call_path": [
+          {
+            "arity": 1,
+            "class": "Main",
+            "end_line": 63,
+            "name": "main",
+            "parameter_types": [
+              "String[]"
+            ],
+            "return_type": "void",
+            "start_line": 55
+          },
+          {
+            "arity": 6,
+            "class": "Main",
+            "end_line": 53,
+            "name": "helper",
+            "parameter_types": [
+              "int",
+              "int",
+              "int",
+              "int",
+              "int",
+              "char[]"
+            ],
+            "return_type": "int",
+            "start_line": 20
+          }
+        ],
+        "main_reachable": true,
+        "name": "helper",
+        "output_caller": {
+          "arity": 1,
+          "class": "Main",
+          "end_line": 63,
+          "name": "main",
+          "parameter_types": [
+            "String[]"
+          ],
+          "return_type": "void",
+          "start_line": 55
+        },
+        "output_evidence": "System.out.println(helper(0,0,0,5,5,s.toCharArray()))",
+        "output_relevance_kind": "direct_print_argument",
+        "output_relevance_variable": null,
+        "parameter_types": [
+          "int",
+          "int",
+          "int",
+          "int",
+          "int",
+          "char[]"
+        ],
+        "recursive_call_count": 6,
+        "return_type": "int",
+        "return_value_output_relevant": true,
+        "source_sha256": "b6daf1bd6954136e265507cb86595c12a9805f9f547ae0a0063e2acce24dc047",
+        "start_line": 20
+      },
+      "target_method": "helper",
+      "target_signature": "int Main.helper(int, int, int, int, int, char[])",
+      "tests": [
+        {
+          "dataset_test_index": 1,
+          "expected_stdout": "8\n9\n6\n9\n",
+          "expected_stdout_path": "candidates/cc-valid-r026-s0005-1553-c-penalty/io/00-generated-001.out",
+          "expected_stdout_sha256": "e18fcce299151a21286ffeb3fd700f584a67332b0297f20b7fc648581aa6c8e4",
+          "id": "00-generated-001",
+          "input": "4\n1001???0?1\n1111101111\n??????????\n0100000000\n",
+          "input_path": "candidates/cc-valid-r026-s0005-1553-c-penalty/io/00-generated-001.in",
+          "input_sha256": "ac44189e6ca00a5a296e77feb87658b6fb07d2bb6fc8c471b98ca97e497a527c",
+          "suite": "generated_tests",
+          "validation": {
+            "compiled_with_jdk17": true,
+            "exit_code": 0,
+            "stderr_bytes": 0,
+            "timed_out": false
+          }
+        }
+      ]
+    },
+    "codesteer_target_method": "helper",
+    "concrete_case": {
+      "accepted_rank": 14,
+      "argv": [],
+      "canonical_case_key": [
+        26,
+        "generated_tests",
+        38
+      ],
+      "case_id": "balanced-generated-000038",
+      "dataset_test_index": 38,
+      "expected_output_bytes": 8,
+      "expected_output_lines": 4,
+      "expected_output_path": "../../tests/cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1/balanced-generated-000038/oracle_stdout.txt",
+      "input_bytes": 46,
+      "input_sha256": "4a1c7c39ebd07acecbd5418a6b1b98baf8fc27d16e6d592bb694f0316d1dd8c4",
+      "obfuscated_stderr_path": "../../tests/cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1/balanced-generated-000038/obfuscated.stderr",
+      "obfuscated_stdout_path": "../../tests/cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1/balanced-generated-000038/obfuscated.stdout",
+      "obfuscated_trimmed_exact_to_oracle": true,
+      "original_obfuscated_trimmed_agreement": true,
+      "original_stderr_path": "../../tests/cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1/balanced-generated-000038/original.stderr",
+      "original_stdout_path": "../../tests/cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1/balanced-generated-000038/original.stdout",
+      "original_trimmed_exact_to_oracle": true,
+      "rank_key": [
+        1,
+        4,
+        8,
+        34,
+        38
+      ],
+      "raw_expected_stdout_sha256": "9eaf49d4bde3b73a8ade33fd635e96eb263d8b27058b18af4ad3ede61dd5aa62",
+      "raw_obfuscated_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_obfuscated_stdout_sha256": "9eaf49d4bde3b73a8ade33fd635e96eb263d8b27058b18af4ad3ede61dd5aa62",
+      "raw_original_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_original_stdout_sha256": "9eaf49d4bde3b73a8ade33fd635e96eb263d8b27058b18af4ad3ede61dd5aa62",
+      "source_case_metadata": {
+        "dataset_id": "deepmind/code_contests",
+        "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+        "dataset_test_index": 38,
+        "row_index": 26,
+        "selection_stage": "balanced_extension2_adaptive_outcome_independent_ranking",
+        "split": "valid",
+        "suite": "generated_tests",
+        "wave_id": "balanced_wave_4"
+      },
+      "stdin_path": "../../tests/cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1/balanced-generated-000038/stdin.txt",
+      "suite": "generated_tests",
+      "validation_path": "../../validation/cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1/balanced-generated-000038.json"
+    },
+    "difficulty": "easy",
+    "eligible": true,
+    "expected_stdout_path": "../../tests/cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1/balanced-generated-000038/oracle_stdout.txt",
+    "id": "cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1__balanced-generated-000038",
+    "main_class": "Main",
+    "method_coverage_policy": "force_all",
+    "obfuscated": {
+      "codesteer_target": {
+        "called_directly_from_main": true,
+        "eligible_parameter_to_return_target": true,
+        "genuine_return_sink_count": 7,
+        "main_called_method_names": [
+          "helper",
+          "next",
+          "nextInt",
+          "println",
+          "toCharArray"
+        ],
+        "method_names": [
+          "helper",
+          "main",
+          "power",
+          "countSetBits",
+          "swap",
+          "getSum",
+          "isPrime",
+          "reverse",
+          "isPrimeInt",
+          "reverse",
+          "getPrimes",
+          "lcm",
+          "gcd",
+          "shuffleArray",
+          "shuffleList",
+          "factorize",
+          "shuffleArrayL",
+          "hasNext",
+          "next",
+          "nextInt",
+          "nextLong",
+          "nextDouble",
+          "nextLine"
+        ],
+        "parameter_count": 6,
+        "parameters": [
+          {
+            "name": "index",
+            "type": "int"
+          },
+          {
+            "name": "f",
+            "type": "int"
+          },
+          {
+            "name": "s",
+            "type": "int"
+          },
+          {
+            "name": "k1",
+            "type": "int"
+          },
+          {
+            "name": "k2",
+            "type": "int"
+          },
+          {
+            "name": "s1",
+            "type": "char[]"
+          }
+        ],
+        "parse_status": "javalang",
+        "return_sink_count": 7,
+        "return_type": "int",
+        "selected_method": "helper",
+        "selected_method_line": 20,
+        "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+        "selector_implementation_owner": "steering.priors.SlicingPrior",
+        "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+      },
+      "execution_validation": {
+        "accepted": true,
+        "cases": [
+          {
+            "accepted": true,
+            "actual_trimmed": "8\n9\n6\n9",
+            "case_id": "00-generated-001",
+            "command": [
+              "java",
+              "-Dfile.encoding=UTF-8",
+              "-Djava.io.tmpdir=<scratch>",
+              "-Duser.home=<scratch>",
+              "-XX:-UsePerfData",
+              "-cp",
+              "<classes>",
+              "Main"
+            ],
+            "duration_seconds": 0.034097,
+            "exit_code": 0,
+            "expected_trimmed": "8\n9\n6\n9",
+            "raw_expected_stdout_sha256": "e18fcce299151a21286ffeb3fd700f584a67332b0297f20b7fc648581aa6c8e4",
+            "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "raw_stdout_sha256": "e18fcce299151a21286ffeb3fd700f584a67332b0297f20b7fc648581aa6c8e4",
+            "stderr": "",
+            "stdout": "8\n9\n6\n9\n",
+            "timed_out": false,
+            "trimmed_exact_match": true
+          }
+        ],
+        "compile": {
+          "accepted": true,
+          "command": [
+            "javac",
+            "-encoding",
+            "UTF-8",
+            "-J-Djava.io.tmpdir=<scratch>",
+            "-J-Duser.home=<scratch>",
+            "-J-XX:-UsePerfData",
+            "-Xlint:none",
+            "-nowarn",
+            "-d",
+            "<classes>",
+            "<scratch>/Main.java"
+          ],
+          "exit_code": 0,
+          "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false
+        },
+        "entry": {
+          "compile_class": "Main",
+          "main_class": "Main",
+          "package": "",
+          "parse_status": "javalang"
+        }
+      },
+      "main_class": "Main",
+      "metadata_path": "candidates/cc-valid-r026-s0005-1553-c-penalty/variants/T5_bogus_control_flow/easy/seed_1/Main.java.meta.json",
+      "method_coverage": {
+        "main_touched": true,
+        "method_coverage_total": 22,
+        "method_coverage_touched": 22,
+        "untouched_methods": []
+      },
+      "path": "../../../prepared_variants/candidates/cc-valid-r026-s0005-1553-c-penalty/variants/T5_bogus_control_flow/easy/seed_1/Main.java",
+      "selected_target_touch_evidence": {
+        "method_block_parser": "eyetracking.obfuscation.java.passes.utils.iter_method_blocks",
+        "obfuscated_block_name": "helper",
+        "obfuscated_match_count": 1,
+        "obfuscated_method_bytes": 1181,
+        "obfuscated_method_index": 0,
+        "obfuscated_method_sha256": "6ab3db338525f48da4c17f566e102989bcd9a343a29ea7ad09e909d28d766ad2",
+        "obfuscated_method_start_line": 20,
+        "obfuscated_name_matches_codesteer_target": true,
+        "obfuscated_target_line": 20,
+        "obfuscated_target_method": "helper",
+        "original_block_name": "helper",
+        "original_match_count": 1,
+        "original_method_bytes": 1057,
+        "original_method_index": 0,
+        "original_method_sha256": "18acfcfcc7866233a7bafe333251997d04423f1c627a125afdad8fb1d7af993a",
+        "original_method_start_line": 20,
+        "original_target_line": 20,
+        "original_target_method": "helper",
+        "reason": "method_source_changed",
+        "touched": true,
+        "verifiable": true
+      },
+      "sha256": "d8733e0e7799b9ba75fb220e18f99cf2fbe938f285b09dffb1c3deedc8b7d1f7",
+      "target_method": "helper"
+    },
+    "obfuscated_main_class": "Main",
+    "obfuscated_path": "../../../prepared_variants/candidates/cc-valid-r026-s0005-1553-c-penalty/variants/T5_bogus_control_flow/easy/seed_1/Main.java",
+    "obfuscated_target_method": "helper",
+    "obfuscation_metadata_path": "candidates/cc-valid-r026-s0005-1553-c-penalty/variants/T5_bogus_control_flow/easy/seed_1/Main.java.meta.json",
+    "original": {
+      "codesteer_target": {
+        "called_directly_from_main": true,
+        "eligible_parameter_to_return_target": true,
+        "genuine_return_sink_count": 7,
+        "main_called_method_names": [
+          "helper",
+          "next",
+          "nextInt",
+          "println",
+          "toCharArray"
+        ],
+        "method_names": [
+          "helper",
+          "main",
+          "power",
+          "countSetBits",
+          "swap",
+          "getSum",
+          "isPrime",
+          "reverse",
+          "isPrimeInt",
+          "reverse",
+          "getPrimes",
+          "lcm",
+          "gcd",
+          "shuffleArray",
+          "shuffleList",
+          "factorize",
+          "shuffleArrayL",
+          "hasNext",
+          "next",
+          "nextInt",
+          "nextLong",
+          "nextDouble",
+          "nextLine"
+        ],
+        "parameter_count": 6,
+        "parameters": [
+          {
+            "name": "index",
+            "type": "int"
+          },
+          {
+            "name": "f",
+            "type": "int"
+          },
+          {
+            "name": "s",
+            "type": "int"
+          },
+          {
+            "name": "k1",
+            "type": "int"
+          },
+          {
+            "name": "k2",
+            "type": "int"
+          },
+          {
+            "name": "s1",
+            "type": "char[]"
+          }
+        ],
+        "parse_status": "javalang",
+        "return_sink_count": 7,
+        "return_type": "int",
+        "selected_method": "helper",
+        "selected_method_line": 20,
+        "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+        "selector_implementation_owner": "steering.priors.SlicingPrior",
+        "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+      },
+      "execution_validation_path": "candidates/cc-valid-r026-s0005-1553-c-penalty/original/validation.json",
+      "main_class": "Main",
+      "path": "../../../prepared_variants/candidates/cc-valid-r026-s0005-1553-c-penalty/original/Main.java",
+      "sha256": "6ad8318f5093996eba47f21e5e2f7c77fc40691045b8503059e681e083b5d3ce",
+      "target_method": "helper"
+    },
+    "original_main_class": "Main",
+    "original_path": "../../../prepared_variants/candidates/cc-valid-r026-s0005-1553-c-penalty/original/Main.java",
+    "original_target_method": "helper",
+    "parent_candidate_id": "cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1",
+    "profile": "safe",
+    "rejection_reasons": [],
+    "seed": 1,
+    "stdin_path": "../../tests/cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1/balanced-generated-000038/stdin.txt",
+    "target_method": {
+      "obfuscated": "helper",
+      "original": "helper"
+    },
+    "technique": "T5",
+    "technique_name": "bogus_control_flow",
+    "variant_id": "cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1",
+    "warnings": []
+  },
+  "obfuscated_sha256": "d8733e0e7799b9ba75fb220e18f99cf2fbe938f285b09dffb1c3deedc8b7d1f7",
+  "obfuscated_source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r026-s0005-1553-c-penalty/variants/T5_bogus_control_flow/easy/seed_1/Main.java",
+  "obfuscated_target_method": "helper",
+  "original_sha256": "6ad8318f5093996eba47f21e5e2f7c77fc40691045b8503059e681e083b5d3ce",
+  "original_source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r026-s0005-1553-c-penalty/original/Main.java",
+  "original_target_method": "helper",
+  "sample_id": "cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1__balanced-generated-000038"
+}

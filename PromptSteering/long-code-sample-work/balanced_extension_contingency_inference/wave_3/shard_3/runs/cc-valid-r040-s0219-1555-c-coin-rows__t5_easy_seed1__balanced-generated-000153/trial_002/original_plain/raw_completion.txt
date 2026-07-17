@@ -1,0 +1,36 @@
+ To predict the exact standard output of the given Java program for the provided input, let's follow a step-by-step analysis:
+
+1. **Input Analysis**:
+   - The input starts with `3`, indicating there are three test cases.
+   - For each test case:
+     - The number of elements in the arrays (`m`) is given.
+     - Two space-separated integers follow, which are the arrays `arr1` and `arr2`.
+
+2. **First Test Case**:
+   - `m = 3`
+   - `arr1 = [1, 2, 7]`
+   - `arr2 = [3, 17, 0]`
+
+3. **Function `game` Execution**:
+   - The function `game` is called with `arr1`, `arr2`, and `m`.
+   - It initializes a 2D array `dp` with dimensions `2 x m`.
+   - It fills `dp[0]` by summing up elements of `arr2` from index 0 to `m-1`.
+   - It fills `dp[1]` by summing up elements of `arr1` from index `m-1` to 0.
+   - It calculates the minimum of the maximum values in `dp[0]` and `dp[1]` for each `i` from 0 to `m-1`.
+   - The function returns this minimum value.
+
+4. **Calculation for First Test Case**:
+   - `dp[0] = [0, 3, 20]` (summing `arr2` elements)
+   - `dp[1] = [0, 15, 19]` (summing `arr1` elements in reverse)
+   - Minimum of the maximum values: `min(3, 20)`, `min(20, 15)` -> `min(20, 15)` -> `15`
+
+5. **Output for First Test Case**:
+   - The program prints `15`.
+
+6. **Second Test Case**:
+   - `m = 3`
+   - `arr1 = [2, 3, 9]`
+   - `arr2 = [6, 2, 1]`
+
+7. **Function `game` Execution for Second Test Case**:
+   - `dp[0] = [0, 6, 8]`

@@ -1,0 +1,58 @@
+ To determine the exact standard output for the given Java program, we need to follow these steps:
+
+1. **Input Processing**:
+   - Read the number of elements `n`.
+   - Read `n` elements into an array and sort them.
+   - Read the number of queries `y`.
+   - Read each query consisting of `attack` and `defend`.
+
+2. **Query Handling**:
+   - For each query, find the index of the element closest to `attack` in the sorted array.
+   - Calculate the answer based on the formula provided in the `find` method.
+
+### Step-by-Step Breakdown
+
+#### Input Processing
+
+1. **Read `n`**:
+   - `n = 4`
+
+2. **Read elements into array and sort**:
+   - Elements: `12, 11, 1, 2`
+   - Sorted elements: `1, 2, 11, 12`
+
+3. **Read queries**:
+   - `y = 7`
+   - Queries: 
+     - `1 28`
+     - `7 2`
+     - `4 10`
+     - `0 13`
+     - `8 7`
+
+#### Query Handling
+
+For each query `(attack, defend)`:
+
+1. **Find closest element**:
+   - Use binary search to find the closest element to `attack`.
+
+2. **Calculate answer**:
+   - Use the formula provided in the `find` method.
+
+### Detailed Calculation for Each Query
+
+1. **Query (1, 28)**:
+   - Closest element: `1`
+   - `ans1 = |1 - 1| + |28 - (12 - 1)| = 0 + 29 = 29`
+   - `ans2 = |1 - 2| + |28 - (12 - 2)| = 1 + 28 = 29`
+   - Output: `29`
+
+2. **Query (7, 2)**:
+   - Closest element: `7`
+   - `ans1 = |7 - 7| + |2 - (12 - 7)| = 0 + 0 = 0`
+   - Output: `0`
+
+3. **Query (4, 10)**:
+   - Closest element: `4`
+   - `ans1 = |4 - 4|

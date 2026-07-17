@@ -1,0 +1,127 @@
+{
+  "accepted": false,
+  "historical_comparator": "replace CRLF with LF, then outer strip; internal whitespace exact",
+  "obfuscated": {
+    "accepted": false,
+    "cases": [
+      {
+        "accepted": false,
+        "actual_trimmed": "YES\nabacbbaabbaabbaa\nabacaabbaabbaabb",
+        "case_id": "balanced-generated-000149",
+        "command": [
+          "java",
+          "-Dfile.encoding=UTF-8",
+          "-Djava.io.tmpdir=<scratch>",
+          "-Duser.home=<scratch>",
+          "-XX:-UsePerfData",
+          "-cp",
+          "<classes>",
+          "D1_Round_734_Div3"
+        ],
+        "exit_code": 0,
+        "expected_trimmed": "YES\naabbaabbaabbcaba\nbbaabbaabbaacaba",
+        "raw_expected_stdout_sha256": "0b211d9821dc6cfac842f785cda4187c6cd673c33aeb43be09817425b2ea4b83",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "7fe7cd90e2d429133be4cf9fac54720271744f2be001dc7c0a101f76483f2b2b",
+        "stderr": "",
+        "stdout": "YES\nabacbbaabbaabbaa\nabacaabbaabbaabb\n",
+        "timed_out": false,
+        "trimmed_exact_match": false
+      }
+    ],
+    "compile": {
+      "accepted": true,
+      "command": [
+        "javac",
+        "-encoding",
+        "UTF-8",
+        "-J-Djava.io.tmpdir=<scratch>",
+        "-J-Duser.home=<scratch>",
+        "-J-XX:-UsePerfData",
+        "-Xlint:none",
+        "-nowarn",
+        "-d",
+        "<classes>",
+        "<scratch>/D1_Round_734_Div3.java"
+      ],
+      "exit_code": 0,
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    "entry": {
+      "compile_class": "D1_Round_734_Div3",
+      "main_class": "D1_Round_734_Div3",
+      "package": "",
+      "parse_status": "javalang"
+    }
+  },
+  "original": {
+    "accepted": false,
+    "cases": [
+      {
+        "accepted": false,
+        "actual_trimmed": "YES\nabacbbaabbaabbaa\nabacaabbaabbaabb",
+        "case_id": "balanced-generated-000149",
+        "command": [
+          "java",
+          "-Dfile.encoding=UTF-8",
+          "-Djava.io.tmpdir=<scratch>",
+          "-Duser.home=<scratch>",
+          "-XX:-UsePerfData",
+          "-cp",
+          "<classes>",
+          "D1_Round_734_Div3"
+        ],
+        "exit_code": 0,
+        "expected_trimmed": "YES\naabbaabbaabbcaba\nbbaabbaabbaacaba",
+        "raw_expected_stdout_sha256": "0b211d9821dc6cfac842f785cda4187c6cd673c33aeb43be09817425b2ea4b83",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "7fe7cd90e2d429133be4cf9fac54720271744f2be001dc7c0a101f76483f2b2b",
+        "stderr": "",
+        "stdout": "YES\nabacbbaabbaabbaa\nabacaabbaabbaabb\n",
+        "timed_out": false,
+        "trimmed_exact_match": false
+      }
+    ],
+    "compile": {
+      "accepted": true,
+      "command": [
+        "javac",
+        "-encoding",
+        "UTF-8",
+        "-J-Djava.io.tmpdir=<scratch>",
+        "-J-Duser.home=<scratch>",
+        "-J-XX:-UsePerfData",
+        "-Xlint:none",
+        "-nowarn",
+        "-d",
+        "<classes>",
+        "<scratch>/D1_Round_734_Div3.java"
+      ],
+      "exit_code": 0,
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    "entry": {
+      "compile_class": "D1_Round_734_Div3",
+      "main_class": "D1_Round_734_Div3",
+      "package": "",
+      "parse_status": "javalang"
+    }
+  },
+  "original_obfuscated_trimmed_agreement": false,
+  "requirements": {
+    "both_compile": true,
+    "both_no_timeout": true,
+    "both_runtime_exit_zero": true,
+    "both_runtime_stderr_empty": true,
+    "both_trimmed_exact_to_oracle": true,
+    "both_trimmed_outputs_agree": true
+  }
+}

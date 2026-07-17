@@ -1,0 +1,9 @@
+The output of the program is:
+
+```
+4
+```
+
+The program reads the input from the user and calculates the number of moves a pawn needs to make to reach the destination square from the source square. The pawn can only move horizontally or diagonally, and the destination square is always one square to the right or left of the source square. The program calculates the number of moves by counting the number of 1's in the source square and the number of 0's in the destination square, and then subtracting the number of 0's from the number of 1's. The result is the number of moves required.
+
+In this case, the source square is "01001100010110000110" and the destination square is "00101100011010000110". The program counts the number of 1's in the source square, which is 5, and the number of 0's in the destination square, which is 4. It then subtracts the number of 0's from the number of 1's, which is 1. The program prints the result, which is 4.

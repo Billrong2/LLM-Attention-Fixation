@@ -1,0 +1,28 @@
+### Case c001: 
+
+1. `sc = new FastScanner()`: The constructor `FastScanner` is called and an instance is created. This will read from the standard input.
+2. `pw = new PrintWriter(System.out)`: A new instance of `PrintWriter` is created and it is connected to the standard output. This will be used to print the output.
+3. `int tc = sc.ni()`: The method `ni()` of `FastScanner` is called which reads the next integer from the input. The input given is `10`, so `tc` becomes `10`.
+4. The loop `for (int rep = 0; rep < tc; rep++)` is executed `10` times because `tc` is `10`.
+5. Inside the loop:
+   - `String s = sc.next()`: The next string is read from the input and assigned to `s`.
+   - `String t = sc.next()`: The next string is read from the input and assigned to `t`.
+   - `pw.println(solve(s, t))`: The `solve` function is called with `s` and `t` as arguments and the result is printed using `println`.
+
+### The `solve` Method:
+
+- The method `solve` takes two strings `s` and `t` as input.
+- It starts a loop that goes through each character of `s` from the end towards the beginning.
+- Inside the loop:
+  - If the current character in `s` matches the current character in `t`, then both `i` and `j` (pointers to `s` and `t` respectively) are decremented.
+  - If they don't match, `i` is decremented twice. This means that we skip the next character in `s` (since it doesn't match the corresponding character in `t`).
+  - If `j` becomes `-1`, which means we have successfully matched all characters of `t` with `s`, the method returns `"YES"`.
+- If the loop finishes without finding a successful match, the method returns `"NO"`.
+
+### The `main` Method:
+
+- After the loop finishes, `pw.close()` is called to close the `PrintWriter`.
+
+### Output Prediction:
+
+1. For each pair of inputs `(s, t)`, the program prints either `"YES"` if `t` is a subsequence of `s` with the described condition

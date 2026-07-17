@@ -1,0 +1,127 @@
+{
+  "accepted": true,
+  "historical_comparator": "replace CRLF with LF, then outer strip; internal whitespace exact",
+  "obfuscated": {
+    "accepted": true,
+    "cases": [
+      {
+        "accepted": true,
+        "actual_trimmed": "0",
+        "case_id": "balanced-generated-000032",
+        "command": [
+          "java",
+          "-Dfile.encoding=UTF-8",
+          "-Djava.io.tmpdir=<scratch>",
+          "-Duser.home=<scratch>",
+          "-XX:-UsePerfData",
+          "-cp",
+          "<classes>",
+          "Main"
+        ],
+        "exit_code": 0,
+        "expected_trimmed": "0",
+        "raw_expected_stdout_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "stderr": "",
+        "stdout": "0\n",
+        "timed_out": false,
+        "trimmed_exact_match": true
+      }
+    ],
+    "compile": {
+      "accepted": true,
+      "command": [
+        "javac",
+        "-encoding",
+        "UTF-8",
+        "-J-Djava.io.tmpdir=<scratch>",
+        "-J-Duser.home=<scratch>",
+        "-J-XX:-UsePerfData",
+        "-Xlint:none",
+        "-nowarn",
+        "-d",
+        "<classes>",
+        "<scratch>/Main.java"
+      ],
+      "exit_code": 0,
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    "entry": {
+      "compile_class": "Main",
+      "main_class": "Main",
+      "package": "",
+      "parse_status": "javalang"
+    }
+  },
+  "original": {
+    "accepted": true,
+    "cases": [
+      {
+        "accepted": true,
+        "actual_trimmed": "0",
+        "case_id": "balanced-generated-000032",
+        "command": [
+          "java",
+          "-Dfile.encoding=UTF-8",
+          "-Djava.io.tmpdir=<scratch>",
+          "-Duser.home=<scratch>",
+          "-XX:-UsePerfData",
+          "-cp",
+          "<classes>",
+          "Main"
+        ],
+        "exit_code": 0,
+        "expected_trimmed": "0",
+        "raw_expected_stdout_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "stderr": "",
+        "stdout": "0\n",
+        "timed_out": false,
+        "trimmed_exact_match": true
+      }
+    ],
+    "compile": {
+      "accepted": true,
+      "command": [
+        "javac",
+        "-encoding",
+        "UTF-8",
+        "-J-Djava.io.tmpdir=<scratch>",
+        "-J-Duser.home=<scratch>",
+        "-J-XX:-UsePerfData",
+        "-Xlint:none",
+        "-nowarn",
+        "-d",
+        "<classes>",
+        "<scratch>/Main.java"
+      ],
+      "exit_code": 0,
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    "entry": {
+      "compile_class": "Main",
+      "main_class": "Main",
+      "package": "",
+      "parse_status": "javalang"
+    }
+  },
+  "original_obfuscated_trimmed_agreement": true,
+  "requirements": {
+    "both_compile": true,
+    "both_no_timeout": true,
+    "both_runtime_exit_zero": true,
+    "both_runtime_stderr_empty": true,
+    "both_trimmed_exact_to_oracle": true,
+    "both_trimmed_outputs_agree": true
+  }
+}

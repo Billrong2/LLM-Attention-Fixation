@@ -1,0 +1,12 @@
+**Reasoning:**
+
+The program reads input from the console using a `Scanner`. It then calls the `cal` method for each test case specified by the input `T`.
+
+In the `cal` method, we check if the current index is at the end of the string (`index == n`). If so, we return 0.
+If not, we check if both characters at the current index are the same. If so, we return 2 plus the result of calling `cal` recursively on the next index.
+If only one character at the current index is different, we return the maximum of 1 plus the result of calling `cal` recursively on the next index and 2 plus the result of calling `cal` recursively on the next index plus the position of the different character.
+Otherwise, we just return the result of calling `cal` recursively on the next index.
+
+The output will be a single integer representing the result of calling `cal` for each test case.
+
+**Output Prediction:**

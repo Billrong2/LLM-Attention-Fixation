@@ -1,0 +1,47 @@
+ To predict the exact standard output of the `buscarGreedy` method for the given input, let's go through the steps involved in the method:
+
+1. Initialize the variable `pot` to 1.
+2. Iterate from 0 to 61 (inclusive) in a loop.
+3. Convert the current value of `pot` to a string and store it in `numPot`.
+4. Use the `comparar` method to compare `numPot` with the input number `numero`.
+5. Update `minimo` with the result of `comparar` if it is less than the current `minimo`.
+6. Double the value of `pot`.
+7. After the loop, return the value of `minimo`.
+
+Now, let's consider the input numbers provided:
+
+1. `12`
+2. `825`
+3. `8888`
+4. `4`
+5. `157`
+6. `146`
+7. `1`
+8. `301`
+9. `19634`
+10. `1504`
+11. `10521`
+12. `1000000000`
+13. `687194767`
+
+We will run the `buscarGreedy` method for each of these input numbers and track the output.
+
+### Tracking Output
+
+1. **Input: "12"**
+   - `pot` starts at 1.
+   - `numPot` values: 1, 2, 4, 8, ...
+   - `comparar` results:
+     - `comparar("1", "12")` → 1
+     - `comparar("2", "12")` → 2
+     - ...
+     - `comparar("12", "12")` → 0
+   - `minimo` is updated to 0.
+   - Output: `0`
+
+2. **Input: "825"**
+   - `pot` starts at 1.
+   - `numPot` values: 1, 2, 4, 8, ...
+   - `comparar` results:
+     - `comparar("1", "825")` → 1
+     - `comparar("2", "825")` → 2

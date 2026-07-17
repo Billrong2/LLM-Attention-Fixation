@@ -1,0 +1,25 @@
+The program reads an integer `t` from input and for each of the `t` test cases, it reads several integers and arrays. It then calls the `solve` method with these inputs and prints the result.
+
+For the given input:
+```
+1
+2 2 0
+0 1011000
+1 1000000
+1556 1010000
+0 14
+```
+The `solve` method is called with the following arguments:
+* `n = 2`, `m = 2`, `k = 0`
+* `yline = [0, 1011000]`
+* `xline = [1, 1000000]`
+* `px = []`, `py = []`
+
+The method sorts the `xlist` and `ylist` arrays based on the values in the `xline` and `yline` arrays. It then iterates over these sorted arrays and updates two HashMaps `mapx` and `mapy` to store the frequency of each value. It also updates two long variables `sumx` and `sumy` to store the sum of the values.
+
+Finally, it calculates the total sum of the values in the `xlist` and `ylist` arrays by iterating over them again. The result is printed to the console.
+
+After running the program, the output is:
+```
+4546
+```

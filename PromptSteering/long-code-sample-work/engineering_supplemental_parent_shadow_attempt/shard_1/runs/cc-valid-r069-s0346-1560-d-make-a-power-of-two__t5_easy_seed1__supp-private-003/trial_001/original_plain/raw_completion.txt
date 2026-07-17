@@ -1,0 +1,39 @@
+ To predict the exact standard output of the `PowerTwo` program, we need to focus on the behavior of the `buscarGreedy` method. This method is used to find the minimum number of operations required to transform a given number into a power of two by repeatedly removing digits. Here’s how the method works:
+
+1. **Initialization**: The method starts by initializing `pot` to 1 and setting `minimo` to `Integer.MAX_VALUE`.
+
+2. **Loop**: It then iterates through the powers of two up to a certain limit (62 times). For each power of two, it converts the number to a string and compares it with the input number using the `comparar` method.
+
+3. **Comparison**: The `comparar` method calculates the minimum number of operations needed to transform the input number into the current power of two. It does this by counting the number of characters that do not match when comparing the two strings character by character.
+
+4. **Update Minimum**: If the calculated number of operations is less than the current `minimo`, it updates `minimo`.
+
+5. **Return Result**: After completing the loop, the method returns `minimo`, which represents the minimum number of operations needed to transform the input number into a power of two.
+
+Now, let's analyze the given test case:
+```
+12
+825
+8888
+4
+157
+146
+1
+301
+19634
+1504
+10521
+1000000000
+687194767
+```
+Each number will be processed by the `buscarGreedy` method, and the results will be printed. Let’s go through each number:
+
+- **12**: Minimum operations to reach a power of two is 1.
+- **825**: Minimum operations to reach a power of two is 2.
+- **8888**: Minimum operations to reach a power of two is 4.
+- **4**: Minimum operations to reach a power of two is 0.
+- **157**: Minimum operations to reach a power of two is 1.
+- **146**: Minimum operations to reach a power of two is 2.
+- **1**: Minimum operations to reach a power of two is 0.
+- **301**: Minimum operations to reach a power of two is 3.
+- **

@@ -1,0 +1,239 @@
+{
+  "budgets": {
+    "ast_growth_ok": true,
+    "limits": {
+      "max_added_branches_per_100_stmts": 5,
+      "max_cfg_states_for_flattening": 4,
+      "max_expr_depth_increase": 2,
+      "max_new_ast_nodes_percent": 50.0,
+      "max_new_helpers": 2
+    },
+    "usage": {
+      "added_branches": 0,
+      "ast_nodes_after": 3285,
+      "ast_nodes_before": 2845,
+      "expr_depth_increase": 0,
+      "flatten_states_added": 0,
+      "helpers_added": 0
+    }
+  },
+  "class_renamed": false,
+  "codesteer_target": {
+    "called_directly_from_main": true,
+    "eligible_parameter_to_return_target": true,
+    "genuine_return_sink_count": 4,
+    "main_called_method_names": [
+      "eval",
+      "flush",
+      "i",
+      "println",
+      "s",
+      "toCharArray"
+    ],
+    "method_names": [
+      "main",
+      "eval",
+      "shuffle",
+      "phi",
+      "gcd",
+      "nCr",
+      "factorials",
+      "power",
+      "power",
+      "query",
+      "update",
+      "build",
+      "read",
+      "nextLine",
+      "s",
+      "l",
+      "i",
+      "d",
+      "isSpaceChar",
+      "isEndOfLine",
+      "arr",
+      "arrLong"
+    ],
+    "parameter_count": 7,
+    "parameters": [
+      {
+        "name": "arr",
+        "type": "char[]"
+      },
+      {
+        "name": "in",
+        "type": "int"
+      },
+      {
+        "name": "carry",
+        "type": "int"
+      },
+      {
+        "name": "n",
+        "type": "int"
+      },
+      {
+        "name": "dp",
+        "type": "long[][]"
+      },
+      {
+        "name": "a",
+        "type": "boolean"
+      },
+      {
+        "name": "b",
+        "type": "boolean"
+      }
+    ],
+    "parse_status": "javalang",
+    "return_sink_count": 4,
+    "return_type": "long",
+    "selected_method": "eval",
+    "selected_method_line": 24,
+    "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+    "selector_implementation_owner": "steering.priors.SlicingPrior",
+    "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+  },
+  "difficulty": "easy",
+  "equivalence": {
+    "details": "not_run",
+    "exit_match": false,
+    "stderr_match": false,
+    "stdout_match": false
+  },
+  "jdk17_execution_validation": {
+    "accepted": true,
+    "cases": [
+      {
+        "accepted": true,
+        "actual_trimmed": "999999998\n9999",
+        "case_id": "00-private-001",
+        "command": [
+          "java",
+          "-Dfile.encoding=UTF-8",
+          "-Djava.io.tmpdir=<scratch>",
+          "-Duser.home=<scratch>",
+          "-XX:-UsePerfData",
+          "-cp",
+          "<classes>",
+          "C1567"
+        ],
+        "duration_seconds": 0.04905,
+        "exit_code": 0,
+        "expected_trimmed": "999999998\n9999",
+        "raw_expected_stdout_sha256": "e16f4361c695bdfcdc83f3a9ba807e170281a73137bb969c0e576cf9a4cf1ef5",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "e16f4361c695bdfcdc83f3a9ba807e170281a73137bb969c0e576cf9a4cf1ef5",
+        "stderr": "",
+        "stdout": "999999998\n9999\n",
+        "timed_out": false,
+        "trimmed_exact_match": true
+      }
+    ],
+    "compile": {
+      "accepted": true,
+      "command": [
+        "javac",
+        "-encoding",
+        "UTF-8",
+        "-J-Djava.io.tmpdir=<scratch>",
+        "-J-Duser.home=<scratch>",
+        "-J-XX:-UsePerfData",
+        "-Xlint:none",
+        "-nowarn",
+        "-d",
+        "<classes>",
+        "<scratch>/C1567.java"
+      ],
+      "exit_code": 0,
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    "entry": {
+      "compile_class": "C1567",
+      "main_class": "C1567",
+      "package": "",
+      "parse_status": "javalang"
+    }
+  },
+  "language": "java",
+  "level": null,
+  "main_touched": false,
+  "method_coverage": {
+    "main_touched": false,
+    "method_coverage_total": 20,
+    "method_coverage_touched": 20,
+    "untouched_methods": []
+  },
+  "method_coverage_total": 0,
+  "method_coverage_touched": 0,
+  "metrics": {
+    "ast_nodes": 3285,
+    "cyclomatic_approx": 64,
+    "difficulty_score": 0.6417,
+    "helpers_injected": 0,
+    "lines": 383,
+    "max_ast_depth": 5,
+    "tokens": 2965
+  },
+  "mode": "technique",
+  "obfuscated_class_name": null,
+  "obfuscated_source_sha256": "c16a551bfea6c44038b9686a315d307f7a9aac38ee2c6ff8bd76eaea18e72b8a",
+  "original_class_name": null,
+  "original_source_sha256": "5382615c5d2e4eaaa5735ac89f6fa61116cab6af43511406ae8abdb773ee04e4",
+  "passes_applied": [
+    {
+      "applied": true,
+      "extra": {
+        "fallback_insertions": 8,
+        "main_touched": false,
+        "method_coverage_policy": "force_all",
+        "method_coverage_total": 20,
+        "method_coverage_touched": 20,
+        "untouched_methods": []
+      },
+      "helpers_injected": 0,
+      "name": "T5",
+      "node_delta": 20,
+      "reason": "bogus_cf:12|force_all_fallback:8",
+      "tier": "easy",
+      "time_ms": 11.984
+    }
+  ],
+  "profile_name": "safe",
+  "program_id": "cc-valid-r094-s0350-1567-c-carrying-conundrum",
+  "requested_difficulty": "easy",
+  "requested_method_coverage_policy": "force_all",
+  "requested_profile": "safe",
+  "requested_seed": 1,
+  "seed": 15677939284442506296,
+  "selected_target_touch_evidence": {
+    "method_block_parser": "eyetracking.obfuscation.java.passes.utils.iter_method_blocks",
+    "obfuscated_block_name": "eval",
+    "obfuscated_match_count": 1,
+    "obfuscated_method_bytes": 1764,
+    "obfuscated_method_index": 0,
+    "obfuscated_method_sha256": "503ec532c24599ce403950acc4c60b48aaa10f6c8b61a577344c36541ebde7ca",
+    "obfuscated_method_start_line": 23,
+    "obfuscated_name_matches_codesteer_target": true,
+    "obfuscated_target_line": 24,
+    "obfuscated_target_method": "eval",
+    "original_block_name": "eval",
+    "original_match_count": 1,
+    "original_method_bytes": 1646,
+    "original_method_index": 0,
+    "original_method_sha256": "781fb7c86663077797237a1d94a180f73875db13f40276cd2c3cb11e6dc89ec1",
+    "original_method_start_line": 23,
+    "original_target_line": 24,
+    "original_target_method": "eval",
+    "reason": "method_source_changed",
+    "touched": true,
+    "verifiable": true
+  },
+  "skipped_passes_with_reasons": [],
+  "technique": "T5",
+  "untouched_methods": []
+}

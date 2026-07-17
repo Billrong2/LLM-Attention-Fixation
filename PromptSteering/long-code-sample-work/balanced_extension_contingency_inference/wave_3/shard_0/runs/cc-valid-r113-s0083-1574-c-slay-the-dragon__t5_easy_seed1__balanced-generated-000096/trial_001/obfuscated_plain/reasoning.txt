@@ -1,0 +1,32 @@
+### CASES_BEGIN
+c001: invoke program entry point; target_method=find; stdin="4\n9 1 5 2\n1\n3 30\n4 6\n5 0\n-1 19\n21 -1\n"; argv=[]
+### CASES_END
+
+The input consists of 4 integers in the first line and then an array of 4 elements. After that, it has 1 line with 2 integers.
+
+The output is the result of the `find` method, which takes 6 arguments:
+- `sum`: The sum of the elements in the array
+- `hs`: A set of long integers
+- `arr`: An array of long integers
+- `n`: The number of elements in the array
+- `attack`: A long integer
+- `defend`: A long integer
+
+The `find` method first sorts the `arr` array. Then, it calculates `ans1` and `ans2` based on the values of `attack`, `defend`, and `arr`. The result is the minimum of `ans1` and `ans2`.
+
+The `main` method reads the input from the standard input, calculates the values of `sum`, `hs`, and `arr`, and then calls the `find` method for each line in the input. The results are printed to the standard output.
+
+In the specific case provided, the input is:
+```
+4
+9 1 5 2
+1
+3 30
+4 6
+5 0
+-1 19
+21 -1
+```
+After sorting the array `arr`, it becomes `[1, 2, 5, 9]`. The `find` method is called with the following arguments for each line in the input:
+- For the line `3 30`: `sum` is 17, `hs` is `{1, 2, 5, 9}`, `arr` is `[1, 2, 5, 9]`, `n` is 4, `attack` is 3, and `defend` is 30. The result is `27`.
+- For the line `4 6`: `sum` is 17, `hs` is `{1, 2, 5, 9}`, `arr` is `[1, 2, 5, 9]`, `n` is

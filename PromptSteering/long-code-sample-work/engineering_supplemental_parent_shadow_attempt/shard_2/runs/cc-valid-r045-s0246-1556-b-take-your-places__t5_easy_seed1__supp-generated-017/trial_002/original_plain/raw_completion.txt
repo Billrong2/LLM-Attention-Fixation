@@ -1,0 +1,38 @@
+ To determine the exact output of the given Java program, let's break down the logic step-by-step:
+
+1. **Input Parsing**: The program uses `FastReader` to read input. It expects an integer indicating the number of test cases, followed by the details for each test case.
+
+2. **Test Cases Processing**:
+    - For each test case, it reads an integer `n` representing the size of the array.
+    - Then, it reads `n` integers which are stored in the array `a`.
+
+3. **Processing Logic**:
+    - It initializes an array `f` to count the occurrences of even and odd numbers in the array `a`.
+    - Based on the counts and the size of the array, it determines whether it's possible to achieve the desired outcome.
+    - It calculates the minimum cost based on the parity of the numbers and prints the result.
+
+4. **Output**:
+    - If the absolute difference between the counts of even and odd numbers is greater than 1, it prints `-1`.
+    - Otherwise, it calculates the minimum cost using the function `fun` and prints the result.
+
+Given the input `"5\n3\n2 4 6\n5\n4 4 4 4 4\n5\n1 3 5 7 9\n5\n1 1 1 1 1\n5\n4 8 10 6 2\n"`, let's analyze each test case:
+
+### Test Case 1: `n = 3, a = [2, 4, 6]`
+- Even count (0): 3
+- Odd count (1): 0
+- |0 - 3| > 1: True
+- Output: `-1`
+
+### Test Case 2: `n = 5, a = [4, 4, 4, 4, 4]`
+- Even count (0): 5
+- Odd count (1): 0
+- |0 - 5| > 1: True
+- Output: `-1`
+
+### Test Case 3: `n = 5, a = [1, 3, 5, 7, 9]`
+- Even count (0): 0
+- Odd count (1): 5
+- |0 - 5| > 1: True
+- Output: `-1`
+
+### Test Case 4: `n = 5, a

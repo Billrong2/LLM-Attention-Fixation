@@ -1,0 +1,46 @@
+{
+  "schema_version": "representative-paired-case-v1",
+  "title": "Backspace",
+  "dataset": {
+    "id": "deepmind/code_contests",
+    "revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+    "split": "valid",
+    "row_index": 27,
+    "problem": "Codeforces 1553-D"
+  },
+  "model": {
+    "id": "Qwen/Qwen2.5-14B",
+    "revision": "97e1e76335b7017d8f67c08a19d103c0504298c9"
+  },
+  "sample_id": "cc-valid-r027-s0184-1553-d-backspace__t5_easy_seed1__balanced-private-000001",
+  "trial": 2,
+  "paired_seed": 2052082749,
+  "comparison": {
+    "source": "same obfuscated Java source",
+    "prompt": "byte-identical",
+    "without_steering": "obfuscated_plain",
+    "with_steering": "obfuscated_codesteer",
+    "steering_mechanism": "activation-level CodeSteer with slice_hybrid prior"
+  },
+  "outcomes": {
+    "expected": "NO\n",
+    "without_steering": null,
+    "without_steering_parse_status": "missing_or_invalid_final_json",
+    "without_steering_exact": false,
+    "with_codesteer": "NO",
+    "with_codesteer_parse_status": "marker_json",
+    "with_codesteer_exact": true
+  },
+  "selection": {
+    "manual_review_order": 1,
+    "reasoning_quality": "coherent",
+    "scope": "illustrative selected-seed comparison; not aggregate evidence"
+  },
+  "sha256": {
+    "obfuscated_java": "561c790171f90dc178b9fa0de0ece3bceaca90dbacf11822343de0d9cf43cd18",
+    "submitted_prompt": "83a2133a144bfce4389b133f05135f57583c4a9ea89fa5f7e3edcd62d7e5bc4a",
+    "non_steering_raw": "0f35773dd1141bdaa00e77f86290c0bff66a9deb647ff68c78f4126f1877a4c9",
+    "codesteer_raw": "df8f2bf83dde0e725146e3cac8fb7deb9825fa021ab0df56559f9872d761d014"
+  }
+}
+

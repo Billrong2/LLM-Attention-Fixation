@@ -1,0 +1,127 @@
+{
+  "accepted": false,
+  "historical_comparator": "replace CRLF with LF, then outer strip; internal whitespace exact",
+  "obfuscated": {
+    "accepted": false,
+    "cases": [
+      {
+        "accepted": false,
+        "actual_trimmed": "YES\nababacaa\nababacbb",
+        "case_id": "balanced-generated-000062",
+        "command": [
+          "java",
+          "-Dfile.encoding=UTF-8",
+          "-Djava.io.tmpdir=<scratch>",
+          "-Duser.home=<scratch>",
+          "-XX:-UsePerfData",
+          "-cp",
+          "<classes>",
+          "D1_Round_734_Div3"
+        ],
+        "exit_code": 0,
+        "expected_trimmed": "YES\naacababa\nbbcababa",
+        "raw_expected_stdout_sha256": "f9cef0335da764f7955eee4876780317316de4fe38a1dfc1a8caad3bac088c77",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "da60b8e1318e61b4075dcd66e0d39537768e31685f65f4ada4ce0af8bd420f18",
+        "stderr": "",
+        "stdout": "YES\nababacaa\nababacbb\n",
+        "timed_out": false,
+        "trimmed_exact_match": false
+      }
+    ],
+    "compile": {
+      "accepted": true,
+      "command": [
+        "javac",
+        "-encoding",
+        "UTF-8",
+        "-J-Djava.io.tmpdir=<scratch>",
+        "-J-Duser.home=<scratch>",
+        "-J-XX:-UsePerfData",
+        "-Xlint:none",
+        "-nowarn",
+        "-d",
+        "<classes>",
+        "<scratch>/D1_Round_734_Div3.java"
+      ],
+      "exit_code": 0,
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    "entry": {
+      "compile_class": "D1_Round_734_Div3",
+      "main_class": "D1_Round_734_Div3",
+      "package": "",
+      "parse_status": "javalang"
+    }
+  },
+  "original": {
+    "accepted": false,
+    "cases": [
+      {
+        "accepted": false,
+        "actual_trimmed": "YES\nababacaa\nababacbb",
+        "case_id": "balanced-generated-000062",
+        "command": [
+          "java",
+          "-Dfile.encoding=UTF-8",
+          "-Djava.io.tmpdir=<scratch>",
+          "-Duser.home=<scratch>",
+          "-XX:-UsePerfData",
+          "-cp",
+          "<classes>",
+          "D1_Round_734_Div3"
+        ],
+        "exit_code": 0,
+        "expected_trimmed": "YES\naacababa\nbbcababa",
+        "raw_expected_stdout_sha256": "f9cef0335da764f7955eee4876780317316de4fe38a1dfc1a8caad3bac088c77",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "da60b8e1318e61b4075dcd66e0d39537768e31685f65f4ada4ce0af8bd420f18",
+        "stderr": "",
+        "stdout": "YES\nababacaa\nababacbb\n",
+        "timed_out": false,
+        "trimmed_exact_match": false
+      }
+    ],
+    "compile": {
+      "accepted": true,
+      "command": [
+        "javac",
+        "-encoding",
+        "UTF-8",
+        "-J-Djava.io.tmpdir=<scratch>",
+        "-J-Duser.home=<scratch>",
+        "-J-XX:-UsePerfData",
+        "-Xlint:none",
+        "-nowarn",
+        "-d",
+        "<classes>",
+        "<scratch>/D1_Round_734_Div3.java"
+      ],
+      "exit_code": 0,
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    "entry": {
+      "compile_class": "D1_Round_734_Div3",
+      "main_class": "D1_Round_734_Div3",
+      "package": "",
+      "parse_status": "javalang"
+    }
+  },
+  "original_obfuscated_trimmed_agreement": false,
+  "requirements": {
+    "both_compile": true,
+    "both_no_timeout": true,
+    "both_runtime_exit_zero": true,
+    "both_runtime_stderr_empty": true,
+    "both_trimmed_exact_to_oracle": true,
+    "both_trimmed_outputs_agree": true
+  }
+}

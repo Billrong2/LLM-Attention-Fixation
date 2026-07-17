@@ -1,0 +1,20 @@
+ The program starts by reading two integers \( n \) and \( m \) from the standard input, which represent the number of intervals and the maximum value in the intervals, respectively. It then reads \( n \) pairs of integers, representing the intervals, and initializes a 2D array `intervals` to store these pairs.
+
+Next, it calls the `mobiusAndPrime` method to compute the Möbius function and the prime indicator array up to \( n = 100000 \).
+
+After that, it initializes a variable `ans` to 0 and iterates over each possible value of \( j \) from 1 to 100000. For each \( j \), it checks if there exists an interval where the adjusted end value is less than the adjusted start value. If such an interval exists, it skips to the next \( j \).
+
+If no such interval is found, it calculates `ans` by calling the `ans` method with arguments \( m/j \), the new array of intervals, and the sum of the new start values of the intervals.
+
+The `ans` method calculates the number of ways to distribute \( max \) units into intervals such that the sum of the start values is less than or equal to \( max \) and each interval's start value is between the new start and end values.
+
+Finally, the program prints the result of `ans` modulo \( mod \) to the standard output.
+
+### CASES_BEGIN
+c001: The input is "25 100\n6 96\n3 94\n8 99\n6 99\n5 95\n2 97\n8 99\n7 99\n4 99\n10 100\n9 99\n10 100\n5 96\n8 98\n3 100\n4 95\n9 99\n2 99\n4 98\n7 97\n8 100\n9 100\n5 100\n6 97\n4 99\n".
+
+### CASES_END
+
+The program computes the exact output based on the input intervals. The output is determined by the distribution of the intervals and the calculations performed within the `ans` method, which is influenced by the Möbius function and prime indicator array.
+
+FINAL_OUTPUT_JSON:

@@ -1,0 +1,43 @@
+ To determine the exact standard output of the `buscarGreedy` method for the given input, we need to follow the logic of the `buscarGreedy` method and simulate its execution step by step.
+
+### Case c001:
+- Input: `1\n366323\n`
+
+### Step-by-Step Analysis:
+1. **Reading Input:**
+   - The first line contains the number of test cases (`1`).
+   - The second line contains the number to process (`366323`).
+
+2. **Executing `buscarGreedy` Method:**
+   - The method `buscarGreedy` takes a string representation of a number (`"366323"`).
+   - It initializes `pot` to `1` and `minimo` to `Integer.MAX_VALUE`.
+
+3. **Loop to Find Closest Power of Two:**
+   - The loop iterates from `0` to `61` (since `62` is the maximum number of iterations).
+   - In each iteration, it calculates the string representation of the power of two.
+   - It then calls `comparar` to find the minimum number of digits to remove or add to transform the input number into the current power of two.
+
+4. **Comparing Numbers:**
+   - The `comparar` function compares two strings character by character.
+   - If a character matches, it recurses with the rest of the string.
+   - If a character does not match, it adds `1` to the count and recurses with the rest of the string from the original number.
+
+5. **Updating Minimum Distance:**
+   - The minimum distance (`minimo`) is updated if a new closer power of two is found.
+
+6. **Returning the Result:**
+   - The method returns the minimum number of operations needed to transform the input number into a power of two.
+
+### Simulation:
+- **Initial Values:**
+  - `pot` starts at `1`.
+  - `minimo` starts at `Integer.MAX_VALUE`.
+
+- **Loop Iterations:**
+  - **Iteration 1:**
+    - `pot` = `1`
+    - `numPot` = `"1"`
+    - `comparar("1", "366323")` = `7` (all digits different)
+    - `minimo` = `7`
+  - **Iteration 2:**
+    - `pot` = `2`

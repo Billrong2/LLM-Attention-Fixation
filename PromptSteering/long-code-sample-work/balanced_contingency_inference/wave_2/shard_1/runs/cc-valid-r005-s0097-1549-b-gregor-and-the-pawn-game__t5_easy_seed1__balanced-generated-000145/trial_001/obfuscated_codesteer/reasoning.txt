@@ -1,0 +1,38 @@
+To predict the output of the `pawnLineal` method for the given inputs, we need to follow the logic of the method and apply it step by step. Let's break down the process for the provided test case:
+
+### Test Case Inputs
+```plaintext
+20
+01101100010110000110
+00101100011010000110
+```
+
+### Process of `pawnLineal` Method
+
+1. **Initialization**:
+   - `scr` is prepended and appended with `0`s: `"0011011000101100001100"`
+   - `dst` is prepended and appended with `0`s: `"0001011000110100001100"`
+
+2. **Iteration through `scr`**:
+   - For each character `i` from 1 to `scr.length() - 2` (i.e., 21 to 31 inclusive):
+
+3. **Check Conditions**:
+   - If `scr[i] == '1'`:
+     - If `dst[i - 1] == '1'`, set `dst[i - 1] = 'X'` and increment `ret` by 1.
+     - Else if `dst[i] == '0'`, set `dst[i] = 'X'` and increment `ret` by 1.
+     - Else if `dst[i + 1] == '1'`, set `dst[i + 1] = 'X'` and increment `ret` by 1.
+
+4. **Return the final value of `ret`**.
+
+### Detailed Steps for the Given Example
+
+1. **Initialize strings**:
+   - `scr` = "0011011000101100001100"
+   - `dst` = "0001011000110100001100"
+
+2. **Iterate through each character of `scr` starting from index 1 (second position):**
+
+3. **Process each character:**
+
+   - **First Iteration (index = 1):**
+     - `scr[1] = '1'`, `dst[0]

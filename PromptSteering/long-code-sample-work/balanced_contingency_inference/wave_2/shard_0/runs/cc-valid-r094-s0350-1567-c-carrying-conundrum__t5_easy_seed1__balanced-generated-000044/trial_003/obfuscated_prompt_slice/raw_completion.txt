@@ -1,0 +1,17 @@
+ Reasoning:
+
+1. The program starts with the `main` method, which takes input from the user and calls the `eval` method with the input values.
+2. The `eval` method takes the input array `arr`, the current index `in`, the current carry `carry`, the length of the array `n`, a 2D array `dp` for memoization, and two boolean values `a` and `b`.
+3. The method checks if the current index `in` is equal to the length of the array `n`. If it is, it returns 1 if both `a` and `b` are true, otherwise it returns 0.
+4. If the current index `in` is not equal to the length of the array `n`, the method calculates the value of the current character `val` in the array by subtracting the ASCII value of '0' from the current character.
+5. If the current carry `carry` is non-zero at the current index `in`, the method adds 10 to the value of `val`.
+6. If the value of `val` is 0, the method recursively calls the `eval` method with the updated values and returns the result.
+7. If the current index `in` is less than the length of the array minus 2, the method checks the value of `val` and updates the carry and the result accordingly.
+8. If the value of `val` is 1, the method updates the carry and recursively calls the `eval` method with the updated values.
+9. If the value of `val` is 2, the method updates the carry and recursively calls the `eval` method with the updated values.
+10. If the value of `val` is not 1, the method updates the carry and recursively calls the `eval` method with the updated values.
+11. If the value of `val` is not 1 and the current index `in` is less than the length of the array minus 2, the method updates the carry and recursively calls the `eval` method with the updated values.
+12. If the value of `val` is not 1 and the current index `in` is not less than the length of the array minus 2, the method updates the carry and recursively calls the `eval` method with the updated values.
+13. Finally, the method returns the result.
+
+For the given input "1\n2276

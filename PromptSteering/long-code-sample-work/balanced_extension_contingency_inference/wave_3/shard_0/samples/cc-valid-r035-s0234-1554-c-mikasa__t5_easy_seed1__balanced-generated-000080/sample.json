@@ -1,0 +1,489 @@
+{
+  "argv": [],
+  "metadata": {
+    "argv": [],
+    "balanced_extension_contingency_selection": {
+      "canonical_problem_identity": "deepmind/code_contests@802411c3010cb00d1b05bad57ca77365a3c699d6:valid:row-000035",
+      "continued_accepted_ranks": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "protocol": "../BALANCED_EXTENSION_CONTINGENCY_PROTOCOL.md",
+      "schema_version": "long-code-balanced-extension-contingency-v1",
+      "selected_source_rule": "same first tokenizer-eligible source used by frozen balanced Waves 1 and 2",
+      "source_denominator_unchanged": true,
+      "wave_id": "balanced_wave_3"
+    },
+    "candidate_id": "cc-valid-r035-s0234-1554-c-mikasa",
+    "candidate_metadata": {
+      "expected_stdout": "0\n0\n0\n1280\n524288\n",
+      "expected_stdout_path": "candidates/cc-valid-r035-s0234-1554-c-mikasa/io/00-generated-110.out",
+      "id": "cc-valid-r035-s0234-1554-c-mikasa",
+      "input": "5\n12 1\n18 0\n3 0\n101 1285\n497468 559738\n",
+      "input_path": "candidates/cc-valid-r035-s0234-1554-c-mikasa/io/00-generated-110.in",
+      "inputs": [
+        {
+          "dataset_test_index": 110,
+          "expected_stdout": "0\n0\n0\n1280\n524288\n",
+          "expected_stdout_path": "candidates/cc-valid-r035-s0234-1554-c-mikasa/io/00-generated-110.out",
+          "expected_stdout_sha256": "01303dd718e0e8a2f89decbac68d7834bfd3e1828c11275c7eb7c259ab320379",
+          "id": "00-generated-110",
+          "input": "5\n12 1\n18 0\n3 0\n101 1285\n497468 559738\n",
+          "input_path": "candidates/cc-valid-r035-s0234-1554-c-mikasa/io/00-generated-110.in",
+          "input_sha256": "bc6d95e7721be7e0bda073a31cdafb2509b033bc54022f64268a39cea9dba233",
+          "suite": "generated_tests",
+          "validation": {
+            "compiled_with_jdk17": true,
+            "exit_code": 0,
+            "stderr_bytes": 0,
+            "timed_out": false
+          }
+        }
+      ],
+      "loc_definition": "Python str.splitlines(); final newline does not add an empty physical line",
+      "main_class": "C_Round_735_Div2",
+      "nonblank_loc": 233,
+      "original_path": "candidates/cc-valid-r035-s0234-1554-c-mikasa/original.java",
+      "physical_loc": 272,
+      "prevalidation": {
+        "all_retained_tests_exact": true,
+        "compiled": true,
+        "compiler_exit_code": 0,
+        "compiler_stderr_bytes": 0,
+        "compiler_stdout_bytes": 0,
+        "jdk_major": 17
+      },
+      "problem_key": "codeforces-1554-C",
+      "problem_name": "1554_C. Mikasa",
+      "provenance": {
+        "cf_contest_id": 1554,
+        "cf_index": "C",
+        "cf_points": 1750.0,
+        "cf_rating": 1800,
+        "cf_tags": [
+          "binary search",
+          "bitmasks",
+          "greedy",
+          "implementation"
+        ],
+        "dataset_file": "codecontests-valid-802411c3.parquet",
+        "dataset_file_sha256": "02e8c1ccedae716f1e43cc813fcb7823c3db666ea92638820aba80e8cef451ab",
+        "dataset_id": "deepmind/code_contests",
+        "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+        "dataset_url": "https://huggingface.co/datasets/deepmind/code_contests/resolve/802411c3010cb00d1b05bad57ca77365a3c699d6/data/valid-00000-of-00001-5e672c5751f060d3.parquet",
+        "difficulty": 9,
+        "language": "Java",
+        "language_code": 4,
+        "problem_name": "1554_C. Mikasa",
+        "row_index": 35,
+        "solution_container": "solutions",
+        "solution_index": 234,
+        "solution_label": "correct human solution",
+        "source_code": 2,
+        "split": "valid"
+      },
+      "source_bytes": 6746,
+      "source_sha256": "d530c46da4fd0ade255d55168f51b8abc9fde7fead5d5904fcfa2bcc6b234ea1",
+      "target": {
+        "arity": 4,
+        "body_nonblank_loc": 26,
+        "body_physical_loc": 26,
+        "class": "C_Round_735_Div2",
+        "codesteer_selector": {
+          "declaration_line": 59,
+          "fallback_used": false,
+          "implementation": "steering.priors.SlicingPrior._select_target_method",
+          "name": "cal",
+          "parameter_count": 4,
+          "parse_status": "javalang",
+          "top_level_body_statement_count": 8
+        },
+        "control_node_count": 6,
+        "end_line": 84,
+        "loop_node_count": 1,
+        "main_call_path": [
+          {
+            "arity": 1,
+            "class": "C_Round_735_Div2",
+            "end_line": 57,
+            "name": "main",
+            "parameter_types": [
+              "String[]"
+            ],
+            "return_type": "void",
+            "start_line": 37
+          },
+          {
+            "arity": 4,
+            "class": "C_Round_735_Div2",
+            "end_line": 84,
+            "name": "cal",
+            "parameter_types": [
+              "int",
+              "int",
+              "int",
+              "int"
+            ],
+            "return_type": "int",
+            "start_line": 59
+          }
+        ],
+        "main_reachable": true,
+        "name": "cal",
+        "output_caller": {
+          "arity": 1,
+          "class": "C_Round_735_Div2",
+          "end_line": 57,
+          "name": "main",
+          "parameter_types": [
+            "String[]"
+          ],
+          "return_type": "void",
+          "start_line": 37
+        },
+        "output_evidence": "out.println(cal(30, 0, n, m))",
+        "output_relevance_kind": "direct_print_argument",
+        "output_relevance_variable": null,
+        "parameter_types": [
+          "int",
+          "int",
+          "int",
+          "int"
+        ],
+        "recursive_call_count": 1,
+        "return_type": "int",
+        "return_value_output_relevant": true,
+        "source_sha256": "8ace34855fa8b7ba2414f39ab748078544afe8c1fb8fa96d2af3fd36b2663610",
+        "start_line": 59
+      },
+      "target_method": "cal",
+      "target_signature": "int C_Round_735_Div2.cal(int, int, int, int)",
+      "tests": [
+        {
+          "dataset_test_index": 110,
+          "expected_stdout": "0\n0\n0\n1280\n524288\n",
+          "expected_stdout_path": "candidates/cc-valid-r035-s0234-1554-c-mikasa/io/00-generated-110.out",
+          "expected_stdout_sha256": "01303dd718e0e8a2f89decbac68d7834bfd3e1828c11275c7eb7c259ab320379",
+          "id": "00-generated-110",
+          "input": "5\n12 1\n18 0\n3 0\n101 1285\n497468 559738\n",
+          "input_path": "candidates/cc-valid-r035-s0234-1554-c-mikasa/io/00-generated-110.in",
+          "input_sha256": "bc6d95e7721be7e0bda073a31cdafb2509b033bc54022f64268a39cea9dba233",
+          "suite": "generated_tests",
+          "validation": {
+            "compiled_with_jdk17": true,
+            "exit_code": 0,
+            "stderr_bytes": 0,
+            "timed_out": false
+          }
+        }
+      ]
+    },
+    "codesteer_target_method": "cal",
+    "concrete_case": {
+      "accepted_rank": 10,
+      "argv": [],
+      "canonical_case_key": [
+        35,
+        "generated_tests",
+        80
+      ],
+      "case_id": "balanced-generated-000080",
+      "dataset_test_index": 80,
+      "expected_output_bytes": 12,
+      "expected_output_lines": 5,
+      "expected_output_path": "../tests/cc-valid-r035-s0234-1554-c-mikasa__t5_easy_seed1/balanced-generated-000080/oracle_stdout.txt",
+      "input_bytes": 37,
+      "input_sha256": "967f4a034210af04ce68e8e9b518bfe559b839b8596f604f0387ad98351aaa84",
+      "obfuscated_stderr_path": "../tests/cc-valid-r035-s0234-1554-c-mikasa__t5_easy_seed1/balanced-generated-000080/obfuscated.stderr",
+      "obfuscated_stdout_path": "../tests/cc-valid-r035-s0234-1554-c-mikasa__t5_easy_seed1/balanced-generated-000080/obfuscated.stdout",
+      "obfuscated_trimmed_exact_to_oracle": true,
+      "original_obfuscated_trimmed_agreement": true,
+      "original_stderr_path": "../tests/cc-valid-r035-s0234-1554-c-mikasa__t5_easy_seed1/balanced-generated-000080/original.stderr",
+      "original_stdout_path": "../tests/cc-valid-r035-s0234-1554-c-mikasa__t5_easy_seed1/balanced-generated-000080/original.stdout",
+      "original_trimmed_exact_to_oracle": true,
+      "rank_key": [
+        1,
+        5,
+        12,
+        43,
+        80
+      ],
+      "raw_expected_stdout_sha256": "5096282693e72fd9eea148d0d9e077ecddb5d5ecddfd646a1d2e803aee0ce4cb",
+      "raw_obfuscated_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_obfuscated_stdout_sha256": "5096282693e72fd9eea148d0d9e077ecddb5d5ecddfd646a1d2e803aee0ce4cb",
+      "raw_original_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_original_stdout_sha256": "5096282693e72fd9eea148d0d9e077ecddb5d5ecddfd646a1d2e803aee0ce4cb",
+      "source_case_metadata": {
+        "dataset_id": "deepmind/code_contests",
+        "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+        "dataset_test_index": 80,
+        "row_index": 35,
+        "selection_stage": "balanced_extension_adaptive_outcome_independent_ranking",
+        "split": "valid",
+        "suite": "generated_tests",
+        "wave_id": "balanced_wave_3"
+      },
+      "stdin_path": "../tests/cc-valid-r035-s0234-1554-c-mikasa__t5_easy_seed1/balanced-generated-000080/stdin.txt",
+      "suite": "generated_tests",
+      "validation_path": "../validation/cc-valid-r035-s0234-1554-c-mikasa__t5_easy_seed1/balanced-generated-000080.json"
+    },
+    "difficulty": "easy",
+    "eligible": true,
+    "expected_stdout_path": "../tests/cc-valid-r035-s0234-1554-c-mikasa__t5_easy_seed1/balanced-generated-000080/oracle_stdout.txt",
+    "id": "cc-valid-r035-s0234-1554-c-mikasa__t5_easy_seed1__balanced-generated-000080",
+    "main_class": "C_Round_735_Div2",
+    "method_coverage_policy": "force_all",
+    "obfuscated": {
+      "codesteer_target": {
+        "called_directly_from_main": true,
+        "eligible_parameter_to_return_target": true,
+        "genuine_return_sink_count": 4,
+        "main_called_method_names": [
+          "cal",
+          "close",
+          "fill",
+          "nextInt",
+          "println"
+        ],
+        "method_names": [
+          "main",
+          "cal",
+          "abs",
+          "KMP",
+          "nextPer",
+          "digit",
+          "dist",
+          "toString",
+          "update",
+          "get",
+          "gcd",
+          "pow",
+          "next",
+          "nextLong",
+          "nextInt",
+          "nextDouble",
+          "nextLine",
+          "endLine"
+        ],
+        "parameter_count": 4,
+        "parameters": [
+          {
+            "name": "index",
+            "type": "int"
+          },
+          {
+            "name": "larger",
+            "type": "int"
+          },
+          {
+            "name": "n",
+            "type": "int"
+          },
+          {
+            "name": "m",
+            "type": "int"
+          }
+        ],
+        "parse_status": "javalang",
+        "return_sink_count": 4,
+        "return_type": "int",
+        "selected_method": "cal",
+        "selected_method_line": 59,
+        "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+        "selector_implementation_owner": "steering.priors.SlicingPrior",
+        "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+      },
+      "execution_validation": {
+        "accepted": true,
+        "cases": [
+          {
+            "accepted": true,
+            "actual_trimmed": "0\n0\n0\n1280\n524288",
+            "case_id": "00-generated-110",
+            "command": [
+              "java",
+              "-Dfile.encoding=UTF-8",
+              "-Djava.io.tmpdir=<scratch>",
+              "-Duser.home=<scratch>",
+              "-XX:-UsePerfData",
+              "-cp",
+              "<classes>",
+              "C_Round_735_Div2"
+            ],
+            "duration_seconds": 0.034843,
+            "exit_code": 0,
+            "expected_trimmed": "0\n0\n0\n1280\n524288",
+            "raw_expected_stdout_sha256": "01303dd718e0e8a2f89decbac68d7834bfd3e1828c11275c7eb7c259ab320379",
+            "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "raw_stdout_sha256": "01303dd718e0e8a2f89decbac68d7834bfd3e1828c11275c7eb7c259ab320379",
+            "stderr": "",
+            "stdout": "0\n0\n0\n1280\n524288\n",
+            "timed_out": false,
+            "trimmed_exact_match": true
+          }
+        ],
+        "compile": {
+          "accepted": true,
+          "command": [
+            "javac",
+            "-encoding",
+            "UTF-8",
+            "-J-Djava.io.tmpdir=<scratch>",
+            "-J-Duser.home=<scratch>",
+            "-J-XX:-UsePerfData",
+            "-Xlint:none",
+            "-nowarn",
+            "-d",
+            "<classes>",
+            "<scratch>/C_Round_735_Div2.java"
+          ],
+          "exit_code": 0,
+          "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false
+        },
+        "entry": {
+          "compile_class": "C_Round_735_Div2",
+          "main_class": "C_Round_735_Div2",
+          "package": "",
+          "parse_status": "javalang"
+        }
+      },
+      "main_class": "C_Round_735_Div2",
+      "metadata_path": "candidates/cc-valid-r035-s0234-1554-c-mikasa/variants/T5_bogus_control_flow/easy/seed_1/C_Round_735_Div2.java.meta.json",
+      "method_coverage": {
+        "main_touched": false,
+        "method_coverage_total": 17,
+        "method_coverage_touched": 17,
+        "untouched_methods": []
+      },
+      "path": "../../prepared_variants/candidates/cc-valid-r035-s0234-1554-c-mikasa/variants/T5_bogus_control_flow/easy/seed_1/C_Round_735_Div2.java",
+      "selected_target_touch_evidence": {
+        "method_block_parser": "eyetracking.obfuscation.java.passes.utils.iter_method_blocks",
+        "obfuscated_block_name": "cal",
+        "obfuscated_match_count": 1,
+        "obfuscated_method_bytes": 948,
+        "obfuscated_method_index": 0,
+        "obfuscated_method_sha256": "a2384f7cfcce631f0f280b4fb4339f94bc34d24c90293563e3a0bad94315bd36",
+        "obfuscated_method_start_line": 58,
+        "obfuscated_name_matches_codesteer_target": true,
+        "obfuscated_target_line": 59,
+        "obfuscated_target_method": "cal",
+        "original_block_name": "cal",
+        "original_match_count": 1,
+        "original_method_bytes": 830,
+        "original_method_index": 0,
+        "original_method_sha256": "5fafc31932fc1613124d70f6d3cfbd07efbefc77601c9be75e00a79e9a0f5a79",
+        "original_method_start_line": 58,
+        "original_target_line": 59,
+        "original_target_method": "cal",
+        "reason": "method_source_changed",
+        "touched": true,
+        "verifiable": true
+      },
+      "sha256": "70c8869f2b67e382157a15e793a28d4143a0e5c7f279292364e4ed05f438aa94",
+      "target_method": "cal"
+    },
+    "obfuscated_main_class": "C_Round_735_Div2",
+    "obfuscated_path": "../../prepared_variants/candidates/cc-valid-r035-s0234-1554-c-mikasa/variants/T5_bogus_control_flow/easy/seed_1/C_Round_735_Div2.java",
+    "obfuscated_target_method": "cal",
+    "obfuscation_metadata_path": "candidates/cc-valid-r035-s0234-1554-c-mikasa/variants/T5_bogus_control_flow/easy/seed_1/C_Round_735_Div2.java.meta.json",
+    "original": {
+      "codesteer_target": {
+        "called_directly_from_main": true,
+        "eligible_parameter_to_return_target": true,
+        "genuine_return_sink_count": 4,
+        "main_called_method_names": [
+          "cal",
+          "close",
+          "fill",
+          "nextInt",
+          "println"
+        ],
+        "method_names": [
+          "main",
+          "cal",
+          "abs",
+          "KMP",
+          "nextPer",
+          "digit",
+          "dist",
+          "toString",
+          "update",
+          "get",
+          "gcd",
+          "pow",
+          "next",
+          "nextLong",
+          "nextInt",
+          "nextDouble",
+          "nextLine",
+          "endLine"
+        ],
+        "parameter_count": 4,
+        "parameters": [
+          {
+            "name": "index",
+            "type": "int"
+          },
+          {
+            "name": "larger",
+            "type": "int"
+          },
+          {
+            "name": "n",
+            "type": "int"
+          },
+          {
+            "name": "m",
+            "type": "int"
+          }
+        ],
+        "parse_status": "javalang",
+        "return_sink_count": 4,
+        "return_type": "int",
+        "selected_method": "cal",
+        "selected_method_line": 59,
+        "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+        "selector_implementation_owner": "steering.priors.SlicingPrior",
+        "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+      },
+      "execution_validation_path": "candidates/cc-valid-r035-s0234-1554-c-mikasa/original/validation.json",
+      "main_class": "C_Round_735_Div2",
+      "path": "../../prepared_variants/candidates/cc-valid-r035-s0234-1554-c-mikasa/original/C_Round_735_Div2.java",
+      "sha256": "d530c46da4fd0ade255d55168f51b8abc9fde7fead5d5904fcfa2bcc6b234ea1",
+      "target_method": "cal"
+    },
+    "original_main_class": "C_Round_735_Div2",
+    "original_path": "../../prepared_variants/candidates/cc-valid-r035-s0234-1554-c-mikasa/original/C_Round_735_Div2.java",
+    "original_target_method": "cal",
+    "parent_candidate_id": "cc-valid-r035-s0234-1554-c-mikasa__t5_easy_seed1",
+    "profile": "safe",
+    "rejection_reasons": [],
+    "seed": 1,
+    "stdin_path": "../tests/cc-valid-r035-s0234-1554-c-mikasa__t5_easy_seed1/balanced-generated-000080/stdin.txt",
+    "target_method": {
+      "obfuscated": "cal",
+      "original": "cal"
+    },
+    "technique": "T5",
+    "technique_name": "bogus_control_flow",
+    "variant_id": "cc-valid-r035-s0234-1554-c-mikasa__t5_easy_seed1",
+    "warnings": [
+      "canonical_main_touched_unobserved_regex_may_not_parse_throws_clause"
+    ]
+  },
+  "obfuscated_sha256": "70c8869f2b67e382157a15e793a28d4143a0e5c7f279292364e4ed05f438aa94",
+  "obfuscated_source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r035-s0234-1554-c-mikasa/variants/T5_bogus_control_flow/easy/seed_1/C_Round_735_Div2.java",
+  "obfuscated_target_method": "cal",
+  "original_sha256": "d530c46da4fd0ade255d55168f51b8abc9fde7fead5d5904fcfa2bcc6b234ea1",
+  "original_source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r035-s0234-1554-c-mikasa/original/C_Round_735_Div2.java",
+  "original_target_method": "cal",
+  "sample_id": "cc-valid-r035-s0234-1554-c-mikasa__t5_easy_seed1__balanced-generated-000080"
+}

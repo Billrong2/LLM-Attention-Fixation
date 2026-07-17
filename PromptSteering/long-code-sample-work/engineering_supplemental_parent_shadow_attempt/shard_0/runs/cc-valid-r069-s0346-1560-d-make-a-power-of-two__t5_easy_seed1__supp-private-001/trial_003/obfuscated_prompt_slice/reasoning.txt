@@ -1,0 +1,16 @@
+Reasoning:
+1. We are predicting the output of `buscarGreedy` function.
+2. We have a for loop at line 225 which iterates from 0 to 62.
+3. Inside the loop at line 226, we convert the `pot` to string using `Long.toString(pot)`.
+4. At line 227, we compare the `numPot` with the input `numero` using `comparar` function.
+5. At line 228, if the result of `comparar` function is less than `minimo`, we update `minimo` with the result.
+6. Finally at line 235, we return the `minimo` value.
+
+For each case:
+1. We initialize `minimo` to `Integer.MAX_VALUE` at line 224.
+2. We run the for loop at line 225.
+3. Inside the loop, we convert `pot` to string and compare it with the input using `comparar` function.
+4. If the result of `comparar` function is less than `minimo`, we update `minimo` with the result.
+5. Finally, we return `minimo`.
+
+The output of the program will be a single integer value for each input. The program will output the minimum number of operations needed to convert the input to a power of 2 using the greedy approach.

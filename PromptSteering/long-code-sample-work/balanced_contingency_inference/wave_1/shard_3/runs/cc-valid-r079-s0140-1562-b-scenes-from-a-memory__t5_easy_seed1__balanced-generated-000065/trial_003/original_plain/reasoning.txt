@@ -1,0 +1,35 @@
+To determine the exact standard output of the given deterministic Java program for the specified input cases, we need to follow the control flow and state changes step by step.
+
+### Case 1: "1\n3\n121\n"
+
+1. **Initialization**:
+   - `t = 1` (from the first line of input)
+   - `res` is a `StringBuilder` initialized to an empty string.
+
+2. **Main Loop**:
+   - **First Iteration (`t--`)**:
+     - `n = 1` (from the second line of input)
+     - `s = "3"` (from the third line of input)
+     - Initialize variables: `two = 0`, `three = 0`, `five = 0`, `seven = 0`.
+     - Iterate over each character in `s`:
+       - For `s.charAt(0) == '3'`:
+         - `three++` becomes 1.
+     - Check if any non-prime digits exist:
+       - No non-prime digits found.
+     - Check pairs of digits:
+       - Only one digit, so no pairs.
+     - Append `1` followed by the digit `'3'` to `res`.
+
+3. **Output**:
+   - `print(res.toString());`
+
+### Final Output Calculation
+
+- After the loop, the final output should be the contents of the `StringBuilder` `res`.
+- The `res` string is built by appending "1" followed by "3".
+
+### Conclusion
+
+The exact standard output of the program for the given input is:
+
+```java

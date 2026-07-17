@@ -1,0 +1,22 @@
+1. MethodDeclaration at L083: target method isPrime(n) (static boolean isPrime(int n))
+2. SliceMethodParameter at L083: method parameter n (static boolean isPrime(int n))
+3. SliceReturnValue at L089: return value expression (return false;)
+4. SliceReturnValue at L093: return value expression (return true;)
+5. SliceReturnValue at L096: return value expression (return false;)
+6. SliceReturnValue at L101: return value expression (return false;)
+7. SliceReturnValue at L103: return value expression (return true;)
+8. SliceDefinition at L085: definition of _obf_t5_isPrime_61332 (int _obf_t5_isPrime_61332 = 0; _obf_t5_isPrime_61332 += 0;)
+9. SliceAssignment: assignment/update influencing _obf_t5_isPrime_61332
+10. SliceControlDependency at L088: control predicate over n (if (n <= 1))
+11. SliceControlDependency at L092: control predicate over n (else if (n == 2))
+12. SliceControlDependency at L095: control predicate over n (else if (n % 2 == 0))
+13. SliceControlDependency at L098: control predicate over i, Math, sqrt, n (for (int i = 3; i <= Math.sqrt(n); i += 2))
+14. SliceMethodCall at L098: method call Math.sqrt in static data/control context (for (int i = 3; i <= Math.sqrt(n); i += 2))
+15. SliceAssignment: assignment/update influencing i
+16. SliceControlDependency at L100: control predicate over n, i (if (n % i == 0))
+
+### Reasoning:
+- The `isPrime` method takes an integer `n` as input and returns a boolean value indicating whether `n` is a prime number.
+- The method starts by initializing a counter `_obf_t5_isPrime_61332` to 0.
+- It checks if `n` is less than or equal to 1, returning `false` if so.
+- If `n` is exactly 2

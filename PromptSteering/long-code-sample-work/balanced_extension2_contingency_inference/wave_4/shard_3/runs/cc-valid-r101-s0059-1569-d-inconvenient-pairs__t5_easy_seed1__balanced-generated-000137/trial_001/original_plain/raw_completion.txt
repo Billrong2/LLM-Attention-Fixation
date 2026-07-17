@@ -1,0 +1,10 @@
+ ### Reasoning
+
+To solve the problem, the program first reads the number of test cases, \(t\). For each test case, it reads the dimensions of a grid (\(n\) rows and \(m\) columns) and the number of points on the grid (\(k\)). It then reads the y-coordinates of \(n\) lines and the x-coordinates of \(m\) lines, which form a grid. After that, it reads the coordinates of \(k\) points, where each point is either a row or a column on the grid.
+
+For each test case, the program calculates the number of points that lie on the grid lines by considering each row and column separately. It uses a hash set to keep track of which rows and columns have already been considered. It then sorts the points based on their x-coordinates and y-coordinates, respectively, and calculates the number of points that lie on each grid line by summing up the points that have already been considered.
+
+The program returns the total number of points that lie on the grid lines.
+
+### Final Output
+FINAL_OUTPUT_JSON: {"stdout":"1\n"}

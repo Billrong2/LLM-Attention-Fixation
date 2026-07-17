@@ -1,0 +1,128 @@
+{
+  "codesteer_target": {
+    "called_directly_from_main": true,
+    "eligible_parameter_to_return_target": true,
+    "genuine_return_sink_count": 3,
+    "main_called_method_names": [
+      "cal",
+      "charAt",
+      "close",
+      "fill",
+      "next",
+      "nextInt",
+      "println"
+    ],
+    "method_names": [
+      "main",
+      "cal",
+      "dist",
+      "find",
+      "abs",
+      "KMP",
+      "nextPer",
+      "digit",
+      "dist",
+      "toString",
+      "update",
+      "get",
+      "gcd",
+      "pow",
+      "next",
+      "nextLong",
+      "nextInt",
+      "nextDouble",
+      "nextLine",
+      "endLine"
+    ],
+    "parameter_count": 3,
+    "parameters": [
+      {
+        "name": "index",
+        "type": "int"
+      },
+      {
+        "name": "n",
+        "type": "int"
+      },
+      {
+        "name": "nxt",
+        "type": "int[][]"
+      }
+    ],
+    "parse_status": "javalang",
+    "return_sink_count": 3,
+    "return_type": "int",
+    "selected_method": "cal",
+    "selected_method_line": 66,
+    "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+    "selector_implementation_owner": "steering.priors.SlicingPrior",
+    "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+  },
+  "entry": {
+    "compile_class": "C_Global_Round16",
+    "main_class": "C_Global_Round16",
+    "package": "",
+    "parse_status": "javalang"
+  },
+  "execution_validation": {
+    "accepted": true,
+    "cases": [
+      {
+        "accepted": true,
+        "actual_trimmed": "8\n8\n2\n9",
+        "case_id": "00-generated-022",
+        "command": [
+          "java",
+          "-Dfile.encoding=UTF-8",
+          "-Djava.io.tmpdir=<scratch>",
+          "-Duser.home=<scratch>",
+          "-XX:-UsePerfData",
+          "-cp",
+          "<classes>",
+          "C_Global_Round16"
+        ],
+        "duration_seconds": 0.03457,
+        "exit_code": 0,
+        "expected_trimmed": "8\n8\n2\n9",
+        "raw_expected_stdout_sha256": "120954cac8dfb1a50d2832d3e036c4e826dd672c79166260f0c0652c96811425",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "120954cac8dfb1a50d2832d3e036c4e826dd672c79166260f0c0652c96811425",
+        "stderr": "",
+        "stdout": "8\n8\n2\n9\n",
+        "timed_out": false,
+        "trimmed_exact_match": true
+      }
+    ],
+    "compile": {
+      "accepted": true,
+      "command": [
+        "javac",
+        "-encoding",
+        "UTF-8",
+        "-J-Djava.io.tmpdir=<scratch>",
+        "-J-Duser.home=<scratch>",
+        "-J-XX:-UsePerfData",
+        "-Xlint:none",
+        "-nowarn",
+        "-d",
+        "<classes>",
+        "<scratch>/C_Global_Round16.java"
+      ],
+      "exit_code": 0,
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    "entry": {
+      "compile_class": "C_Global_Round16",
+      "main_class": "C_Global_Round16",
+      "package": "",
+      "parse_status": "javalang"
+    }
+  },
+  "physical_loc": 290,
+  "source_path": "candidates/cc-valid-r086-s0131-1566-c-max-mex-cut/original/C_Global_Round16.java",
+  "source_sha256": "3b2c546a718cf6d11c2926c175b85c80f1331094673f55b19e8f58be275198ac"
+}

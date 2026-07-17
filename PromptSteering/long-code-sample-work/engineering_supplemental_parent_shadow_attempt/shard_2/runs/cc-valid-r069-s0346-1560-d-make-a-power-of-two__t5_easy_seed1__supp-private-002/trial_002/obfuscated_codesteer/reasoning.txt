@@ -1,0 +1,31 @@
+The given Java program reads a series of inputs from standard input and applies the `buscarGreedy` method to each input. This method calculates the minimum number of edits required to transform the input string into a power of two.
+
+To predict the exact standard output, we need to analyze the `buscarGreedy` method.
+
+The method initializes a variable `pot` to 1 and a variable `minimo` to `Integer.MAX_VALUE`. It then enters a loop that iterates up to 62 times. In each iteration:
+
+1. The method converts the current value of `pot` to a string using `Long.toString(pot)`.
+2. It calls the `comparar` method with two arguments: the string representation of `pot` and the input string.
+3. The `comparar` method compares the two strings character by character and returns the number of differences between them.
+4. If the number of differences is less than the current value of `minimo`, `minimo` is updated with the new value.
+5. Finally, the loop multiplies `pot` by 2 to move to the next power of 2.
+
+After the loop completes, the method returns the value of `minimo`, which represents the minimum number of edits required to transform the input string into a power of 2.
+
+Given this understanding of the `buscarGreedy` method, we can now predict the exact standard output for the provided cases:
+
+c001:
+```
+4
+5
+2
+1
+5
+9
+2
+3
+10
+7
+1
+9
+```

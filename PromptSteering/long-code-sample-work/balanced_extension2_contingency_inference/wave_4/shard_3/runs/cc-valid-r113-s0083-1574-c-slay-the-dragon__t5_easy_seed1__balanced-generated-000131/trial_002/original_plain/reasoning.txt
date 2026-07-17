@@ -1,0 +1,21 @@
+CASES_BEGIN
+c001: invoke program entry point; target_method=find; stdin="4\n3 8 0 3\n2\n3 12\n7 9\n4 9\n0 10\n8 7\n"; argv=[]
+CASES_END
+
+The given Java program reads a list of numbers from standard input and finds the minimum cost to reach a target attack and defense value by using binary search.
+
+### Reasoning
+
+1. The program starts by reading the number of elements in the list (`n`) and the actual list of numbers.
+2. It then reads the number of queries (`y`) and for each query, it reads the target attack and defense values.
+3. For each query, it finds the index of the target attack value in the sorted list using binary search.
+4. It calculates the cost by subtracting the target attack value from the element at the found index and adding the target defense value.
+5. If the target attack value is less than the element at the found index, it subtracts the difference from the target defense value.
+
+### Case Analysis
+- **c001**: The input contains 4 elements in the list: [3, 8, 0, 3]. The target attack and defense values are [3, 12] and [7, 9] and [4, 9] and [0, 10] and [8, 7]. For each pair, the program performs the necessary calculations based on the binary search.
+
+### Expected Output
+The program will print the minimum cost for each query based on the calculations described above.
+
+### Machine-Readable Line

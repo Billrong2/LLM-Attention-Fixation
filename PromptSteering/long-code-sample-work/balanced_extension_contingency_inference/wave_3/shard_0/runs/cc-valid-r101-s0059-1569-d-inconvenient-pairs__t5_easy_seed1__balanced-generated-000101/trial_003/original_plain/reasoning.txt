@@ -1,0 +1,43 @@
+To predict the exact standard output of the given Java program for the provided input case, we need to follow the execution step-by-step and understand how the program processes the input to produce the output.
+
+### Case: `c001`
+
+#### Input:
+```plaintext
+1
+2 2 2
+0 1010010
+0 1000000
+1556 1000000
+0 14
+```
+
+#### Explanation of the Program:
+
+1. **Initialization**:
+   - The program reads the input and initializes variables based on the given data.
+   - `t` is set to 1 (number of test cases).
+   - `n` is set to 2 (number of points in yline).
+   - `m` is set to 2 (number of points in xline).
+   - `k` is set to 2 (number of points to be added).
+
+2. **Input Parsing**:
+   - `yline` is initialized with `[1010010, 1000000]`.
+   - `xline` is initialized with `[1010010, 1000000]`.
+   - `px` and `py` are initialized with `[1556, 1000000]` and `[0, 14]` respectively.
+
+3. **Execution of `solve` Function**:
+   - The `solve` function processes the points and calculates the result.
+   - It uses two hash sets `yset` and `xset` to track unique points in `yline` and `xline`.
+   - It creates two lists `xlist` and `ylist` and adds points from `px` and `py` to these lists if they are not in `xset` or `yset` respectively.
+   - The lists are sorted and processed to calculate the final answer.
+
+4. **Output Calculation**:
+   - The final answer is calculated by processing the lists and applying the logic in the `solve` function.
+   - The result is printed to the standard output.
+
+### Final Answer Calculation:
+
+1. **Initialization**:
+   - `yset` contains `[1010010, 1000000]`.
+   - `xset` contains `[1010010, 1

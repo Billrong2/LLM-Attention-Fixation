@@ -1,0 +1,247 @@
+{
+  "activation_steering": false,
+  "codesteer_prior_preflight": null,
+  "condition": "obfuscated_prompt_slice",
+  "fingerprint": "699c84c480495c5900452bef6b306b304bb320a865df197b8feff0ecde6fc338",
+  "generation": {
+    "do_sample": true,
+    "max_new_tokens": 512,
+    "temperature": 1.05,
+    "top_k": 7,
+    "top_p": 0.95
+  },
+  "manifest_sha256": "803aa5c06fe748f84081c35c4ccb01972db9a0ff01d916023c4fc83da5e131ab",
+  "model_name": "Qwen/Qwen2.5-14B",
+  "model_snapshot_commit": "97e1e76335b7017d8f67c08a19d103c0504298c9",
+  "obfuscated_sha256": "486b58afe24cd538bb0cf21e37d7b62a93cd32d8b119d7e2a8f2579ce1e8d44a",
+  "original_sha256": "e9bd04013f35b4516f62be09f4a19a08371d0b2e9a68e4bf75f1a23f87dd7021",
+  "paired_design": "same seed for all four conditions in this sample/trial",
+  "paired_seed": 941394172,
+  "prompt_metadata": {
+    "artifact_name": "Program Slicing / backward slice",
+    "elements": [
+      {
+        "code": "static boolean cal(int index, int horizontal, int n, int m) {",
+        "description": "target method cal(index, horizontal, n, m)",
+        "kind": "MethodDeclaration",
+        "line": 62,
+        "line_label": "L062"
+      },
+      {
+        "code": "static boolean cal(int index, int horizontal, int n, int m) {",
+        "description": "method parameter index",
+        "kind": "SliceMethodParameter",
+        "line": 62,
+        "line_label": "L062"
+      },
+      {
+        "code": "static boolean cal(int index, int horizontal, int n, int m) {",
+        "description": "method parameter horizontal",
+        "kind": "SliceMethodParameter",
+        "line": 62,
+        "line_label": "L062"
+      },
+      {
+        "code": "static boolean cal(int index, int horizontal, int n, int m) {",
+        "description": "method parameter n",
+        "kind": "SliceMethodParameter",
+        "line": 62,
+        "line_label": "L062"
+      },
+      {
+        "code": "static boolean cal(int index, int horizontal, int n, int m) {",
+        "description": "method parameter m",
+        "kind": "SliceMethodParameter",
+        "line": 62,
+        "line_label": "L062"
+      },
+      {
+        "code": "return horizontal == 0;",
+        "description": "return value expression using horizontal",
+        "kind": "SliceReturnValue",
+        "line": 69,
+        "line_label": "L069"
+      },
+      {
+        "code": "return false;",
+        "description": "return value expression",
+        "kind": "SliceReturnValue",
+        "line": 72,
+        "line_label": "L072"
+      },
+      {
+        "code": "return false;",
+        "description": "return value expression",
+        "kind": "SliceReturnValue",
+        "line": 76,
+        "line_label": "L076"
+      },
+      {
+        "code": "return true;",
+        "description": "return value expression",
+        "kind": "SliceReturnValue",
+        "line": 85,
+        "line_label": "L085"
+      },
+      {
+        "code": "return false;",
+        "description": "return value expression",
+        "kind": "SliceReturnValue",
+        "line": 88,
+        "line_label": "L088"
+      },
+      {
+        "code": "return result;",
+        "description": "return value expression using result",
+        "kind": "SliceReturnValue",
+        "line": 124,
+        "line_label": "L124"
+      },
+      {
+        "code": "if (((3 * 3) - 9) != 0) {",
+        "description": "control predicate over _obf_t5_cal_219867",
+        "kind": "SliceControlDependency",
+        "line": 63,
+        "line_label": "L063"
+      },
+      {
+        "code": "if (index == m) {",
+        "description": "control predicate over index, m, horizontal",
+        "kind": "SliceControlDependency",
+        "line": 67,
+        "line_label": "L067"
+      },
+      {
+        "code": "if (index > m) {",
+        "description": "control predicate over index, m",
+        "kind": "SliceControlDependency",
+        "line": 71,
+        "line_label": "L071"
+      },
+      {
+        "code": "if (horizontal == 0) {",
+        "description": "control predicate over horizontal, n, index, j, m, i, find, re, tmp, cur",
+        "kind": "SliceControlDependency",
+        "line": 74,
+        "line_label": "L074"
+      },
+      {
+        "code": "if (n % 2 != 0) {",
+        "description": "control predicate over n",
+        "kind": "SliceControlDependency",
+        "line": 75,
+        "line_label": "L075"
+      },
+      {
+        "code": "for (int j = index; j < m; j++) {",
+        "description": "control predicate over index, j, m, i, n, find, re, tmp, cur",
+        "kind": "SliceControlDependency",
+        "line": 78,
+        "line_label": "L078"
+      },
+      {
+        "code": "for (int i = 0; i < n; i += 2) {",
+        "description": "control predicate over i, n, find, j, re, tmp, cur",
+        "kind": "SliceControlDependency",
+        "line": 79,
+        "line_label": "L079"
+      },
+      {
+        "code": "char tmp = find(i, j, i + 1, j, re);",
+        "description": "method call find in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 80,
+        "line_label": "L080"
+      },
+      {
+        "code": "if (dp[index][horizontal]) {",
+        "description": "control predicate over dp, index, horizontal",
+        "kind": "SliceControlDependency",
+        "line": 87,
+        "line_label": "L087"
+      },
+      {
+        "code": "boolean result = false;",
+        "description": "definition of result",
+        "kind": "SliceDefinition",
+        "line": 91,
+        "line_label": "L091"
+      },
+      {
+        "code": "if (n % 2 == 0) {",
+        "description": "control predicate over n, result, cal, index, horizontal, m, i, find, re, tmp, cur",
+        "kind": "SliceControlDependency",
+        "line": 92,
+        "line_label": "L092"
+      },
+      {
+        "code": "",
+        "description": "assignment/update influencing result",
+        "kind": "SliceAssignment",
+        "line": null,
+        "line_label": ""
+      },
+      {
+        "code": "result = cal(index + 1, horizontal, n, m);",
+        "description": "method call cal in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 93,
+        "line_label": "L093"
+      }
+    ],
+    "eligible_count_is_lower_bound": false,
+    "eligible_element_count": 36,
+    "emitted_element_count": 24,
+    "emitted_over_eligible": 0.6666666666666666,
+    "enabled": true,
+    "guidance_text": "Prompt-only steering guidance (Program Slicing / backward slice, artifact-conditioned):\nUse the following static program-analysis elements as the main reasoning anchors.\nThese elements are static only; they do not reveal the correct output, branch outcomes, or gold execution trace.\n\nStatic elements to emphasize:\n1. MethodDeclaration at L062: target method cal(index, horizontal, n, m) (static boolean cal(int index, int horizontal, int n, int m) {)\n2. SliceMethodParameter at L062: method parameter index (static boolean cal(int index, int horizontal, int n, int m) {)\n3. SliceMethodParameter at L062: method parameter horizontal (static boolean cal(int index, int horizontal, int n, int m) {)\n4. SliceMethodParameter at L062: method parameter n (static boolean cal(int index, int horizontal, int n, int m) {)\n5. SliceMethodParameter at L062: method parameter m (static boolean cal(int index, int horizontal, int n, int m) {)\n6. SliceReturnValue at L069: return value expression using horizontal (return horizontal == 0;)\n7. SliceReturnValue at L072: return value expression (return false;)\n8. SliceReturnValue at L076: return value expression (return false;)\n9. SliceReturnValue at L085: return value expression (return true;)\n10. SliceReturnValue at L088: return value expression (return false;)\n11. SliceReturnValue at L124: return value expression using result (return result;)\n12. SliceControlDependency at L063: control predicate over _obf_t5_cal_219867 (if (((3 * 3) - 9) != 0) {)\n13. SliceControlDependency at L067: control predicate over index, m, horizontal (if (index == m) {)\n14. SliceControlDependency at L071: control predicate over index, m (if (index > m) {)\n15. SliceControlDependency at L074: control predicate over horizontal, n, index, j, m, i, find, re, tmp, cur (if (horizontal == 0) {)\n16. SliceControlDependency at L075: control predicate over n (if (n % 2 != 0) {)\n17. SliceControlDependency at L078: control predicate over index, j, m, i, n, find, re, tmp, cur (for (int j = index; j < m; j++) {)\n18. SliceControlDependency at L079: control predicate over i, n, find, j, re, tmp, cur (for (int i = 0; i < n; i += 2) {)\n19. SliceMethodCall at L080: method call find in static data/control context (char tmp = find(i, j, i + 1, j, re);)\n20. SliceControlDependency at L087: control predicate over dp, index, horizontal (if (dp[index][horizontal]) {)\n21. SliceDefinition at L091: definition of result (boolean result = false;)\n22. SliceControlDependency at L092: control predicate over n, result, cal, index, horizontal, m, i, find, re, tmp, cur (if (n % 2 == 0) {)\n23. SliceAssignment: assignment/update influencing result\n24. SliceMethodCall at L093: method call cal in static data/control context (result = cal(index + 1, horizontal, n, m);)",
+    "max_elements": 24,
+    "mechanism": "artifact_conditioned_natural_language_instruction_only",
+    "mode": "slice",
+    "parse_status": "javalang",
+    "prompt_items": [
+      "MethodDeclaration at L062: target method cal(index, horizontal, n, m) (static boolean cal(int index, int horizontal, int n, int m) {)",
+      "SliceMethodParameter at L062: method parameter index (static boolean cal(int index, int horizontal, int n, int m) {)",
+      "SliceMethodParameter at L062: method parameter horizontal (static boolean cal(int index, int horizontal, int n, int m) {)",
+      "SliceMethodParameter at L062: method parameter n (static boolean cal(int index, int horizontal, int n, int m) {)",
+      "SliceMethodParameter at L062: method parameter m (static boolean cal(int index, int horizontal, int n, int m) {)",
+      "SliceReturnValue at L069: return value expression using horizontal (return horizontal == 0;)",
+      "SliceReturnValue at L072: return value expression (return false;)",
+      "SliceReturnValue at L076: return value expression (return false;)",
+      "SliceReturnValue at L085: return value expression (return true;)",
+      "SliceReturnValue at L088: return value expression (return false;)",
+      "SliceReturnValue at L124: return value expression using result (return result;)",
+      "SliceControlDependency at L063: control predicate over _obf_t5_cal_219867 (if (((3 * 3) - 9) != 0) {)",
+      "SliceControlDependency at L067: control predicate over index, m, horizontal (if (index == m) {)",
+      "SliceControlDependency at L071: control predicate over index, m (if (index > m) {)",
+      "SliceControlDependency at L074: control predicate over horizontal, n, index, j, m, i, find, re, tmp, cur (if (horizontal == 0) {)",
+      "SliceControlDependency at L075: control predicate over n (if (n % 2 != 0) {)",
+      "SliceControlDependency at L078: control predicate over index, j, m, i, n, find, re, tmp, cur (for (int j = index; j < m; j++) {)",
+      "SliceControlDependency at L079: control predicate over i, n, find, j, re, tmp, cur (for (int i = 0; i < n; i += 2) {)",
+      "SliceMethodCall at L080: method call find in static data/control context (char tmp = find(i, j, i + 1, j, re);)",
+      "SliceControlDependency at L087: control predicate over dp, index, horizontal (if (dp[index][horizontal]) {)",
+      "SliceDefinition at L091: definition of result (boolean result = false;)",
+      "SliceControlDependency at L092: control predicate over n, result, cal, index, horizontal, m, i, find, re, tmp, cur (if (n % 2 == 0) {)",
+      "SliceAssignment: assignment/update influencing result",
+      "SliceMethodCall at L093: method call cal in static data/control context (result = cal(index + 1, horizontal, n, m);)"
+    ],
+    "recorded_target_method": "cal",
+    "target_method": "cal"
+  },
+  "prompt_sha256": "0793a55d8f399cee8332b70276448b585687f9599e5718411b83ed4cb25f238d",
+  "protocol_version": "long-code-output-v1",
+  "sample_id": "cc-valid-r013-s0260-1551-d2-domino-hard-version__t5_easy_seed1__supp-private-073",
+  "source_kind": "obfuscated",
+  "source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r013-s0260-1551-d2-domino-hard-version/variants/T5_bogus_control_flow/easy/seed_1/D1_Round_734_Div3.java",
+  "steering": null,
+  "target_method": "cal",
+  "token_preflight": {
+    "context_limit": 131072,
+    "context_margin_tokens": 126616,
+    "fits_context": true,
+    "max_new_tokens": 512,
+    "prompt_sha256": "0793a55d8f399cee8332b70276448b585687f9599e5718411b83ed4cb25f238d",
+    "prompt_token_count": 3944
+  },
+  "trial": 2
+}

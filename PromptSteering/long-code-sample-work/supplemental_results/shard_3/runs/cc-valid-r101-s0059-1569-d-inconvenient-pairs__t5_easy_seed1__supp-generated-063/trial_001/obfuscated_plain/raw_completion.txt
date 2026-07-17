@@ -1,0 +1,36 @@
+
+
+
+### Reasoning
+
+The `Main` class contains the main entry point and an `InputReader` to handle input. The `solve` method is responsible for calculating the answer.
+
+The input is read and processed as follows:
+- The first line of input contains an integer `t`, representing the number of test cases.
+- For each test case:
+  - The first line contains three integers `n`, `m`, and `k`.
+  - The next line contains `n` integers representing the `yline` array.
+  - The next line contains `m` integers representing the `xline` array.
+  - The next `k` lines contain two integers each, representing the coordinates of points in the form `(px[i], py[i])`.
+
+The `solve` method processes this input as follows:
+1. It initializes two `HashSet`s, `yset` and `xset`, to store unique `yline` and `xline` values, respectively.
+2. It initializes two `ArrayList`s, `xlist` and `ylist`, to store `Pair` objects with `x` and `y` coordinates.
+3. It populates `xlist` and `ylist` with `Pair` objects, where `x` and `y` coordinates are either from `yline` and `xline`, or from `px` and `py`.
+4. It sorts `xlist` and `ylist` using the `compareTo` method of the `Pair` class.
+5. It uses two `HashMap`s, `mapx` and `mapy`, to keep track of the frequency of `y` coordinates in `xlist` and `x` coordinates in `ylist`, respectively.
+6. It iterates through `xlist` and updates `ans` based on the frequency of `y` coordinates and the length of `mapx`.
+7. It does the same for `ylist` and updates `ans` based on the frequency of `x` coordinates and the length of `mapy`.
+8. It returns the final value of `ans`.
+
+Given the input:
+```
+1
+2 2 2
+0 1000000
+0 1000000
+1556 1000000
+0 38
+```
+The `solve` method will process the input as follows:
+- `n` = 2, `m` = 2,

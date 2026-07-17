@@ -1,0 +1,16 @@
+The provided Java program uses a FastScanner to read from standard input and a PrintWriter to write to standard output. The main function reads a number of test cases (`tc`) and for each test case, it reads two strings (`s` and `t`) and calls the `solve` function with these strings as arguments. The result of the `solve` function is then printed to the standard output.
+
+The `solve` function compares the characters of the two strings from the end and moves the pointer in `s` either to the previous character (if the characters at the current pointers match) or two characters back (if they don't match). If the pointer in `t` reaches the beginning, the function returns "YES", indicating that `s` can be reduced to `t` by removing characters. If not, it returns "NO".
+
+Given the input:
+```
+1
+baa
+ba
+```
+The `solve` function will compare 'a' in `s` with 'a' in `t` and move both pointers back. Then it will compare 'a' in `s` with 'b' in `t` and move the pointer in `s` back two characters. Finally, it will compare 'b' in `s` with the beginning of `t` and return "YES" because the pointer in `t` has reached the beginning.
+
+The program will output:
+```
+YES
+```

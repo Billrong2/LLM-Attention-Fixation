@@ -1,0 +1,17 @@
+The program starts by reading input from the standard input, which includes a single integer indicating the number of cases, followed by input specific to each case.
+
+The `solve` method takes input parameters for the case, which include integer arrays `yline` and `xline` containing the y-coordinates and x-coordinates of lines respectively, along with integer arrays `px` and `py` containing the x-coordinates and y-coordinates of points respectively.
+
+The `solve` method first creates a `HashSet<Integer>` for the y-coordinates and x-coordinates of the lines. It then creates two `ArrayList<Pair>` objects to store the lines and points. The `Pair` class is a custom class with `x` and `y` integer fields.
+
+The method loops over the arrays of coordinates, adding lines and points to the respective lists, while also checking for duplicates and adding them to the `mapx` and `mapy` hashmaps. The method also keeps track of a running sum of the number of lines and points in each list.
+
+Finally, the method returns the total count of points that are not on any line, which is the number of points that do not have a matching `x` coordinate in `mapx` or `y` coordinate in `mapy`.
+
+The output of this case will be the sum of points that are not on any line, which is `1000000`. Therefore, the output will be:
+
+`1000000`
+
+The final JSON output will be:
+
+`

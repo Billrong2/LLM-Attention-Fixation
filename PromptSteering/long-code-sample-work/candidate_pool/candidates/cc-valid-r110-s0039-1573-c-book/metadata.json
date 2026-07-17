@@ -1,0 +1,163 @@
+{
+  "expected_stdout": "2\n-1\n1\n2\n5\n",
+  "expected_stdout_path": "candidates/cc-valid-r110-s0039-1573-c-book/io/00-generated-000.out",
+  "id": "cc-valid-r110-s0039-1573-c-book",
+  "input": "5\n4\n1 2\n0\n2 1 4\n1 2\n5\n1 5\n1 1\n1 1\n1 3\n1 4\n5\n0\n0\n2 1 2\n1 2\n2 2 1\n4\n2 2 3\n0\n0\n2 3 2\n5\n1 2\n1 3\n1 4\n1 5\n0\n",
+  "input_path": "candidates/cc-valid-r110-s0039-1573-c-book/io/00-generated-000.in",
+  "inputs": [
+    {
+      "dataset_test_index": 0,
+      "expected_stdout": "2\n-1\n1\n2\n5\n",
+      "expected_stdout_path": "candidates/cc-valid-r110-s0039-1573-c-book/io/00-generated-000.out",
+      "expected_stdout_sha256": "7eac5661ffb8672f725f2f5b4e258f95176f633e8a843abc480878e5f9e71df5",
+      "id": "00-generated-000",
+      "input": "5\n4\n1 2\n0\n2 1 4\n1 2\n5\n1 5\n1 1\n1 1\n1 3\n1 4\n5\n0\n0\n2 1 2\n1 2\n2 2 1\n4\n2 2 3\n0\n0\n2 3 2\n5\n1 2\n1 3\n1 4\n1 5\n0\n",
+      "input_path": "candidates/cc-valid-r110-s0039-1573-c-book/io/00-generated-000.in",
+      "input_sha256": "290eb87f3fd2de03112aba853c20c38eb2bcde23909292dabc2db2d367656353",
+      "suite": "generated_tests",
+      "validation": {
+        "compiled_with_jdk17": true,
+        "exit_code": 0,
+        "stderr_bytes": 0,
+        "stdout_exact_byte_match": true,
+        "timed_out": false
+      }
+    }
+  ],
+  "loc_definition": "Python str.splitlines(); final newline does not add an empty physical line",
+  "main_class": "C_Round_743_Div2",
+  "nonblank_loc": 249,
+  "original_path": "candidates/cc-valid-r110-s0039-1573-c-book/original.java",
+  "physical_loc": 293,
+  "prevalidation": {
+    "all_retained_tests_exact": true,
+    "compiled": true,
+    "compiler_exit_code": 0,
+    "compiler_stderr_bytes": 0,
+    "compiler_stdout_bytes": 0,
+    "jdk_major": 17
+  },
+  "problem_key": "codeforces-1573-C",
+  "problem_name": "1573_C. Book",
+  "provenance": {
+    "cf_contest_id": 1573,
+    "cf_index": "C",
+    "cf_points": 0.0,
+    "cf_rating": 1800,
+    "cf_tags": [
+      "data structures",
+      "dp",
+      "graphs",
+      "implementation"
+    ],
+    "dataset_file": "codecontests-valid-802411c3.parquet",
+    "dataset_file_sha256": "02e8c1ccedae716f1e43cc813fcb7823c3db666ea92638820aba80e8cef451ab",
+    "dataset_id": "deepmind/code_contests",
+    "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+    "dataset_url": "https://huggingface.co/datasets/deepmind/code_contests/resolve/802411c3010cb00d1b05bad57ca77365a3c699d6/data/valid-00000-of-00001-5e672c5751f060d3.parquet",
+    "difficulty": 9,
+    "language": "Java",
+    "language_code": 4,
+    "problem_name": "1573_C. Book",
+    "row_index": 110,
+    "solution_container": "solutions",
+    "solution_index": 39,
+    "solution_label": "correct human solution",
+    "source_code": 2,
+    "split": "valid"
+  },
+  "source_bytes": 7211,
+  "source_sha256": "c9abeb1b15822398d0452224375e886f22fcbbe7a6d3511cba531f9b8a501230",
+  "target": {
+    "arity": 3,
+    "body_nonblank_loc": 23,
+    "body_physical_loc": 23,
+    "class": "C_Round_743_Div2",
+    "codesteer_selector": {
+      "declaration_line": 70,
+      "fallback_used": false,
+      "implementation": "steering.priors.SlicingPrior._select_target_method",
+      "name": "cal",
+      "parameter_count": 3,
+      "parse_status": "javalang",
+      "top_level_body_statement_count": 7
+    },
+    "control_node_count": 5,
+    "end_line": 92,
+    "loop_node_count": 1,
+    "main_call_path": [
+      {
+        "arity": 1,
+        "class": "C_Round_743_Div2",
+        "end_line": 68,
+        "name": "main",
+        "parameter_types": [
+          "String[]"
+        ],
+        "return_type": "void",
+        "start_line": 37
+      },
+      {
+        "arity": 3,
+        "class": "C_Round_743_Div2",
+        "end_line": 92,
+        "name": "cal",
+        "parameter_types": [
+          "int",
+          "boolean[]",
+          "int[][]"
+        ],
+        "return_type": "int",
+        "start_line": 70
+      }
+    ],
+    "main_reachable": true,
+    "name": "cal",
+    "output_caller": {
+      "arity": 1,
+      "class": "C_Round_743_Div2",
+      "end_line": 68,
+      "name": "main",
+      "parameter_types": [
+        "String[]"
+      ],
+      "return_type": "void",
+      "start_line": 37
+    },
+    "output_evidence": "v = cal(i, s, data) -> out.println(result)",
+    "output_relevance_kind": "local_assignment_then_print",
+    "output_relevance_variable": "v",
+    "parameter_types": [
+      "int",
+      "boolean[]",
+      "int[][]"
+    ],
+    "recursive_call_count": 1,
+    "return_type": "int",
+    "return_value_output_relevant": true,
+    "source_sha256": "8534a6c96e1561b858aea2918e304d3f18d0afe5588f4929e66a425f6c06fd18",
+    "start_line": 70
+  },
+  "target_method": "cal",
+  "target_signature": "int C_Round_743_Div2.cal(int, boolean[], int[][])",
+  "tests": [
+    {
+      "dataset_test_index": 0,
+      "expected_stdout": "2\n-1\n1\n2\n5\n",
+      "expected_stdout_path": "candidates/cc-valid-r110-s0039-1573-c-book/io/00-generated-000.out",
+      "expected_stdout_sha256": "7eac5661ffb8672f725f2f5b4e258f95176f633e8a843abc480878e5f9e71df5",
+      "id": "00-generated-000",
+      "input": "5\n4\n1 2\n0\n2 1 4\n1 2\n5\n1 5\n1 1\n1 1\n1 3\n1 4\n5\n0\n0\n2 1 2\n1 2\n2 2 1\n4\n2 2 3\n0\n0\n2 3 2\n5\n1 2\n1 3\n1 4\n1 5\n0\n",
+      "input_path": "candidates/cc-valid-r110-s0039-1573-c-book/io/00-generated-000.in",
+      "input_sha256": "290eb87f3fd2de03112aba853c20c38eb2bcde23909292dabc2db2d367656353",
+      "suite": "generated_tests",
+      "validation": {
+        "compiled_with_jdk17": true,
+        "exit_code": 0,
+        "stderr_bytes": 0,
+        "stdout_exact_byte_match": true,
+        "timed_out": false
+      }
+    }
+  ]
+}

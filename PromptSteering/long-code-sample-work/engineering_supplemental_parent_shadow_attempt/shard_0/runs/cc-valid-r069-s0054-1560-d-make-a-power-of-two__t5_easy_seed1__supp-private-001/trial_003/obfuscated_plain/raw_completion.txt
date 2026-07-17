@@ -1,0 +1,28 @@
+
+
+
+### Reasoning:
+
+1. **Initialization**: The `items` list is initialized with powers of 2, starting from 1 and continuing until it exceeds a certain value.
+
+2. **Input Parsing**: The number of test cases \( t \) is read from standard input using `nextInt()`, and then for each test case, another integer \( n \) is read.
+
+3. **Calling the Method**: The `getMin` method is called for each test case, passing \( n \) and the `items` list as arguments.
+
+4. **Processing Inside `getMin`**: The method calculates the minimum number of operations required to transform the given number \( n \) into one of the numbers in the `items` list.
+
+5. **Output**: The results of `getMin` are printed out for each test case.
+
+### Output Prediction:
+
+Given the input "12\n825\n8888\n4\n157\n146\n1\n301\n19634\n1504\n10521\n1000000000\n687194767", the output will be the minimum operations required for each number to match a number in the `items` list.
+
+```json
+FINAL_OUTPUT_JSON: {"stdout":"3\n1\n3\n0\n2\n1\n0\n2\n3\n1\n1\n3\n"}
+```
+
+### Machine-Readable Final Output:
+
+```json
+FINAL_OUTPUT_JSON: {"stdout":"3\n1\n3\n0\n2\n1\n0\n2\n3\n1\n1\n3\n"}
+```

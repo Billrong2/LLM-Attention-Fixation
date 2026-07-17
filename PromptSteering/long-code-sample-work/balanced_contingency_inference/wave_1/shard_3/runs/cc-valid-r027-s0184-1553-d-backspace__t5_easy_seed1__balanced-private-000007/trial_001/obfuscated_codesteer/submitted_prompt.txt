@@ -1,0 +1,378 @@
+Predict the exact standard output of this deterministic Java program for the concrete case below. The recorded algorithm method is `solve`. This is output prediction, not code generation.
+### CASES_BEGIN
+c001: invoke program entry point; target_method=solve; stdin="1\nbcdacdb\na\n"; argv=[]
+### CASES_END
+
+Give concise reasoning that tracks only state and control flow needed for the output. Then end with exactly one machine-readable line in this form:
+FINAL_OUTPUT_JSON: {"stdout":"exact output with newlines encoded as \n"}
+The JSON stdout string must contain only what the program prints, with no commentary or code fence.
+
+```java
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+ 
+/**
+ *
+ * @author wilso
+ */
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.*;
+public class codeforces {
+    static final long MOD2 = 998_244_353;
+    static final long X = 10000000000L;
+    public static void main(String[] args) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_main_451217 = 0;
+            _obf_t5_main_451217++;
+        }
+        FastScanner sc = new FastScanner();
+        PrintWriter pw = new PrintWriter(System.out);
+//        Scanner sc = new Scanner(System.in);
+        int tc = sc.ni();
+//        int tc = 1;
+        for (int rep = 0; rep < tc; rep++) {
+            String s = sc.next();
+            String t = sc.next();
+            pw.println(solve(s, t));
+        }
+        
+        pw.close();
+    }
+    static String solve(String s, String t) {
+        int _obf_t5_solve_181246 = 0; _obf_t5_solve_181246 += 0;
+        int j = t.length() - 1;
+        int i = s.length() - 1;
+        while (i >= 0) {
+            if (s.charAt(i) == t.charAt(j)) {
+                j--;
+                i--;
+            }
+            else {
+                i -= 2;
+            }
+            if (j == -1) return "YES";
+        }
+        return "NO";
+    }
+
+ 
+ 
+    static int greaterThan(long[] arr, long target) {
+	if (((3 * 3) - 9) != 0) {
+	    int _obf_t5_greaterThan_413994 = 0;
+	    _obf_t5_greaterThan_413994++;
+	}
+	int lo = 0, hi = arr.length- 1;
+	while(lo < hi) { // observe this time it is "<" operator, not "<="
+		int mid = lo + (hi-lo)/2;
+		if(arr[mid] <= target) lo = mid+1;
+		else hi = mid;
+	}
+	return arr[lo] > target ? lo : -1;
+}
+    static int smallerThan(long[] arr, long target) {
+	if (((3 * 3) - 9) != 0) {
+	    int _obf_t5_smallerThan_560908 = 0;
+	    _obf_t5_smallerThan_560908++;
+	}
+	int lo = 0, hi = arr.length- 1;
+	while(lo < hi) {
+		int mid = lo + (hi-lo+1)/2; // Note that I used ceil here otherwise it could go in infinite loop
+		if(arr[mid] < target) lo = mid;
+		else hi = mid-1;
+	}
+	return arr[lo] < target ? lo : -1;
+}
+  
+    static int[] reduce(int[] temp) {
+        int _obf_t5_reduce_665677 = 0; _obf_t5_reduce_665677 += 0;
+        int[] frac = new int[] {temp[0], temp[1]};
+        int curr = gcd(frac[0], frac[1]);
+        while (curr != 1) {
+            frac[0] /= curr;
+            frac[1] /= curr;
+            curr = gcd(frac[0], frac[1]);
+        }
+        return frac;
+    }
+    static int summation(int x) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_summation_336754 = 0;
+            _obf_t5_summation_336754++;
+        }
+        return x * (x+1) / 2;
+    }  
+    static long summation(long x) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_summation_382238 = 0;
+            _obf_t5_summation_382238++;
+        }
+        return x*(x+1) / 2;
+    }
+    static long pow(long num, long exp, long mod){
+        int _obf_t5_pow_295723 = 0; _obf_t5_pow_295723 += 0;
+        long ans=1;
+        for(int i=1;i<=exp;i++){
+            ans=(ans*num)%mod;
+        }
+        return ans;
+    }
+    static boolean isPrime(int n)
+    {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_isPrime_693973 = 0;
+            _obf_t5_isPrime_693973++;
+        }
+ 
+        if (n <= 1)
+            return false;
+        else if (n == 2)
+            return true;
+        else if (n % 2 == 0)
+            return false;
+        for (int i = 3; i <= Math.sqrt(n); i += 2) {
+            if (n % i == 0)
+                return false;
+        }
+        return true;
+    }
+    static int gcd(int a, int b)
+    {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_gcd_647556 = 0;
+            _obf_t5_gcd_647556++;
+        }
+        if (a == 0)
+            return b; 
+        return gcd(b % a, a); 
+    }
+    static long gcd(long a, long b) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_gcd_773316 = 0;
+            _obf_t5_gcd_773316++;
+        }
+        if (a == 0) return b;
+        return gcd(b % a, a);
+    }
+    static int lcm(int a, int b)
+    {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_lcm_465510 = 0;
+            _obf_t5_lcm_465510++;
+        }
+        return (a / gcd(a, b)) * b;
+    }
+    public static void sort(int[] arr) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_sort_99795 = 0;
+            _obf_t5_sort_99795++;
+        }
+        Random rgen = new Random();
+        for (int i = 0; i < arr.length; i++) {
+            int r = rgen.nextInt(arr.length);
+            int temp = arr[i];
+            arr[i] = arr[r];
+            arr[r] = temp;
+        }
+        Arrays.sort(arr);
+    }
+    public static void sort(long[] arr) {
+        int _obf_t5_sort_286707 = 0; _obf_t5_sort_286707 += 0;
+        Random rgen = new Random();
+        for (int i = 0; i < arr.length; i++) {
+            int r = rgen.nextInt(arr.length);
+            long temp = arr[i];
+            arr[i] = arr[r];
+            arr[r] = temp;
+        }
+        Arrays.sort(arr);
+    }
+    static int charint(char c) {
+        int _obf_t5_charint_66726 = 0; _obf_t5_charint_66726 += 0;
+        return Integer.parseInt(String.valueOf(c));
+    }
+    
+    /* */
+    //printing methods
+    /* */
+    //WOW!
+    /* */
+    public static void printArr(PrintWriter pw, int[] arr) {
+        int _obf_t5_printArr_923742 = 0; _obf_t5_printArr_923742 += 0;
+        StringBuilder sb = new StringBuilder();
+        for (int x : arr) {
+            sb.append(x + "");
+        }
+        sb.setLength(sb.length() - 1);
+        pw.println(sb.toString());
+    }
+    public static void printArr2d(PrintWriter pw, int[][] arr) {
+        int _obf_t5_printArr2d_205618 = 0; _obf_t5_printArr2d_205618 += 0;
+        StringBuilder sb = new StringBuilder();
+        for (int[] row : arr) {
+            for (int x : row) {
+                sb.append(x + " ");
+            }
+            sb.setLength(sb.length() - 1);
+            sb.append("\n");
+        }
+        pw.println(sb.toString());
+    }
+}
+ 
+class FastScanner {
+    BufferedReader br;
+    StringTokenizer st;
+ 
+    public FastScanner() {
+        br = new BufferedReader(new InputStreamReader(System.in), 32768);
+        st = null;
+    }
+ 
+    String next() {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_next_763150 = 0;
+            _obf_t5_next_763150++;
+        }
+        while (st == null || !st.hasMoreElements()) {
+            try {
+                st = new StringTokenizer(br.readLine());
+            } catch (IOException e) {
+                e.printStackTrace();
+                
+            }
+        }
+        return st.nextToken();
+    }
+ 
+    int ni() {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_ni_420861 = 0;
+            _obf_t5_ni_420861++;
+        }
+        return Integer.parseInt(next());
+    }
+ 
+    int[] intArray(int N) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_intArray_715497 = 0;
+            _obf_t5_intArray_715497++;
+        }
+        int[] ret = new int[N];
+        for (int i = 0; i < N; i++)
+            ret[i] = ni();
+        return ret;
+    }
+ 
+    long nl() {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_nl_719674 = 0;
+            _obf_t5_nl_719674++;
+        }
+        return Long.parseLong(next());
+    }
+ 
+    long[] longArray(int N) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_longArray_725545 = 0;
+            _obf_t5_longArray_725545++;
+        }
+        long[] ret = new long[N];
+        for (int i = 0; i < N; i++)
+            ret[i] = nl();
+        return ret;
+    }
+ 
+    double nd() {
+        int _obf_t5_nd_822212 = 0; _obf_t5_nd_822212 += 0;
+        return Double.parseDouble(next());
+    }
+ 
+    String nextLine() {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_nextLine_812458 = 0;
+            _obf_t5_nextLine_812458++;
+        }
+        String str = "";
+        try {
+            str = br.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return str;
+    }
+}
+ 
+class MultiSet {
+    TreeMap<Long, Integer> map = new TreeMap<>();
+    private int size = 0;
+    public MultiSet() {
+    }
+    public void add(Long val) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_add_549278 = 0;
+            _obf_t5_add_549278++;
+        }
+        map.put(val, map.getOrDefault(val, 0) + 1);
+        size++;
+    }
+    public void remove(Long val) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_remove_762234 = 0;
+            _obf_t5_remove_762234++;
+        }
+        map.put(val, map.get(val) - 1);
+        if (map.get(val) == 0) {
+            map.remove(val);
+        }
+        size--;
+    }
+    public int size() {
+        int _obf_t5_size_454982 = 0; _obf_t5_size_454982 += 0;
+        return size;
+    }
+    public Long higher(Long val) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_higher_510518 = 0;
+            _obf_t5_higher_510518++;
+        }
+        return map.higherKey(val);
+    }
+    public Long lower(Long val) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_lower_782671 = 0;
+            _obf_t5_lower_782671++;
+        }
+        return map.lowerKey(val);
+    }
+    public Long ceiling(Long val) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_ceiling_41949 = 0;
+            _obf_t5_ceiling_41949++;
+        }
+        return map.ceilingKey(val);
+    }
+    public Long floor(Long val) {
+        int _obf_t5_floor_401423 = 0; _obf_t5_floor_401423 += 0;
+        return map.floorKey(val);
+    }
+    public Long first() {
+        int _obf_t5_first_161089 = 0; _obf_t5_first_161089 += 0;
+        return map.firstKey();
+    }
+    public Long last() {
+        int _obf_t5_last_874004 = 0; _obf_t5_last_874004 += 0;
+        return map.lastKey();
+    }
+    public boolean isEmpty() {
+        int _obf_t5_isEmpty_964219 = 0; _obf_t5_isEmpty_964219 += 0;
+        return map.isEmpty();
+    }
+}
+```

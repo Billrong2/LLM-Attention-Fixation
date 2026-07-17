@@ -1,0 +1,29 @@
+ To determine the output of the program for the given input, we need to focus on the `buscarGreedy` method and its execution flow.
+
+### Static Program-Analysis Elements
+1. **MethodDeclaration at L221**: The target method is `buscarGreedy(String numero)`.
+2. **SliceMethodParameter at L221**: The method parameter is `numero`.
+3. **SliceReturnValue at L235**: The return value is determined by the variable `minimo`.
+4. **SliceDefinition at L224**: The variable `minimo` is defined as `Integer.MAX_VALUE`.
+5. **SliceControlDependency at L225**: The loop iterates from 0 to 61 (since the loop condition is `i < 62`).
+6. **SliceMethodCall at L226**: The method call `Long.toString(pot)` converts the current power of 2 to a string.
+7. **SliceMethodCall at L227**: The method call `comparar(numPot, numero)` compares the current power of 2 string with the input number.
+8. **SliceControlDependency at L228**: The control flow depends on whether the result of `comparar` is less than `minimo`.
+9. **SliceAssignment**: The assignment `minimo = res` updates `minimo` when a smaller comparison result is found.
+
+### Reasoning
+- The `buscarGreedy` method initializes `minimo` to `Integer.MAX_VALUE`.
+- It iterates from 0 to 61, calculating powers of 2 (`pot = 2 * pot`).
+- For each power, it converts the power to a string (`numPot = Long.toString(pot)`).
+- It compares `numPot` with the input number using `comparar(numPot, numero)`.
+- If the comparison result (`res`) is less than `minimo`, it updates `minimo`.
+
+### Execution for Given Input
+For the input `1\n117124\n`, the program will read the first line to determine the number of cases (which is 1 in this case). Then, it will read the second line as the actual number (`117124`).
+
+### Detailed Execution
+1. **Input Reading**:
+   - `casos = 1`
+   - `numero = "117124"`
+
+2. **Execution of `buscarGreedy`

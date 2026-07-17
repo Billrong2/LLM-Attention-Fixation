@@ -1,0 +1,13 @@
+### Explanation of State and Control Flow:
+
+- `main` starts by reading the number of test cases `T` from the input.
+- For each test case, it reads the value `n` and two strings `data` of length `n`.
+- It initializes a 2D array `nxt` to store the positions of '0' and '1' in `data`.
+- The array `dp` is initialized with all values set to -1, indicating that the values have not been calculated yet.
+- The method `cal` is called with initial values for its parameters.
+- The method `cal` recursively calculates the maximum value by considering the current position and the next positions for '0' and '1' in the strings.
+- The result is stored in the `dp` array and returned to the `main` method.
+- The `main` method prints the result for each test case.
+
+### Machine-Readable Output:
+```plaintext

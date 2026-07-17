@@ -1,0 +1,59 @@
+
+
+
+To determine the output of this Java program for the given input, we'll focus on the relevant parts of the program and the method `get`. The main task is to compute the minimum cost of buying tickets for a Ferris wheel ride with given constraints.
+
+Here's the step-by-step reasoning:
+
+1. **Initialization**:
+   - `n = 4`
+   - `arr = [12, 11, 1, 2]`
+   - `sums` array is computed based on `arr`
+   - `t = 1`
+
+2. **Main Logic**:
+   - For each test case:
+     - Read `d` and `p` from input.
+     - Compute `x` using the `get` method.
+     - Compute `ans` and `ans2` based on the logic in the `main` method.
+
+3. **Output**:
+   - Print the minimum of `ans` and `ans2`.
+
+Let's go through the specific case:
+
+### Input
+```
+4
+12 11 1 2
+1
+12 28
+7 2
+4 10
+0 13
+8 7
+```
+
+### Step-by-Step Execution
+1. **Initialization**:
+   - `n = 4`
+   - `arr = [12, 11, 1, 2]`
+   - `sums` array:
+     ```
+     sums = [12, 23, 24, 26]
+     ```
+
+2. **First Test Case**:
+   - `d = 12`, `p = 28`
+   - Compute `x` using `get(arr, 12)`:
+     - `x = 2` (since `12 >= 12` and `11 < 12`)
+
+3. **Compute `ans` and `ans2`**:
+   - `sum = 26` (since `x = 2`)
+   - Check if `sum < p`:
+     - `sum = 26`, `p = 28`
+     - `ans = 28 - 26 = 2`
+   - Compute `ans2`:
+     - `d - arr[x-1] = 12 - 11 = 1`
+     - `sum2 = 26`
+     - Check if `sum2

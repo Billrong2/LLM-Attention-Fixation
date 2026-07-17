@@ -1,0 +1,36 @@
+
+
+
+### Reasoning
+1. Read input for number of test cases.
+2. Initialize an array `dp` to store computed values.
+3. For each test case:
+   a. Read input for string lengths and the two strings.
+   b. Create an array `nxt` to store next positions based on characters.
+   c. Compute the value of `cal` starting from the first position of the first string.
+
+### Output
+For each test case, the program computes and prints the result of the `cal` function. 
+
+### Final Output
+For the given input:
+```plaintext
+4
+7
+1101001
+1111100
+5
+01111
+11111
+2
+01
+01
+6
+000100
+101101
+```
+The exact output with newlines encoded as `\n` is:
+
+```json
+FINAL_OUTPUT_JSON: {"stdout":"2\n5\n1\n1\n"}
+```

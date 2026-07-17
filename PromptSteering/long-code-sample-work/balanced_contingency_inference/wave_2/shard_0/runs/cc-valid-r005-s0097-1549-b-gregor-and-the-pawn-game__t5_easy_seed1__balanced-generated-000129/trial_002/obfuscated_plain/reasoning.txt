@@ -1,0 +1,37 @@
+To predict the exact standard output of the provided Java program for the given input, we need to analyze the logic of the `pawnLineal` method and how it processes the input strings `scr` and `dst`. Here is the detailed reasoning:
+
+### Step-by-Step Analysis
+
+1. **Input Handling**:
+   - The program reads the number of test cases `casos`.
+   - For each test case, it reads three strings: `largo` (unused), `scr`, and `dst`.
+
+2. **Preprocessing**:
+   - The method `pawnLineal` prepends and appends a '0' to both `scr` and `dst` to handle edge cases.
+
+3. **Main Logic**:
+   - Iterate through each character in the modified `scr` and `dst` strings.
+   - If `scr[i]` is '1', check the neighboring characters in `dst`:
+     - If `dst[i-1]` is '1', replace it with 'X' and increment `ret`.
+     - If `dst[i]` is '0', replace it with 'X' and increment `ret`.
+     - If `dst[i+1]` is '1', replace it with 'X' and increment `ret`.
+
+### Input Example
+
+- `casos = 1`
+- `largo` = "1"
+- `scr` = "01101100110111000110"
+- `dst` = "00101100011010001110"
+
+### Processing
+
+1. **Prepended '0'**:
+   - `scr` becomes "0011011001101110001100"
+   - `dst` becomes "0001011000110100011100"
+
+2. **Iteration**:
+   - **i = 1**: `scr[1]` is '1'. Check `dst[0]`, `dst[1]`, `dst[2]`:
+     - `dst[0]` is '0' (no change).
+     - `dst[1]` is '1' (replace with 'X', increment `ret`).
+     - `dst[2]` is '0' (no change).
+     -

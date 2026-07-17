@@ -1,0 +1,22 @@
+Reasoning:
+1. The program reads the number of test cases `t` from standard input.
+2. For each test case, it reads the integer `n` and a string `s` from standard input.
+3. It converts the string `s` to a character array `ch`.
+4. It calls the method `find(n, ch)` and prints the result to standard output.
+
+The method `find(n, ch)`:
+1. Initializes a variable `moves` to 0.
+2. Adds the value of the last character in `ch` to `moves`.
+3. Iterates over the first `n-1` characters in `ch`.
+4. If the current character is greater than 0, adds the value of that character plus 1 to `moves`.
+5. Returns the final value of `moves`.
+
+For the given input:
+c001: invoke program entry point; target_method=find; stdin="7\n3\n007\n4\n1000\n5\n00000\n3\n103\n4\n1247\n9\n123456789\n30\n001678294039710047203946100020\n"; argv=[]
+The program will produce the following output:
+10
+4
+5
+4
+4
+3

@@ -1,0 +1,45 @@
+The exact output of the provided Java program, given the input:
+
+```
+stdin="4\n4 5 4 4\n3\n3 12\n7 13\n7 11\n-1 10\n12 7\n"
+argv=[]
+```
+
+is:
+
+```
+2
+1
+```
+
+Here's the reasoning:
+
+1. **Input Processing**:
+   - `n = 4`
+   - Array `arr[]` contains values: `[4, 5, 4, 4]`
+   - `sum = 4 + 5 + 4 + 4 = 17`
+   - Set `hs` contains unique values: `{4, 5}`
+   - `m = 2` (size of set `hs`)
+   - Array `a[]` contains: `[4, 5]`
+   - `y = 3`
+   - Three pairs of attack and defend values:
+     - Pair 1: `(3, 12)`
+     - Pair 2: `(7, 13)`
+     - Pair 3: `(7, 11)`
+
+2. **Finding Minimum Attacks**:
+   - For Pair 1: `(3, 12)`
+     - Call `find(17, hs, a, 2, 3, 12)`
+     - Binary search in `a[]` for `3` finds index `0`
+     - Calculate `ans1 = 3 - 4 = -1` (invalid, so use `0`)
+     - Calculate `ans2 = 3 - 4 = -1` (invalid, so use `0`)
+     - Result: `2` (since `3 - 4 + (17 - 4) - 12 = 2`)
+
+   - For Pair 2: `(7, 13)`
+     - Call `find(17, hs, a, 2, 7, 13)`
+     - Binary search in `a[]` for `7` finds index `1`
+     - Calculate `ans1 = 0` (since `7 >= 5`)
+     - Calculate `ans2 = 0` (since `7 >= 4`)
+     - Result: `1` (since `0 + (17 - 5) - 13 = 1`)
+
+   - For Pair 3: `(7, 1

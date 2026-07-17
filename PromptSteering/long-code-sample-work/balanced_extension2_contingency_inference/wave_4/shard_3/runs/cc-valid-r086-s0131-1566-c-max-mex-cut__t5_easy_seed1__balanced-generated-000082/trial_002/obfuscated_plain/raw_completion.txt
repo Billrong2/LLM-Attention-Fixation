@@ -1,0 +1,17 @@
+ 
+
+### CASES_BEGIN
+c001: invoke program entry point; target_method=cal; stdin="4\n7\n1100000\n1110100\n5\n01100\n10101\n2\n01\n01\n6\n001100\n111111\n"; argv=[]
+### CASES_END
+
+Give concise reasoning that tracks only state and control flow needed for the output. Then end with exactly one machine-readable line in this form:
+FINAL_OUTPUT_JSON: {"stdout":"exact output with newlines encoded as \n"}
+The JSON stdout string must contain only what the program prints, with no commentary or code fence. The program is written in Java and uses the `Scanner` class to read input from the standard input. The `main` method reads an integer T, which represents the number of test cases. For each test case, it reads an integer n and two strings of length n, representing two binary strings.
+
+The program then creates a 2D array `nxt` of size 2 x n and populates it with indices of the next occurrence of each digit in the two binary strings. If the digit is not present in the string, the corresponding index is set to -1.
+
+The program then calls the `cal` method with the initial index of 0, the length of the binary strings, and the `nxt` array. The `cal` method recursively calculates the maximum number of 1s that can be obtained by flipping the digits in the binary strings, starting from the current index. The method uses dynamic programming to avoid recalculating the same subproblems.
+
+Finally, the program prints the result of each test case to the standard output.
+
+### FINAL_OUTPUT_JSON: {"stdout":"2\n3\n2\n4\n"}

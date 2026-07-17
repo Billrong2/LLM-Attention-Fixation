@@ -1,0 +1,45 @@
+To solve this problem, we need to focus on the given deterministic Java program `C_Round_737_Div2.java` and analyze its behavior for the provided concrete case.
+
+### Reasoning Steps:
+
+1. **Input Handling**:
+   - The main method reads the number of test cases `T`.
+   - For each test case, it reads the values of `n` and `k`, and the constants `pow` and `other`.
+
+2. **Initialization**:
+   - A two-dimensional array `dp` is initialized to store intermediate results.
+   - The values in `dp` are set to `-1` initially.
+
+3. **Recursive Calculation**:
+   - The function `cal` is called recursively to calculate the result based on the values of `index`, `larger`, `n`, `twoPowerN`, and `other`.
+
+4. **Base Cases**:
+   - If `index < 0`, the function returns `1`.
+   - If `dp[larger][index] != -1`, the function returns the precomputed value stored in `dp`.
+
+5. **Recursive Steps**:
+   - Depending on the value of `larger`, different calculations are performed:
+     - If `larger == 1`, `result` is updated using `twoPowerN * cal(index - 1, larger, n, twoPowerN, other)`.
+     - Otherwise, `result` is updated using `other * cal(index - 1, larger, n, twoPowerN, other)`.
+     - If `n % 2 == 0`, an additional calculation is added to `result`.
+
+6. **Result Storage**:
+   - The final value of `result` is stored in `dp[larger][index]` before being returned.
+
+### Concrete Case Analysis:
+
+For the given input:
+- `T = 3`
+- For each test case, the input is:
+  - `n = 11`, `k = 1`
+  - `n = 2`, `k = 0`
+  - `n = 4`, `k = 0`
+
+We can break down the calculations step-by-step for each test case.
+
+### Final Output:
+
+Based on the given input and the behavior of the program, the output is calculated as follows:
+
+- For the first test case (`n = 11`, `k = 1`):
+  - The calculation involves multiple recursive calls, but ultimately, the result is stored in

@@ -1,0 +1,27 @@
+The program will read an integer from the standard input, then a number of strings, and for each string, it will check if each digit in the string is a prime number (2, 3, 5, or 7). If it encounters a digit that is not a prime number, it will print "1" followed by the digit and break out of the loop. If all the digits in the string are prime numbers, it will check all pairs of digits in the string to form a two-digit number, and if any of those numbers are not prime, it will print "2" followed by the two-digit number and break out of the loop. If all two-digit numbers are prime, it will print nothing.
+
+For each test case, the program will print nothing if all the digits in the string and all two-digit numbers formed by pairs of digits are prime numbers, or it will print a single digit or a two-digit number that is not prime.
+
+The standard output for the given concrete case is:
+
+```
+1
+7
+1
+3
+237
+1
+2
+1
+2
+5
+3
+1270
+2
+12
+1
+4
+2
+3
+6
+```

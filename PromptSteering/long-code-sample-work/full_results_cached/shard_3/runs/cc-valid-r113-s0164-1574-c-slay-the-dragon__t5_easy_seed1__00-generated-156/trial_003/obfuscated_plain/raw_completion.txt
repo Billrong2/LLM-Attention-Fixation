@@ -1,0 +1,28 @@
+ ### CASE c001
+#### Input
+```
+4
+12 11 1 2
+1
+12 28
+7 2
+4 10
+0 13
+8 7
+```
+#### State and Control Flow Tracking
+1. Read `n` (4)
+2. Read `arr` (12, 11, 1, 2) and sort it
+3. Calculate `sums` (12, 23, 24, 24)
+4. Read `t` (1)
+5. For the first iteration:
+   1. Read `d` (12) and `p` (28)
+   2. Calculate `x` (0)
+   3. Calculate `ans` (16)
+   4. Calculate `ans2` (11)
+   5. Print the minimum of `ans` and `ans2` (11)
+#### Output
+```
+11
+```
+FINAL_OUTPUT_JSON: {"stdout": "11\n"}

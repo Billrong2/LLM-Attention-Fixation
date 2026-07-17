@@ -1,0 +1,19 @@
+ To analyze the program, let's break it down step-by-step. The main function `main` initializes an array of longs with values starting from 1 and doubling each time, up to 900000_00000_0000000L + 10000. Then, it takes a number of test cases as input and calls the `getMin` function for each test case.
+
+The `getMin` function is the most complex part. It iterates through the list of items (doubled values), converts each item to a binary string, and then counts the number of changes needed to convert the binary string of the test case to the current item. It returns the minimum number of changes needed across all items.
+
+Given the input "12\n825\n8888\n4\n157\n146\n1\n301\n19634\n1504\n10521\n1000000000\n687194767\n", the output will be the minimum number of changes needed for each case.
+
+The exact output will be:
+```
+FINAL_OUTPUT_JSON: {"stdout":"11\n10\n11\n1\n11\n11\n1\n11\n12\n12\n12\n12\n12\n"}
+```
+
+Here's the reasoning:
+
+- The first number is 12. The binary representation of 12 is 1100. The closest matching binary string from the list (after converting to binary) would require 11 changes to match.
+- The second number is 825. Its binary representation is 1100111001. The closest matching binary string would require 10 changes.
+- The third number is 8888. Its binary representation is 10001011110000. The closest matching binary string would require 11 changes.
+- The fourth number is 4. Its binary representation is 100. The closest matching binary string would require 1 change.
+- The fifth number is 157. Its binary representation is 10011101. The closest matching binary string would require 11 changes.
+- The sixth number is 146. Its binary representation is 

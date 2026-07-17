@@ -1,0 +1,13 @@
+ The program is designed to count the number of binary strings that can be formed from the given string `arr`, with the condition that if two consecutive characters are '1', the next character should be '0'. This is achieved by recursively exploring all possible states defined by the current index in the string and a carry state.
+
+The carry state represents whether the current character should be considered as '1' due to a previous carry (from a '1' at a previous index). The recursive function `eval` explores two states: one where the current character is '1' and one where it is not, updating the carry state accordingly.
+
+Given the input `"1\n204\n"`, the program will process the input string `1`, calculate the number of valid sequences, and print the result. Since `1` is a single character, there are only two valid sequences: `1` and `10` (where the `0` is a result of the `1` at the previous position).
+
+The output of the program for the given input is:
+
+```
+2
+```
+
+FINAL_OUTPUT_JSON: {"stdout":"2\n"}

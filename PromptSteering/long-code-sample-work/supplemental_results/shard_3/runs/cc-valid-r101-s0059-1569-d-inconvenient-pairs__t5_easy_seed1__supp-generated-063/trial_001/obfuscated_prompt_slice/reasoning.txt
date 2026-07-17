@@ -1,0 +1,17 @@
+Reasoning:
+1. `Main::main` is the entry point.
+2. `Main::main` reads the input using `InputReader` and calls `solve`.
+3. The input is "1\n2 2 2\n0 1000000\n0 1000000\n1556 1000000\n0 38"
+4. `Main::solve` is called with the input parameters:
+   - n: 2
+   - m: 2
+   - k: 2
+   - yline: [0, 1000000]
+   - xline: [0, 1000000]
+   - px: [1556, 1000000]
+   - py: [0, 38]
+5. `Main::solve` creates sets and lists, then iterates through the input arrays to populate them.
+6. The `Collections.sort` method sorts the lists.
+7. The `HashMap` instances `mapx` and `mapy` are used to keep track of counts for each key.
+8. The final result is calculated and returned.
+9. The output of `Main::main` is the result of `solve` converted to a string and printed.

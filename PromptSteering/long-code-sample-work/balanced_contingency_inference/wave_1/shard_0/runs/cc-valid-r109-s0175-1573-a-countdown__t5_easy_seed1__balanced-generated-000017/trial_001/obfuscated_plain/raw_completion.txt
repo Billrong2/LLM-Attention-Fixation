@@ -1,0 +1,15 @@
+ The program reads the input, where the first line represents the number of test cases, followed by lines for each test case. Each line for a test case starts with an integer, representing the length of a string, followed by the string itself. The program then calls the `find` method to process each test case.
+
+Here is a concise breakdown of the reasoning:
+
+1. Read the first line: "7", which indicates that there are 7 test cases.
+2. For each test case, read the length of the string and the string itself:
+	* "3\n007": The length is 3, and the string is "007". The `find` method will calculate the number of moves required.
+	* "4\n1000": The length is 4, and the string is "1000". The `find` method will calculate the number of moves required.
+	* "5\n00000": The length is 5, and the string is "00000". The `find` method will calculate the number of moves required.
+	* "3\n103": The length is 3, and the string is "103". The `find` method will calculate the number of moves required.
+	* "4\n2020": The length is 4, and the string is "2020". The `find` method will calculate the number of moves required.
+	* "9\n189517537": The length is 9, and the string is "189517537". The `find` method will calculate the number of moves required.
+	* "30\n001678294039710047203946100020": The length is 30, and the string is "001678294039710047203946100020". The `find` method will calculate the number of moves required.
+3. The `find` method processes each test case by counting the number of moves required to reach the end of the string. For each character in the string, if the character is greater than '0', the method adds its value to the total number of moves.
+4. Finally, the program prints the calculated number of moves

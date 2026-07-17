@@ -1,0 +1,23 @@
+
+
+
+### Reasoning
+
+The `solve` function first reads the input and initializes various data structures. The input includes:
+
+- `t`: the number of test cases
+- `n`, `m`, and `k`: the dimensions of the grid and the number of points
+- `yline` and `xline`: arrays representing the grid
+- `px` and `py`: arrays representing the coordinates of points in the grid
+
+Then, the function creates two sets `yset` and `xset` to store the unique values in the `yline` and `xline` arrays, respectively. It also creates two lists `xlist` and `ylist` to store pairs of values in the `px` and `py` arrays.
+
+The function then sorts these lists and iterates through them, updating the `mapx`, `mapy`, `sumx`, and `sumy` variables based on the values in the lists.
+
+Finally, the function returns the value of `ans`, which is calculated using the values in `mapx` and `mapy`.
+
+### Machine-readable line
+
+```json
+FINAL_OUTPUT_JSON: {"stdout":"5\n"}
+```

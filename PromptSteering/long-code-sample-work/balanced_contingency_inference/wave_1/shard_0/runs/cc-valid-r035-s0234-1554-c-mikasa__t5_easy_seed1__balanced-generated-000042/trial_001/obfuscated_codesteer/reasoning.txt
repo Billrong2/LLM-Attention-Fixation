@@ -1,0 +1,28 @@
+CASE: 1
+Input: 5
+14 1
+3 0
+1 6
+100 696
+1055961 843278
+
+Output:
+2
+14
+7
+786
+2162343
+
+Reasoning:
+
+- For the case c001, the input is a list of 5 pairs of numbers representing the values of n and m.
+- For each pair, the program calculates the minimum number of bits required to represent n and m in binary, and then finds the minimum difference between the two values.
+- The output is the calculated difference for each pair.
+
+The program uses the `cal` method to calculate the minimum difference between n and m. The method uses dynamic programming to find the minimum number of bits required to represent n and m in binary, and then finds the minimum difference between the two values.
+
+The `cal` method takes four parameters: `index`, `larger`, `n`, and `m`. `index` represents the current bit position being considered, `larger` represents whether the current bit position is larger than the corresponding bit in the other value, `n` and `m` are the input values. The method returns the minimum number of bits required to represent `n` and `m` in binary.
+
+The `cal` method uses dynamic programming to calculate the minimum number of bits required to represent `n` and `m` in binary. It stores the intermediate results in a 2D array called `dp`. The method iterates over the bits of `n` and `m` from right to left, and for each bit, it calculates the minimum number of bits required to represent `n` and `m` in binary by considering the previous bit and the corresponding bit in the other value.
+
+The method returns the minimum number of bits required to represent `n` and `m` in binary for the given input values.

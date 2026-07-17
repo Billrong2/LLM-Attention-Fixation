@@ -1,0 +1,19 @@
+
+
+
+Reasoning:
+1. Read input parameters: n = 50 (number of intervals), m = 100 (max sum)
+2. Initialize intervals array and populate it with input values:
+   intervals[0][0] = 8, intervals[0][1] = 98
+   ...
+   intervals[49][0] = 6, intervals[49][1] = 96
+3. Compute ans(max, intervals, sum):
+   - Compute mu and isPrime arrays up to 100000
+   - Iterate j from 1 to 100000
+   - If sum > max, return 0
+   - Initialize num array with size max-sum+1 and set num[0] = 1
+   - Iterate through intervals and update num array
+   - Compute finalSum by summing num array elements
+4. Output finalSum modulo mod
+
+FINAL_OUTPUT_JSON: {"stdout":"5"}

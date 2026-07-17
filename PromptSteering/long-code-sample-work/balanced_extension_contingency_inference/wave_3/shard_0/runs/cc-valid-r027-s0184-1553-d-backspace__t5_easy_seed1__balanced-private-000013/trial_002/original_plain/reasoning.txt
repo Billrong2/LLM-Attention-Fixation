@@ -1,0 +1,26 @@
+### Reasoning
+
+The `solve` method is a palindrome substring checker. Given a string `s` and a substring `t`, it determines if there is a way to remove characters from `s` such that the remaining string is a palindrome and contains `t` as a substring.
+
+Here's the step-by-step reasoning:
+
+1. Initialize indices `i` and `j` to the end of `s` and `t`, respectively.
+2. Iterate from the end of `s`:
+   - If the current characters at `i` and `j` match, move both indices to the left.
+   - If they don't match, move `i` two positions to the left (removing two characters from `s`).
+   - If `j` reaches -1 (all characters in `t` are matched), return "YES".
+3. If the loop exits without finding a match, return "NO".
+
+Given the input `"abccc"` for `s` and `"ab"` for `t`:
+- The method checks from the end of `s`:
+  - `c` and `b` don't match, so `i` becomes 2.
+  - `c` and `a` don't match, so `i` becomes 0.
+  - `a` and `a` match, so both indices move left.
+  - `b` and `b` match, so both indices move left.
+- Since `j` reaches -1, the method returns "YES".
+
+The output of the program is "YES" for the given input.
+
+### Machine-Readable Line
+
+```plaintext

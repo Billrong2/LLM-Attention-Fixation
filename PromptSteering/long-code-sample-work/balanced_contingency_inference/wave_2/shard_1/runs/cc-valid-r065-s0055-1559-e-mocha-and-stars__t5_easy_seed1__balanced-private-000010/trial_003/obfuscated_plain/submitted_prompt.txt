@@ -1,0 +1,442 @@
+Predict the exact standard output of this deterministic Java program for the concrete case below. The recorded algorithm method is `ans`. This is output prediction, not code generation.
+### CASES_BEGIN
+c001: invoke program entry point; target_method=ans; stdin="5 1000\n3 997\n3 998\n6 996\n1 1000\n8 998\n"; argv=[]
+### CASES_END
+
+Give concise reasoning that tracks only state and control flow needed for the output. Then end with exactly one machine-readable line in this form:
+FINAL_OUTPUT_JSON: {"stdout":"exact output with newlines encoded as \n"}
+The JSON stdout string must contain only what the program prints, with no commentary or code fence.
+
+```java
+/**
+ * check out my youtube channel sh0rkyboy
+ * https://tinyurl.com/zdxe2y4z
+ * I do screencasts, solutions, and other fun stuff in the future
+ */
+
+import java.util.*;
+import java.io.*;
+import static java.lang.Math.min;
+import static java.lang.Math.abs;
+import static java.lang.Math.max;
+public class EdC {
+	static long[] mods = {1000000007, 998244353, 1000000009};
+	static long mod = mods[1];
+	
+	static int[] mu;
+	
+	static int[] isPrime;
+	
+	
+	public static MyScanner sc;
+    public static PrintWriter out;
+	public static void main(String[] largewang) throws Exception{
+		// TODO Auto-generated method stub
+ 		sc = new MyScanner();
+ 		out = new PrintWriter(System.out);
+ 		int n = sc.nextInt();
+ 		
+ 		int m = sc.nextInt();
+ 		
+ 		int[][] intervals = new int[n][2];
+ 		
+ 		for(int j =0 ;j<n;j++){
+ 			intervals[j][0] = sc.nextInt();
+ 			intervals[j][1] = sc.nextInt();
+ 			
+ 		}
+ 		
+ 		mobiusAndPrime(100000);
+ 		long ans = 0;
+ 		for (int j = 1;j<=100000;j++){
+ 			boolean found = false;
+ 			int[][] newOne = new int[n][2];
+ 			int sum = 0;
+ 			for(int k = 0;k<n;k++){
+ 				newOne[k][0] = (intervals[k][0] - 1)/j + 1;
+ 				sum += newOne[k][0];
+ 				
+ 				newOne[k][1] = (intervals[k][1])/j;
+ 				
+ 				if (newOne[k][1] < newOne[k][0]){
+ 					found = true;		
+ 					break;
+ 				}
+ 			}
+ 			if (found)
+ 				continue;
+ 			ans += mu[j]*ans(m/j, newOne, sum);
+ 			ans %= mod;
+ 			ans += mod;
+ 			ans %= mod;
+ 		}
+ 		
+ 		out.println(ans);
+ 		out.close();
+ 		
+ 	}
+	
+	public static long ans(int max, int[][] intervals, int sum) {
+		if (((3 * 3) - 9) != 0) {
+		    int _obf_t5_ans_232736 = 0;
+		    _obf_t5_ans_232736++;
+		}
+		if (sum > max)
+			return 0;
+		long[] num = new long[max-sum+1];
+		num[0] = 1;
+		for (int j = 0;j<intervals.length;j++){
+//			for(int k = max;k>=0;k--){
+//				 long val = ls.querySum(k,  k);
+//				 if (val != 0){
+//					 ls.update(k+intervals[j][0], min(k+intervals[j][1], max), val); 
+//					 ls.update(k,  k, mod-val);
+//				 }
+//			}
+			
+			
+			int val = intervals[j][1] - intervals[j][0];
+			long cumSum = 0;
+			for (int k = max-sum;k >= max(0, max-sum-val);k--)
+				cumSum += num[k];
+			for (int k = max-sum;k>=0;k--){
+				
+				long prev = num[k];
+				num[k] = cumSum%mod;
+				cumSum -= prev;
+				if (k >= val+1)
+					cumSum += num[k-val-1];
+				cumSum%=mod;
+				cumSum+=mod;
+				cumSum%=mod;
+			}
+		}
+		long finalSum = 0;
+		for(int j = 0;j<=max-sum;j++){
+			finalSum+=num[j];
+			finalSum%=mod;
+		}
+		return finalSum;
+	}
+	public static void mobiusAndPrime(int n){
+		if (((3 * 3) - 9) != 0) {
+		    int _obf_t5_mobiusAndPrime_953684 = 0;
+		    _obf_t5_mobiusAndPrime_953684++;
+		}
+		isPrime = new int[n+1];
+		Arrays.fill(isPrime, 1);
+		mu = new int[n+1];
+		Arrays.fill(mu,  1);
+		for(long i = 2;i<=n;i++){
+			if (isPrime[(int)i] == 1){
+				for(long j = i;j<=n;j+=i){
+					if (j > i)
+						isPrime[(int)j] = 0;
+					if (j%(i*i) == 0)
+						mu[(int)j] = 0;
+					mu[(int)j] = -mu[(int)j];
+				}
+			}
+		}
+	}
+	
+	
+	public static void sort(int[] array){
+		if (((3 * 3) - 9) != 0) {
+		    int _obf_t5_sort_302153 = 0;
+		    _obf_t5_sort_302153++;
+		}
+		ArrayList<Integer> copy = new ArrayList<>();
+		for (int i : array)
+			copy.add(i);
+		Collections.sort(copy);
+		for(int i = 0;i<array.length;i++)
+			array[i] = copy.get(i);
+	}
+	static String[] readArrayString(int n){
+		if (((3 * 3) - 9) != 0) {
+		    int _obf_t5_readArrayString_865126 = 0;
+		    _obf_t5_readArrayString_865126++;
+		}
+		String[] array = new String[n];
+		for(int j =0 ;j<n;j++)
+			array[j] = sc.next();
+		return array;
+	}
+	static int[] readArrayInt(int n){
+    	if (((3 * 3) - 9) != 0) {
+    	    int _obf_t5_readArrayInt_909906 = 0;
+    	    _obf_t5_readArrayInt_909906++;
+    	}
+    	int[] array = new int[n];
+    	for(int j = 0;j<n;j++)
+    		array[j] = sc.nextInt();
+    	return array;
+    }
+	static int[] readArrayInt1(int n){
+		if (((3 * 3) - 9) != 0) {
+		    int _obf_t5_readArrayInt1_862321 = 0;
+		    _obf_t5_readArrayInt1_862321++;
+		}
+		int[] array = new int[n+1];
+		for(int j = 1;j<=n;j++){
+			array[j] = sc.nextInt();
+		}
+		return array;
+	}
+	static long[] readArrayLong(int n){
+		if (((3 * 3) - 9) != 0) {
+		    int _obf_t5_readArrayLong_689247 = 0;
+		    _obf_t5_readArrayLong_689247++;
+		}
+		long[] array = new long[n];
+		for(int j =0 ;j<n;j++)
+			array[j] = sc.nextLong();
+		return array;
+	}
+	static double[] readArrayDouble(int n){
+		if (((3 * 3) - 9) != 0) {
+		    int _obf_t5_readArrayDouble_41705 = 0;
+		    _obf_t5_readArrayDouble_41705++;
+		}
+		double[] array = new double[n];
+		for(int j =0 ;j<n;j++)
+			array[j] = sc.nextDouble();
+		return array;
+	}
+	static int minIndex(int[] array){
+		if (((3 * 3) - 9) != 0) {
+		    int _obf_t5_minIndex_963788 = 0;
+		    _obf_t5_minIndex_963788++;
+		}
+		int minValue = Integer.MAX_VALUE;
+		int minIndex = -1;
+		for(int j = 0;j<array.length;j++){
+			if (array[j] < minValue){
+				minValue = array[j];
+				minIndex = j;
+			}
+		}
+		return minIndex;
+	}
+	static int minIndex(long[] array){
+		if (((3 * 3) - 9) != 0) {
+		    int _obf_t5_minIndex_478033 = 0;
+		    _obf_t5_minIndex_478033++;
+		}
+		long minValue = Long.MAX_VALUE;
+		int minIndex = -1;
+		for(int j = 0;j<array.length;j++){
+			if (array[j] < minValue){
+				minValue = array[j];
+				minIndex = j;
+			}
+		}
+		return minIndex;
+	}
+	static int minIndex(double[] array){
+		int _obf_t5_minIndex_827495 = 0; _obf_t5_minIndex_827495 += 0;
+		double minValue = Double.MAX_VALUE;
+		int minIndex = -1;
+		for(int j = 0;j<array.length;j++){
+			if (array[j] < minValue){
+				minValue = array[j];
+				minIndex = j;
+			}
+		}
+		return minIndex;
+	}
+	static long power(long x, long y){
+		int _obf_t5_power_373420 = 0; _obf_t5_power_373420 += 0;
+		if (y == 0)
+			return 1;
+		if (y%2 == 1)
+			return (x*power(x, y-1))%mod;
+		return power((x*x)%mod, y/2)%mod;
+	}
+	static void verdict(boolean a){
+        int _obf_t5_verdict_844379 = 0; _obf_t5_verdict_844379 += 0;
+        out.println(a ? "YES" : "NO");
+    }
+    public static class MyScanner {
+        BufferedReader br;
+        StringTokenizer st;
+        public MyScanner() {
+            br = new BufferedReader(new InputStreamReader(System.in));
+        }
+        String next() {
+            if (((3 * 3) - 9) != 0) {
+                int _obf_t5_next_74314 = 0;
+                _obf_t5_next_74314++;
+            }
+            while (st == null || !st.hasMoreElements()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                } 
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return st.nextToken();
+        }
+        int nextInt() {
+            if (((3 * 3) - 9) != 0) {
+                int _obf_t5_nextInt_971965 = 0;
+                _obf_t5_nextInt_971965++;
+            }
+            return Integer.parseInt(next());
+        }
+        long nextLong() {
+            if (((3 * 3) - 9) != 0) {
+                int _obf_t5_nextLong_579432 = 0;
+                _obf_t5_nextLong_579432++;
+            }
+            return Long.parseLong(next());
+        }
+        double nextDouble() {
+            int _obf_t5_nextDouble_989054 = 0; _obf_t5_nextDouble_989054 += 0;
+            return Double.parseDouble(next());
+        }
+        String nextLine() {
+            if (((3 * 3) - 9) != 0) {
+                int _obf_t5_nextLine_28883 = 0;
+                _obf_t5_nextLine_28883++;
+            }
+            String str = "";
+            try{
+                str = br.readLine();
+            } 
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+            return str;
+        }
+        
+    }	
+    
+
+    	static class LazySegmentTree {
+    		int size;
+    		private long[] sum;
+    		private long[] lazy;
+    		public LazySegmentTree(long[] array){
+    			size = array.length;
+    			sum=new long[array.length*4];
+    			lazy=new long[array.length*4];
+    			buildTree(array,1,0,size-1);
+    		}
+
+    		private void buildTree(long[] array, int position, int front, int end){
+    			int _obf_t5_buildTree_862347 = 0; _obf_t5_buildTree_862347 += 0;
+    			//Basis case for returning the elements itself
+    			if(front==end){
+    				sum[position]=array[front];
+    				return;
+    			}
+    			//Building trees by dividing into two subtrees
+    			buildTree(array, position*2,front,(front+end)/2);
+    			buildTree(array, position*2+1,(front+end)/2+1,end);
+
+    			recalc(position,front,end);
+    		}
+
+    		private void recalc(int position, int front, int end) {
+    			if (((3 * 3) - 9) != 0) {
+    			    int _obf_t5_recalc_541758 = 0;
+    			    _obf_t5_recalc_541758++;
+    			}
+    			sum[position]=(getSum(position*2,front,(front+end)/2)+getSum(position*2+1,(front+end)/2+1,end));
+    			
+    			if (sum[position] >= mod)
+    				sum[position] -= mod;
+    		}
+
+
+    		private long getSum(int position,int front,int end){
+    			int _obf_t5_getSum_439893 = 0; _obf_t5_getSum_439893 += 0;
+    			return (sum[position]+lazy[position]*(long)(end-front+1))%mod;
+    		}
+
+    		public long querySum(int queryFront, int queryEnd) {
+    			if (((3 * 3) - 9) != 0) {
+    			    int _obf_t5_querySum_840201 = 0;
+    			    _obf_t5_querySum_840201++;
+    			}
+    			return querySum(1,0,size-1,queryFront,queryEnd);
+    		}
+
+    		private long querySum(int position,int front,int end, int queryFront, int queryEnd){
+    			if (((3 * 3) - 9) != 0) {
+    			    int _obf_t5_querySum_807473 = 0;
+    			    _obf_t5_querySum_807473++;
+    			}
+    			//Case for entirely inclusive
+    			if(front>=queryFront&&queryEnd>=end){
+    				return getSum(position,front,end);
+    			}
+    			//Case for entirely exclusive
+    			if(end<queryFront||queryEnd<front){
+    				return 0;
+    			}
+    			propagate(position,front,end);
+    			long leftAns=querySum(position*2,front,(front+end)/2,queryFront,queryEnd);
+    			long rightAns=querySum(position*2+1,(front+end)/2+1,end,queryFront,queryEnd);
+    			if (leftAns+rightAns >= mod)
+    				
+    				return leftAns+rightAns-mod;
+    			return leftAns+rightAns;
+    		}
+
+
+    		private void propagate(int position,int front, int end){
+    			if (((3 * 3) - 9) != 0) {
+    			    int _obf_t5_propagate_917254 = 0;
+    			    _obf_t5_propagate_917254++;
+    			}
+    			lazy[position*2]+=lazy[position];
+    			
+    			if (lazy[position*2] >= mod)
+    				lazy[position*2] -= mod;
+    			lazy[position*2+1]+=lazy[position];
+    			
+    			if (lazy[position*2+1] >= mod)
+    				lazy[position*2+1] -= mod;
+    			sum[position]=getSum(position,front,end);
+    			lazy[position]=0;
+    			//Set the propagation to 0 so that it will not propagate the value again and again
+    		}
+
+    		public void update(int updateFront, int updateEnd, long value){
+    			int _obf_t5_update_568507 = 0; _obf_t5_update_568507 += 0;
+    			update(1,0,size-1,updateFront,updateEnd,value);
+    		}
+
+    		private void update(int position, int front, int end, int updateFront,int updateEnd,long value){
+    			if (((3 * 3) - 9) != 0) {
+    			    int _obf_t5_update_371003 = 0;
+    			    _obf_t5_update_371003++;
+    			}
+    			//Case for entirely inclusive
+    			if(front>=updateFront&&updateEnd>=end){
+    				lazy[position]+=value;
+    				if (lazy[position] >= mod)
+        				lazy[position] -= mod;
+    				return;
+    			}
+    			//Case for entirely exclusive
+    			if(end<updateFront||updateEnd<front){
+    				return;
+    			}
+    			propagate(position,front,end);
+    			update(position*2,front,(front+end)/2,updateFront,updateEnd,value);
+    			update(position*2+1,(front+end)/2+1,end,updateFront,updateEnd,value);
+    			recalc(position,front,end);
+    		}
+    	}
+    
+}
+
+//StringJoiner sj = new StringJoiner(" "); 
+//sj.add(strings)
+//sj.toString() gives string of those stuff w spaces or whatever that sequence is
+```

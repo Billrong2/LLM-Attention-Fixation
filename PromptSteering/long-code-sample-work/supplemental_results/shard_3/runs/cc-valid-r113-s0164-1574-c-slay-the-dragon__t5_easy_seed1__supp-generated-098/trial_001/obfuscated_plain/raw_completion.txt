@@ -1,0 +1,6 @@
+ CASE 1:
+The program will print "12" to the standard output.
+
+The get() function searches for the index of the first element in the arr array that is greater than or equal to x. If no such element is found, it returns -1. The main() function first reads in the number of elements in arr, followed by the elements themselves. It then sorts arr in ascending order. Next, it reads in the number of test cases, and for each test case, it reads in d and p, and calculates the index x using get(). If x is -1 or 0, it calculates the answer as the absolute value of (d - arr[arr.length-1]) and adds p - sum to it, where sum is the sum of elements from arr[0] to arr[arr.length-1]. If x is not -1 or 0, it calculates the answer as the minimum of two cases: the absolute value of (d - arr[x-1]) + p - sum2 (where sum2 is the sum of elements from arr[0] to arr[x-1]) and the absolute value of (d - arr[x]) + p - sum. The main() function then prints the minimum of the two answers to the standard output.
+
+FINAL_OUTPUT_JSON: {"stdout":"12\n"}

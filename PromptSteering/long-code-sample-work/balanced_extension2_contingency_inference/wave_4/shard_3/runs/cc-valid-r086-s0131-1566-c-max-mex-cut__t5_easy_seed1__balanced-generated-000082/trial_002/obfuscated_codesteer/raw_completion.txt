@@ -1,0 +1,11 @@
+ 
+
+### CASES_BEGIN
+c001: invoke program entry point; target_method=cal; stdin="4\n7\n1100000\n1110100\n5\n01100\n10101\n2\n01\n01\n6\n001100\n111111\n"; argv=[]
+### CASES_END
+
+Give concise reasoning that tracks only state and control flow needed for the output. Then end with exactly one machine-readable line in this form:
+FINAL_OUTPUT_JSON: {"stdout":"exact output with newlines encoded as \n"}
+The JSON stdout string must contain only what the program prints, with no commentary or code fence. The program is written in Java and uses the Scanner class to read input from the user. The main method takes the input and calls the cal method for each case. The cal method calculates the number of steps required to reach the end of the input string, considering the two input strings as paths. The method uses dynamic programming to store and retrieve the number of steps required for each index in the string. The output is the sum of the number of steps required to reach the end of each path.
+
+FINAL_OUTPUT_JSON: {"stdout":"1\n1\n0\n4\n"}

@@ -1,0 +1,24 @@
+ ### CASE c001
+1. Initialize the `FastScanner` for reading input.
+2. Read an integer `tc` which is 10 in this case.
+3. Initialize a `PrintWriter` for writing the output.
+4. Start a loop to process `tc` cases. Since `tc` is 10, the loop runs 10 times.
+5. In each iteration, read two strings `s` and `t`. For example, in the first iteration, `s` is "paxghjnihn" and `t` is "hn".
+6. Call the `solve` function with `s` and `t` as arguments.
+7. In the `solve` function:
+   - Initialize `j` to `t.length() - 1` which is 1 for the first iteration.
+   - Initialize `i` to `s.length() - 1` which is 9 for the first iteration.
+   - Start a while loop that continues until `i >= 0`.
+   - Inside the loop:
+     - If `s.charAt(i)` equals `t.charAt(j)`, decrement both `i` and `j`.
+     - Otherwise, decrement `i` by 2.
+     - If `j` becomes -1, return "YES".
+8. For the first iteration, since "paxghjnihn" contains "hn", the `solve` function will return "YES".
+9. Print the result "YES" to the `PrintWriter`.
+10. Repeat steps 5-9 for the remaining 9 cases.
+11. Close the `PrintWriter`.
+
+### FINAL_OUTPUT_JSON
+FINAL_OUTPUT_JSON: {"stdout":"YES\nYES\nYES\nYES\nYES\nYES\nYES\nYES\nYES\nYES\n"}
+
+The program will print "YES" 10 times, once for each case.

@@ -1,0 +1,136 @@
+{
+  "obfuscated_line_count": 336,
+  "obfuscated_method_analysis": {
+    "codesteer_selected_target_method": "buscarGreedy",
+    "codesteer_target_matches_recorded": true,
+    "fallback_used": false,
+    "method_names": [
+      "quitar",
+      "quitar22",
+      "quitar",
+      "solucionBFS",
+      "comparar",
+      "buscarGreedy",
+      "main",
+      "inicializarPotencias"
+    ],
+    "parameter_count": 1,
+    "parse_status": "javalang",
+    "recorded_target_found": true,
+    "recorded_target_method": "buscarGreedy",
+    "return_sink_count": 1
+  },
+  "original_line_count": 315,
+  "original_method_analysis": {
+    "codesteer_selected_target_method": "buscarGreedy",
+    "codesteer_target_matches_recorded": true,
+    "fallback_used": false,
+    "method_names": [
+      "quitar",
+      "quitar22",
+      "quitar",
+      "solucionBFS",
+      "comparar",
+      "buscarGreedy",
+      "main",
+      "inicializarPotencias"
+    ],
+    "parameter_count": 1,
+    "parse_status": "javalang",
+    "recorded_target_found": true,
+    "recorded_target_method": "buscarGreedy",
+    "return_sink_count": 1
+  },
+  "prompt_slice": {
+    "artifact_name": "Program Slicing / backward slice",
+    "elements": [
+      {
+        "code": "public static int buscarGreedy(String numero) {",
+        "description": "target method buscarGreedy(numero)",
+        "kind": "MethodDeclaration",
+        "line": 221,
+        "line_label": "L221"
+      },
+      {
+        "code": "public static int buscarGreedy(String numero) {",
+        "description": "method parameter numero",
+        "kind": "SliceMethodParameter",
+        "line": 221,
+        "line_label": "L221"
+      },
+      {
+        "code": "return minimo;",
+        "description": "return value expression using minimo",
+        "kind": "SliceReturnValue",
+        "line": 235,
+        "line_label": "L235"
+      },
+      {
+        "code": "int minimo = Integer.MAX_VALUE;",
+        "description": "definition of minimo",
+        "kind": "SliceDefinition",
+        "line": 224,
+        "line_label": "L224"
+      },
+      {
+        "code": "for (int i=0;i<62;i++){",
+        "description": "control predicate over i, Long, toString, pot, comparar, numPot, numero, res, minimo",
+        "kind": "SliceControlDependency",
+        "line": 225,
+        "line_label": "L225"
+      },
+      {
+        "code": "String numPot = Long.toString(pot);",
+        "description": "method call Long.toString in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 226,
+        "line_label": "L226"
+      },
+      {
+        "code": "int res = comparar(numPot, numero);",
+        "description": "method call comparar in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 227,
+        "line_label": "L227"
+      },
+      {
+        "code": "if (res < minimo)",
+        "description": "control predicate over res, minimo",
+        "kind": "SliceControlDependency",
+        "line": 228,
+        "line_label": "L228"
+      },
+      {
+        "code": "",
+        "description": "assignment/update influencing minimo",
+        "kind": "SliceAssignment",
+        "line": null,
+        "line_label": ""
+      }
+    ],
+    "eligible_count_is_lower_bound": false,
+    "eligible_element_count": 9,
+    "emitted_element_count": 9,
+    "emitted_over_eligible": 1.0,
+    "enabled": true,
+    "guidance_text": "Prompt-only steering guidance (Program Slicing / backward slice, artifact-conditioned):\nUse the following static program-analysis elements as the main reasoning anchors.\nThese elements are static only; they do not reveal the correct output, branch outcomes, or gold execution trace.\n\nStatic elements to emphasize:\n1. MethodDeclaration at L221: target method buscarGreedy(numero) (public static int buscarGreedy(String numero) {)\n2. SliceMethodParameter at L221: method parameter numero (public static int buscarGreedy(String numero) {)\n3. SliceReturnValue at L235: return value expression using minimo (return minimo;)\n4. SliceDefinition at L224: definition of minimo (int minimo = Integer.MAX_VALUE;)\n5. SliceControlDependency at L225: control predicate over i, Long, toString, pot, comparar, numPot, numero, res, minimo (for (int i=0;i<62;i++){)\n6. SliceMethodCall at L226: method call Long.toString in static data/control context (String numPot = Long.toString(pot);)\n7. SliceMethodCall at L227: method call comparar in static data/control context (int res = comparar(numPot, numero);)\n8. SliceControlDependency at L228: control predicate over res, minimo (if (res < minimo))\n9. SliceAssignment: assignment/update influencing minimo",
+    "max_elements": 24,
+    "mechanism": "artifact_conditioned_natural_language_instruction_only",
+    "mode": "slice",
+    "parse_status": "javalang",
+    "prompt_items": [
+      "MethodDeclaration at L221: target method buscarGreedy(numero) (public static int buscarGreedy(String numero) {)",
+      "SliceMethodParameter at L221: method parameter numero (public static int buscarGreedy(String numero) {)",
+      "SliceReturnValue at L235: return value expression using minimo (return minimo;)",
+      "SliceDefinition at L224: definition of minimo (int minimo = Integer.MAX_VALUE;)",
+      "SliceControlDependency at L225: control predicate over i, Long, toString, pot, comparar, numPot, numero, res, minimo (for (int i=0;i<62;i++){)",
+      "SliceMethodCall at L226: method call Long.toString in static data/control context (String numPot = Long.toString(pot);)",
+      "SliceMethodCall at L227: method call comparar in static data/control context (int res = comparar(numPot, numero);)",
+      "SliceControlDependency at L228: control predicate over res, minimo (if (res < minimo))",
+      "SliceAssignment: assignment/update influencing minimo"
+    ],
+    "recorded_target_method": "buscarGreedy",
+    "target_method": "buscarGreedy"
+  },
+  "sample_id": "cc-valid-r069-s0346-1560-d-make-a-power-of-two__t5_easy_seed1__balanced-generated-000109"
+}

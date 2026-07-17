@@ -1,0 +1,10 @@
+
+
+
+The program reads in a number of intervals (n) and a maximum value (m). It then reads in n lines, each containing two integers that define an interval. It then calculates the number of intervals that can fit within the maximum value while satisfying a certain condition. Finally, it prints out the result.
+
+The output of this program is 45. This is the number of intervals that can fit within the maximum value of 100 while satisfying the condition that the interval must be within the range of 50 to 100.
+
+The output is calculated using the `ans` method, which takes the maximum value (m) and an array of intervals as input. It then calculates the number of intervals that can fit within the maximum value while satisfying the condition that the interval must be within the range of 50 to 100. The method first sorts the intervals by length, then iterates through the sorted array and calculates the number of intervals that can fit within the maximum value. It does this by first calculating the number of intervals that can fit within the maximum value without any constraints, and then subtracting the number of intervals that cannot fit within the maximum value. The final result is printed out.
+
+FINAL_OUTPUT_JSON: {"stdout":"45\n"}

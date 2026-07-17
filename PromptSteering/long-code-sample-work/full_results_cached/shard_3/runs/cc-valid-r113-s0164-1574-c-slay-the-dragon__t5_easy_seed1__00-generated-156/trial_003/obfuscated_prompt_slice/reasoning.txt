@@ -1,0 +1,18 @@
+### CASES_BEGIN
+c001: invoke program entry point; target_method=get; stdin="4\n12 11 1 2\n1\n12 28\n7 2\n4 10\n0 13\n8 7\n"; argv=[]
+### CASES_END
+
+**Reasoning:**
+
+1. The `main` method reads the input and calls the `get` method.
+2. The `get` method takes a sorted array `a` and a value `x`.
+3. It uses a binary search to find the index `start` where `a[start]` is less than or equal to `x`.
+4. The method returns `-1` if `x` is not found in the array, otherwise it returns `start`.
+
+**Output:**
+
+```plaintext
+-1
+```
+
+**

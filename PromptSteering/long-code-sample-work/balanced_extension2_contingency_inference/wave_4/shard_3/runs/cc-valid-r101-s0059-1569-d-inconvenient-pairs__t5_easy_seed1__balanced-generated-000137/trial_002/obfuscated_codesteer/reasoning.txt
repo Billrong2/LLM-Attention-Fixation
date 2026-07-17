@@ -1,0 +1,27 @@
+### Reasoning
+
+1. **Input Processing:**
+   - Read the number of test cases `t` from the input (1).
+   - For each test case, read the dimensions of the grid (`n`, `m`) and the number of points (`k`).
+   - Read the points along the y-axis (`yline`), the points along the x-axis (`xline`), and the points to be placed (`px` and `py`).
+
+2. **Data Structures Initialization:**
+   - Initialize sets `yset` and `xset` to track unique points along the y-axis and x-axis respectively.
+   - Initialize lists `xlist` and `ylist` to store pairs of points and their corresponding values.
+
+3. **Populating Sets and Lists:**
+   - Populate `yset` and `xset` with the points from `yline` and `xline`.
+   - Populate `xlist` and `ylist` with pairs of points, where the first element is the point and the second element is a flag indicating whether it's a point on the line or a point to be placed.
+
+4. **Sorting and Calculating:**
+   - Sort `xlist` and `ylist`.
+   - Use a hashmap (`mapx` and `mapy`) to track the frequency of points.
+   - Iterate through `xlist` and `ylist` to calculate the sum of points and update the hashmap accordingly.
+   - Accumulate the result in the variable `ans`.
+
+5. **Output:**
+   - Print the calculated value of `ans` for each test case.
+
+### Final Output JSON
+
+```json

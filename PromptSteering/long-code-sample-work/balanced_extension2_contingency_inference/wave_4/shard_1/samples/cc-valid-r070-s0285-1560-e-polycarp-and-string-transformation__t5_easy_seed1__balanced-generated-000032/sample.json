@@ -1,0 +1,490 @@
+{
+  "argv": [],
+  "metadata": {
+    "argv": [],
+    "balanced_extension2_contingency_selection": {
+      "canonical_problem_identity": "deepmind/code_contests@802411c3010cb00d1b05bad57ca77365a3c699d6:valid:row-000070",
+      "continued_accepted_ranks": [
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "protocol": "../BALANCED_EXTENSION2_CONTINGENCY_PROTOCOL.md",
+      "schema_version": "long-code-balanced-extension2-contingency-v1",
+      "selected_source_rule": "same first tokenizer-eligible source used by frozen balanced Waves 1--3",
+      "source_denominator_unchanged": true,
+      "wave_id": "balanced_wave_4"
+    },
+    "candidate_id": "cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation",
+    "candidate_metadata": {
+      "expected_stdout": "-1\n-1\n-1\n-1\n-1\n-1\n-1\n",
+      "expected_stdout_path": "candidates/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation/io/00-generated-003.out",
+      "id": "cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation",
+      "input": "7\nabacbbaaadaac\noovyouknowuhat\npolycarppoycarppoyarppyarppyrpprqpp\nish\neverywherevrywhrvryhrvhhrvrv\nhaaha\nqweqeewew\n",
+      "input_path": "candidates/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation/io/00-generated-003.in",
+      "inputs": [
+        {
+          "dataset_test_index": 3,
+          "expected_stdout": "-1\n-1\n-1\n-1\n-1\n-1\n-1\n",
+          "expected_stdout_path": "candidates/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation/io/00-generated-003.out",
+          "expected_stdout_sha256": "e60bceab817dad3eba536bd02198ab4eebefee208dc1a206cceb2a07b0897157",
+          "id": "00-generated-003",
+          "input": "7\nabacbbaaadaac\noovyouknowuhat\npolycarppoycarppoyarppyarppyrpprqpp\nish\neverywherevrywhrvryhrvhhrvrv\nhaaha\nqweqeewew\n",
+          "input_path": "candidates/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation/io/00-generated-003.in",
+          "input_sha256": "4fd54b9045d2767ec8b741b84ea64a49303eb09ce071694142c04b09ab89865a",
+          "suite": "generated_tests",
+          "validation": {
+            "compiled_with_jdk17": true,
+            "exit_code": 0,
+            "stderr_bytes": 0,
+            "timed_out": false
+          }
+        }
+      ],
+      "loc_definition": "Python str.splitlines(); final newline does not add an empty physical line",
+      "main_class": "E_Round_739_Div3",
+      "nonblank_loc": 282,
+      "original_path": "candidates/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation/original.java",
+      "physical_loc": 324,
+      "prevalidation": {
+        "all_retained_tests_exact": true,
+        "compiled": true,
+        "compiler_exit_code": 0,
+        "compiler_stderr_bytes": 0,
+        "compiler_stdout_bytes": 0,
+        "jdk_major": 17
+      },
+      "problem_key": "codeforces-1560-E",
+      "problem_name": "1560_E. Polycarp and String Transformation",
+      "provenance": {
+        "cf_contest_id": 1560,
+        "cf_index": "E",
+        "cf_points": 0.0,
+        "cf_rating": 1800,
+        "cf_tags": [
+          "binary search",
+          "implementation",
+          "sortings",
+          "strings"
+        ],
+        "dataset_file": "codecontests-valid-802411c3.parquet",
+        "dataset_file_sha256": "02e8c1ccedae716f1e43cc813fcb7823c3db666ea92638820aba80e8cef451ab",
+        "dataset_id": "deepmind/code_contests",
+        "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+        "dataset_url": "https://huggingface.co/datasets/deepmind/code_contests/resolve/802411c3010cb00d1b05bad57ca77365a3c699d6/data/valid-00000-of-00001-5e672c5751f060d3.parquet",
+        "difficulty": 11,
+        "language": "Java",
+        "language_code": 4,
+        "problem_name": "1560_E. Polycarp and String Transformation",
+        "row_index": 70,
+        "solution_container": "solutions",
+        "solution_index": 285,
+        "solution_label": "correct human solution",
+        "source_code": 2,
+        "split": "valid"
+      },
+      "source_bytes": 8437,
+      "source_sha256": "85e165471ce3f8be8cb6b6974d6af27ec1d86f686e2b57f5d048250611ddd27d",
+      "target": {
+        "arity": 3,
+        "body_nonblank_loc": 14,
+        "body_physical_loc": 14,
+        "class": "E_Round_739_Div3",
+        "codesteer_selector": {
+          "declaration_line": 105,
+          "fallback_used": false,
+          "implementation": "steering.priors.SlicingPrior._select_target_method",
+          "name": "check",
+          "parameter_count": 3,
+          "parse_status": "javalang",
+          "top_level_body_statement_count": 4
+        },
+        "control_node_count": 3,
+        "end_line": 118,
+        "loop_node_count": 2,
+        "main_call_path": [
+          {
+            "arity": 1,
+            "class": "E_Round_739_Div3",
+            "end_line": 103,
+            "name": "main",
+            "parameter_types": [
+              "String[]"
+            ],
+            "return_type": "void",
+            "start_line": 36
+          },
+          {
+            "arity": 3,
+            "class": "E_Round_739_Div3",
+            "end_line": 118,
+            "name": "check",
+            "parameter_types": [
+              "String",
+              "String",
+              "String"
+            ],
+            "return_type": "boolean",
+            "start_line": 105
+          }
+        ],
+        "main_reachable": true,
+        "name": "check",
+        "output_caller": {
+          "arity": 1,
+          "class": "E_Round_739_Div3",
+          "end_line": 103,
+          "name": "main",
+          "parameter_types": [
+            "String[]"
+          ],
+          "return_type": "void",
+          "start_line": 36
+        },
+        "output_evidence": "check(S, O, v) controls out.println(S + \" \" + O)",
+        "output_relevance_kind": "output_control_predicate",
+        "output_relevance_variable": null,
+        "parameter_types": [
+          "String",
+          "String",
+          "String"
+        ],
+        "recursive_call_count": 0,
+        "return_type": "boolean",
+        "return_value_output_relevant": true,
+        "source_sha256": "55b2dc5e30b9761b92814f99a9ea1bf00a977ea3f0830d7fc2fde25d49d4705b",
+        "start_line": 105
+      },
+      "target_method": "check",
+      "target_signature": "boolean E_Round_739_Div3.check(String, String, String)",
+      "tests": [
+        {
+          "dataset_test_index": 3,
+          "expected_stdout": "-1\n-1\n-1\n-1\n-1\n-1\n-1\n",
+          "expected_stdout_path": "candidates/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation/io/00-generated-003.out",
+          "expected_stdout_sha256": "e60bceab817dad3eba536bd02198ab4eebefee208dc1a206cceb2a07b0897157",
+          "id": "00-generated-003",
+          "input": "7\nabacbbaaadaac\noovyouknowuhat\npolycarppoycarppoyarppyarppyrpprqpp\nish\neverywherevrywhrvryhrvhhrvrv\nhaaha\nqweqeewew\n",
+          "input_path": "candidates/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation/io/00-generated-003.in",
+          "input_sha256": "4fd54b9045d2767ec8b741b84ea64a49303eb09ce071694142c04b09ab89865a",
+          "suite": "generated_tests",
+          "validation": {
+            "compiled_with_jdk17": true,
+            "exit_code": 0,
+            "stderr_bytes": 0,
+            "timed_out": false
+          }
+        }
+      ]
+    },
+    "codesteer_target_method": "check",
+    "concrete_case": {
+      "accepted_rank": 14,
+      "argv": [],
+      "canonical_case_key": [
+        70,
+        "generated_tests",
+        32
+      ],
+      "case_id": "balanced-generated-000032",
+      "dataset_test_index": 32,
+      "expected_output_bytes": 21,
+      "expected_output_lines": 7,
+      "expected_output_path": "../../tests/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1/balanced-generated-000032/oracle_stdout.txt",
+      "input_bytes": 116,
+      "input_sha256": "b5cd21ba0b09e7232a78683552668cd3fc72fb9322834d208910523fc11a301d",
+      "obfuscated_stderr_path": "../../tests/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1/balanced-generated-000032/obfuscated.stderr",
+      "obfuscated_stdout_path": "../../tests/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1/balanced-generated-000032/obfuscated.stdout",
+      "obfuscated_trimmed_exact_to_oracle": true,
+      "original_obfuscated_trimmed_agreement": true,
+      "original_stderr_path": "../../tests/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1/balanced-generated-000032/original.stderr",
+      "original_stdout_path": "../../tests/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1/balanced-generated-000032/original.stdout",
+      "original_trimmed_exact_to_oracle": true,
+      "rank_key": [
+        1,
+        7,
+        21,
+        36,
+        32
+      ],
+      "raw_expected_stdout_sha256": "e60bceab817dad3eba536bd02198ab4eebefee208dc1a206cceb2a07b0897157",
+      "raw_obfuscated_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_obfuscated_stdout_sha256": "e60bceab817dad3eba536bd02198ab4eebefee208dc1a206cceb2a07b0897157",
+      "raw_original_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_original_stdout_sha256": "e60bceab817dad3eba536bd02198ab4eebefee208dc1a206cceb2a07b0897157",
+      "source_case_metadata": {
+        "dataset_id": "deepmind/code_contests",
+        "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+        "dataset_test_index": 32,
+        "row_index": 70,
+        "selection_stage": "balanced_extension2_adaptive_outcome_independent_ranking",
+        "split": "valid",
+        "suite": "generated_tests",
+        "wave_id": "balanced_wave_4"
+      },
+      "stdin_path": "../../tests/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1/balanced-generated-000032/stdin.txt",
+      "suite": "generated_tests",
+      "validation_path": "../../validation/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1/balanced-generated-000032.json"
+    },
+    "difficulty": "easy",
+    "eligible": true,
+    "expected_stdout_path": "../../tests/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1/balanced-generated-000032/oracle_stdout.txt",
+    "id": "cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1__balanced-generated-000032",
+    "main_class": "E_Round_739_Div3",
+    "method_coverage_policy": "force_all",
+    "obfuscated": {
+      "codesteer_target": {
+        "called_directly_from_main": true,
+        "eligible_parameter_to_return_target": true,
+        "genuine_return_sink_count": 1,
+        "main_called_method_names": [
+          "append",
+          "charAt",
+          "check",
+          "close",
+          "length",
+          "next",
+          "nextInt",
+          "println",
+          "reverse",
+          "toString"
+        ],
+        "method_names": [
+          "main",
+          "check",
+          "count",
+          "abs",
+          "KMP",
+          "nextPer",
+          "digit",
+          "dist",
+          "toString",
+          "update",
+          "get",
+          "gcd",
+          "pow",
+          "next",
+          "nextLong",
+          "nextInt",
+          "nextDouble",
+          "nextLine",
+          "endLine"
+        ],
+        "parameter_count": 3,
+        "parameters": [
+          {
+            "name": "s",
+            "type": "String"
+          },
+          {
+            "name": "o",
+            "type": "String"
+          },
+          {
+            "name": "t",
+            "type": "String"
+          }
+        ],
+        "parse_status": "javalang",
+        "return_sink_count": 1,
+        "return_type": "boolean",
+        "selected_method": "check",
+        "selected_method_line": 105,
+        "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+        "selector_implementation_owner": "steering.priors.SlicingPrior",
+        "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+      },
+      "execution_validation": {
+        "accepted": true,
+        "cases": [
+          {
+            "accepted": true,
+            "actual_trimmed": "-1\n-1\n-1\n-1\n-1\n-1\n-1",
+            "case_id": "00-generated-003",
+            "command": [
+              "java",
+              "-Dfile.encoding=UTF-8",
+              "-Djava.io.tmpdir=<scratch>",
+              "-Duser.home=<scratch>",
+              "-XX:-UsePerfData",
+              "-cp",
+              "<classes>",
+              "E_Round_739_Div3"
+            ],
+            "duration_seconds": 0.034375,
+            "exit_code": 0,
+            "expected_trimmed": "-1\n-1\n-1\n-1\n-1\n-1\n-1",
+            "raw_expected_stdout_sha256": "e60bceab817dad3eba536bd02198ab4eebefee208dc1a206cceb2a07b0897157",
+            "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "raw_stdout_sha256": "e60bceab817dad3eba536bd02198ab4eebefee208dc1a206cceb2a07b0897157",
+            "stderr": "",
+            "stdout": "-1\n-1\n-1\n-1\n-1\n-1\n-1\n",
+            "timed_out": false,
+            "trimmed_exact_match": true
+          }
+        ],
+        "compile": {
+          "accepted": true,
+          "command": [
+            "javac",
+            "-encoding",
+            "UTF-8",
+            "-J-Djava.io.tmpdir=<scratch>",
+            "-J-Duser.home=<scratch>",
+            "-J-XX:-UsePerfData",
+            "-Xlint:none",
+            "-nowarn",
+            "-d",
+            "<classes>",
+            "<scratch>/E_Round_739_Div3.java"
+          ],
+          "exit_code": 0,
+          "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false
+        },
+        "entry": {
+          "compile_class": "E_Round_739_Div3",
+          "main_class": "E_Round_739_Div3",
+          "package": "",
+          "parse_status": "javalang"
+        }
+      },
+      "main_class": "E_Round_739_Div3",
+      "metadata_path": "candidates/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation/variants/T5_bogus_control_flow/easy/seed_1/E_Round_739_Div3.java.meta.json",
+      "method_coverage": {
+        "main_touched": false,
+        "method_coverage_total": 18,
+        "method_coverage_touched": 18,
+        "untouched_methods": []
+      },
+      "path": "../../../prepared_variants/candidates/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation/variants/T5_bogus_control_flow/easy/seed_1/E_Round_739_Div3.java",
+      "selected_target_touch_evidence": {
+        "method_block_parser": "eyetracking.obfuscation.java.passes.utils.iter_method_blocks",
+        "obfuscated_block_name": "check",
+        "obfuscated_match_count": 1,
+        "obfuscated_method_bytes": 635,
+        "obfuscated_method_index": 0,
+        "obfuscated_method_sha256": "4a879fd3d15d3b369cb0f90d61dd7c3e01d4758dd4e9c5d5f207a22b183f54dc",
+        "obfuscated_method_start_line": 104,
+        "obfuscated_name_matches_codesteer_target": true,
+        "obfuscated_target_line": 105,
+        "obfuscated_target_method": "check",
+        "original_block_name": "check",
+        "original_match_count": 1,
+        "original_method_bytes": 513,
+        "original_method_index": 0,
+        "original_method_sha256": "73c1ae39eb6c94d40df0eef2aecc1cce25ec376a4990c2a5bd6a77d0af1a084e",
+        "original_method_start_line": 104,
+        "original_target_line": 105,
+        "original_target_method": "check",
+        "reason": "method_source_changed",
+        "touched": true,
+        "verifiable": true
+      },
+      "sha256": "983e74c4794d1215812f29feae5431cc2fed6a50640fe453d20bc1750ea17e73",
+      "target_method": "check"
+    },
+    "obfuscated_main_class": "E_Round_739_Div3",
+    "obfuscated_path": "../../../prepared_variants/candidates/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation/variants/T5_bogus_control_flow/easy/seed_1/E_Round_739_Div3.java",
+    "obfuscated_target_method": "check",
+    "obfuscation_metadata_path": "candidates/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation/variants/T5_bogus_control_flow/easy/seed_1/E_Round_739_Div3.java.meta.json",
+    "original": {
+      "codesteer_target": {
+        "called_directly_from_main": true,
+        "eligible_parameter_to_return_target": true,
+        "genuine_return_sink_count": 1,
+        "main_called_method_names": [
+          "append",
+          "charAt",
+          "check",
+          "close",
+          "length",
+          "next",
+          "nextInt",
+          "println",
+          "reverse",
+          "toString"
+        ],
+        "method_names": [
+          "main",
+          "check",
+          "count",
+          "abs",
+          "KMP",
+          "nextPer",
+          "digit",
+          "dist",
+          "toString",
+          "update",
+          "get",
+          "gcd",
+          "pow",
+          "next",
+          "nextLong",
+          "nextInt",
+          "nextDouble",
+          "nextLine",
+          "endLine"
+        ],
+        "parameter_count": 3,
+        "parameters": [
+          {
+            "name": "s",
+            "type": "String"
+          },
+          {
+            "name": "o",
+            "type": "String"
+          },
+          {
+            "name": "t",
+            "type": "String"
+          }
+        ],
+        "parse_status": "javalang",
+        "return_sink_count": 1,
+        "return_type": "boolean",
+        "selected_method": "check",
+        "selected_method_line": 105,
+        "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+        "selector_implementation_owner": "steering.priors.SlicingPrior",
+        "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+      },
+      "execution_validation_path": "candidates/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation/original/validation.json",
+      "main_class": "E_Round_739_Div3",
+      "path": "../../../prepared_variants/candidates/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation/original/E_Round_739_Div3.java",
+      "sha256": "85e165471ce3f8be8cb6b6974d6af27ec1d86f686e2b57f5d048250611ddd27d",
+      "target_method": "check"
+    },
+    "original_main_class": "E_Round_739_Div3",
+    "original_path": "../../../prepared_variants/candidates/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation/original/E_Round_739_Div3.java",
+    "original_target_method": "check",
+    "parent_candidate_id": "cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1",
+    "profile": "safe",
+    "rejection_reasons": [],
+    "seed": 1,
+    "stdin_path": "../../tests/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1/balanced-generated-000032/stdin.txt",
+    "target_method": {
+      "obfuscated": "check",
+      "original": "check"
+    },
+    "technique": "T5",
+    "technique_name": "bogus_control_flow",
+    "variant_id": "cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1",
+    "warnings": [
+      "canonical_main_touched_unobserved_regex_may_not_parse_throws_clause"
+    ]
+  },
+  "obfuscated_sha256": "983e74c4794d1215812f29feae5431cc2fed6a50640fe453d20bc1750ea17e73",
+  "obfuscated_source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation/variants/T5_bogus_control_flow/easy/seed_1/E_Round_739_Div3.java",
+  "obfuscated_target_method": "check",
+  "original_sha256": "85e165471ce3f8be8cb6b6974d6af27ec1d86f686e2b57f5d048250611ddd27d",
+  "original_source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation/original/E_Round_739_Div3.java",
+  "original_target_method": "check",
+  "sample_id": "cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1__balanced-generated-000032"
+}

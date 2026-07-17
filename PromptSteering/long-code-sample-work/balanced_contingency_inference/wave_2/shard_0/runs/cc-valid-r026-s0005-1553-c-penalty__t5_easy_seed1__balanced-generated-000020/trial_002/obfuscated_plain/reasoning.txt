@@ -1,0 +1,37 @@
+To predict the exact standard output of the given Java program, let's analyze the code step by step.
+
+1. The `main` method starts by reading an integer input from the FastReader. This input determines the number of test cases.
+2. For each test case, it reads a string input from the FastReader.
+3. It calls the `helper` method with specific parameters:
+   - `index = 0`
+   - `f = 0`
+   - `s = 0`
+   - `k1 = 5`
+   - `k2 = 5`
+   - `s1 = s.toCharArray()`
+
+The `helper` method performs a recursive calculation based on the input string and the specified conditions. Here's how the recursive logic works for each character in the string:
+
+- If the character is `'1'`, it increments either `f` or `s` and decrements `k1` or `k2` accordingly.
+- If the character is `'0'`, it decrements either `k1` or `k2` accordingly.
+- If the character is `?`, it checks which position (even or odd) it is in and either increments `f` or `s` and decrements `k1` or `k2` accordingly.
+
+Finally, the `main` method prints the result of the `helper` method for each test case.
+
+Given the input:
+```
+4
+1001???0?1
+1111101111
+??????????
+0100010000
+```
+
+The output will be the result of the `helper` method for each string. Let's calculate it:
+
+1. For the string `"1001???0?1"`:
+   - `helper(0,0,0,5,5,s1)` where `s1 = "1001???0?1"`. The recursive calls will eventually return the value based on the conditions.
+2. For the string `"1111101111"`:
+   - `helper(0,0,0,5,5,s1)` where `s1 = "1111101111"`. The recursive calls will eventually return the value based on the conditions.
+3. For the string `"??????????"`:
+   - `helper(0,0,0,5,5,s1)` where `s1

@@ -1,0 +1,9 @@
+ The given Java program calculates the number of pairs of points that can be formed from a given set of points on a coordinate plane, subject to certain constraints. The program uses a custom `InputReader` class to read the input from `System.in`, and then calls the `solve` method to calculate the result for each test case.
+
+The program takes input in the form of an integer `t`, representing the number of test cases. For each test case, it reads in an integer `n`, an integer `m`, and an integer `k`, representing the number of y-coordinates, x-coordinates, and additional points, respectively. It then reads in `n` integers representing the y-coordinates, `m` integers representing the x-coordinates, and `2*k` integers representing the x and y coordinates of the additional points.
+
+The `solve` method uses a hash set to keep track of the distinct x and y coordinates, and two lists to keep track of the pairs of points that can be formed. It then iterates through the list of additional points, and adds the point to the appropriate list if it can form a pair with a point on the other axis. It also keeps track of the sum of the y-coordinates of the points on the x-axis, and the sum of the x-coordinates of the points on the y-axis, and uses these to calculate the final result.
+
+For the input "1\n2 2 2\n0 1010000\n0 1000000\n1556 1000000\n0 14", the program will output 14.
+
+FINAL\_OUTPUT\_JSON: {"stdout":"14\n"}

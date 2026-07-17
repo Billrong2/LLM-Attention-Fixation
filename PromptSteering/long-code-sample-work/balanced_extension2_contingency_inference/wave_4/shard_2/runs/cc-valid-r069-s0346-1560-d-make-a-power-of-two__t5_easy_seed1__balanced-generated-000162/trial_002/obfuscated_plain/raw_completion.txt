@@ -1,0 +1,30 @@
+ ### Reasoning:
+1. **Input Handling**:
+   - The program reads an integer `casos` from standard input, indicating the number of test cases.
+   - For each case, it reads a string representing a number from standard input.
+
+2. **Main Logic**:
+   - For each test case, it calls the `buscarGreedy` method with the read string as an argument.
+   - The `buscarGreedy` method calculates the minimum number of operations required to transform the given number into a power of 2 using the `comparar` function.
+   - The result is printed to standard output.
+
+3. **Function Execution**:
+   - The `buscarGreedy` function iterates over possible powers of 2 up to a certain limit (62 iterations).
+   - For each power of 2, it calculates the difference between the number and the power of 2 using the `comparar` function.
+   - It keeps track of the minimum difference encountered.
+
+4. **Output**:
+   - The minimum difference is printed as the output for each test case.
+
+### Output for the Given Cases:
+- **c001**: The program will read the number of test cases (1), then read the number `695981`.
+- **Output**:
+  - The `buscarGreedy` method will be called with `695981`.
+  - The minimum number of operations required to transform `695981` into a power of 2 will be calculated.
+  - The result will be printed to standard output.
+
+### Machine-Readable Output:
+FINAL_OUTPUT_JSON: {"stdout":"6\n"}
+
+### Explanation:
+- For the given input `695981`, the program will output `6` as the minimum number of operations required to transform it into a power of 2.

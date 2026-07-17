@@ -1,0 +1,14 @@
+### Reasoning:
+1. **Input Reading**: The program reads `n` and `m` from the input, followed by `n` lines each containing two integers representing intervals.
+2. **Initialization**: It initializes arrays and sets up the segment tree.
+3. **Mobius Function and Prime Calculation**: The program calculates the Mobius function for numbers up to 100,000.
+4. **Calculation**: For each divisor `j` from 1 to 100,000, it checks if the intervals scaled by `j` are valid and computes the result using the `ans` function.
+5. **Result Printing**: The final result is printed modulo `998244353`.
+
+### Final Output:
+```plaintext
+30
+```
+
+### Machine-Readable Line:
+```json

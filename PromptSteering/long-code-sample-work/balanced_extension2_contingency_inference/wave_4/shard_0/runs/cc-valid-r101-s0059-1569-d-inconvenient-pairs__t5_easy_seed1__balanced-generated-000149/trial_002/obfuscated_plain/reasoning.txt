@@ -1,0 +1,9 @@
+The program reads an integer `t` from input and iterates `t` times. For each iteration, it reads two more integers `n` and `m`, then an array of `n` integers `yline`, and an array of `m` integers `xline`. It also reads an array of integers `px` and an array of integers `py`, both with length `k`, where `k` is a previously read integer.
+
+The function `solve` is called, which creates two `HashSet`s `yset` and `xset` to store the unique elements of `yline` and `xline` respectively, and two `ArrayList`s `xlist` and `ylist` to store pairs of `yline` and `xline` elements with a flag `-1`. For the `px` and `py` arrays, if an element is found in either `xset` or `yset`, it is added to the corresponding `ArrayList`.
+
+The `xlist` and `ylist` are sorted using their `compareTo` method. `mapx` and `mapy` are `HashMap`s to store the frequency of unique elements of `xlist` and `ylist`, and `sumx` and `sumy` are long variables to keep track of the sum of elements in `xlist` and `ylist` respectively. The `ans` variable is used to keep track of the output.
+
+The `solve` function iterates over the elements of `xlist` and `ylist` in order. If the current element has flag `-1`, it clears `mapx` and `mapy`, and resets `sumx` and `sumy` to zero. If the current element is not flagged as `-1`, it adds `sumx` or `sumy` (whichever is applicable) to `ans`, subtracts the frequency of the corresponding element from `mapx` or `mapy`, and increments `mapx` or `mapy`.
+
+In the main function, the `out.println(solve(...))` statement is used to print the value of `solve(...)` to output. The output is flushed and the program ends.

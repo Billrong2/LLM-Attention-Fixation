@@ -1,0 +1,32 @@
+The program's main functionality is handled by the `pawnLineal` method, which takes two `String` parameters: `scr` and `dst`. The method calculates and prints the number of times a piece can move from the starting position `scr` to the destination position `dst` on a chessboard according to the game rules.
+
+The program first pads the `scr` and `dst` strings with zeros at both ends, then iterates through the characters in the padded strings. If the current character in `scr` is '1', the method checks if any of the adjacent characters in `dst` is '1'. If so, it increments the result `ret` and replaces the corresponding '1' in `dst` with 'X'. This represents the piece moving to the destination.
+
+The `main` method reads the number of test cases, and for each test case, it reads the length of the `scr` and `dst` strings, followed by the `scr` and `dst` strings themselves. It then calls the `pawnLineal` method and prints the result.
+
+### Case: c001
+
+For the provided input:
+
+- `stdin = "1\n20\n01101100110111000100\n00101100011010001110"`
+
+The program will process the following `scr` and `dst` strings:
+
+- `scr = "011011001101110001000"`
+- `dst = "001011000110100011100"`
+
+The `pawnLineal` method will calculate the number of moves the piece can make from `scr` to `dst` according to the game rules.
+
+### Final Output
+
+The exact output will be printed by the `pawnLineal` method. For the provided input, the output will be:
+
+```java
+// Case c001
+// stdin = "1\n20\n01101100110111000100\n00101100011010001110"
+
+// Output:
+// 7
+```
+
+The program will print `7` because the piece can move from the starting position to the destination position 7 times according to the

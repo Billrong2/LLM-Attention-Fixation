@@ -1,0 +1,32 @@
+### CASES_BEGIN
+c001: invoke program entry point; target_method=solve; stdin="1\nababc\nab\n"; argv=[]
+
+### CASES_END
+
+The provided Java program contains a method named `solve` which checks if a substring `t` can be found in a string `s` by iterating through `s` from right to left and comparing characters with `t` from right to left as well. The method returns "YES" if `t` is a substring of `s` and "NO" otherwise.
+
+For the given input:
+- tc: 1 (one test case)
+- s: "ababc"
+- t: "ab"
+
+The method `solve` will process these inputs as follows:
+1. Initialize `j` as the length of `t` minus 1 (j = 1).
+2. Initialize `i` as the length of `s` minus 1 (i = 4).
+3. Start a loop while `i` is greater than or equal to 0.
+   - Check if `s.charAt(i)` equals `t.charAt(j)`.
+     - If they are equal, decrement both `i` and `j`.
+     - If they are not equal, decrement `i` by 2.
+   - If `j` becomes -1 (indicating we have matched all characters of `t`), return "YES".
+4. If the loop exits without finding a match, return "NO".
+
+In this case:
+- `t` is "ab", so `j` starts at 1.
+- `s` is "ababc", so `i` starts at 4.
+- The loop will start comparing from the rightmost characters:
+  - Compare `s.charAt(4)` with `t.charAt(1)` (which is 'c' and 'b' respectively). They don't match, so `i` becomes 2.
+  - Compare `s.charAt(2)` with `t.charAt(1)` (which is 'b' and 'b' respectively). They match, so `i` becomes 1 and `j` becomes 0.
+  - Compare `s.charAt(1)` with `t.charAt(0)` (which is 'a' and 'a' respectively). They match, so `i` becomes 0 and `j` becomes -1.
+  - Since `j` is now -1, the method returns "YES".
+
+The final output of the program is

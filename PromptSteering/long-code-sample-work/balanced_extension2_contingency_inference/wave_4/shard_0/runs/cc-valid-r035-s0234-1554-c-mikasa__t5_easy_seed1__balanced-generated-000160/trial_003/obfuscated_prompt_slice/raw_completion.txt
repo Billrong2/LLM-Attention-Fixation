@@ -1,0 +1,24 @@
+
+
+
+
+```json
+FINAL_OUTPUT_JSON: {"stdout":"1\n1\n1\n1\n4\n6"}
+```
+
+This program calculates the output based on the input values for the function `cal`. The `cal` function takes four parameters: `index`, `larger`, `n`, and `m`. It uses dynamic programming to calculate a result based on these parameters.
+
+For each input test case, the program calculates a result using the `cal` function and prints it. The input for each test case consists of an integer `T` (representing the number of test cases), followed by `T` lines, each containing two integers `n` and `m`.
+
+The expected output of the program is a series of lines, each containing the result of the `cal` function for the corresponding test case. In this case, the expected output is:
+
+1
+1
+1
+1
+4
+6
+
+The program uses dynamic programming to calculate the result for each test case. It initializes the `dp` array to -1 and then calls the `cal` function with the appropriate parameters. The `cal` function uses a series of if statements to check the values of `index`, `larger`, `n`, and `m` and returns the corresponding result.
+
+The final output of the program is printed to the console as a series of lines, each containing the result of the `cal` function for the corresponding test case.

@@ -1,0 +1,25 @@
+
+
+
+The `buscarGreedy` method at line 221 takes an integer argument `numero`, and it returns an integer result.
+The control flow begins at the `for` loop on line 225.
+The `for` loop on line 225 iterates `i` from 0 to 61.
+At each iteration, the method calls `Long.toString` on line 226, which takes the current value of `pot` and converts it to a string, storing the result in `numPot`.
+On line 227, the method calls the `comparar` method, which takes the arguments `numPot` and `numero`.
+The return value of `comparar` is stored in `res`.
+On line 228, the method checks if `res` is less than the current minimum value, stored in the `minimo` variable, which was initialized on line 224.
+If `res` is less than `minimo`, the `minimo` variable is updated to the new minimum value.
+The `for` loop continues until `i` has iterated through all the values from 0 to 61.
+Finally, on line 235, the method returns the final minimum value stored in the `minimo` variable.
+The `comparar` method takes two string arguments, `patron` and `num`.
+It compares the characters at each index in the two strings, and returns the number of characters in `num` that are not equal to the corresponding character in `patron`.
+The `comparar` method is called on line 227, where it is passed the values of `numPot` and `numero`.
+The return value of `comparar` is stored in `res`, which is then compared to `minimo` on line 228.
+
+### CASES_BEGIN
+c001: invoke program entry point; target_method=buscarGreedy; stdin="1\n320875\n"; argv=[]
+### CASES_END
+The `buscarGreedy` method is invoked in case c001 with the input string "1" and "320875" on standard input. The `buscarGreedy` method takes an integer argument `numero`, and it returns an integer result.
+
+The control flow begins at the `for` loop on line 225.
+The `for` loop on line 2

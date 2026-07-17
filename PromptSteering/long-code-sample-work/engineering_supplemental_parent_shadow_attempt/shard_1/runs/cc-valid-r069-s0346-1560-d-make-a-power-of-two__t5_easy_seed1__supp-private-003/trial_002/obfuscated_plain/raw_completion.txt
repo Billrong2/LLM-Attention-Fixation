@@ -1,0 +1,52 @@
+ The exact standard output of this deterministic Java program is:
+
+```json
+FINAL_OUTPUT_JSON: {"stdout":"11\n3\n2\n1\n2\n3\n1\n3\n1\n1\n1\n3\n1\n1\n3\n1\n3\n1\n3\n1\n"}
+```
+
+The program takes an integer as input and uses a greedy approach to find the smallest number of digits that need to be added to the input to form a number that is a power of 2.
+
+The program reads the number of test cases from the first line of input. For each test case, it reads a number and uses the `buscarGreedy` method to find the smallest number of digits that need to be added to the input to form a number that is a power of 2. It then prints the result.
+
+In this case, the input is:
+
+```
+12
+825
+8888
+4
+157
+146
+1
+301
+19634
+1504
+10521
+1000000000
+687194767
+```
+
+The program outputs the smallest number of digits that need to be added to each input to form a power of 2:
+
+```
+11
+3
+2
+1
+2
+3
+1
+3
+1
+1
+1
+3
+1
+1
+3
+1
+3
+1
+3
+1
+```

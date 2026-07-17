@@ -1,0 +1,14 @@
+ To solve the program for the given input, we will analyze the program and track the state and control flow to determine the exact output.
+
+1. MethodDeclaration at L037: target method solve(n, m, k, yline, xline, px, py) (static long solve(int n,int m,int k,int[] yline,int[] xline,int[] px,int[] py) {)
+2. SliceMethodParameter at L037: method parameter n (static long solve(int n,int m,int k,int[] yline,int[] xline,int[] px,int[] py) {)
+3. SliceMethodParameter at L037: method parameter m (static long solve(int n,int m,int k,int[] yline,int[] xline,int[] px,int[] py) {)
+4. SliceMethodParameter at L037: method parameter k (static long solve(int n,int m,int k,int[] yline,int[] xline,int[] px,int[] py) {)
+5. SliceMethodParameter at L037: method parameter yline (static long solve(int n,int m,int k,int[] yline,int[] xline,int[] px,int[] py) {)
+6. SliceMethodParameter at L037: method parameter xline (static long solve(int n,int m,int k,int[] yline,int[] xline,int[] px,int[] py) {)
+7. SliceMethodParameter at L037: method parameter px (static long solve(int n,int m,int k,int[] yline,int[] xline,int[] px,int[] py) {)
+8. SliceMethodParameter at L037: method parameter py (static long solve(int n,int m,int k,int[] yline,int[] xline,int[] px,int[] py) {)
+9. SliceReturnValue at L100: return value expression using ans (return ans;)
+10. SliceControlDependency at L038: control predicate over _obf_t5_solve_436275 (if (((3 * 3) - 9) != 0) {)
+11. SliceControlDependency at L046: control predicate over i, n, yset, add, yline, xlist (for (int i = 0; i < n; i++) {)
+12. SliceMethodCall at L047: method call yset.add in static data/control context (yset.add(yline

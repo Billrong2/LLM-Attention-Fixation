@@ -1,0 +1,520 @@
+{
+  "argv": [],
+  "metadata": {
+    "argv": [],
+    "balanced_extension2_contingency_selection": {
+      "canonical_problem_identity": "deepmind/code_contests@802411c3010cb00d1b05bad57ca77365a3c699d6:valid:row-000113",
+      "continued_accepted_ranks": [
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "protocol": "../BALANCED_EXTENSION2_CONTINGENCY_PROTOCOL.md",
+      "schema_version": "long-code-balanced-extension2-contingency-v1",
+      "selected_source_rule": "same first tokenizer-eligible source used by frozen balanced Waves 1--3",
+      "source_denominator_unchanged": true,
+      "wave_id": "balanced_wave_4"
+    },
+    "candidate_id": "cc-valid-r113-s0083-1574-c-slay-the-dragon",
+    "candidate_metadata": {
+      "expected_stdout": "14\n",
+      "expected_stdout_path": "candidates/cc-valid-r113-s0083-1574-c-slay-the-dragon/io/00-generated-156.out",
+      "id": "cc-valid-r113-s0083-1574-c-slay-the-dragon",
+      "input": "4\n12 11 1 2\n1\n12 28\n7 2\n4 10\n0 13\n8 7\n",
+      "input_path": "candidates/cc-valid-r113-s0083-1574-c-slay-the-dragon/io/00-generated-156.in",
+      "inputs": [
+        {
+          "dataset_test_index": 156,
+          "expected_stdout": "14\n",
+          "expected_stdout_path": "candidates/cc-valid-r113-s0083-1574-c-slay-the-dragon/io/00-generated-156.out",
+          "expected_stdout_sha256": "9a92adbc0cee38ef658c71ce1b1bf8c65668f166bfb213644c895ccb1ad07a25",
+          "id": "00-generated-156",
+          "input": "4\n12 11 1 2\n1\n12 28\n7 2\n4 10\n0 13\n8 7\n",
+          "input_path": "candidates/cc-valid-r113-s0083-1574-c-slay-the-dragon/io/00-generated-156.in",
+          "input_sha256": "6aace315a3f1d1f38f86f5502ac9b101ea51907f4885595a7eaf4aab4b4be739",
+          "suite": "generated_tests",
+          "validation": {
+            "compiled_with_jdk17": true,
+            "exit_code": 0,
+            "stderr_bytes": 0,
+            "timed_out": false
+          }
+        }
+      ],
+      "loc_definition": "Python str.splitlines(); final newline does not add an empty physical line",
+      "main_class": "check5",
+      "nonblank_loc": 256,
+      "original_path": "candidates/cc-valid-r113-s0083-1574-c-slay-the-dragon/original.java",
+      "physical_loc": 297,
+      "prevalidation": {
+        "all_retained_tests_exact": true,
+        "compiled": true,
+        "compiler_exit_code": 0,
+        "compiler_stderr_bytes": 0,
+        "compiler_stdout_bytes": 0,
+        "jdk_major": 17
+      },
+      "problem_key": "codeforces-1574-C",
+      "problem_name": "1574_C. Slay the Dragon",
+      "provenance": {
+        "cf_contest_id": 1574,
+        "cf_index": "C",
+        "cf_points": 0.0,
+        "cf_rating": 1300,
+        "cf_tags": [
+          "binary search",
+          "greedy",
+          "sortings",
+          "ternary search"
+        ],
+        "dataset_file": "codecontests-valid-802411c3.parquet",
+        "dataset_file_sha256": "02e8c1ccedae716f1e43cc813fcb7823c3db666ea92638820aba80e8cef451ab",
+        "dataset_id": "deepmind/code_contests",
+        "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+        "dataset_url": "https://huggingface.co/datasets/deepmind/code_contests/resolve/802411c3010cb00d1b05bad57ca77365a3c699d6/data/valid-00000-of-00001-5e672c5751f060d3.parquet",
+        "difficulty": 9,
+        "language": "Java",
+        "language_code": 4,
+        "problem_name": "1574_C. Slay the Dragon",
+        "row_index": 113,
+        "solution_container": "solutions",
+        "solution_index": 83,
+        "solution_label": "correct human solution",
+        "source_code": 2,
+        "split": "valid"
+      },
+      "source_bytes": 7651,
+      "source_sha256": "0e2794d84fe44cce124ca90da37801405f763bb3ba74d60c6e0d0f9d2c2e8efa",
+      "target": {
+        "arity": 6,
+        "body_nonblank_loc": 28,
+        "body_physical_loc": 35,
+        "class": "check5",
+        "codesteer_selector": {
+          "declaration_line": 5,
+          "fallback_used": false,
+          "implementation": "steering.priors.SlicingPrior._select_target_method",
+          "name": "find",
+          "parameter_count": 6,
+          "parse_status": "javalang",
+          "top_level_body_statement_count": 10
+        },
+        "control_node_count": 4,
+        "end_line": 40,
+        "loop_node_count": 1,
+        "main_call_path": [
+          {
+            "arity": 1,
+            "class": "check5",
+            "end_line": 74,
+            "name": "main",
+            "parameter_types": [
+              "String[]"
+            ],
+            "return_type": "void",
+            "start_line": 41
+          },
+          {
+            "arity": 6,
+            "class": "check5",
+            "end_line": 40,
+            "name": "find",
+            "parameter_types": [
+              "long",
+              "Set<Long>",
+              "long[]",
+              "int",
+              "long",
+              "long"
+            ],
+            "return_type": "long",
+            "start_line": 5
+          }
+        ],
+        "main_reachable": true,
+        "name": "find",
+        "output_caller": {
+          "arity": 1,
+          "class": "check5",
+          "end_line": 74,
+          "name": "main",
+          "parameter_types": [
+            "String[]"
+          ],
+          "return_type": "void",
+          "start_line": 41
+        },
+        "output_evidence": "out.println(find(sum,hs,a,m,attack,defend))",
+        "output_relevance_kind": "direct_print_argument",
+        "output_relevance_variable": null,
+        "parameter_types": [
+          "long",
+          "Set<Long>",
+          "long[]",
+          "int",
+          "long",
+          "long"
+        ],
+        "recursive_call_count": 0,
+        "return_type": "long",
+        "return_value_output_relevant": true,
+        "source_sha256": "2bf5ec823f68e080113bee5b24333b205944d4a86d3168a592ce4591ec10fabe",
+        "start_line": 5
+      },
+      "target_method": "find",
+      "target_signature": "long check5.find(long, Set<Long>, long[], int, long, long)",
+      "tests": [
+        {
+          "dataset_test_index": 156,
+          "expected_stdout": "14\n",
+          "expected_stdout_path": "candidates/cc-valid-r113-s0083-1574-c-slay-the-dragon/io/00-generated-156.out",
+          "expected_stdout_sha256": "9a92adbc0cee38ef658c71ce1b1bf8c65668f166bfb213644c895ccb1ad07a25",
+          "id": "00-generated-156",
+          "input": "4\n12 11 1 2\n1\n12 28\n7 2\n4 10\n0 13\n8 7\n",
+          "input_path": "candidates/cc-valid-r113-s0083-1574-c-slay-the-dragon/io/00-generated-156.in",
+          "input_sha256": "6aace315a3f1d1f38f86f5502ac9b101ea51907f4885595a7eaf4aab4b4be739",
+          "suite": "generated_tests",
+          "validation": {
+            "compiled_with_jdk17": true,
+            "exit_code": 0,
+            "stderr_bytes": 0,
+            "timed_out": false
+          }
+        }
+      ]
+    },
+    "codesteer_target_method": "find",
+    "concrete_case": {
+      "accepted_rank": 13,
+      "argv": [],
+      "canonical_case_key": [
+        113,
+        "generated_tests",
+        131
+      ],
+      "case_id": "balanced-generated-000131",
+      "dataset_test_index": 131,
+      "expected_output_bytes": 4,
+      "expected_output_lines": 2,
+      "expected_output_path": "../../tests/cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1/balanced-generated-000131/oracle_stdout.txt",
+      "input_bytes": 34,
+      "input_sha256": "260b6189c5907155af2f9ab54070dc4d288a0905ccaed13c22fb5b58ffcc7a35",
+      "obfuscated_stderr_path": "../../tests/cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1/balanced-generated-000131/obfuscated.stderr",
+      "obfuscated_stdout_path": "../../tests/cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1/balanced-generated-000131/obfuscated.stdout",
+      "obfuscated_trimmed_exact_to_oracle": true,
+      "original_obfuscated_trimmed_agreement": true,
+      "original_stderr_path": "../../tests/cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1/balanced-generated-000131/original.stderr",
+      "original_stdout_path": "../../tests/cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1/balanced-generated-000131/original.stdout",
+      "original_trimmed_exact_to_oracle": true,
+      "rank_key": [
+        1,
+        2,
+        4,
+        46,
+        131
+      ],
+      "raw_expected_stdout_sha256": "8391e9ff91c3c6402f9596a8c9e82d4ceaa7815687f5854f7e1a23b194be4968",
+      "raw_obfuscated_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_obfuscated_stdout_sha256": "8391e9ff91c3c6402f9596a8c9e82d4ceaa7815687f5854f7e1a23b194be4968",
+      "raw_original_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_original_stdout_sha256": "8391e9ff91c3c6402f9596a8c9e82d4ceaa7815687f5854f7e1a23b194be4968",
+      "source_case_metadata": {
+        "dataset_id": "deepmind/code_contests",
+        "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+        "dataset_test_index": 131,
+        "row_index": 113,
+        "selection_stage": "balanced_extension2_adaptive_outcome_independent_ranking",
+        "split": "valid",
+        "suite": "generated_tests",
+        "wave_id": "balanced_wave_4"
+      },
+      "stdin_path": "../../tests/cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1/balanced-generated-000131/stdin.txt",
+      "suite": "generated_tests",
+      "validation_path": "../../validation/cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1/balanced-generated-000131.json"
+    },
+    "difficulty": "easy",
+    "eligible": true,
+    "expected_stdout_path": "../../tests/cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1/balanced-generated-000131/oracle_stdout.txt",
+    "id": "cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__balanced-generated-000131",
+    "main_class": "check5",
+    "method_coverage_policy": "force_all",
+    "obfuscated": {
+      "codesteer_target": {
+        "called_directly_from_main": true,
+        "eligible_parameter_to_return_target": true,
+        "genuine_return_sink_count": 1,
+        "main_called_method_names": [
+          "add",
+          "find",
+          "flush",
+          "hasNext",
+          "iterator",
+          "next",
+          "nextInt",
+          "nextLong",
+          "println",
+          "size",
+          "sort"
+        ],
+        "method_names": [
+          "find",
+          "main",
+          "power",
+          "modInverse",
+          "power",
+          "gcd",
+          "isprime",
+          "prime_nos_till_no",
+          "shufflearray",
+          "nextLine",
+          "isSpaceChar",
+          "next",
+          "nextInt",
+          "nextLong",
+          "nextDouble",
+          "fillBuffer",
+          "read",
+          "close"
+        ],
+        "parameter_count": 6,
+        "parameters": [
+          {
+            "name": "sum",
+            "type": "long"
+          },
+          {
+            "name": "hs",
+            "type": "Set<...>"
+          },
+          {
+            "name": "arr",
+            "type": "long[]"
+          },
+          {
+            "name": "n",
+            "type": "int"
+          },
+          {
+            "name": "attack",
+            "type": "long"
+          },
+          {
+            "name": "defend",
+            "type": "long"
+          }
+        ],
+        "parse_status": "javalang",
+        "return_sink_count": 1,
+        "return_type": "long",
+        "selected_method": "find",
+        "selected_method_line": 5,
+        "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+        "selector_implementation_owner": "steering.priors.SlicingPrior",
+        "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+      },
+      "execution_validation": {
+        "accepted": true,
+        "cases": [
+          {
+            "accepted": true,
+            "actual_trimmed": "14",
+            "case_id": "00-generated-156",
+            "command": [
+              "java",
+              "-Dfile.encoding=UTF-8",
+              "-Djava.io.tmpdir=<scratch>",
+              "-Duser.home=<scratch>",
+              "-XX:-UsePerfData",
+              "-cp",
+              "<classes>",
+              "check5"
+            ],
+            "duration_seconds": 0.03323,
+            "exit_code": 0,
+            "expected_trimmed": "14",
+            "raw_expected_stdout_sha256": "9a92adbc0cee38ef658c71ce1b1bf8c65668f166bfb213644c895ccb1ad07a25",
+            "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "raw_stdout_sha256": "9a92adbc0cee38ef658c71ce1b1bf8c65668f166bfb213644c895ccb1ad07a25",
+            "stderr": "",
+            "stdout": "14\n",
+            "timed_out": false,
+            "trimmed_exact_match": true
+          }
+        ],
+        "compile": {
+          "accepted": true,
+          "command": [
+            "javac",
+            "-encoding",
+            "UTF-8",
+            "-J-Djava.io.tmpdir=<scratch>",
+            "-J-Duser.home=<scratch>",
+            "-J-XX:-UsePerfData",
+            "-Xlint:none",
+            "-nowarn",
+            "-d",
+            "<classes>",
+            "<scratch>/check5.java"
+          ],
+          "exit_code": 0,
+          "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false
+        },
+        "entry": {
+          "compile_class": "check5",
+          "main_class": "check5",
+          "package": "",
+          "parse_status": "javalang"
+        }
+      },
+      "main_class": "check5",
+      "metadata_path": "candidates/cc-valid-r113-s0083-1574-c-slay-the-dragon/variants/T5_bogus_control_flow/easy/seed_1/check5.java.meta.json",
+      "method_coverage": {
+        "main_touched": false,
+        "method_coverage_total": 9,
+        "method_coverage_touched": 9,
+        "untouched_methods": []
+      },
+      "path": "../../../prepared_variants/candidates/cc-valid-r113-s0083-1574-c-slay-the-dragon/variants/T5_bogus_control_flow/easy/seed_1/check5.java",
+      "selected_target_touch_evidence": {
+        "method_block_parser": "eyetracking.obfuscation.java.passes.utils.iter_method_blocks",
+        "obfuscated_block_name": "find",
+        "obfuscated_match_count": 1,
+        "obfuscated_method_bytes": 966,
+        "obfuscated_method_index": 0,
+        "obfuscated_method_sha256": "2c27585cf7b3514819443be6152c27adec97b00454796238c2ebf96f8feef045",
+        "obfuscated_method_start_line": 4,
+        "obfuscated_name_matches_codesteer_target": true,
+        "obfuscated_target_line": 5,
+        "obfuscated_target_method": "find",
+        "original_block_name": "find",
+        "original_match_count": 1,
+        "original_method_bytes": 847,
+        "original_method_index": 0,
+        "original_method_sha256": "4435f306a279c8a909e181f345c5820215da676b34a257f0deaacfac2e3326a9",
+        "original_method_start_line": 4,
+        "original_target_line": 5,
+        "original_target_method": "find",
+        "reason": "method_source_changed",
+        "touched": true,
+        "verifiable": true
+      },
+      "sha256": "174bba21e67d588dd3f95f00cc6ce9721d0415bb223bfed93db292fb1c117727",
+      "target_method": "find"
+    },
+    "obfuscated_main_class": "check5",
+    "obfuscated_path": "../../../prepared_variants/candidates/cc-valid-r113-s0083-1574-c-slay-the-dragon/variants/T5_bogus_control_flow/easy/seed_1/check5.java",
+    "obfuscated_target_method": "find",
+    "obfuscation_metadata_path": "candidates/cc-valid-r113-s0083-1574-c-slay-the-dragon/variants/T5_bogus_control_flow/easy/seed_1/check5.java.meta.json",
+    "original": {
+      "codesteer_target": {
+        "called_directly_from_main": true,
+        "eligible_parameter_to_return_target": true,
+        "genuine_return_sink_count": 1,
+        "main_called_method_names": [
+          "add",
+          "find",
+          "flush",
+          "hasNext",
+          "iterator",
+          "next",
+          "nextInt",
+          "nextLong",
+          "println",
+          "size",
+          "sort"
+        ],
+        "method_names": [
+          "find",
+          "main",
+          "power",
+          "modInverse",
+          "power",
+          "gcd",
+          "isprime",
+          "prime_nos_till_no",
+          "shufflearray",
+          "nextLine",
+          "isSpaceChar",
+          "next",
+          "nextInt",
+          "nextLong",
+          "nextDouble",
+          "fillBuffer",
+          "read",
+          "close"
+        ],
+        "parameter_count": 6,
+        "parameters": [
+          {
+            "name": "sum",
+            "type": "long"
+          },
+          {
+            "name": "hs",
+            "type": "Set<...>"
+          },
+          {
+            "name": "arr",
+            "type": "long[]"
+          },
+          {
+            "name": "n",
+            "type": "int"
+          },
+          {
+            "name": "attack",
+            "type": "long"
+          },
+          {
+            "name": "defend",
+            "type": "long"
+          }
+        ],
+        "parse_status": "javalang",
+        "return_sink_count": 1,
+        "return_type": "long",
+        "selected_method": "find",
+        "selected_method_line": 5,
+        "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+        "selector_implementation_owner": "steering.priors.SlicingPrior",
+        "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+      },
+      "execution_validation_path": "candidates/cc-valid-r113-s0083-1574-c-slay-the-dragon/original/validation.json",
+      "main_class": "check5",
+      "path": "../../../prepared_variants/candidates/cc-valid-r113-s0083-1574-c-slay-the-dragon/original/check5.java",
+      "sha256": "0e2794d84fe44cce124ca90da37801405f763bb3ba74d60c6e0d0f9d2c2e8efa",
+      "target_method": "find"
+    },
+    "original_main_class": "check5",
+    "original_path": "../../../prepared_variants/candidates/cc-valid-r113-s0083-1574-c-slay-the-dragon/original/check5.java",
+    "original_target_method": "find",
+    "parent_candidate_id": "cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1",
+    "profile": "safe",
+    "rejection_reasons": [],
+    "seed": 1,
+    "stdin_path": "../../tests/cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1/balanced-generated-000131/stdin.txt",
+    "target_method": {
+      "obfuscated": "find",
+      "original": "find"
+    },
+    "technique": "T5",
+    "technique_name": "bogus_control_flow",
+    "variant_id": "cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1",
+    "warnings": [
+      "canonical_main_touched_unobserved_regex_may_not_parse_throws_clause"
+    ]
+  },
+  "obfuscated_sha256": "174bba21e67d588dd3f95f00cc6ce9721d0415bb223bfed93db292fb1c117727",
+  "obfuscated_source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r113-s0083-1574-c-slay-the-dragon/variants/T5_bogus_control_flow/easy/seed_1/check5.java",
+  "obfuscated_target_method": "find",
+  "original_sha256": "0e2794d84fe44cce124ca90da37801405f763bb3ba74d60c6e0d0f9d2c2e8efa",
+  "original_source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r113-s0083-1574-c-slay-the-dragon/original/check5.java",
+  "original_target_method": "find",
+  "sample_id": "cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__balanced-generated-000131"
+}

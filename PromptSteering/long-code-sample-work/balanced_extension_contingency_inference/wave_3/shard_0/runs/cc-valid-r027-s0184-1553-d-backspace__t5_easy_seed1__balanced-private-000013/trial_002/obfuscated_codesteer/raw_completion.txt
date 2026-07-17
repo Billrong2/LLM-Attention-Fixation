@@ -1,0 +1,16 @@
+ ### Reasoning
+
+The `solve` method is a string comparison algorithm that iterates over two strings in reverse order. It checks if each character in the reverse of `s` matches the corresponding character in the reverse of `t`. If it does, it moves to the next characters; otherwise, it skips two characters in `s`. If all characters in `t` are found in `s`, it returns "YES"; otherwise, it returns "NO".
+
+Given the inputs:
+```
+1
+abccc
+ab
+```
+The main method reads these inputs and passes them to the `solve` method. Since `t` ("ab") is a substring of `s` ("abccc") in reverse (both are "ccba"), the `solve` method returns "YES".
+
+### Output
+```json
+FINAL_OUTPUT_JSON: {"stdout":"YES\n"}
+```

@@ -1,0 +1,160 @@
+{
+  "expected_stdout": "2\n3\n0\n2\n1\n0\n2\n3\n3\n3\n9\n2\n",
+  "expected_stdout_path": "candidates/cc-valid-r069-s0054-1560-d-make-a-power-of-two/io/00-generated-028.out",
+  "id": "cc-valid-r069-s0054-1560-d-make-a-power-of-two",
+  "input": "12\n825\n8888\n4\n157\n146\n1\n301\n19634\n1504\n10521\n1000000000\n687194767\n",
+  "input_path": "candidates/cc-valid-r069-s0054-1560-d-make-a-power-of-two/io/00-generated-028.in",
+  "inputs": [
+    {
+      "dataset_test_index": 28,
+      "expected_stdout": "2\n3\n0\n2\n1\n0\n2\n3\n3\n3\n9\n2\n",
+      "expected_stdout_path": "candidates/cc-valid-r069-s0054-1560-d-make-a-power-of-two/io/00-generated-028.out",
+      "expected_stdout_sha256": "5baebee41b367ae4527196e5813447ff204843c5db37be08423b33238a610bb4",
+      "id": "00-generated-028",
+      "input": "12\n825\n8888\n4\n157\n146\n1\n301\n19634\n1504\n10521\n1000000000\n687194767\n",
+      "input_path": "candidates/cc-valid-r069-s0054-1560-d-make-a-power-of-two/io/00-generated-028.in",
+      "input_sha256": "de84077c03fe04cfe8e6888d22a621ab4f800a6f06eb2e595c61eb11d473030a",
+      "suite": "generated_tests",
+      "validation": {
+        "compiled_with_jdk17": true,
+        "exit_code": 0,
+        "stderr_bytes": 0,
+        "stdout_exact_byte_match": true,
+        "timed_out": false
+      }
+    }
+  ],
+  "loc_definition": "Python str.splitlines(); final newline does not add an empty physical line",
+  "main_class": "Solve",
+  "nonblank_loc": 263,
+  "original_path": "candidates/cc-valid-r069-s0054-1560-d-make-a-power-of-two/original.java",
+  "physical_loc": 321,
+  "prevalidation": {
+    "all_retained_tests_exact": true,
+    "compiled": true,
+    "compiler_exit_code": 0,
+    "compiler_stderr_bytes": 0,
+    "compiler_stdout_bytes": 0,
+    "jdk_major": 17
+  },
+  "problem_key": "codeforces-1560-D",
+  "problem_name": "1560_D. Make a Power of Two",
+  "provenance": {
+    "cf_contest_id": 1560,
+    "cf_index": "D",
+    "cf_points": 0.0,
+    "cf_rating": 1300,
+    "cf_tags": [
+      "greedy",
+      "math",
+      "strings"
+    ],
+    "dataset_file": "codecontests-valid-802411c3.parquet",
+    "dataset_file_sha256": "02e8c1ccedae716f1e43cc813fcb7823c3db666ea92638820aba80e8cef451ab",
+    "dataset_id": "deepmind/code_contests",
+    "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+    "dataset_url": "https://huggingface.co/datasets/deepmind/code_contests/resolve/802411c3010cb00d1b05bad57ca77365a3c699d6/data/valid-00000-of-00001-5e672c5751f060d3.parquet",
+    "difficulty": 10,
+    "language": "Java",
+    "language_code": 4,
+    "problem_name": "1560_D. Make a Power of Two",
+    "row_index": 69,
+    "solution_container": "solutions",
+    "solution_index": 54,
+    "solution_label": "correct human solution",
+    "source_code": 2,
+    "split": "valid"
+  },
+  "source_bytes": 6347,
+  "source_sha256": "477dfb22f2b83cb04006b7d3c1031bb197dc100a664c801a1a83e787c2b268f8",
+  "target": {
+    "arity": 2,
+    "body_nonblank_loc": 23,
+    "body_physical_loc": 25,
+    "class": "Solve",
+    "codesteer_selector": {
+      "declaration_line": 35,
+      "fallback_used": false,
+      "implementation": "steering.priors.SlicingPrior._select_target_method",
+      "name": "getMin",
+      "parameter_count": 2,
+      "parse_status": "javalang",
+      "top_level_body_statement_count": 3
+    },
+    "control_node_count": 3,
+    "end_line": 59,
+    "loop_node_count": 2,
+    "main_call_path": [
+      {
+        "arity": 1,
+        "class": "Solve",
+        "end_line": 33,
+        "name": "main",
+        "parameter_types": [
+          "String[]"
+        ],
+        "return_type": "void",
+        "start_line": 14
+      },
+      {
+        "arity": 2,
+        "class": "Solve",
+        "end_line": 59,
+        "name": "getMin",
+        "parameter_types": [
+          "String",
+          "ArrayList<Long>"
+        ],
+        "return_type": "int",
+        "start_line": 35
+      }
+    ],
+    "main_reachable": true,
+    "name": "getMin",
+    "output_caller": {
+      "arity": 1,
+      "class": "Solve",
+      "end_line": 33,
+      "name": "main",
+      "parameter_types": [
+        "String[]"
+      ],
+      "return_type": "void",
+      "start_line": 14
+    },
+    "output_evidence": "pw.println(getMin(n + \"\", items))",
+    "output_relevance_kind": "direct_print_argument",
+    "output_relevance_variable": null,
+    "parameter_types": [
+      "String",
+      "ArrayList<Long>"
+    ],
+    "recursive_call_count": 0,
+    "return_type": "int",
+    "return_value_output_relevant": true,
+    "source_sha256": "3e0b3e54ba4b8868c409e6fdb9d4037cd51acccb53042f2b0e4daabc7d257056",
+    "start_line": 35
+  },
+  "target_method": "getMin",
+  "target_signature": "int Solve.getMin(String, ArrayList<Long>)",
+  "tests": [
+    {
+      "dataset_test_index": 28,
+      "expected_stdout": "2\n3\n0\n2\n1\n0\n2\n3\n3\n3\n9\n2\n",
+      "expected_stdout_path": "candidates/cc-valid-r069-s0054-1560-d-make-a-power-of-two/io/00-generated-028.out",
+      "expected_stdout_sha256": "5baebee41b367ae4527196e5813447ff204843c5db37be08423b33238a610bb4",
+      "id": "00-generated-028",
+      "input": "12\n825\n8888\n4\n157\n146\n1\n301\n19634\n1504\n10521\n1000000000\n687194767\n",
+      "input_path": "candidates/cc-valid-r069-s0054-1560-d-make-a-power-of-two/io/00-generated-028.in",
+      "input_sha256": "de84077c03fe04cfe8e6888d22a621ab4f800a6f06eb2e595c61eb11d473030a",
+      "suite": "generated_tests",
+      "validation": {
+        "compiled_with_jdk17": true,
+        "exit_code": 0,
+        "stderr_bytes": 0,
+        "stdout_exact_byte_match": true,
+        "timed_out": false
+      }
+    }
+  ]
+}

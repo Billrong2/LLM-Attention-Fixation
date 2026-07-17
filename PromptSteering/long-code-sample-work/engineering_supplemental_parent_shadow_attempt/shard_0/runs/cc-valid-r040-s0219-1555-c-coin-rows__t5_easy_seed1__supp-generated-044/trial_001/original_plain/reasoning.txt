@@ -1,0 +1,11 @@
+The program reads input from standard input and writes output to standard output. The main method reads the number of test cases, then for each test case, it reads the value of `m` and two arrays `arr` and `arr2`. The `game` method takes `arr`, `arr2`, and `m` as input and returns the minimum of the two arrays' sums. The `main` method then prints the result of the `game` method.
+
+In this case, the program reads the input "3\n3\n2 3 12\n2 10 2\n3\n-1 4 17\n3 5 0\n1\n4\n3\n". This input corresponds to three test cases, with the first test case having `m` = 3, `arr` = {2, 3, 12}, `arr2` = {2, 10, 2}, and the second test case having `m` = 3, `arr` = {-1, 4, 17}, `arr2` = {3, 5, 0}, and the third test case having `m` = 1, `arr` = {4}, `arr2` = {3}.
+
+The `game` method is called with these inputs, and the result is printed by the `main` method. The output of the program is:
+
+```
+2
+11
+4
+```

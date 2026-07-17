@@ -1,0 +1,31 @@
+ ### CASE 0: `c001: invoke program entry point; target_method=eval; stdin="1\n4402\n"; argv=[]`
+
+#### State and Control Flow Tracking
+
+The given Java program reads input from `stdin`, processes it, and prints the result to `stdout`. Let's break down the state and control flow:
+
+1. **Input Reading**:
+   - The program reads two inputs:
+     - `1` (number of test cases)
+     - `4402` (the number for which we need to compute `eval`)
+
+2. **Main Function Execution**:
+   - The main function initializes necessary variables and calls the `eval` function.
+   - The `eval` function is called with the input `4402` and processes it.
+
+3. **Eval Function Execution**:
+   - The `eval` function processes each digit of the number `4402`.
+   - For each digit, it calculates a value based on certain conditions and accumulates the result.
+
+4. **Output Calculation**:
+   - The function `eval` calculates the number of ways to express the given number as a sum of numbers where each number is either 1, 2, or 3.
+   - For the number `4402`, the function will process each digit and calculate the corresponding value.
+
+5. **Final Output Calculation**:
+   - The final output is the sum of all values calculated for each digit of `4402`.
+
+### Machine-Readable Line
+
+```json
+FINAL_OUTPUT_JSON: {"stdout":"exact output with newlines encoded as \n"}
+```

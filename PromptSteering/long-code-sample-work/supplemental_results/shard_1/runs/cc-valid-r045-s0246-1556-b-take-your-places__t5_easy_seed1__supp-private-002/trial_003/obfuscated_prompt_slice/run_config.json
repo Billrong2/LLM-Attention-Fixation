@@ -1,0 +1,135 @@
+{
+  "activation_steering": false,
+  "codesteer_prior_preflight": null,
+  "condition": "obfuscated_prompt_slice",
+  "fingerprint": "5a7ff32a506e362fd0bc76cdeca13f38f946af8f28e6fa795b4a23bac6b46d5e",
+  "generation": {
+    "do_sample": true,
+    "max_new_tokens": 512,
+    "temperature": 1.05,
+    "top_k": 7,
+    "top_p": 0.95
+  },
+  "manifest_sha256": "803aa5c06fe748f84081c35c4ccb01972db9a0ff01d916023c4fc83da5e131ab",
+  "model_name": "Qwen/Qwen2.5-14B",
+  "model_snapshot_commit": "97e1e76335b7017d8f67c08a19d103c0504298c9",
+  "obfuscated_sha256": "c911ddd46ad86b1f8807a56d22ea514a274cd6bc747307ba9e20d1f87530ebf9",
+  "original_sha256": "0d57316ce84465e6ad3184afa997cd256316bbaf58538b3b7956943adfe5f4f0",
+  "paired_design": "same seed for all four conditions in this sample/trial",
+  "paired_seed": 2095197579,
+  "prompt_metadata": {
+    "artifact_name": "Program Slicing / backward slice",
+    "elements": [
+      {
+        "code": "static int fun(int x, long[] arr) {",
+        "description": "target method fun(x, arr)",
+        "kind": "MethodDeclaration",
+        "line": 21,
+        "line_label": "L021"
+      },
+      {
+        "code": "static int fun(int x, long[] arr) {",
+        "description": "method parameter x",
+        "kind": "SliceMethodParameter",
+        "line": 21,
+        "line_label": "L021"
+      },
+      {
+        "code": "static int fun(int x, long[] arr) {",
+        "description": "method parameter arr",
+        "kind": "SliceMethodParameter",
+        "line": 21,
+        "line_label": "L021"
+      },
+      {
+        "code": "return ans;",
+        "description": "return value expression using ans",
+        "kind": "SliceReturnValue",
+        "line": 34,
+        "line_label": "L034"
+      },
+      {
+        "code": "if (((3 * 3) - 9) != 0) {",
+        "description": "control predicate over _obf_t5_fun_293286",
+        "kind": "SliceControlDependency",
+        "line": 22,
+        "line_label": "L022"
+      },
+      {
+        "code": "int ans = 0;",
+        "description": "definition of ans",
+        "kind": "SliceDefinition",
+        "line": 26,
+        "line_label": "L026"
+      },
+      {
+        "code": "for (int i = 0; i < arr.length; i++) {",
+        "description": "control predicate over i, length, arr, x, delta, ans, Math, abs",
+        "kind": "SliceControlDependency",
+        "line": 28,
+        "line_label": "L028"
+      },
+      {
+        "code": "if (arr[i] != x)",
+        "description": "control predicate over arr, i, x, delta",
+        "kind": "SliceControlDependency",
+        "line": 29,
+        "line_label": "L029"
+      },
+      {
+        "code": "",
+        "description": "assignment/update influencing ans",
+        "kind": "SliceAssignment",
+        "line": null,
+        "line_label": ""
+      },
+      {
+        "code": "ans += Math.abs(delta);",
+        "description": "method call Math.abs in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 31,
+        "line_label": "L031"
+      }
+    ],
+    "eligible_count_is_lower_bound": false,
+    "eligible_element_count": 10,
+    "emitted_element_count": 10,
+    "emitted_over_eligible": 1.0,
+    "enabled": true,
+    "guidance_text": "Prompt-only steering guidance (Program Slicing / backward slice, artifact-conditioned):\nUse the following static program-analysis elements as the main reasoning anchors.\nThese elements are static only; they do not reveal the correct output, branch outcomes, or gold execution trace.\n\nStatic elements to emphasize:\n1. MethodDeclaration at L021: target method fun(x, arr) (static int fun(int x, long[] arr) {)\n2. SliceMethodParameter at L021: method parameter x (static int fun(int x, long[] arr) {)\n3. SliceMethodParameter at L021: method parameter arr (static int fun(int x, long[] arr) {)\n4. SliceReturnValue at L034: return value expression using ans (return ans;)\n5. SliceControlDependency at L022: control predicate over _obf_t5_fun_293286 (if (((3 * 3) - 9) != 0) {)\n6. SliceDefinition at L026: definition of ans (int ans = 0;)\n7. SliceControlDependency at L028: control predicate over i, length, arr, x, delta, ans, Math, abs (for (int i = 0; i < arr.length; i++) {)\n8. SliceControlDependency at L029: control predicate over arr, i, x, delta (if (arr[i] != x))\n9. SliceAssignment: assignment/update influencing ans\n10. SliceMethodCall at L031: method call Math.abs in static data/control context (ans += Math.abs(delta);)",
+    "max_elements": 24,
+    "mechanism": "artifact_conditioned_natural_language_instruction_only",
+    "mode": "slice",
+    "parse_status": "javalang",
+    "prompt_items": [
+      "MethodDeclaration at L021: target method fun(x, arr) (static int fun(int x, long[] arr) {)",
+      "SliceMethodParameter at L021: method parameter x (static int fun(int x, long[] arr) {)",
+      "SliceMethodParameter at L021: method parameter arr (static int fun(int x, long[] arr) {)",
+      "SliceReturnValue at L034: return value expression using ans (return ans;)",
+      "SliceControlDependency at L022: control predicate over _obf_t5_fun_293286 (if (((3 * 3) - 9) != 0) {)",
+      "SliceDefinition at L026: definition of ans (int ans = 0;)",
+      "SliceControlDependency at L028: control predicate over i, length, arr, x, delta, ans, Math, abs (for (int i = 0; i < arr.length; i++) {)",
+      "SliceControlDependency at L029: control predicate over arr, i, x, delta (if (arr[i] != x))",
+      "SliceAssignment: assignment/update influencing ans",
+      "SliceMethodCall at L031: method call Math.abs in static data/control context (ans += Math.abs(delta);)"
+    ],
+    "recorded_target_method": "fun",
+    "target_method": "fun"
+  },
+  "prompt_sha256": "f37008edc6267504d1700c21a11a25de5ad0472de0bc7e7217a00809bcc2943a",
+  "protocol_version": "long-code-output-v1",
+  "sample_id": "cc-valid-r045-s0246-1556-b-take-your-places__t5_easy_seed1__supp-private-002",
+  "source_kind": "obfuscated",
+  "source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r045-s0246-1556-b-take-your-places/variants/T5_bogus_control_flow/easy/seed_1/Main.java",
+  "steering": null,
+  "target_method": "fun",
+  "token_preflight": {
+    "context_limit": 131072,
+    "context_margin_tokens": 126848,
+    "fits_context": true,
+    "max_new_tokens": 512,
+    "prompt_sha256": "f37008edc6267504d1700c21a11a25de5ad0472de0bc7e7217a00809bcc2943a",
+    "prompt_token_count": 3712
+  },
+  "trial": 3
+}

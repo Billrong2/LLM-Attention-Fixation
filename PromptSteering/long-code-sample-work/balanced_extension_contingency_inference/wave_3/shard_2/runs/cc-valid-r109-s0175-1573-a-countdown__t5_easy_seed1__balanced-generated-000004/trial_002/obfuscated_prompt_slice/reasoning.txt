@@ -1,0 +1,21 @@
+// Prompt-only steering guidance (Program Slicing / backward slice, artifact-conditioned):
+// Use the following static program-analysis elements as the main reasoning anchors.
+// These elements are static only; they do not reveal the correct output, branch outcomes, or gold execution trace.
+
+// Static elements to emphasize:
+// 1. MethodDeclaration at L133: target method find(n, ch) (public static int find(int n, char[] ch))
+// 2. SliceMethodParameter at L133: method parameter n (public static int find(int n, char[] ch))
+// 3. SliceMethodParameter at L133: method parameter ch (public static int find(int n, char[] ch))
+// 4. SliceReturnValue at L144: return value expression using moves (return moves;)
+// 5. SliceDefinition at L136: definition of moves (int moves = 0;)
+// 6. SliceAssignment: assignment/update influencing moves
+// 7. SliceControlDependency at L139: control predicate over i, n, ch, moves (for(int i=0;i<n-1;i++))
+// 8. SliceControlDependency at L141: control predicate over ch, i, moves (if(ch[i]-'0'>0))
+
+// Predict the exact standard output of this deterministic Java program for the concrete case below. The recorded algorithm method is `find`. This is output prediction, not code generation.
+// ### CASES_BEGIN
+// c001: invoke program entry point; target_method=find; stdin="7\n3\n007\n4\n1010\n5\n00000\n3\n103\n4\n1247\n9\n123456789\n30\n001678294039710047203946100020\n"; argv=[]
+// ### CASES_END
+
+// Give concise reasoning that tracks only state and control flow needed for the output. Then end with exactly one machine-readable line in this form:
+//

@@ -1,0 +1,23 @@
+To predict the exact standard output of this deterministic Java program for the given concrete case, we will follow the program's execution step by step:
+
+1. The program initializes a `FastReader` object and reads the number of test cases, which is `3`.
+2. For each test case, the program reads the number of digits `n` and the input string of digits `ch`.
+3. The program calls the `find` method with `n` and `ch`.
+4. The `find` method counts the number of moves required to reach the end of the array:
+    - It starts by adding `ch[n-1]-'0'` to `moves`, where `ch[n-1]` is the last digit of the input string.
+    - Then, it iterates through the first `n-1` digits of `ch` and adds `ch[i]-'0'+1` to `moves` for each digit `ch[i]` greater than `0`.
+5. The `find` method returns the total number of moves.
+6. The program writes the result of each test case to `out` and closes it at the end.
+
+Now, let's predict the output for each test case:
+
+1. For `n=3` and `ch="007"`, `moves` is calculated as `0 + (0 + 1) + (0 + 1) + (7 - '0') = 9`.
+2. For `n=5` and `ch="00000"`, `moves` is calculated as `0 + (0 + 1) + (0 + 1) + (0 + 1) + (0 + 1) + (0 + 1) = 5`.
+3. For `n=3` and `ch="143"`, `moves` is calculated as `1 + (4 - '0') + (3 - '0') = 8`.
+
+So, the exact output of the program for the given input is:
+```
+9
+5
+8
+```

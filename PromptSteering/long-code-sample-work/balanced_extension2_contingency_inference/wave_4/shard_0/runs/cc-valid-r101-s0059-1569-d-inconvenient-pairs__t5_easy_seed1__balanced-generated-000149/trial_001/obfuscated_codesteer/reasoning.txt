@@ -1,0 +1,33 @@
+### Explanation
+
+1. The `main` method starts by parsing the input and calling the `solve` method with the parsed inputs.
+2. The `solve` method initializes sets and lists for the given inputs.
+3. It sorts these lists based on their first element.
+4. It then iterates over these sorted lists to update a hash map and a sum.
+5. It calculates the final result by iterating over the sorted lists again.
+
+### Control Flow and State Tracking
+
+1. **Input Initialization**:
+   - `t` is read from input.
+   - For each test case, `n`, `m`, and `k` are read.
+   - Arrays `yline`, `xline`, `px`, and `py` are populated based on input.
+
+2. **Set Initialization and Sorting**:
+   - Sets and lists are initialized with elements from the arrays.
+   - Lists are sorted based on their first element (`x` for `xlist` and `y` for `ylist`).
+
+3. **HashMap and Sum Initialization**:
+   - HashMaps (`mapx` and `mapy`) and sums (`sumx` and `sumy`) are cleared and initialized as needed.
+
+4. **Iteration and Calculation**:
+   - The `solve` function iterates over the sorted lists, updating the sums and the HashMaps.
+   - It calculates the total sum by iterating over the lists again and applying the necessary adjustments.
+
+5. **Result Output**:
+   - The final result is returned from the `solve` function.
+
+### Final Output
+Given the input `"1\n2 2 0\n0 1011000\n1 1000000\n1556 1010000\n0 14"`, the program processes it and computes the result based on the provided logic.
+
+### Final Output JSON

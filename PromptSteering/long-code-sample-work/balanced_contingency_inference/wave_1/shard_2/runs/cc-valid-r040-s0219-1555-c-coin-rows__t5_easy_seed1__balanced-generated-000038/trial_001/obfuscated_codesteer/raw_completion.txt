@@ -1,0 +1,66 @@
+ To determine the exact standard output of the given Java program, we need to follow these steps:
+
+1. **Parse the Input**: The program reads the number of test cases (`t`), the size of each array (`m`), and the elements of the arrays `arr1` and `arr2`.
+2. **Process Each Test Case**: For each test case, the program calculates the result using the `game` method.
+3. **Print the Result**: The result is printed for each test case.
+
+Let's break down the process step-by-step:
+
+### Step-by-Step Process
+
+1. **Reading Input**:
+   - Read the number of test cases: `3`
+   - For each test case:
+     - Read the size of the array: `3` (for the first case)
+
+2. **Processing the First Test Case**:
+   - Read the first array elements: `-1 1 0`
+   - Read the second array elements: `2 0 -1`
+
+3. **Calculating the Result for the First Test Case**:
+   - The `game` method processes these arrays and returns the minimum value.
+   - Initialize `dp` arrays with zeros.
+   - Fill `dp[0]` with the cumulative sums of `arr2` except for the first element.
+   - Fill `dp[1]` with the cumulative sums of `arr1` except for the last element.
+   - Find the minimum maximum value between `dp[0]` and `dp[1]`.
+
+4. **Printing the Result for the First Test Case**:
+   - The result is printed: `2`
+
+5. **Repeating for the Second and Third Test Cases**:
+   - Similar steps are followed for the second and third test cases.
+
+### Final Output
+
+Given the input:
+```
+3
+3
+-1 1 0
+2 0 -1
+3
+2 6 0
+4 2 0
+1
+0
+8
+```
+
+The output for each test case is:
+```
+2
+4
+0
+```
+
+### Machine-Readable Output
+
+The final output in JSON format is:
+```json
+{"stdout":"2\n4\n0\n"}
+```
+
+Thus, the final output is:
+```json
+FINAL_OUTPUT_JSON: {"stdout":"2\n4\n0\n"}
+```

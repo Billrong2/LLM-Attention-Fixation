@@ -1,0 +1,20 @@
+ ### Reasoning
+
+The code reads an input from `stdin` containing multiple test cases. For each test case, it performs the following steps:
+- Reads the number of rows `m`.
+- Reads the input strings `arr1` and `arr2`.
+- Calls the `game` method with the input strings and the number of rows `m`.
+- Prints the result of the `game` method.
+
+The `game` method works as follows:
+- Initializes two integer arrays `dp[2][m]` with zeros.
+- For each row `i` from 1 to `m`, adds the corresponding integer from `arr2` to `dp[0][i]`.
+- For each row `i` from 1 to `m`, adds the corresponding integer from `arr1` to `dp[1][m-1-i]`.
+- Initializes a variable `min` with a large value.
+- Iterates over all rows `i` from 0 to `m` and updates `min` with the maximum value of `dp[0][i]` and `dp[1][i]`.
+- Returns the minimum value found.
+
+### Final Output JSON
+```json
+FINAL_OUTPUT_JSON: {"stdout":"7\n9\n"}
+```

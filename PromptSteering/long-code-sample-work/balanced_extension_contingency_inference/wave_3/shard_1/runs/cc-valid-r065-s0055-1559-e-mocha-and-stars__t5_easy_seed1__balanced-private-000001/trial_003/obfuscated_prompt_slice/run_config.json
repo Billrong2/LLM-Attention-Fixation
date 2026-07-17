@@ -1,0 +1,183 @@
+{
+  "activation_steering": false,
+  "codesteer_prior_preflight": null,
+  "condition": "obfuscated_prompt_slice",
+  "fingerprint": "642446c1a1ccb2882741fbd1271ca5266a3ecbff1d3562c435a3fc7f1851f6d4",
+  "generation": {
+    "do_sample": true,
+    "max_new_tokens": 512,
+    "temperature": 1.05,
+    "top_k": 7,
+    "top_p": 0.95
+  },
+  "manifest_sha256": "7fd17e066435e279196ddf243bbe6ae04a2ba30d48f86e1974eddee1d577dbf0",
+  "model_name": "Qwen/Qwen2.5-14B",
+  "model_snapshot_commit": "97e1e76335b7017d8f67c08a19d103c0504298c9",
+  "obfuscated_sha256": "a2a17e2e739c93c4ac88b89653804262d0d3433e30a265c0a623bb2e9bada396",
+  "original_sha256": "38e6ede3b550a067d9ef8be8538179cd1a0603ad7fd32aae1d422332f5fdf843",
+  "paired_design": "same seed for all four conditions in this sample/trial",
+  "paired_seed": 1542722122,
+  "prompt_metadata": {
+    "artifact_name": "Program Slicing / backward slice",
+    "elements": [
+      {
+        "code": "public static long ans(int max, int[][] intervals, int sum) {",
+        "description": "target method ans(max, intervals, sum)",
+        "kind": "MethodDeclaration",
+        "line": 69,
+        "line_label": "L069"
+      },
+      {
+        "code": "public static long ans(int max, int[][] intervals, int sum) {",
+        "description": "method parameter max",
+        "kind": "SliceMethodParameter",
+        "line": 69,
+        "line_label": "L069"
+      },
+      {
+        "code": "public static long ans(int max, int[][] intervals, int sum) {",
+        "description": "method parameter intervals",
+        "kind": "SliceMethodParameter",
+        "line": 69,
+        "line_label": "L069"
+      },
+      {
+        "code": "public static long ans(int max, int[][] intervals, int sum) {",
+        "description": "method parameter sum",
+        "kind": "SliceMethodParameter",
+        "line": 69,
+        "line_label": "L069"
+      },
+      {
+        "code": "return 0;",
+        "description": "return value expression",
+        "kind": "SliceReturnValue",
+        "line": 75,
+        "line_label": "L075"
+      },
+      {
+        "code": "return finalSum;",
+        "description": "return value expression using finalSum",
+        "kind": "SliceReturnValue",
+        "line": 109,
+        "line_label": "L109"
+      },
+      {
+        "code": "if (((3 * 3) - 9) != 0) {",
+        "description": "control predicate over _obf_t5_ans_232736",
+        "kind": "SliceControlDependency",
+        "line": 70,
+        "line_label": "L070"
+      },
+      {
+        "code": "if (sum > max)",
+        "description": "control predicate over sum, max",
+        "kind": "SliceControlDependency",
+        "line": 74,
+        "line_label": "L074"
+      },
+      {
+        "code": "for (int j = 0;j<intervals.length;j++){",
+        "description": "control predicate over j, length, intervals, max, sum, k, val, cumSum, num, mod, prev",
+        "kind": "SliceControlDependency",
+        "line": 78,
+        "line_label": "L078"
+      },
+      {
+        "code": "for (int k = max-sum;k >= max(0, max-sum-val);k--)",
+        "description": "control predicate over max, sum, k, val, cumSum, num",
+        "kind": "SliceControlDependency",
+        "line": 90,
+        "line_label": "L090"
+      },
+      {
+        "code": "for (int k = max-sum;k >= max(0, max-sum-val);k--)",
+        "description": "method call max in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 90,
+        "line_label": "L090"
+      },
+      {
+        "code": "for (int k = max-sum;k>=0;k--){",
+        "description": "control predicate over max, sum, k, num, cumSum, mod, prev, val",
+        "kind": "SliceControlDependency",
+        "line": 92,
+        "line_label": "L092"
+      },
+      {
+        "code": "if (k >= val+1)",
+        "description": "control predicate over k, val, cumSum, num",
+        "kind": "SliceControlDependency",
+        "line": 97,
+        "line_label": "L097"
+      },
+      {
+        "code": "long finalSum = 0;",
+        "description": "definition of finalSum",
+        "kind": "SliceDefinition",
+        "line": 104,
+        "line_label": "L104"
+      },
+      {
+        "code": "for(int j = 0;j<=max-sum;j++){",
+        "description": "control predicate over j, max, sum, finalSum, num, mod",
+        "kind": "SliceControlDependency",
+        "line": 105,
+        "line_label": "L105"
+      },
+      {
+        "code": "",
+        "description": "assignment/update influencing finalSum",
+        "kind": "SliceAssignment",
+        "line": null,
+        "line_label": ""
+      }
+    ],
+    "eligible_count_is_lower_bound": false,
+    "eligible_element_count": 16,
+    "emitted_element_count": 16,
+    "emitted_over_eligible": 1.0,
+    "enabled": true,
+    "guidance_text": "Prompt-only steering guidance (Program Slicing / backward slice, artifact-conditioned):\nUse the following static program-analysis elements as the main reasoning anchors.\nThese elements are static only; they do not reveal the correct output, branch outcomes, or gold execution trace.\n\nStatic elements to emphasize:\n1. MethodDeclaration at L069: target method ans(max, intervals, sum) (public static long ans(int max, int[][] intervals, int sum) {)\n2. SliceMethodParameter at L069: method parameter max (public static long ans(int max, int[][] intervals, int sum) {)\n3. SliceMethodParameter at L069: method parameter intervals (public static long ans(int max, int[][] intervals, int sum) {)\n4. SliceMethodParameter at L069: method parameter sum (public static long ans(int max, int[][] intervals, int sum) {)\n5. SliceReturnValue at L075: return value expression (return 0;)\n6. SliceReturnValue at L109: return value expression using finalSum (return finalSum;)\n7. SliceControlDependency at L070: control predicate over _obf_t5_ans_232736 (if (((3 * 3) - 9) != 0) {)\n8. SliceControlDependency at L074: control predicate over sum, max (if (sum > max))\n9. SliceControlDependency at L078: control predicate over j, length, intervals, max, sum, k, val, cumSum, num, mod, prev (for (int j = 0;j<intervals.length;j++){)\n10. SliceControlDependency at L090: control predicate over max, sum, k, val, cumSum, num (for (int k = max-sum;k >= max(0, max-sum-val);k--))\n11. SliceMethodCall at L090: method call max in static data/control context (for (int k = max-sum;k >= max(0, max-sum-val);k--))\n12. SliceControlDependency at L092: control predicate over max, sum, k, num, cumSum, mod, prev, val (for (int k = max-sum;k>=0;k--){)\n13. SliceControlDependency at L097: control predicate over k, val, cumSum, num (if (k >= val+1))\n14. SliceDefinition at L104: definition of finalSum (long finalSum = 0;)\n15. SliceControlDependency at L105: control predicate over j, max, sum, finalSum, num, mod (for(int j = 0;j<=max-sum;j++){)\n16. SliceAssignment: assignment/update influencing finalSum",
+    "max_elements": 24,
+    "mechanism": "artifact_conditioned_natural_language_instruction_only",
+    "mode": "slice",
+    "parse_status": "javalang",
+    "prompt_items": [
+      "MethodDeclaration at L069: target method ans(max, intervals, sum) (public static long ans(int max, int[][] intervals, int sum) {)",
+      "SliceMethodParameter at L069: method parameter max (public static long ans(int max, int[][] intervals, int sum) {)",
+      "SliceMethodParameter at L069: method parameter intervals (public static long ans(int max, int[][] intervals, int sum) {)",
+      "SliceMethodParameter at L069: method parameter sum (public static long ans(int max, int[][] intervals, int sum) {)",
+      "SliceReturnValue at L075: return value expression (return 0;)",
+      "SliceReturnValue at L109: return value expression using finalSum (return finalSum;)",
+      "SliceControlDependency at L070: control predicate over _obf_t5_ans_232736 (if (((3 * 3) - 9) != 0) {)",
+      "SliceControlDependency at L074: control predicate over sum, max (if (sum > max))",
+      "SliceControlDependency at L078: control predicate over j, length, intervals, max, sum, k, val, cumSum, num, mod, prev (for (int j = 0;j<intervals.length;j++){)",
+      "SliceControlDependency at L090: control predicate over max, sum, k, val, cumSum, num (for (int k = max-sum;k >= max(0, max-sum-val);k--))",
+      "SliceMethodCall at L090: method call max in static data/control context (for (int k = max-sum;k >= max(0, max-sum-val);k--))",
+      "SliceControlDependency at L092: control predicate over max, sum, k, num, cumSum, mod, prev, val (for (int k = max-sum;k>=0;k--){)",
+      "SliceControlDependency at L097: control predicate over k, val, cumSum, num (if (k >= val+1))",
+      "SliceDefinition at L104: definition of finalSum (long finalSum = 0;)",
+      "SliceControlDependency at L105: control predicate over j, max, sum, finalSum, num, mod (for(int j = 0;j<=max-sum;j++){)",
+      "SliceAssignment: assignment/update influencing finalSum"
+    ],
+    "recorded_target_method": "ans",
+    "target_method": "ans"
+  },
+  "prompt_sha256": "547466d2e833b78e865bb098e86800d56749102d781895e12eb1d905e899917f",
+  "protocol_version": "long-code-output-v1",
+  "sample_id": "cc-valid-r065-s0055-1559-e-mocha-and-stars__t5_easy_seed1__balanced-private-000001",
+  "source_kind": "obfuscated",
+  "source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r065-s0055-1559-e-mocha-and-stars/variants/T5_bogus_control_flow/easy/seed_1/EdC.java",
+  "steering": null,
+  "target_method": "ans",
+  "token_preflight": {
+    "context_limit": 131072,
+    "context_margin_tokens": 125498,
+    "fits_context": true,
+    "max_new_tokens": 512,
+    "prompt_sha256": "547466d2e833b78e865bb098e86800d56749102d781895e12eb1d905e899917f",
+    "prompt_token_count": 5062
+  },
+  "trial": 3
+}

@@ -1,0 +1,27 @@
+
+
+
+### CASE c001
+1. Method `find` takes two parameters: `int n` (number) and `char[] ch` (input string).
+2. It calculates `moves` based on the characters in `ch`.
+3. For each character in `ch`, if it's greater than '0', `moves` is incremented by the character's value plus one.
+4. `moves` for the last character is calculated separately and added to the total.
+
+#### Analysis
+- `n` = 7
+- `ch` = "3\n007\n4\n0000\n5\n00010\n3\n103\n4\n2020\n9\n123456789\n30\n001678294039710047203946100020"
+- `moves` calculation:
+  - For the first line: "3", moves = 3
+  - For the second line: "007", moves = 0 + 7 = 7
+  - For the third line: "4", moves = 4
+  - For the fourth line: "0000", moves = 0 + 0 + 0 + 0 = 0
+  - For the fifth line: "5", moves = 5
+  - For the sixth line: "00010", moves = 0 + 0 + 0 + 1 + 1 = 2
+  - For the seventh line: "3", moves = 3
+  - For the eighth line: "103", moves = 1 + 1 + 1 + 1 = 4
+  - For the ninth line: "4", moves = 4
+  - For the tenth line: "2020", moves = 2 + 1 + 2 + 1 = 6
+  - For the eleventh line: "9", moves = 9
+  - For the twelfth line: "123456789", moves = 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 = 45
+  - For the thirteenth line: "30", moves = 30
+  - For

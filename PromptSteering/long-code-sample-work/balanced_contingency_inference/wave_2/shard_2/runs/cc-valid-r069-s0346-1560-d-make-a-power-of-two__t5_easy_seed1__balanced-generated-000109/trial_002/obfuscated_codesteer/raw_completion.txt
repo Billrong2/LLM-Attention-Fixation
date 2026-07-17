@@ -1,0 +1,38 @@
+ To predict the exact standard output of the given Java program for the provided input, we need to understand the logic and flow of the program. The main method reads the number of test cases and for each case, it calls the `buscarGreedy` method which computes the minimum difference between the given number and the closest power of 2 using the `comparar` method.
+
+Let's break down the steps:
+
+1. **Reading Input**: The program reads an integer `casos` which represents the number of test cases. For each test case, it reads a number.
+
+2. **Processing Each Case**: For each test case, the program calls the `buscarGreedy` method with the number as an argument.
+
+3. **Calculating the Result**: The `buscarGreedy` method takes a string representing a number and returns the minimum number of digits to add or remove to make the number a power of 2.
+
+4. **Printing the Result**: The result from `buscarGreedy` is printed as the output for each test case.
+
+### Detailed Analysis:
+
+- **Input**: "1\n103635\n"
+  - The first line indicates there is 1 test case.
+  - The second line is the number "103635" for which we need to find the minimum number of digits to change to make it a power of 2.
+
+### Steps in `buscarGreedy`:
+1. Initialize a variable `pot` to 1.
+2. Iterate up to 62 times (since \(2^{62}\) is a large number but manageable).
+3. Convert the current power of 2 (`pot`) to a string.
+4. Use the `comparar` function to compare the length difference between the current power of 2 and the given number.
+5. Keep track of the minimum difference.
+
+### `comparar` Function:
+This function compares two strings character by character and returns the number of differences needed to make them equal.
+
+### Output Calculation:
+For the number "103635":
+- The closest power of 2 is 1048576.
+- Comparing "103635" with "1048576" shows the minimum number of changes required.
+
+### Final Output:
+The program prints the minimum number of changes for each test case.
+
+### Conclusion:
+Given the input "1\n103635\n", the output will be the minimum number of changes

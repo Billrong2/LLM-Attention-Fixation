@@ -1,0 +1,27 @@
+ The given Java program takes input from the standard input (stdin) and processes it to solve a problem related to counting the number of pairs that can be formed from two sets of integers, with some constraints. The output is written to the standard output (stdout).
+
+The input format is as follows:
+
+* The first line contains a single integer `t`, which represents the number of test cases.
+* For each test case, the following lines describe the problem:
+	+ The first line contains three integers `n`, `m`, and `k`.
+	+ The second line contains `n` space-separated integers representing the `y` coordinates of points on a grid.
+	+ The third line contains `m` space-separated integers representing the `x` coordinates of points on a grid.
+	+ The fourth line contains `k` space-separated pairs of integers, where each pair represents a point on the grid.
+
+The output format is as follows:
+
+* For each test case, a single line containing the result of the computation.
+
+In the given test case, we have `t=1` test case. The test case has the following inputs:
+
+* `n=2`, `m=2`, `k=2`
+* `yline=[1556, 1000000]`
+* `xline=[1000000, 1010000]`
+* `px=[0, 14]`, `py=[1010000, 1000000]`
+
+The program will read this input, process it, and print the result. The result is calculated by iterating over the `xlist` and `ylist` lists, which contain pairs of `(x, y)` coordinates. For each pair in the list, the program checks if the `y` coordinate is in the `xlist` and the `x` coordinate is in the `ylist`. If both conditions are true, the program adds the current pair to the `mapx` and `mapy` maps and updates the `sumx` and `sumy` variables. Finally, the program returns the total number of pairs that satisfy the conditions.
+
+The expected output for this case is: 1
+
+FINAL_OUTPUT_JSON: {"stdout":"1\n"}

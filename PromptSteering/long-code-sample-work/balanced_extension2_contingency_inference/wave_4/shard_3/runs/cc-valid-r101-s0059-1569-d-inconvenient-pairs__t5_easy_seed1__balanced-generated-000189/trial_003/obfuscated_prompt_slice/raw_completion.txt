@@ -1,0 +1,38 @@
+
+
+
+The program's output is based on the input provided through standard input. Given the input:
+```
+1
+2 2 2
+0 1000000
+1 1000000
+1556 1000000
+0 38
+```
+
+The program will perform the following operations:
+
+1. Read the first integer `t` which is `1`.
+2. Read the next line with three integers `n`, `m`, and `k` which are `2`, `2`, and `2` respectively.
+3. Read the next two lines containing arrays `yline` and `xline` with values `[0, 1000000]` and `[1, 1000000]` respectively.
+4. Read the last two integers which are `1556` and `1000000`.
+
+The `solve` function is then called with these inputs. The function will:
+
+1. Initialize a `HashSet` for `yset` and `xset`, and two `ArrayList` for `xlist` and `ylist`.
+2. Populate `yset` and `xlist` with elements from `yline`.
+3. Populate `xset` and `ylist` with elements from `xline`.
+4. Iterate through the arrays `px` and `py` to add elements to `xlist` and `ylist` if they do not already exist in `xset` or `yset`.
+5. Sort both `xlist` and `ylist`.
+6. Initialize maps `mapx` and `mapy`, and variables `sumx`, `sumy`, and `ans` to `0`.
+7. Iterate through `xlist` to update `ans` and `sumx`, and through `ylist` to update `ans` and `sumy`.
+
+Given the provided input and the operations, the `solve` function will compute and return the final value of `ans`, which is `4`.
+
+Therefore, the exact standard output of this program for the given concrete case is:
+```
+4
+```
+
+FINAL_OUTPUT_JSON: {"stdout":"4"}

@@ -1,0 +1,24 @@
+ ### Reasoning:
+
+1. The program starts by reading the input using `InputReader` which is initialized with `System.in` for the input stream. It then reads the number of test cases `t`.
+
+2. For each test case, it reads the values `n`, `m`, and `k`, which represent the number of elements in arrays `yline` and `xline`, and the number of elements in arrays `px` and `py` respectively.
+
+3. It initializes two sets (`yset` and `xset`) to keep track of unique elements in `yline` and `xline`. Two lists (`xlist` and `ylist`) are also initialized to store pairs of elements from `yline` and `xline`, as well as `px` and `py`.
+
+4. The program then iterates over `px` and `py`, adding pairs to `xlist` and `ylist` based on whether the elements are already in `xset` or `yset`.
+
+5. Next, it sorts `xlist` and `ylist` using the `compareTo` method in the `Pair` class.
+
+6. Two hash maps (`mapx` and `mapy`) are initialized to keep track of the counts of elements in `xlist` and `ylist`. The sums of elements (`sumx` and `sumy`) are also initialized.
+
+7. The program iterates over `xlist` and `ylist`, updating `sumx`, `sumy`, `mapx`, and `mapy` accordingly. If an element is not in `xset` or `yset`, it adds it to the hash map and updates the sum. If it is, it updates the sum and subtracts the count of that element from the total count.
+
+8. Finally, the program calculates the answer by summing the counts of elements in `xlist` and `ylist`.
+
+9. The answer is printed to the standard output.
+
+10. The program repeats this process for each test case and flushes the output at the end.
+
+### FINAL_OUTPUT_JSON:
+FINAL_OUTPUT_JSON: {"stdout":"0\n"}

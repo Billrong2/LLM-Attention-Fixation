@@ -1,0 +1,38 @@
+CASES:
+CASES_BEGIN
+c001: invoke program entry point; target_method=pawnLineal; stdin="1\n20\n01101100000111000000\n00101110011010001110\n"; argv=[]
+### CASES_END
+
+To predict the exact standard output of the `pawnLineal` method for the given case, we need to follow the logic of the `pawnLineal` method and understand how it processes the input strings.
+
+### Step-by-Step Reasoning:
+
+1. **Input Processing:**
+   - The input is processed in the `main` method.
+   - The first line reads the number of cases, which is `1`.
+   - The second line reads the length of the strings, which is `20`.
+   - The third line reads the source string: `01101100000111000000`.
+   - The fourth line reads the destination string: `00101110011010001110`.
+
+2. **Processing the Strings:**
+   - The `pawnLineal` method is called with the strings:
+     ```java
+     String scr = "01101100000111000000";
+     String dst = "00101110011010001110";
+     ```
+   - The strings are prepended and appended with "0":
+     ```java
+     scr = "0011011000001110000000";
+     dst = "0001011100110100011100";
+     ```
+
+3. **Iterating through the Strings:**
+   - The loop iterates from `1` to `20` (the length of the strings minus `1`):
+     ```java
+     for (int i = 1; i < 20; i++) {
+     ```
+   - For each iteration, the character at position `i` of `scr` is checked:
+     ```java
+     if (scr.charAt(i) == '1') {
+     ```
+     - If the character is '1',

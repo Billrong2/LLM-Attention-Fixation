@@ -1,0 +1,23 @@
+
+
+
+The program starts by taking the input values for the number of test cases, dimensions of the arrays, and the coordinates of the points to be connected. Then it calls the solve function, which performs the main computation and returns the output. 
+
+The solve function first creates sets of y and x coordinates of the lines and points. It then iterates through the sorted lists of pairs and calculates the number of intersections between the lines and points. It returns the total number of intersections as the output. 
+
+In this concrete case, the input values are:
+t = 1
+n = 2
+m = 2
+k = 2
+yline = [2, 2]
+xline = [2, 2]
+px = [0, 0]
+py = [1010000, 1000000]
+
+The output of the program is:
+0
+
+FINAL_OUTPUT_JSON: {"stdout":"0\n"}
+
+The solve function calculates the number of intersections between the lines and points, but in this case, none of the lines intersect with any of the points.

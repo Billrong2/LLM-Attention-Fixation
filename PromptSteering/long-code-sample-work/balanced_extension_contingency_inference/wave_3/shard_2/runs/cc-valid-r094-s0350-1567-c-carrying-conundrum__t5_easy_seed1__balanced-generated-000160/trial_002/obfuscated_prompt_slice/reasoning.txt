@@ -1,0 +1,8 @@
+java
+The program takes an input string and calculates the number of binary numbers that can be formed using the input string as a base. The binary numbers must start with the digit '1', and the input string can contain any digit from 0 to 9. The program uses dynamic programming to calculate the number of binary numbers that can be formed.
+
+The input string is first converted into an array of characters. Then, the `eval` method is called with the initial parameters `0` and `0` to calculate the number of binary numbers that can be formed using the input string.
+
+The `eval` method calculates the number of binary numbers that can be formed using the remaining input string. It uses a 2D array `dp` to store the results of subproblems, where `dp[i][j]` stores the number of binary numbers that can be formed using the remaining input string starting from index `i` and with a carry of `j`. The `eval` method recursively calls itself with updated parameters to calculate the number of binary numbers that can be formed using the remaining input string.
+
+The `eval` method returns the calculated result. The main method then prints the result using the `PrintWriter` object.

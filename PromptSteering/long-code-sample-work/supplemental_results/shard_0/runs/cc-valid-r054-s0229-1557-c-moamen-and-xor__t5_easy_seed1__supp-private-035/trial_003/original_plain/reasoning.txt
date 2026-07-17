@@ -1,0 +1,23 @@
+The Java program provided is a solution to a problem involving dynamic programming and modular arithmetic. The main method iterates over a given number of test cases (`T`), and for each test case, it calculates and prints the result of a recursive function `cal` with specific parameters.
+
+Here's the breakdown of the process for the given input `1\n1 0`:
+
+1. **Initialization**:
+   - `T = 1`: There's one test case.
+   - For the first test case:
+     - `n = 1` (from `in.nextInt()`)
+     - `k = 0` (from `in.nextInt()`)
+   - `pow = pow(2, 1) = 2`
+   - `other = pow(2, 0) = 1`
+   - Since `n % 2 == 1`, `other += 1` making `other = 2`
+
+2. **Initialization of DP array**:
+   - `dp` is initialized as a 2D array with `-1` values.
+
+3. **Calling `cal` function**:
+   - `cal(k - 1, 0, n, pow, other)` is called which simplifies to `cal(-1, 0, 1, 2, 2)`.
+
+4. **Execution of `cal` function**:
+   - The base case `index < 0` is hit and it returns `1`.
+
+Thus, the program prints `1` for the given input.

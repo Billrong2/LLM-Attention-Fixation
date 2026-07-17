@@ -1,0 +1,12 @@
+CASES_BEGIN
+c001: invoke program entry point; target_method=fun; stdin="1\n7\n5 9 0 5 3 4 4\n"; argv=[]
+### CASES_END
+
+1. The input is read in the main method.
+2. The first integer `test` (1) is read.
+3. The second integer `n` (7) is read.
+4. The array `a` is initialized with size 7.
+5. The next 7 integers are read and stored in the array `a` as: [1, 1, 0, 1, 1, 0, 0]
+6. The integers in the array `a` are converted to binary: [1, 1, 0, 1, 1, 0, 0]
+7. The number of 0s and 1s in the array `a` is counted: f[0] = 3, f[1] = 4
+8. Since the difference between f[0] and f[1] is 1, the program prints "-1" and ends.

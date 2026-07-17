@@ -1,0 +1,479 @@
+{
+  "argv": [],
+  "metadata": {
+    "argv": [],
+    "balanced_contingency_selection": {
+      "canonical_problem_identity": "deepmind/code_contests@802411c3010cb00d1b05bad57ca77365a3c699d6:valid:row-000086",
+      "protocol": "../BALANCED_CONTINGENCY_PROTOCOL.md",
+      "schema_version": "long-code-balanced-contingency-v1",
+      "selected_source_rule": "first tokenizer-eligible frozen source in prepared-variant manifest order",
+      "source_denominator_unchanged": true,
+      "wave_id": "balanced_wave_2"
+    },
+    "candidate_id": "cc-valid-r086-s0131-1566-c-max-mex-cut",
+    "candidate_metadata": {
+      "expected_stdout": "8\n8\n2\n9\n",
+      "expected_stdout_path": "candidates/cc-valid-r086-s0131-1566-c-max-mex-cut/io/00-generated-022.out",
+      "id": "cc-valid-r086-s0131-1566-c-max-mex-cut",
+      "input": "4\n7\n0101000\n1101100\n5\n01001\n10101\n2\n01\n01\n6\n000000\n001101\n",
+      "input_path": "candidates/cc-valid-r086-s0131-1566-c-max-mex-cut/io/00-generated-022.in",
+      "inputs": [
+        {
+          "dataset_test_index": 22,
+          "expected_stdout": "8\n8\n2\n9\n",
+          "expected_stdout_path": "candidates/cc-valid-r086-s0131-1566-c-max-mex-cut/io/00-generated-022.out",
+          "expected_stdout_sha256": "120954cac8dfb1a50d2832d3e036c4e826dd672c79166260f0c0652c96811425",
+          "id": "00-generated-022",
+          "input": "4\n7\n0101000\n1101100\n5\n01001\n10101\n2\n01\n01\n6\n000000\n001101\n",
+          "input_path": "candidates/cc-valid-r086-s0131-1566-c-max-mex-cut/io/00-generated-022.in",
+          "input_sha256": "380ac2add464ae3d1efd872eec6de6ac33cc45688f74e3ae78937c637dde7283",
+          "suite": "generated_tests",
+          "validation": {
+            "compiled_with_jdk17": true,
+            "exit_code": 0,
+            "stderr_bytes": 0,
+            "timed_out": false
+          }
+        }
+      ],
+      "loc_definition": "Python str.splitlines(); final newline does not add an empty physical line",
+      "main_class": "C_Global_Round16",
+      "nonblank_loc": 245,
+      "original_path": "candidates/cc-valid-r086-s0131-1566-c-max-mex-cut/original.java",
+      "physical_loc": 290,
+      "prevalidation": {
+        "all_retained_tests_exact": true,
+        "compiled": true,
+        "compiler_exit_code": 0,
+        "compiler_stderr_bytes": 0,
+        "compiler_stdout_bytes": 0,
+        "jdk_major": 17
+      },
+      "problem_key": "codeforces-1566-C",
+      "problem_name": "1566_C. MAX-MEX Cut",
+      "provenance": {
+        "cf_contest_id": 1566,
+        "cf_index": "C",
+        "cf_points": 1000.0,
+        "cf_rating": 1000,
+        "cf_tags": [
+          "bitmasks",
+          "constructive algorithms",
+          "dp",
+          "greedy"
+        ],
+        "dataset_file": "codecontests-valid-802411c3.parquet",
+        "dataset_file_sha256": "02e8c1ccedae716f1e43cc813fcb7823c3db666ea92638820aba80e8cef451ab",
+        "dataset_id": "deepmind/code_contests",
+        "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+        "dataset_url": "https://huggingface.co/datasets/deepmind/code_contests/resolve/802411c3010cb00d1b05bad57ca77365a3c699d6/data/valid-00000-of-00001-5e672c5751f060d3.parquet",
+        "difficulty": 9,
+        "language": "Java",
+        "language_code": 4,
+        "problem_name": "1566_C. MAX-MEX Cut",
+        "row_index": 86,
+        "solution_container": "solutions",
+        "solution_index": 131,
+        "solution_label": "correct human solution",
+        "source_code": 2,
+        "split": "valid"
+      },
+      "source_bytes": 7361,
+      "source_sha256": "3b2c546a718cf6d11c2926c175b85c80f1331094673f55b19e8f58be275198ac",
+      "target": {
+        "arity": 3,
+        "body_nonblank_loc": 23,
+        "body_physical_loc": 24,
+        "class": "C_Global_Round16",
+        "codesteer_selector": {
+          "declaration_line": 66,
+          "fallback_used": false,
+          "implementation": "steering.priors.SlicingPrior._select_target_method",
+          "name": "cal",
+          "parameter_count": 3,
+          "parse_status": "javalang",
+          "top_level_body_statement_count": 5
+        },
+        "control_node_count": 6,
+        "end_line": 89,
+        "loop_node_count": 0,
+        "main_call_path": [
+          {
+            "arity": 1,
+            "class": "C_Global_Round16",
+            "end_line": 64,
+            "name": "main",
+            "parameter_types": [
+              "String[]"
+            ],
+            "return_type": "void",
+            "start_line": 37
+          },
+          {
+            "arity": 3,
+            "class": "C_Global_Round16",
+            "end_line": 89,
+            "name": "cal",
+            "parameter_types": [
+              "int",
+              "int",
+              "int[][]"
+            ],
+            "return_type": "int",
+            "start_line": 66
+          }
+        ],
+        "main_reachable": true,
+        "name": "cal",
+        "output_caller": {
+          "arity": 1,
+          "class": "C_Global_Round16",
+          "end_line": 64,
+          "name": "main",
+          "parameter_types": [
+            "String[]"
+          ],
+          "return_type": "void",
+          "start_line": 37
+        },
+        "output_evidence": "out.println(cal(0, n, nxt))",
+        "output_relevance_kind": "direct_print_argument",
+        "output_relevance_variable": null,
+        "parameter_types": [
+          "int",
+          "int",
+          "int[][]"
+        ],
+        "recursive_call_count": 5,
+        "return_type": "int",
+        "return_value_output_relevant": true,
+        "source_sha256": "20395534c721e750dd55ce3aa543c0d80e15741f971c11d2c742586327ebebae",
+        "start_line": 66
+      },
+      "target_method": "cal",
+      "target_signature": "int C_Global_Round16.cal(int, int, int[][])",
+      "tests": [
+        {
+          "dataset_test_index": 22,
+          "expected_stdout": "8\n8\n2\n9\n",
+          "expected_stdout_path": "candidates/cc-valid-r086-s0131-1566-c-max-mex-cut/io/00-generated-022.out",
+          "expected_stdout_sha256": "120954cac8dfb1a50d2832d3e036c4e826dd672c79166260f0c0652c96811425",
+          "id": "00-generated-022",
+          "input": "4\n7\n0101000\n1101100\n5\n01001\n10101\n2\n01\n01\n6\n000000\n001101\n",
+          "input_path": "candidates/cc-valid-r086-s0131-1566-c-max-mex-cut/io/00-generated-022.in",
+          "input_sha256": "380ac2add464ae3d1efd872eec6de6ac33cc45688f74e3ae78937c637dde7283",
+          "suite": "generated_tests",
+          "validation": {
+            "compiled_with_jdk17": true,
+            "exit_code": 0,
+            "stderr_bytes": 0,
+            "timed_out": false
+          }
+        }
+      ]
+    },
+    "codesteer_target_method": "cal",
+    "concrete_case": {
+      "accepted_rank": 4,
+      "argv": [],
+      "canonical_case_key": [
+        86,
+        "generated_tests",
+        35
+      ],
+      "case_id": "balanced-generated-000035",
+      "dataset_test_index": 35,
+      "expected_output_bytes": 8,
+      "expected_output_lines": 4,
+      "expected_output_path": "../../tests/cc-valid-r086-s0131-1566-c-max-mex-cut__t5_easy_seed1/balanced-generated-000035/oracle_stdout.txt",
+      "input_bytes": 58,
+      "input_sha256": "073ed44a3f429ff1918322d26ba52561d216e7587ae7a6e1ab94b00582c235b3",
+      "obfuscated_stderr_path": "../../tests/cc-valid-r086-s0131-1566-c-max-mex-cut__t5_easy_seed1/balanced-generated-000035/obfuscated.stderr",
+      "obfuscated_stdout_path": "../../tests/cc-valid-r086-s0131-1566-c-max-mex-cut__t5_easy_seed1/balanced-generated-000035/obfuscated.stdout",
+      "obfuscated_trimmed_exact_to_oracle": true,
+      "original_obfuscated_trimmed_agreement": true,
+      "original_stderr_path": "../../tests/cc-valid-r086-s0131-1566-c-max-mex-cut__t5_easy_seed1/balanced-generated-000035/original.stderr",
+      "original_stdout_path": "../../tests/cc-valid-r086-s0131-1566-c-max-mex-cut__t5_easy_seed1/balanced-generated-000035/original.stdout",
+      "original_trimmed_exact_to_oracle": true,
+      "rank_key": [
+        1,
+        4,
+        8,
+        22,
+        35
+      ],
+      "raw_expected_stdout_sha256": "817a08fad5f89f199598ae8f89334fe2549e5f67cb27d428c7f50f95125b0d4e",
+      "raw_obfuscated_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_obfuscated_stdout_sha256": "817a08fad5f89f199598ae8f89334fe2549e5f67cb27d428c7f50f95125b0d4e",
+      "raw_original_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_original_stdout_sha256": "817a08fad5f89f199598ae8f89334fe2549e5f67cb27d428c7f50f95125b0d4e",
+      "source_case_metadata": {
+        "dataset_id": "deepmind/code_contests",
+        "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+        "dataset_test_index": 35,
+        "row_index": 86,
+        "selection_stage": "balanced_outcome_blind_contingency",
+        "split": "valid",
+        "suite": "generated_tests",
+        "wave_id": "balanced_wave_2"
+      },
+      "stdin_path": "../../tests/cc-valid-r086-s0131-1566-c-max-mex-cut__t5_easy_seed1/balanced-generated-000035/stdin.txt",
+      "suite": "generated_tests",
+      "validation_path": "../../validation/cc-valid-r086-s0131-1566-c-max-mex-cut__t5_easy_seed1/balanced-generated-000035.json"
+    },
+    "difficulty": "easy",
+    "eligible": true,
+    "expected_stdout_path": "../../tests/cc-valid-r086-s0131-1566-c-max-mex-cut__t5_easy_seed1/balanced-generated-000035/oracle_stdout.txt",
+    "id": "cc-valid-r086-s0131-1566-c-max-mex-cut__t5_easy_seed1__balanced-generated-000035",
+    "main_class": "C_Global_Round16",
+    "method_coverage_policy": "force_all",
+    "obfuscated": {
+      "codesteer_target": {
+        "called_directly_from_main": true,
+        "eligible_parameter_to_return_target": true,
+        "genuine_return_sink_count": 3,
+        "main_called_method_names": [
+          "cal",
+          "charAt",
+          "close",
+          "fill",
+          "next",
+          "nextInt",
+          "println"
+        ],
+        "method_names": [
+          "main",
+          "cal",
+          "dist",
+          "find",
+          "abs",
+          "KMP",
+          "nextPer",
+          "digit",
+          "dist",
+          "toString",
+          "update",
+          "get",
+          "gcd",
+          "pow",
+          "next",
+          "nextLong",
+          "nextInt",
+          "nextDouble",
+          "nextLine",
+          "endLine"
+        ],
+        "parameter_count": 3,
+        "parameters": [
+          {
+            "name": "index",
+            "type": "int"
+          },
+          {
+            "name": "n",
+            "type": "int"
+          },
+          {
+            "name": "nxt",
+            "type": "int[][]"
+          }
+        ],
+        "parse_status": "javalang",
+        "return_sink_count": 3,
+        "return_type": "int",
+        "selected_method": "cal",
+        "selected_method_line": 66,
+        "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+        "selector_implementation_owner": "steering.priors.SlicingPrior",
+        "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+      },
+      "execution_validation": {
+        "accepted": true,
+        "cases": [
+          {
+            "accepted": true,
+            "actual_trimmed": "8\n8\n2\n9",
+            "case_id": "00-generated-022",
+            "command": [
+              "java",
+              "-Dfile.encoding=UTF-8",
+              "-Djava.io.tmpdir=<scratch>",
+              "-Duser.home=<scratch>",
+              "-XX:-UsePerfData",
+              "-cp",
+              "<classes>",
+              "C_Global_Round16"
+            ],
+            "duration_seconds": 0.034816,
+            "exit_code": 0,
+            "expected_trimmed": "8\n8\n2\n9",
+            "raw_expected_stdout_sha256": "120954cac8dfb1a50d2832d3e036c4e826dd672c79166260f0c0652c96811425",
+            "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "raw_stdout_sha256": "120954cac8dfb1a50d2832d3e036c4e826dd672c79166260f0c0652c96811425",
+            "stderr": "",
+            "stdout": "8\n8\n2\n9\n",
+            "timed_out": false,
+            "trimmed_exact_match": true
+          }
+        ],
+        "compile": {
+          "accepted": true,
+          "command": [
+            "javac",
+            "-encoding",
+            "UTF-8",
+            "-J-Djava.io.tmpdir=<scratch>",
+            "-J-Duser.home=<scratch>",
+            "-J-XX:-UsePerfData",
+            "-Xlint:none",
+            "-nowarn",
+            "-d",
+            "<classes>",
+            "<scratch>/C_Global_Round16.java"
+          ],
+          "exit_code": 0,
+          "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false
+        },
+        "entry": {
+          "compile_class": "C_Global_Round16",
+          "main_class": "C_Global_Round16",
+          "package": "",
+          "parse_status": "javalang"
+        }
+      },
+      "main_class": "C_Global_Round16",
+      "metadata_path": "candidates/cc-valid-r086-s0131-1566-c-max-mex-cut/variants/T5_bogus_control_flow/easy/seed_1/C_Global_Round16.java.meta.json",
+      "method_coverage": {
+        "main_touched": false,
+        "method_coverage_total": 19,
+        "method_coverage_touched": 19,
+        "untouched_methods": []
+      },
+      "path": "../../../prepared_variants/candidates/cc-valid-r086-s0131-1566-c-max-mex-cut/variants/T5_bogus_control_flow/easy/seed_1/C_Global_Round16.java",
+      "selected_target_touch_evidence": {
+        "method_block_parser": "eyetracking.obfuscation.java.passes.utils.iter_method_blocks",
+        "obfuscated_block_name": "cal",
+        "obfuscated_match_count": 1,
+        "obfuscated_method_bytes": 914,
+        "obfuscated_method_index": 0,
+        "obfuscated_method_sha256": "f0e04937a534f273de0ac07a5f6918593ec9b2966ffc9d641c59192ed5aaa5b5",
+        "obfuscated_method_start_line": 65,
+        "obfuscated_name_matches_codesteer_target": true,
+        "obfuscated_target_line": 66,
+        "obfuscated_target_method": "cal",
+        "original_block_name": "cal",
+        "original_match_count": 1,
+        "original_method_bytes": 796,
+        "original_method_index": 0,
+        "original_method_sha256": "39394a13bb1d43211fd76cd1691ab55c31cb8a1bff3a02eee54c520d28d8393a",
+        "original_method_start_line": 65,
+        "original_target_line": 66,
+        "original_target_method": "cal",
+        "reason": "method_source_changed",
+        "touched": true,
+        "verifiable": true
+      },
+      "sha256": "2f6a9be2eb46f5ee77c8dfa343ce7f23a3478a22568fd59b16b5ab21c5726bb1",
+      "target_method": "cal"
+    },
+    "obfuscated_main_class": "C_Global_Round16",
+    "obfuscated_path": "../../../prepared_variants/candidates/cc-valid-r086-s0131-1566-c-max-mex-cut/variants/T5_bogus_control_flow/easy/seed_1/C_Global_Round16.java",
+    "obfuscated_target_method": "cal",
+    "obfuscation_metadata_path": "candidates/cc-valid-r086-s0131-1566-c-max-mex-cut/variants/T5_bogus_control_flow/easy/seed_1/C_Global_Round16.java.meta.json",
+    "original": {
+      "codesteer_target": {
+        "called_directly_from_main": true,
+        "eligible_parameter_to_return_target": true,
+        "genuine_return_sink_count": 3,
+        "main_called_method_names": [
+          "cal",
+          "charAt",
+          "close",
+          "fill",
+          "next",
+          "nextInt",
+          "println"
+        ],
+        "method_names": [
+          "main",
+          "cal",
+          "dist",
+          "find",
+          "abs",
+          "KMP",
+          "nextPer",
+          "digit",
+          "dist",
+          "toString",
+          "update",
+          "get",
+          "gcd",
+          "pow",
+          "next",
+          "nextLong",
+          "nextInt",
+          "nextDouble",
+          "nextLine",
+          "endLine"
+        ],
+        "parameter_count": 3,
+        "parameters": [
+          {
+            "name": "index",
+            "type": "int"
+          },
+          {
+            "name": "n",
+            "type": "int"
+          },
+          {
+            "name": "nxt",
+            "type": "int[][]"
+          }
+        ],
+        "parse_status": "javalang",
+        "return_sink_count": 3,
+        "return_type": "int",
+        "selected_method": "cal",
+        "selected_method_line": 66,
+        "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+        "selector_implementation_owner": "steering.priors.SlicingPrior",
+        "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+      },
+      "execution_validation_path": "candidates/cc-valid-r086-s0131-1566-c-max-mex-cut/original/validation.json",
+      "main_class": "C_Global_Round16",
+      "path": "../../../prepared_variants/candidates/cc-valid-r086-s0131-1566-c-max-mex-cut/original/C_Global_Round16.java",
+      "sha256": "3b2c546a718cf6d11c2926c175b85c80f1331094673f55b19e8f58be275198ac",
+      "target_method": "cal"
+    },
+    "original_main_class": "C_Global_Round16",
+    "original_path": "../../../prepared_variants/candidates/cc-valid-r086-s0131-1566-c-max-mex-cut/original/C_Global_Round16.java",
+    "original_target_method": "cal",
+    "parent_candidate_id": "cc-valid-r086-s0131-1566-c-max-mex-cut__t5_easy_seed1",
+    "profile": "safe",
+    "rejection_reasons": [],
+    "seed": 1,
+    "stdin_path": "../../tests/cc-valid-r086-s0131-1566-c-max-mex-cut__t5_easy_seed1/balanced-generated-000035/stdin.txt",
+    "target_method": {
+      "obfuscated": "cal",
+      "original": "cal"
+    },
+    "technique": "T5",
+    "technique_name": "bogus_control_flow",
+    "variant_id": "cc-valid-r086-s0131-1566-c-max-mex-cut__t5_easy_seed1",
+    "warnings": [
+      "canonical_main_touched_unobserved_regex_may_not_parse_throws_clause"
+    ]
+  },
+  "obfuscated_sha256": "2f6a9be2eb46f5ee77c8dfa343ce7f23a3478a22568fd59b16b5ab21c5726bb1",
+  "obfuscated_source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r086-s0131-1566-c-max-mex-cut/variants/T5_bogus_control_flow/easy/seed_1/C_Global_Round16.java",
+  "obfuscated_target_method": "cal",
+  "original_sha256": "3b2c546a718cf6d11c2926c175b85c80f1331094673f55b19e8f58be275198ac",
+  "original_source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r086-s0131-1566-c-max-mex-cut/original/C_Global_Round16.java",
+  "original_target_method": "cal",
+  "sample_id": "cc-valid-r086-s0131-1566-c-max-mex-cut__t5_easy_seed1__balanced-generated-000035"
+}

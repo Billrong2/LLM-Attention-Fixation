@@ -1,0 +1,216 @@
+{
+  "codesteer_layer_end": 47,
+  "codesteer_layer_start": 40,
+  "codesteer_prior": {
+    "algorithm_fallback_detected": false,
+    "algorithm_vector_length": 2972,
+    "algorithm_vs_fallback_l1": 1.9999999999999998,
+    "case_signal_active": true,
+    "case_vector_count": 1,
+    "fallback_vector_length": 2972,
+    "n_bins": 12,
+    "parsed_case_ids": [
+      "c001"
+    ],
+    "prompt_sha256": "49fd7cdcf5f4b9a7723e0d2e59615389d9eedfe349fe87975df2cdf70098e4b1"
+  },
+  "eligible_for_inference": true,
+  "model_num_hidden_layers": 48,
+  "obfuscated_line_count": 354,
+  "obfuscated_method_analysis": {
+    "codesteer_selected_target_method": "find",
+    "codesteer_target_matches_recorded": true,
+    "fallback_used": false,
+    "method_names": [
+      "next",
+      "nextInt",
+      "readIntArray",
+      "readLongArray",
+      "nextLong",
+      "nextDouble",
+      "nextLine",
+      "main",
+      "find",
+      "gcd",
+      "gcd",
+      "lcm",
+      "lcm",
+      "pow",
+      "modPow",
+      "mul",
+      "fact",
+      "fastPow",
+      "debug",
+      "debug",
+      "debugMatrix",
+      "debugMatrix",
+      "reverseArray",
+      "reverseArray",
+      "toString",
+      "compare"
+    ],
+    "parameter_count": 2,
+    "parse_status": "javalang",
+    "recorded_target_found": true,
+    "recorded_target_method": "find",
+    "return_sink_count": 1
+  },
+  "original_line_count": 271,
+  "original_method_analysis": {
+    "codesteer_selected_target_method": "find",
+    "codesteer_target_matches_recorded": true,
+    "fallback_used": false,
+    "method_names": [
+      "next",
+      "nextInt",
+      "readIntArray",
+      "readLongArray",
+      "nextLong",
+      "nextDouble",
+      "nextLine",
+      "main",
+      "find",
+      "gcd",
+      "gcd",
+      "lcm",
+      "lcm",
+      "pow",
+      "modPow",
+      "mul",
+      "fact",
+      "fastPow",
+      "debug",
+      "debug",
+      "debugMatrix",
+      "debugMatrix",
+      "reverseArray",
+      "reverseArray",
+      "toString",
+      "compare"
+    ],
+    "parameter_count": 2,
+    "parse_status": "javalang",
+    "recorded_target_found": true,
+    "recorded_target_method": "find",
+    "return_sink_count": 1
+  },
+  "prompt_slice": {
+    "artifact_name": "Program Slicing / backward slice",
+    "elements": [
+      {
+        "code": "public static int find(int n, char[] ch)",
+        "description": "target method find(n, ch)",
+        "kind": "MethodDeclaration",
+        "line": 133,
+        "line_label": "L133"
+      },
+      {
+        "code": "public static int find(int n, char[] ch)",
+        "description": "method parameter n",
+        "kind": "SliceMethodParameter",
+        "line": 133,
+        "line_label": "L133"
+      },
+      {
+        "code": "public static int find(int n, char[] ch)",
+        "description": "method parameter ch",
+        "kind": "SliceMethodParameter",
+        "line": 133,
+        "line_label": "L133"
+      },
+      {
+        "code": "return moves;",
+        "description": "return value expression using moves",
+        "kind": "SliceReturnValue",
+        "line": 144,
+        "line_label": "L144"
+      },
+      {
+        "code": "int moves = 0;",
+        "description": "definition of moves",
+        "kind": "SliceDefinition",
+        "line": 136,
+        "line_label": "L136"
+      },
+      {
+        "code": "",
+        "description": "assignment/update influencing moves",
+        "kind": "SliceAssignment",
+        "line": null,
+        "line_label": ""
+      },
+      {
+        "code": "for(int i=0;i<n-1;i++)",
+        "description": "control predicate over i, n, ch, moves",
+        "kind": "SliceControlDependency",
+        "line": 139,
+        "line_label": "L139"
+      },
+      {
+        "code": "if(ch[i]-'0'>0)",
+        "description": "control predicate over ch, i, moves",
+        "kind": "SliceControlDependency",
+        "line": 141,
+        "line_label": "L141"
+      }
+    ],
+    "eligible_count_is_lower_bound": false,
+    "eligible_element_count": 8,
+    "emitted_element_count": 8,
+    "emitted_over_eligible": 1.0,
+    "enabled": true,
+    "guidance_text": "Prompt-only steering guidance (Program Slicing / backward slice, artifact-conditioned):\nUse the following static program-analysis elements as the main reasoning anchors.\nThese elements are static only; they do not reveal the correct output, branch outcomes, or gold execution trace.\n\nStatic elements to emphasize:\n1. MethodDeclaration at L133: target method find(n, ch) (public static int find(int n, char[] ch))\n2. SliceMethodParameter at L133: method parameter n (public static int find(int n, char[] ch))\n3. SliceMethodParameter at L133: method parameter ch (public static int find(int n, char[] ch))\n4. SliceReturnValue at L144: return value expression using moves (return moves;)\n5. SliceDefinition at L136: definition of moves (int moves = 0;)\n6. SliceAssignment: assignment/update influencing moves\n7. SliceControlDependency at L139: control predicate over i, n, ch, moves (for(int i=0;i<n-1;i++))\n8. SliceControlDependency at L141: control predicate over ch, i, moves (if(ch[i]-'0'>0))",
+    "max_elements": 24,
+    "mechanism": "artifact_conditioned_natural_language_instruction_only",
+    "mode": "slice",
+    "parse_status": "javalang",
+    "prompt_items": [
+      "MethodDeclaration at L133: target method find(n, ch) (public static int find(int n, char[] ch))",
+      "SliceMethodParameter at L133: method parameter n (public static int find(int n, char[] ch))",
+      "SliceMethodParameter at L133: method parameter ch (public static int find(int n, char[] ch))",
+      "SliceReturnValue at L144: return value expression using moves (return moves;)",
+      "SliceDefinition at L136: definition of moves (int moves = 0;)",
+      "SliceAssignment: assignment/update influencing moves",
+      "SliceControlDependency at L139: control predicate over i, n, ch, moves (for(int i=0;i<n-1;i++))",
+      "SliceControlDependency at L141: control predicate over ch, i, moves (if(ch[i]-'0'>0))"
+    ],
+    "recorded_target_method": "find",
+    "target_method": "find"
+  },
+  "prompt_tokens_by_condition": {
+    "obfuscated_codesteer": {
+      "context_limit": 131072,
+      "context_margin_tokens": 127588,
+      "fits_context": true,
+      "max_new_tokens": 512,
+      "prompt_sha256": "49fd7cdcf5f4b9a7723e0d2e59615389d9eedfe349fe87975df2cdf70098e4b1",
+      "prompt_token_count": 2972
+    },
+    "obfuscated_plain": {
+      "context_limit": 131072,
+      "context_margin_tokens": 127588,
+      "fits_context": true,
+      "max_new_tokens": 512,
+      "prompt_sha256": "49fd7cdcf5f4b9a7723e0d2e59615389d9eedfe349fe87975df2cdf70098e4b1",
+      "prompt_token_count": 2972
+    },
+    "obfuscated_prompt_slice": {
+      "context_limit": 131072,
+      "context_margin_tokens": 127338,
+      "fits_context": true,
+      "max_new_tokens": 512,
+      "prompt_sha256": "2c95830876545d7976fb98d0541ceac7d12b5268760e0464d22fbf6758d944f7",
+      "prompt_token_count": 3222
+    },
+    "original_plain": {
+      "context_limit": 131072,
+      "context_margin_tokens": 128875,
+      "fits_context": true,
+      "max_new_tokens": 512,
+      "prompt_sha256": "153425c0102821442170951033a13bb1fa7f34759addf88c4ebffde1b7df0a13",
+      "prompt_token_count": 1685
+    }
+  },
+  "rejection_reasons": [],
+  "sample_id": "cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1__balanced-generated-000018"
+}

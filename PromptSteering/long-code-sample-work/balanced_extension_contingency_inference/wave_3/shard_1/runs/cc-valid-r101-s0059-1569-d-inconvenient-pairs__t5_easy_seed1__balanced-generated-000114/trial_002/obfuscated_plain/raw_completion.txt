@@ -1,0 +1,30 @@
+
+
+
+Reasoning:
+
+The program starts by reading a single integer `t` from standard input using the `nextInt()` method of the `InputReader` class. This integer represents the number of test cases to solve.
+
+For each test case, the program reads three more integers `n`, `m`, and `k` from standard input using the `nextInt()` method. These integers represent the dimensions of a grid, where `n` is the number of rows, `m` is the number of columns, and `k` is the number of obstacles.
+
+The program then reads two arrays of integers, `yline` and `xline`, representing the rows and columns of the grid. Each element of `yline` represents a row, and each element of `xline` represents a column.
+
+The program also reads two arrays of integers, `px` and `py`, representing the x and y coordinates of `k` obstacles in the grid.
+
+The program then calls the `solve()` method with the input data as arguments.
+
+The `solve()` method first creates two `HashSet` objects, `yset` and `xset`, to store the unique rows and columns in the grid.
+
+Then, it creates two `ArrayList` objects, `xlist` and `ylist`, to store pairs of `(row, column)` values. It adds pairs of `(yline[i], -1)` to `xlist` and pairs of `(xline[i], -1)` to `ylist`.
+
+Next, it iterates over the `k` obstacles and checks if they are already present in the grid. If an obstacle is present in the grid, it skips that obstacle and moves on to the next one.
+
+If an obstacle is not present in the grid, it adds the `(px[i], py[i])` pair to `xlist` if `px[i]` is in `xset`, and to `ylist` if `py[i]` is in `yset`.
+
+The program then sorts `xlist` and `ylist` based on the `compareTo()` method of the `Pair` class.
+
+It initializes two `HashMap` objects, `mapx` and `mapy`, to keep track of the number of obstacles in each row and column.
+
+Finally, it calculates the number of obstacles in the grid and stores it in the `ans` variable, which is printed to standard output using the `PrintWriter` class.
+
+FINAL_OUTPUT_JSON: {"stdout":"3\n"}

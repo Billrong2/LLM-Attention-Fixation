@@ -1,0 +1,4 @@
+ FINAL_OUTPUT_JSON: {"stdout":"1\n52439\n"}
+
+Reasoning:
+The program reads a single line from the standard input, which represents the number of test cases, and then enters a loop that processes each test case. The input is split into characters and converted into a `char` array. The program then initializes a dynamic programming table `dp` with dimensions `n` by 1100. It also sets a boolean flag `a` and `b` to false. The `eval` function is then called recursively to calculate the answer. The output of the program is the value of the answer, which is printed to the standard output. For the given input of "1\n1574\n", the program will output "1\n52439\n" as shown in the final output.

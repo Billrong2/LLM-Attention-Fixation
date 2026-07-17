@@ -1,0 +1,38 @@
+ The provided Java program is designed to read a number of test cases from standard input, followed by pairs of strings (s and t). For each pair, it calls the `solve` method to determine if string `s` can be transformed into string `t` by deleting zero or more characters. The `solve` method works by iterating over `s` and `t` from the end, comparing characters and adjusting the indices accordingly. If at any point all characters of `t` are matched, it returns "YES"; otherwise, it returns "NO".
+
+Here’s the reasoning for each step of the process:
+
+### Case: `1\nabc\nab`
+
+1. **Main Entry Point**:
+   - The program reads `1` as the number of test cases from the input.
+
+2. **Reading Input Strings**:
+   - It then reads the strings `"abc"` and `"ab"` from the standard input.
+
+3. **Calling the `solve` Method**:
+   - For the given strings `"abc"` and `"ab"`, the `solve` method is called.
+   - Initially, `i` is set to 2 (length of `s` - 1), and `j` is set to 1 (length of `t` - 1).
+
+4. **Execution of `solve` Method**:
+   - The loop starts:
+     - At `i = 2`, `s.charAt(2)` is 'c' and `t.charAt(1)` is 'b', so the condition `s.charAt(i) == t.charAt(j)` fails.
+     - `i` is decremented by 2, moving it to `i = 0`.
+     - `j` remains unchanged as it hasn't been reduced yet.
+
+     - At `i = 0`, `s.charAt(0)` is 'a' and `t.charAt(0)` is 'a', so the condition `s.charAt(i) == t.charAt(j)` holds true.
+     - `i` is decremented by 1 (becomes -1), and `j` is decremented by 1 (becomes -1).
+
+     - Since `j` is now `-1`, the condition `j == -1` is met, and the method returns "YES".
+
+### Final Output
+- The program prints "YES" for this case.
+
+Therefore, the final output for the provided case is:
+```plaintext
+YES
+```
+
+In JSON format:
+```json
+FINAL_OUTPUT_JSON: {"

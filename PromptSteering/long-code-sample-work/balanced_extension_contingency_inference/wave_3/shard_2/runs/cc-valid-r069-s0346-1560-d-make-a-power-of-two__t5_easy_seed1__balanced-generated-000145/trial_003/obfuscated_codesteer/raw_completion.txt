@@ -1,0 +1,42 @@
+ To determine the exact standard output of the `buscarGreedy` method for the given input, we need to simulate the execution of the method and track its state and control flow.
+
+The method `buscarGreedy` takes a string `numero` and finds the minimum number of changes required to transform it into a power of 2.
+
+Here is a step-by-step reasoning:
+
+1. **Input**: The program takes two inputs from the standard input:
+   - The first line contains an integer `casos`, which represents the number of test cases.
+   - The next line contains a string `numero`.
+
+2. **Function Call**: For each test case, the program calls the `buscarGreedy` function with the `numero` string as the argument.
+
+3. **Function `buscarGreedy`**:
+   - It initializes a variable `pot` to 1.
+   - It iterates from 0 to 61 (inclusive) and calculates the next power of 2 (`pot = 2 * pot`).
+   - For each power of 2, it calculates the Hamming distance (number of positions at which the corresponding symbols are different) between the binary representation of the power of 2 and the input string `numero` using the `comparar` function.
+
+4. **Binary Representation**:
+   - The `comparar` function compares two strings and returns the minimum number of characters that need to be changed to make one string match the other.
+
+5. **Output**:
+   - The `buscarGreedy` function returns the minimum value of the comparisons for all the powers of 2.
+
+### Detailed Steps for the Given Input:
+
+1. **Input Processing**:
+   - The input is "1\n366323".
+   - This means there is 1 test case with the number "366323".
+
+2. **Function Execution**:
+   - The `buscarGreedy` function is called with "366323" as the input.
+
+3. **Calculation**:
+   - The function iterates through the powers of 2 from 1 to \(2^{62}\).
+   - For each power of 2, it calculates the minimum number of changes required to transform "366323" into that power of 2.
+
+4. **Minimum Calculation**:
+   - The function returns the minimum of these values.
+
+### Final Output:
+
+The output will be the minimum number of changes required to transform "3

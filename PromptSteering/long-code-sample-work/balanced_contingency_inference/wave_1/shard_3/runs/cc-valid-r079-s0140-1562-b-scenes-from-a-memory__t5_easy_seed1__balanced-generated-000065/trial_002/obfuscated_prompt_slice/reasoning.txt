@@ -1,0 +1,11 @@
+### CASES_BEGIN
+c001: invoke program entry point; target_method=isPrime; stdin="1\n3\n121\n"; argv=[]
+### CASES_END
+
+Reasoning:
+
+1. The program reads three inputs: `n` and two strings (`s`).
+2. For each input, it checks if `n` is less than or equal to 1 or if `s` contains any digits other than 2, 3, 5, or 7.
+3. If either of these conditions is true, it prints "1" followed by the problematic digit or value.
+4. If neither condition is true, it checks pairs of digits from `s` to see if they form a prime number.
+5. If a non-prime pair is found, it prints "2" followed by the non-prime number.

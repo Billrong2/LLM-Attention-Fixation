@@ -1,0 +1,25 @@
+ The program reads multiple test cases, each consisting of a string `v`. The program then checks if it is possible to rearrange the characters in `v` such that each character appears in `v` the same number of times it appears in `o`. If so, the program prints the two rearranged strings `S` and `O`, otherwise it prints `-1`.
+
+For the given input:
+```
+7
+abacbbaaacaad
+oovyouknowuhat
+ppqrppryppraypprayoppracyoppracylop
+hsi
+evyrewherevrywhrvryhrvhhrwrv
+abhha
+wewdepewp
+```
+The output is:
+```
+-1
+-1
+-1
+-1
+-1
+-1
+-1
+```
+This is because for each test case, the characters in `v` cannot be rearranged such that each character appears in `v` the same number of times it appears in `o`.
+FINAL_OUTPUT_JSON: {"stdout":"-1\n-1\n-1\n-1\n-1\n-1\n-1\n"}

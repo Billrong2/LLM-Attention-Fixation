@@ -1,0 +1,14 @@
+Reasoning: 
+1. MethodDeclaration at L066: target method cal(index, n, nxt) is called with input parameters index = 0, n = 4, nxt = [[1101000, 1110100]]
+2. SliceMethodParameter at L066: method parameter index = 0
+3. SliceMethodParameter at L066: method parameter n = 4
+4. SliceMethodParameter at L066: method parameter nxt = [[1101000, 1110100]]
+5. SliceReturnValue at L072: return value expression (return 0;) is not relevant as the control flow does not enter this return statement.
+6. SliceReturnValue at L075: return value expression using dp, index = 0, returns dp[index] = dp[0] = -1.
+7. SliceReturnValue at L091: return value expression using dp, index = 0, result is not relevant as the control flow does not enter this return statement.
+8. SliceControlDependency at L067: control predicate over _obf_t5_cal_124541 (if (((3 * 3) - 9) != 0)) is always true and does not affect the execution.
+9. SliceControlDependency at L071: control predicate over index, n (if (index == n)) evaluates to false (index = 0, n = 4) and the code block is skipped.
+10. SliceControlDependency at L074: control predicate over dp, index (if (dp[index] != -1)) evaluates to true (dp[0] = -1), and the code block is executed.
+11. SliceDefinition at L077: definition of result (int result = 0;) initializes result to 0.
+12. SliceControlDependency at L078: control predicate over nxt, index, result, cal, n, Integer, max (if (nxt[0][index] == index && nxt[1][index] == index)) evaluates to false (nxt[0][0] = 1 != 0, nxt[1][0] = 1 != 0) and the code block is skipped.
+13. SliceControlDependency at L082: control predicate over nxt, index, result, Integer

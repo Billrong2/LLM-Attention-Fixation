@@ -1,0 +1,11 @@
+ ### Reasoning
+The program takes an integer `t` as input, which is the number of test cases. Then for each test case, it takes another integer `n` and a string of length `n`. It calculates the number of moves required to convert the string to a specific form using the `find` method.
+
+For each test case:
+- The method `find` calculates the number of moves needed. It starts by adding `ch[n-1]-'0'` to the count of moves, which is the number at the last position of the string minus `'0'`. Then, it loops through the string from the first character to the second last character. If the current character is greater than `'0'`, it adds the value of the current character minus `'0'` plus 1 to the count of moves. Finally, it returns the total number of moves.
+
+### Final Output
+Based on the given input, the exact output is:
+```
+FINAL_OUTPUT_JSON: {"stdout":"10\n11\n12\n14\n15\n33\n"}
+```

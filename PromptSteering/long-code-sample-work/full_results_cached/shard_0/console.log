@@ -1,0 +1,95 @@
+Sliding Window Attention is enabled but not implemented for `eager`; unexpected results may be encountered.
+[preflight] samples=6 trials=3 conditions=['original_plain', 'obfuscated_plain', 'obfuscated_prompt_slice', 'obfuscated_codesteer'] model=Qwen/Qwen2.5-14B
+Loading model: Qwen/Qwen2.5-14B
+USE_4BIT=False  |  GPUs visible=1
+Limiting to 1 GPU(s) (of 1).
+Per-GPU max_memory cap: {0: '42GiB'}
+hidden_size = None
+num_hidden_layers = None
+num_attention_heads = None
+num_key_value_heads = None
+intermediate_size = None
+rms_norm_eps = None
+rope_theta = None
+max_position_embeddings = None
+vocab_size = 151643
+tie_word_embeddings = None
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:06,  1.05it/s]Loading checkpoint shards:  25%|██▌       | 2/8 [00:01<00:05,  1.11it/s]Loading checkpoint shards:  38%|███▊      | 3/8 [00:02<00:04,  1.13it/s]Loading checkpoint shards:  50%|█████     | 4/8 [00:03<00:03,  1.13it/s]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:04<00:02,  1.15it/s]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:05<00:01,  1.15it/s]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:06<00:00,  1.17it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:06<00:00,  1.44it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:06<00:00,  1.24it/s]
+[INFO] Loaded model with torch_dtype=torch.bfloat16.
+[Steering] Installed backend=qwen2.
+
+=== Device map (layer -> GPU) ===
+{'': 0}
+[done] cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__00-generated-156 trial=1 condition=original_plain exact=False seed=656761695
+[done] cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__00-generated-156 trial=1 condition=obfuscated_plain exact=False seed=656761695
+[done] cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__00-generated-156 trial=1 condition=obfuscated_prompt_slice exact=False seed=656761695
+[done] cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__00-generated-156 trial=1 condition=obfuscated_codesteer exact=False seed=656761695
+[done] cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__00-generated-156 trial=2 condition=original_plain exact=False seed=643122409
+[done] cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__00-generated-156 trial=2 condition=obfuscated_plain exact=False seed=643122409
+[done] cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__00-generated-156 trial=2 condition=obfuscated_prompt_slice exact=False seed=643122409
+[done] cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__00-generated-156 trial=2 condition=obfuscated_codesteer exact=False seed=643122409
+[done] cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__00-generated-156 trial=3 condition=original_plain exact=False seed=1353406302
+[done] cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__00-generated-156 trial=3 condition=obfuscated_plain exact=False seed=1353406302
+[done] cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__00-generated-156 trial=3 condition=obfuscated_prompt_slice exact=False seed=1353406302
+[done] cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__00-generated-156 trial=3 condition=obfuscated_codesteer exact=False seed=1353406302
+[done] cc-valid-r069-s0054-1560-d-make-a-power-of-two__t5_easy_seed1__00-generated-028 trial=1 condition=original_plain exact=False seed=339508196
+[done] cc-valid-r069-s0054-1560-d-make-a-power-of-two__t5_easy_seed1__00-generated-028 trial=1 condition=obfuscated_plain exact=False seed=339508196
+[done] cc-valid-r069-s0054-1560-d-make-a-power-of-two__t5_easy_seed1__00-generated-028 trial=1 condition=obfuscated_prompt_slice exact=False seed=339508196
+[done] cc-valid-r069-s0054-1560-d-make-a-power-of-two__t5_easy_seed1__00-generated-028 trial=1 condition=obfuscated_codesteer exact=False seed=339508196
+[done] cc-valid-r069-s0054-1560-d-make-a-power-of-two__t5_easy_seed1__00-generated-028 trial=2 condition=original_plain exact=False seed=1519323274
+[done] cc-valid-r069-s0054-1560-d-make-a-power-of-two__t5_easy_seed1__00-generated-028 trial=2 condition=obfuscated_plain exact=False seed=1519323274
+[done] cc-valid-r069-s0054-1560-d-make-a-power-of-two__t5_easy_seed1__00-generated-028 trial=2 condition=obfuscated_prompt_slice exact=False seed=1519323274
+[done] cc-valid-r069-s0054-1560-d-make-a-power-of-two__t5_easy_seed1__00-generated-028 trial=2 condition=obfuscated_codesteer exact=False seed=1519323274
+[done] cc-valid-r069-s0054-1560-d-make-a-power-of-two__t5_easy_seed1__00-generated-028 trial=3 condition=original_plain exact=False seed=1400338616
+[done] cc-valid-r069-s0054-1560-d-make-a-power-of-two__t5_easy_seed1__00-generated-028 trial=3 condition=obfuscated_plain exact=False seed=1400338616
+[done] cc-valid-r069-s0054-1560-d-make-a-power-of-two__t5_easy_seed1__00-generated-028 trial=3 condition=obfuscated_prompt_slice exact=False seed=1400338616
+[done] cc-valid-r069-s0054-1560-d-make-a-power-of-two__t5_easy_seed1__00-generated-028 trial=3 condition=obfuscated_codesteer exact=False seed=1400338616
+[done] cc-valid-r040-s0219-1555-c-coin-rows__t5_easy_seed1__00-generated-160 trial=1 condition=original_plain exact=False seed=687554480
+[done] cc-valid-r040-s0219-1555-c-coin-rows__t5_easy_seed1__00-generated-160 trial=1 condition=obfuscated_plain exact=False seed=687554480
+[done] cc-valid-r040-s0219-1555-c-coin-rows__t5_easy_seed1__00-generated-160 trial=1 condition=obfuscated_prompt_slice exact=False seed=687554480
+[done] cc-valid-r040-s0219-1555-c-coin-rows__t5_easy_seed1__00-generated-160 trial=1 condition=obfuscated_codesteer exact=False seed=687554480
+[done] cc-valid-r040-s0219-1555-c-coin-rows__t5_easy_seed1__00-generated-160 trial=2 condition=original_plain exact=False seed=306315006
+[done] cc-valid-r040-s0219-1555-c-coin-rows__t5_easy_seed1__00-generated-160 trial=2 condition=obfuscated_plain exact=False seed=306315006
+[done] cc-valid-r040-s0219-1555-c-coin-rows__t5_easy_seed1__00-generated-160 trial=2 condition=obfuscated_prompt_slice exact=False seed=306315006
+[done] cc-valid-r040-s0219-1555-c-coin-rows__t5_easy_seed1__00-generated-160 trial=2 condition=obfuscated_codesteer exact=False seed=306315006
+[done] cc-valid-r040-s0219-1555-c-coin-rows__t5_easy_seed1__00-generated-160 trial=3 condition=original_plain exact=False seed=2043102552
+[done] cc-valid-r040-s0219-1555-c-coin-rows__t5_easy_seed1__00-generated-160 trial=3 condition=obfuscated_plain exact=False seed=2043102552
+[done] cc-valid-r040-s0219-1555-c-coin-rows__t5_easy_seed1__00-generated-160 trial=3 condition=obfuscated_prompt_slice exact=False seed=2043102552
+[done] cc-valid-r040-s0219-1555-c-coin-rows__t5_easy_seed1__00-generated-160 trial=3 condition=obfuscated_codesteer exact=False seed=2043102552
+[done] cc-valid-r054-s0229-1557-c-moamen-and-xor__t5_easy_seed1__00-private-017 trial=1 condition=original_plain exact=False seed=1398316355
+[done] cc-valid-r054-s0229-1557-c-moamen-and-xor__t5_easy_seed1__00-private-017 trial=1 condition=obfuscated_plain exact=False seed=1398316355
+[done] cc-valid-r054-s0229-1557-c-moamen-and-xor__t5_easy_seed1__00-private-017 trial=1 condition=obfuscated_prompt_slice exact=False seed=1398316355
+[done] cc-valid-r054-s0229-1557-c-moamen-and-xor__t5_easy_seed1__00-private-017 trial=1 condition=obfuscated_codesteer exact=False seed=1398316355
+[done] cc-valid-r054-s0229-1557-c-moamen-and-xor__t5_easy_seed1__00-private-017 trial=2 condition=original_plain exact=False seed=1933722965
+[done] cc-valid-r054-s0229-1557-c-moamen-and-xor__t5_easy_seed1__00-private-017 trial=2 condition=obfuscated_plain exact=False seed=1933722965
+[done] cc-valid-r054-s0229-1557-c-moamen-and-xor__t5_easy_seed1__00-private-017 trial=2 condition=obfuscated_prompt_slice exact=False seed=1933722965
+[done] cc-valid-r054-s0229-1557-c-moamen-and-xor__t5_easy_seed1__00-private-017 trial=2 condition=obfuscated_codesteer exact=False seed=1933722965
+[done] cc-valid-r054-s0229-1557-c-moamen-and-xor__t5_easy_seed1__00-private-017 trial=3 condition=original_plain exact=False seed=328268763
+[done] cc-valid-r054-s0229-1557-c-moamen-and-xor__t5_easy_seed1__00-private-017 trial=3 condition=obfuscated_plain exact=False seed=328268763
+[done] cc-valid-r054-s0229-1557-c-moamen-and-xor__t5_easy_seed1__00-private-017 trial=3 condition=obfuscated_prompt_slice exact=False seed=328268763
+[done] cc-valid-r054-s0229-1557-c-moamen-and-xor__t5_easy_seed1__00-private-017 trial=3 condition=obfuscated_codesteer exact=False seed=328268763
+[done] cc-valid-r079-s0140-1562-b-scenes-from-a-memory__t5_easy_seed1__00-generated-009 trial=1 condition=original_plain exact=False seed=2040986934
+[done] cc-valid-r079-s0140-1562-b-scenes-from-a-memory__t5_easy_seed1__00-generated-009 trial=1 condition=obfuscated_plain exact=False seed=2040986934
+[done] cc-valid-r079-s0140-1562-b-scenes-from-a-memory__t5_easy_seed1__00-generated-009 trial=1 condition=obfuscated_prompt_slice exact=False seed=2040986934
+[done] cc-valid-r079-s0140-1562-b-scenes-from-a-memory__t5_easy_seed1__00-generated-009 trial=1 condition=obfuscated_codesteer exact=False seed=2040986934
+[done] cc-valid-r079-s0140-1562-b-scenes-from-a-memory__t5_easy_seed1__00-generated-009 trial=2 condition=original_plain exact=False seed=880680088
+[done] cc-valid-r079-s0140-1562-b-scenes-from-a-memory__t5_easy_seed1__00-generated-009 trial=2 condition=obfuscated_plain exact=False seed=880680088
+[done] cc-valid-r079-s0140-1562-b-scenes-from-a-memory__t5_easy_seed1__00-generated-009 trial=2 condition=obfuscated_prompt_slice exact=False seed=880680088
+[done] cc-valid-r079-s0140-1562-b-scenes-from-a-memory__t5_easy_seed1__00-generated-009 trial=2 condition=obfuscated_codesteer exact=False seed=880680088
+[done] cc-valid-r079-s0140-1562-b-scenes-from-a-memory__t5_easy_seed1__00-generated-009 trial=3 condition=original_plain exact=False seed=392647685
+[done] cc-valid-r079-s0140-1562-b-scenes-from-a-memory__t5_easy_seed1__00-generated-009 trial=3 condition=obfuscated_plain exact=False seed=392647685
+[done] cc-valid-r079-s0140-1562-b-scenes-from-a-memory__t5_easy_seed1__00-generated-009 trial=3 condition=obfuscated_prompt_slice exact=False seed=392647685
+[done] cc-valid-r079-s0140-1562-b-scenes-from-a-memory__t5_easy_seed1__00-generated-009 trial=3 condition=obfuscated_codesteer exact=False seed=392647685
+[done] cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1__00-private-000 trial=1 condition=original_plain exact=True seed=1950230974
+[done] cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1__00-private-000 trial=1 condition=obfuscated_plain exact=False seed=1950230974
+[done] cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1__00-private-000 trial=1 condition=obfuscated_prompt_slice exact=False seed=1950230974
+[done] cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1__00-private-000 trial=1 condition=obfuscated_codesteer exact=True seed=1950230974
+[done] cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1__00-private-000 trial=2 condition=original_plain exact=False seed=100994132
+[done] cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1__00-private-000 trial=2 condition=obfuscated_plain exact=False seed=100994132
+[done] cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1__00-private-000 trial=2 condition=obfuscated_prompt_slice exact=False seed=100994132
+[done] cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1__00-private-000 trial=2 condition=obfuscated_codesteer exact=False seed=100994132
+[done] cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1__00-private-000 trial=3 condition=original_plain exact=True seed=1705371069
+[done] cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1__00-private-000 trial=3 condition=obfuscated_plain exact=True seed=1705371069
+[done] cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1__00-private-000 trial=3 condition=obfuscated_prompt_slice exact=False seed=1705371069
+[done] cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1__00-private-000 trial=3 condition=obfuscated_codesteer exact=True seed=1705371069
+[complete] results=/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/full_results_cached/shard_0/results_index.json

@@ -1,0 +1,236 @@
+{
+  "obfuscated_line_count": 320,
+  "obfuscated_method_analysis": {
+    "codesteer_selected_target_method": "cal",
+    "codesteer_target_matches_recorded": true,
+    "fallback_used": false,
+    "method_names": [
+      "main",
+      "cal",
+      "abs",
+      "KMP",
+      "nextPer",
+      "digit",
+      "dist",
+      "toString",
+      "update",
+      "get",
+      "gcd",
+      "pow",
+      "next",
+      "nextLong",
+      "nextInt",
+      "nextDouble",
+      "nextLine",
+      "endLine"
+    ],
+    "parameter_count": 5,
+    "parse_status": "javalang",
+    "recorded_target_found": true,
+    "recorded_target_method": "cal",
+    "return_sink_count": 3
+  },
+  "original_line_count": 271,
+  "original_method_analysis": {
+    "codesteer_selected_target_method": "cal",
+    "codesteer_target_matches_recorded": true,
+    "fallback_used": false,
+    "method_names": [
+      "main",
+      "cal",
+      "abs",
+      "KMP",
+      "nextPer",
+      "digit",
+      "dist",
+      "toString",
+      "update",
+      "get",
+      "gcd",
+      "pow",
+      "next",
+      "nextLong",
+      "nextInt",
+      "nextDouble",
+      "nextLine",
+      "endLine"
+    ],
+    "parameter_count": 5,
+    "parse_status": "javalang",
+    "recorded_target_found": true,
+    "recorded_target_method": "cal",
+    "return_sink_count": 3
+  },
+  "prompt_slice": {
+    "artifact_name": "Program Slicing / backward slice",
+    "elements": [
+      {
+        "code": "static long cal(int index, int larger, int n, long twoPowerN, long other) {",
+        "description": "target method cal(index, larger, n, twoPowerN, other)",
+        "kind": "MethodDeclaration",
+        "line": 63,
+        "line_label": "L063"
+      },
+      {
+        "code": "static long cal(int index, int larger, int n, long twoPowerN, long other) {",
+        "description": "method parameter index",
+        "kind": "SliceMethodParameter",
+        "line": 63,
+        "line_label": "L063"
+      },
+      {
+        "code": "static long cal(int index, int larger, int n, long twoPowerN, long other) {",
+        "description": "method parameter larger",
+        "kind": "SliceMethodParameter",
+        "line": 63,
+        "line_label": "L063"
+      },
+      {
+        "code": "static long cal(int index, int larger, int n, long twoPowerN, long other) {",
+        "description": "method parameter n",
+        "kind": "SliceMethodParameter",
+        "line": 63,
+        "line_label": "L063"
+      },
+      {
+        "code": "static long cal(int index, int larger, int n, long twoPowerN, long other) {",
+        "description": "method parameter twoPowerN",
+        "kind": "SliceMethodParameter",
+        "line": 63,
+        "line_label": "L063"
+      },
+      {
+        "code": "static long cal(int index, int larger, int n, long twoPowerN, long other) {",
+        "description": "method parameter other",
+        "kind": "SliceMethodParameter",
+        "line": 63,
+        "line_label": "L063"
+      },
+      {
+        "code": "return 1;",
+        "description": "return value expression",
+        "kind": "SliceReturnValue",
+        "line": 66,
+        "line_label": "L066"
+      },
+      {
+        "code": "return dp[larger][index];",
+        "description": "return value expression using dp, larger, index",
+        "kind": "SliceReturnValue",
+        "line": 69,
+        "line_label": "L069"
+      },
+      {
+        "code": "return dp[larger][index] = result;",
+        "description": "return value expression using dp, larger, index, result",
+        "kind": "SliceReturnValue",
+        "line": 83,
+        "line_label": "L083"
+      },
+      {
+        "code": "if (index < 0) {",
+        "description": "control predicate over index",
+        "kind": "SliceControlDependency",
+        "line": 65,
+        "line_label": "L065"
+      },
+      {
+        "code": "if (dp[larger][index] != -1) {",
+        "description": "control predicate over dp, larger, index",
+        "kind": "SliceControlDependency",
+        "line": 68,
+        "line_label": "L068"
+      },
+      {
+        "code": "long result = 0;",
+        "description": "definition of result",
+        "kind": "SliceDefinition",
+        "line": 71,
+        "line_label": "L071"
+      },
+      {
+        "code": "if (larger == 1) {",
+        "description": "control predicate over larger, result, twoPowerN, cal, index, n, other, MOD",
+        "kind": "SliceControlDependency",
+        "line": 72,
+        "line_label": "L072"
+      },
+      {
+        "code": "",
+        "description": "assignment/update influencing result",
+        "kind": "SliceAssignment",
+        "line": null,
+        "line_label": ""
+      },
+      {
+        "code": "result = twoPowerN * cal(index - 1, larger, n, twoPowerN, other);",
+        "description": "method call cal in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 73,
+        "line_label": "L073"
+      },
+      {
+        "code": "result = other * cal(index - 1, larger, n, twoPowerN, other);",
+        "description": "method call cal in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 76,
+        "line_label": "L076"
+      },
+      {
+        "code": "if (n % 2 == 0) {",
+        "description": "control predicate over n, result, cal, index, twoPowerN, other, MOD",
+        "kind": "SliceControlDependency",
+        "line": 78,
+        "line_label": "L078"
+      },
+      {
+        "code": "result += cal(index - 1, 1, n, twoPowerN, other);",
+        "description": "method call cal in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 79,
+        "line_label": "L079"
+      },
+      {
+        "code": "",
+        "description": "assignment/update influencing dp",
+        "kind": "SliceAssignment",
+        "line": null,
+        "line_label": ""
+      }
+    ],
+    "eligible_count_is_lower_bound": false,
+    "eligible_element_count": 19,
+    "emitted_element_count": 19,
+    "emitted_over_eligible": 1.0,
+    "enabled": true,
+    "guidance_text": "Prompt-only steering guidance (Program Slicing / backward slice, artifact-conditioned):\nUse the following static program-analysis elements as the main reasoning anchors.\nThese elements are static only; they do not reveal the correct output, branch outcomes, or gold execution trace.\n\nStatic elements to emphasize:\n1. MethodDeclaration at L063: target method cal(index, larger, n, twoPowerN, other) (static long cal(int index, int larger, int n, long twoPowerN, long other) {)\n2. SliceMethodParameter at L063: method parameter index (static long cal(int index, int larger, int n, long twoPowerN, long other) {)\n3. SliceMethodParameter at L063: method parameter larger (static long cal(int index, int larger, int n, long twoPowerN, long other) {)\n4. SliceMethodParameter at L063: method parameter n (static long cal(int index, int larger, int n, long twoPowerN, long other) {)\n5. SliceMethodParameter at L063: method parameter twoPowerN (static long cal(int index, int larger, int n, long twoPowerN, long other) {)\n6. SliceMethodParameter at L063: method parameter other (static long cal(int index, int larger, int n, long twoPowerN, long other) {)\n7. SliceReturnValue at L066: return value expression (return 1;)\n8. SliceReturnValue at L069: return value expression using dp, larger, index (return dp[larger][index];)\n9. SliceReturnValue at L083: return value expression using dp, larger, index, result (return dp[larger][index] = result;)\n10. SliceControlDependency at L065: control predicate over index (if (index < 0) {)\n11. SliceControlDependency at L068: control predicate over dp, larger, index (if (dp[larger][index] != -1) {)\n12. SliceDefinition at L071: definition of result (long result = 0;)\n13. SliceControlDependency at L072: control predicate over larger, result, twoPowerN, cal, index, n, other, MOD (if (larger == 1) {)\n14. SliceAssignment: assignment/update influencing result\n15. SliceMethodCall at L073: method call cal in static data/control context (result = twoPowerN * cal(index - 1, larger, n, twoPowerN, other);)\n16. SliceMethodCall at L076: method call cal in static data/control context (result = other * cal(index - 1, larger, n, twoPowerN, other);)\n17. SliceControlDependency at L078: control predicate over n, result, cal, index, twoPowerN, other, MOD (if (n % 2 == 0) {)\n18. SliceMethodCall at L079: method call cal in static data/control context (result += cal(index - 1, 1, n, twoPowerN, other);)\n19. SliceAssignment: assignment/update influencing dp",
+    "max_elements": 24,
+    "mechanism": "artifact_conditioned_natural_language_instruction_only",
+    "mode": "slice",
+    "parse_status": "javalang",
+    "prompt_items": [
+      "MethodDeclaration at L063: target method cal(index, larger, n, twoPowerN, other) (static long cal(int index, int larger, int n, long twoPowerN, long other) {)",
+      "SliceMethodParameter at L063: method parameter index (static long cal(int index, int larger, int n, long twoPowerN, long other) {)",
+      "SliceMethodParameter at L063: method parameter larger (static long cal(int index, int larger, int n, long twoPowerN, long other) {)",
+      "SliceMethodParameter at L063: method parameter n (static long cal(int index, int larger, int n, long twoPowerN, long other) {)",
+      "SliceMethodParameter at L063: method parameter twoPowerN (static long cal(int index, int larger, int n, long twoPowerN, long other) {)",
+      "SliceMethodParameter at L063: method parameter other (static long cal(int index, int larger, int n, long twoPowerN, long other) {)",
+      "SliceReturnValue at L066: return value expression (return 1;)",
+      "SliceReturnValue at L069: return value expression using dp, larger, index (return dp[larger][index];)",
+      "SliceReturnValue at L083: return value expression using dp, larger, index, result (return dp[larger][index] = result;)",
+      "SliceControlDependency at L065: control predicate over index (if (index < 0) {)",
+      "SliceControlDependency at L068: control predicate over dp, larger, index (if (dp[larger][index] != -1) {)",
+      "SliceDefinition at L071: definition of result (long result = 0;)",
+      "SliceControlDependency at L072: control predicate over larger, result, twoPowerN, cal, index, n, other, MOD (if (larger == 1) {)",
+      "SliceAssignment: assignment/update influencing result",
+      "SliceMethodCall at L073: method call cal in static data/control context (result = twoPowerN * cal(index - 1, larger, n, twoPowerN, other);)",
+      "SliceMethodCall at L076: method call cal in static data/control context (result = other * cal(index - 1, larger, n, twoPowerN, other);)",
+      "SliceControlDependency at L078: control predicate over n, result, cal, index, twoPowerN, other, MOD (if (n % 2 == 0) {)",
+      "SliceMethodCall at L079: method call cal in static data/control context (result += cal(index - 1, 1, n, twoPowerN, other);)",
+      "SliceAssignment: assignment/update influencing dp"
+    ],
+    "recorded_target_method": "cal",
+    "target_method": "cal"
+  },
+  "sample_id": "cc-valid-r054-s0229-1557-c-moamen-and-xor__t5_easy_seed1__balanced-generated-000068"
+}

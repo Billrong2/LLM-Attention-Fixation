@@ -1,0 +1,21 @@
+### Reasoning
+The program starts by reading the number of test cases `t` and then proceeds to handle each test case individually. Each test case is processed as follows:
+
+1. The program reads three integers `n`, `m`, and `k` from the input.
+2. It reads `n` integers to populate an array `yline` and `m` integers to populate an array `xline`.
+3. It reads `k` pairs of integers to populate two arrays `px` and `py`.
+4. The function `solve` is called with these arrays and the function returns a single integer result.
+
+The `solve` function does the following:
+
+1. It creates sets `yset` and `xset` from the arrays `yline` and `xline` respectively.
+2. It creates lists `xlist` and `ylist` by combining the `yline` and `xline` arrays with the `px` and `py` arrays.
+3. It sorts these lists using a custom comparator defined in the `Pair` class.
+4. It uses hash maps to keep track of counts of elements in `xlist` and `ylist`.
+5. It iterates through the sorted lists and computes the sum of all elements that are not in the hash maps, adding them to the `ans` variable.
+
+### Final Output
+Given the input provided in the case, the program processes each test case and computes the sum of elements not in the hash maps. The output is the sum computed for each test case.
+
+### Machine-Readable Final Output
+```plaintext

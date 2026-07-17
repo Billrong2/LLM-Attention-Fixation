@@ -1,0 +1,12 @@
+
+
+
+The given program is written in Java, which is an object-oriented programming language. The code is structured into several sections including imports, constants, main method, and helper methods.
+
+The main part of the code is the `main` method which reads an integer `t` representing the number of test cases and then loops through each test case. For each test case, it reads an integer `n` and a string `s`, and then performs some operations based on the characters in the string. Specifically, it checks if each character is a prime number and if not, it prints "1" followed by the character. If the character is a prime number, it continues to check pairs of characters and if any pair is not a prime number, it prints "2" followed by the pair.
+
+The helper methods used in the code include `isPrime`, `gcd`, `lcm`, `abs`, and `ria` and `rla` for reading integer and long arrays respectively. The `isPrime` method checks if a number is prime by iterating from 3 to the square root of the number and checking if it is divisible by any number in that range. The `gcd` method calculates the greatest common divisor of two numbers using the Euclidean algorithm. The `lcm` method calculates the least common multiple of two numbers using the formula lcm(a, b) = (a / gcd(a, b)) * b. The `abs` method returns the absolute value of an integer.
+
+Overall, the program appears to be a solution to a specific problem related to checking pairs of characters in a string for primality.
+
+FINAL_OUTPUT_JSON: {"stdout":"\n1\n1\n7\n"}

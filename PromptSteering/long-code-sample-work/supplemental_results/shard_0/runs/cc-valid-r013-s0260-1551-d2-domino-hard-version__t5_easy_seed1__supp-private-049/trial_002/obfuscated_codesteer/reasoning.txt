@@ -1,0 +1,17 @@
+### CASES_BEGIN
+c001: invoke program entry point; target_method=cal; stdin="1\n86 51 2176\n"; argv=[]
+### CASES_END
+
+**Concise Reasoning:**
+
+1. The program reads input values for the number of rows `n`, columns `m`, and horizontal lines `k`.
+2. It initializes the `dp` array with dimensions `m x (k + 1)` and the `re` array with dimensions `n x m`.
+3. It calls the `cal` function with initial parameters `(0, k, n, m)`.
+4. The `cal` function checks if `index` equals `m` and returns `true` if `horizontal` equals 0, indicating the end of the recursive process.
+5. If `horizontal` equals 0, it calculates the characters for each pair of cells in the grid and returns `true`.
+6. If `horizontal` is not 0, it recursively calls itself with updated parameters and returns the result.
+7. The `find` function finds a character that is different from adjacent characters in the grid.
+8. The `get` function checks if a character is the same as adjacent characters in the grid.
+
+**Machine-Readable Line:**
+```

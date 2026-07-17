@@ -1,0 +1,25 @@
+The program `cal` is a dynamic programming function that calculates the maximum number of pairs of adjacent elements that are equal in two binary strings. 
+
+The program takes the following inputs:
+- `index` - an integer representing the current index being processed
+- `n` - an integer representing the length of the binary strings
+- `nxt` - a 2D integer array representing the next occurrences of 0 and 1 in the binary strings
+
+The function returns an integer representing the maximum number of pairs of adjacent elements that are equal.
+
+The function `cal` works as follows:
+1. If the `index` is equal to `n`, the function returns 0, indicating that there are no more pairs to compare.
+2. If the `dp` array is not initialized at the `index`, the function sets the `dp` array at the `index` to -1, indicating that it has not been initialized yet.
+3. The function then calculates the result by comparing the next occurrences of 0 and 1 in the binary strings.
+4. If both next occurrences of 0 and 1 are at the same index, the function sets the result to 2 plus the result of calling `cal` with the next index.
+5. If only the next occurrence of 0 is at the same index, the function sets the result to 1 plus the result of calling `cal` with the next index.
+6. If only the next occurrence of 1 is at the same index, the function sets the result to 0 plus the result of calling `cal` with the next index.
+7. Finally, the function sets the `dp` array at the `index` to the result and returns it.
+
+The program then takes input from the user in the following format:
+- `T` - an integer representing the number of test cases
+- For each test case:
+  - `n` - an integer representing the length of the binary strings
+  - `s` and `t` - two strings of length `n` representing the binary strings
+
+The program then calls the `cal` function for each test case and prints the result to the console.

@@ -1,0 +1,21 @@
+The Java program's main focus is on the method `pawnLineal`. The input to this method is two strings `scr` and `dst`, which represent source and destination chessboard states. The method calculates how many moves it takes to transform the source state to the destination state by moving pawns according to specific rules. Here, each '1' in `scr` indicates a pawn's presence and each '1' in `dst` indicates the pawn's desired position. Each pawn can either move one space forward, capture diagonally, or stay still. 
+
+The program first adds "0"s at both ends of the `scr` and `dst` strings to handle edge cases. Then it iterates through the string starting from the second character till the second-to-last character (skipping the added '0's at both ends). For each pawn (indicated by '1') in the source string, the method checks if it can move or capture according to the given rules. If it can, it moves or captures and increments `ret` (the number of moves required). 
+
+The method `pawnLineal` returns the final value of `ret`, which is the exact number of moves required to transform the source state to the destination state.
+
+### CASES_BEGIN
+c001: invoke program entry point; target_method=pawnLineal; stdin="1\n20\n01101000110111000110\n00101100011000000010\n"; argv=[]
+### CASES_END
+
+For the given input case `c001`:
+1. The first string represents the length of the `scr` and `dst` strings.
+2. The second string represents the length of `scr` and `dst` which is 20.
+3. The third string represents the `scr` string.
+4. The fourth string represents the `dst` string.
+
+The program will calculate and print the number of moves required to transform the source state `scr` to the destination state `dst`.
+
+The output for this case is calculated as follows:
+- The `pawnLineal` method processes each character of `scr` and `dst` to determine how many moves are required.
+- The exact number of moves is calculated and printed.

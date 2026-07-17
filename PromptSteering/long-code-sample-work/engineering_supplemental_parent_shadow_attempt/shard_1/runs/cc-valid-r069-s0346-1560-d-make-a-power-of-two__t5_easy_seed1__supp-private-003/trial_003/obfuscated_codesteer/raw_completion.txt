@@ -1,0 +1,25 @@
+ To predict the exact standard output of this deterministic Java program, we need to analyze the input and the logic of the `buscarGreedy` method. The `buscarGreedy` method compares the given number with the powers of 2, calculates the minimum number of characters that need to be removed to make the number a power of 2, and returns this minimum.
+
+Let's go through the input and apply the logic of the `buscarGreedy` method to each case:
+
+1. **Input:** `12`
+   - The closest power of 2 that is greater than or equal to `12` is `16` (which is \(2^4\)).
+   - To get from `12` to `16`, we need to add `1` and `6` at the end.
+   - Therefore, we need to remove `12` completely.
+   - The minimum number of characters to remove is `2` (`1` and `2`).
+
+2. **Input:** `825`
+   - The closest power of 2 that is greater than or equal to `825` is `1024` (which is \(2^{10}\)).
+   - To get from `825` to `1024`, we need to add `0` and `243` at the end.
+   - Therefore, we need to remove `8`, `2`, and `5`.
+   - The minimum number of characters to remove is `3` (`8`, `2`, and `5`).
+
+3. **Input:** `8888`
+   - The closest power of 2 that is greater than or equal to `8888` is `16384` (which is \(2^{14}\)).
+   - To get from `8888` to `16384`, we need to add `0`, `6`, `5`, `0`, `0`, `0`, and `0` at the end.
+   - Therefore, we need to remove `8`, `8`, `8`, and `8`.
+   - The minimum number of characters to remove is `4` (`8`, `8`, `8`, and `8`).
+
+4. **Input:** `4`
+   - The closest power of 2 that is equal to `4` is `4` (which is \(2^2\)).
+   - No characters

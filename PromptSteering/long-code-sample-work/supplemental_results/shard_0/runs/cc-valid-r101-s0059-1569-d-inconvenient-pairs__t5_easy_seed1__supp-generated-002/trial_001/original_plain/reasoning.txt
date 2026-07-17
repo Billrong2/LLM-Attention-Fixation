@@ -1,0 +1,48 @@
+To determine the exact output of the given Java program, let's walk through the execution step by step, focusing on the `solve` method which is the target method.
+
+### Step-by-Step Execution
+
+1. **Input Parsing:**
+   - The program reads the input from standard input and parses it.
+   - For each test case:
+     - It reads the number of rows `n` and columns `m`.
+     - It reads the `n` integers representing the y-coordinates of the points.
+     - It reads the `m` integers representing the x-coordinates of the points.
+     - It reads the `k` points, each with an x-coordinate and a y-coordinate.
+
+2. **Processing Points:**
+   - The `solve` method is called with the parsed data.
+   - It initializes sets and lists to track the points and their relationships.
+   - It adds the y-coordinates of the rows and x-coordinates of the columns to sets and maps.
+   - It adds the points to lists, distinguishing between rows and columns.
+   - It sorts the lists.
+
+3. **Calculating the Result:**
+   - It iterates over the sorted lists and accumulates the sum of valid points.
+   - For each point in the sorted list, it checks if it belongs to a row or a column.
+   - If it belongs to a row, it updates the sum and maps accordingly.
+   - If it belongs to a column, it updates the sum and maps accordingly.
+
+### Concrete Case Analysis
+
+Given the input:
+```
+1
+2 2 2
+0 1010000
+0 1000000
+1556 1000000
+0 34
+```
+
+1. **Input Parsing:**
+   - `t = 1` (number of test cases)
+   - `n = 2`, `m = 2`, `k = 2`
+   - `yline = [0, 1010000]`
+   - `xline = [0, 1000000]`
+   - `px = [1556, 0]`
+   - `py = [1000000, 34]`
+
+2. **Processing Points:**
+   - `yset = {0, 1010000}`
+   - `xset = {0,

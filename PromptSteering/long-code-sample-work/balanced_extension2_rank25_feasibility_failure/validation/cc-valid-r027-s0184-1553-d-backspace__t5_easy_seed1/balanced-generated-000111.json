@@ -1,0 +1,127 @@
+{
+  "accepted": false,
+  "historical_comparator": "replace CRLF with LF, then outer strip; internal whitespace exact",
+  "obfuscated": {
+    "accepted": false,
+    "cases": [
+      {
+        "accepted": false,
+        "actual_trimmed": "YES",
+        "case_id": "balanced-generated-000111",
+        "command": [
+          "java",
+          "-Dfile.encoding=UTF-8",
+          "-Djava.io.tmpdir=<scratch>",
+          "-Duser.home=<scratch>",
+          "-XX:-UsePerfData",
+          "-cp",
+          "<classes>",
+          "codeforces"
+        ],
+        "exit_code": 0,
+        "expected_trimmed": "Yes",
+        "raw_expected_stdout_sha256": "927580bf287560d4a26a5d6e129f91ffa9cb63031b1a8c772be6ec584e65e82b",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "a115e91c2e84c3078fa06914eff28d07590ddfaa47a55fb4f31dd7c5b3566194",
+        "stderr": "",
+        "stdout": "YES\n",
+        "timed_out": false,
+        "trimmed_exact_match": false
+      }
+    ],
+    "compile": {
+      "accepted": true,
+      "command": [
+        "javac",
+        "-encoding",
+        "UTF-8",
+        "-J-Djava.io.tmpdir=<scratch>",
+        "-J-Duser.home=<scratch>",
+        "-J-XX:-UsePerfData",
+        "-Xlint:none",
+        "-nowarn",
+        "-d",
+        "<classes>",
+        "<scratch>/codeforces.java"
+      ],
+      "exit_code": 0,
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    "entry": {
+      "compile_class": "codeforces",
+      "main_class": "codeforces",
+      "package": "",
+      "parse_status": "javalang"
+    }
+  },
+  "original": {
+    "accepted": false,
+    "cases": [
+      {
+        "accepted": false,
+        "actual_trimmed": "YES",
+        "case_id": "balanced-generated-000111",
+        "command": [
+          "java",
+          "-Dfile.encoding=UTF-8",
+          "-Djava.io.tmpdir=<scratch>",
+          "-Duser.home=<scratch>",
+          "-XX:-UsePerfData",
+          "-cp",
+          "<classes>",
+          "codeforces"
+        ],
+        "exit_code": 0,
+        "expected_trimmed": "Yes",
+        "raw_expected_stdout_sha256": "927580bf287560d4a26a5d6e129f91ffa9cb63031b1a8c772be6ec584e65e82b",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "a115e91c2e84c3078fa06914eff28d07590ddfaa47a55fb4f31dd7c5b3566194",
+        "stderr": "",
+        "stdout": "YES\n",
+        "timed_out": false,
+        "trimmed_exact_match": false
+      }
+    ],
+    "compile": {
+      "accepted": true,
+      "command": [
+        "javac",
+        "-encoding",
+        "UTF-8",
+        "-J-Djava.io.tmpdir=<scratch>",
+        "-J-Duser.home=<scratch>",
+        "-J-XX:-UsePerfData",
+        "-Xlint:none",
+        "-nowarn",
+        "-d",
+        "<classes>",
+        "<scratch>/codeforces.java"
+      ],
+      "exit_code": 0,
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    "entry": {
+      "compile_class": "codeforces",
+      "main_class": "codeforces",
+      "package": "",
+      "parse_status": "javalang"
+    }
+  },
+  "original_obfuscated_trimmed_agreement": false,
+  "requirements": {
+    "both_compile": true,
+    "both_no_timeout": true,
+    "both_runtime_exit_zero": true,
+    "both_runtime_stderr_empty": true,
+    "both_trimmed_exact_to_oracle": true,
+    "both_trimmed_outputs_agree": true
+  }
+}

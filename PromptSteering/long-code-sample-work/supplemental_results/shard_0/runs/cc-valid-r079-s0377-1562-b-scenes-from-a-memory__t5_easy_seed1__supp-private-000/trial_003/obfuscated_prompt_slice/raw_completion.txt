@@ -1,0 +1,21 @@
+
+
+
+c001: invoke program entry point; target_method=isPrime; stdin="1\n2\n77\n"; argv=[]
+### CASES_END
+
+The program reads an integer n from standard input and calls the isPrime function to check if the number is prime or not. If the number is not prime, it prints 1 followed by the number on a new line. If the number is prime, it prints 2 and the sum of the digits of the number on a new line. Finally, the program prints 0 on a new line to indicate the end of the program.
+
+Reasoning:
+
+- The program first calls the main method of the Main class.
+- The main method reads an integer t from standard input and enters a loop t times.
+- Inside the loop, the main method calls the ruffleSort method on an array of integers.
+- The ruffleSort method generates a permutation of the array and then sorts it.
+- The main method then calls the max, min, gcd, lcm, abs, and isPrime methods on the array elements.
+- The isPrime method checks if the number is divisible by any number up to its square root. If it is not divisible by any number, it returns true, indicating that the number is prime.
+- If the number is not prime, the main method prints 1 followed by the number on a new line.
+- If the number is prime, the main method prints 2 followed by the sum of the digits of the number on a new line.
+- Finally, the main method prints 0 on a new line to indicate the end of the program.
+
+FINAL_OUTPUT_JSON: {"stdout":"1\n1\n2\n0\n"}

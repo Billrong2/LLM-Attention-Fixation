@@ -1,0 +1,56 @@
+### Output Prediction:
+The provided Java program is designed to solve a problem related to finding the longest path in a graph, where each node represents a task and edges represent dependencies between tasks. The program uses dynamic programming to calculate the longest path from a given node, considering that some paths may form a cycle, which would result in an infinite loop.
+
+For the provided input:
+```
+5
+4
+1 2
+0
+2 1 4
+1 2
+5
+1 5
+1 1
+1 1
+1 3
+1 4
+5
+0
+0
+2 1 2
+1 2
+2 2 1
+4
+2 2 3
+0
+0
+2 3 2
+5
+1 2
+1 3
+1 4
+1 5
+0
+```
+Here’s how the program processes each test case:
+
+1. **Test Case 1**:
+   - `n = 5`, `m = 4`
+   - Edges: `1 -> 2`, `0 -> 1`, `2 -> 1`, `2 -> 4`, `1 -> 2`
+   - This forms a cycle between nodes 0, 1, and 2, which leads to an infinite loop. Therefore, the result for this case is `-1`.
+
+2. **Test Case 2**:
+   - `n = 5`, `m = 5`
+   - Edges: `1 -> 5`, `1 -> 1`, `1 -> 1`, `1 -> 3`, `1 -> 4`
+   - This also forms a cycle involving node 1, which leads to an infinite loop. Thus, the result is `-1`.
+
+3. **Test Case 3**:
+   - `n = 5`, `m = 6`
+   - Edges: `0 -> 0`, `0 -> 0`, `2 -> 1`, `2 -> 2`, `1 -> 2`
+   - This forms a cycle involving nodes 1 and 2, which leads to an infinite loop. Thus, the result is `-1`.
+
+4. **Test Case 4**:
+   - `n = 4`, `m = 4`
+   - Edges: `2 -> 2`, `2 -> 3`, `2 -> 1`
+   - This forms a cycle involving node

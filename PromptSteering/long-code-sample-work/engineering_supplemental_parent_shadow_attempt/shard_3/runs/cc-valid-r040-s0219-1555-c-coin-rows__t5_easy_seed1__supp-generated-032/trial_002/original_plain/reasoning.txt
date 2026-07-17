@@ -1,0 +1,46 @@
+To predict the exact standard output of the Java program for the given concrete case, let's analyze the program step-by-step:
+
+1. The program takes input from the standard input stream (stdin).
+2. It reads the number of test cases (t) and then iterates through each test case.
+3. For each test case, it reads two lines of input: a string representing the values and another string representing the weights.
+4. The program calls the `game` method to compute the result based on the input values and weights.
+
+Let's break down the `game` method:
+
+- It initializes a 2D array `dp` with dimensions 2x`m`, where `m` is the number of values.
+- It fills the first row of `dp` with the cumulative sum of the weights (from `arr2`).
+- It fills the second row of `dp` with the cumulative sum of the values (from `arr1`) in reverse order.
+- It computes the maximum value between the two cumulative sums for each position and stores it in `min`.
+- Finally, it returns the minimum of these maximum values.
+
+Now, let's predict the output for the given test case:
+```plaintext
+3
+3
+2 3 12
+2 10 2
+3
+-1 4 17
+3 5 0
+1
+4
+3
+```
+For each test case, we'll calculate the result using the `game` method:
+
+1. Test case 1:
+   - Values: 2, 3, 12
+   - Weights: 2, 10, 2
+   - The `game` method will compute the cumulative sums and find the minimum of the maximum values.
+   - Result: 12 (since the maximum values are 2, 12, and 22, and the minimum of these is 12).
+
+2. Test case 2:
+   - Values: -1, 4, 17
+   - Weights: 3, 5, 0
+   - The `game` method will compute the cumulative sums and find the minimum of the maximum values.
+   - Result: 4 (since the maximum values are 3, 8, and 20, and the minimum of these is 4).
+
+3. Test case 3:
+   - Values: 4
+   - Weights: 3
+   - Since there

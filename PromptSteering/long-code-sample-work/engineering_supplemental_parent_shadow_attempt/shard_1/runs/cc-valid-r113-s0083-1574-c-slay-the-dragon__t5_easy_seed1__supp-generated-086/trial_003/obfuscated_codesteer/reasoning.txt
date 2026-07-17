@@ -1,0 +1,22 @@
+The program reads the input from the stdin, which contains the following data: 
+```
+4
+12 11 1 2
+1
+12 28
+7 2
+4 10
+0 13
+8 7
+```
+It first reads the value 4, which is the number of elements in the array.
+Then it reads the next 4 values (12, 11, 1, 2), which are stored in the array.
+After that, it reads the value 1, which is the number of queries.
+Finally, it reads 5 pairs of values (12, 28), (7, 2), (4, 10), (0, 13), (8, 7), each consisting of two long values separated by a space.
+The program then sorts the array of long values in ascending order.
+For each pair of long values, it calls the find method, passing in the sum of the values in the array, the hash set of the values in the array, the sorted array of values, the length of the array, the first value of the pair, and the second value of the pair.
+The find method returns the minimum value between two calculations:
+1. If the first value of the pair is greater than or equal to the value at index s in the sorted array, the calculation is the first value of the pair minus the value at index s, plus the second value of the pair minus the sum of the values in the sorted array starting from index s. If the result is negative, it is set to 0.
+2. If the index s-1 is greater than or equal to 0, the same calculation is performed with index s-1 instead of s.
+The final result is the minimum of the two calculations.
+The program then writes the result to the standard output.

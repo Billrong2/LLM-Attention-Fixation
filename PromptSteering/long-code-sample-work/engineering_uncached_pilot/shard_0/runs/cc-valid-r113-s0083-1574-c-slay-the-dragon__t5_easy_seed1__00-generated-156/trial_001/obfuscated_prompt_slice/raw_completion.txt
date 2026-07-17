@@ -1,0 +1,21 @@
+
+
+
+### Case c001:
+
+1. The method find() is invoked with the parameters: sum = 37L, hs = {1L, 2L, 11L, 12L}, arr = [2L, 11L, 12L, 1L], n = 4, attack = 12L, and defend = 28L.
+2. The while loop at line 12 iterates through the elements of arr, comparing each element to attack.
+3. The if statement at line 13 checks if arr[mid] is equal to attack, which is not true in this case.
+4. The if statement at line 16 checks if arr[mid] is less than attack, which is true.
+5. The assignment at line 17 updates s with the value mid+1, so s becomes 3.
+6. The while loop terminates as s is no longer less than e.
+7. The assignment at line 23 sets ans1 to Long.MAX_VALUE.
+8. The assignment at line 24 sets t1 to 0.
+9. The assignment at line 25 sets t2 to 35L.
+10. The assignment at line 26 sets t3 to 0.
+11. The assignment at line 27 sets ans1 to 0.
+12. The if statement at line 32 checks if s-1 is greater than or equal to 0, which is not true.
+13. The assignment at line 34 sets ans2 to Long.MAX_VALUE.
+14. The if statement at line 40 checks if ans1 is less than ans2, which is true.
+15. The assignment at line 40 returns 0 to the caller of the find() method.
+16. The main() method prints the result of the find() method, which is "0".

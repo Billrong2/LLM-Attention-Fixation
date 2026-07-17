@@ -1,0 +1,11 @@
+ ### REASONING
+
+1. The input is read from the stdin, which contains the number of elements `n` in the array followed by the elements of the array, the number of queries `y`, and then the pairs of `attack` and `defend` for each query.
+2. The `find` method is called with the sum of the elements of the array, the set of elements, the sorted array, the size of the sorted array, the `attack` value, and the `defend` value.
+3. The `find` method performs binary search on the sorted array to find the index of the `attack` value.
+4. The `find` method calculates the answer by finding the minimum of two values: the difference between the `attack` value and the element at the found index, and the difference between the `defend` value and the sum of the elements from the found index to the end of the array.
+5. The answers for each query are printed to stdout.
+
+### FINAL_OUTPUT_JSON
+
+{"stdout":"0\n0\n"}

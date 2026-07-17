@@ -1,0 +1,21 @@
+ To determine the exact output of the given Java program for the provided input "1\n2\n117", we need to analyze the program's behavior step by step.
+
+### Analysis:
+1. **Initialization**:
+   - The program starts by taking the number of test cases (`t`) from the input. Here, `t = 1`.
+
+2. **Test Case Processing**:
+   - For the first test case, `n = 2` and `s = "117"`.
+
+3. **Logic**:
+   - Initialize `ans = 1`.
+   - Iterate through the string `s`:
+     - `s = "117"`
+     - `s.charAt(0) = '1'` -> `1 != 2 && 1 != 3 && 1 != 5 && 1 != 7` -> Print "1" followed by `1` -> Output "11".
+     - Since we already encountered a character that does not meet the criteria, the loop breaks.
+
+### Conclusion:
+The program will output "11" for the first test case.
+
+### Machine-Readable Line:
+FINAL_OUTPUT_JSON: {"stdout":"11\n"}

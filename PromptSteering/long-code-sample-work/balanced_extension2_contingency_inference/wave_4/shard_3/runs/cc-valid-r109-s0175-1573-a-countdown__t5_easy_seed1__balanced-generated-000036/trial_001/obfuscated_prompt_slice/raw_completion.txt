@@ -1,0 +1,29 @@
+
+
+
+Reasoning:
+1. MethodDeclaration at L133: target method find(n, ch) (public static int find(int n, char[] ch))
+2. SliceMethodParameter at L133: method parameter n (public static int find(int n, char[] ch))
+3. SliceMethodParameter at L133: method parameter ch (public static int find(int n, char[] ch))
+4. SliceReturnValue at L144: return value expression using moves (return moves;)
+5. SliceDefinition at L136: definition of moves (int moves = 0;)
+6. SliceAssignment: assignment/update influencing moves
+7. SliceControlDependency at L139: control predicate over i, n, ch, moves (for(int i=0;i<n-1;i++))
+8. SliceControlDependency at L141: control predicate over ch, i, moves (if(ch[i]-'0'>0))
+
+Given the concrete case:
+c001: invoke program entry point; target_method=find; stdin="7\n3\n007\n4\n1110\n5\n00000\n3\n103\n4\n1247\n9\n123456789\n30\n001678294039710047203946100020\n"; argv=[]
+
+1. The method find is invoked with n = 7 and ch = "007".
+2. Initialize moves to 0.
+3. Add ch[6]-'0' = 7 to moves, moves becomes 7.
+4. Loop from i=0 to i=6 (since n-1 = 6):
+5. For i=0, ch[i]-'0' = 0, skip the condition.
+6. For i=1, ch[i]-'0' = 0, skip the condition.
+7. For i=2, ch[i]-'0' = 7, add (7+1) = 8 to moves, moves becomes 15.
+8. Loop ends, return moves = 15.
+
+Output:
+15
+
+FINAL_OUTPUT_JSON: {"stdout":"15\n"}

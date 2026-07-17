@@ -1,0 +1,17 @@
+
+
+
+### CASES_BEGIN
+c001: invoke program entry point; target_method=cal; stdin="3\n11 1\n2 0\n4 0\n"; argv=[]
+### CASES_END
+
+
+The program C_Round_737_Div2.java is a deterministic Java program that solves a problem with a specific input. It reads an integer T from the standard input, which represents the number of test cases. For each test case, it reads two integers n and k. It then calculates a result using the cal() method and prints it to the standard output.
+
+The cal() method is a recursive function that calculates the result based on the values of index, larger, n, twoPowerN, and other. The result is calculated by multiplying the value of other or twoPowerN by the result of the next call to the cal() method with the updated index value. If the larger parameter is 1, the result is multiplied by twoPowerN; otherwise, it is multiplied by other and then added to the result of the call to the cal() method with the updated index value.
+
+The main method is the entry point of the program. It initializes a Scanner object to read input from the standard input. It then reads the number of test cases T and iterates over each test case. For each test case, it reads the values of n and k and calculates the result using the cal() method. It prints the result to the standard output.
+
+Based on the given input "3\n11 1\n2 0\n4 0\n", the program will output the result for each test case.
+
+FINAL_OUTPUT_JSON: {"stdout":"3125\n1\n16\n"}

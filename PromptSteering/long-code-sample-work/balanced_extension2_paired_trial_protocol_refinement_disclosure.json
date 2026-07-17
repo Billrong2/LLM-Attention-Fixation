@@ -1,0 +1,36 @@
+{
+  "schema_version": "long-code-balanced-extension2-paired-trial-protocol-refinement-disclosure-v1",
+  "recorded_at_local": "2026-07-13 21:21:06 CDT (-0500)",
+  "timing": "Specified after the complete valid Wave-3 audit and before any packaging use of complete Wave-4 outcomes.",
+  "requested_interpretation": "The user requested that all completed waves and trials be combined and that the publication unit be a distinct concrete input (sample_id) exhibiting a same-seed paired-trial contrast, rather than a distinct canonical problem satisfying baseline 0/3 across every trial.",
+  "observed_complete_wave_3_paired_audit": {
+    "complete_and_valid": true,
+    "paired_eligible_distinct_sample_id_count": 9,
+    "distinct_canonical_problem_count": 4
+  },
+  "paired_trial_eligibility": {
+    "codesteer": "At one selected trial in 1--3, CodeSteer is valid, trimmed-exact, and parsed as marker_json.",
+    "baselines": "At that same trial and paired seed, original_plain, obfuscated_plain, and obfuscated_prompt_slice are all valid and non-exact.",
+    "other_trials": "Baseline conditions may be exact on other trials; baseline 0/3 is not required in this refined mode."
+  },
+  "publication_selection": {
+    "required_distinct_sample_id_count": 10,
+    "canonical_problem_repeats_allowed": true,
+    "report_actual_distinct_canonical_problem_count": true,
+    "manual_reasoning_grounding_and_baseline_failure_notes_required": true
+  },
+  "sequential_trigger_refinement": {
+    "wave_4": "Wave 4 is admissible because the complete post-Wave-3 paired-eligible distinct sample_id count is 9, below 10.",
+    "wave_5": "After Wave 4 completes, skip and stop before Wave 5 when the complete post-Wave-4 paired-eligible distinct sample_id count is at least 10; include Wave 5 only when that complete count remains below 10.",
+    "interim_wave_4_outcomes_may_determine_wave_5": false
+  },
+  "adaptive": true,
+  "outcome_aware": true,
+  "post_hoc": true,
+  "preregistered": false,
+  "outcome_blind_in_timing": false,
+  "frozen_extension2_cases_or_inference_settings_changed": false,
+  "ongoing_wave_4_run_changed": false,
+  "display_pass_at_k": false,
+  "aggregate_performance_or_ten_problem_generalization_claim_supported": false
+}

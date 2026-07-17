@@ -1,0 +1,22 @@
+The given Java program calculates the number of pairs (x, y) that satisfy a specific condition based on the input parameters and constraints. Here's the reasoning for the output:
+
+1. The program starts with a static method `solve` that takes several parameters, including arrays and integers.
+2. The method first populates two hash sets (`yset` and `xset`) and two lists (`xlist` and `ylist`) based on the input arrays `yline` and `xline`.
+3. The method then iterates through the input array `py` and checks if each element is present in `xset` and `yset`. If both conditions are met, the iteration is skipped. If not, the element and its corresponding `px` value are added to `xlist` and `ylist`.
+4. After sorting `xlist` and `ylist`, two maps (`mapx` and `mapy`) are created, and the sum variables `sumx` and `sumy` are initialized to zero.
+5. The method iterates through `xlist` and `ylist`, updating the sums and maps accordingly. The final output is the sum of `sumx` and `sumy`.
+6. The `main` method reads input values from `stdin`, calls the `solve` method, and prints the results.
+
+For the input:
+```
+1
+2 2 2
+0 1010000
+0 1000000
+1556 1000000
+0 14
+```
+The program will output:
+```
+1
+```

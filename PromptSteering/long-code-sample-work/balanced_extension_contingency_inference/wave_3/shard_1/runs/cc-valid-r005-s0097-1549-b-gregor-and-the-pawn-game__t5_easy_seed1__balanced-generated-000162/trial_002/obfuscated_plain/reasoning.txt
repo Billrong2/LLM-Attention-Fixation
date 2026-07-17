@@ -1,0 +1,34 @@
+To determine the exact standard output of the given deterministic Java program for the provided input, we need to focus on the method `pawnLineal` and trace the execution of the program step by step. Here’s a detailed reasoning process:
+
+### Input:
+```
+1
+20
+01001101111111000100
+00101100011010001110
+```
+
+### Steps:
+1. **Reading Input:**
+   - The program reads the number of test cases (`casos`) from the first line: `1`.
+   - It then reads the length of the strings from the second line: `20`.
+   - Finally, it reads the source (`scr`) and destination (`dst`) strings from the third and fourth lines respectively:
+     ```
+     scr = "01001101111111000100"
+     dst = "00101100011010001110"
+     ```
+
+2. **Executing `pawnLineal`:**
+   - The `pawnLineal` method prepends and appends a `0` to both `scr` and `dst`, resulting in:
+     ```
+     scr = "001001101111110001000"
+     dst = "000101100011010001110"
+     ```
+   - The loop iterates through each character of `scr` starting from index 1 to `scr.length() - 2` (which is 19):
+     - For each `1` in `scr`, the method checks the corresponding positions in `dst` and increments `ret` based on the conditions:
+       - If `dst[i-1]` is `1`, set `dst[i-1]` to `'X'` and increment `ret`.
+       - If `dst[i]` is `0`, set `dst[i]` to `'X'` and increment `ret`.
+       - If `dst[i+1]` is `1`, set `dst[i+1]` to `'X'` and increment `ret`.
+
+3. **Calculating `ret`:**
+   - The method calculates `ret` based on the above conditions and prints the final value

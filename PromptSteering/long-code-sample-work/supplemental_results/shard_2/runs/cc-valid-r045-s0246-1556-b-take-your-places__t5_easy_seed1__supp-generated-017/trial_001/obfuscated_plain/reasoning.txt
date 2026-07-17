@@ -1,0 +1,45 @@
+To predict the exact standard output of the given deterministic Java program for the provided input, we need to follow the execution flow and evaluate the results step by step.
+
+### Input:
+```
+1
+7
+3 0 1 5 3 12 4
+```
+
+### Steps:
+
+1. **Initialization and Setup**:
+   - Read the number of test cases (`test`) which is `1`.
+   - For each test case:
+     - Read the number of elements in the array (`n`) which is `7`.
+     - Read the array elements.
+
+2. **Process the Array**:
+   - Convert each element in the array to its modulo 2 value (i.e., `a[i] = a[i] % 2`).
+
+3. **Count the Elements**:
+   - Count the number of `0`s and `1`s in the array (`f[0]` and `f[1]` respectively).
+
+4. **Check Conditions and Compute**:
+   - Check if the absolute difference between the counts of `0`s and `1`s is more than `1`.
+     - If true, print `-1` and exit the loop.
+   - If the array length (`n`) is even:
+     - Check if the counts of `0`s and `1`s are equal.
+       - If true, compute the minimum of `fun(0, a)` and `fun(1, a)` and print the result.
+       - If false, print `-1` and exit the loop.
+   - If the array length (`n`) is odd:
+     - Check the counts and determine which value to use for `fun`.
+       - If `f[0]` is one more than `f[1]`, use `fun(0, a)`.
+       - If `f[1]` is one more than `f[0]`, use `fun(1, a)`.
+       - Otherwise, print `-1` and exit the loop.
+
+5. **Function `fun`**:
+   - The function `fun` calculates the sum of absolute differences between the current element and the next element in the array.
+   - It uses a delta variable to keep track of the difference between the expected value and the actual value.
+   - The function toggles between `0` and `1` for each element in the array.
+
+### Detailed Execution:
+
+- **Array Conversion**:
+  - Original array: `[3, 0, 1,

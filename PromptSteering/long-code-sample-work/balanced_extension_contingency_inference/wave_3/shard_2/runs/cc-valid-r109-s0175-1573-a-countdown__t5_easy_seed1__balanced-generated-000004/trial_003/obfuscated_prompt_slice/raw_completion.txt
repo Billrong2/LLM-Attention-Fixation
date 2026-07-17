@@ -1,0 +1,23 @@
+
+
+
+### Case C001: invoke program entry point; target_method=find; stdin="7\n3\n007\n4\n1010\n5\n00000\n3\n103\n4\n1247\n9\n123456789\n30\n001678294039710047203946100020\n"; argv=[]
+
+
+1. The input is processed by a FastReader object `s`.
+2. The input consists of a series of test cases, each with a number `n` followed by a string `ch`.
+3. For each test case, the method `find(n, ch)` is called.
+4. The `find` method initializes a variable `moves` to 0.
+5. It then adds the value of `ch[n-1] - '0'` to `moves`.
+6. Next, it iterates through the string `ch` using a for loop from `i=0` to `n-2` (since `n-1` is already processed in the previous step).
+7. If the value of `ch[i] - '0'` is greater than 0, it adds the value of `ch[i] - '0' + 1` to `moves`.
+8. Finally, the method returns the value of `moves`.
+
+For the given input:
+
+* The first test case has `n=7` and `ch="007"`. The method `find(7, "007")` returns 0.
+* The second test case has `n=4` and `ch="1010"`. The method `find(4, "1010")` returns 3.
+* The third test case has `n=5` and `ch="00000"`. The method `find(5, "00000")` returns 0.
+* The fourth test case has `n=3` and `ch="103"`. The method `find(3, "103")` returns 1.
+* The fifth test case has `n=4` and `ch="1247"`. The method `find(4, "1247")` returns 5.
+* The sixth test case has `n=9` and

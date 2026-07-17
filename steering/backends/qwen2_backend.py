@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import math
+import os
 from typing import Callable, Optional, TYPE_CHECKING
 
 import torch
@@ -8,7 +9,6 @@ from torch import nn
 from transformers.models.qwen2.modeling_qwen2 import (
     Qwen2Attention,
     Qwen2DecoderLayer,
-    apply_rotary_pos_emb,
     repeat_kv,
 )
 
@@ -58,6 +58,25 @@ def _agreement_rel_layer(
     return float(agree.mean().item())
 
 
+def _rotate_half_local(x: torch.Tensor) -> torch.Tensor:
+    x1 = x[..., : x.shape[-1] // 2]
+    x2 = x[..., x.shape[-1] // 2 :]
+    return torch.cat((-x2, x1), dim=-1)
+
+
+def _apply_rotary_pos_emb_local(
+    q: torch.Tensor,
+    k: torch.Tensor,
+    cos: torch.Tensor,
+    sin: torch.Tensor,
+) -> tuple[torch.Tensor, torch.Tensor]:
+    if cos.ndim == 3:
+        cos = cos.unsqueeze(1)
+    if sin.ndim == 3:
+        sin = sin.unsqueeze(1)
+    return (q * cos) + (_rotate_half_local(q) * sin), (k * cos) + (_rotate_half_local(k) * sin)
+
+
 class Qwen2SteeringAttention(nn.Module):
     """
     Qwen2/Qwen2.5 attention wrapper with L1/L2/L4 steering + telemetry.
@@ -89,12 +108,21 @@ class Qwen2SteeringAttention(nn.Module):
         self.v_proj = base_attn.v_proj
         self.o_proj = base_attn.o_proj
 
-        self.head_dim = int(base_attn.head_dim)
-        self.num_heads = int(getattr(base_attn, "num_heads", getattr(base_attn.config, "num_attention_heads", 0)))
+        cfg_heads = int(getattr(base_attn.config, "num_attention_heads", 0) or 0)
+        cfg_kv_heads = int(getattr(base_attn.config, "num_key_value_heads", cfg_heads) or cfg_heads)
+        q_out = int(getattr(self.q_proj, "out_features", 0) or 0)
+        cfg_hidden = int(getattr(base_attn.config, "hidden_size", 0) or q_out or 0)
+        cfg_head_dim = q_out // cfg_heads if q_out > 0 and cfg_heads > 0 else 0
+        if cfg_head_dim <= 0 and cfg_hidden > 0 and cfg_heads > 0:
+            cfg_head_dim = cfg_hidden // cfg_heads
+        attn_head_dim = int(getattr(base_attn, "head_dim", 0) or 0)
+        self.head_dim = cfg_head_dim if cfg_head_dim > 0 else attn_head_dim
+        self.num_heads = cfg_heads
         self.num_key_value_heads = int(
-            getattr(base_attn, "num_key_value_heads", getattr(base_attn.config, "num_key_value_heads", self.num_heads))
+            getattr(base_attn, "num_key_value_heads", cfg_kv_heads) or cfg_kv_heads
         )
-        self.num_key_value_groups = int(getattr(base_attn, "num_key_value_groups", 1))
+        inferred_groups = self.num_heads // self.num_key_value_heads if self.num_key_value_heads else 1
+        self.num_key_value_groups = int(getattr(base_attn, "num_key_value_groups", inferred_groups) or inferred_groups)
         self.scaling = float(getattr(base_attn, "scaling", 1.0 / math.sqrt(max(self.head_dim, 1))))
         self.attention_dropout = float(base_attn.attention_dropout)
         self.hidden_size = int(getattr(base_attn, "hidden_size", getattr(base_attn.config, "hidden_size", 0)))
@@ -105,10 +133,13 @@ class Qwen2SteeringAttention(nn.Module):
         hidden_states: torch.Tensor,
         position_embeddings: tuple[torch.Tensor, torch.Tensor],
         attention_mask: torch.Tensor | None,
+        past_key_value=None,
         past_key_values=None,
         cache_position: torch.LongTensor | None = None,
         **kwargs,
     ) -> tuple[torch.Tensor, torch.Tensor | None]:
+        if past_key_value is None and past_key_values is not None:
+            past_key_value = past_key_values
         runtime = self.runtime_getter()
         output_attentions = bool(kwargs.get("output_attentions", False))
 
@@ -128,11 +159,50 @@ class Qwen2SteeringAttention(nn.Module):
         value_states = self.v_proj(hidden_states).view(hidden_shape).transpose(1, 2)
 
         cos, sin = position_embeddings
-        query_states, key_states = apply_rotary_pos_emb(query_states, key_states, cos, sin)
+        if os.getenv("CODESTEER_DEBUG_QWEN2_SHAPES", "").strip() == "1" and self.layer_index == 0:
+            print(
+                "[Qwen2SteeringAttention]",
+                {
+                    "hidden_states": tuple(hidden_states.shape),
+                    "query_states": tuple(query_states.shape),
+                    "key_states": tuple(key_states.shape),
+                    "value_states": tuple(value_states.shape),
+                    "cos": tuple(cos.shape),
+                    "sin": tuple(sin.shape),
+                    "num_heads": self.num_heads,
+                    "num_key_value_heads": self.num_key_value_heads,
+                    "head_dim": self.head_dim,
+                    "q_proj_out": getattr(self.q_proj, "out_features", None),
+                    "k_proj_out": getattr(self.k_proj, "out_features", None),
+                },
+                flush=True,
+            )
+        try:
+            query_states, key_states = _apply_rotary_pos_emb_local(query_states, key_states, cos, sin)
+        except RuntimeError:
+            print(
+                "[Qwen2SteeringAttention:rope_error]",
+                {
+                    "layer_index": self.layer_index,
+                    "hidden_states": tuple(hidden_states.shape),
+                    "query_states": tuple(query_states.shape),
+                    "key_states": tuple(key_states.shape),
+                    "value_states": tuple(value_states.shape),
+                    "cos": tuple(cos.shape),
+                    "sin": tuple(sin.shape),
+                    "num_heads": self.num_heads,
+                    "num_key_value_heads": self.num_key_value_heads,
+                    "head_dim": self.head_dim,
+                    "q_proj_out": getattr(self.q_proj, "out_features", None),
+                    "k_proj_out": getattr(self.k_proj, "out_features", None),
+                },
+                flush=True,
+            )
+            raise
 
-        if past_key_values is not None:
+        if past_key_value is not None:
             cache_kwargs = {"sin": sin, "cos": cos, "cache_position": cache_position}
-            key_states, value_states = past_key_values.update(key_states, value_states, self.layer_idx, cache_kwargs)
+            key_states, value_states = past_key_value.update(key_states, value_states, self.layer_idx, cache_kwargs)
 
         key_states = repeat_kv(key_states, self.num_key_value_groups)
         value_states = repeat_kv(value_states, self.num_key_value_groups)
@@ -301,6 +371,7 @@ def patch_decoder_layer(
         hidden_states: torch.Tensor,
         attention_mask: Optional[torch.Tensor] = None,
         position_ids: Optional[torch.LongTensor] = None,
+        past_key_value=None,
         past_key_values=None,
         use_cache: Optional[bool] = False,
         cache_position: Optional[torch.LongTensor] = None,
@@ -309,15 +380,19 @@ def patch_decoder_layer(
     ) -> torch.Tensor:
         runtime = runtime_getter()
         coeffs = runtime.coeffs() if runtime else None
+        if past_key_value is None and past_key_values is not None:
+            past_key_value = past_key_values
 
         residual = hidden_states
         hidden_states = layer.input_layernorm(hidden_states)
 
-        hidden_states, _ = layer.self_attn(
+        output_attentions = bool(kwargs.get("output_attentions", False))
+
+        hidden_states, self_attn_weights = layer.self_attn(
             hidden_states=hidden_states,
             attention_mask=attention_mask,
             position_ids=position_ids,
-            past_key_values=past_key_values,
+            past_key_value=past_key_value,
             use_cache=use_cache,
             cache_position=cache_position,
             position_embeddings=position_embeddings,
@@ -363,7 +438,10 @@ def patch_decoder_layer(
         residual = residual.to(hidden_states.device, dtype=hidden_states.dtype, non_blocking=True)
         hidden_states = residual + hidden_states
 
-        return hidden_states
+        outputs = (hidden_states,)
+        if output_attentions:
+            outputs += (self_attn_weights,)
+        return outputs
 
     layer.forward = steered_forward  # type: ignore[method-assign]
 

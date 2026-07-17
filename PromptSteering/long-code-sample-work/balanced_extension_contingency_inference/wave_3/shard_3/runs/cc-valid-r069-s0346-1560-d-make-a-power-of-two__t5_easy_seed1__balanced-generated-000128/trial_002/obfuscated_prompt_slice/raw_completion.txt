@@ -1,0 +1,12 @@
+
+
+
+The target method is `buscarGreedy` which takes a `numero` parameter of type `String`. The method uses a greedy approach to find the minimum number of characters needed to transform the given `numero` into a power of two. It does this by iterating from 0 to 61 (inclusive) and calculating the string representation of the `i`-th power of two using `Long.toString(pot)`. It then calls the `comparar` method to compare the current power of two with the input `numero` and keeps track of the minimum number of characters needed using the `minimo` variable. The final result is returned as the minimum number of characters needed to transform the input `numero` into a power of two.
+
+To reason about the output of this program, we need to know the value of `numero`. In this case, the stdin input is `"1\n345042\n"`, which means that the program will first print the result for `numero` equal to `1` and then for `numero` equal to `345042`.
+
+For `numero` equal to `1`, the program will iterate from 0 to 61 and find that the first power of two is `1`. Therefore, the result will be `1`.
+
+For `numero` equal to `345042`, the program will iterate from 0 to 61 and find that the closest power of two that can be transformed into `345042` using the `comparar` method is `65536` (2^16). Therefore, the result will be `2` (the number of characters needed to represent the difference between `345042` and `65536`).
+
+FINAL_OUTPUT_JSON: {"stdout":"1\n2\n"}

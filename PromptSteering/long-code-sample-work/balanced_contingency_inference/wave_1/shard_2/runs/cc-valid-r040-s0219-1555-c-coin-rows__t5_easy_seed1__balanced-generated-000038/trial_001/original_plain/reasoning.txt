@@ -1,0 +1,56 @@
+To determine the exact standard output of the given Java program, we need to follow these steps:
+
+1. **Parse the Input**: The program reads the number of test cases (`t`), followed by the size of each test case (`m`), and then two arrays (`arr1` and `arr2`) of integers.
+2. **Process Each Test Case**: For each test case, the program calls the `game` method with the two arrays and the size of the array. It then prints the result of the `game` method to the standard output.
+3. **Exit the Program**: After processing all test cases, the program closes the print writer and ends.
+
+Let's break down the given input and process it step-by-step:
+
+### Input Breakdown
+```plaintext
+3
+3
+-1 1 0
+2 0 -1
+3
+2 6 0
+4 2 0
+1
+0
+8
+```
+
+### Case-by-Case Processing
+
+#### Case 1
+- `m = 3`
+- `arr1 = ["-1", "1", "0"]`
+- `arr2 = ["2", "0", "-1"]`
+- `game(arr1, arr2, 3)` will be called.
+
+#### Case 2
+- `m = 3`
+- `arr1 = ["2", "6", "0"]`
+- `arr2 = ["4", "2", "0"]`
+- `game(arr1, arr2, 3)` will be called.
+
+#### Case 3
+- `m = 1`
+- `arr1 = ["0"]`
+- `arr2 = ["8"]`
+- `game(arr1, arr2, 1)` will be called.
+
+### Method `game` Analysis
+
+The `game` method calculates the maximum of two arrays, considering each possible partition point. Here’s how it works:
+
+1. Initialize two arrays (`dp`) of size `m` to store partial sums.
+2. Calculate the partial sums for each element in `arr1` and `arr2`.
+3. Find the minimum of the maximum values obtained from these partial sums.
+
+#### Case 1 Calculation
+```java
+// arr1 = ["-1", "1", "0"]
+// arr2 = ["2", "0", "-1"]
+dp[0] = [0, 1, 1]
+dp[1] = [8, 6,

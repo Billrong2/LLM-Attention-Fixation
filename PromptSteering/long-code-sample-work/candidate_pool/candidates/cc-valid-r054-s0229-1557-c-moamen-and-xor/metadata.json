@@ -1,0 +1,168 @@
+{
+  "expected_stdout": "387599759\n635311356\n552472895\n752772609\n931791909\n",
+  "expected_stdout_path": "candidates/cc-valid-r054-s0229-1557-c-moamen-and-xor/io/00-private-017.out",
+  "id": "cc-valid-r054-s0229-1557-c-moamen-and-xor",
+  "input": "5\n2522 4467\n426 3791\n772 4195\n1447 2006\n5497 2673\n",
+  "input_path": "candidates/cc-valid-r054-s0229-1557-c-moamen-and-xor/io/00-private-017.in",
+  "inputs": [
+    {
+      "dataset_test_index": 17,
+      "expected_stdout": "387599759\n635311356\n552472895\n752772609\n931791909\n",
+      "expected_stdout_path": "candidates/cc-valid-r054-s0229-1557-c-moamen-and-xor/io/00-private-017.out",
+      "expected_stdout_sha256": "af78c792ec266f5f692f9e8dddc6c896a181f46132a745a5281d02f8225788eb",
+      "id": "00-private-017",
+      "input": "5\n2522 4467\n426 3791\n772 4195\n1447 2006\n5497 2673\n",
+      "input_path": "candidates/cc-valid-r054-s0229-1557-c-moamen-and-xor/io/00-private-017.in",
+      "input_sha256": "825699813c3f92193d508c187dd4cf106b7a22968b4da563f83a405cca44c1ed",
+      "suite": "private_tests",
+      "validation": {
+        "compiled_with_jdk17": true,
+        "exit_code": 0,
+        "stderr_bytes": 0,
+        "stdout_exact_byte_match": true,
+        "timed_out": false
+      }
+    }
+  ],
+  "loc_definition": "Python str.splitlines(); final newline does not add an empty physical line",
+  "main_class": "C_Round_737_Div2",
+  "nonblank_loc": 231,
+  "original_path": "candidates/cc-valid-r054-s0229-1557-c-moamen-and-xor/original.java",
+  "physical_loc": 271,
+  "prevalidation": {
+    "all_retained_tests_exact": true,
+    "compiled": true,
+    "compiler_exit_code": 0,
+    "compiler_stderr_bytes": 0,
+    "compiler_stdout_bytes": 0,
+    "jdk_major": 17
+  },
+  "problem_key": "codeforces-1557-C",
+  "problem_name": "1557_C. Moamen and XOR",
+  "provenance": {
+    "cf_contest_id": 1557,
+    "cf_index": "C",
+    "cf_points": 1750.0,
+    "cf_rating": 1700,
+    "cf_tags": [
+      "bitmasks",
+      "combinatorics",
+      "dp",
+      "math",
+      "matrices"
+    ],
+    "dataset_file": "codecontests-valid-802411c3.parquet",
+    "dataset_file_sha256": "02e8c1ccedae716f1e43cc813fcb7823c3db666ea92638820aba80e8cef451ab",
+    "dataset_id": "deepmind/code_contests",
+    "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+    "dataset_url": "https://huggingface.co/datasets/deepmind/code_contests/resolve/802411c3010cb00d1b05bad57ca77365a3c699d6/data/valid-00000-of-00001-5e672c5751f060d3.parquet",
+    "difficulty": 9,
+    "language": "Java",
+    "language_code": 4,
+    "problem_name": "1557_C. Moamen and XOR",
+    "row_index": 54,
+    "solution_container": "solutions",
+    "solution_index": 229,
+    "solution_label": "correct human solution",
+    "source_code": 2,
+    "split": "valid"
+  },
+  "source_bytes": 6785,
+  "source_sha256": "fd623d88396159818355d4815589509618bc1f3376f02378eaa553fb1fd12ec2",
+  "target": {
+    "arity": 5,
+    "body_nonblank_loc": 21,
+    "body_physical_loc": 21,
+    "class": "C_Round_737_Div2",
+    "codesteer_selector": {
+      "declaration_line": 63,
+      "fallback_used": false,
+      "implementation": "steering.priors.SlicingPrior._select_target_method",
+      "name": "cal",
+      "parameter_count": 5,
+      "parse_status": "javalang",
+      "top_level_body_statement_count": 5
+    },
+    "control_node_count": 4,
+    "end_line": 83,
+    "loop_node_count": 0,
+    "main_call_path": [
+      {
+        "arity": 1,
+        "class": "C_Round_737_Div2",
+        "end_line": 61,
+        "name": "main",
+        "parameter_types": [
+          "String[]"
+        ],
+        "return_type": "void",
+        "start_line": 36
+      },
+      {
+        "arity": 5,
+        "class": "C_Round_737_Div2",
+        "end_line": 83,
+        "name": "cal",
+        "parameter_types": [
+          "int",
+          "int",
+          "int",
+          "long",
+          "long"
+        ],
+        "return_type": "long",
+        "start_line": 63
+      }
+    ],
+    "main_reachable": true,
+    "name": "cal",
+    "output_caller": {
+      "arity": 1,
+      "class": "C_Round_737_Div2",
+      "end_line": 61,
+      "name": "main",
+      "parameter_types": [
+        "String[]"
+      ],
+      "return_type": "void",
+      "start_line": 36
+    },
+    "output_evidence": "out.println(cal(k - 1, 0, n, pow, other))",
+    "output_relevance_kind": "direct_print_argument",
+    "output_relevance_variable": null,
+    "parameter_types": [
+      "int",
+      "int",
+      "int",
+      "long",
+      "long"
+    ],
+    "recursive_call_count": 3,
+    "return_type": "long",
+    "return_value_output_relevant": true,
+    "source_sha256": "5db2c929672800e22a8b841e909ebbeac677b16ebb315a51ac261e8998172e85",
+    "start_line": 63
+  },
+  "target_method": "cal",
+  "target_signature": "long C_Round_737_Div2.cal(int, int, int, long, long)",
+  "tests": [
+    {
+      "dataset_test_index": 17,
+      "expected_stdout": "387599759\n635311356\n552472895\n752772609\n931791909\n",
+      "expected_stdout_path": "candidates/cc-valid-r054-s0229-1557-c-moamen-and-xor/io/00-private-017.out",
+      "expected_stdout_sha256": "af78c792ec266f5f692f9e8dddc6c896a181f46132a745a5281d02f8225788eb",
+      "id": "00-private-017",
+      "input": "5\n2522 4467\n426 3791\n772 4195\n1447 2006\n5497 2673\n",
+      "input_path": "candidates/cc-valid-r054-s0229-1557-c-moamen-and-xor/io/00-private-017.in",
+      "input_sha256": "825699813c3f92193d508c187dd4cf106b7a22968b4da563f83a405cca44c1ed",
+      "suite": "private_tests",
+      "validation": {
+        "compiled_with_jdk17": true,
+        "exit_code": 0,
+        "stderr_bytes": 0,
+        "stdout_exact_byte_match": true,
+        "timed_out": false
+      }
+    }
+  ]
+}

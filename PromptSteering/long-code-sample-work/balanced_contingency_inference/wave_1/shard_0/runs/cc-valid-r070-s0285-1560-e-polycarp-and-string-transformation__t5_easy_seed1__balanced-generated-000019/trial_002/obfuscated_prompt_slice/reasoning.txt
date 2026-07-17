@@ -1,0 +1,15 @@
+c001: invoke program entry point; target_method=check; stdin="7\nabacbbaaadaac\noovyouknowuhat\npolycarppoycarppoyarppyarppyrpprqpp\nish\neverywherevrywhrvryhrvhhrvrv\nhaaha\nqwepeewew\n"; argv=[]
+### CASES_END
+1. MethodDeclaration at L105: target method check(s, o, t) (static boolean check(String s, String o, String t) {)
+2. SliceMethodParameter at L105: method parameter s (static boolean check(String s, String o, String t) {)
+3. SliceMethodParameter at L105: method parameter o (static boolean check(String s, String o, String t) {)
+4. SliceMethodParameter at L105: method parameter t (static boolean check(String s, String o, String t) {)
+5. SliceReturnValue at L121: return value expression using builder, toString, equals, t (return builder.toString().equals(t);)
+6. SliceControlDependency at L106: control predicate over _obf_t5_check_267827 (if (((3 * 3) - 9) != 0) {)
+7. SliceDefinition at L110: definition of builder (StringBuilder builder = new StringBuilder(s);)
+8. SliceControlDependency at L112: control predicate over i, o, length, check, charAt, j, s, builder, append (for (int i = 0; i < o.length(); i++) {)
+9. SliceMethodCall at L112: method call o.length in static data/control context (for (int i = 0; i < o.length(); i++) {)
+10. SliceMethodCall at L113: method call o.charAt in static data/control context (check[o.charAt(i) - 'a'] = true;)
+11. SliceControlDependency at L114: control predicate over j, s, length, check, charAt, builder, append (for (int j = 0; j < s.length(); j++) {)
+12. SliceMethodCall at L114: method call s.length in static data/control context (for (int j = 0; j < s.length(); j++) {)
+1

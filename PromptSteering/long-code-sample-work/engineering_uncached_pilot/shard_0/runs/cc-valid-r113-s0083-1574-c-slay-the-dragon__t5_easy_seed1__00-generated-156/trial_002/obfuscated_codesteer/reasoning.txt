@@ -1,0 +1,9 @@
+The `find` method calculates the minimum cost to attack a target, given the target's strength and defense. The method takes in the total sum of the array, the hash set of values in the array, the array, the size of the array, the attack value, and the defense value.
+
+The method starts by initializing the variables `s` and `e` to 0 and `n-1`, respectively. It then enters a while loop that continues until `s` is less than `e`. Inside the loop, it calculates the index `mid` by taking the floor division of the sum of `s` and `e` divided by 2. It then checks if the value at `mid` in the `arr` array is equal to the `attack` value. If it is, it sets `s` and `e` to `mid`. If the value at `mid` is less than `attack`, it sets `s` to `mid+1`. If the value at `mid` is greater than `attack`, it sets `e` to `mid`.
+
+After the loop exits, the method initializes `ans1` and `ans2` to `Long.MAX_VALUE`. It then sets `t1` to the difference between `attack` and the value at `arr[s]`, `t2` to the difference between `sum` and the value at `arr[s]`, and `t3` to the difference between `defend` and `t2`. It then adds `t1` and `t3` to `ans1`. 
+
+It then checks if `s-1` is greater than or equal to 0. If it is, it sets `t1` to the difference between `attack` and the value at `arr[s-1]`, `t2` to the difference between `sum` and the value at `arr[s-1]`, and `t3` to the difference between `defend` and `t2`. It then adds `t1` and `t3` to `ans2`. 
+
+The method then returns the minimum value of `ans1` and `ans2`.

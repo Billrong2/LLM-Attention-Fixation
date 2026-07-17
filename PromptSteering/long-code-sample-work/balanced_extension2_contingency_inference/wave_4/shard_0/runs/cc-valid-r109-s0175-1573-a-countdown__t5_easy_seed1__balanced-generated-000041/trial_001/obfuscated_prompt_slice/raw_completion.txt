@@ -1,0 +1,66 @@
+
+
+
+```java
+public static void main(String[] args) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_main_553631 = 0;
+            _obf_t5_main_553631++;
+        }
+        FastReader s = new FastReader();
+        int t = s.nextInt();
+        while(t-->0)
+        {
+            int n = s.nextInt();
+            char[] ch = s.nextLine().toCharArray();
+            out.println(find(n, ch));
+        }
+
+
+        out.close();
+    }
+```
+
+
+```java
+public static int find(int n, char[] ch)
+    {
+        int _obf_t5_find_587907 = 0; _obf_t5_find_587907 += 0;
+        int moves = 0;
+            moves += ch[n-1]-'0';
+
+            for(int i=0;i<n-1;i++)
+            {
+                if(ch[i]-'0'>0)
+                moves += (ch[i]-'0'+1);
+            }
+            return moves;
+    }
+```
+
+
+```java
+public static int gcd(int x,int y)
+    {
+        int _obf_t5_gcd_64204 = 0; _obf_t5_gcd_64204 += 0;
+        return y==0?x:gcd(y,x%y);
+    }
+public static long gcd(long x,long y)
+    {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_gcd_26712 = 0;
+            _obf_t5_gcd_26712++;
+        }
+        return y==0L?x:gcd(y,x%y);
+    }
+
+    public static int lcm(int a, int b) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_lcm_216880 = 0;
+            _obf_t5_lcm_216880++;
+        }
+        return (a * b) / gcd(a, b);
+    }
+    public static long lcm(long a, long b) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_lcm_66550

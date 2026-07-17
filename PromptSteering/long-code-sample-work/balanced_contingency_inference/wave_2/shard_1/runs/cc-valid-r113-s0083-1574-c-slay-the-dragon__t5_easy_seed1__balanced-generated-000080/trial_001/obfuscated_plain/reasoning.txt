@@ -1,0 +1,47 @@
+The provided Java program performs several operations but primarily focuses on reading input and calculating the minimum value based on certain conditions. The `find` method is used to determine the minimum value based on the input parameters. Here’s a breakdown of the steps:
+
+1. **Input Reading**:
+   - Read the number of elements \( n \).
+   - Read \( n \) long integers into an array `arr`.
+   - Read an additional integer \( m \).
+   - Read pairs of integers \( \text{attack} \) and \( \text{defend} \) \( m \) times.
+
+2. **Sorting**:
+   - Sort the unique elements of `arr` to ensure they are in ascending order.
+
+3. **Finding Minimum**:
+   - For each pair \( (\text{attack}, \text{defend}) \):
+     - Use binary search to find the index of `attack` in the sorted array `a`.
+     - Calculate two values based on the index:
+       - If the index is within bounds, calculate the difference between `attack` and `a[index]` and between `defend` and the sum of the remaining elements after removing `a[index]`.
+       - Calculate a similar value for the next element in the sorted array if available.
+     - Return the minimum of these two calculated values.
+
+Given the input:
+```
+4
+0 6 2 0
+1
+1 9
+```
+
+Here's how the program processes this input:
+
+1. **Input Reading**:
+   - Read \( n = 4 \).
+   - Read the array `arr`: \([0, 6, 2, 0]\).
+   - Read \( m = 1 \).
+   - Read the first pair: \( (\text{attack} = 1, \text{defend} = 9) \).
+
+2. **Sorting**:
+   - Unique elements of `arr` are \([0, 2, 6]\).
+
+3. **Finding Minimum**:
+   - Binary search for `attack = 1`:
+     - The index of 1 is not found because 1 is not in the sorted array.
+   - Since 1 is not in the array, the program calculates the minimum value using the nearest available element, which is 0.
+
+4. **Calculation**:
+   - For the first pair:
+     - Calculate the differences:
+       - \( t1 = 1 - 0 = 1 \)

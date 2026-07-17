@@ -1,0 +1,13 @@
+ The exact output of this program for the given input is:
+
+FINAL_OUTPUT_JSON: {"stdout":"10\n11\n10\n11\n10\n11\n10\n11\n10\n11\n10\n11\n10\n11\n10\n11\n10\n11\n10\n11\n"}
+
+Reasoning:
+- The `pawnLineal` method is invoked with the input strings `01001101111111000100` (src) and `00101100011010001110` (dst).
+- The method prepends and appends a `0` to each string, resulting in `001001101111110001000` for src and `0001011000110100011100` for dst.
+- The method iterates through the src string (from index 1 to src.length()-2).
+- At each iteration, if the character at the current index is `'1'`:
+  - If the character at index-1 in dst is `'1'`, replace it with `'X'` and increment `ret`.
+  - If the character at the current index in dst is `'0'`, replace it with `'X'` and increment `ret`.
+  - If the character at index+1 in dst is `'1'`, replace it with `'X'` and increment `ret`.
+- Finally, the value of `ret` (which is the number of valid pawn moves) is printed.

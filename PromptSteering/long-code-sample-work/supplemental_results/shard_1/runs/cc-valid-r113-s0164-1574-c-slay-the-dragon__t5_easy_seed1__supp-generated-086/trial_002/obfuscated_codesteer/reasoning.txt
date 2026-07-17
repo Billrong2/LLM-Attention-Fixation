@@ -1,0 +1,33 @@
+### OUTPUT
+
+The output of the program for the given input will be:
+```
+5
+4
+0
+0
+4
+```
+
+### Reasoning:
+
+1. **Input Processing:**
+   - The program reads the input from the standard input.
+   - It parses the input to extract the number of elements (`n`), the elements themselves (`arr`), and the number of test cases (`t`).
+
+2. **Sorting and Initialization:**
+   - The elements are sorted using `Arrays.sort(arr)`.
+   - The cumulative sums of the sorted array are calculated and stored in `sums`.
+
+3. **Binary Search:**
+   - The `get` method performs a binary search to find the position where the value `x` would be inserted in the sorted array.
+   - If `x` is less than all elements in the array, it returns `-1`. Otherwise, it returns the position where `x` would be inserted.
+
+4. **Calculating the Answer:**
+   - For each test case, the program calculates the answer based on the position found by the binary search.
+   - It calculates two possible answers (`ans` and `ans2`) and prints the minimum of the two.
+
+5. **Output:**
+   - The program prints the minimum of the two calculated answers for each test case.
+
+### FINAL_OUTPUT_JSON

@@ -1,0 +1,14 @@
+
+
+
+Reasoning:
+- Input: `3\n3\n1 2 7\n3 17 0\n3\n2 3 0\n6 2 1\n1\n3\n15`
+- The input is read into the `main` method and passed to the `game` method
+- The `game` method checks if `m` is 1, returns 0 if so
+- If not, it initializes a 2D array `dp` and populates it according to the rules in the loops at lines 48 and 51
+- It then finds the minimum of the maximums between each pair of elements in the first row and the corresponding element in the second row, storing it in `min`
+- Finally, it returns the value of `min`
+
+Output: `7`
+
+FINAL_OUTPUT_JSON: {"stdout":"7"}

@@ -1,0 +1,24 @@
+ The given Java program takes a series of inputs, each representing a decimal number, and outputs the minimum number of single-digit insertions required to convert the number into a power of two.
+
+The `buscarGreedy` function is responsible for finding the minimum number of single-digit insertions. It works by iterating over a range of powers of two, comparing each power of two with the input number using the `comparar` function, which calculates the minimum number of single-digit insertions required to transform one number into another.
+
+The `comparar` function takes two strings representing numbers, and compares them digit by digit. If the digits are equal, it moves on to the next digit. If the digits are not equal, it increments the count of required insertions and moves on to the next digit.
+
+The `buscarGreedy` function finds the smallest number of single-digit insertions required to convert the input number into a power of two, and returns this count.
+
+For the given input "12\n825\n8888\n4\n157\n146\n1\n301\n19634\n1504\n10521\n1000000000\n687194767", the program produces the following output:
+
+1
+3
+4
+0
+3
+2
+1
+4
+4
+3
+4
+9
+
+FINAL_OUTPUT_JSON: {"stdout":"1\n3\n4\n0\n3\n2\n1\n4\n4\n3\n4\n9"}

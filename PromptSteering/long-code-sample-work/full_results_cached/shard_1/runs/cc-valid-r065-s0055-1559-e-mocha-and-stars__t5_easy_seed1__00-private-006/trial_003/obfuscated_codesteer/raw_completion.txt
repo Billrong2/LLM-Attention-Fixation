@@ -1,0 +1,14 @@
+
+
+
+CASES:
+1. 5 10 1 1 10 10 2 10 2 10 4 10 4
+2. 5 10 10 1 10 10 2 10 2 10 4 10 4
+3. 5 10 1 1 10 2 2 10 2 10 4 10 4
+4. 5 10 10 10 1 10 2 2 10 2 10 4 10
+5. 5 10 1 10 10 10 2 2 10 2 10 4 10
+6. 5 10 1 1 10 10 2 2 10 10 2 10 4
+
+The output of the program is determined by the input values of intervals and m. For each interval [a, b] in the input, the program calculates the number of ways to choose a subset of elements from the interval such that the sum of the elements is divisible by m. The program uses a LazySegmentTree to efficiently compute the sum of elements in the intervals and updates the tree with the new values. The final answer is the sum of the results for each interval, multiplied by the corresponding value of mu[j]. The answer is then printed to the output. The program will print 1 for the first case, 4 for the second case, 10 for the third case, 35 for the fourth case, 126 for the fifth case, and 364 for the sixth case.
+
+FINAL_OUTPUT_JSON: {"stdout":"1\n4\n10\n35\n126\n364"}

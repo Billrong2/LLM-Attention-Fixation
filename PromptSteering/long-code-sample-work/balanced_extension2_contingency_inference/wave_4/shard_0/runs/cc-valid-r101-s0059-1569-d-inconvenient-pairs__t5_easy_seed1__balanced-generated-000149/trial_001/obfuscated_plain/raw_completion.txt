@@ -1,0 +1,36 @@
+ ### CASES_BEGIN
+c001: invoke program entry point; target_method=solve; stdin="1\n2 2 0\n0 1011000\n1 1000000\n1556 1010000\n0 14\n"; argv=[]
+### CASES_END
+
+The program reads the input, which consists of:
+- The number of test cases, `t`.
+- The number of rows, columns, and points (`n`, `m`, and `k`), respectively.
+- The `y` coordinates for each row in the matrix.
+- The `x` coordinates for each column in the matrix.
+- The `x` and `y` coordinates for each point.
+
+The `solve` function is called for each test case. Here's a breakdown of the logic within the function:
+
+1. It creates hash sets for rows and columns (`yset` and `xset`), and lists to store pairs of coordinates (`xlist` and `ylist`).
+2. It populates these sets and lists based on the input coordinates.
+3. For each row, it calculates the number of valid pairs and adds them to the total count (`ans`).
+4. For each column, it does the same thing.
+5. Finally, it returns the count of valid pairs.
+
+For the given input:
+
+```
+1
+2 2 0
+0 1011000
+1 1000000
+1556 1010000
+0 14
+```
+
+The input is not well-formatted according to the program's expectations, and it's missing the coordinates for the points (`px` and `py`). As a result, the program will throw an `InputMismatchException` when trying to read past the end of the input. This exception indicates that the input is malformed or incomplete.
+
+### Final Output
+The program does not produce any valid output due to the malformed input. Instead, it will throw an exception, which is not captured or handled in the provided code. Therefore, no valid output is produced.
+
+**FINAL_OUTPUT_JSON: {"stdout":""}**

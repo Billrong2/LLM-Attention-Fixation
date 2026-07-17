@@ -1,0 +1,27 @@
+### Reasoning:
+
+1. The program reads input from the standard input stream, which includes the number of test cases (`t`), dimensions of the grid, and positions of points.
+2. For each test case, it constructs two sorted lists (`xlist` and `ylist`) based on the given points and dimensions.
+3. It then iterates over these lists, updating a running sum of valid positions and counting the number of invalid positions.
+4. Finally, it calculates the total number of valid positions by subtracting the invalid positions from the running sum.
+
+### Exact Output:
+
+For the given input:
+
+```
+1
+2 2 0
+0 1000000
+0 1000000
+1556 1000000
+0 34
+```
+
+The program will output:
+
+```
+4
+```
+
+### Machine-Readable Line:

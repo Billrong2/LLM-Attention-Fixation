@@ -1,0 +1,14 @@
+ ### CASES_BEGIN
+c001: invoke program entry point; target_method=find; stdin="4\n2 6 2 0\n1\n3 12\n7 9\n4 14\n2 10\n8 7\n"; argv=[]
+### CASES_END
+
+Reasoning:
+
+1. The main method initializes an array of length 4 and reads 4 integers from the input.
+2. The integers are then added to a set and the sum of the set is calculated.
+3. The program then reads the next integer, which is 1.
+4. The program then reads 2 more integers, which are 3 and 12.
+5. The program calculates the minimum value of two long values.
+6. The program prints the result of the calculation.
+
+FINAL_OUTPUT_JSON: {"stdout": "3"}

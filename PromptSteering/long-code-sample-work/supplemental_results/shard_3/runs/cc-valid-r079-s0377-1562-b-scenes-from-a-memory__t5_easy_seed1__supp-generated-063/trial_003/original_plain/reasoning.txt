@@ -1,0 +1,57 @@
+To predict the exact standard output of the given Java program, we need to analyze how the `isPrime` function behaves and how the main logic interacts with it. Let's break down the key parts of the code:
+
+### Key Functions and Logic
+
+1. **isPrime Function**:
+   ```java
+   static boolean isPrime(int n)
+   {
+       if (n <= 1)
+           return false;
+       if (n == 2)
+           return true;
+       if (n % 2 == 0)
+           return false;
+       for (int i = 3; i <= Math.sqrt(n); i += 2)
+       {
+           if (n % i == 0)
+               return false;
+       }
+       return true;
+   }
+   ```
+
+2. **Main Function**:
+   - It reads the number of test cases \( t \).
+   - For each test case, it reads a number \( n \) and a string \( s \).
+   - It initializes an answer variable `ans`.
+   - It checks each character in the string:
+     - If the character is not one of the prime digits (2, 3, 5, 7), it prints "1" followed by the character and continues to the next test case.
+   - It then checks all possible pairs of characters from the string:
+     - Constructs numbers from these pairs.
+     - Checks if any of these numbers are not prime using the `isPrime` function.
+     - If a non-prime number is found, it prints "2" followed by the number and continues to the next test case.
+
+### Input Cases Analysis
+
+Given the input cases:
+
+- `1\n2\n121`
+
+We can simulate the execution step-by-step:
+
+1. **Test Case 1:**
+   - Input: `1` (n), `"2"` (s)
+   - Since "2" is a single prime digit, no action is taken, and it continues to the next test case.
+
+2. **Test Case 2:**
+   - Input: `2` (n), `"121"` (s)
+   - Characters in the string: "1", "2", "1"
+   - The first character "1" is not a prime digit (2, 3, 5, 7), so it prints:
+     ```plaintext
+     1
+     1
+     ```
+
+3. **Test Case 3:**
+   - Input: `1

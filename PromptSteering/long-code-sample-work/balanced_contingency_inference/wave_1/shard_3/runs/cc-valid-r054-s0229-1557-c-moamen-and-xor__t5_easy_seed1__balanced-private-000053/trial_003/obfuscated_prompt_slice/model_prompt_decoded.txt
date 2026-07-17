@@ -1,0 +1,356 @@
+Prompt-only steering guidance (Program Slicing / backward slice, artifact-conditioned):
+Use the following static program-analysis elements as the main reasoning anchors.
+These elements are static only; they do not reveal the correct output, branch outcomes, or gold execution trace.
+
+Static elements to emphasize:
+1. MethodDeclaration at L063: target method cal(index, larger, n, twoPowerN, other) (static long cal(int index, int larger, int n, long twoPowerN, long other) {)
+2. SliceMethodParameter at L063: method parameter index (static long cal(int index, int larger, int n, long twoPowerN, long other) {)
+3. SliceMethodParameter at L063: method parameter larger (static long cal(int index, int larger, int n, long twoPowerN, long other) {)
+4. SliceMethodParameter at L063: method parameter n (static long cal(int index, int larger, int n, long twoPowerN, long other) {)
+5. SliceMethodParameter at L063: method parameter twoPowerN (static long cal(int index, int larger, int n, long twoPowerN, long other) {)
+6. SliceMethodParameter at L063: method parameter other (static long cal(int index, int larger, int n, long twoPowerN, long other) {)
+7. SliceReturnValue at L066: return value expression (return 1;)
+8. SliceReturnValue at L069: return value expression using dp, larger, index (return dp[larger][index];)
+9. SliceReturnValue at L083: return value expression using dp, larger, index, result (return dp[larger][index] = result;)
+10. SliceControlDependency at L065: control predicate over index (if (index < 0) {)
+11. SliceControlDependency at L068: control predicate over dp, larger, index (if (dp[larger][index] != -1) {)
+12. SliceDefinition at L071: definition of result (long result = 0;)
+13. SliceControlDependency at L072: control predicate over larger, result, twoPowerN, cal, index, n, other, MOD (if (larger == 1) {)
+14. SliceAssignment: assignment/update influencing result
+15. SliceMethodCall at L073: method call cal in static data/control context (result = twoPowerN * cal(index - 1, larger, n, twoPowerN, other);)
+16. SliceMethodCall at L076: method call cal in static data/control context (result = other * cal(index - 1, larger, n, twoPowerN, other);)
+17. SliceControlDependency at L078: control predicate over n, result, cal, index, twoPowerN, other, MOD (if (n % 2 == 0) {)
+18. SliceMethodCall at L079: method call cal in static data/control context (result += cal(index - 1, 1, n, twoPowerN, other);)
+19. SliceAssignment: assignment/update influencing dp
+
+Predict the exact standard output of this deterministic Java program for the concrete case below. The recorded algorithm method is `cal`. This is output prediction, not code generation.
+### CASES_BEGIN
+c001: invoke program entry point; target_method=cal; stdin="5\n22 578\n26 604\n72 839\n47 857\n97 400\n"; argv=[]
+### CASES_END
+
+Give concise reasoning that tracks only state and control flow needed for the output. Then end with exactly one machine-readable line in this form:
+FINAL_OUTPUT_JSON: {"stdout":"exact output with newlines encoded as \n"}
+The JSON stdout string must contain only what the program prints, with no commentary or code fence.
+
+```java
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.BitSet;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.SortedSet;
+import java.util.Stack;
+import java.util.StringTokenizer;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+/**
+ * #
+ *
+ * @author pttrung
+ */
+public class C_Round_737_Div2 {
+    public static long MOD = 1000000007;
+
+    static long[][] dp;
+
+    public static void main(String[] args) throws FileNotFoundException {
+        // PrintWriter out = new PrintWriter(new FileOutputStream(new File(
+        // "output.txt")));
+        PrintWriter out = new PrintWriter(System.out);
+        Scanner in = new Scanner();
+        int T = in.nextInt();
+        for (int Z = 0; Z < T; Z++) {
+            int n = in.nextInt();
+            int k = in.nextInt();
+            long pow = pow(2, n);
+            long other = pow(2, n - 1);
+
+            if (n % 2 == 0) {
+                other = (other - 1 + MOD) % MOD;
+            } else {
+                other += 1;
+                other %= MOD;
+            }
+            dp = new long[2][k];
+            for (long[] a : dp) {
+                Arrays.fill(a, -1);
+            }
+            out.println(cal(k - 1, 0, n, pow, other));
+        }
+        out.close();
+    }
+
+    static long cal(int index, int larger, int n, long twoPowerN, long other) {
+        int _obf_t5_cal_462291 = 0; _obf_t5_cal_462291 += 0;
+        if (index < 0) {
+            return 1;
+        }
+        if (dp[larger][index] != -1) {
+            return dp[larger][index];
+        }
+        long result = 0;
+        if (larger == 1) {
+            result = twoPowerN * cal(index - 1, larger, n, twoPowerN, other);
+            result %= MOD;
+        } else {
+            result = other * cal(index - 1, larger, n, twoPowerN, other);
+            result %= MOD;
+            if (n % 2 == 0) {
+                result += cal(index - 1, 1, n, twoPowerN, other);
+                result %= MOD;
+            }
+        }
+        return dp[larger][index] = result;
+    }
+
+
+    static int abs(int a) {
+        int _obf_t5_abs_48718 = 0; _obf_t5_abs_48718 += 0;
+        return a < 0 ? -a : a;
+    }
+
+
+    public static int[] KMP(String val) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_KMP_864532 = 0;
+            _obf_t5_KMP_864532++;
+        }
+        int i = 0;
+        int j = -1;
+        int[] result = new int[val.length() + 1];
+        result[0] = -1;
+        while (i < val.length()) {
+            while (j >= 0 && val.charAt(j) != val.charAt(i)) {
+                j = result[j];
+            }
+            j++;
+            i++;
+            result[i] = j;
+        }
+        return result;
+
+    }
+
+    public static boolean nextPer(int[] data) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_nextPer_968306 = 0;
+            _obf_t5_nextPer_968306++;
+        }
+        int i = data.length - 1;
+        while (i > 0 && data[i] < data[i - 1]) {
+            i--;
+        }
+        if (i == 0) {
+            return false;
+        }
+        int j = data.length - 1;
+        while (data[j] < data[i - 1]) {
+            j--;
+        }
+        int temp = data[i - 1];
+        data[i - 1] = data[j];
+        data[j] = temp;
+        Arrays.sort(data, i, data.length);
+        return true;
+    }
+
+    public static int digit(long n) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_digit_454672 = 0;
+            _obf_t5_digit_454672++;
+        }
+        int result = 0;
+        while (n > 0) {
+            n /= 10;
+            result++;
+        }
+        return result;
+    }
+
+    public static double dist(long a, long b, long x, long y) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_dist_813456 = 0;
+            _obf_t5_dist_813456++;
+        }
+        double val = (b - a) * (b - a) + (x - y) * (x - y);
+        val = Math.sqrt(val);
+        double other = x * x + a * a;
+        other = Math.sqrt(other);
+        return val + other;
+
+    }
+
+    public static class Point {
+
+        long x;
+        long y;
+
+        public Point(long start, long end) {
+            this.x = start;
+            this.y = end;
+        }
+
+        public String toString() {
+            if (((3 * 3) - 9) != 0) {
+                int _obf_t5_toString_917746 = 0;
+                _obf_t5_toString_917746++;
+            }
+            return x + " " + y;
+        }
+
+    }
+
+    public static class FT {
+
+        long[] data;
+
+        FT(int n) {
+            data = new long[n];
+        }
+
+        public void update(int index, long value) {
+            if (((3 * 3) - 9) != 0) {
+                int _obf_t5_update_703527 = 0;
+                _obf_t5_update_703527++;
+            }
+            while (index < data.length) {
+                data[index] += value;
+                index += (index & (-index));
+            }
+        }
+
+        public long get(int index) {
+            if (((3 * 3) - 9) != 0) {
+                int _obf_t5_get_526251 = 0;
+                _obf_t5_get_526251++;
+            }
+            long result = 0;
+            while (index > 0) {
+                result += data[index];
+                index -= (index & (-index));
+            }
+            return result;
+
+        }
+    }
+
+    public static long gcd(long a, long b) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_gcd_918596 = 0;
+            _obf_t5_gcd_918596++;
+        }
+        if (b == 0) {
+            return a;
+        }
+        return gcd(b, a % b);
+    }
+
+    public static long pow(long a, int b) {
+        int _obf_t5_pow_28570 = 0; _obf_t5_pow_28570 += 0;
+        if (b == 0) {
+            return 1;
+        }
+        if (b == 1) {
+            return a;
+        }
+
+        long val = pow(a, b / 2);
+        if (b % 2 == 0) {
+            return (val * val) % MOD;
+        } else {
+            return (val * ((val * a) % MOD)) % MOD;
+
+        }
+    }
+
+    static class Scanner {
+
+        BufferedReader br;
+        StringTokenizer st;
+
+        public Scanner() throws FileNotFoundException {
+            // System.setOut(new PrintStream(new BufferedOutputStream(System.out), true));
+            br = new BufferedReader(new InputStreamReader(System.in));
+            //br = new BufferedReader(new InputStreamReader(new FileInputStream(new File("input.txt"))));
+        }
+
+        public String next() {
+            if (((3 * 3) - 9) != 0) {
+                int _obf_t5_next_716888 = 0;
+                _obf_t5_next_716888++;
+            }
+            while (st == null || !st.hasMoreTokens()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                } catch (Exception e) {
+                    throw new RuntimeException();
+                }
+            }
+            return st.nextToken();
+        }
+
+        public long nextLong() {
+            if (((3 * 3) - 9) != 0) {
+                int _obf_t5_nextLong_312798 = 0;
+                _obf_t5_nextLong_312798++;
+            }
+            return Long.parseLong(next());
+        }
+
+        public int nextInt() {
+            if (((3 * 3) - 9) != 0) {
+                int _obf_t5_nextInt_868667 = 0;
+                _obf_t5_nextInt_868667++;
+            }
+            return Integer.parseInt(next());
+        }
+
+        public double nextDouble() {
+            int _obf_t5_nextDouble_616028 = 0; _obf_t5_nextDouble_616028 += 0;
+            return Double.parseDouble(next());
+        }
+
+        public String nextLine() {
+            int _obf_t5_nextLine_999814 = 0; _obf_t5_nextLine_999814 += 0;
+            st = null;
+            try {
+                return br.readLine();
+            } catch (Exception e) {
+                throw new RuntimeException();
+            }
+        }
+
+        public boolean endLine() {
+            int _obf_t5_endLine_92050 = 0; _obf_t5_endLine_92050 += 0;
+            try {
+                String next = br.readLine();
+                while (next != null && next.trim().isEmpty()) {
+                    next = br.readLine();
+                }
+                if (next == null) {
+                    return true;
+                }
+                st = new StringTokenizer(next);
+                return st.hasMoreTokens();
+            } catch (Exception e) {
+                throw new RuntimeException();
+            }
+        }
+    }
+}
+```

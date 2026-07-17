@@ -1,0 +1,160 @@
+{
+  "expected_stdout": "2\n27\n1\n4\n1\n1\n2\n35\n1\n1\n1\n4\n1\n6\n",
+  "expected_stdout_path": "candidates/cc-valid-r079-s0377-1562-b-scenes-from-a-memory/io/00-generated-009.out",
+  "id": "cc-valid-r079-s0377-1562-b-scenes-from-a-memory",
+  "input": "7\n3\n237\n5\n44444\n3\n221\n2\n35\n3\n1270\n1\n4\n19\n626221626221626221626221626221\n",
+  "input_path": "candidates/cc-valid-r079-s0377-1562-b-scenes-from-a-memory/io/00-generated-009.in",
+  "inputs": [
+    {
+      "dataset_test_index": 9,
+      "expected_stdout": "2\n27\n1\n4\n1\n1\n2\n35\n1\n1\n1\n4\n1\n6\n",
+      "expected_stdout_path": "candidates/cc-valid-r079-s0377-1562-b-scenes-from-a-memory/io/00-generated-009.out",
+      "expected_stdout_sha256": "6ac90b05f754d918802001dc8cd1bb7736fb885166a0aa4693d51c548593baa3",
+      "id": "00-generated-009",
+      "input": "7\n3\n237\n5\n44444\n3\n221\n2\n35\n3\n1270\n1\n4\n19\n626221626221626221626221626221\n",
+      "input_path": "candidates/cc-valid-r079-s0377-1562-b-scenes-from-a-memory/io/00-generated-009.in",
+      "input_sha256": "f5f69f1b9749cf4ef72bc70c2f974c21022bf8ff91f0fa1db9dcd32753fc4c1c",
+      "suite": "generated_tests",
+      "validation": {
+        "compiled_with_jdk17": true,
+        "exit_code": 0,
+        "stderr_bytes": 0,
+        "stdout_exact_byte_match": true,
+        "timed_out": false
+      }
+    }
+  ],
+  "loc_definition": "Python str.splitlines(); final newline does not add an empty physical line",
+  "main_class": "Main",
+  "nonblank_loc": 205,
+  "original_path": "candidates/cc-valid-r079-s0377-1562-b-scenes-from-a-memory/original.java",
+  "physical_loc": 251,
+  "prevalidation": {
+    "all_retained_tests_exact": true,
+    "compiled": true,
+    "compiler_exit_code": 0,
+    "compiler_stderr_bytes": 0,
+    "compiler_stdout_bytes": 0,
+    "jdk_major": 17
+  },
+  "problem_key": "codeforces-1562-B",
+  "problem_name": "1562_B. Scenes From a Memory",
+  "provenance": {
+    "cf_contest_id": 1562,
+    "cf_index": "B",
+    "cf_points": 1000.0,
+    "cf_rating": 1000,
+    "cf_tags": [
+      "brute force",
+      "constructive algorithms",
+      "implementation",
+      "math",
+      "number theory"
+    ],
+    "dataset_file": "codecontests-valid-802411c3.parquet",
+    "dataset_file_sha256": "02e8c1ccedae716f1e43cc813fcb7823c3db666ea92638820aba80e8cef451ab",
+    "dataset_id": "deepmind/code_contests",
+    "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+    "dataset_url": "https://huggingface.co/datasets/deepmind/code_contests/resolve/802411c3010cb00d1b05bad57ca77365a3c699d6/data/valid-00000-of-00001-5e672c5751f060d3.parquet",
+    "difficulty": 8,
+    "language": "Java",
+    "language_code": 4,
+    "problem_name": "1562_B. Scenes From a Memory",
+    "row_index": 79,
+    "solution_container": "solutions",
+    "solution_index": 377,
+    "solution_label": "correct human solution",
+    "source_code": 2,
+    "split": "valid"
+  },
+  "source_bytes": 5061,
+  "source_sha256": "fb30bc0bc62ff83a59c7f55fc2edf409dcf0b2a0028a6921562add35c3f90956",
+  "target": {
+    "arity": 1,
+    "body_nonblank_loc": 14,
+    "body_physical_loc": 20,
+    "class": "Main",
+    "codesteer_selector": {
+      "declaration_line": 70,
+      "fallback_used": false,
+      "implementation": "steering.priors.SlicingPrior._select_target_method",
+      "name": "isPrime",
+      "parameter_count": 1,
+      "parse_status": "javalang",
+      "top_level_body_statement_count": 3
+    },
+    "control_node_count": 5,
+    "end_line": 90,
+    "loop_node_count": 1,
+    "main_call_path": [
+      {
+        "arity": 1,
+        "class": "Main",
+        "end_line": 65,
+        "name": "main",
+        "parameter_types": [
+          "String"
+        ],
+        "return_type": "void",
+        "start_line": 19
+      },
+      {
+        "arity": 1,
+        "class": "Main",
+        "end_line": 90,
+        "name": "isPrime",
+        "parameter_types": [
+          "int"
+        ],
+        "return_type": "boolean",
+        "start_line": 70
+      }
+    ],
+    "main_reachable": true,
+    "name": "isPrime",
+    "output_caller": {
+      "arity": 1,
+      "class": "Main",
+      "end_line": 65,
+      "name": "main",
+      "parameter_types": [
+        "String"
+      ],
+      "return_type": "void",
+      "start_line": 19
+    },
+    "output_evidence": "isPrime(num) controls System.out.println(\"2\")",
+    "output_relevance_kind": "output_control_predicate",
+    "output_relevance_variable": null,
+    "parameter_types": [
+      "int"
+    ],
+    "recursive_call_count": 0,
+    "return_type": "boolean",
+    "return_value_output_relevant": true,
+    "source_sha256": "6b2b7ac76dd311d29998132cf477eac2a9d8ec0f7dac7a6c2ca9c4dacb3b1fc3",
+    "start_line": 70
+  },
+  "target_method": "isPrime",
+  "target_signature": "boolean Main.isPrime(int)",
+  "tests": [
+    {
+      "dataset_test_index": 9,
+      "expected_stdout": "2\n27\n1\n4\n1\n1\n2\n35\n1\n1\n1\n4\n1\n6\n",
+      "expected_stdout_path": "candidates/cc-valid-r079-s0377-1562-b-scenes-from-a-memory/io/00-generated-009.out",
+      "expected_stdout_sha256": "6ac90b05f754d918802001dc8cd1bb7736fb885166a0aa4693d51c548593baa3",
+      "id": "00-generated-009",
+      "input": "7\n3\n237\n5\n44444\n3\n221\n2\n35\n3\n1270\n1\n4\n19\n626221626221626221626221626221\n",
+      "input_path": "candidates/cc-valid-r079-s0377-1562-b-scenes-from-a-memory/io/00-generated-009.in",
+      "input_sha256": "f5f69f1b9749cf4ef72bc70c2f974c21022bf8ff91f0fa1db9dcd32753fc4c1c",
+      "suite": "generated_tests",
+      "validation": {
+        "compiled_with_jdk17": true,
+        "exit_code": 0,
+        "stderr_bytes": 0,
+        "stdout_exact_byte_match": true,
+        "timed_out": false
+      }
+    }
+  ]
+}

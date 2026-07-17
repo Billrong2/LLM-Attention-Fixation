@@ -1,0 +1,12 @@
+The program `cal` takes three inputs: `index`, `n`, and `nxt`. The program calculates and returns the maximum number of steps required to reach the end of the sequence. This is done through a dynamic programming approach.
+
+In the main function, `cal` is called with `index = 0`, `n = 4`, and `nxt` is initialized with the input sequences `1100000` and `1110100`.
+
+The `cal` function has a base case for when `index == n`, where it returns 0. It also checks if the result for `index` is already computed and stored in `dp`. If not, it calculates the maximum number of steps by considering different scenarios: 
+- If both `nxt[0][index]` and `nxt[1][index]` are equal to `index`, it returns 2 plus the result of `cal(index + 1, n, nxt)`.
+- If only `nxt[0][index]` is equal to `index`, it returns 1 plus the result of `cal(index + 1, n, nxt)`.
+- Otherwise, it calculates the result based on the values of `nxt[0][index]` and `nxt[1][index]`.
+
+The final result is stored in `dp[index]` and returned.
+
+For the provided input, the program prints `5`.

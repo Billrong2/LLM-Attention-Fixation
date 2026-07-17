@@ -1,0 +1,15 @@
+Reasoning:
+1. Read the number of test cases, T.
+2. For each test case, read the number of elements in the array, n.
+3. Create a 2D array, data, to store the input elements.
+4. Iterate through each row in the data array and populate it with the corresponding input elements.
+5. Initialize an array, dp, with a size of n and fill it with -2.
+6. Initialize a boolean array, s, of size n with all elements set to false.
+7. Create a variable, result, and set it to 0.
+8. Iterate through each index, i, in the range of 0 to n-1.
+   - Call the cal method with the current index, i, the s array, and the data array.
+   - If the return value of the cal method is -1, set result to -1 and break the loop.
+   - If the return value is not -1, update result to the maximum value between result and the return value of the cal method.
+9. Print the result.
+
+Machine-readable output line:

@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "run_tag": "prompt-slice-final-20260711",
+  "protocol": {
+    "prompt_mode": "slice",
+    "prompt_mechanism": "artifact_conditioned_natural_language_instruction_only",
+    "temperature": 0.9,
+    "top_p": 0.95,
+    "do_sample": true,
+    "base_seed": 20260527,
+    "trials_per_unit": 3
+  },
+  "rows": [
+    {
+      "model_label": "Qwen_Qwen2.5-Coder-7B-Instruct",
+      "model_name": "Qwen/Qwen2.5-Coder-7B-Instruct",
+      "model": "Qwen2.5-7B",
+      "dataset": "humaneval",
+      "expected_units": 608,
+      "case_total": 4606,
+      "pass_correct": [3362, 3765, 3949],
+      "pass_percent": [72.99, 81.74, 85.74],
+      "original_percent": [76.49, 86.15, 88.82],
+      "obfuscated_percent": [64.01, 76.93, 82.83]
+    },
+    {
+      "model_label": "deepseek-ai_deepseek-coder-6.7b-base",
+      "model_name": "deepseek-ai/deepseek-coder-6.7b-base",
+      "model": "DeepSeek-6.7B",
+      "dataset": "humaneval",
+      "expected_units": 608,
+      "case_total": 4606,
+      "pass_correct": [3036, 3893, 4149],
+      "pass_percent": [65.91, 84.52, 90.08],
+      "original_percent": [77.74, 84.84, 88.40],
+      "obfuscated_percent": [68.29, 81.43, 86.47]
+    },
+    {
+      "model_label": "Qwen_Qwen2.5-14B",
+      "model_name": "Qwen/Qwen2.5-14B",
+      "model": "Qwen2.5-14B",
+      "dataset": "humaneval",
+      "expected_units": 608,
+      "case_total": 4606,
+      "pass_correct": [3999, 4314, 4435],
+      "pass_percent": [86.82, 93.66, 96.29],
+      "original_percent": [94.63, 96.81, 97.37],
+      "obfuscated_percent": [85.31, 93.13, 95.82]
+    },
+    {
+      "model_label": "Qwen_Qwen2.5-14B",
+      "model_name": "Qwen/Qwen2.5-14B",
+      "model": "Qwen2.5-14B",
+      "dataset": "cruxeval",
+      "expected_units": 2787,
+      "case_total": 5574,
+      "pass_correct": [4984, 5365, 5471],
+      "pass_percent": [89.42, 96.25, 98.15],
+      "original_percent": [92.14, 97.28, 98.33],
+      "obfuscated_percent": [86.48, 94.56, 96.95]
+    },
+    {
+      "model_label": "deepseek-ai_DeepSeek-V2-Lite",
+      "model_name": "deepseek-ai/DeepSeek-V2-Lite",
+      "model": "DeepSeek-V2-Lite",
+      "dataset": "humaneval",
+      "expected_units": 608,
+      "case_total": 4606,
+      "pass_correct": [3132, 3793, 4062],
+      "pass_percent": [68.00, 82.35, 88.19],
+      "original_percent": [90.31, 94.78, 96.08],
+      "obfuscated_percent": [80.18, 90.62, 92.37]
+    },
+    {
+      "model_label": "deepseek-ai_DeepSeek-V2-Lite",
+      "model_name": "deepseek-ai/DeepSeek-V2-Lite",
+      "model": "DeepSeek-V2-Lite",
+      "dataset": "cruxeval",
+      "expected_units": 2787,
+      "case_total": 5574,
+      "pass_correct": [4440, 5228, 5430],
+      "pass_percent": [79.66, 93.79, 97.42],
+      "original_percent": [91.56, 95.87, 97.12],
+      "obfuscated_percent": [81.11, 91.39, 94.66]
+    }
+  ],
+  "excluded_rows": [
+    ["Qwen2.5-7B", "cruxeval"],
+    ["DeepSeek-6.7B", "cruxeval"]
+  ]
+}

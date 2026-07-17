@@ -1,0 +1,35 @@
+ To predict the exact standard output of this deterministic Java program, we need to analyze the given input and the logic of the `buscarGreedy` method.
+
+### CASES_BEGIN
+c001: invoke program entry point; target_method=buscarGreedy; stdin="12\n825\n8888\n4\n157\n146\n1\n301\n19634\n1504\n10521\n1000000000\n687194767\n"; argv=[]
+### CASES_END
+
+The `buscarGreedy` method is used to find the minimum number of changes required to transform a given number into a power of 2. It uses a simple greedy approach by comparing the given number with the powers of 2 and returning the minimum difference.
+
+Let's analyze each input number:
+
+1. **12**
+   - The closest powers of 2 are 8 and 16.
+   - `comparar("8", "12") = 1` (since 1 is the difference in the first digit)
+   - `comparar("16", "12") = 3` (since 3 digits are different)
+
+   Therefore, the minimum difference is 1.
+
+2. **825**
+   - The closest powers of 2 are 512 and 1024.
+   - `comparar("512", "825") = 2` (since 2 digits are different)
+   - `comparar("1024", "825") = 4` (since 4 digits are different)
+
+   Therefore, the minimum difference is 2.
+
+3. **8888**
+   - The closest powers of 2 are 8192 and 16384.
+   - `comparar("8192", "8888") = 4` (since 4 digits are different)
+   - `comparar("16384", "8888") = 8` (since 8 digits are different)
+
+   Therefore, the minimum difference is 4.
+
+4. **4**
+   - The closest power of 2 is 4 itself.
+   - `comparar("4", "4") = 0` (since the numbers are the same)
+

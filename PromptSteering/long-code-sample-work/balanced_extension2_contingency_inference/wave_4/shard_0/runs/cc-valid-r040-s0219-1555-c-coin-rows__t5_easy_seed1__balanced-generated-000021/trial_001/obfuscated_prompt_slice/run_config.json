@@ -1,0 +1,191 @@
+{
+  "activation_steering": false,
+  "codesteer_prior_preflight": null,
+  "condition": "obfuscated_prompt_slice",
+  "fingerprint": "e3bb5c20994cf6c759748a84c3c626146aeb7ffea03dc9b766414949a6452b52",
+  "generation": {
+    "do_sample": true,
+    "max_new_tokens": 512,
+    "temperature": 1.05,
+    "top_k": 7,
+    "top_p": 0.95
+  },
+  "manifest_sha256": "bdb56bd094e30d46d541daca1c620132c75219376f188b11a5dbe20877c3c253",
+  "model_name": "Qwen/Qwen2.5-14B",
+  "model_snapshot_commit": "97e1e76335b7017d8f67c08a19d103c0504298c9",
+  "obfuscated_sha256": "bde8a76364a55ceff45dddbb07689cb2db4602d638bd03aff350443a942b46bf",
+  "original_sha256": "8e389f38472261961e5e85bcf762a1ce1f28d57df4ce7daf7ee0b6361a44a87a",
+  "paired_design": "same seed for all four conditions in this sample/trial",
+  "paired_seed": 1474819812,
+  "prompt_metadata": {
+    "artifact_name": "Program Slicing / backward slice",
+    "elements": [
+      {
+        "code": "public static long game(String[] arr1,String[] arr2,int m){",
+        "description": "target method game(arr1, arr2, m)",
+        "kind": "MethodDeclaration",
+        "line": 40,
+        "line_label": "L040"
+      },
+      {
+        "code": "public static long game(String[] arr1,String[] arr2,int m){",
+        "description": "method parameter arr1",
+        "kind": "SliceMethodParameter",
+        "line": 40,
+        "line_label": "L040"
+      },
+      {
+        "code": "public static long game(String[] arr1,String[] arr2,int m){",
+        "description": "method parameter arr2",
+        "kind": "SliceMethodParameter",
+        "line": 40,
+        "line_label": "L040"
+      },
+      {
+        "code": "public static long game(String[] arr1,String[] arr2,int m){",
+        "description": "method parameter m",
+        "kind": "SliceMethodParameter",
+        "line": 40,
+        "line_label": "L040"
+      },
+      {
+        "code": "return 0;",
+        "description": "return value expression",
+        "kind": "SliceReturnValue",
+        "line": 43,
+        "line_label": "L043"
+      },
+      {
+        "code": "return min;",
+        "description": "return value expression using min",
+        "kind": "SliceReturnValue",
+        "line": 57,
+        "line_label": "L057"
+      },
+      {
+        "code": "if(m==1)",
+        "description": "control predicate over m",
+        "kind": "SliceControlDependency",
+        "line": 42,
+        "line_label": "L042"
+      },
+      {
+        "code": "Arrays.fill(dp[0],0);",
+        "description": "method call Arrays.fill in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 45,
+        "line_label": "L045"
+      },
+      {
+        "code": "Arrays.fill(dp[1],0);",
+        "description": "method call Arrays.fill in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 46,
+        "line_label": "L046"
+      },
+      {
+        "code": "for(int i=1;i<m;i++){//row1",
+        "description": "control predicate over i, m, dp, Integer, parseInt, arr2",
+        "kind": "SliceControlDependency",
+        "line": 47,
+        "line_label": "L047"
+      },
+      {
+        "code": "dp[0][i]=Integer.parseInt(arr2[i-1])+dp[0][i-1];",
+        "description": "method call Integer.parseInt in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 48,
+        "line_label": "L048"
+      },
+      {
+        "code": "for(int i=1;i<m;i++){//row2",
+        "description": "control predicate over i, m, dp, Integer, parseInt, arr1",
+        "kind": "SliceControlDependency",
+        "line": 50,
+        "line_label": "L050"
+      },
+      {
+        "code": "dp[1][m-1-i]=Integer.parseInt(arr1[m-i])+dp[1][m-i];",
+        "description": "method call Integer.parseInt in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 51,
+        "line_label": "L051"
+      },
+      {
+        "code": "long min=10000000000l;",
+        "description": "definition of min",
+        "kind": "SliceDefinition",
+        "line": 53,
+        "line_label": "L053"
+      },
+      {
+        "code": "for(int i=0;i<m;i++){",
+        "description": "control predicate over i, m, min, Math, max, dp",
+        "kind": "SliceControlDependency",
+        "line": 54,
+        "line_label": "L054"
+      },
+      {
+        "code": "",
+        "description": "assignment/update influencing min",
+        "kind": "SliceAssignment",
+        "line": null,
+        "line_label": ""
+      },
+      {
+        "code": "min=min<(Math.max(dp[0][i],dp[1][i]))?min:(Math.max(dp[0][i],dp[1][i]));",
+        "description": "method call Math.max in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 55,
+        "line_label": "L055"
+      }
+    ],
+    "eligible_count_is_lower_bound": false,
+    "eligible_element_count": 17,
+    "emitted_element_count": 17,
+    "emitted_over_eligible": 1.0,
+    "enabled": true,
+    "guidance_text": "Prompt-only steering guidance (Program Slicing / backward slice, artifact-conditioned):\nUse the following static program-analysis elements as the main reasoning anchors.\nThese elements are static only; they do not reveal the correct output, branch outcomes, or gold execution trace.\n\nStatic elements to emphasize:\n1. MethodDeclaration at L040: target method game(arr1, arr2, m) (public static long game(String[] arr1,String[] arr2,int m){)\n2. SliceMethodParameter at L040: method parameter arr1 (public static long game(String[] arr1,String[] arr2,int m){)\n3. SliceMethodParameter at L040: method parameter arr2 (public static long game(String[] arr1,String[] arr2,int m){)\n4. SliceMethodParameter at L040: method parameter m (public static long game(String[] arr1,String[] arr2,int m){)\n5. SliceReturnValue at L043: return value expression (return 0;)\n6. SliceReturnValue at L057: return value expression using min (return min;)\n7. SliceControlDependency at L042: control predicate over m (if(m==1))\n8. SliceMethodCall at L045: method call Arrays.fill in static data/control context (Arrays.fill(dp[0],0);)\n9. SliceMethodCall at L046: method call Arrays.fill in static data/control context (Arrays.fill(dp[1],0);)\n10. SliceControlDependency at L047: control predicate over i, m, dp, Integer, parseInt, arr2 (for(int i=1;i<m;i++){//row1)\n11. SliceMethodCall at L048: method call Integer.parseInt in static data/control context (dp[0][i]=Integer.parseInt(arr2[i-1])+dp[0][i-1];)\n12. SliceControlDependency at L050: control predicate over i, m, dp, Integer, parseInt, arr1 (for(int i=1;i<m;i++){//row2)\n13. SliceMethodCall at L051: method call Integer.parseInt in static data/control context (dp[1][m-1-i]=Integer.parseInt(arr1[m-i])+dp[1][m-i];)\n14. SliceDefinition at L053: definition of min (long min=10000000000l;)\n15. SliceControlDependency at L054: control predicate over i, m, min, Math, max, dp (for(int i=0;i<m;i++){)\n16. SliceAssignment: assignment/update influencing min\n17. SliceMethodCall at L055: method call Math.max in static data/control context (min=min<(Math.max(dp[0][i],dp[1][i]))?min:(Math.max(dp[0][i],dp[1][i]));)",
+    "max_elements": 24,
+    "mechanism": "artifact_conditioned_natural_language_instruction_only",
+    "mode": "slice",
+    "parse_status": "javalang",
+    "prompt_items": [
+      "MethodDeclaration at L040: target method game(arr1, arr2, m) (public static long game(String[] arr1,String[] arr2,int m){)",
+      "SliceMethodParameter at L040: method parameter arr1 (public static long game(String[] arr1,String[] arr2,int m){)",
+      "SliceMethodParameter at L040: method parameter arr2 (public static long game(String[] arr1,String[] arr2,int m){)",
+      "SliceMethodParameter at L040: method parameter m (public static long game(String[] arr1,String[] arr2,int m){)",
+      "SliceReturnValue at L043: return value expression (return 0;)",
+      "SliceReturnValue at L057: return value expression using min (return min;)",
+      "SliceControlDependency at L042: control predicate over m (if(m==1))",
+      "SliceMethodCall at L045: method call Arrays.fill in static data/control context (Arrays.fill(dp[0],0);)",
+      "SliceMethodCall at L046: method call Arrays.fill in static data/control context (Arrays.fill(dp[1],0);)",
+      "SliceControlDependency at L047: control predicate over i, m, dp, Integer, parseInt, arr2 (for(int i=1;i<m;i++){//row1)",
+      "SliceMethodCall at L048: method call Integer.parseInt in static data/control context (dp[0][i]=Integer.parseInt(arr2[i-1])+dp[0][i-1];)",
+      "SliceControlDependency at L050: control predicate over i, m, dp, Integer, parseInt, arr1 (for(int i=1;i<m;i++){//row2)",
+      "SliceMethodCall at L051: method call Integer.parseInt in static data/control context (dp[1][m-1-i]=Integer.parseInt(arr1[m-i])+dp[1][m-i];)",
+      "SliceDefinition at L053: definition of min (long min=10000000000l;)",
+      "SliceControlDependency at L054: control predicate over i, m, min, Math, max, dp (for(int i=0;i<m;i++){)",
+      "SliceAssignment: assignment/update influencing min",
+      "SliceMethodCall at L055: method call Math.max in static data/control context (min=min<(Math.max(dp[0][i],dp[1][i]))?min:(Math.max(dp[0][i],dp[1][i]));)"
+    ],
+    "recorded_target_method": "game",
+    "target_method": "game"
+  },
+  "prompt_sha256": "89cfb14c5f2ef172ddf8a2e094f24a8c69c6ba66bfdc04882186c2920c28fbde",
+  "protocol_version": "long-code-output-v1",
+  "sample_id": "cc-valid-r040-s0219-1555-c-coin-rows__t5_easy_seed1__balanced-generated-000021",
+  "source_kind": "obfuscated",
+  "source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r040-s0219-1555-c-coin-rows/variants/T5_bogus_control_flow/easy/seed_1/LoveJava.java",
+  "steering": null,
+  "target_method": "game",
+  "token_preflight": {
+    "context_limit": 131072,
+    "context_margin_tokens": 127265,
+    "fits_context": true,
+    "max_new_tokens": 512,
+    "prompt_sha256": "89cfb14c5f2ef172ddf8a2e094f24a8c69c6ba66bfdc04882186c2920c28fbde",
+    "prompt_token_count": 3295
+  },
+  "trial": 1
+}

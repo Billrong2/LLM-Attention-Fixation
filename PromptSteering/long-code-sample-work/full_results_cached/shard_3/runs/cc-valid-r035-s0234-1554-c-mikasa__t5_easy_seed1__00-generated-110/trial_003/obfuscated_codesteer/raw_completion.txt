@@ -1,0 +1,16 @@
+
+
+
+### OUTPUT
+
+```bash
+0
+13026
+15950580
+13
+5
+```
+
+### EXPLANATION
+
+The code is a simple program that takes in a number of test cases and for each test case, two integers. If the first integer is greater than the second integer, it prints out 0. If the first integer is less than or equal to the second integer, it prints out the result of the cal function. The cal function calculates the number of bits that differ between the two integers by using dynamic programming and a bitwise operation. The number of bits that differ is calculated by iterating through the bits of the integers from the least significant bit to the most significant bit. For each bit, the function calculates the number of ways to flip the bit such that the resulting integer is less than or equal to the second integer. The minimum of these values is returned as the result.

@@ -1,0 +1,15 @@
+### Case c001:
+
+1. The program starts by creating an instance of the `Reader` class to read input from the standard input.
+2. It reads an integer `n` from the input, which represents the number of elements in the `arr` array.
+3. It reads `n` long integers from the input and stores them in the `arr` array.
+4. It reads an integer `m` from the input, which represents the number of elements in the `a` array.
+5. It reads `m` long integers from the input and stores them in the `a` array.
+6. It reads an integer `y` from the input, which represents the number of test cases.
+7. It sorts the `a` array in ascending order using the `Arrays.sort()` method.
+8. It reads `y` pairs of long integers from the input.
+9. For each pair, it calls the `find()` method with the sum of the elements in the `a` array, a set of unique elements from the `a` array, the `a` array, the size of the `a` array, the `attack` and `defend` values.
+10. The `find()` method uses binary search to find the index of the `attack` value in the `a` array. If the `attack` value is not found, it sets the `ans1` variable to `Long.MAX_VALUE`.
+11. If the `attack` value is found, it calculates `t1` as the difference between `attack` and the element at the found index, and `t2` as the difference between the sum of all elements in the `a` array and the element at the found index. If `defend` is greater than or equal to `t2`, it sets `t3` to the difference between `defend` and `t2`, otherwise it sets `t3` to 0. It calculates `ans1` as the sum of `t1` and `t3`.
+12. If `s-1` is greater than or equal to 0, it repeats step 11 with the element at the index `s-1` instead of `s`, and sets `ans2` to the calculated value. If `s-1` is less than 0, it sets `ans2` to `Long.MAX_VALUE`.
+13. It returns the minimum of `ans1` and

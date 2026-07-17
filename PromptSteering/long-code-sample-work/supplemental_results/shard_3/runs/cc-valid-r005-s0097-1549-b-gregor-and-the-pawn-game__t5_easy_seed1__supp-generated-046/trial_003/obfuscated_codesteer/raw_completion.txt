@@ -1,0 +1,13 @@
+ The `pawnLineal` method in the `Chess` class takes in two input strings representing a chess board configuration before (`scr`) and after (`dst`) a pawn moves, and returns an integer indicating the number of pawns that can reach their destination in a single move.
+
+The code first prepends and appends '0' to both `scr` and `dst` to handle edge cases where pawns are on the first or last row. Then, it initializes two variables: `scr` and `dst` as `StringBuilder` objects, which allow for efficient character manipulation.
+
+The code then loops through each character of `scr`, starting from the second character (index 1) and ending at the second to last character (index `scr.length() - 2`). For each iteration, it checks if the current character is a '1', indicating a pawn. If so, it checks three possible conditions:
+
+1. If the pawn can move diagonally left (index `i - 1`) and there's a pawn at the destination (`dst.charAt(i - 1) == '1'`), it sets the corresponding destination character to 'X' (indicating it's occupied) and increments the return value (`ret`) by 1.
+2. If the pawn can move directly forward (index `i`) and there's no pawn at the destination (`dst.charAt(i) == '0'`), it sets the corresponding destination character to 'X' and increments the return value by 1.
+3. If the pawn can move diagonally right (index `i + 1`) and there's a pawn at the destination (`dst.charAt(i + 1) == '1'`), it sets the corresponding destination character to 'X' and increments the return value by 1.
+
+After processing all pawns, the function returns the total count of moves (pawns that can reach their destination in a single move).
+
+FINAL_OUTPUT_JSON: {"stdout":"exact output with newlines encoded as \n"}

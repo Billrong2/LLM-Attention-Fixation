@@ -1,0 +1,14 @@
+Reasoning:
+
+1. The program begins by reading an integer T, representing the number of test cases.
+2. For each test case, it reads three integers n, m, and k.
+3. It initializes a boolean 2D array dp, a 2D array re, and an integer cur to 0.
+4. The program calls the cal method with parameters index=0, horizontal=k, n=n, and m=m.
+5. The cal method recursively checks if the horizontal condition is satisfied, and if so, it updates the re array with the appropriate characters based on the current position.
+6. The find method is called to find the appropriate character based on the current position, and it updates the re array accordingly.
+7. The final result is printed as either "YES" or "NO", along with the re array if the result is "YES".
+
+The program's output for the given case is:
+YES
+a b c
+d e f

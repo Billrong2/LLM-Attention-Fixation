@@ -1,0 +1,13 @@
+### Case c001: 
+
+1. `sc = new FastScanner()`: The constructor `FastScanner` is called and an instance is created. 
+2. `pw = new PrintWriter(System.out)`: A new instance of `PrintWriter` is created to write to `System.out`. 
+3. `tc = sc.ni()`: The number 10 is read from the input stream. 
+4. A for loop is executed 10 times with `rep` ranging from 0 to 9.
+5. For each iteration, `solve` is called with the string arguments read from the input stream, and its return value is printed to `System.out`.
+
+**The final output will be:**
+
+FINAL\_OUTPUT\_JSON: {"stdout": "YES\nYES\nNO\nYES\nNO\nNO\nNO\nNO\nNO\nNO\n"}
+
+The program reads 10 inputs, and for each input, it calls the `solve` function. Based on the logic inside `solve`, it prints 'YES' if the second string can be obtained from the first by removing characters, and 'NO' otherwise. The exact output with newlines encoded as '\n' is provided above.

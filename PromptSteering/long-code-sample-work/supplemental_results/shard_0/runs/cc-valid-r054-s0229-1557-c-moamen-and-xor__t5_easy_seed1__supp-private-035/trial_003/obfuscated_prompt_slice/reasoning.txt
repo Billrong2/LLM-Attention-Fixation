@@ -1,0 +1,17 @@
+The program prompts for an integer `T` indicating the number of test cases. For each test case, it reads two integers `n` and `k` from the input. Then, it calculates `pow` as 2 raised to the power of `n` and `other` as the result of `pow` divided by 2. If `n` is odd, `other` is incremented by 1. 
+
+The program defines a 2D array `dp` of size `2` x `k`, and initializes all its values to -1. It then calls the `cal` method, passing in the parameters `k - 1`, `0`, `n`, `pow`, and `other`.
+
+Inside the `cal` method, it checks if `index` is less than 0. If true, it returns 1. Otherwise, it checks if `dp[larger][index]` is not -1. If true, it returns the value of `dp[larger][index]`.
+
+If none of the previous conditions are met, the method calculates `result` based on the value of `larger` and updates `dp[larger][index]` with the calculated `result`.
+
+Finally, the program prints the result returned by the `cal` method for each test case.
+
+In the given input case, the program is run with `1` test case. It reads `1` as `n` and `1 0` as `k`. The calculated values are `pow = 2^1 = 2` and `other = 2 / 2 = 1`. 
+
+The `cal` method is called with parameters `0`, `0`, `1`, `2`, and `1`. The method checks `index < 0`, which is false. It then checks if `dp[0][0]` is not -1, which is false. Therefore, it calculates `result` based on the value of `larger`. Since `larger` is `0`, it multiplies `other` by the result of calling `cal(index - 1, 0, n, pow, other)`.
+
+Inside the `cal` method, with `index` equal to `0`, `cal` checks `index < 0`, which is true. It returns `1`, which is then multiplied by `other` and assigned to `result`. The calculated `result` is then returned.
+
+Thus, for the given test case, the

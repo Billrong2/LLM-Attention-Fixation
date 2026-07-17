@@ -11,6 +11,10 @@ The repository combines:
 - obfuscated-code evaluation runs against a prepared corpus
 - execution-trace and counterfactual evaluation pipelines
 
+## Representative cases
+
+The [representative case gallery](representative_cases/) contains four same-source, same-prompt, same-seed comparisons between CodeSteer and unsteered generation, including the raw completions and exact-output scores. These are qualitative selected examples rather than an aggregate evaluation.
+
 ## What This Repo Is For
 
 The main workflow in this repository is:

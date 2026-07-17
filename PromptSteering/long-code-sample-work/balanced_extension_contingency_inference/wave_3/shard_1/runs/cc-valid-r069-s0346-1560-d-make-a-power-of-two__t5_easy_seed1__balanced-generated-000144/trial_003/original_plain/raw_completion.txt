@@ -1,0 +1,25 @@
+ To determine the exact standard output of the given Java program for the specific input "1\n117124\n", we need to analyze the `buscarGreedy` method and how it processes the input string "117124".
+
+The `buscarGreedy` method compares each substring of the input number with the sequence of powers of two (up to \(2^{62}\)). It finds the minimum number of deletions required to make the number a power of two.
+
+Here’s a step-by-step breakdown of the process:
+
+1. Initialize `pot` to 1.
+2. Convert `pot` to a string `numPot`.
+3. Compare `numPot` with the input number `"117124"` using the `comparar` method, which counts the minimum number of deletions needed to match the substring of `"117124"` starting from the beginning of `numPot`.
+4. Repeat the comparison for all powers of two up to \(2^{62}\).
+
+Let's walk through the comparisons:
+
+- For `pot = 1` (i.e., `numPot = "1"`) vs `"117124"`, the comparison starts at `"1"` and requires 6 deletions to remove the rest of `"117124"`.
+- For `pot = 2` (i.e., `numPot = "2"`) vs `"117124"`, the comparison starts at `"2"` and requires 6 deletions.
+- For `pot = 4` (i.e., `numPot = "4"`) vs `"117124"`, the comparison starts at `"4"` and requires 6 deletions.
+- Continue this process until `pot = 2^62`.
+
+However, the critical part is identifying when a match is found:
+
+- `pot = 8` (i.e., `numPot = "8"`):
+  - Comparison starts at `"8"` and requires 5 deletions (`"117124"` becomes `"8"` by removing `"11712"`).
+  
+- `pot = 16` (i.e., `numPot = "16"`):
+  - Comparison starts at `"16"` and requires 4 deletions (`"117124"` becomes `"16"` by removing `"11712"`, then `"1

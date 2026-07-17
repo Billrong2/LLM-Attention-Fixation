@@ -1,0 +1,45 @@
+To predict the exact standard output of the given deterministic Java program, we need to follow these steps:
+
+### Step-by-Step Reasoning:
+
+1. **Input Processing**:
+   - The program reads the number of test cases from the input.
+   - It then reads each test case and calls the `buscarGreedy` method for each test case.
+
+2. **Method Execution**:
+   - The `buscarGreedy` method takes a string representation of a number (`numero`) as input.
+   - It initializes a power value (`pot`) to 1 and a minimum distance (`minimo`) to the maximum integer value.
+   - It iterates through powers of 2 up to 62, comparing each power with the input number using the `comparar` method.
+   - It calculates the distance between the current power of 2 and the input number by converting the power to a string and calling the `comparar` method.
+
+3. **Output Calculation**:
+   - For each test case, the program calculates the minimum distance between the input number and the powers of 2 within the specified range.
+   - It prints this minimum distance as the output for each test case.
+
+### Case Analysis (`c001`):
+
+- **Test Case Count**: The program reads "1" from the input, indicating there is 1 test case.
+- **Test Case Input**: The program reads "147915" from the input.
+
+### Detailed Execution:
+
+1. **Input Reading**:
+   - Reads "1" as the number of test cases.
+   - Reads "147915" as the test case input.
+
+2. **Method Execution for "147915"**:
+   - Initial power `pot` is set to 1.
+   - The method iterates through powers of 2 up to 62.
+   - For each power, it converts the power to a string and calculates the distance between the power and the input number "147915" using the `comparar` method.
+
+3. **Output Calculation**:
+   - The minimum distance calculated during the iteration is printed as the output for the test case.
+
+### Output Prediction:
+
+- The program reads "147915" and calculates the minimum distance between this number and the powers of 2 within the specified range.
+- The minimum distance is calculated and printed.
+
+### Final Output:
+
+The exact standard output of the program for the given input is

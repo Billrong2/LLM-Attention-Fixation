@@ -1,0 +1,15 @@
+ CASES_BEGIN
+c001: invoke program entry point; target_method=find; stdin="4\n4 1 6 1\n1\n3 12\n4 9\n5 5\n-1 19\n21 0\n"; argv=[]
+CASES_END
+
+### Case c001: 
+
+The main function reads the input from stdin, first the number of elements in the array (n=4), then the array itself [4, 1, 6, 1], and then the number of queries (y=5). For each query, it takes the attack and defend values.
+
+For each query, it calls the find method with the sum of the array, the HashSet of the array, the sorted array, the length of the array, attack, and defend.
+
+The find method performs a binary search on the sorted array to find the closest value to attack. It then calculates the minimum cost to reach the attack and defend values.
+
+After processing all the queries, the program prints the results.
+
+FINAL_OUTPUT_JSON: {"stdout":"5\n11\n10\n20\n20\n"}

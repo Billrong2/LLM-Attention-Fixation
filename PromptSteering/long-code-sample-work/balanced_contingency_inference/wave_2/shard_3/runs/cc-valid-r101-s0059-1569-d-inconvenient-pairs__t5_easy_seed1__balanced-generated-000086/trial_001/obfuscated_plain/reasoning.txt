@@ -1,0 +1,36 @@
+The provided Java program reads input values from standard input, processes them, and outputs the result to standard output. Here's a step-by-step breakdown of the execution for the given input:
+
+1. **Initialization and Input Reading:**
+   - The program initializes an `InputReader` to read input from `System.in`.
+   - It reads the number of test cases `t` from the input.
+
+2. **Loop Through Test Cases:**
+   - For each test case, it reads the values of `n`, `m`, and `k`.
+   - It reads arrays `yline`, `xline`, `px`, and `py`.
+
+3. **Main Processing (in `solve` method):**
+   - It initializes two sets (`yset` and `xset`) and two lists (`xlist` and `ylist`) to track positions of points.
+   - It iterates over `n` and `m` to populate these lists and sets.
+   - For each point in `k`, it checks if it overlaps with existing points in `xset` or `yset`, and adds to the respective list if not.
+   - It sorts the lists.
+   - It uses maps (`mapx` and `mapy`) to keep track of the number of points seen so far in the x and y directions.
+
+4. **Calculation and Output:**
+   - The main processing involves calculating the number of unique points by tracking the sum of points seen in both directions.
+   - It sums up these values to get the total count of unique points.
+
+For the specific input provided:
+```
+1
+2 2 0
+0 1000000
+0 1000000
+1472 1000000
+1 34
+```
+- The program reads `1` as the number of test cases.
+- For the first test case, it reads `2`, `2`, and `0` for `n`, `m`, and `k` respectively.
+- It reads the arrays `yline` and `xline` with values `[0, 1000000]` and `[0, 1000000]`.
+- Since `k=0`, no points are added from `px` and `py`.
+
+Given that there are no additional points to consider, the program calculates the number of unique points based on the provided arrays. Since both arrays contain

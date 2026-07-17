@@ -1,0 +1,33 @@
+### Case 001:
+
+Input:
+4
+7
+0101000
+1100000
+5
+01000
+10101
+2
+01
+01
+6
+000011
+111111
+
+Output:
+2
+4
+1
+1
+
+Explanation:
+For the first test case, the input sequence is `0101000` for the first string and `1100000` for the second string. The algorithm `cal` calculates the minimum number of changes required to make the two strings identical. The changes are made by flipping the bits at the corresponding positions.
+
+For the second test case, the input strings are `01000` and `10101`. The algorithm calculates the minimum number of changes required, which is 4.
+
+For the third test case, the input strings are `01` and `01`. The algorithm calculates the minimum number of changes required, which is 1.
+
+For the fourth test case, the input strings are `000011` and `111111`. The algorithm calculates the minimum number of changes required, which is 1.
+
+Thus, the final output is `2 4 1 1`.

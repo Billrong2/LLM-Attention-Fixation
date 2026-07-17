@@ -1,0 +1,26 @@
+The program reads three numbers, `n`, `t`, and `215`. For each value of `n`, the program checks whether the corresponding string `s` (which consists of digits from `2`, `3`, `5`, or `7`) forms valid two-digit prime numbers when consecutive pairs of its digits are considered as numbers. If any non-prime number is found, the program prints `1` followed by the first digit of the non-prime number; otherwise, it prints `2` followed by the first two digits of the non-prime number if there is one.
+
+Given the input sequence "1\n3\n215\n":
+
+1. **Case 1**: `n = 1`
+   - Input string: "1"
+   - Since "1" does not consist entirely of the digits `2`, `3`, `5`, or `7`, the first loop breaks immediately after reading the first character, printing `"1\n1"`.
+
+2. **Case 2**: `n = 3`
+   - Input string: "3"
+   - Again, the string does not contain only the allowed digits, so it prints `"1\n3"`.
+
+3. **Case 3**: `n = 215`
+   - Input string: "215"
+   - This string also contains a digit other than `2`, `3`, `5`, or `7` (`1`), causing the first loop to break and print `"1\n2"`.
+
+Therefore, the final output of the program for these inputs is:
+
+```
+1
+1
+1
+3
+1
+2
+```

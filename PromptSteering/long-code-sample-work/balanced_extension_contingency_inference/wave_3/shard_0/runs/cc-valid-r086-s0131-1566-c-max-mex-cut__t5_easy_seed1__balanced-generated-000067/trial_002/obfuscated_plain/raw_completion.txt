@@ -1,0 +1,40 @@
+
+
+
+### Case 001:
+
+Input:
+4
+7
+0101000
+1100000
+5
+01000
+10101
+2
+01
+01
+6
+000011
+111111
+
+Output:
+2
+4
+1
+1
+
+### Reasoning:
+
+- For the first case with input "4\n7\n0101000\n1100000", the output is "2" because there is a single pair of matching bits.
+  
+- For the second case with input "5\n01000\n10101", the output is "4" because there are four pairs of matching bits.
+  
+- For the third case with input "2\n01\n01", the output is "1" because there is a single pair of matching bits.
+  
+- For the fourth case with input "6\n000011\n111111", the output is "1" because there is a single pair of matching bits.
+
+### FINAL_OUTPUT_JSON:
+```json
+{"stdout":"2\n4\n1\n1"}
+```

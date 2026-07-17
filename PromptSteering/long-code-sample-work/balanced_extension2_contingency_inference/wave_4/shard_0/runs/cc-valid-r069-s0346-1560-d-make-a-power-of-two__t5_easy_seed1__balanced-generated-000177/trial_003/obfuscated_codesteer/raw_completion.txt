@@ -1,0 +1,47 @@
+ To predict the exact standard output of the given deterministic Java program, we need to follow these steps:
+
+### Analysis of the Program
+
+1. **Main Function**: The program starts with `int casos = Integer.parseInt(sc.nextLine());` and then iterates `k` times based on the number of cases read.
+2. **Input Processing**: For each case, it reads a single integer from the standard input.
+3. **Function Call**: It calls the `buscarGreedy` function with the input integer converted to a string.
+4. **Output**: The result of `buscarGreedy` is printed to the standard output.
+
+### Function `buscarGreedy`
+
+1. **Initialization**: It initializes a variable `pot` to 1.
+2. **Loop**: It iterates from 0 to 61, doubling `pot` in each iteration.
+3. **Comparison**: For each power of 2, it compares the string representation of `pot` with the input string using the `comparar` function.
+4. **Tracking Minimum**: It keeps track of the minimum difference found.
+
+### Function `comparar`
+
+1. **Base Cases**:
+    - If either string is empty, return the length of the non-empty string.
+2. **Recursive Case**:
+    - If the first characters match, recursively call `comparar` on the remaining strings.
+    - If the first characters do not match, add 1 to the result of recursively calling `comparar` on the remaining string of `num`.
+
+### Input Processing
+
+Given the input `"1\n147915\n"`, the program will handle two cases:
+1. The first case with input `"1"`.
+2. The second case with input `"147915"`.
+
+### Output Calculation
+
+For each input, the `buscarGreedy` function will:
+1. Iterate through the first 62 powers of 2.
+2. For each power of 2, calculate the minimum difference using `comparar`.
+
+### Example Calculation
+
+For the input `"1"`:
+- The first power of 2 is `"1"`.
+- The minimum difference is `0`.
+
+For the input `"147915"`:
+- The closest power of 2 is `"131072"`.
+- The minimum difference is the length of the string `"147915"` minus the length of the common prefix with `"131072"`.
+
+### Output

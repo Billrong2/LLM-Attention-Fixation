@@ -1,0 +1,42 @@
+To predict the output of this Java program for the given input:
+
+```sh
+4
+12 11 1 2
+1
+12 28
+7 2
+4 10
+0 13
+8 7
+```
+
+Let's break down the steps and reasoning:
+
+1. The program reads the number of elements `n` (4 in this case) and the elements themselves into an array `arr`.
+2. The array is sorted in ascending order.
+3. Another integer `t` (1 in this case) represents the number of test cases.
+4. For each test case, the program reads two values `d` (12) and `p` (28).
+
+Here's the step-by-step analysis for the test case:
+
+- The sorted array is: `[1, 2, 11, 12]`.
+- The program calls `get(arr, 12)` which finds the index where `12` would be inserted to maintain sorted order. Since `12` is already present at index `3`, the result of `get` will be `3`.
+- The program calculates `ans` and `ans2` based on the index returned by `get` and the sum of elements.
+- The `ans` calculation:
+  - `x` is `3`.
+  - `sum` is the sum of all elements (`1 + 2 + 11 + 12 = 26`).
+  - `ans` is `26 - p` if `sum < p`.
+- The `ans2` calculation:
+  - `x` is `2`.
+  - `sum2` is the sum of all elements minus the element at `x` (`26 - 12 = 14`).
+  - `ans2` is `|12 - 11|` (which is `1`) plus `14 - p` if `sum2 < p`.
+
+Given `d = 12` and `p = 28`:
+
+- `ans` will be `0` because `26 < 28`.
+- `ans2` will be `1 + 14 - 28 = 1 + (-14) = -13`, but since it's a minimum, it will be `0`.
+
+The minimum of `ans` and `ans2` is printed.
+
+Therefore, the program will output

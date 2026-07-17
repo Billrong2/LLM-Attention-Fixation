@@ -1,0 +1,13 @@
+### Reasoning
+
+1. The input is read using the `Reader` class, which is instantiated in the `main` method. The `l()` method is used to read the integer `t`.
+2. The `while` loop iterates `t` times, reading a string for each iteration using the `s()` method of the `Reader` class.
+3. The `eval` method is called with the string, its length, 0 as carry, the length of the string, and an initialized 2D array `dp`.
+4. The `eval` method processes the string, checking for various conditions related to the value of `val` and the `carry` flag.
+5. The method returns a calculated value based on these conditions, which is printed using the `out.println` method.
+6. The loop repeats `t` times, and the output is printed for each iteration.
+
+### FINAL_OUTPUT_JSON
+```json
+{"stdout":"10488\n"}
+```

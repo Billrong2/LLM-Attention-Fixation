@@ -1,0 +1,131 @@
+{
+  "codesteer_target": {
+    "called_directly_from_main": true,
+    "eligible_parameter_to_return_target": true,
+    "genuine_return_sink_count": 1,
+    "main_called_method_names": [
+      "add",
+      "append",
+      "charAt",
+      "check",
+      "close",
+      "contains",
+      "length",
+      "next",
+      "nextInt",
+      "println",
+      "reverse",
+      "substring",
+      "toString"
+    ],
+    "method_names": [
+      "main",
+      "check",
+      "sort",
+      "gcd",
+      "sieve",
+      "power",
+      "print",
+      "getChar",
+      "nextInt",
+      "readInts",
+      "readLongs",
+      "nextLong",
+      "nextDouble",
+      "readDoubles",
+      "next",
+      "nextLine",
+      "hasNext"
+    ],
+    "parameter_count": 3,
+    "parameters": [
+      {
+        "name": "s",
+        "type": "String"
+      },
+      {
+        "name": "t",
+        "type": "String"
+      },
+      {
+        "name": "sb",
+        "type": "String"
+      }
+    ],
+    "parse_status": "javalang",
+    "return_sink_count": 1,
+    "return_type": "boolean",
+    "selected_method": "check",
+    "selected_method_line": 62,
+    "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+    "selector_implementation_owner": "steering.priors.SlicingPrior",
+    "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+  },
+  "entry": {
+    "compile_class": "Template",
+    "main_class": "Template",
+    "package": "",
+    "parse_status": "javalang"
+  },
+  "execution_validation": {
+    "accepted": true,
+    "cases": [
+      {
+        "accepted": true,
+        "actual_trimmed": "-1\n-1\n-1\n-1\n-1\n-1\n-1",
+        "case_id": "00-generated-003",
+        "command": [
+          "java",
+          "-Dfile.encoding=UTF-8",
+          "-Djava.io.tmpdir=<scratch>",
+          "-Duser.home=<scratch>",
+          "-XX:-UsePerfData",
+          "-cp",
+          "<classes>",
+          "Template"
+        ],
+        "duration_seconds": 0.045826,
+        "exit_code": 0,
+        "expected_trimmed": "-1\n-1\n-1\n-1\n-1\n-1\n-1",
+        "raw_expected_stdout_sha256": "e60bceab817dad3eba536bd02198ab4eebefee208dc1a206cceb2a07b0897157",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "e60bceab817dad3eba536bd02198ab4eebefee208dc1a206cceb2a07b0897157",
+        "stderr": "",
+        "stdout": "-1\n-1\n-1\n-1\n-1\n-1\n-1\n",
+        "timed_out": false,
+        "trimmed_exact_match": true
+      }
+    ],
+    "compile": {
+      "accepted": true,
+      "command": [
+        "javac",
+        "-encoding",
+        "UTF-8",
+        "-J-Djava.io.tmpdir=<scratch>",
+        "-J-Duser.home=<scratch>",
+        "-J-XX:-UsePerfData",
+        "-Xlint:none",
+        "-nowarn",
+        "-d",
+        "<classes>",
+        "<scratch>/Template.java"
+      ],
+      "exit_code": 0,
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    "entry": {
+      "compile_class": "Template",
+      "main_class": "Template",
+      "package": "",
+      "parse_status": "javalang"
+    }
+  },
+  "physical_loc": 304,
+  "source_path": "candidates/cc-valid-r070-s0080-1560-e-polycarp-and-string-transformation/original/Template.java",
+  "source_sha256": "f1503daba5304dccd90663fe8e80e5375452d44922b1ebf455ba42a0b2e43d4e"
+}

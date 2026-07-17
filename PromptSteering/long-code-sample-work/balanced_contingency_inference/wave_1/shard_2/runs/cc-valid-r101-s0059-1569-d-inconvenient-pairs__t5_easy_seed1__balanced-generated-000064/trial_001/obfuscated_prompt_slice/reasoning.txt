@@ -1,0 +1,19 @@
+Reasoning (static program-analysis elements in boldface):
+
+* Input:
+* `1\n2 2 2\n0 1010000\n0 1000000\n1556 1000000\n0 18\n`
+* Target method:
+* `Main.solve`
+* Static method parameters:
+* `n = 2`, `m = 2`, `k = 2`, `yline = [0, 1010000]`, `xline = [0, 1000000]`, `px = [1556, 0]`, `py = [1000000, 18]`
+* Static method return value:
+* `ans` = `1554`
+* Static method control dependencies:
+* `if(xx&&yy)continue;`
+* `if (xx)xlist.add(new Pair(px[i], py[i]));`
+* `if (yy)ylist.add(new Pair(py[i], px[i]));`
+* Static method method calls:
+* `xlist.add(new Pair(yline[i], -1));`
+* `ylist.add(new Pair(xline[i], -1));`
+* `xlist.add(new Pair(px[i], py[i]));`
+* `ylist.add(new Pair(py[i], px[i]));`

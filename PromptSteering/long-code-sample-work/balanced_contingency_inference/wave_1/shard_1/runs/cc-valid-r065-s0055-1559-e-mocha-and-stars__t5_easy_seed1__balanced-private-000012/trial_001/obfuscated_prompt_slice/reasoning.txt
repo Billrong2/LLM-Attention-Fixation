@@ -1,0 +1,12 @@
+The program `EdC` reads an integer `n` and an integer `m` from the input, along with `n` pairs of integers representing intervals. The program then calculates the number of ways to assign `n` non-negative integers to these intervals such that the sum of the integers is less than or equal to `m`, modulo a given prime number `mod`.
+
+The output is calculated using a recursive function `ans` that takes the maximum value `max`, the intervals, and the current sum as input. The function uses dynamic programming to calculate the number of ways to assign the integers.
+
+The final output is the result of calling `ans` with the given parameters and then printing it to the output.
+
+### CASES_BEGIN
+c001: invoke program entry point; target_method=ans; stdin="2 100000\n1 100000\n1 100000\n"; argv=[]
+
+The program calculates the number of ways to assign non-negative integers to the two intervals `[1, 100000]` such that the sum of the integers is less than or equal to `100000`.
+
+The function `ans` is called with `max` set to `100000`, `intervals` set to `[[1, 100000], [1, 100000]]`, and `sum` set to `0`. The output is then printed to the output.

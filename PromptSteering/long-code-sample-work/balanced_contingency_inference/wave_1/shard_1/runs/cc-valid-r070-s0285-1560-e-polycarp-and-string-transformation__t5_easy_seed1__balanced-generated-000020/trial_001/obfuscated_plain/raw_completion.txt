@@ -1,0 +1,16 @@
+
+
+
+FINAL_OUTPUT_JSON: {"stdout":"abacba\nacba\n-1\n-1\n-1\n-1\n-1\nabcb\nacba\n"}
+
+
+The program reads an input consisting of an integer \( T \), which represents the number of test cases. For each test case, the program reads a string \( v \). The program then checks whether it is possible to split \( v \) into two strings \( s \) and \( o \) such that:
+
+1. The concatenation of \( s \) and \( o \) is equal to \( v \).
+2. The length of \( s \) is equal to the length of \( o \).
+3. For each character \( c \) in \( s \), the number of occurrences of \( c \) in \( s \) is a multiple of the length of \( o \).
+4. The concatenation of \( o \) and \( s \) is equal to \( v \).
+
+The program prints either the strings \( s \) and \( o \) if such a split is possible, or \(-1\) if it is not possible. The program reads the input using a custom scanner class and processes each test case individually.
+
+The program uses several helper methods to count the occurrences of characters in the input string, calculate the greatest common divisor, and perform other string operations. The main method iterates through each test case, processes the input string \( v \), and checks whether it is possible to split \( v \) into two strings \( s \) and \( o \) according to the conditions mentioned above. If a valid split is found, the program prints the strings \( s \) and \( o \). Otherwise, it prints \(-1\).

@@ -1,0 +1,14 @@
+
+
+
+The program reads in a number of intervals (n) and a maximum value (m). It then reads in n intervals, each represented by two integers. 
+
+The program then calls the ans function, passing in m and the intervals array. The ans function uses a loop to iterate through the intervals, and uses a boolean variable found to track if any of the intervals have a start value greater than the end value. If found is true, the function returns 0.
+
+Otherwise, the function uses a nested loop to calculate the number of valid intervals based on the start and end values of the intervals array. The number of valid intervals is calculated by summing up the difference between the end value and the start value of each interval, and then subtracting the sum of the end values of all intervals. 
+
+The final result is the sum of all valid intervals, calculated using the ans function. The result is then printed to the console.
+
+The input "50 100\n8 98\n10 100\n4 94\n6 99\n4 96\n7 100\n5 96\n6 99\n1 95\n1 91\n3 95\n3 95\n9 100\n4 97\n1 97\n8 98\n9 100\n8 100\n6 96\n5 98\n1 97\n8 98\n8 100\n7 98\n6 99\n8 99\n10 100\n2 94\n4 96\n8 100\n1 93\n6 96\n9 100\n4 99\n7 97\n6 99\n6 99\n10 100\n9 100\n3 100\n9 99\n9 100\n8 98\n7 98\n4 96\n9 99\n6 97\n6 96\n8 99\n6 96\n" is read in and passed to the main function. 
+
+In the main function, the input is split into n and m, and the intervals array is initialized. Then, for each line in the input, the line is split into two

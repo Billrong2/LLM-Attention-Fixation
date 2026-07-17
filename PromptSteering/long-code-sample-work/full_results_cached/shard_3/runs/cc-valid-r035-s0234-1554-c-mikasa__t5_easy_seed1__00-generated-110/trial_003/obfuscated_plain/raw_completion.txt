@@ -1,0 +1,20 @@
+
+
+
+### OUTPUT PREDICTION
+
+The output is determined by the `cal` method, which calculates the minimum number of operations needed to transform one binary representation of a number into another. The method uses dynamic programming to efficiently compute the result.
+
+For the input case `5`, `12`, `1`, `18`, `0`, `3`, `0`, `101`, `1285`, `497468`, `559738`:
+
+The program will read the first line `5` which is the number of test cases. For each test case, it will read two numbers `n` and `m`.
+
+- For the first test case, `n=12` and `m=1`. The output will be `3` because the binary representation of `12` is `1100` and the binary representation of `1` is `1`. The minimum number of operations needed to transform `1100` into `1` is `3`.
+
+- For the second test case, `n=18` and `m=0`. The output will be `0` because the binary representation of `18` is `10010` and the binary representation of `0` is `0`. The minimum number of operations needed to transform `10010` into `0` is `0`.
+
+- For the third test case, `n=3` and `m=0`. The output will be `2` because the binary representation of `3` is `11` and the binary representation of `0` is `0`. The minimum number of operations needed to transform `11` into `0` is `2`.
+
+- For the fourth test case, `n=101` and `m=1285`. The output will be `6` because the binary representation of `101` is `1100101` and the binary representation of `1285` is `10100000101`. The minimum number of operations needed to transform `1100101` into `10100000101` is `6`.
+
+- For the fifth test case, `n=497468` and `m=559738`. The output will be `21` because the binary

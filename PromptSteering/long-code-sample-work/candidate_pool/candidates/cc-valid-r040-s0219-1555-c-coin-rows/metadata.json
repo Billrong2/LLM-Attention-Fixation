@@ -1,0 +1,163 @@
+{
+  "expected_stdout": "12\n8\n0\n",
+  "expected_stdout_path": "candidates/cc-valid-r040-s0219-1555-c-coin-rows/io/00-generated-160.out",
+  "id": "cc-valid-r040-s0219-1555-c-coin-rows",
+  "input": "3\n3\n2 3 12\n2 10 2\n3\n-1 4 17\n3 5 0\n1\n4\n3\n",
+  "input_path": "candidates/cc-valid-r040-s0219-1555-c-coin-rows/io/00-generated-160.in",
+  "inputs": [
+    {
+      "dataset_test_index": 160,
+      "expected_stdout": "12\n8\n0\n",
+      "expected_stdout_path": "candidates/cc-valid-r040-s0219-1555-c-coin-rows/io/00-generated-160.out",
+      "expected_stdout_sha256": "acd510a2a9fb3df6d21f81f0b427f53b53eeb07b68b90afcc6798eefb0dca5a5",
+      "id": "00-generated-160",
+      "input": "3\n3\n2 3 12\n2 10 2\n3\n-1 4 17\n3 5 0\n1\n4\n3\n",
+      "input_path": "candidates/cc-valid-r040-s0219-1555-c-coin-rows/io/00-generated-160.in",
+      "input_sha256": "cc960c9702032dc06abfbb9e58b307e76f9d9f36c1826c06ca75c4d121a2761a",
+      "suite": "generated_tests",
+      "validation": {
+        "compiled_with_jdk17": true,
+        "exit_code": 0,
+        "stderr_bytes": 0,
+        "stdout_exact_byte_match": true,
+        "timed_out": false
+      }
+    }
+  ],
+  "loc_definition": "Python str.splitlines(); final newline does not add an empty physical line",
+  "main_class": "LoveJava",
+  "nonblank_loc": 256,
+  "original_path": "candidates/cc-valid-r040-s0219-1555-c-coin-rows/original.java",
+  "physical_loc": 274,
+  "prevalidation": {
+    "all_retained_tests_exact": true,
+    "compiled": true,
+    "compiler_exit_code": 0,
+    "compiler_stderr_bytes": 0,
+    "compiler_stdout_bytes": 0,
+    "jdk_major": 17
+  },
+  "problem_key": "codeforces-1555-C",
+  "problem_name": "1555_C. Coin Rows",
+  "provenance": {
+    "cf_contest_id": 1555,
+    "cf_index": "C",
+    "cf_points": 0.0,
+    "cf_rating": 1300,
+    "cf_tags": [
+      "brute force",
+      "constructive algorithms",
+      "dp",
+      "implementation"
+    ],
+    "dataset_file": "codecontests-valid-802411c3.parquet",
+    "dataset_file_sha256": "02e8c1ccedae716f1e43cc813fcb7823c3db666ea92638820aba80e8cef451ab",
+    "dataset_id": "deepmind/code_contests",
+    "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+    "dataset_url": "https://huggingface.co/datasets/deepmind/code_contests/resolve/802411c3010cb00d1b05bad57ca77365a3c699d6/data/valid-00000-of-00001-5e672c5751f060d3.parquet",
+    "difficulty": 9,
+    "language": "Java",
+    "language_code": 4,
+    "problem_name": "1555_C. Coin Rows",
+    "row_index": 40,
+    "solution_container": "solutions",
+    "solution_index": 219,
+    "solution_label": "correct human solution",
+    "source_code": 2,
+    "split": "valid"
+  },
+  "source_bytes": 7640,
+  "source_sha256": "8e389f38472261961e5e85bcf762a1ce1f28d57df4ce7daf7ee0b6361a44a87a",
+  "target": {
+    "arity": 3,
+    "body_nonblank_loc": 18,
+    "body_physical_loc": 18,
+    "class": "LoveJava",
+    "codesteer_selector": {
+      "declaration_line": 36,
+      "fallback_used": false,
+      "implementation": "steering.priors.SlicingPrior._select_target_method",
+      "name": "game",
+      "parameter_count": 3,
+      "parse_status": "javalang",
+      "top_level_body_statement_count": 9
+    },
+    "control_node_count": 4,
+    "end_line": 53,
+    "loop_node_count": 3,
+    "main_call_path": [
+      {
+        "arity": 1,
+        "class": "LoveJava",
+        "end_line": 35,
+        "name": "main",
+        "parameter_types": [
+          "String[]"
+        ],
+        "return_type": "void",
+        "start_line": 11
+      },
+      {
+        "arity": 3,
+        "class": "LoveJava",
+        "end_line": 53,
+        "name": "game",
+        "parameter_types": [
+          "String[]",
+          "String[]",
+          "int"
+        ],
+        "return_type": "long",
+        "start_line": 36
+      }
+    ],
+    "main_reachable": true,
+    "name": "game",
+    "output_caller": {
+      "arity": 1,
+      "class": "LoveJava",
+      "end_line": 35,
+      "name": "main",
+      "parameter_types": [
+        "String[]"
+      ],
+      "return_type": "void",
+      "start_line": 11
+    },
+    "output_evidence": "pw.println(game(arr,arr2,m))",
+    "output_relevance_kind": "direct_print_argument",
+    "output_relevance_variable": null,
+    "parameter_types": [
+      "String[]",
+      "String[]",
+      "int"
+    ],
+    "recursive_call_count": 0,
+    "return_type": "long",
+    "return_value_output_relevant": true,
+    "source_sha256": "6b330af8cdeb7e517ee6c62332da3f0d9a9372a6c96834858b9a45bfab9673e0",
+    "start_line": 36
+  },
+  "target_method": "game",
+  "target_signature": "long LoveJava.game(String[], String[], int)",
+  "tests": [
+    {
+      "dataset_test_index": 160,
+      "expected_stdout": "12\n8\n0\n",
+      "expected_stdout_path": "candidates/cc-valid-r040-s0219-1555-c-coin-rows/io/00-generated-160.out",
+      "expected_stdout_sha256": "acd510a2a9fb3df6d21f81f0b427f53b53eeb07b68b90afcc6798eefb0dca5a5",
+      "id": "00-generated-160",
+      "input": "3\n3\n2 3 12\n2 10 2\n3\n-1 4 17\n3 5 0\n1\n4\n3\n",
+      "input_path": "candidates/cc-valid-r040-s0219-1555-c-coin-rows/io/00-generated-160.in",
+      "input_sha256": "cc960c9702032dc06abfbb9e58b307e76f9d9f36c1826c06ca75c4d121a2761a",
+      "suite": "generated_tests",
+      "validation": {
+        "compiled_with_jdk17": true,
+        "exit_code": 0,
+        "stderr_bytes": 0,
+        "stdout_exact_byte_match": true,
+        "timed_out": false
+      }
+    }
+  ]
+}

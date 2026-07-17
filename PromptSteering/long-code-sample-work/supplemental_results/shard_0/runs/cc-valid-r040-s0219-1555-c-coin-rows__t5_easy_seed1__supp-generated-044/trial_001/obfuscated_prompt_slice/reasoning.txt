@@ -1,0 +1,9 @@
+FINAL_OUTPUT_JSON: {"stdout":"3\n3 12\n4 10\n9 5\n8\n3 2\n4 5\n8\n8 1\n0\n"}
+
+Reasoning:
+- The program is deterministic, and the output depends on the input provided.
+- The `game` method is called with the provided inputs: `arr1` and `arr2`.
+- `arr1` and `arr2` are split based on spaces and the first element of each array is an integer.
+- The `game` method initializes the `dp` array with zeros and calculates the maximum value between the two arrays.
+- The `game` method returns the maximum value found.
+- The `main` method calls the `game` method with the provided input and prints the result.

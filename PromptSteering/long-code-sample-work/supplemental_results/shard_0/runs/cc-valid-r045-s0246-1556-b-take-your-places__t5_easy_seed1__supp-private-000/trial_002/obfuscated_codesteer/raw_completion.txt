@@ -1,0 +1,35 @@
+ The output prediction process requires a thorough understanding of the program's flow and its execution for the provided input. The program is designed to handle multiple test cases, each involving a sequence of numbers and determining the minimal possible value based on the given logic.
+
+### Program Execution Flow for the Input
+
+- **Input Handling:** The program starts by reading from `stdin` and processes each line as per the specified format.
+
+- **Main Logic:** For each test case, it reads the size of the array (N) and the array elements, which are then converted to their modulo 2 value. It counts the occurrences of 0s and 1s, checks if the absolute difference is more than 1 or if the number of elements is even and the counts are equal, it proceeds to calculate the minimum of the `fun(0, a)` and `fun(1, a)` values. If the absolute difference in counts is 1, it directly calculates `fun(0, a)` or `fun(1, a)` based on which has a higher count. Otherwise, it prints `-1`.
+
+- **Output Generation:** Based on the logic applied in the above steps, it generates the output for each test case.
+
+Given the input:
+```
+1
+7
+3 3 4 4 4 4 4
+```
+The program processes this as follows:
+
+1. Reads `1` as the number of test cases.
+2. Reads `7` as the number of elements in the array.
+3. Reads `3 3 4 4 4 4 4`, which is transformed into `1 1 0 0 0 0 0` when taking modulo 2.
+4. Counts 0s and 1s to get `5` zeros and `2` ones.
+5. Since the absolute difference is more than 1, it prints `-1`.
+
+### Output Prediction
+
+The program's execution results in the following output:
+
+```
+-1
+```
+
+### Machine-Readable Line
+
+FINAL_OUTPUT_JSON: {"stdout":"-1"}

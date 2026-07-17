@@ -1,0 +1,20 @@
+The program `ferrisWheel` is a Java application that performs a series of operations on input data. The program starts by reading the number of elements `n` and the elements themselves into an array `arr`. It sorts this array and calculates the cumulative sum of its elements.
+
+It then reads a count of test cases `t` and performs the following operations for each test case:
+1. It reads a pair of integers `d` and `p`.
+2. It uses a binary search function `get` to find the index of the largest element in `arr` that is less than or equal to `d`.
+3. It calculates the minimum number of operations needed to achieve the sum `p` using the elements of `arr`.
+4. It prints the minimum number of operations for each test case.
+
+The output of the program is a series of numbers, each representing the minimum number of operations needed to achieve the sum `p` for each test case.
+
+For the given input "4\n3 5 4 4\n1\n3 12\n7 9\n1 11\n-1 10\n8 7\n", the exact standard output of the program is:
+
+12
+12
+12
+12
+12
+12
+
+Therefore, the FINAL_OUTPUT_JSON is:

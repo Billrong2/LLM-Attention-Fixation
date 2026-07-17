@@ -1,0 +1,21 @@
+Reasoning:
+1. We are given the main method that reads input and outputs based on the output of the cal method.
+2. The cal method takes four parameters: index, horizontal, n, and m.
+3. If index is equal to m, the method returns true if horizontal is 0.
+4. If index is greater than m, the method returns false.
+5. If horizontal is 0 and n is even, the method returns false.
+6. If dp[index][horizontal] is true, the method returns false.
+7. If n is even, the method calls itself with updated parameters and returns true if the result is true.
+8. If horizontal is greater than 0 and n is greater than 2, the method calls itself with updated parameters and returns true if the result is true.
+
+Given the input:
+- n = 1
+- m = 24
+- k = 82
+
+We can see that the input values satisfy the conditions for case c001.
+
+The output of the program is:
+YES
+
+Therefore, the FINAL_OUTPUT_JSON line is:

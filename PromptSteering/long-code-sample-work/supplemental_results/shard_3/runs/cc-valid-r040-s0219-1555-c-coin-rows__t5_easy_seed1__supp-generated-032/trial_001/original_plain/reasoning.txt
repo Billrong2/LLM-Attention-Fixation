@@ -1,0 +1,14 @@
+### CASES_BEGIN
+c001: invoke program entry point; target_method=game; stdin="3\n3\n1 2 7\n3 17 0\n3\n2 3 0\n6 2 1\n1\n3\n15\n"; argv=[]
+### CASES_END
+
+Concise reasoning:
+1. The input specifies 3 test cases (`t=3`).
+2. For each test case, the program reads the number of elements in the arrays and then the elements of two arrays `arr1` and `arr2`.
+3. The `game` method is called for each test case, passing in `arr1`, `arr2`, and the number of elements `m`.
+4. The `game` method initializes two arrays `dp` with zeros.
+5. The `game` method iterates through the arrays `arr1` and `arr2`, updating the `dp` arrays based on the values in `arr1` and `arr2`.
+6. The `game` method calculates the maximum of the sums in the `dp` arrays and returns the minimum of these maximum sums.
+7. The results are printed to the console.
+
+Final output prediction:

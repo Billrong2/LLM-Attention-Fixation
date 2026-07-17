@@ -1,0 +1,144 @@
+{
+  "candidate_manifest": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/candidate_pool/candidate_manifest.json",
+  "candidate_manifest_metadata": {
+    "criteria": {
+      "codesteer_selector": "steering.priors.SlicingPrior._select_target_method",
+      "codesteer_selector_fallback_allowed": false,
+      "correct_solution_container": "solutions",
+      "final_case_study_should_enforce_unique_problems": true,
+      "language": "Java",
+      "language_code": 4,
+      "max_input_bytes": 4096,
+      "max_output_bytes": 300,
+      "max_output_lines": 20,
+      "max_physical_loc": 350,
+      "max_solutions_per_problem": 3,
+      "min_input_bytes": 20,
+      "min_physical_loc": 250,
+      "one_solution_per_problem": false,
+      "reject_io_and_template_helpers": true,
+      "require_empty_compile_stdout_stderr": true,
+      "require_empty_runtime_stderr": true,
+      "runtime_timeout_seconds": 8.0,
+      "stdout_comparison": "exact UTF-8 bytes; no whitespace normalization",
+      "target_directly_called_by_main": true,
+      "target_has_value_return": true,
+      "target_main_reachable": true,
+      "target_matches_exact_codesteer_selector": true,
+      "target_nonvoid": true,
+      "target_output_relevance_modes": [
+        "direct_print_argument",
+        "local_assignment_then_print",
+        "output_control_predicate"
+      ],
+      "target_parameterized": true,
+      "test_suite_preference": [
+        "private_tests",
+        "generated_tests",
+        "public_tests"
+      ],
+      "tests_per_sample": 1
+    },
+    "dataset": {
+      "id": "deepmind/code_contests",
+      "local_file": "codecontests-valid-802411c3.parquet",
+      "revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+      "rows": 117,
+      "sha256": "02e8c1ccedae716f1e43cc813fcb7823c3db666ea92638820aba80e8cef451ab",
+      "split": "valid",
+      "url": "https://huggingface.co/datasets/deepmind/code_contests/resolve/802411c3010cb00d1b05bad57ca77365a3c699d6/data/valid-00000-of-00001-5e672c5751f060d3.parquet"
+    },
+    "execution_rejections": {
+      "compile_stderr": 2,
+      "no_exact_dataset_test": 2
+    },
+    "jdk": {
+      "java_home": "/home/cs/x/xxr230000/jdks/jdk-17.0.11+9",
+      "version": "openjdk version \"17.0.11\" 2024-04-16\nOpenJDK Runtime Environment Temurin-17.0.11+9 (build 17.0.11+9)\nOpenJDK 64-Bit Server VM Temurin-17.0.11+9 (build 17.0.11+9, mixed mode, sharing)"
+    },
+    "purpose": "prevalidated candidate pool for the long-code output-prediction case study",
+    "schema_version": 1,
+    "selection_scope": "outcome-blind; no model inference was run by this extractor",
+    "stats": {
+      "accepted_problems": 19,
+      "accepted_samples": 25,
+      "compiled_candidates_attempted": 29,
+      "dataset_rows": 117,
+      "exact_codesteer_targets": 30,
+      "java_solutions": 8251,
+      "java_solutions_in_loc_window": 571,
+      "output_relevant_targets_pre_selector": 35,
+      "output_relevant_targets_rejected_by_codesteer_selector": 5,
+      "problems_without_executable_candidate": 4,
+      "solutions_with_exact_codesteer_target": 30,
+      "solutions_with_output_relevant_target_pre_selector": 34,
+      "solutions_with_structural_target": 30,
+      "structural_target_problems": 23,
+      "structural_targets": 30
+    }
+  },
+  "candidate_manifest_sha256": "337800aa065dd2d933ce1b68047f896a3373302ea727ad8540174139a304c30f",
+  "codesteer_selector_file_sha256": "b3055f307cec4aa123e4dea3850ad0aef884a507a5b0124e8386c058dd81b12e",
+  "codesteer_selector_function_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9",
+  "codesteer_selector_source": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/steering/priors.py",
+  "configuration": {
+    "compile_requires_empty_stdout_stderr": true,
+    "compile_timeout_seconds": 30.0,
+    "coverage_accounting_caveat": "The canonical iter_method_blocks regex does not recognize declarations with a throws clause between ')' and '{'. Therefore main_touched is recorded as a warning, not an eligibility gate; the exact CodeSteer-selected target method must be verifiably changed.",
+    "difficulty": "easy",
+    "internal_spaces_and_newlines_are_significant": true,
+    "language": "java",
+    "level_config": "level0",
+    "method_coverage_policy": "force_all",
+    "mode": "technique",
+    "output_comparator": "trimmed_exact_match",
+    "output_comparator_definition": "actual.replace(CRLF, LF).strip() == expected.replace(CRLF, LF).strip()",
+    "profile": "safe",
+    "runtime_requires_exit_zero_no_timeout_empty_stderr": true,
+    "runtime_timeout_seconds": 12.0,
+    "seed": 1,
+    "techniques": [
+      "T5"
+    ],
+    "temporary_write_policy": "Python TemporaryDirectory, TMPDIR/TMP/TEMP/HOME, java.io.tmpdir, and JVM perf-data settings keep JDK version checks plus compiler/runtime scratch writes below prepared_variants/.scratch; external Python bytecode generation is disabled."
+  },
+  "eyetracking_git_revision": "bc8dfaff15d1b4cf1e87c146c7dac9f07f65f204",
+  "eyetracking_root_read_only": "/home/cs/x/xxr230000/eyetracking",
+  "jdk": {
+    "java": {
+      "major": 17,
+      "path": "/home/cs/x/xxr230000/jdks/jdk-17.0.11+9/bin/java",
+      "returncode": 0,
+      "version": "openjdk version \"17.0.11\" 2024-04-16\nOpenJDK Runtime Environment Temurin-17.0.11+9 (build 17.0.11+9)\nOpenJDK 64-Bit Server VM Temurin-17.0.11+9 (build 17.0.11+9, mixed mode, sharing)"
+    },
+    "java_home": "/home/cs/x/xxr230000/jdks/jdk-17.0.11+9",
+    "javac": {
+      "major": 17,
+      "path": "/home/cs/x/xxr230000/jdks/jdk-17.0.11+9/bin/javac",
+      "returncode": 0,
+      "version": "javac 17.0.11"
+    }
+  },
+  "local_config_root": "provenance/eyetracking_obfuscation_config",
+  "obfuscator_pipeline_path": "/home/cs/x/xxr230000/eyetracking/obfuscation/core/pipeline.py",
+  "obfuscator_pipeline_sha256": "9a5fb4c5d369941a6ff02fad078badface5310da5c06c37cacbd2ea2f2f6e83c",
+  "obfuscator_utils_path": "/home/cs/x/xxr230000/eyetracking/obfuscation/java/passes/utils.py",
+  "obfuscator_utils_sha256": "a0ac02181f5e008129e3c3fa5bf55b5abaa0966150989ecbb24b5424eaf6e9ad",
+  "preparation_script": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepare_long_code_variants.py",
+  "preparation_script_sha256": "c7f5ff3204a16747534528417c222d1beb1426f1d5ecc865625a0797576850f6",
+  "profile_hashes": {
+    "java/level0.yaml": "a1c01031b36aa8d1dbd239c61b5a9bb4b4e70222437f8f1cc26c66d6ae965773",
+    "java/level1.yaml": "eff64b6f0bfa41eef9e164e0e55d4c5d249a74ce660a86b11bcd8f59c07d3787",
+    "java/level2.yaml": "571c1d747157cf92314d07ec2994fc646e3fc2716f3d3aa8be696bd0d14ba48b",
+    "java/level3.yaml": "1ae9510e761dd8df54477751f2a254f5d76f9789c4b2c40c3fa78a5613b12eaf",
+    "java/level4.yaml": "2b2648eb02653d03a170882c2326e26f1b79178ba5c0db24f656afbd1c3ea30d",
+    "java/level5.yaml": "af827209095029c128af3551e5d30f4b1d63a298bfb7e941b8e6783eb2d95987",
+    "python/level0.yaml": "a1c01031b36aa8d1dbd239c61b5a9bb4b4e70222437f8f1cc26c66d6ae965773",
+    "python/level1.yaml": "eff64b6f0bfa41eef9e164e0e55d4c5d249a74ce660a86b11bcd8f59c07d3787",
+    "python/level2.yaml": "571c1d747157cf92314d07ec2994fc646e3fc2716f3d3aa8be696bd0d14ba48b",
+    "python/level3.yaml": "1ae9510e761dd8df54477751f2a254f5d76f9789c4b2c40c3fa78a5613b12eaf",
+    "python/level4.yaml": "2b2648eb02653d03a170882c2326e26f1b79178ba5c0db24f656afbd1c3ea30d",
+    "python/level5.yaml": "af827209095029c128af3551e5d30f4b1d63a298bfb7e941b8e6783eb2d95987"
+  },
+  "schema_version": "long-code-obfuscated-variants-v1"
+}

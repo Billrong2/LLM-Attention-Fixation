@@ -1,0 +1,40 @@
+ To determine the exact standard output of the given Java program for the provided input, let's break down the program step-by-step:
+
+### Input Processing
+1. **Input Reading**:
+   - The program reads an integer \( n \) from the input.
+   - It reads a sequence of \( n \) integers from the input.
+
+### Processing and Logic
+2. **Initialization**:
+   - The input sequence is stored in an array `a` of size \( n \).
+
+3. **Counting Occurrences**:
+   - Two counters, `f[0]` and `f[1]`, are initialized to count the number of 0s and 1s in the input sequence.
+
+4. **Calculating Differences**:
+   - The program calculates the absolute difference between the counts of 0s and 1s.
+   - If the absolute difference is more than 1, the program prints "-1".
+
+5. **Handling Even \( n \)**:
+   - If \( n \) is even:
+     - If the counts of 0s and 1s are equal, the program computes the minimum value of `fun(0, a)` and `fun(1, a)` and prints it.
+     - Otherwise, it prints "-1".
+
+6. **Handling Odd \( n \)**:
+   - If \( n \) is odd:
+     - If the count of 0s is one more than the count of 1s, the program prints the value of `fun(0, a)`.
+     - If the count of 1s is one more than the count of 0s, the program prints the value of `fun(1, a)`.
+     - Otherwise, it prints "-1".
+
+### Function `fun`
+- The function `fun` takes two parameters: an integer \( x \) and an array of integers `arr`.
+- It initializes `ans` to 0 and `delta` to 0.
+- It iterates over the array `arr`:
+  - If the current element in `arr` is not equal to \( x \), it updates `delta` by adding \( x - arr[i] \).
+  - It adds the absolute value of `delta` to `ans`.
+  - It toggles \( x \) by XORing it with 1.
+
+### Input Case
+- \( n = 7 \)
+- Input sequence: \( 5, 9, 0, 5, 3,

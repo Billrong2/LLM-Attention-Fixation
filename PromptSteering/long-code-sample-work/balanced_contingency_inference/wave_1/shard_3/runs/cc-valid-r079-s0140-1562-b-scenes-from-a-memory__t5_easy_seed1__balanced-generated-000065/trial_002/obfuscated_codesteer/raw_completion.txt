@@ -1,0 +1,35 @@
+ ### Output Prediction
+
+The program starts by reading `3` from the input, which is the number of test cases. It then proceeds to process each test case.
+
+- **Test Case 1**: Reads `1`, followed by `1`.
+  - The number `1` is not a prime number according to the `isPrime` function.
+  - Since `1` is not one of the digits 2, 3, 5, or 7, the program prints `1` followed by the digit `1`.
+  - The program exits the loop for this test case and moves to the next one.
+
+- **Test Case 2**: Reads `3`, followed by `3`.
+  - The number `3` is a prime number according to the `isPrime` function.
+  - Since `3` is one of the valid digits (3), the program continues to the next check.
+  - The program then checks pairs of digits. There is only one pair in this case, which is "33". The number "33" is not a prime number.
+  - The program prints "2" followed by the pair "33" and exits the loop for this test case.
+
+- **Test Case 3**: Reads "121", which is not a single digit or a pair of digits.
+  - The program does not enter the loop and exits without printing anything for this test case.
+
+### Reasoning
+
+1. **Test Case 1**: The program prints "1 1" because the digit "1" is not among the valid digits (2, 3, 5, 7) and is not a prime number.
+2. **Test Case 2**: The program prints "2 33" because while the digit "3" is a valid digit and a prime number, the number "33" formed from the digits is not a prime number.
+3. **Test Case 3**: The input is invalid for forming a single digit or a pair of digits, so the program does not output anything.
+
+### FINAL_OUTPUT_JSON
+```json
+{"stdout": "1 1\n2 33\n"}
+```
+
+### Explanation
+The final output of the program is:
+```
+1 1
+2 33
+```

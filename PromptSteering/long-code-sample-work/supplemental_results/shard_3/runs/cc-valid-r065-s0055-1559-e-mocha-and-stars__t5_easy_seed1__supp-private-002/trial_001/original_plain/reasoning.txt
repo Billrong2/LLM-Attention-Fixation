@@ -1,0 +1,11 @@
+The program reads two integers `n` and `m` from the input, representing the number of intervals and the maximum length of the intervals. It then reads `n` pairs of integers, representing the start and end of each interval. The program then initializes an array of size `n` with the start and end of each interval.
+
+Next, it initializes two global arrays `mu` and `isPrime` to be of size `100000` and sets their initial values to `1` and `0` respectively.
+
+The program then calls the `mobiusAndPrime` function to calculate the prime numbers and the Möbius function up to `100000`. The `mobiusAndPrime` function initializes the `mu` array and the `isPrime` array with `1` and `0` respectively. It then iterates over each integer from `2` to `100000` and checks if it is a prime number. If it is, it updates the `isPrime` and `mu` arrays accordingly.
+
+The program then initializes a variable `ans` to `0`. It iterates over each integer `j` from `1` to `100000` and checks if there is a pair of intervals whose start and end divide `j` without leaving a remainder. If such a pair is found, it breaks out of the loop. Otherwise, it calculates the value of `mu[j]` and adds it to `ans`. The `ans` variable is then printed to the output.
+
+The program then calculates the `ans` variable by calculating the sum of the values of `num` array. The program iterates over each integer `j` from `1` to `100000` and checks if there is a pair of intervals whose start and end divide `j` without leaving a remainder. If such a pair is found, it breaks out of the loop. Otherwise, it calculates the value of `mu[j]` and adds it to `ans`. The `ans` variable is then printed to the output.
+
+The `ans` variable is calculated by iterating over each integer `j` from `1` to `100000` and checking if the value of `mu[j]` is not `0`. If it is not, it iterates over each pair of intervals and calculates the value of `val` and `sum`. It then updates the `num` array

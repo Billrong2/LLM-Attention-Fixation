@@ -1,0 +1,8 @@
+ The exact standard output of this deterministic Java program is:
+
+```json
+FINAL_OUTPUT_JSON: {"stdout":"1\n0\n"}
+```
+
+Explanation:
+This Java program reads the number of test cases from standard input, followed by the input strings for each test case. For each input string, the `buscarGreedy` method is called, which returns the minimum number of changes required to make the string a power of two using a greedy algorithm. In this case, the program is given two test cases with the input strings "2" and "1". The `buscarGreedy` method returns "1" for the first test case and "0" for the second test case. The program then outputs the results for each test case on separate lines.

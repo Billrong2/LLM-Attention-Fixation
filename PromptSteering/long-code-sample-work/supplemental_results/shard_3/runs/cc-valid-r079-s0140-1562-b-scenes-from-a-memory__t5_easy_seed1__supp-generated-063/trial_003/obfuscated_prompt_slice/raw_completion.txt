@@ -1,0 +1,12 @@
+
+
+
+The program starts by reading an integer `t` from the user. This value is used to determine how many test cases to run. The program then enters a loop that runs `t` times, where each iteration represents a single test case.
+
+For each test case, the program first reads two values: `n` and `s`. The value `n` represents the length of the string `s`. The program then checks whether each character in `s` is a prime number. If it finds a character that is not a prime number, it prints the character and ends the test case. If it finds a character that is a prime number, it continues checking the characters until it finds a pair of characters that form a two-digit prime number. If it finds such a pair, it prints "2" followed by the two-digit prime number. If it does not find such a pair, it prints the string `s` with all prime digits replaced by 'x'.
+
+To determine whether a character is prime, the program uses the `isPrime` method. This method takes an integer `n` as input and returns `true` if `n` is prime, or `false` otherwise. The method uses a simple algorithm to check whether `n` is divisible by any number between 2 and the square root of `n`. If `n` is divisible by any of these numbers, it is not prime and the method returns `false`. If `n` is not divisible by any of these numbers, it is prime and the method returns `true`.
+
+To replace the prime digits in `s` with 'x', the program uses a loop to iterate over the characters in `s`. For each character, it checks whether it is a prime number. If it is, it replaces it with 'x' and continues to the next character. If it is not a prime number, it leaves it unchanged and continues to the next character.
+
+The program's output consists of the prime digits in `s` replaced with 'x' and any two-digit prime numbers found. For example, if `s` is "2357", the program would output "xx57". If `s` is "2521", the program would output "2x21".

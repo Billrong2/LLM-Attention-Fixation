@@ -1,0 +1,53 @@
+ CASE: c001
+
+To solve this problem, let's break down the program step by step:
+
+1. The program starts by reading an integer `n` from the input.
+2. It then reads `n` long values and stores them in an array `arr`, also adding each value to a set `hs`.
+3. The sum of all values in the array is calculated and stored in the variable `sum`.
+4. The program then reads another integer `m` from the input.
+5. For each of the `m` values, it performs the `find` method with the parameters `sum`, `hs`, `a`, `m`, `attack`, and `defend`.
+6. The result of each `find` call is printed.
+
+Let's analyze the specific case given:
+
+1. The input is:
+   ```
+   4
+   9 1 5 2
+   2
+   3 30
+   4 6
+   8 0
+   -1 0
+   21 -1
+   ```
+
+2. The program reads:
+   - `n` = 4
+   - `arr` = [9, 1, 5, 2]
+   - `hs` = {9, 1, 5, 2}
+   - `sum` = 17
+   - `m` = 2
+
+3. For the first pair:
+   - `attack` = 3
+   - `defend` = 30
+   - The `find` method is called with these parameters.
+
+4. For the second pair:
+   - `attack` = 4
+   - `defend` = 6
+   - The `find` method is called with these parameters.
+
+Now, let's predict the output:
+
+For the first pair (3, 30):
+- The method `find` will return 0, because the attack value (3) is already in the array, and the defend value (30) is greater than the sum minus the attack value.
+
+For the second pair (4, 6):
+- The method `find` will return 1, because the attack value (4) is not in the array, and the closest value less than or equal to the attack value is 2. The defend value (6) is greater than the sum minus the attack value.
+
+Therefore, the final output will be:
+```
+0

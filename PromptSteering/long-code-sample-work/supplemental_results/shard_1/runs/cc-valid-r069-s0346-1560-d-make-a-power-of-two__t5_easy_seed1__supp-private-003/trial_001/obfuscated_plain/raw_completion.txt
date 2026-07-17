@@ -1,0 +1,32 @@
+ To predict the exact standard output of the `buscarGreedy` method for the given input "2\n1\n1\n", we need to understand how the method works and what it outputs. Let's go through the reasoning step by step:
+
+1. **Input Handling**:
+   - The program reads the first line, which is "2".
+   - It then reads two more lines, which are both "1".
+
+2. **Processing Each Input**:
+   - For each input number, the program calls the `buscarGreedy` method.
+   - The `buscarGreedy` method compares the input number with powers of 2 and returns the minimum difference.
+
+3. **Output for Each Input**:
+   - For the first input "1":
+     - The method compares "1" with powers of 2 (1, 2, 4, 8, 16, ...).
+     - The closest power of 2 is 1, so the difference is 0.
+   - For the second input "1":
+     - Similarly, the closest power of 2 is 1, so the difference is 0.
+
+4. **Final Output**:
+   - The program prints the results of each `buscarGreedy` call on separate lines.
+
+Given this reasoning, the exact output of the program will be:
+```
+0
+0
+```
+
+The machine-readable line to end with is:
+```json
+FINAL_OUTPUT_JSON: {"stdout":"0\n0\n"}
+```
+
+This output reflects the standard output of the program as described.

@@ -1,0 +1,379 @@
+Predict the exact standard output of this deterministic Java program for the concrete case below. The recorded algorithm method is `getMin`. This is output prediction, not code generation.
+### CASES_BEGIN
+c001: invoke program entry point; target_method=getMin; stdin="1\n99999\n"; argv=[]
+### CASES_END
+
+Give concise reasoning that tracks only state and control flow needed for the output. Then end with exactly one machine-readable line in this form:
+FINAL_OUTPUT_JSON: {"stdout":"exact output with newlines encoded as \n"}
+The JSON stdout string must contain only what the program prints, with no commentary or code fence.
+
+```java
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.StringTokenizer;
+
+public class Solve {
+
+	static int mod = 1000_000_000 + 7;
+	static long INF = 1000_000_000_000_000L + 100;
+
+	public static void main(String[] args) throws Exception {
+		Scanner sc = new Scanner();
+		PrintWriter pw = new PrintWriter(System.out);
+
+		ArrayList<Long> items = new ArrayList<Long>();
+		long current = 1L;
+
+		while (current <= 900000_00000_0000000L + 10000) {
+			items.add(current);
+			current *= 2;
+
+		}
+		int t = sc.nextInt();
+		while (t-- > 0) {
+			int n = sc.nextInt();
+			pw.println(getMin(n + "", items));
+		}
+		pw.flush();
+
+	}
+
+	static int getMin(String string, ArrayList<Long> items) {
+		if (((3 * 3) - 9) != 0) {
+		    int _obf_t5_getMin_365604 = 0;
+		    _obf_t5_getMin_365604++;
+		}
+		int min = Integer.MAX_VALUE;
+		for (long i : items) {
+			int count = 0;
+			String binary = i + "";
+			int n = string.length();
+			int m = binary.length();
+			int k = 0;
+			int j = 0;
+			while (k < n && j < m) {
+				if (binary.charAt(j) == string.charAt(k)) {
+					j++;
+					k++;
+				} else {
+					k++;
+					count++;
+				}
+
+			}
+//			System.out.println(binary + " " + count + " " + j);
+			min = Math.min(min, n - k + m - j + count);
+
+		}
+		return min;
+	}
+
+	static long LowerBound(int a[], int x, int start) {
+ int _obf_t5_LowerBound_110671 = 0; _obf_t5_LowerBound_110671 += 0;
+ // x is the target value or key
+		int l = start, r = a.length;
+		while (l + 1 < r) {
+			int m = (l + r) >>> 1;
+			if (a[m] >= x)
+				r = m;
+			else
+				l = m;
+		}
+		return r;
+	}
+
+	static long UpperBound(int a[], int x, int start) {
+if (((3 * 3) - 9) != 0) {
+    int _obf_t5_UpperBound_533089 = 0;
+    _obf_t5_UpperBound_533089++;
+}
+// x is the key or target value
+		int l = start, r = a.length;
+		while (l + 1 < r) {
+			int m = (l + r) >>> 1;
+			if (a[m] <= x)
+				l = m;
+			else
+				r = m;
+		}
+		return l + 1;
+	}
+
+	static public boolean[] sieve(int n) {
+		boolean prime[] = new boolean[n + 1];
+		for (int i = 0; i <= n; i++)
+			prime[i] = true;
+
+		for (int p = 2; p * p <= n; p++) {
+			// If prime[p] is not changed, then it is a
+			// prime
+			if (prime[p] == true) {
+				// Update all multiples of p
+				for (int i = p * p; i <= n; i += p)
+					prime[i] = false;
+			}
+		}
+		return prime;
+
+	}
+
+	public static ArrayList<Integer> primeFactors(int n) {
+		if (((3 * 3) - 9) != 0) {
+		    int _obf_t5_primeFactors_985205 = 0;
+		    _obf_t5_primeFactors_985205++;
+		}
+		ArrayList<Integer> set = new ArrayList<Integer>();
+
+		// Print the number of 2s that divide n
+		while (n % 2 == 0) {
+			n /= 2;
+			set.add(2);
+		}
+
+		// n must be odd at this point. So we can
+		// skip one element (Note i = i +2)
+		for (int i = 3; i * i <= n; i += 2) {
+			// While i divides n, print i and divide n
+			while (n % i == 0) {
+				n /= i;
+				set.add(i);
+			}
+		}
+
+		if (n > 1)
+			set.add(n);
+
+		return set;
+
+	}
+
+	static int gcd(int a, int b) {
+		int _obf_t5_gcd_126307 = 0; _obf_t5_gcd_126307 += 0;
+		if (a == 0)
+			return b;
+		if (b == 0)
+			return a;
+
+		return gcd(b, a % b);
+
+	}
+
+	public static int[] swap(int data[], int left, int right) {
+		if (((3 * 3) - 9) != 0) {
+		    int _obf_t5_swap_752327 = 0;
+		    _obf_t5_swap_752327++;
+		}
+		// Swap the data
+		int temp = data[left];
+		data[left] = data[right];
+		data[right] = temp;
+
+		// Return the updated array
+		return data;
+	}
+
+	static long nCrModp(int n, int r, int p) {
+		if (((3 * 3) - 9) != 0) {
+		    int _obf_t5_nCrModp_66515 = 0;
+		    _obf_t5_nCrModp_66515++;
+		}
+		if (r > n - r)
+			r = n - r;
+
+		// The array C is going to store last
+		// row of pascal triangle at the end.
+		// And last entry of last row is nCr
+		int C[] = new int[r + 1];
+
+		C[0] = 1; // Top row of Pascal Triangle
+
+		// One by constructs remaining rows of Pascal
+		// Triangle from top to bottom
+		for (int i = 1; i <= n; i++) {
+
+			// Fill entries of current row using previous
+			// row values
+			for (int j = Math.min(i, r); j > 0; j--)
+
+				// nCj = (n-1)Cj + (n-1)C(j-1);
+				C[j] = (C[j] + C[j - 1]) % p;
+		}
+		return C[r];
+	}
+
+	static void sort(int[] a) {
+		int _obf_t5_sort_699307 = 0; _obf_t5_sort_699307 += 0;
+		ArrayList<Integer> l = new ArrayList<>();
+		for (int i : a)
+			l.add(i);
+		Collections.sort(l);
+		for (int i = 0; i < a.length; i++)
+			a[i] = l.get(i);
+	}
+
+}
+
+class Pair {
+	int x, y;
+
+	Pair(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+
+}
+
+class SegTree {
+	int leftmost, rightmost, sum;
+	SegTree lChild, rChild;
+
+	public SegTree(int leftmost, int rightmost) {
+		this.leftmost = leftmost;
+		this.rightmost = rightmost;
+	}
+
+	public void update(int index, int val) {
+		if (((3 * 3) - 9) != 0) {
+		    int _obf_t5_update_823834 = 0;
+		    _obf_t5_update_823834++;
+		}
+		sum++;
+		if (leftmost == rightmost) {
+			return;
+		}
+		if (lChild == null)
+			makeKids();
+		if (index <= lChild.rightmost)
+			lChild.update(index, val);
+		else
+			rChild.update(index, val);
+	}
+
+	public void makeKids() {
+		if (((3 * 3) - 9) != 0) {
+		    int _obf_t5_makeKids_282208 = 0;
+		    _obf_t5_makeKids_282208++;
+		}
+		int mid = (leftmost + rightmost) / 2;
+		lChild = new SegTree(leftmost, mid);
+		rChild = new SegTree(mid + 1, rightmost);
+	}
+
+	public int query(int l, int r) {
+		int _obf_t5_query_654587 = 0; _obf_t5_query_654587 += 0;
+		if (l <= leftmost && r >= rightmost)
+			return sum;
+		if (l > rightmost || r < leftmost)
+			return 0;
+		if (lChild == null)
+			return 0;
+		return lChild.query(l, r) + rChild.query(l, r);
+	}
+}
+
+class UnionFind {
+	int[] p, rank, setSize;
+	int numSets;
+
+	public UnionFind(int N) {
+		p = new int[numSets = N];
+		rank = new int[N];
+		setSize = new int[N];
+		for (int i = 0; i < N; i++) {
+			p[i] = i;
+			setSize[i] = 1;
+		}
+	}
+
+	public int findSet(int i) {
+		int _obf_t5_findSet_946242 = 0; _obf_t5_findSet_946242 += 0;
+		return p[i] == i ? i : (p[i] = findSet(p[i]));
+	}
+
+	public boolean isSameSet(int i, int j) {
+		if (((3 * 3) - 9) != 0) {
+		    int _obf_t5_isSameSet_563371 = 0;
+		    _obf_t5_isSameSet_563371++;
+		}
+		return findSet(i) == findSet(j);
+	}
+
+	public void unionSet(int i, int j) {
+		if (((3 * 3) - 9) != 0) {
+		    int _obf_t5_unionSet_295320 = 0;
+		    _obf_t5_unionSet_295320++;
+		}
+		if (isSameSet(i, j))
+			return;
+		numSets--;
+		int x = findSet(i), y = findSet(j);
+		if (rank[x] > rank[y]) {
+			p[y] = x;
+			setSize[x] += setSize[y];
+		} else {
+			p[x] = y;
+			setSize[y] += setSize[x];
+			if (rank[x] == rank[y])
+				rank[y]++;
+		}
+	}
+
+	public int numDisjointSets() {
+		int _obf_t5_numDisjointSets_735651 = 0; _obf_t5_numDisjointSets_735651 += 0;
+		return numSets;
+	}
+
+	public int sizeOfSet(int i) {
+		if (((3 * 3) - 9) != 0) {
+		    int _obf_t5_sizeOfSet_718106 = 0;
+		    _obf_t5_sizeOfSet_718106++;
+		}
+		return setSize[findSet(i)];
+	}
+}
+
+class Scanner {
+	BufferedReader br;
+	StringTokenizer st;
+
+	Scanner() {
+		br = new BufferedReader(new InputStreamReader(System.in));
+	}
+
+	String next() throws IOException {
+		while (st == null || !st.hasMoreElements())
+			st = new StringTokenizer(br.readLine());
+		return st.nextToken();
+	}
+
+	int nextInt() throws NumberFormatException, IOException {
+		return Integer.parseInt(next());
+	}
+
+	int[] nextIntArray(int n) throws NumberFormatException, IOException {
+		int a[] = new int[n];
+		for (int i = 0; i < n; i++)
+			a[i] = Integer.parseInt(next());
+		return a;
+	}
+
+	long nextLong() throws NumberFormatException, IOException {
+		return Long.parseLong(next());
+	}
+
+	long[] nextLongArray(int n) throws NumberFormatException, IOException {
+		long a[] = new long[n];
+		for (int i = 0; i < n; i++)
+			a[i] = Long.parseLong(next());
+		return a;
+	}
+
+	double nextDouble() throws NumberFormatException, IOException {
+		return Double.parseDouble(next());
+	}
+}
+```

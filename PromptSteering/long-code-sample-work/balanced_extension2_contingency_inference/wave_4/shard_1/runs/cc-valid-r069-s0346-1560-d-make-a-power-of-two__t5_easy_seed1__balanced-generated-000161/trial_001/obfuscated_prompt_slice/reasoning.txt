@@ -1,0 +1,17 @@
+### CASES_BEGIN
+c001: invoke program entry point; target_method=buscarGreedy; stdin="1\n159524\n"; argv=[]
+### CASES_END
+
+Reasoning:
+
+The program is a Java program, with one entry point method main, and two other methods, comparar and buscarGreedy.
+The program uses a HashSet, potencias, to store the powers of 2.
+The program reads a number of cases from stdin, then reads a number for each case, and calls buscarGreedy on each case.
+buscarGreedy calls comparar, which compares two strings, and returns the number of characters that do not match.
+buscarGreedy initializes a variable minimo to the maximum value of an int.
+buscarGreedy then iterates over the powers of 2, stored in potencias, and calls comparar on each power and the input number, storing the result in res. If res is less than minimo, minimo is updated.
+buscarGreedy then returns minimo.
+
+The output for case c001 is the result of calling buscarGreedy on the input "159524".
+
+The output for case c001 is 4.

@@ -1,0 +1,51 @@
+### Reasoning:
+1. **Reading Input**: The `main` method reads the number of test cases (`t`) from the standard input and then for each test case, reads the number of elements in the arrays (`m`) and the arrays themselves.
+2. **Calculating Output**: The `game` method is called with the arrays and `m` as arguments. The method computes the maximum of two subarrays and returns the minimum of these maximums.
+3. **Outputting Results**: The results are printed to the standard output.
+
+### Final Output:
+For the given input:
+```plaintext
+3
+3
+2 3 12
+2 10 2
+3
+-1 4 17
+3 5 0
+1
+4
+3
+```
+
+The program will perform the following steps:
+1. Read `3` (number of test cases).
+2. For the first test case:
+   - Read `3` (number of elements).
+   - Read `2 3 12` and `2 10 2`.
+   - Calculate the maximum of two subarrays and print the minimum.
+3. For the second test case:
+   - Read `3` (number of elements).
+   - Read `-1 4 17` and `3 5 0`.
+   - Calculate the maximum of two subarrays and print the minimum.
+4. For the third test case:
+   - Read `1` (number of elements).
+   - Read `4`.
+   - Calculate the maximum of two subarrays and print the minimum.
+
+### Output Calculation:
+- For the first test case:
+  - Subarrays: [2, 3, 12] and [2, 10, 2]
+  - Maximums: 12 (first array) and 10 (second array)
+  - Minimum of maximums: 10
+- For the second test case:
+  - Subarrays: [-1, 4, 17] and [3, 5, 0]
+  - Maximums: 17 (first array) and 5 (second array)
+  - Minimum of maximums: 5
+- For the third test case:
+  - Subarrays: [4] and [4]
+  - Maximums: 4 (first array) and 4 (second array)
+  - Minimum of maximums: 4
+
+The final output will be:
+```plaintext

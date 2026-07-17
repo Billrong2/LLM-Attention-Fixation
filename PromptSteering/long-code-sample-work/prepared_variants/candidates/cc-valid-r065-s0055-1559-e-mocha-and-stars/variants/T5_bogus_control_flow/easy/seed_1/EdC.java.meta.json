@@ -1,0 +1,227 @@
+{
+  "budgets": {
+    "ast_growth_ok": true,
+    "limits": {
+      "max_added_branches_per_100_stmts": 5,
+      "max_cfg_states_for_flattening": 4,
+      "max_expr_depth_increase": 2,
+      "max_new_ast_nodes_percent": 50.0,
+      "max_new_helpers": 2
+    },
+    "usage": {
+      "added_branches": 0,
+      "ast_nodes_after": 3533,
+      "ast_nodes_before": 2893,
+      "expr_depth_increase": 0,
+      "flatten_states_added": 0,
+      "helpers_added": 0
+    }
+  },
+  "class_renamed": false,
+  "codesteer_target": {
+    "called_directly_from_main": true,
+    "eligible_parameter_to_return_target": true,
+    "genuine_return_sink_count": 2,
+    "main_called_method_names": [
+      "ans",
+      "close",
+      "mobiusAndPrime",
+      "nextInt",
+      "println"
+    ],
+    "method_names": [
+      "main",
+      "ans",
+      "mobiusAndPrime",
+      "sort",
+      "readArrayString",
+      "readArrayInt",
+      "readArrayInt1",
+      "readArrayLong",
+      "readArrayDouble",
+      "minIndex",
+      "minIndex",
+      "minIndex",
+      "power",
+      "verdict",
+      "next",
+      "nextInt",
+      "nextLong",
+      "nextDouble",
+      "nextLine",
+      "buildTree",
+      "recalc",
+      "getSum",
+      "querySum",
+      "querySum",
+      "propagate",
+      "update",
+      "update"
+    ],
+    "parameter_count": 3,
+    "parameters": [
+      {
+        "name": "max",
+        "type": "int"
+      },
+      {
+        "name": "intervals",
+        "type": "int[][]"
+      },
+      {
+        "name": "sum",
+        "type": "int"
+      }
+    ],
+    "parse_status": "javalang",
+    "return_sink_count": 2,
+    "return_type": "long",
+    "selected_method": "ans",
+    "selected_method_line": 69,
+    "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+    "selector_implementation_owner": "steering.priors.SlicingPrior",
+    "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+  },
+  "difficulty": "easy",
+  "equivalence": {
+    "details": "not_run",
+    "exit_match": false,
+    "stderr_match": false,
+    "stdout_match": false
+  },
+  "jdk17_execution_validation": {
+    "accepted": true,
+    "cases": [
+      {
+        "accepted": true,
+        "actual_trimmed": "0",
+        "case_id": "00-private-006",
+        "command": [
+          "java",
+          "-Dfile.encoding=UTF-8",
+          "-Djava.io.tmpdir=<scratch>",
+          "-Duser.home=<scratch>",
+          "-XX:-UsePerfData",
+          "-cp",
+          "<classes>",
+          "EdC"
+        ],
+        "duration_seconds": 0.260319,
+        "exit_code": 0,
+        "expected_trimmed": "0",
+        "raw_expected_stdout_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+        "stderr": "",
+        "stdout": "0\n",
+        "timed_out": false,
+        "trimmed_exact_match": true
+      }
+    ],
+    "compile": {
+      "accepted": true,
+      "command": [
+        "javac",
+        "-encoding",
+        "UTF-8",
+        "-J-Djava.io.tmpdir=<scratch>",
+        "-J-Duser.home=<scratch>",
+        "-J-XX:-UsePerfData",
+        "-Xlint:none",
+        "-nowarn",
+        "-d",
+        "<classes>",
+        "<scratch>/EdC.java"
+      ],
+      "exit_code": 0,
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    "entry": {
+      "compile_class": "EdC",
+      "main_class": "EdC",
+      "package": "",
+      "parse_status": "javalang"
+    }
+  },
+  "language": "java",
+  "level": null,
+  "main_touched": false,
+  "method_coverage": {
+    "main_touched": false,
+    "method_coverage_total": 26,
+    "method_coverage_touched": 26,
+    "untouched_methods": []
+  },
+  "method_coverage_total": 0,
+  "method_coverage_touched": 0,
+  "metrics": {
+    "ast_nodes": 3533,
+    "cyclomatic_approx": 72,
+    "difficulty_score": 0.6417,
+    "helpers_injected": 0,
+    "lines": 431,
+    "max_ast_depth": 5,
+    "tokens": 3209
+  },
+  "mode": "technique",
+  "obfuscated_class_name": null,
+  "obfuscated_source_sha256": "a2a17e2e739c93c4ac88b89653804262d0d3433e30a265c0a623bb2e9bada396",
+  "original_class_name": null,
+  "original_source_sha256": "38e6ede3b550a067d9ef8be8538179cd1a0603ad7fd32aae1d422332f5fdf843",
+  "passes_applied": [
+    {
+      "applied": true,
+      "extra": {
+        "fallback_insertions": 7,
+        "main_touched": false,
+        "method_coverage_policy": "force_all",
+        "method_coverage_total": 26,
+        "method_coverage_touched": 26,
+        "untouched_methods": []
+      },
+      "helpers_injected": 0,
+      "name": "T5",
+      "node_delta": 26,
+      "reason": "bogus_cf:19|force_all_fallback:7",
+      "tier": "easy",
+      "time_ms": 8.861
+    }
+  ],
+  "profile_name": "safe",
+  "program_id": "cc-valid-r065-s0055-1559-e-mocha-and-stars",
+  "requested_difficulty": "easy",
+  "requested_method_coverage_policy": "force_all",
+  "requested_profile": "safe",
+  "requested_seed": 1,
+  "seed": 15403828388554359211,
+  "selected_target_touch_evidence": {
+    "method_block_parser": "eyetracking.obfuscation.java.passes.utils.iter_method_blocks",
+    "obfuscated_block_name": "ans",
+    "obfuscated_match_count": 1,
+    "obfuscated_method_bytes": 985,
+    "obfuscated_method_index": 0,
+    "obfuscated_method_sha256": "7268e6b3252a274e09729d492ce531d11430222b814d8421c119bdfe6737e027",
+    "obfuscated_method_start_line": 68,
+    "obfuscated_name_matches_codesteer_target": true,
+    "obfuscated_target_line": 69,
+    "obfuscated_target_method": "ans",
+    "original_block_name": "ans",
+    "original_match_count": 1,
+    "original_method_bytes": 891,
+    "original_method_index": 0,
+    "original_method_sha256": "99a0457c816f86a118b300a1b86dd77473a2f81970d0055a5611a2fe4ab37331",
+    "original_method_start_line": 68,
+    "original_target_line": 69,
+    "original_target_method": "ans",
+    "reason": "method_source_changed",
+    "touched": true,
+    "verifiable": true
+  },
+  "skipped_passes_with_reasons": [],
+  "technique": "T5",
+  "untouched_methods": []
+}

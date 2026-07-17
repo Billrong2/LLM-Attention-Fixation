@@ -1,0 +1,34 @@
+ To predict the exact standard output of the given deterministic Java program, we need to follow these steps:
+
+### Step-by-Step Reasoning:
+
+1. **Input Processing**:
+   - The program reads the number of test cases `casos`.
+   - It then reads each test case number `numero`.
+
+2. **Function Call**:
+   - For each test case number `numero`, the function `buscarGreedy(numero)` is called.
+   - This function calculates the minimum number of changes required to transform the given number into a power of two.
+
+3. **Output**:
+   - The result of each `buscarGreedy` call is printed.
+
+### Specific Case:
+
+#### CASES_BEGIN
+c001: invoke program entry point; target_method=buscarGreedy; stdin="1\n147915\n"; argv=[]
+#### CASES_END
+
+### Detailed Breakdown:
+
+1. **Read Number of Test Cases**:
+   - The program reads `1` from the input, which means there is one test case.
+
+2. **Read Test Case Number**:
+   - The program reads `147915` from the input.
+
+3. **Function Call**:
+   - The function `buscarGreedy("147915")` is called.
+
+4. **Function Execution**:
+   - The function compares each power of two (`1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`, `512`, `1024`, `2048`, `4096`, `8192`, `16384`, `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, `33554432`, `67108864`, `134217728`, `268435456`, `536870912`, `1073741824`, `2147483648`,

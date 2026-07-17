@@ -1,0 +1,43 @@
+ To predict the exact standard output of the given Java program, we need to analyze how the method `solve` behaves with the provided inputs:
+
+1. **Program Entry Point**:
+   - The program starts by reading the number of test cases `tc` from the standard input.
+   - For each test case, it reads two strings `s` and `t`.
+
+2. **Method `solve`**:
+   - The method `solve` takes two strings `s` and `t` as input.
+   - It initializes variables `j` and `i` with the lengths of `t` and `s` respectively, minus one.
+   - It then iterates through the strings `s` and `t` from the end, checking if characters at corresponding positions match.
+   - If a match is found, both indices `i` and `j` are decremented.
+   - If a mismatch occurs, `i` is decremented by 2.
+   - The loop continues until `i` becomes less than 0.
+   - If `j` becomes -1 during this process, it means all characters in `t` were found in `s` in the same order, so the method returns "YES".
+   - If `j` is not -1, the method returns "NO".
+
+### Analysis for Provided Case
+- **Input**:
+  - `1` (number of test cases)
+  - `abba` (first string)
+  - `bb` (second string)
+
+### Steps
+1. **Initialization**:
+   - `j` starts at `1` (since `t.length() - 1`)
+   - `i` starts at `3` (since `s.length() - 1`)
+
+2. **First Iteration**:
+   - `s.charAt(3)` is `'a'`
+   - `t.charAt(1)` is `'b'`
+   - They do not match, so `i` is decremented by 2:
+     - `i` becomes `1`
+
+3. **Second Iteration**:
+   - `s.charAt(1)` is `'b'`
+   - `t.charAt(1)` is `'b'`
+   - They match, so both `i` and `j` are decremented:
+     - `i` becomes `0`
+     - `j` becomes `0`
+
+4. **Third Iteration**:
+   - `s.charAt(0)` is `'a'`
+  

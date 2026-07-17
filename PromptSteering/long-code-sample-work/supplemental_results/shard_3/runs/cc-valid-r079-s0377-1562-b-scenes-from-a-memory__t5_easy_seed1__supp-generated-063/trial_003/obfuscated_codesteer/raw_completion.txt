@@ -1,0 +1,51 @@
+ To predict the exact standard output of the given Java program, we need to analyze how the `isPrime` function behaves and what values it returns for the specific input cases.
+
+### Input Cases Analysis
+- **Case c001**: `stdin="1\n2\n121\n"`
+  - The input consists of three lines:
+    1. Line 1: 1
+    2. Line 2: 2
+    3. Line 3: 121
+
+### Program Execution Flow
+The `main` function reads each line, converts it to an integer, and passes it to the `isPrime` function. Here’s how the execution proceeds for each line:
+
+#### Line 1: 1
+- Convert “1” to int: `n = 1`
+- The `isPrime` function checks if the number is less than or equal to 1. Since 1 is not prime, it returns `false`.
+
+#### Line 2: 2
+- Convert “2” to int: `n = 2`
+- The `isPrime` function checks if the number is 2. Since 2 is prime, it returns `true`.
+
+#### Line 3: 121
+- Convert “121” to int: `n = 121`
+- The `isPrime` function checks if the number is less than or equal to 1. Since 121 is not prime, it returns `false`.
+
+### Final Output Prediction
+The `isPrime` function outputs `1` for non-prime numbers and `2` for prime numbers. Therefore:
+
+- For `1`: The output is `1`.
+- For `2`: The output is `2`.
+- For `121`: The output is `1`.
+
+So, the final output is:
+
+```
+1
+2
+1
+```
+
+### Final Output in JSON Format
+The JSON string containing the exact output is:
+
+```json
+{"stdout":"1\n2\n1\n"}
+```
+
+This is the final output in machine-readable format:
+
+FINAL_OUTPUT_JSON: {"stdout":"1\n2\n1\n"}
+
+The JSON string contains only the output printed by the program, with no commentary or code fence.

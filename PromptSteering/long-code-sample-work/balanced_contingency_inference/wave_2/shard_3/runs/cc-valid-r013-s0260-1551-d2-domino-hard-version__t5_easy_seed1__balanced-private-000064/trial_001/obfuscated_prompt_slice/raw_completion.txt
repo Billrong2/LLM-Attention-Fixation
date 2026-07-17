@@ -1,0 +1,23 @@
+
+
+
+Reasoning:
+
+1. MethodDeclaration at L062: target method cal(index, horizontal, n, m) (static boolean cal(int index, int horizontal, int n, int m) {)
+2. SliceMethodParameter at L062: method parameter index (static boolean cal(int index, int horizontal, int n, int m) {)
+3. SliceMethodParameter at L062: method parameter horizontal (static boolean cal(int index, int horizontal, int n, int m) {)
+4. SliceMethodParameter at L062: method parameter n (static boolean cal(int index, int horizontal, int n, int m) {)
+5. SliceMethodParameter at L062: method parameter m (static boolean cal(int index, int horizontal, int n, int m) {)
+6. SliceReturnValue at L069: return value expression using horizontal (return horizontal == 0;)
+7. SliceReturnValue at L072: return value expression (return false;)
+8. SliceReturnValue at L076: return value expression (return false;)
+9. SliceReturnValue at L085: return value expression (return true;)
+10. SliceReturnValue at L088: return value expression (return false;)
+11. SliceReturnValue at L124: return value expression using result (return result;)
+12. SliceControlDependency at L063: control predicate over _obf_t5_cal_219867 (if (((3 * 3) - 9) != 0) {)
+13. SliceControlDependency at L067: control predicate over index, m, horizontal (if (index == m) {)
+14. SliceControlDependency at L071: control predicate over index, m (if (index > m) {)
+15. SliceControlDependency at L074: control predicate over horizontal, n, index, j, m, i, find, re, tmp, cur (if (horizontal == 0) {)
+16. SliceControlDependency at L075: control predicate over n (if (n % 2 != 0) {)
+17. SliceControlDependency at L078: control predicate over index, j, m, i, n, find, re, tmp, cur (for (int j = index; j < m; j++) {)
+1

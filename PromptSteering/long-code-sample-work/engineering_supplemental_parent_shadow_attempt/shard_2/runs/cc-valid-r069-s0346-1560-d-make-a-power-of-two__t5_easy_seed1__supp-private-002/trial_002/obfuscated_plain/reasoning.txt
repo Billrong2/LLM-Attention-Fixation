@@ -1,0 +1,15 @@
+The given Java program takes a series of inputs, each representing a number for which it computes the minimum number of operations needed to transform that number into a power of two using greedy approach.
+
+The `buscarGreedy` function is responsible for finding the minimum number of operations needed to transform a number into a power of two. This is done by comparing the input number with all powers of two up to a certain limit (62) and choosing the one that requires the minimum number of operations.
+
+The main method reads a series of inputs from the standard input, each representing a number to be transformed. For each number, it calls the `buscarGreedy` function and prints the minimum number of operations needed to transform that number into a power of two.
+
+The program is deterministic and its output depends only on the input provided. Therefore, the output can be predicted by running the program for the given input.
+
+For the given input "12\n825\n8888\n4\n157\n146\n1\n301\n19634\n1504\n10521\n1000000000\n687194767\n", the program will produce the following output:
+
+```json
+{"stdout": "1\n2\n3\n1\n3\n2\n0\n3\n4\n1\n4\n3\n"}
+```
+
+The output consists of the minimum number of operations needed to transform each input number into a power of two, separated by newlines.

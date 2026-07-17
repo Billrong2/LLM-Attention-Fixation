@@ -1,0 +1,438 @@
+{
+  "adaptive_interim_look_external_fact": {
+    "included_baseline_exact_sample_identifiers": true,
+    "observed_codesteer_exact_trial_count": 0,
+    "oracle_content_used_to_specify_contingency_or_case_rules": false,
+    "per_codesteer_success_content_used_to_specify_contingency_or_case_rules": false,
+    "raw_completions_used_to_specify_contingency_or_case_rules": false,
+    "reasoning_traces_used_to_specify_contingency_or_case_rules": false,
+    "scope": "aggregate interim results-index exact counts for the then-completed subset",
+    "source": "externally supplied disclosure; this preparer read no result file",
+    "timing": "during corrected Wave 1, before the extension protocol and case rules were specified",
+    "used_by_case_eligibility_ranking_or_selection": false
+  },
+  "adaptive_status_disclosure": "This contingency is not preregistered and is not outcome-blind in timing. Its case eligibility, ranking, and selection are deterministic and outcome-independent: no Wave-1 or Wave-2 outcome is an input to those rules.",
+  "compile_timeout_seconds": 30.0,
+  "dataset": {
+    "columns_explicitly_not_loaded": [
+      "public_tests"
+    ],
+    "columns_loaded": [
+      "private_tests",
+      "generated_tests",
+      "solutions"
+    ],
+    "file_sha256": "02e8c1ccedae716f1e43cc813fcb7823c3db666ea92638820aba80e8cef451ab",
+    "id": "deepmind/code_contests",
+    "pyarrow_version": "14.0.2",
+    "revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+    "split": "valid"
+  },
+  "denominator_disclosure": "The source denominator remains 25 frozen source/obfuscation variants; the same 23 tokenizer-eligible sources spanning 19 canonical problems are reused. Wave 3 adds only repeated concrete inputs.",
+  "excluded_startup_attempt": "path-only startup attempt excluded; result contents and scores were not inspected",
+  "explicitly_forbidden_read_scope": [
+    "all Wave-1 and Wave-2 inference result roots",
+    "all run records, model completions, predicted outputs, and scores",
+    "the excluded path-only startup attempt contents",
+    "public_tests values"
+  ],
+  "formal_count_source": "externally supplied timing fact; no audit/result file was read by this preparer",
+  "formal_initial_supplemental_strict_canonical_problem_count": 4,
+  "frozen_inputs_unchanged": true,
+  "frozen_source_hash_audit": [
+    {
+      "path": "prepared_variants/candidates/cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game/original/Chess.java",
+      "role": "original",
+      "sha256_after": "1202bd073ae65d5a083f878a05c6298943d6fa1492c694bb92e9f555d7cf679c",
+      "sha256_before": "1202bd073ae65d5a083f878a05c6298943d6fa1492c694bb92e9f555d7cf679c",
+      "unchanged": true,
+      "variant_id": "cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game/variants/T5_bogus_control_flow/easy/seed_1/Chess.java",
+      "role": "obfuscated",
+      "sha256_after": "65f6e61b5d802fce2d0a801acce3f48e942fa2a7626a41d8b3a2f47c82b8216b",
+      "sha256_before": "65f6e61b5d802fce2d0a801acce3f48e942fa2a7626a41d8b3a2f47c82b8216b",
+      "unchanged": true,
+      "variant_id": "cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r013-s0260-1551-d2-domino-hard-version/original/D1_Round_734_Div3.java",
+      "role": "original",
+      "sha256_after": "e9bd04013f35b4516f62be09f4a19a08371d0b2e9a68e4bf75f1a23f87dd7021",
+      "sha256_before": "e9bd04013f35b4516f62be09f4a19a08371d0b2e9a68e4bf75f1a23f87dd7021",
+      "unchanged": true,
+      "variant_id": "cc-valid-r013-s0260-1551-d2-domino-hard-version__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r013-s0260-1551-d2-domino-hard-version/variants/T5_bogus_control_flow/easy/seed_1/D1_Round_734_Div3.java",
+      "role": "obfuscated",
+      "sha256_after": "486b58afe24cd538bb0cf21e37d7b62a93cd32d8b119d7e2a8f2579ce1e8d44a",
+      "sha256_before": "486b58afe24cd538bb0cf21e37d7b62a93cd32d8b119d7e2a8f2579ce1e8d44a",
+      "unchanged": true,
+      "variant_id": "cc-valid-r013-s0260-1551-d2-domino-hard-version__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r026-s0005-1553-c-penalty/original/Main.java",
+      "role": "original",
+      "sha256_after": "6ad8318f5093996eba47f21e5e2f7c77fc40691045b8503059e681e083b5d3ce",
+      "sha256_before": "6ad8318f5093996eba47f21e5e2f7c77fc40691045b8503059e681e083b5d3ce",
+      "unchanged": true,
+      "variant_id": "cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r026-s0005-1553-c-penalty/variants/T5_bogus_control_flow/easy/seed_1/Main.java",
+      "role": "obfuscated",
+      "sha256_after": "d8733e0e7799b9ba75fb220e18f99cf2fbe938f285b09dffb1c3deedc8b7d1f7",
+      "sha256_before": "d8733e0e7799b9ba75fb220e18f99cf2fbe938f285b09dffb1c3deedc8b7d1f7",
+      "unchanged": true,
+      "variant_id": "cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r027-s0184-1553-d-backspace/original/codeforces.java",
+      "role": "original",
+      "sha256_after": "8db5a93da3cfb0b932bf71518e4148e8de0a0eec887f6c223f19350100582a32",
+      "sha256_before": "8db5a93da3cfb0b932bf71518e4148e8de0a0eec887f6c223f19350100582a32",
+      "unchanged": true,
+      "variant_id": "cc-valid-r027-s0184-1553-d-backspace__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r027-s0184-1553-d-backspace/variants/T5_bogus_control_flow/easy/seed_1/codeforces.java",
+      "role": "obfuscated",
+      "sha256_after": "561c790171f90dc178b9fa0de0ece3bceaca90dbacf11822343de0d9cf43cd18",
+      "sha256_before": "561c790171f90dc178b9fa0de0ece3bceaca90dbacf11822343de0d9cf43cd18",
+      "unchanged": true,
+      "variant_id": "cc-valid-r027-s0184-1553-d-backspace__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r035-s0234-1554-c-mikasa/original/C_Round_735_Div2.java",
+      "role": "original",
+      "sha256_after": "d530c46da4fd0ade255d55168f51b8abc9fde7fead5d5904fcfa2bcc6b234ea1",
+      "sha256_before": "d530c46da4fd0ade255d55168f51b8abc9fde7fead5d5904fcfa2bcc6b234ea1",
+      "unchanged": true,
+      "variant_id": "cc-valid-r035-s0234-1554-c-mikasa__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r035-s0234-1554-c-mikasa/variants/T5_bogus_control_flow/easy/seed_1/C_Round_735_Div2.java",
+      "role": "obfuscated",
+      "sha256_after": "70c8869f2b67e382157a15e793a28d4143a0e5c7f279292364e4ed05f438aa94",
+      "sha256_before": "70c8869f2b67e382157a15e793a28d4143a0e5c7f279292364e4ed05f438aa94",
+      "unchanged": true,
+      "variant_id": "cc-valid-r035-s0234-1554-c-mikasa__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r040-s0219-1555-c-coin-rows/original/LoveJava.java",
+      "role": "original",
+      "sha256_after": "8e389f38472261961e5e85bcf762a1ce1f28d57df4ce7daf7ee0b6361a44a87a",
+      "sha256_before": "8e389f38472261961e5e85bcf762a1ce1f28d57df4ce7daf7ee0b6361a44a87a",
+      "unchanged": true,
+      "variant_id": "cc-valid-r040-s0219-1555-c-coin-rows__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r040-s0219-1555-c-coin-rows/variants/T5_bogus_control_flow/easy/seed_1/LoveJava.java",
+      "role": "obfuscated",
+      "sha256_after": "bde8a76364a55ceff45dddbb07689cb2db4602d638bd03aff350443a942b46bf",
+      "sha256_before": "bde8a76364a55ceff45dddbb07689cb2db4602d638bd03aff350443a942b46bf",
+      "unchanged": true,
+      "variant_id": "cc-valid-r040-s0219-1555-c-coin-rows__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r045-s0246-1556-b-take-your-places/original/Main.java",
+      "role": "original",
+      "sha256_after": "0d57316ce84465e6ad3184afa997cd256316bbaf58538b3b7956943adfe5f4f0",
+      "sha256_before": "0d57316ce84465e6ad3184afa997cd256316bbaf58538b3b7956943adfe5f4f0",
+      "unchanged": true,
+      "variant_id": "cc-valid-r045-s0246-1556-b-take-your-places__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r045-s0246-1556-b-take-your-places/variants/T5_bogus_control_flow/easy/seed_1/Main.java",
+      "role": "obfuscated",
+      "sha256_after": "c911ddd46ad86b1f8807a56d22ea514a274cd6bc747307ba9e20d1f87530ebf9",
+      "sha256_before": "c911ddd46ad86b1f8807a56d22ea514a274cd6bc747307ba9e20d1f87530ebf9",
+      "unchanged": true,
+      "variant_id": "cc-valid-r045-s0246-1556-b-take-your-places__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r054-s0229-1557-c-moamen-and-xor/original/C_Round_737_Div2.java",
+      "role": "original",
+      "sha256_after": "fd623d88396159818355d4815589509618bc1f3376f02378eaa553fb1fd12ec2",
+      "sha256_before": "fd623d88396159818355d4815589509618bc1f3376f02378eaa553fb1fd12ec2",
+      "unchanged": true,
+      "variant_id": "cc-valid-r054-s0229-1557-c-moamen-and-xor__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r054-s0229-1557-c-moamen-and-xor/variants/T5_bogus_control_flow/easy/seed_1/C_Round_737_Div2.java",
+      "role": "obfuscated",
+      "sha256_after": "33173863f7948971d5ebecbd581eab3744e6c83b5960912d735773e24999a765",
+      "sha256_before": "33173863f7948971d5ebecbd581eab3744e6c83b5960912d735773e24999a765",
+      "unchanged": true,
+      "variant_id": "cc-valid-r054-s0229-1557-c-moamen-and-xor__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r065-s0055-1559-e-mocha-and-stars/original/EdC.java",
+      "role": "original",
+      "sha256_after": "38e6ede3b550a067d9ef8be8538179cd1a0603ad7fd32aae1d422332f5fdf843",
+      "sha256_before": "38e6ede3b550a067d9ef8be8538179cd1a0603ad7fd32aae1d422332f5fdf843",
+      "unchanged": true,
+      "variant_id": "cc-valid-r065-s0055-1559-e-mocha-and-stars__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r065-s0055-1559-e-mocha-and-stars/variants/T5_bogus_control_flow/easy/seed_1/EdC.java",
+      "role": "obfuscated",
+      "sha256_after": "a2a17e2e739c93c4ac88b89653804262d0d3433e30a265c0a623bb2e9bada396",
+      "sha256_before": "a2a17e2e739c93c4ac88b89653804262d0d3433e30a265c0a623bb2e9bada396",
+      "unchanged": true,
+      "variant_id": "cc-valid-r065-s0055-1559-e-mocha-and-stars__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r069-s0346-1560-d-make-a-power-of-two/original/PowerTwo.java",
+      "role": "original",
+      "sha256_after": "fba0a8b1fbcf077ebc1346bca08f678d05866b32968441dda2f79425c2bd5e56",
+      "sha256_before": "fba0a8b1fbcf077ebc1346bca08f678d05866b32968441dda2f79425c2bd5e56",
+      "unchanged": true,
+      "variant_id": "cc-valid-r069-s0346-1560-d-make-a-power-of-two__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r069-s0346-1560-d-make-a-power-of-two/variants/T5_bogus_control_flow/easy/seed_1/PowerTwo.java",
+      "role": "obfuscated",
+      "sha256_after": "2ebdb7034ffa61b44199fd1a8746bbb23a87d2edf6d3ca33c5814c8ad19376cc",
+      "sha256_before": "2ebdb7034ffa61b44199fd1a8746bbb23a87d2edf6d3ca33c5814c8ad19376cc",
+      "unchanged": true,
+      "variant_id": "cc-valid-r069-s0346-1560-d-make-a-power-of-two__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation/original/E_Round_739_Div3.java",
+      "role": "original",
+      "sha256_after": "85e165471ce3f8be8cb6b6974d6af27ec1d86f686e2b57f5d048250611ddd27d",
+      "sha256_before": "85e165471ce3f8be8cb6b6974d6af27ec1d86f686e2b57f5d048250611ddd27d",
+      "unchanged": true,
+      "variant_id": "cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation/variants/T5_bogus_control_flow/easy/seed_1/E_Round_739_Div3.java",
+      "role": "obfuscated",
+      "sha256_after": "983e74c4794d1215812f29feae5431cc2fed6a50640fe453d20bc1750ea17e73",
+      "sha256_before": "983e74c4794d1215812f29feae5431cc2fed6a50640fe453d20bc1750ea17e73",
+      "unchanged": true,
+      "variant_id": "cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r079-s0140-1562-b-scenes-from-a-memory/original/Main.java",
+      "role": "original",
+      "sha256_after": "7193729d3ba14ddf03421507912226b82c1b86ddc12b4cd1844ad3e11c49e666",
+      "sha256_before": "7193729d3ba14ddf03421507912226b82c1b86ddc12b4cd1844ad3e11c49e666",
+      "unchanged": true,
+      "variant_id": "cc-valid-r079-s0140-1562-b-scenes-from-a-memory__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r079-s0140-1562-b-scenes-from-a-memory/variants/T5_bogus_control_flow/easy/seed_1/Main.java",
+      "role": "obfuscated",
+      "sha256_after": "c3d36479361ef8a0776353f1da8bef5e20bb874ec9cfef8b836adb0b2321a069",
+      "sha256_before": "c3d36479361ef8a0776353f1da8bef5e20bb874ec9cfef8b836adb0b2321a069",
+      "unchanged": true,
+      "variant_id": "cc-valid-r079-s0140-1562-b-scenes-from-a-memory__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r086-s0131-1566-c-max-mex-cut/original/C_Global_Round16.java",
+      "role": "original",
+      "sha256_after": "3b2c546a718cf6d11c2926c175b85c80f1331094673f55b19e8f58be275198ac",
+      "sha256_before": "3b2c546a718cf6d11c2926c175b85c80f1331094673f55b19e8f58be275198ac",
+      "unchanged": true,
+      "variant_id": "cc-valid-r086-s0131-1566-c-max-mex-cut__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r086-s0131-1566-c-max-mex-cut/variants/T5_bogus_control_flow/easy/seed_1/C_Global_Round16.java",
+      "role": "obfuscated",
+      "sha256_after": "2f6a9be2eb46f5ee77c8dfa343ce7f23a3478a22568fd59b16b5ab21c5726bb1",
+      "sha256_before": "2f6a9be2eb46f5ee77c8dfa343ce7f23a3478a22568fd59b16b5ab21c5726bb1",
+      "unchanged": true,
+      "variant_id": "cc-valid-r086-s0131-1566-c-max-mex-cut__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r088-s0111-1566-d2-seating-arrangements-hard-version/original/SeatingArrangementsV2.java",
+      "role": "original",
+      "sha256_after": "bde1f8ddb569e81aef77b8a7cc85cf1e68f8afab6d997f77130027cf4f875861",
+      "sha256_before": "bde1f8ddb569e81aef77b8a7cc85cf1e68f8afab6d997f77130027cf4f875861",
+      "unchanged": true,
+      "variant_id": "cc-valid-r088-s0111-1566-d2-seating-arrangements-hard-version__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r088-s0111-1566-d2-seating-arrangements-hard-version/variants/T5_bogus_control_flow/easy/seed_1/SeatingArrangementsV2.java",
+      "role": "obfuscated",
+      "sha256_after": "81dbb59b7a13605b4cacb141f4583ebecbd348222c8f97bc14f461a0ae442743",
+      "sha256_before": "81dbb59b7a13605b4cacb141f4583ebecbd348222c8f97bc14f461a0ae442743",
+      "unchanged": true,
+      "variant_id": "cc-valid-r088-s0111-1566-d2-seating-arrangements-hard-version__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r094-s0350-1567-c-carrying-conundrum/original/C1567.java",
+      "role": "original",
+      "sha256_after": "5382615c5d2e4eaaa5735ac89f6fa61116cab6af43511406ae8abdb773ee04e4",
+      "sha256_before": "5382615c5d2e4eaaa5735ac89f6fa61116cab6af43511406ae8abdb773ee04e4",
+      "unchanged": true,
+      "variant_id": "cc-valid-r094-s0350-1567-c-carrying-conundrum__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r094-s0350-1567-c-carrying-conundrum/variants/T5_bogus_control_flow/easy/seed_1/C1567.java",
+      "role": "obfuscated",
+      "sha256_after": "c16a551bfea6c44038b9686a315d307f7a9aac38ee2c6ff8bd76eaea18e72b8a",
+      "sha256_before": "c16a551bfea6c44038b9686a315d307f7a9aac38ee2c6ff8bd76eaea18e72b8a",
+      "unchanged": true,
+      "variant_id": "cc-valid-r094-s0350-1567-c-carrying-conundrum__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r101-s0059-1569-d-inconvenient-pairs/original/Main.java",
+      "role": "original",
+      "sha256_after": "c33a19ef86e07c85cc710420fecef56580390e04a7b6672f5bb6e208705db3ff",
+      "sha256_before": "c33a19ef86e07c85cc710420fecef56580390e04a7b6672f5bb6e208705db3ff",
+      "unchanged": true,
+      "variant_id": "cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r101-s0059-1569-d-inconvenient-pairs/variants/T5_bogus_control_flow/easy/seed_1/Main.java",
+      "role": "obfuscated",
+      "sha256_after": "e5bf965bdf02c90bbb31ca7e7a88c1f457e54ecc56453b2af799f1257ca8c665",
+      "sha256_before": "e5bf965bdf02c90bbb31ca7e7a88c1f457e54ecc56453b2af799f1257ca8c665",
+      "unchanged": true,
+      "variant_id": "cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r109-s0175-1573-a-countdown/original/Codeforces1.java",
+      "role": "original",
+      "sha256_after": "a1aedda73fa68adbacd505e753b9737e86b7ec0dd223bfe26e533dca1814d1af",
+      "sha256_before": "a1aedda73fa68adbacd505e753b9737e86b7ec0dd223bfe26e533dca1814d1af",
+      "unchanged": true,
+      "variant_id": "cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r109-s0175-1573-a-countdown/variants/T5_bogus_control_flow/easy/seed_1/Codeforces1.java",
+      "role": "obfuscated",
+      "sha256_after": "f48fc0f518091a1e3540748b17a1a0986078f4e421aa4cc66ac3bbd5e0030e57",
+      "sha256_before": "f48fc0f518091a1e3540748b17a1a0986078f4e421aa4cc66ac3bbd5e0030e57",
+      "unchanged": true,
+      "variant_id": "cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r110-s0039-1573-c-book/original/C_Round_743_Div2.java",
+      "role": "original",
+      "sha256_after": "c9abeb1b15822398d0452224375e886f22fcbbe7a6d3511cba531f9b8a501230",
+      "sha256_before": "c9abeb1b15822398d0452224375e886f22fcbbe7a6d3511cba531f9b8a501230",
+      "unchanged": true,
+      "variant_id": "cc-valid-r110-s0039-1573-c-book__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r110-s0039-1573-c-book/variants/T5_bogus_control_flow/easy/seed_1/C_Round_743_Div2.java",
+      "role": "obfuscated",
+      "sha256_after": "66cdacec5e941e1614e8d57385c5c21a2ccfd6e58db4070a18ee4cfb80dba3a5",
+      "sha256_before": "66cdacec5e941e1614e8d57385c5c21a2ccfd6e58db4070a18ee4cfb80dba3a5",
+      "unchanged": true,
+      "variant_id": "cc-valid-r110-s0039-1573-c-book__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r113-s0083-1574-c-slay-the-dragon/original/check5.java",
+      "role": "original",
+      "sha256_after": "0e2794d84fe44cce124ca90da37801405f763bb3ba74d60c6e0d0f9d2c2e8efa",
+      "sha256_before": "0e2794d84fe44cce124ca90da37801405f763bb3ba74d60c6e0d0f9d2c2e8efa",
+      "unchanged": true,
+      "variant_id": "cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1"
+    },
+    {
+      "path": "prepared_variants/candidates/cc-valid-r113-s0083-1574-c-slay-the-dragon/variants/T5_bogus_control_flow/easy/seed_1/check5.java",
+      "role": "obfuscated",
+      "sha256_after": "174bba21e67d588dd3f95f00cc6ce9721d0415bb223bfed93db292fb1c117727",
+      "sha256_before": "174bba21e67d588dd3f95f00cc6ce9721d0415bb223bfed93db292fb1c117727",
+      "unchanged": true,
+      "variant_id": "cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1"
+    }
+  ],
+  "inputs": {
+    "candidate_manifest": {
+      "path": "candidate_pool/candidate_manifest.json",
+      "sha256_after": "337800aa065dd2d933ce1b68047f896a3373302ea727ad8540174139a304c30f",
+      "sha256_before": "337800aa065dd2d933ce1b68047f896a3373302ea727ad8540174139a304c30f"
+    },
+    "dataset": {
+      "path": "codecontests-valid-802411c3.parquet",
+      "sha256_after": "02e8c1ccedae716f1e43cc813fcb7823c3db666ea92638820aba80e8cef451ab",
+      "sha256_before": "02e8c1ccedae716f1e43cc813fcb7823c3db666ea92638820aba80e8cef451ab"
+    },
+    "eligible_manifest": {
+      "path": "tokenizer_preflight/inference_eligible_variants.json",
+      "sha256_after": "584238ee4eb8e01df8b2047f0d133414619b17d032ceefb3475c32ed1ad281c7",
+      "sha256_before": "584238ee4eb8e01df8b2047f0d133414619b17d032ceefb3475c32ed1ad281c7"
+    },
+    "prepared_manifest": {
+      "path": "prepared_variants/eligible_variants.json",
+      "sha256_after": "cd2b22525cc4b4b21040bd60f41c23d614c67c0d981b43d8252e2fd581b38094",
+      "sha256_before": "cd2b22525cc4b4b21040bd60f41c23d614c67c0d981b43d8252e2fd581b38094"
+    },
+    "preparer": {
+      "path": "prepare_balanced_extension_contingency.py",
+      "sha256_after": "80d03c469b8dc8be789d30871d163ceab012ce791e86f6d6301ae81c5ec445d1",
+      "sha256_before": "80d03c469b8dc8be789d30871d163ceab012ce791e86f6d6301ae81c5ec445d1"
+    },
+    "protocol_json": {
+      "path": "balanced_extension_contingency_protocol.json",
+      "sha256_after": "a475e16a125f5fe617f75884cda1371fd83f72a840d398fa8c9448487aeea071",
+      "sha256_before": "a475e16a125f5fe617f75884cda1371fd83f72a840d398fa8c9448487aeea071"
+    },
+    "protocol_md": {
+      "path": "BALANCED_EXTENSION_CONTINGENCY_PROTOCOL.md",
+      "sha256_after": "5af3bc63e8291ea96adf6e84d54058823b6363aa0039825de2cdd7a4833a1d68",
+      "sha256_before": "5af3bc63e8291ea96adf6e84d54058823b6363aa0039825de2cdd7a4833a1d68"
+    },
+    "supplemental_manifest": {
+      "path": "supplemental_cases/supplemental_manifest.json",
+      "sha256_after": "39d57ffd25f57fef8335895088e3531b2732de6286ee20204a9c9dd897eec058",
+      "sha256_before": "39d57ffd25f57fef8335895088e3531b2732de6286ee20204a9c9dd897eec058"
+    },
+    "wave_1_manifest": {
+      "path": "balanced_contingency/tokenizer_preflight/wave_1/inference_eligible_variants.json",
+      "sha256_after": "77c56a24424561d210e0267af98bca99de1261d4a6a99419abf86459ac9a9281",
+      "sha256_before": "77c56a24424561d210e0267af98bca99de1261d4a6a99419abf86459ac9a9281"
+    },
+    "wave_2_manifest": {
+      "path": "balanced_contingency/tokenizer_preflight/wave_2/inference_eligible_variants.json",
+      "sha256_after": "1ad71da922365aae463acc32511ba3809ffe5839a5267e2bd8aba66fd58b21dd",
+      "sha256_before": "1ad71da922365aae463acc32511ba3809ffe5839a5267e2bd8aba66fd58b21dd"
+    }
+  },
+  "jdk": {
+    "java": {
+      "major": 17,
+      "path": "/home/cs/x/xxr230000/jdks/jdk-17.0.11+9/bin/java",
+      "returncode": 0,
+      "version": "openjdk version \"17.0.11\" 2024-04-16\nOpenJDK Runtime Environment Temurin-17.0.11+9 (build 17.0.11+9)\nOpenJDK 64-Bit Server VM Temurin-17.0.11+9 (build 17.0.11+9, mixed mode, sharing)"
+    },
+    "java_home": "/home/cs/x/xxr230000/jdks/jdk-17.0.11+9",
+    "javac": {
+      "major": 17,
+      "path": "/home/cs/x/xxr230000/jdks/jdk-17.0.11+9/bin/javac",
+      "returncode": 0,
+      "version": "javac 17.0.11"
+    }
+  },
+  "jdk_executed_candidate_count": 333,
+  "jdk_validation_rejection_count": 143,
+  "model_inference_calls": 0,
+  "model_result_files_read": 0,
+  "model_weights_loaded": false,
+  "outputs": {
+    "loader_hash_audit": "loader_hash_audit.json",
+    "selection_audit": "selection_audit.jsonl",
+    "source_denominator_audit": "source_denominator_audit.json",
+    "wave_3_pre_tokenizer_manifest": "wave_3_manifest_pre_tokenizer.json"
+  },
+  "preparation_read_disclosure": "Case eligibility, ranking, and selection use no completion, score, aggregate count, or sample identifier from the interim look. Preparation and freezing read no inference result files, perform no language-model inference, and create no result root. The aggregate interim look is retained only as an externally supplied timing fact.",
+  "public_test_values_read": 0,
+  "read_scope": [
+    "frozen candidate, prepared-variant, initial, supplemental, Wave-1, and Wave-2 manifests",
+    "frozen original and obfuscated Java source files",
+    "immutable CodeContests private_tests/generated_tests/solutions columns",
+    "balanced extension protocol files",
+    "JDK 17 tools"
+  ],
+  "runtime_timeout_seconds": 12.0,
+  "schema_version": "long-code-balanced-extension-contingency-v1",
+  "timing_disclosure": "Specified after the formal initial-plus-supplemental strict canonical-problem count was 4 and during corrected Wave 1, after an aggregate interim results-index exact-count look at the then-completed subset. That look showed zero exact CodeSteer trials in the subset and included identifiers of samples with baseline exact matches. No raw model completion, reasoning trace, oracle content, or per-CodeSteer-success content was used to specify the contingency or its case rules. An earlier path-only startup attempt was excluded without inspecting its result contents or scores."
+}

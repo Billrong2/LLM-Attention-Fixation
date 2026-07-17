@@ -1,0 +1,31 @@
+### Reasoning:
+
+#### Step 1: Reading Input
+The program reads the number of test cases `t` and then enters a loop to process each test case. In the given input, there's only one test case with `n = 7`.
+
+#### Step 2: Processing Input
+Inside the test case loop, it reads `m = 3` and then reads `3 * 7 = 21` integers into an `ArrayList` of `pair` objects. These integers are:
+```
+1, 2, 1, 1, 3, 2, 1, 1, 2, 2, 3, 3, 4, 4, 1, 1, 1, 1, 2, 2, 1
+```
+Each `pair` object contains an index (`idx`) and a value (`val`).
+
+#### Step 3: Sorting the Array List
+The `ArrayList` of `pair` objects is sorted based on the `compareTo` method, which first compares the `val` fields and then compares the `idx` fields if the `val` fields are equal.
+
+#### Step 4: Solving the Problem
+The program then iterates through the sorted `ArrayList` in blocks of size `m` (in this case, `3`) and calls the `solve` method for each block. The `solve` method calculates the number of inversions in each block and sums them up.
+
+#### Step 5: Calculating Inversions
+For each block, the `solve` method sorts the block and then counts the inversions by iterating through each element and comparing its index with the indices of all elements before it.
+
+#### Step 6: Outputting the Result
+Finally, the program outputs the total number of inversions found across all blocks.
+
+### Output
+The exact output is calculated as follows:
+
+1. **Reading the Input**: The input consists of 21 integers.
+2. **Sorting the Input**: After sorting, the `ArrayList` of `pair` objects looks like this:
+   ```
+   [pair{idx=1, val=1}, pair{idx=3, val=1}, pair{idx=7, val=1}, pair{idx=10, val=1}, pair{idx=13, val=1}, pair{idx=15, val=1}, pair{idx=16, val=1}, pair{idx=

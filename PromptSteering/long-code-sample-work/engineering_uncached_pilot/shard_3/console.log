@@ -1,0 +1,45 @@
+[preflight] samples=5 trials=3 conditions=['original_plain', 'obfuscated_plain', 'obfuscated_prompt_slice', 'obfuscated_codesteer'] model=Qwen/Qwen2.5-14B
+Loading model: Qwen/Qwen2.5-14B
+USE_4BIT=False  |  GPUs visible=1
+Limiting to 1 GPU(s) (of 1).
+Per-GPU max_memory cap: {0: '42GiB'}
+hidden_size = None
+num_hidden_layers = None
+num_attention_heads = None
+num_key_value_heads = None
+intermediate_size = None
+rms_norm_eps = None
+rope_theta = None
+max_position_embeddings = None
+vocab_size = 151643
+tie_word_embeddings = None
+Sliding Window Attention is enabled but not implemented for `eager`; unexpected results may be encountered.
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:00<00:06,  1.09it/s]Loading checkpoint shards:  25%|██▌       | 2/8 [00:01<00:05,  1.14it/s]Loading checkpoint shards:  38%|███▊      | 3/8 [00:02<00:04,  1.09it/s]Loading checkpoint shards:  50%|█████     | 4/8 [00:03<00:03,  1.10it/s]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:04<00:02,  1.11it/s]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:05<00:01,  1.11it/s]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:06<00:00,  1.11it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:06<00:00,  1.37it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:06<00:00,  1.20it/s]
+[INFO] Loaded model with torch_dtype=torch.bfloat16.
+[Steering] Installed backend=qwen2.
+
+=== Device map (layer -> GPU) ===
+{'': 0}
+[done] cc-valid-r069-s0346-1560-d-make-a-power-of-two__t5_easy_seed1__00-generated-028 trial=1 condition=original_plain exact=False seed=923448462
+[done] cc-valid-r069-s0346-1560-d-make-a-power-of-two__t5_easy_seed1__00-generated-028 trial=1 condition=obfuscated_plain exact=False seed=923448462
+[done] cc-valid-r069-s0346-1560-d-make-a-power-of-two__t5_easy_seed1__00-generated-028 trial=1 condition=obfuscated_prompt_slice exact=False seed=923448462
+[done] cc-valid-r069-s0346-1560-d-make-a-power-of-two__t5_easy_seed1__00-generated-028 trial=1 condition=obfuscated_codesteer exact=False seed=923448462
+[done] cc-valid-r069-s0346-1560-d-make-a-power-of-two__t5_easy_seed1__00-generated-028 trial=2 condition=original_plain exact=False seed=9158403
+[done] cc-valid-r069-s0346-1560-d-make-a-power-of-two__t5_easy_seed1__00-generated-028 trial=2 condition=obfuscated_plain exact=False seed=9158403
+[done] cc-valid-r069-s0346-1560-d-make-a-power-of-two__t5_easy_seed1__00-generated-028 trial=2 condition=obfuscated_prompt_slice exact=False seed=9158403
+[done] cc-valid-r069-s0346-1560-d-make-a-power-of-two__t5_easy_seed1__00-generated-028 trial=2 condition=obfuscated_codesteer exact=False seed=9158403
+[done] cc-valid-r069-s0346-1560-d-make-a-power-of-two__t5_easy_seed1__00-generated-028 trial=3 condition=original_plain exact=False seed=1672842929
+[done] cc-valid-r069-s0346-1560-d-make-a-power-of-two__t5_easy_seed1__00-generated-028 trial=3 condition=obfuscated_plain exact=False seed=1672842929
+[done] cc-valid-r069-s0346-1560-d-make-a-power-of-two__t5_easy_seed1__00-generated-028 trial=3 condition=obfuscated_prompt_slice exact=False seed=1672842929
+[done] cc-valid-r069-s0346-1560-d-make-a-power-of-two__t5_easy_seed1__00-generated-028 trial=3 condition=obfuscated_codesteer exact=False seed=1672842929
+[done] cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1__00-generated-003 trial=1 condition=original_plain exact=False seed=2102726309
+[done] cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1__00-generated-003 trial=1 condition=obfuscated_plain exact=False seed=2102726309
+[done] cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1__00-generated-003 trial=1 condition=obfuscated_prompt_slice exact=False seed=2102726309
+[done] cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1__00-generated-003 trial=1 condition=obfuscated_codesteer exact=False seed=2102726309
+[done] cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1__00-generated-003 trial=2 condition=original_plain exact=False seed=946108464
+[done] cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1__00-generated-003 trial=2 condition=obfuscated_plain exact=False seed=946108464
+[done] cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1__00-generated-003 trial=2 condition=obfuscated_prompt_slice exact=False seed=946108464
+[done] cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1__00-generated-003 trial=2 condition=obfuscated_codesteer exact=False seed=946108464
+[done] cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1__00-generated-003 trial=3 condition=original_plain exact=False seed=2082455332
+[done] cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1__00-generated-003 trial=3 condition=obfuscated_plain exact=False seed=2082455332
+[done] cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1__00-generated-003 trial=3 condition=obfuscated_prompt_slice exact=False seed=2082455332

@@ -1,0 +1,17 @@
+### CASES_BEGIN
+c001: invoke program entry point; target_method=ans; stdin="5 1000\n3 997\n3 998\n6 996\n1 1000\n8 998\n"; argv=[]
+### CASES_END
+
+**Concise Reasoning:**
+
+1. The program initializes the `mod` variable to `998244353` and declares arrays `mu` and `isPrime`.
+2. It reads the input values `n` and `m`, which are `5` and `1000` respectively.
+3. It reads five pairs of integers representing intervals: `(3, 997)`, `(3, 998)`, `(6, 996)`, `(1, 1000)`, and `(8, 998)`.
+4. The `mobiusAndPrime` function is called to compute the Möbius function and prime numbers up to `100000`.
+5. The `ans` variable is initialized to `0`.
+6. A loop iterates from `j = 1` to `100000`:
+   - It checks if any interval has a start or end value such that `(intervals[k][0] - 1)/j + 1` is less than `(intervals[k][1])/j`, and if found, breaks the loop.
+   - If no such interval is found, it updates `ans` using the Möbius function and the `ans` function with the modified intervals and sum.
+7. The final value of `ans` is printed, which is `998244353`.
+
+**

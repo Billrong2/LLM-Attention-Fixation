@@ -1,0 +1,15 @@
+### Reasoning:
+
+1. The program starts by creating a `FastReader` object to handle input.
+2. It reads the number of test cases, `t`, from the input.
+3. For each test case, it reads the number of characters, `n`, and a string `s` containing `n` characters.
+4. It initializes variables `two`, `three`, `five`, and `seven` to zero.
+5. It iterates through each character in the string `s`:
+   - If the character is not '2', '3', '5', or '7', it prints '1' followed by the character and continues to the next test case.
+   - Otherwise, it increments the corresponding variable (`two`, `three`, `five`, or `seven`).
+6. After the iteration, it checks if any of the variables are greater than 1. If so, it prints '2' followed by the concatenated string of two characters that appear more than once and continues to the next test case.
+7. If none of the characters appear more than once, it checks if the length of the string is greater than 2.
+8. If the length is greater than 2, it iterates through each pair of characters in the string, converts them to an integer, and checks if they are prime. If they are not prime, it prints '2' followed by the concatenated string and continues to the next test case.
+9. If all pairs of characters are prime, it prints '3'.
+
+###

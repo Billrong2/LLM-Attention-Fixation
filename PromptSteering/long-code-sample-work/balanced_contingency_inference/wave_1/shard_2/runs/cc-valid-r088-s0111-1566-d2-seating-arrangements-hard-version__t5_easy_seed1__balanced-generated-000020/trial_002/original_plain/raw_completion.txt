@@ -1,0 +1,33 @@
+
+
+
+// Problem: Seating Arrangements (hard version)
+// https://codeforces.com/contest/1566/problem/D2
+// This submission: https://codeforces.com/contest/1566/submission/129039376
+//
+// Let there be `rn` rows and `cn` columns of seats in the cinema.
+//
+// For ease of mapping from seats to row and column indexes, we use 0-based index for seat numbers,
+// and row and column indexes. Then, seat index `i` (0-based) is located on row `(i / cn)` and
+// column `(i % cn)`.
+//
+// In the problem definition, the inconvenience _experienced_ by a person `p` is the number of
+// people they go through when getting to their seat. This is the number of occupied seats to
+// the left of `p`'s seat at the time `p` is seated. Equivalently, we can consider the
+// inconvenience _introduced_ by putting `p` in their seat as the number of empty seats to their
+// right at the time `p` is seated. For every empty seat to the right, a person will go through
+// `p` when getting to their seat in the future.
+// Note that the sum of inconvenience experienced (how many people `p` goes through) equals the
+// sum of inconvenience introduced (how many people go through `p`). When exploring properties
+// of optimal solutions, we may use either one of these definitions, whichever is more convenient
+// for the argument.
+//
+// A `Group` is the set of people with identical sight level `a`.
+//
+// Lemma 1. The `Group` with minimum sight level and `k[0]` people occupies the first `k[0]` seats.
+// Proof of Lemma 1. The `k[0]` people must be seated before the `(rn * cn - k[0])` people from
+// other groups (with higher sight level) because of the sight level constraint.
+//
+// Corollary 2. Lemma 1 places the `k[0]` people in the `Group` with minimum sight level to
+// the first `k[0]` seats. If we apply the same argument to the remaining `(rn * cn - k[0])`
+// people, then the `k[1]` people in the `

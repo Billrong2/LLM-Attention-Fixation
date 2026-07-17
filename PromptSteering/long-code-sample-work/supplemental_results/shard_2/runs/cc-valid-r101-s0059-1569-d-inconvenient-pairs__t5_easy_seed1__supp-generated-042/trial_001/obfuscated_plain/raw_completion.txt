@@ -1,0 +1,33 @@
+ ### Reasoning:
+
+1. The program reads input from `stdin`:
+    - `t = sc.nextInt();` reads the number of test cases (1 in this case).
+    - `n = sc.nextInt();` reads the first line of each test case.
+    - `m = sc.nextInt();` reads the second line of each test case.
+    - `k = sc.nextInt();` reads the third line of each test case.
+    - `yline = sc.nextIntArray(n);` reads an array of `n` integers.
+    - `xline = sc.nextIntArray(m);` reads an array of `m` integers.
+    - `px = new int[k];` and `py = new int[k];` are initialized arrays.
+    - `for (int j = 0; j < py.length; j++) { px[j] = sc.nextInt(); py[j] = sc.nextInt(); }` reads two integers for each element in `k`.
+
+2. The program then calls `solve(n, m, k, yline, xline, px, py)` to calculate the result.
+
+3. The `solve` method does the following:
+    - It creates a `HashSet<Integer>` `yset` and `xset` to store unique elements from `yline` and `xline`.
+    - It creates `ArrayList<Pair> xlist` and `ArrayList<Pair> ylist` to store pairs of integers from `px` and `py`.
+    - It iterates through the `Pair` arrays, adding elements to the lists and sets.
+    - It sorts both lists.
+    - It initializes `HashMap<Integer, Long> mapx` and `mapy` to keep track of counts of each element.
+    - It calculates `sumx` and `sumy` by iterating through the sorted lists, updating the maps, and adding to the sums.
+    - Finally, it returns the calculated `ans` value.
+
+4. The output is printed to `stdout` and flushed.
+
+### Output:
+The exact output for the given input is:
+```
+11
+```
+
+### Machine-readable line:
+FINAL_OUTPUT_JSON: {"stdout":"11"}

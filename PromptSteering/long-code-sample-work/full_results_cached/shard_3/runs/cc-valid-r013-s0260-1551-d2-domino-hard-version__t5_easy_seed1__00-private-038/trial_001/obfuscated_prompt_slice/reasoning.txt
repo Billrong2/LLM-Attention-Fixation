@@ -1,0 +1,19 @@
+1. The target method cal is invoked with index = 0, horizontal = 10, n = 10, and m = 10.
+2. The condition at L063 is true, as (3 * 3) - 9 != 0.
+3. The condition at L067 is false, as index != m (0 != 10).
+4. The condition at L071 is false, as index <= m (0 <= 10).
+5. The condition at L074 is true, as horizontal == 0 is false (10 != 0).
+6. The condition at L075 is false, as n % 2 == 0 is false (10 % 2 != 0).
+7. The condition at L078 is false, as index < m (0 < 10) and horizontal > 0 (10 > 0).
+8. The condition at L079 is false, as index < m (0 < 10).
+9. The condition at L087 is true, as dp[index][horizontal] = false.
+10. The condition at L092 is true, as n % 2 == 0 is false (10 % 2 != 0).
+11. The method cal is called recursively with index = 1, horizontal = 10, n = 10, and m = 10.
+12. The condition at L067 is false, as index != m (1 != 10).
+13. The condition at L071 is false, as index <= m (1 <= 10).
+14. The condition at L074 is true, as horizontal == 0 is false (10 != 0).
+15. The condition at L075 is false, as n % 2 == 0 is false (10 % 2 != 0).
+16. The condition at L078 is false, as index < m (1 < 10) and horizontal > 0 (10 > 0).
+17. The condition at L079 is false, as index < m (1 < 10).
+18. The condition at L087 is true, as dp[index][horizontal] = false.
+19. The condition at L092 is true

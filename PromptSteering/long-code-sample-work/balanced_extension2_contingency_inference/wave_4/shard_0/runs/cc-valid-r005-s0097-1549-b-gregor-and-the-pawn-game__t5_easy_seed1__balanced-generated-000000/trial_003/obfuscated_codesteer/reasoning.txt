@@ -1,0 +1,45 @@
+To predict the exact standard output of the given Java program, we need to follow the logic step by step:
+
+1. **Reading Input**: The program reads the number of test cases (`casos`) from the standard input. In this case, `casos` is set to 4.
+2. **Processing Each Test Case**: For each test case, the program reads two lines representing the source and destination strings.
+3. **Executing `pawnLineal` Method**: The program calls the `pawnLineal` method with the source and destination strings.
+4. **Calculating and Printing Result**: The `pawnLineal` method calculates the number of moves needed to transform the source string into the destination string using the rules specified in the method. It prints this number to the standard output.
+
+Let's go through each case:
+
+### Case 1:
+- Input: "4\n3\n000\n111"
+- Source: "000"
+- Destination: "111"
+- Output: "1" (since the first 0 needs to be moved to the second position and the second 0 needs to be moved to the third position)
+
+### Case 2:
+- Input: "4\n0111\n1111"
+- Source: "0111"
+- Destination: "1111"
+- Output: "3" (since the first 0 needs to be moved to the second, third, and fourth positions)
+
+### Case 3:
+- Input: "3\n010\n010"
+- Source: "010"
+- Destination: "010"
+- Output: "0" (since no changes are needed)
+
+### Case 4:
+- Input: "5\n11001\n00000"
+- Source: "11001"
+- Destination: "00000"
+- Output: "5" (since all the 1s need to be moved)
+
+Combining these outputs, the final stdout is:
+```
+1
+3
+0
+5
+```
+
+### FINAL_OUTPUT_JSON
+```
+{"stdout":"1\n3\n0\n5"}
+```

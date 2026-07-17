@@ -1,0 +1,20 @@
+ FINAL_OUTPUT_JSON: {"stdout":"YES\naaaaa\naaaaa\naaaaa\naaaaa\naaaaa\naaaaa\naaaaa\naaaaa\naaaaa\naaaaa\naaabaaab\naaabaaab\naaabaaab\naaabaaab\naaabaaab\naaabaaab\naaabaaab\naaabaaab\naaabaaab\naaabaaab\n"}
+
+
+The program first reads input from the standard input, which includes the number of test cases, followed by the dimensions of the grid and the number of horizontal lines. For each test case, the program initializes a boolean 2D array, a character 2D array, and a current character index. It then calls the `cal` method with initial values.
+
+The `cal` method is a recursive function that takes the current index, the number of horizontal lines, and the dimensions of the array as parameters. It returns a boolean value indicating whether a valid character arrangement has been found. 
+
+If the current index is equal to the number of columns, the method checks if the number of horizontal lines is zero, which would mean a valid arrangement has been found. It then prints "YES" to the standard output.
+
+If the current index is greater than the number of columns, it returns false, indicating that a valid arrangement has not been found.
+
+The method then checks if a valid arrangement has been found for the current index and the remaining number of horizontal lines. If it has, it prints the arrangement to the standard output.
+
+If the method is called with the number of horizontal lines equal to zero, it checks if the number of rows is even. If it is, the method fills the grid with alternating characters starting from the current index. The characters are filled in a zigzag pattern, starting from the top left corner and moving right and then diagonally down to the right. The current character is incremented after each fill.
+
+If the number of rows is not even, the method returns false, indicating that a valid alternating pattern cannot be created.
+
+If the method is called with the number of rows not even and the number of horizontal lines not equal to zero, it checks if the number of rows minus the number of horizontal lines is even. If it is not, it returns false, indicating that a valid alternating pattern cannot be created.
+
+If the above conditions are satisfied, the method calls itself with the next index and the number of horizontal lines reduced by the number of horizontal lines to be used. It then

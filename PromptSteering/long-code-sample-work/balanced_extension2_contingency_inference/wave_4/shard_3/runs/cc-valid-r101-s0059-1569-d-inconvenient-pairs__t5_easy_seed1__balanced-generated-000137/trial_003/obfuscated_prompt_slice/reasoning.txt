@@ -1,0 +1,18 @@
+### Reasoning (only for developers)
+The target program method is solve(n, m, k, yline, xline, px, py). 
+It takes 7 parameters: n, m, k, yline, xline, px, py, and returns a long value.
+
+The program first initializes two sets yset and xset to store unique yline and xline values, respectively.
+It also initializes two ArrayLists xlist and ylist to store pairs of x and y coordinates, where x represents xline values and y represents yline values.
+The program then loops through n, m, and k to add elements to yset, xset, xlist, and ylist, depending on the condition that xx and yy are true. 
+If both xx and yy are true, the program continues to the next iteration. 
+If only one of them is true, the program adds a new Pair to xlist or ylist, depending on which variable is true.
+
+The program then sorts xlist and ylist and initializes two HashMaps mapx and mapy to store x and y values, respectively.
+The program then loops through xlist and ylist and updates mapx, mapy, sumx, sumy, and ans based on certain conditions.
+
+The program then returns ans as the final result.
+
+For the given input "1\n2 2 0\n0 1000000\n0 0000000\n1556 1001000\n1 34", the expected output of the program is "0".
+
+###

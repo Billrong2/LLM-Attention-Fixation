@@ -1,0 +1,13 @@
+ The program `EdC` reads an integer `n` and an integer `m` from the input stream. It then reads `n` pairs of integers representing intervals. The program calculates the number of ways to distribute `m` indistinguishable items into `n` distinguishable bins such that no bin contains more than one item, using the principle of inclusion-exclusion and Möbius inversion. The answer is printed to the output stream.
+
+For the given input `2 100000\n1 100000\n1 100000\n`, the program reads `n = 2`, `m = 100000`, and two intervals `1 100000` and `1 100000`.
+
+The program then initializes the `mu` and `isPrime` arrays with the values needed for the Möbius inversion and primality testing, respectively. It calculates the `ans` value using the `ans` method.
+
+The `ans` method iterates through all possible values of `j` from 1 to 100000. It checks if the intervals have been modified by `j` and updates the `num` array accordingly. It then calculates the final sum of `num` array modulo `mod` and returns it.
+
+The `ans` method is called for each interval and the result is printed to the output stream.
+
+The final output is `100000`, which means that there are 100000 ways to distribute 100000 indistinguishable items into 2 distinguishable bins such that no bin contains more than one item.
+
+FINAL_OUTPUT_JSON: {"stdout":"100000\n"}

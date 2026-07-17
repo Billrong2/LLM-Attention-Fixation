@@ -1,0 +1,41 @@
+To determine the exact standard output of the given Java program for the specified input case, we need to follow the execution flow and analyze the relevant parts of the code.
+
+### Input
+- `stdin="1\n117124\n"`
+
+### Execution Flow
+1. **Reading Input:**
+   - `int casos = Integer.parseInt(sc.nextLine());` reads the first line, which is "1". Thus, `casos = 1`.
+   - `sc.nextLine()` reads the second line, which is "117124".
+
+2. **Main Function:**
+   - The loop `for (int k=0;k<casos;k++)` iterates once.
+   - Inside the loop, `buscarGreedy(sc.nextLine())` is called with the string "117124".
+
+3. **Function `buscarGreedy`:**
+   - This function takes a string as input and returns an integer.
+   - It compares the string with all powers of 2 up to a certain limit.
+
+4. **Comparison Logic:**
+   - The function `comparar` is used to compare the string representation of a power of 2 with the input string.
+   - The result is the minimum number of characters that differ between the two strings.
+
+5. **Output:**
+   - The function `buscarGreedy` returns the minimum number of differing characters.
+   - The result is printed to the standard output.
+
+### Detailed Analysis
+- The function `buscarGreedy` iterates over powers of 2 up to a certain limit.
+- For each power of 2, it calls `comparar` to compare the string representation of the power with the input string "117124".
+- The minimum number of differing characters is returned.
+
+### Calculation
+- For the input "117124":
+  - The closest powers of 2 are "1", "2", "4", "8", "16", "32", etc.
+  - Comparing "117124" with these powers of 2:
+    - "1" differs in all characters (6 differences).
+    - "2" differs in all characters (6 differences).
+    - "4" differs in all characters (6 differences).
+    - "8" differs in all characters (6 differences).
+    - "16" differs in all characters (6 differences).
+    - "32" differs in all characters (6 differences).

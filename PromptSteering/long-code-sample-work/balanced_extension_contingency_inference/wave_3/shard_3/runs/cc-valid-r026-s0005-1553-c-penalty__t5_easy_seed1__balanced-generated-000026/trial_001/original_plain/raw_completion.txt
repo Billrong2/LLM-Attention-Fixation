@@ -1,0 +1,31 @@
+ ### CASES_BEGIN
+c001: invoke program entry point; target_method=helper; stdin="4\n1?0???1001\n1101110111\n??????????\n0100000000\n"; argv=[]
+### CASES_END
+
+**Reasoning**:
+- The input consists of multiple test cases. Each test case has a string `s`.
+- The method `helper` is called with initial parameters `f = 0`, `s = 0`, `k1 = 5`, `k2 = 5`, and the string `s` converted to a character array `s1`.
+- The `helper` function processes each character in the string recursively.
+  - If the character is '1', it adjusts the counts `f` and `s` based on the index (even or odd).
+  - If the character is '0', it decreases `k1` or `k2` based on the index.
+  - If the character is '?', it explores both possible states (placing '1' or '0') and chooses the minimum.
+- The function returns the sum of counts plus the recursive call.
+
+**Output Calculation**:
+- For the first test case `"1?0???1001"`:
+  - The `helper` method processes each character and calculates the sum based on the rules.
+  - The output is `10` (as calculated from the recursive calls).
+
+- For the second test case `"1101110111"`:
+  - Similar processing results in an output of `10`.
+
+- For the third test case `"??????????"`:
+  - All characters are '?', leading to a sum of `10` after exploring all possible states.
+
+- For the fourth test case `"0100000000"`:
+  - Processing results in an output of `10`.
+
+**Final Output**:
+```
+FINAL_OUTPUT_JSON: {"stdout":"10\n10\n10\n10\n"}
+```

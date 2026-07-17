@@ -1,0 +1,32 @@
+To predict the exact standard output of the given Java program, let's break down the execution for each input case:
+
+1. **Input:** `1\n3\n215\n`
+   - The input string is split into three parts: "1", "3", and "215".
+
+2. **First Number:** "1"
+   - The number is checked using `isPrime`.
+   - Since "1" is not a prime number, the program prints "1" followed by "1".
+
+3. **Second Number:** "3"
+   - The number is checked using `isPrime`.
+   - Since "3" is a prime number, the program checks pairs of digits.
+   - The pairs "3" are formed with itself, and "3" is a prime number.
+   - No invalid pairs are found, so it continues.
+
+4. **Third Number:** "215"
+   - The number is checked using `isPrime`.
+   - Since "2" is a prime digit, the program forms pairs "21" and "15".
+   - "21" is not a prime number (since 3 × 7 = 21), so the program prints "2" followed by "21".
+
+### Output Explanation:
+- For the input "1", it prints "1" followed by "1" because 1 is not a prime number.
+- For the input "3", it does not print anything since all digits are prime and no invalid pairs are found.
+- For the input "215", it prints "2" followed by "21" because "21" is not a prime number.
+
+Thus, the final output will be:
+```
+11
+221
+```
+
+###

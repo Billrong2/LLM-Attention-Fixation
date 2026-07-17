@@ -1,0 +1,48 @@
+The provided Java program takes an input string and determines if it can be split into two parts such that the concatenation of the first part (repeated `count` times) and the second part (repeated `count` times) equals the original string, where `count` is the number of unique characters in the string. If it is possible, it prints the two parts; otherwise, it prints `-1`.
+
+Given the input:
+```
+7
+abacbbaaacaad
+oovyouknowuhat
+ppqrppryppraypprayoppracyoppracylop
+hsi
+everywherevrywhrvryhrvhhrwrv
+abhha
+wewdepewp
+```
+Let's analyze the input cases one by one.
+
+**Case 1:** `"abacbbaaacaad"`
+
+- The string has 7 unique characters.
+- It can be decomposed into `"aad"` and `"bcbb"` because `"aad" * 3 + "bcbb" * 3 = "abacbbaaacaad"`.
+- The program outputs `"aad bcbb"`.
+
+**Case 2:** `"oovyouknowuhat"`
+
+- The string has 11 unique characters, which is not divisible into two equal parts based on the unique character count.
+- The program outputs `-1`.
+
+**Case 3:** `"ppqrppryppraypprayoppracyoppracylop"`
+
+- The string has 24 unique characters.
+- It can be divided into two equal parts based on unique character count, but the division must follow the pattern described in the algorithm.
+- The algorithm does not find a valid division, so the output is `-1`.
+
+**Case 4:** `"hsi"`
+
+- The string has 3 unique characters.
+- It can be divided into two equal parts based on unique character count, but the division must follow the pattern described in the algorithm.
+- The algorithm does not find a valid division, so the output is `-1`.
+
+**Case 5:** `"everywherevrywhrvryhrvhhrwrv"`
+
+- The string has 16 unique characters.
+- It can be divided into two equal parts based on unique character count, but the division must follow the pattern described in the algorithm.
+- The algorithm does not find a valid division, so the output is `-1`.
+
+**Case 6:** `"abhha"`
+
+- The string has 4 unique characters.
+- It can be divided into two equal parts

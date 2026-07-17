@@ -1,0 +1,16 @@
+The output prediction process is as follows:
+1. The program starts by creating an instance of `FastReader`, which will read input from the console.
+2. It reads the first input, `test`, which is the number of test cases.
+3. For each test case, it reads the next input, `n`, which is the number of elements in the array.
+4. It reads the next `n` integers and stores them in an array `a`.
+5. It counts the number of even and odd elements in the array and stores them in `f[0]` and `f[1]` respectively.
+6. If the absolute difference between the number of even and odd elements is greater than 1, it prints `-1` and continues to the next test case.
+7. If the number of elements is even, it checks if the number of even and odd elements are equal. If so, it computes the minimum of `fun(0, a)` and `fun(1, a)` and prints the result. Otherwise, it prints `-1`.
+8. If the number of elements is odd, it checks if there is 1 more even element than odd or 1 more odd element than even. If so, it prints the result of `fun(0, a)` or `fun(1, a)` respectively. Otherwise, it prints `-1`.
+
+In this specific case:
+- `test` is 1.
+- `n` is 7.
+- The array `a` is `[3, 3, 4, 4, 4, 4, 4]`.
+- There are 2 even elements and 5 odd elements.
+- Since the absolute difference between the number of even and odd elements is greater than 1, the program prints `-1` and ends.

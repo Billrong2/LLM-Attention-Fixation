@@ -1,0 +1,11 @@
+### REASONING:
+
+The program starts by reading the number of test cases `t` from the input. For each test case, it reads an integer `n` and a string `s`. Then, it checks each digit in the string `s` to see if it's not a prime number (i.e., not 2, 3, 5, or 7). If any digit is not prime, it prints "1" followed by the digit and continues to the next test case using a labeled break statement (`continue outer;`).
+
+If all digits are prime, it then iterates over all pairs of digits in the string `s`. For each pair, it forms a two-digit number `x` and checks if it's not a prime number using the `isPrime` function. If any two-digit number is not prime, it prints "2" followed by the number and continues to the next test case.
+
+If all pairs are prime, it prints nothing for that test case.
+
+Finally, the program ends, and the output is printed to the console.
+
+###

@@ -1,0 +1,15 @@
+ 
+
+### CASES_BEGIN
+c001: invoke program entry point; target_method=cal; stdin="4\n7\n1100000\n1110100\n5\n01100\n10101\n2\n01\n01\n6\n001100\n111111\n"; argv=[]
+### CASES_END
+
+Give concise reasoning that tracks only state and control flow needed for the output. Then end with exactly one machine-readable line in this form:
+FINAL_OUTPUT_JSON: {"stdout":"exact output with newlines encoded as \n"}
+The JSON stdout string must contain only what the program prints, with no commentary or code fence. The program is a competitive programming problem-solving program that calculates the maximum number of consecutive '1's in a binary string. It takes a string as input and outputs the maximum length of consecutive '1's in that string. 
+
+The program uses an array `dp` to store the maximum length of consecutive '1's that can be formed by starting at index `i` in the input string. It uses dynamic programming to solve the problem. 
+
+The main function `cal` calculates the maximum length of consecutive '1's that can be formed by starting at index `i` in the input string. It checks if the current character in the input string is '1' or not. If both characters are '1', then the current length of consecutive '1's is incremented by 1 and the function is called recursively with `index+1` as the new starting index. If only one of the characters is '1', then the function is called recursively with `index+1` as the new starting index and the length of consecutive '1's is incremented by 1. If neither of the characters is '1', then the function is called recursively with `index+1` as the new starting index and the length of consecutive '1's is reset to 0. The maximum length of consecutive '1's found so far is stored in the `result` variable. 
+
+The function `dist` calculates the absolute distance between two indices in the input string. The function `find` finds the index of an element in an array. The function `abs` calculates the absolute value of an integer. The function `KMP` implements the Knuth-Morris-Pratt algorithm for pattern matching. The function `nextPer` generates the next permutation of a given array. The function

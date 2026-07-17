@@ -1,0 +1,15 @@
+ ### CASES_BEGIN
+c001: invoke program entry point; target_method=solve; stdin="1\n2 2 0\n0 1000000\n0 0000000\n1556 1001000\n1 34\n"; argv=[]
+### CASES_END
+
+The input for the program is a single test case with the following details:
+- There is 1 test case.
+- There are 2 points and 0 queries.
+- The points are (0, 0) and (0, 1000000).
+
+The `solve` method takes these parameters and processes the input to calculate and return the number of unique points that are covered by at least one of the given points. In this case, it returns 2 since both points cover themselves.
+
+The exact standard output of this deterministic Java program for the provided case is:
+```json
+FINAL_OUTPUT_JSON: {"stdout":"2\n"}
+```

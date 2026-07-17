@@ -1,0 +1,37 @@
+To determine the exact standard output of the given Java program, we need to follow the execution flow and calculate the results based on the provided inputs. Here’s the detailed reasoning:
+
+1. **Input Reading**:
+   - The `FastReader` class is used to read input from the standard input (stdin).
+   - The first line of input contains a single integer `test`, which represents the number of test cases.
+   - For each test case, the next line contains a string `s` of length 10 consisting of characters '0', '1', or '?'.
+
+2. **Main Logic**:
+   - For each test case, the string `s` is converted to a character array `s1`.
+   - The `helper` method is called with the initial parameters: `index=0`, `f=0`, `s=0`, `k1=5`, `k2=5`, and `s1` (the character array).
+
+3. **Helper Method Analysis**:
+   - The `helper` method recursively processes the character array `s1` from index 0 to 9.
+   - For each index, it checks the character and updates the counts of `f` (for '1' characters in even indices) and `s` (for '1' characters in odd indices).
+   - If the character is '1', it increments `f` or `s` based on the index's parity.
+   - If the character is '0', it decrements `k1` or `k2` based on the index's parity.
+   - If the character is '?', it explores two paths: one where the current index is considered '1' and one where it is not.
+
+4. **Output Calculation**:
+   - The base case of the recursion is when `index == 10`. At this point, the function returns the total number of valid paths found.
+   - The output is printed for each test case.
+
+Given the input:
+```
+4
+0?0???1001
+1110101111
+??????????
+1100010000
+```
+
+Let's calculate the output step by step:
+
+### First Test Case: `0?0???1001`
+
+- The `helper` method starts with `index=0`, `f=0`, `s=0`, `k1=5`, `k2=5`.
+- The first character

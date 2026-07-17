@@ -1,0 +1,53 @@
+ To determine the exact output of the `buscarGreedy` method for the given input, we need to follow these steps:
+
+1. **Initialize Potencias**: The `potencias` set will store powers of 2 up to \(2^{62}\).
+2. **Greedy Search**: For each input number, find the minimum number of edits required to transform it into a power of 2 using the `comparar` function.
+
+Let's break down the process for each input number:
+
+### Input: "12"
+1. Initialize `potencias` with powers of 2 from \(2^0\) to \(2^{62}\).
+2. For "12", compare with each power of 2 to find the minimum edit distance.
+
+### Input: "825"
+1. Compare "825" with each power of 2.
+
+### Input: "8888"
+1. Compare "8888" with each power of 2.
+
+### Input: "4"
+1. Compare "4" with each power of 2.
+
+### Input: "157"
+1. Compare "157" with each power of 2.
+
+### Input: "146"
+1. Compare "146" with each power of 2.
+
+### Input: "301"
+1. Compare "301" with each power of 2.
+
+### Input: "19634"
+1. Compare "19634" with each power of 2.
+
+### Input: "1504"
+1. Compare "1504" with each power of 2.
+
+### Input: "10521"
+1. Compare "10521" with each power of 2.
+
+### Input: "1000000000"
+1. Compare "1000000000" with each power of 2.
+
+### Input: "687194767"
+1. Compare "687194767" with each power of 2.
+
+Now, let's execute the `buscarGreedy` function for each input and track the minimum edit distance.
+
+#### Output Calculation:
+
+1. **Input: "12"**
+   - Compare with powers of 2:
+     - "1": Edit distance = 2
+     - "2": Edit distance = 2
+     - "

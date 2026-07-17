@@ -1,0 +1,33 @@
+ ### Reasoning:
+1. **Initialization**:
+   - The program initializes `sol`, `potencias`, and `memo` as specified.
+   - `potencias` is a set of powers of 2.
+   - `memo` is a set used to track numbers that have been visited.
+   - `sol` is initialized to `Integer.MAX_VALUE`.
+
+2. **Input Handling**:
+   - The program reads the number of test cases from standard input.
+   - For each test case, it reads a number.
+
+3. **Execution**:
+   - For each number read, it calls `buscarGreedy` with the number as a parameter.
+   - `buscarGreedy` compares the input number with each power of 2 up to \(2^{62}\) and returns the minimum difference in characters.
+
+4. **Output**:
+   - For each test case, it prints the result of `buscarGreedy`.
+
+5. **Case c001**:
+   - The input is "1\n695981".
+   - It reads 1 case.
+   - It processes the number 695981.
+
+6. **Processing**:
+   - For 695981, it compares with each power of 2 up to \(2^{62}\).
+   - The closest power of 2 to 695981 is 67108864 (which is \(2^{26}\)).
+   - The closest power of 2 to 695981 is 536870912 (which is \(2^{29}\)).
+   - The minimum difference is between 695981 and 524288 (which is \(2^{19}\)).
+
+7. **Output**:
+   - The output for case c001 is the minimum difference, which is 6.
+
+FINAL_OUTPUT_JSON: {"stdout":"6"}

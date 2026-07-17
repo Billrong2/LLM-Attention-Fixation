@@ -1,0 +1,13 @@
+ The input to this program is "1\n7\n3 1 0 5 2 12 4", and the method `fun` is used in the program.
+The input starts by calling the program entry point once, which then calls the `main` method.
+In the `main` method, a `FastReader` object is created to read input from the user, and a `test` variable is initialized to 1.
+Then, the program enters a while loop, which will execute as long as `test` is not equal to 0.
+In the while loop, the program reads the next integer from the `FastReader` object, which is 1. This integer is stored in the `n` variable.
+Then, the program creates an array of `long` called `a`, with length equal to the value of `n`.
+After that, the program reads `n` integers from the `FastReader` object, and for each of them, it calculates the modulo of that number with 2 and stores it in the corresponding position in the `a` array.
+Next, the program creates an array of `int` called `f`, with length equal to 2.
+Then, it iterates through the `a` array, and for each element, it checks if it is equal to 0 or not. If it is equal to 0, it increments the `f[0]` variable by 1, otherwise, it increments the `f[1]` variable by 1.
+After that, the program checks if the difference between `f[0]` and `f[1]` is greater than 1. If it is, it prints -1 to the output, and the program ends.
+If the difference between `f[0]` and `f[1]` is not greater than 1, the program continues to the next part.
+If `n` is even, the program checks if `f[0]` is equal to `f[1]`. If it is, it calls the `fun` method twice with the arguments `0` and `1` and stores the results in `ans` and `ans1` variables, respectively. Then, it prints the minimum of the two values to the output. If `f[0]` is not equal to `f[1]`, the program prints -1 to the output and the program ends.
+If `n` is odd, the program checks if

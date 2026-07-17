@@ -1,0 +1,20 @@
+ The main reasoning anchors for this program are:
+
+1. MethodDeclaration at L070: target method isPrime(n) (static boolean isPrime(int n))
+2. SliceMethodParameter at L070: method parameter n (static boolean isPrime(int n))
+3. SliceReturnValue at L079: return value expression (return false;)
+4. SliceReturnValue at L083: return value expression (return true;)
+5. SliceReturnValue at L086: return value expression (return false;)
+6. SliceReturnValue at L091: return value expression (return false;)
+7. SliceReturnValue at L093: return value expression (return true;)
+8. SliceControlDependency at L072: control predicate over _obf_t5_isPrime_12919 (if (((3 * 3) - 9) != 0) {)
+9. SliceDefinition at L073: definition of _obf_t5_isPrime_12919 (int _obf_t5_isPrime_12919 = 0;)
+10. SliceControlDependency at L078: control predicate over n (if (n <= 1))
+11. SliceControlDependency at L082: control predicate over n (else if (n == 2))
+12. SliceControlDependency at L085: control predicate over n (else if (n % 2 == 0))
+13. SliceControlDependency at L088: control predicate over i, Math, sqrt, n (for (int i = 3; i <= Math.sqrt(n); i += 2))
+14. SliceMethodCall at L088: method call Math.sqrt in static data/control context (for (int i = 3; i <= Math.sqrt(n); i += 2))
+15. SliceAssignment: assignment/update influencing i
+16. SliceControlDependency at L090: control predicate over n, i (if (n % i == 0))
+
+The program is designed to print the smallest prime number in the input string if it exists. Otherwise, it prints the largest non-prime number in the input string. The program uses the isPrime function to check if a number is prime or not. The isPrime function checks if the number is less than 2, if it is divisible by 2, or if it has any div

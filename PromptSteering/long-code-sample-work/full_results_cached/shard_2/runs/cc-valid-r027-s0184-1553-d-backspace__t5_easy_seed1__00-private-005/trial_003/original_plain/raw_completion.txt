@@ -1,0 +1,49 @@
+ To determine the exact output of the provided Java program for the given input, let's break down the execution step by step.
+
+### Input Breakdown
+- `tc = 10` (number of test cases)
+- First test case input:
+  - `s = "paxghjnihn"`
+  - `t = "hn"`
+
+### Method Execution
+The `solve` method is called once for each test case. Let’s examine how it operates for the first test case:
+
+```java
+static String solve(String s, String t) {
+    int j = t.length() - 1;
+    int i = s.length() - 1;
+    while (i >= 0) {
+        if (s.charAt(i) == t.charAt(j)) {
+            j--;
+            i--;
+        }
+        else {
+            i -= 2;
+        }
+        if (j == -1) return "YES";
+    }
+    return "NO";
+}
+```
+
+For the first test case:
+- `s = "paxghjnihn"`, so `i` starts at 11.
+- `t = "hn"`, so `j` starts at 1.
+
+### Step-by-Step Analysis
+1. **Initial State**: `i = 11`, `j = 1`.
+2. **First Loop Iteration**:
+   - Check `s.charAt(11) == t.charAt(1)`: 'n' != 'h' => False.
+   - Decrement `i` by 2: `i = 9`.
+3. **Second Loop Iteration**:
+   - Check `s.charAt(9) == t.charAt(1)`: 'n' != 'h' => False.
+   - Decrement `i` by 2: `i = 7`.
+4. **Third Loop Iteration**:
+   - Check `s.charAt(7) == t.charAt(1)`: 'i' != 'h' => False.
+   - Decrement `i` by 2: `i = 5`.
+5. **Fourth Loop Iteration**:
+   - Check `s.charAt(5) == t.charAt(1)`: 'j' != 'h' => False.
+   - Decrement `i` by 2: `i = 3`.
+6. **Fifth Loop Iteration**:
+   - Check `s.charAt(3) == t.charAt(1)`: 'g' != 'h'

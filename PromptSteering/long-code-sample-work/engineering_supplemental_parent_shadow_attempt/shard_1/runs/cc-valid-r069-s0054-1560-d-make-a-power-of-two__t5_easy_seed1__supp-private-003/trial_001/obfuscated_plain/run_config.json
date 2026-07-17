@@ -1,0 +1,41 @@
+{
+  "activation_steering": false,
+  "codesteer_prior_preflight": null,
+  "condition": "obfuscated_plain",
+  "fingerprint": "1124df23a32839f14ed069fbc07adf8ba692cc408310c607e6824db96f8adde1",
+  "generation": {
+    "do_sample": true,
+    "max_new_tokens": 512,
+    "temperature": 1.05,
+    "top_k": 7,
+    "top_p": 0.95
+  },
+  "manifest_sha256": "803aa5c06fe748f84081c35c4ccb01972db9a0ff01d916023c4fc83da5e131ab",
+  "model_name": "Qwen/Qwen2.5-14B",
+  "model_snapshot_commit": "97e1e76335b7017d8f67c08a19d103c0504298c9",
+  "obfuscated_sha256": "20e5286a7e183b3fcad51e3d356427d72264f7a0a01e78aaabdee8fe5732c2d2",
+  "original_sha256": "477dfb22f2b83cb04006b7d3c1031bb197dc100a664c801a1a83e787c2b268f8",
+  "paired_design": "same seed for all four conditions in this sample/trial",
+  "paired_seed": 1996410536,
+  "prompt_metadata": {
+    "enabled": false,
+    "mechanism": "none",
+    "recorded_target_method": "getMin"
+  },
+  "prompt_sha256": "97736e0257ece07c7a4854ed46e2c30a0dff077449e338900145d030e1815836",
+  "protocol_version": "long-code-output-v1",
+  "sample_id": "cc-valid-r069-s0054-1560-d-make-a-power-of-two__t5_easy_seed1__supp-private-003",
+  "source_kind": "obfuscated",
+  "source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r069-s0054-1560-d-make-a-power-of-two/variants/T5_bogus_control_flow/easy/seed_1/Solve.java",
+  "steering": null,
+  "target_method": "getMin",
+  "token_preflight": {
+    "context_limit": 131072,
+    "context_margin_tokens": 127506,
+    "fits_context": true,
+    "max_new_tokens": 512,
+    "prompt_sha256": "97736e0257ece07c7a4854ed46e2c30a0dff077449e338900145d030e1815836",
+    "prompt_token_count": 3054
+  },
+  "trial": 1
+}

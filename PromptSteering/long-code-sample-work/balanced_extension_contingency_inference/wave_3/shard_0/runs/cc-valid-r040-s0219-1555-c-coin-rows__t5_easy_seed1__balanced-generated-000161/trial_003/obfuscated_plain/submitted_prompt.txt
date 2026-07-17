@@ -1,0 +1,322 @@
+Predict the exact standard output of this deterministic Java program for the concrete case below. The recorded algorithm method is `game`. This is output prediction, not code generation.
+### CASES_BEGIN
+c001: invoke program entry point; target_method=game; stdin="3\n3\n1 3 13\n3 2 0\n3\n0 0 13\n3 2 0\n1\n6\n0\n"; argv=[]
+### CASES_END
+
+Give concise reasoning that tracks only state and control flow needed for the output. Then end with exactly one machine-readable line in this form:
+FINAL_OUTPUT_JSON: {"stdout":"exact output with newlines encoded as \n"}
+The JSON stdout string must contain only what the program prints, with no commentary or code fence.
+
+```java
+//package lovejava;
+import java.io.*;
+
+import java.math.BigInteger;
+import java.util.*;
+
+
+public class LoveJava {
+   static int sum1=0;
+    static int sum2=0;
+    public static void main(String[] args) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_main_891714 = 0;
+            _obf_t5_main_891714++;
+        }
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter pw = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
+        //String s;
+        String arr[];
+        String arr2[];
+
+
+        try {
+            int t=Integer.parseInt(br.readLine());
+            while (t-->0) {
+                int m=Integer.parseInt(br.readLine());
+
+                arr = (br.readLine().replaceAll("//s+$", " ").split(" "));
+                arr2 = (br.readLine().replaceAll("//s+$", " ").split(" "));
+                pw.println(game(arr,arr2,m));
+                //pw.println(func(arr2));
+
+            }
+                    pw.close();
+
+                } catch (IOException ex) {
+            System.out.println("input mismatch");
+        }
+    }
+    public static long game(String[] arr1,String[] arr2,int m){
+        int _obf_t5_game_740052 = 0; _obf_t5_game_740052 += 0;
+        if(m==1)
+            return 0;
+        int[][]dp=new int[2][m];
+        Arrays.fill(dp[0],0);
+        Arrays.fill(dp[1],0);
+        for(int i=1;i<m;i++){//row1
+            dp[0][i]=Integer.parseInt(arr2[i-1])+dp[0][i-1];
+        }
+        for(int i=1;i<m;i++){//row2
+            dp[1][m-1-i]=Integer.parseInt(arr1[m-i])+dp[1][m-i];
+        }
+        long min=10000000000l;
+        for(int i=0;i<m;i++){
+            min=min<(Math.max(dp[0][i],dp[1][i]))?min:(Math.max(dp[0][i],dp[1][i]));
+        }
+        return min;
+    }
+    public static long func(String[] arr2) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_func_508357 = 0;
+            _obf_t5_func_508357++;
+        }
+        int i = 0;
+        int[] maxima = new int[arr2.length];
+        int[] minima = new int[arr2.length];
+        int maxCount = 0, minCount = 0;
+
+        while (i < arr2.length - 1) {
+            if(i+1<arr2.length&&Integer.parseInt(arr2[i])==Integer.parseInt(arr2[i+1])){
+                i++;
+            }
+            while (i+1<arr2.length&&Integer.parseInt(arr2[i]) < Integer.parseInt(arr2[i + 1])) {//maxima
+                i++;
+            }
+            maxima[maxCount++] = Integer.parseInt(arr2[i]);
+            i++;
+            if(i>=arr2.length)
+                break;
+            while (i+1<arr2.length&&Integer.parseInt(arr2[i]) > Integer.parseInt(arr2[i + 1])){
+                i++;
+            }
+            minima[minCount++]=Integer.parseInt(arr2[i]);
+            i++;
+
+        }
+        if(arr2.length>=2&&Integer.parseInt(arr2[arr2.length-1])>Integer.parseInt(arr2[arr2.length-2]))
+            maxima[maxCount++] = Integer.parseInt(arr2[arr2.length-1]);
+        if(maxCount==minCount&&minCount==0)//constant graph
+            return Integer.parseInt(arr2[0]);
+        else {
+            i=0;
+            long res=0l;
+            res+= (long) maxima[0];
+            while (i<maxCount&&i<minCount){
+                if(i+1<maxCount&&res-minima[i]+maxima[i+1]>res){
+                    res=res-minima[i]+maxima[i+1];
+
+                }
+                i++;
+            }
+            return (long)res;
+        }
+
+    }
+    /*
+    public static int frogJump(int n,int d,String s){
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_frogJump_277258 = 0;
+            _obf_t5_frogJump_277258++;
+        }
+        int count=0;
+        int i=0,j;
+        for( j=d;j>=1&&i<n;j--){
+            if(i+j<n&&(s.charAt(i+j)=='1')) {
+                i = i + j;
+                count++;
+                j=d+1;
+            }
+        }
+        if(i==n-1)
+            return count;
+        else return -1;
+    }
+    /*
+    public static int Win(String s){
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_Win_961425 = 0;
+            _obf_t5_Win_961425++;
+        }
+        int i;
+        for(i=0;i<=s.length()/2;i++){
+            if(s.charAt(i)!=s.charAt(s.length()-1-i))
+                break;
+        }
+        if(i>s.length()/2)
+            return 1;//first
+        else {
+            if((s.length()&1)==0)//even
+                return 0;
+            else return 1;
+        }
+    }
+
+     */
+    /*
+    public static int Win(String[]arr,int n){
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_Win_282753 = 0;
+            _obf_t5_Win_282753++;
+        }
+        int cnt1=0;
+        for(int i=0;i<n;i++) {
+            if (arr[i].equals("1"))
+                cnt1++;
+            if(Integer.parseInt(arr[i])>1)
+                break;
+        }
+
+            if((cnt1&1)==1) //odd
+                if(cnt1==n)
+                return 1;//first
+                else return 0;//sec
+        else {
+            if(cnt1==n)
+                return 0;
+            else return 1;
+            }
+
+    }
+    */
+    /*
+    public static int Win(String[]arr,int n,int i){
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_Win_109495 = 0;
+            _obf_t5_Win_109495++;
+        }
+        if(n==1)
+            return 1;//current player won
+        else {
+            if(Integer.parseInt(arr[i])>1){
+                if(Win(arr,n-1,i+1)==1)//leaving one stone
+                    return 1;
+                else if(Win(arr,n-1,i+1)==0)
+                return 1;
+                else return 0;
+            }
+            if(Win(arr,n-1,i+1)==1)
+                return 0;
+            else return 1;
+        }
+    }
+    */
+    /*
+    public static int Win(String s){
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_Win_432702 = 0;
+            _obf_t5_Win_432702++;
+        }
+        int numCnt1=0,numCnt0=0,min=0;
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)=='1')
+                numCnt1++;
+            else numCnt0++;
+        }
+        min=Math.min(numCnt0,numCnt1);
+        if ((min&1)==1)//odd
+            return 1;
+        else return 0;
+    }
+
+     */
+    /*
+    public static int Win(String s){
+if (((3 * 3) - 9) != 0) {
+    int _obf_t5_Win_252660 = 0;
+    _obf_t5_Win_252660++;
+}
+//try the other way other sol involving counting number of zeroes and number of 1s
+        if(s.equals("01")||s.equals("10"))
+            return 1;//win for current player
+        if(s.length()==2)
+            return 0;
+        if(s.length()==1)
+            return 0;
+        StringBuilder stb=new StringBuilder(s);
+            for(int i=0;i<s.length()-1;i++){
+                if((s.charAt(i)=='0'&&s.charAt(i+1)=='1')||(s.charAt(i)=='1'&&s.charAt(i+1)=='0')) {
+                    String snew=stb.toString();
+                    stb.delete(i,i+2);
+                   if( Win(stb.toString())==0)
+                       return 1;
+                   s=snew;
+                   stb=new StringBuilder(s);
+                }
+            }
+        return 0;
+    }
+    */
+   /*
+    static int find(int N){
+        int _obf_t5_find_785652 = 0; _obf_t5_find_785652 += 0;
+        // code here
+        String st="";
+        StringBuilder s=new StringBuilder(String.valueOf(N));
+
+        for(int i=1;i<s.length();i++){
+            if(Integer.parseInt(String.valueOf(s.charAt(i)))>=Integer.parseInt(String.valueOf(s.charAt(i-1))))
+                st+=s.charAt(i-1);
+
+            else if(Integer.parseInt(String.valueOf(s.charAt(i)))<Integer.parseInt(String.valueOf(s.charAt(i-1)))) {
+                st += String.valueOf(Integer.parseInt(String.valueOf(s.charAt(i - 1))) - 1);
+                while (i<s.length()) {
+                    st += "9";
+                    i++;
+                }
+            }
+            if(i==s.length()-1)
+                st+=s.charAt(i);
+        }
+        return Integer.parseInt(st);
+    }
+    /*
+    public static List<Integer> maxSubarray(List<Integer> arr) {
+        int _obf_t5_maxSubarray_795188 = 0; _obf_t5_maxSubarray_795188 += 0;
+        // Write your code here
+    int res=-10000;
+    int sum=0;
+    for(Integer e:arr){
+        sum+=e;
+        if (e>sum)
+            sum=e;
+        if(sum>res){
+            res=sum;
+        }
+    }
+    Collections.sort(arr);
+    Collections.reverse(arr);
+    int sum2=0;
+    int res2=-10000;
+    for(Integer e:arr){
+        sum2+=e;
+        if(sum2>res2)
+            res2=sum2;
+    }
+    ArrayList<Integer> List= new ArrayList<Integer>();
+    List.add(res);
+    List.add(res2);
+    return List;
+    }
+    }
+    */
+   }
+class Solution
+{
+    public long nthStair(int n)
+    {
+        int _obf_t5_nthStair_434772 = 0; _obf_t5_nthStair_434772 += 0;
+        // Code here
+        long []dp=new long[n+1];
+        Arrays.fill(dp,0l);
+        dp[0]=1l;
+        for(int i=1;i<=n;i++){
+            dp[i]+=dp[i-1];
+        }
+        for(int i=2;i<=n;i++){
+            dp[i]+=dp[i-2];
+        }
+        return dp[n];
+    }
+}
+```

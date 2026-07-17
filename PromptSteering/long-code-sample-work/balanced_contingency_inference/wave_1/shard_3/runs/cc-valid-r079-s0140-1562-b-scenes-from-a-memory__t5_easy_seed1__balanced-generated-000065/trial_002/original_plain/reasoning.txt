@@ -1,0 +1,34 @@
+### Output Reasoning:
+1. The program starts by reading an integer \( t \) from standard input, which indicates the number of test cases.
+2. It then enters a loop to handle each test case.
+3. For each test case, it reads two values: \( n \) and a string \( s \).
+4. The program checks each digit in the string \( s \). If any digit is not 2, 3, 5, or 7, it prints "1" followed by that digit and continues to the next test case.
+5. If all digits are valid (i.e., 2, 3, 5, or 7), it counts occurrences of each valid digit.
+6. Next, it checks pairs of digits from the string \( s \) to determine if the number formed by any two consecutive digits is a prime number using the `isPrime` method.
+7. If any two consecutive digits form a non-prime number, it prints "2" followed by those two digits and continues to the next test case.
+8. If no non-prime pairs are found, the program prints "1".
+
+### Control Flow:
+- The program processes each test case independently.
+- It first checks individual digits for validity.
+- Then it checks pairs of consecutive digits for primality.
+- If any invalid digit or non-prime pair is found, it prints the corresponding output and continues to the next test case.
+- If all conditions are satisfied, it prints "1".
+
+### Standard Output:
+For the given input:
+```
+1
+121
+```
+- The program reads \( t = 1 \).
+- It reads \( n = 1 \) and \( s = "121" \).
+- Since the digit '1' is not a valid digit (not 2, 3, 5, or 7), it prints "1" followed by the digit '1'.
+
+Thus, the output is:
+```
+1
+1
+```
+
+###

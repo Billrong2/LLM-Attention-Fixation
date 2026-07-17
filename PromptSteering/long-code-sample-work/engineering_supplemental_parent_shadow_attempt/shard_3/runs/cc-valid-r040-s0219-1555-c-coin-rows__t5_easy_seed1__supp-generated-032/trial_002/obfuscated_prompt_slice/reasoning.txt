@@ -1,0 +1,13 @@
+Reasoning:
+- Input: `3\n3\n2 3 12\n2 10 2\n3\n-1 4 17\n3 5 0\n1\n4\n3\n`
+- The `main` method reads the input and invokes the `game` method for each test case.
+- In the `game` method, it checks if `m == 1`, which is not the case.
+- It initializes a 2D array `dp` with zeros.
+- It iterates over `i` from 1 to `m - 1` for both rows of the array, populating them with the sum of the corresponding elements from `arr2`.
+- It iterates over `i` from 1 to `m - 1` for both rows of the array, populating them with the sum of the corresponding elements from `arr1`.
+- It finds the minimum value from the maximum values of the two rows.
+- The `min` value is returned as the result.
+- The `main` method prints the result for each test case.
+
+Final Output:
+```

@@ -1,0 +1,45 @@
+To predict the exact standard output of the given Java program, we need to follow these steps:
+
+1. **Initialize the Input Reader**:
+   - Create an instance of `FastReader` to handle input from `System.in`.
+
+2. **Read the Number of Test Cases**:
+   - Read the integer `test` from the input.
+
+3. **Process Each Test Case**:
+   - For each test case, read the integer `n` and the array `a` of length `n`.
+   - Calculate the frequencies `f[0]` and `f[1]` of even and odd numbers in the array `a`.
+
+4. **Check Conditions and Output**:
+   - If the absolute difference between `f[0]` and `f[1]` is greater than 1, print "-1".
+   - If the length `n` is even:
+     - If `f[0]` equals `f[1]`, calculate and print the minimum of `fun(0, a)` and `fun(1, a)`.
+     - Otherwise, print "-1".
+   - If the length `n` is odd:
+     - If `f[0]` equals `f[1] + 1`, print `fun(0, a)`.
+     - If `f[1]` equals `f[0] + 1`, print `fun(1, a)`.
+     - Otherwise, print "-1".
+
+Given the input:
+```
+1
+7
+3 1 0 5 2 12 4
+```
+
+Let's trace the execution step-by-step:
+
+1. **Initialize the Input Reader**:
+   - `FastReader sc = new FastReader();`
+
+2. **Read the Number of Test Cases**:
+   - `test = 1` (Read from input).
+
+3. **Process Each Test Case**:
+   - For `test`:
+     - Read `n = 7`.
+     - Read the array `a`: `[3, 1, 0, 5, 2, 12, 4]`.
+     - Calculate `f[0]` and `f[1]`:
+       - `f[0]` (even): `0, 2, 12, 4` -> `4`
+       - `f[1]` (odd): `3, 1, 5` -> `3`
+     - Check conditions

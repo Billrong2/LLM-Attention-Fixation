@@ -1,0 +1,17 @@
+Reasoning:
+1. The target method `fun` takes two parameters, `x` (an integer) and `arr` (a long array).
+2. The method `fun` has a return value which depends on a variable `ans`, which is initially set to 0.
+3. The method `fun` iterates through the array `arr` and updates `ans` based on the difference between the current element of the array and `x`.
+4. In the `main` method, the program reads an integer `test` from the input and then enters a loop that iterates `test` times.
+5. In each iteration of the loop, the program reads an integer `n` from the input and initializes an array `a` of size `n`.
+6. The program then reads `n` long values from the input and stores them in the array `a`.
+7. The program also initializes an array `f` of size 2 to count the occurrences of 0 and 1 in the array `a`.
+8. The program then updates the counts in the array `f` based on the values in the array `a`.
+9. The program then checks the counts in the array `f` to determine the next steps.
+10. If the absolute difference between the counts of 0 and 1 in the array `f` is greater than 1, the program prints `-1` to the standard output.
+11. If the absolute difference is not greater than 1 and the length of the array `a` is even, the program calls the `fun` method twice with the parameters 0 and 1, and compares the results.
+12. If the results are equal, the program prints the minimum of the two results to the standard output.
+13. If the results are not equal, the program prints `-1` to the standard output.
+14. If the absolute difference is not greater than 1 and the length of the array `a` is odd, the program checks the counts in the array `f` to determine the next steps.
+15. If the count of 0 in the array `f` is equal to the count of 1, the program calls the `fun` method with the parameter 0 and prints the result to the standard output.
+16. If the count of 0 is equal to the count of 1 plus 1, the program calls the `fun` method with the parameter 1 and prints

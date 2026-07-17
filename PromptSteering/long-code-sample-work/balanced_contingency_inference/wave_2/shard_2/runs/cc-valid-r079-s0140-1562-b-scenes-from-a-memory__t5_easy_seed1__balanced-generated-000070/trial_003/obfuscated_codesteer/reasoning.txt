@@ -1,0 +1,19 @@
+### Reasoning:
+
+1. The program starts by creating a `FastReader` object to handle input.
+2. The `main` method reads the number of test cases, `t`, from the input.
+3. For each test case, it reads the length of the string, `n`, and the string itself.
+4. The program initializes variables `two`, `three`, `five`, and `seven` to keep track of the number of times each digit appears in the string.
+5. It iterates over the string and updates the counts accordingly.
+6. If any digit other than 2, 3, 5, or 7 is found, it prints the digit and continues with the next test case.
+7. If all digits are valid, it iterates over all pairs of digits and checks if the number formed by concatenating them is a prime number using the `isPrime` function.
+8. If a pair of digits forms a non-prime number, it prints the number and continues with the next test case.
+9. If all pairs form prime numbers, the function prints "1".
+
+### Output:
+
+The output will be a single digit or a two-digit number depending on whether the input string contains a non-prime number. If the input string contains a non-prime number, the function prints the non-prime number; otherwise, it prints "1".
+
+### Machine-Readable Output:
+
+```

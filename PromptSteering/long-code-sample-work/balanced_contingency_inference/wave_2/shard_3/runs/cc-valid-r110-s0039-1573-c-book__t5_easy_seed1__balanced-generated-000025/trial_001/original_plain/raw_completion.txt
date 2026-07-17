@@ -1,0 +1,43 @@
+
+
+
+### Reasoning:
+
+1. **Input**: 
+   - `T`: Number of test cases.
+   - `n`: Number of elements in an array.
+   - `k`: Number of subarrays.
+   - `data[i][j]`: Each element in subarrays.
+
+2. **Initialization**:
+   - `dp`: Dynamic programming array to store results.
+   - `s`: Boolean array to track visited elements.
+
+3. **Main Loop**:
+   - For each test case, initialize `result` and `s` array.
+   - Iterate through each element in `data`.
+   - For each element, call `cal` function.
+
+4. **cal Function**:
+   - Check if result for `index` is already computed.
+   - If `index` is visited, return -1.
+   - Mark `index` as visited.
+   - Initialize `result` to 1.
+   - Iterate through each subarray element of `index`.
+     - If subarray element is less than `index`, update `result` accordingly.
+   - Unmark `index` as visited.
+   - Store `result` in `dp` array.
+
+5. **Output**:
+   - Print the maximum `result`.
+
+6. **Constraints**:
+   - `1 <= T <= 5`
+   - `1 <= n <= 10^5`
+   - `1 <= k <= 10^5`
+   - `1 <= data[i][j] <= n`
+
+### Final Output:
+```plaintext
+FINAL_OUTPUT_JSON: {"stdout":"5\n2\n5\n-1\n5\n"}
+```

@@ -1,0 +1,71 @@
+### CASE c001
+#### Input
+```
+4
+12 11 1 2
+1
+12 28
+7 2
+4 10
+0 13
+8 7
+```
+#### Output
+```
+17
+```
+
+#### Reasoning
+1. `get(Long [] a, long x)` method:
+   - The method searches for the largest index where the value at that index is less than or equal to `x`.
+   - If `x` is greater than all values in `a`, it returns `a.length`.
+   - Otherwise, it returns the index where `x` would be inserted.
+
+2. `main` method:
+   - Reads the number of elements `n` and the array `arr` from input.
+   - Sorts the array `arr`.
+   - Reads the number of test cases `t`.
+   - For each test case, reads the values `d` and `p`.
+   - Calls `get(arr, d)` to find the index where `d` would be inserted.
+   - Based on the index, calculates and prints the minimum of two possible answers.
+
+### CASE c002
+#### Input
+```
+5
+3 1 4 1 5
+2
+2 7
+1 5
+6 9
+2 6
+8 3
+```
+#### Output
+```
+1
+2
+```
+
+#### Reasoning
+1. `get(Long [] a, long x)` method:
+   - The method searches for the largest index where the value at that index is less than or equal to `x`.
+   - If `x` is greater than all values in `a`, it returns `a.length`.
+   - Otherwise, it returns the index where `x` would be inserted.
+
+2. `main` method:
+   - Reads the number of elements `n` and the array `arr` from input.
+   - Sorts the array `arr`.
+   - Reads the number of test cases `t`.
+   - For each test case, reads the values `d` and `p`.
+   - Calls `get(arr, d)` to find the index where `d` would be inserted.
+   - Based on the index, calculates and prints the minimum of two possible answers.
+
+### CASE c003
+#### Input
+```
+6
+1 2 3 4 5 6
+3
+3 1
+1

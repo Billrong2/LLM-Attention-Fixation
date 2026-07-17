@@ -1,0 +1,53 @@
+To solve the problem and predict the exact standard output, let's break down the program step by step:
+
+1. The main method reads the number of test cases \( T \) and processes each case.
+2. For each test case, it reads the values \( n \) and \( k \).
+3. It calculates the powers of 2, `twoPowerN` and `other`, based on \( n \).
+4. It initializes a dynamic programming array `dp` with values set to -1.
+5. It calls the `cal` method to calculate the result.
+
+Let's analyze the `cal` method:
+- The base case is when `index` is less than 0, it returns 1.
+- If `dp[larger][index]` is not -1, it returns the cached result.
+- Otherwise, it calculates the result based on `larger` and `n`.
+
+### Case Analysis
+
+Let's analyze the given input case `3\n6 1\n2 1\n4 0\n`:
+
+#### First Case: `6 1`
+
+- `n = 6`
+- `k = 1`
+- `pow = pow(2, 6) = 64`
+- `other = pow(2, 5) = 32`
+- `cal(0, 1, 6, 64, 32)`
+
+The `cal` method will compute the value based on the recurrence relation.
+
+#### Second Case: `2 1`
+
+- `n = 2`
+- `k = 1`
+- `pow = pow(2, 2) = 4`
+- `other = pow(2, 1) = 2`
+- `cal(0, 1, 2, 4, 2)`
+
+The `cal` method will compute the value based on the recurrence relation.
+
+#### Third Case: `4 0`
+
+- `n = 4`
+- `k = 0`
+- `pow = pow(2, 4) = 16`
+- `other = pow(2, 3) = 8`
+- `cal(-1, 0, 4, 16, 8)`
+
+The `cal` method will return 1 as per the base case.
+
+### Output
+
+Let's summarize the outputs for each case:
+
+1. `6 1`:
+   - `pow = 64`, `other =

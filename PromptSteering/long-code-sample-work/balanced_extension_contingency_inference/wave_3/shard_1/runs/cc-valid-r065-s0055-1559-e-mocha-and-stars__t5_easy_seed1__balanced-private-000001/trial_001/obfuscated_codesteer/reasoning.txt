@@ -1,0 +1,13 @@
+### Case c001:
+**State and Control Flow Reasoning:**
+The program reads the input values `n` and `m`, where `n = 26` and `m = 100000`.
+The `intervals` array is initialized with the given values.
+The `mobiusAndPrime` method is called, which initializes `isPrime` and `mu` arrays.
+The `ans` method is called with `max = 100000`, `intervals`, and `sum`.
+Inside the `ans` method, the method checks if `sum > max` and returns 0 if true.
+Otherwise, it initializes the `num` array and sets `num[0] = 1`.
+The method then iterates through the intervals and performs operations on the `num` array.
+Finally, the method returns the sum of the `num` array elements.
+In the main method, the result is printed.
+
+**Machine-Readable Output:**

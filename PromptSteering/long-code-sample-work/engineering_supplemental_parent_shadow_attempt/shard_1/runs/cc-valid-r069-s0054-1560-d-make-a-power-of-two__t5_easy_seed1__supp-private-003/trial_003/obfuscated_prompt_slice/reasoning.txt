@@ -1,0 +1,12 @@
+### REASONING BEGIN
+#### Case c001:
+- The program starts by defining a large number of methods and classes, but the target method is `getMin`.
+- `getMin` initializes a variable `min` to `Integer.MAX_VALUE`.
+- It iterates through a list of `items`, converting each item to a string (`binary`) and comparing it character by character with the `string` parameter.
+- The comparison counts how many characters from the `binary` need to be skipped to align with the `string`.
+- The minimum count of skips (`min`) is updated during the iteration.
+- The `main` method reads a number `t`, then for each iteration, it reads another number `n`, calculates `getMin`, and prints the result.
+
+The input `stdin="12\n825\n8888\n4\n157\n146\n1\n301\n19634\n1504\n10521\n1000000000\n687194767\n"` means the program reads these numbers as input and processes them.
+
+### REASONING END

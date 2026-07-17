@@ -1,0 +1,24 @@
+### CASES_BEGIN
+c001: invoke program entry point; target_method=game; stdin="3\n3\n2 3 12\n-1 10 4\n3\n2 5 9\n4 5 1\n1\n8\n3\n"; argv=[]
+### CASES_END
+
+The program will output:
+```
+10
+20
+15
+```
+This is because for the three cases given, the program calculates the maximum score for player 1. 
+
+For the first case:
+- Player 1 starts with 2 and adds 3, resulting in a score of 5.
+- Player 2 then adds 4 to the remaining pile, resulting in a score of 9.
+- Player 1 then adds 12 to the remaining pile, resulting in a final score of 10.
+
+For the second case:
+- Player 1 starts with 2 and adds 5, resulting in a score of 7.
+- Player 2 then adds 1 to the remaining pile, resulting in a score of 8.
+- Player 1 then adds 9 to the remaining pile, resulting in a final score of 20.
+
+For the third case:
+- Player 1 starts with 8 and adds 10 to the remaining pile, resulting in a final score of 15.

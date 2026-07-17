@@ -1,0 +1,45 @@
+### CASES_BEGIN
+c001: invoke program entry point; target_method=isPrime; stdin="1\n2\n131\n"; argv=[]
+### CASES_END
+
+To predict the exact standard output of the `isPrime` method for the given cases, we need to understand the behavior of the method based on the provided static program analysis elements.
+
+### Analysis of `isPrime` Method
+
+1. **Method Declaration**:
+   - `static boolean isPrime(int n)` at line 083.
+
+2. **Method Parameter**:
+   - `n` at line 083.
+
+3. **Return Value Expressions**:
+   - `return false;` at line 089.
+   - `return true;` at line 093.
+   - `return false;` at line 096.
+   - `return false;` at line 101.
+   - `return true;` at line 103.
+
+4. **Slice Definitions and Assignments**:
+   - Definition of `_obf_t5_isPrime_61332` at line 085.
+   - Control dependencies:
+     - `if (n <= 1)` at line 088.
+     - `else if (n == 2)` at line 092.
+     - `else if (n % 2 == 0)` at line 095.
+     - `for (int i = 3; i <= Math.sqrt(n); i += 2)` at line 098.
+     - `if (n % i == 0)` at line 100.
+
+### Reasoning
+
+1. **Case c001: `isPrime(1)`**
+   - The method starts by checking if `n <= 1`, which is true for `n = 1`.
+   - Therefore, it returns `false`.
+
+2. **Case c002: `isPrime(2)`**
+   - The method checks if `n <= 1`, which is false.
+   - It then checks if `n == 2`, which is true.
+   - Therefore, it returns `true`.
+
+3. **Case c003: `isPrime(131)`**
+   - The method checks if `n <= 1`, which is false.
+   - It then checks if `n == 2`, which is false.
+   -

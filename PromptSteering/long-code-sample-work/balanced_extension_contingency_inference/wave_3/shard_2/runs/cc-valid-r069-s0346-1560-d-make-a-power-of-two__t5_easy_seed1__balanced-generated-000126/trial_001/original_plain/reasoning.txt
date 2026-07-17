@@ -1,0 +1,15 @@
+To predict the exact standard output of the given Java program, we will analyze its execution based on the provided concrete case:
+
+1. The program reads an integer `casos` from the standard input.
+2. Then, it enters a loop that reads another integer `numero` from the standard input and calls the `buscarGreedy` method for each `numero`.
+3. The `buscarGreedy` method takes a `numero` string and returns the minimum number of operations needed to transform the number into a power of 2 using the `comparar` method.
+4. The `comparar` method compares the given `numero` string with a sequence of powers of 2 from 1 to 2^62 and returns the minimum number of operations needed to transform the number into a power of 2.
+
+Let's analyze the execution step by step:
+
+1. `casos` is read from the standard input: `1`
+2. The loop starts and reads `numero`: `102375`
+3. `buscarGreedy` is called with `numero` as `102375`. The program iterates through the sequence of powers of 2 from 1 to 2^62 and calls `comparar` for each of them.
+4. `comparar` compares `102375` with the sequence of powers of 2 and returns the minimum number of operations needed to transform `102375` into a power of 2.
+
+The output of the program will be the minimum number of operations needed to transform the given number into a power of 2 for each input number in the loop.

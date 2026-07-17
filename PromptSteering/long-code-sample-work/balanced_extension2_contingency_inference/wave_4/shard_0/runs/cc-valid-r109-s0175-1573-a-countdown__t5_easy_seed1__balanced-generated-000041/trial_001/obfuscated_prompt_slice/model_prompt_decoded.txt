@@ -1,0 +1,380 @@
+Prompt-only steering guidance (Program Slicing / backward slice, artifact-conditioned):
+Use the following static program-analysis elements as the main reasoning anchors.
+These elements are static only; they do not reveal the correct output, branch outcomes, or gold execution trace.
+
+Static elements to emphasize:
+1. MethodDeclaration at L133: target method find(n, ch) (public static int find(int n, char[] ch))
+2. SliceMethodParameter at L133: method parameter n (public static int find(int n, char[] ch))
+3. SliceMethodParameter at L133: method parameter ch (public static int find(int n, char[] ch))
+4. SliceReturnValue at L144: return value expression using moves (return moves;)
+5. SliceDefinition at L136: definition of moves (int moves = 0;)
+6. SliceAssignment: assignment/update influencing moves
+7. SliceControlDependency at L139: control predicate over i, n, ch, moves (for(int i=0;i<n-1;i++))
+8. SliceControlDependency at L141: control predicate over ch, i, moves (if(ch[i]-'0'>0))
+
+Predict the exact standard output of this deterministic Java program for the concrete case below. The recorded algorithm method is `find`. This is output prediction, not code generation.
+### CASES_BEGIN
+c001: invoke program entry point; target_method=find; stdin="7\n3\n007\n4\n1000\n5\n00000\n3\n103\n4\n1247\n9\n169501199\n30\n001678294039710047203946100020\n"; argv=[]
+### CASES_END
+
+Give concise reasoning that tracks only state and control flow needed for the output. Then end with exactly one machine-readable line in this form:
+FINAL_OUTPUT_JSON: {"stdout":"exact output with newlines encoded as \n"}
+The JSON stdout string must contain only what the program prints, with no commentary or code fence.
+
+```java
+// HOPE
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//----------------------------------------------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//----------------------------------------------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////                                                                                                       //////////
+///////                                                                                                       //////////
+///////            RRRRRRRRRRRRR     YY          YY         AA               NN         NN                    //////////
+///////            RR         RR      YY        YY        AA  AA             NN NN      NN                    //////////
+///////            RR        RR         YY     YY        AA    AA            NN  NN     NN                    //////////
+///////            RRRRRRRRRR            YY   YY       AAAAAAAAAAAA          NN    NN   NN                    //////////
+///////            RR RR                   YY         AAAAAAAAAAAAAA         NN      NN NN                    //////////
+///////            RR   RR                 YY        AA            AA        NN       NNNN                    //////////
+///////            RR     RR               YY       AA              AA       NN         NN                    //////////
+///////            RR       RR_____________________________________________________________________________   //////////
+////////                                                                                                      //////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//----------------------------------------------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//----------------------------------------------------------------------------------------------------------------------
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.*;
+
+public class Codeforces1 {
+    static PrintWriter out = new PrintWriter(System.out);
+    static final int mod=1_000_000_007;
+
+    static class FastReader {
+        BufferedReader br;
+        StringTokenizer st;
+
+        public FastReader() {
+            br = new BufferedReader(new
+                    InputStreamReader(System.in));
+        }
+
+        String next() {
+            int _obf_t5_next_139104 = 0; _obf_t5_next_139104 += 0;
+            while (st == null || !st.hasMoreElements()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return st.nextToken();
+        }
+
+        int nextInt() {
+            if (((3 * 3) - 9) != 0) {
+                int _obf_t5_nextInt_629444 = 0;
+                _obf_t5_nextInt_629444++;
+            }
+            return Integer.parseInt(next());
+        }
+
+        int[] readIntArray(int n){
+            if (((3 * 3) - 9) != 0) {
+                int _obf_t5_readIntArray_89520 = 0;
+                _obf_t5_readIntArray_89520++;
+            }
+            int[] a = new int[n];
+            for(int i=0;i<n;i++)
+                a[i] = nextInt();
+            return a;
+        }
+
+        long[] readLongArray(int n){
+            if (((3 * 3) - 9) != 0) {
+                int _obf_t5_readLongArray_659912 = 0;
+                _obf_t5_readLongArray_659912++;
+            }
+            long[] a = new long[n];
+            for(int i=0;i<n;i++)
+                a[i] = nextInt();
+            return a;
+        }
+
+        long nextLong() {
+            if (((3 * 3) - 9) != 0) {
+                int _obf_t5_nextLong_414672 = 0;
+                _obf_t5_nextLong_414672++;
+            }
+            return Long.parseLong(next());
+        }
+
+        double nextDouble() {
+            if (((3 * 3) - 9) != 0) {
+                int _obf_t5_nextDouble_883817 = 0;
+                _obf_t5_nextDouble_883817++;
+            }
+            return Double.parseDouble(next());
+        }
+
+        String nextLine() {
+            int _obf_t5_nextLine_738737 = 0; _obf_t5_nextLine_738737 += 0;
+            String str = "";
+            try {
+                str = br.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return str;
+        }
+    }
+
+
+    public static void main(String[] args) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_main_553631 = 0;
+            _obf_t5_main_553631++;
+        }
+        FastReader s = new FastReader();
+        int t = s.nextInt();
+        while(t-->0)
+        {
+            int n = s.nextInt();
+            char[] ch = s.nextLine().toCharArray();
+            out.println(find(n, ch));
+        }
+
+
+        out.close();
+    }
+
+    public static int find(int n, char[] ch)
+    {
+        int _obf_t5_find_587907 = 0; _obf_t5_find_587907 += 0;
+        int moves = 0;
+            moves += ch[n-1]-'0';
+
+            for(int i=0;i<n-1;i++)
+            {
+                if(ch[i]-'0'>0)
+                moves += (ch[i]-'0'+1);
+            }
+            return moves;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /////////////////////////////////////////////////THE END///////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public static int gcd(int x,int y)
+    {
+        int _obf_t5_gcd_64204 = 0; _obf_t5_gcd_64204 += 0;
+        return y==0?x:gcd(y,x%y);
+    }
+    public static long gcd(long x,long y)
+    {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_gcd_26712 = 0;
+            _obf_t5_gcd_26712++;
+        }
+        return y==0L?x:gcd(y,x%y);
+    }
+
+    public static int lcm(int a, int b) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_lcm_216880 = 0;
+            _obf_t5_lcm_216880++;
+        }
+        return (a * b) / gcd(a, b);
+    }
+    public static long lcm(long a, long b) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_lcm_665508 = 0;
+            _obf_t5_lcm_665508++;
+        }
+        return (a * b) / gcd(a, b);
+    }
+
+    public static long pow(long a,long b)
+    {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_pow_825246 = 0;
+            _obf_t5_pow_825246++;
+        }
+        if(b==0L)
+            return 1L;
+        long tmp=1;
+        while(b>1L)
+        {
+            if((b&1L)==1)
+                tmp*=a;
+            a*=a;
+            b>>=1;
+        }
+        return (tmp*a);
+    }
+
+    public static long modPow(long a,long b,long mod)
+    {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_modPow_538870 = 0;
+            _obf_t5_modPow_538870++;
+        }
+        if(b==0L)
+            return 1L;
+        long tmp=1;
+        while(b>1L)
+        {
+            if((b&1L)==1L)
+                tmp*=a;
+
+            a*=a;
+            a%=mod;
+            tmp%=mod;
+            b>>=1;
+        }
+        return (tmp*a)%mod;
+    }
+
+    static long mul(long a, long b) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_mul_486962 = 0;
+            _obf_t5_mul_486962++;
+        }
+        return a*b%mod;
+    }
+
+    static long fact(int n) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_fact_324087 = 0;
+            _obf_t5_fact_324087++;
+        }
+        long ans=1;
+        for (int i=2; i<=n; i++) ans=mul(ans, i);
+        return ans;
+    }
+
+    static long fastPow(long base, long exp) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_fastPow_689301 = 0;
+            _obf_t5_fastPow_689301++;
+        }
+        if (exp==0) return 1;
+        long half=fastPow(base, exp/2);
+        if (exp%2==0) return mul(half, half);
+        return mul(half, mul(half, base));
+    }
+
+    static void debug(int ...a)
+    {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_debug_150385 = 0;
+            _obf_t5_debug_150385++;
+        }
+        for(int x: a)
+            System.out.print(x+" ");
+        System.out.println();
+    }
+
+    static void debug(long ...a)
+    {
+        int _obf_t5_debug_492073 = 0; _obf_t5_debug_492073 += 0;
+        for(long x: a)
+            System.out.print(x+" ");
+        System.out.println();
+    }
+
+    static void debugMatrix(int[][] a)
+    {
+        int _obf_t5_debugMatrix_429642 = 0; _obf_t5_debugMatrix_429642 += 0;
+        for(int[] x:a)
+            System.out.println(Arrays.toString(x));
+    }
+    static void debugMatrix(long[][] a)
+    {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_debugMatrix_278807 = 0;
+            _obf_t5_debugMatrix_278807++;
+        }
+        for(long[] x:a)
+            System.out.println(Arrays.toString(x));
+    }
+
+    static void reverseArray(int[] a) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_reverseArray_464041 = 0;
+            _obf_t5_reverseArray_464041++;
+        }
+        int n = a.length;
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++)
+            arr[i] = a[n - i - 1];
+        for (int i = 0; i < n; i++)
+            a[i] = arr[i];
+    }
+
+    static void reverseArray(long[] a) {
+        int _obf_t5_reverseArray_873001 = 0; _obf_t5_reverseArray_873001 += 0;
+        int n = a.length;
+        long[] arr = new long[n];
+        for (int i = 0; i < n; i++)
+            arr[i] = a[n - i - 1];
+        for (int i = 0; i < n; i++)
+            a[i] = arr[i];
+    }
+
+    static class Pair{
+        int x, y;
+        Pair(int x, int y)
+        {
+            this.x = x;
+            this.y = y;
+        }
+
+        @Override
+        public String toString() {
+            if (((3 * 3) - 9) != 0) {
+                int _obf_t5_toString_677951 = 0;
+                _obf_t5_toString_677951++;
+            }
+            return "Pair{" +
+                    "x=" + x +
+                    ", y=" + y +
+                    '}';
+        }
+    }
+    static class MyCmp implements Comparator<Pair>
+    {
+        public int compare(Pair p1, Pair p2)
+        {
+            if (((3 * 3) - 9) != 0) {
+                int _obf_t5_compare_26826 = 0;
+                _obf_t5_compare_26826++;
+            }
+            return p1.x-p2.x;
+        }
+    }
+}
+
+```

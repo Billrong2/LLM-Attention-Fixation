@@ -1,0 +1,47 @@
+{
+  "schema_version": "long-code-static-prior-cache-equivalence-v1",
+  "comparison": {
+    "cached_run": "runs/cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__00-generated-156/trial_001/obfuscated_codesteer",
+    "uncached_run": "../engineering_uncached_pilot/shard_0/runs/cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__00-generated-156/trial_001/obfuscated_codesteer",
+    "sample_id": "cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__00-generated-156",
+    "trial": 1,
+    "condition": "obfuscated_codesteer",
+    "paired_seed": 656761695,
+    "model_name": "Qwen/Qwen2.5-14B",
+    "model_snapshot_commit": "97e1e76335b7017d8f67c08a19d103c0504298c9"
+  },
+  "runner_sha256": {
+    "uncached_snapshot": "51a3d49b8b743e7750196bd7297f91bdafd73a0821f5a4e6f0c010ae9b16f01d",
+    "cached_runner": "62fad0d37d164f9adf925ddc37d9a9e2711a0b581ab0e9108c19ef2529da8807"
+  },
+  "byte_identical_artifact_sha256": {
+    "submitted_prompt.txt": "2c68e707c8c00a0f53e8db4c92bcff3836a79f679226f5b2fbf7458a7c3eba60",
+    "model_prompt_decoded.txt": "2c68e707c8c00a0f53e8db4c92bcff3836a79f679226f5b2fbf7458a7c3eba60",
+    "source.java": "174bba21e67d588dd3f95f00cc6ce9721d0415bb223bfed93db292fb1c117727",
+    "raw_completion.txt": "2c531540a37d2b50320bd73b73a0f922d30cc7b1f3c7a228c568ea9f0063f138",
+    "reasoning.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "predicted_stdout.txt": "ffdb2b471864a2f3bbb7753ece957f6e8f0915538d88a495ac6f28d2583c44f1",
+    "oracle_stdout.txt": "9a92adbc0cee38ef658c71ce1b1bf8c65668f166bfb213644c895ccb1ad07a25",
+    "score.json": "ed2fd6b742f694d5085a001a39078b5461998f9bb5b417510c47fe73b5366561",
+    "steering_debug.json": "f1488246ece84ebb441ee2a387f5237d95044aa4c74644421059d993deaea085"
+  },
+  "all_listed_artifacts_byte_identical": true,
+  "score": {
+    "parse_status": "marker_json",
+    "predicted_stdout": "1\n5\n",
+    "oracle_stdout_canonical": "14",
+    "trimmed_exact_match": false
+  },
+  "cache_profile": {
+    "enabled": true,
+    "scope": "one SteeringManager instance",
+    "key": "(current_bin, number_of_bins)",
+    "semantic_effect": "none; memoizes a deterministic prompt-static prior vector"
+  },
+  "expected_nonidentical_metadata": [
+    "run fingerprint",
+    "runner hash",
+    "experiment configuration hash",
+    "timestamps"
+  ]
+}

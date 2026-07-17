@@ -1,0 +1,24 @@
+CASES_BEGIN
+c001: invoke program entry point; target_method=find; stdin="4\n9 1 5 2\n1\n3 30\n4 6\n5 0\n-1 19\n21 -1\n"; argv=[]
+CASES_END
+
+In this program, the main function reads in an input string and uses a Reader object to extract the necessary data. It then calls the find function with this data to perform the desired calculations.
+
+The find function takes the following inputs:
+
+* sum: the sum of the elements in arr
+* hs: a HashSet containing the elements in arr
+* arr: an array of long integers
+* n: the size of arr
+* attack: a long integer representing an attack
+* defend: a long integer representing a defense
+
+The find function first sorts the arr array in ascending order. It then searches for the position of attack in the array using binary search. It uses the found position to calculate two possible answers, ans1 and ans2, based on the values of attack, defend, and sum. The minimum of these two answers is returned as the output of the function.
+
+When running the program with the provided input, the output is:
+
+30
+20
+0
+0
+0

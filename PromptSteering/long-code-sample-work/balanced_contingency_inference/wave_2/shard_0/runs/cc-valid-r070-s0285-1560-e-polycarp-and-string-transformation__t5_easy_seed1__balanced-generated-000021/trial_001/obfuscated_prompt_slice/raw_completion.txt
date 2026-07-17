@@ -1,0 +1,22 @@
+
+
+
+Reasoning:
+
+1. Read the number of test cases `T` from the input.
+2. For each test case, read a string `v` from the input.
+3. Initialize `count` to 0 and an array `num` of size 26 to store the frequency of each character in `v`.
+4. Iterate through `v` to count the occurrences of each character and update `count` accordingly.
+5. Create a `StringBuilder` `builder` and a boolean array `check` to keep track of the characters that have been processed.
+6. Set `ok` to true initially.
+7. Iterate through `v` in reverse order to construct the string `O`.
+8. If a character has not been processed and its count is 1, append it to `O` and set its corresponding `check` flag to true.
+9. If `num[index]` is not divisible by `count`, set `ok` to false and break the loop.
+10. Divide `num[index]` by `count` and decrease `count`.
+11. If `ok` is still true, construct the string `S` by iterating through `v` again and appending characters that haven't been processed yet.
+12. If `check(S, O, v)` returns true, print `S` and `O`; otherwise, print -1.
+
+Machine-readable output:
+FINAL_OUTPUT_JSON: {"stdout":"haaha\nwe weep ewq\n"}
+
+Note: The output is based on the given input and the reasoning above. The actual output may differ if the input changes.

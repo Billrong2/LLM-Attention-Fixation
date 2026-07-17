@@ -62,6 +62,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--top-p", type=float, default=0.95)
     parser.add_argument("--base-seed", type=int, default=20260527)
     parser.add_argument("--max-structural-elements", type=int, default=24)
+    parser.add_argument(
+        "--require-structural-parse",
+        choices=["on", "off"],
+        default="on",
+        help="Fail instead of silently using regex guidance when Java parsing fails.",
+    )
     parser.add_argument("--model-name", default=DEFAULT_MODEL_NAME)
     parser.add_argument("--cache-dir", default=None)
     parser.add_argument("--java-home", default=None)
@@ -563,6 +569,15 @@ def main() -> None:
                 target_method_name=None,
                 max_elements=max(1, args.max_structural_elements),
             )
+            if (
+                args.require_structural_parse == "on"
+                and args.prompt_steering != "none"
+                and structural_prompt.get("parse_status") != "javalang"
+            ):
+                raise RuntimeError(
+                    f"Structural parsing failed for {path}; "
+                    f"parse_status={structural_prompt.get('parse_status')!r}"
+                )
 
             exec_result = utity.run_java_program_with_result(code, class_name, enable_assertions=True)
             if not exec_result.get("compiled", False):
@@ -623,9 +638,12 @@ def main() -> None:
 
             completed = len(existing_runs)
             attempts = 0
-            max_attempts = max(target_runs, target_runs * max(1, args.max_attempt_multiplier))
+            attempts_for_run = 0
+            max_attempts_per_run = max(1, args.max_attempt_multiplier)
+            max_attempts = target_runs * max_attempts_per_run
             while completed < target_runs:
                 attempts += 1
+                attempts_for_run += 1
                 if attempts > max_attempts:
                     raise RuntimeError(f"Exceeded {max_attempts} attempts for {snippet}/{technique}/{tier}.")
                 planned_run_idx = (
@@ -642,7 +660,7 @@ def main() -> None:
                     technique,
                     tier,
                     planned_run_idx,
-                    attempts,
+                    attempts_for_run,
                 )
                 _set_generation_seed(generation_seed)
                 result = llama.run_llama(
@@ -662,6 +680,8 @@ def main() -> None:
                     result.get("generated_completion") or result.get("generated_text", "")
                 )
                 score: Dict[str, Any] = {}
+                parse_complete = True
+                parse_retry_exhausted = False
                 if task_profile == "counterfactual_tf":
                     assert case_pack is not None
                     is_exact_match, predicted_output, score, complete = _counterfactual_eval(
@@ -673,15 +693,38 @@ def main() -> None:
                         parse_predicted_labels=parse_predicted_labels,
                         score_case_predictions=score_case_predictions,
                     )
+                    parse_complete = bool(complete)
                     if args.retry_incomplete_json == "on" and not complete:
-                        print(f"[{snippet}] incomplete JSON parse, retrying attempt {attempts}/{max_attempts}")
-                        continue
+                        if attempts_for_run < max_attempts_per_run:
+                            print(
+                                f"[{snippet}] incomplete JSON parse, retrying attempt "
+                                f"{attempts_for_run}/{max_attempts_per_run} for run {planned_run_idx}"
+                            )
+                            continue
+                        parse_retry_exhausted = True
+                        print(
+                            f"[{snippet}] incomplete JSON after {max_attempts_per_run} attempts; "
+                            f"scoring run {planned_run_idx} as incorrect"
+                        )
                 else:
                     predicted_output, format_ok = canonicalize_model_output(predicted_output_raw)
                     if not format_ok and not (actual_output_clean == "" and predicted_output == ""):
-                        print(f"[{snippet}] unparseable output, retrying attempt {attempts}/{max_attempts}")
-                        continue
-                    is_exact_match = predicted_output == actual_output_clean
+                        parse_complete = False
+                        if attempts_for_run < max_attempts_per_run:
+                            print(
+                                f"[{snippet}] unparseable output, retrying attempt "
+                                f"{attempts_for_run}/{max_attempts_per_run} for run {planned_run_idx}"
+                            )
+                            continue
+                        parse_retry_exhausted = True
+                        print(
+                            f"[{snippet}] unparseable output after {max_attempts_per_run} attempts; "
+                            f"scoring run {planned_run_idx} as incorrect"
+                        )
+                    is_exact_match = bool(parse_complete and predicted_output == actual_output_clean)
+
+                result["parse_complete"] = parse_complete
+                result["parse_retry_exhausted"] = parse_retry_exhausted
 
                 run_idx = planned_run_idx
                 run_dir = item_root / f"run_{run_idx:04d}"
@@ -711,6 +754,8 @@ def main() -> None:
                     "do_sample": True,
                     "seed": int(generation_seed),
                     "base_seed": int(args.base_seed),
+                    "attempt": int(attempts_for_run),
+                    "attempt_global": int(attempts),
                 }
                 result["trial_id"] = run_idx
                 result["run_index"] = run_idx
@@ -765,6 +810,8 @@ def main() -> None:
                             "provided_case_count": int(result.get("provided_case_count", 0)),
                             "requested_case_count": int(result.get("requested_case_count", 0)),
                             "parse_coverage": float(result.get("parse_coverage", 0.0)),
+                            "parse_complete": bool(result.get("parse_complete", False)),
+                            "parse_retry_exhausted": bool(result.get("parse_retry_exhausted", False)),
                         },
                     )
                 llama.save_dump(result, str(run_dir / "model_output.json"))
@@ -773,6 +820,7 @@ def main() -> None:
                 (run_dir / "predicted_output_raw.txt").write_text(predicted_output_raw + "\n", encoding="utf-8")
                 existing_runs.append(run_dir)
                 completed += 1
+                attempts_for_run = 0
                 print(f"[done] {snippet}/{technique}/{tier} run {completed}/{target_runs}")
     finally:
         llama.free()

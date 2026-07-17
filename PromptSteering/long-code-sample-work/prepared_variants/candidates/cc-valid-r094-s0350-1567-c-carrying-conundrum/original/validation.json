@@ -1,0 +1,145 @@
+{
+  "codesteer_target": {
+    "called_directly_from_main": true,
+    "eligible_parameter_to_return_target": true,
+    "genuine_return_sink_count": 4,
+    "main_called_method_names": [
+      "eval",
+      "flush",
+      "i",
+      "println",
+      "s",
+      "toCharArray"
+    ],
+    "method_names": [
+      "main",
+      "eval",
+      "shuffle",
+      "phi",
+      "gcd",
+      "nCr",
+      "factorials",
+      "power",
+      "power",
+      "query",
+      "update",
+      "build",
+      "read",
+      "nextLine",
+      "s",
+      "l",
+      "i",
+      "d",
+      "isSpaceChar",
+      "isEndOfLine",
+      "arr",
+      "arrLong"
+    ],
+    "parameter_count": 7,
+    "parameters": [
+      {
+        "name": "arr",
+        "type": "char[]"
+      },
+      {
+        "name": "in",
+        "type": "int"
+      },
+      {
+        "name": "carry",
+        "type": "int"
+      },
+      {
+        "name": "n",
+        "type": "int"
+      },
+      {
+        "name": "dp",
+        "type": "long[][]"
+      },
+      {
+        "name": "a",
+        "type": "boolean"
+      },
+      {
+        "name": "b",
+        "type": "boolean"
+      }
+    ],
+    "parse_status": "javalang",
+    "return_sink_count": 4,
+    "return_type": "long",
+    "selected_method": "eval",
+    "selected_method_line": 24,
+    "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+    "selector_implementation_owner": "steering.priors.SlicingPrior",
+    "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+  },
+  "entry": {
+    "compile_class": "C1567",
+    "main_class": "C1567",
+    "package": "",
+    "parse_status": "javalang"
+  },
+  "execution_validation": {
+    "accepted": true,
+    "cases": [
+      {
+        "accepted": true,
+        "actual_trimmed": "999999998\n9999",
+        "case_id": "00-private-001",
+        "command": [
+          "java",
+          "-Dfile.encoding=UTF-8",
+          "-Djava.io.tmpdir=<scratch>",
+          "-Duser.home=<scratch>",
+          "-XX:-UsePerfData",
+          "-cp",
+          "<classes>",
+          "C1567"
+        ],
+        "duration_seconds": 0.049032,
+        "exit_code": 0,
+        "expected_trimmed": "999999998\n9999",
+        "raw_expected_stdout_sha256": "e16f4361c695bdfcdc83f3a9ba807e170281a73137bb969c0e576cf9a4cf1ef5",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "e16f4361c695bdfcdc83f3a9ba807e170281a73137bb969c0e576cf9a4cf1ef5",
+        "stderr": "",
+        "stdout": "999999998\n9999\n",
+        "timed_out": false,
+        "trimmed_exact_match": true
+      }
+    ],
+    "compile": {
+      "accepted": true,
+      "command": [
+        "javac",
+        "-encoding",
+        "UTF-8",
+        "-J-Djava.io.tmpdir=<scratch>",
+        "-J-Duser.home=<scratch>",
+        "-J-XX:-UsePerfData",
+        "-Xlint:none",
+        "-nowarn",
+        "-d",
+        "<classes>",
+        "<scratch>/C1567.java"
+      ],
+      "exit_code": 0,
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    "entry": {
+      "compile_class": "C1567",
+      "main_class": "C1567",
+      "package": "",
+      "parse_status": "javalang"
+    }
+  },
+  "physical_loc": 326,
+  "source_path": "candidates/cc-valid-r094-s0350-1567-c-carrying-conundrum/original/C1567.java",
+  "source_sha256": "5382615c5d2e4eaaa5735ac89f6fa61116cab6af43511406ae8abdb773ee04e4"
+}

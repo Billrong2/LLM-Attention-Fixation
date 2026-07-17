@@ -1,0 +1,26 @@
+The Java program provided reads an integer `t` from the input, which represents the number of test cases. For each test case, it reads an integer `n` and a string `s` of length `n`. The program then checks if each character in the string `s` is a prime number (2, 3, 5, or 7). If it finds a non-prime character, it prints "1" followed by the character and continues to the next test case. If all characters are prime, it iterates through all possible pairs of characters, forms a two-digit number, and checks if the number is prime. If it finds a non-prime number, it prints "2" followed by the number and continues to the next test case. If no non-prime numbers are found, the program continues to the next test case without printing anything.
+
+### CASES_BEGIN
+c001: invoke program entry point; target_method=isPrime; stdin="7\n3\n237\n5\n44444\n3\n221\n2\n35\n3\n1270\n1\n4\n19\n626221626221626221626221626221\n"; argv=[]
+### CASES_END
+
+The output prediction for the given input is:
+
+```
+1
+3
+2
+5
+1
+4
+2
+4
+1
+7
+2
+1
+2
+7
+```
+
+**

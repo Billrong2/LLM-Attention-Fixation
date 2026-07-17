@@ -1,0 +1,38 @@
+
+
+
+To predict the exact standard output of the given Java program, we'll follow a structured approach by analyzing each function and their interactions. We'll track only the state and control flow necessary for generating the output.
+
+### Case Analysis: `buscarGreedy`
+
+The function `buscarGreedy` takes a string `numero` as input and returns an integer. It iterates through powers of 2 up to 62 (since \(2^{62}\) is a 19-digit number). For each power of 2, it calculates the minimum number of characters that need to be removed from `numero` to match the current power of 2 using the `comparar` function. The minimum value found across all iterations is returned.
+
+### Input Handling
+
+The main method reads an integer `casos` indicating the number of test cases. It then reads each test case as a line of input and calls `buscarGreedy` on each line.
+
+### Output Prediction
+
+Given the input:
+```
+1
+569627
+```
+The main method will process one test case with the input `569627`. Here’s how `buscarGreedy` processes this input step-by-step:
+
+1. **Initial Setup**: The function initializes `pot` to 1 (which is \(2^0\)) and `minimo` to `Integer.MAX_VALUE`.
+2. **Iteration Through Powers of 2**: The loop iterates up to 62, computing the current power of 2 (`pot`) and its string representation (`numPot`).
+3. **Comparison**: For each power of 2, it uses `comparar` to determine how many characters must be removed from `numero` ("569627") to match `numPot`.
+4. **Update Minimum**: If the result of `comparar` is less than `minimo`, update `minimo`.
+5. **Return Result**: After completing all iterations, `minimo` contains the minimum number of characters that need to be removed.
+
+### Detailed Steps for `comparar`
+
+For each power of 2, `comparar` compares the strings character by character:
+- If they start with the same character, skip the first character and continue comparing the rest.
+- If not, add one to the count and continue comparing the rest of the original string.
+
+### Expected Output
+
+Given the constraints and behavior of the functions:
+- `comparar` ensures that only the necessary

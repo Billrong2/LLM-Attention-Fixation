@@ -1,0 +1,27 @@
+
+
+
+FINAL_OUTPUT_JSON: {"stdout":"0\n4\n3\n3\n4\n"}
+
+Reasoning:
+1. Initialize static method target method `cal(index, s, data)` at line L070.
+2. The method parameters are `index` (line L070), `s` (line L070), and `data` (line L070).
+3. The control predicate at line L071 checks the condition ((3 * 3) - 9) != 0.
+4. The control predicate at line L075 checks the condition `dp[index] != -2`.
+5. The control predicate at line L078 checks the condition `s[index]`.
+6. The `result` variable is defined at line L082: `int result = 1;`
+7. The control predicate at line L083 checks the loop condition `for (int i : data[index])`.
+8. The method call `cal` is invoked at line L084.
+9. The control predicate at line L085 checks the condition `v == -1`.
+10. The control predicate at line L089 checks the condition `i > index`.
+11. The assignment `result = Integer.max(result, v)` is performed at line L092.
+12. The assignment `return dp[index] = result` is performed at line L095.
+
+Based on this static program analysis, we can predict that the program will print the standard output for each test case. The final output for the given input is as follows:
+
+0
+4
+3
+3
+4
+3

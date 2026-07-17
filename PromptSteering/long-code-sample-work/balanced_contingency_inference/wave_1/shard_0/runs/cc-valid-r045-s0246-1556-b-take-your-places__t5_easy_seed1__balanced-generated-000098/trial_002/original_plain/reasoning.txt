@@ -1,0 +1,12 @@
+CASES_BEGIN
+c001: invoke program entry point; target_method=fun; stdin="1\n7\n3 0 6 5 3 12 4\n"; argv=[]
+CASES_END
+
+1. Read the input from stdin: "1\n7\n3 0 6 5 3 12 4\n"
+2. Extract the number of test cases (1) from the first line.
+3. Read the second line: "7\n3 0 6 5 3 12 4\n", which contains the length of the array (7) and the array itself (3 0 6 5 3 12 4).
+4. Convert the array elements to long and store them in the array "a".
+5. Initialize the count arrays "f" to 0 for both 0 and 1.
+6. Iterate through the array "a" and count the number of 0s and 1s, storing them in the count arrays "f".
+7. Since the number of 1s is not equal to the number of 0s and the absolute difference is less than 2, calculate the minimum of the answers from the fun method.
+8. Print the answer from the fun method, which is 17.

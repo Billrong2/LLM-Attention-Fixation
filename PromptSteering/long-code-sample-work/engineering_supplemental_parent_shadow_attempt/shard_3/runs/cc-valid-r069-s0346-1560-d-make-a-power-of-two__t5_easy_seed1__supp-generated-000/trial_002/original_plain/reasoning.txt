@@ -1,0 +1,18 @@
+### OUTPUT:
+1
+2
+4
+7
+2
+4
+10
+4
+7
+
+
+### REASONING:
+The program starts by reading an integer `casos` from the input stream, which represents the number of test cases. Then, for each test case, it reads a string input `numero` and calls the `buscarGreedy` method, which takes a string and returns an integer result. The result is printed to the output stream. 
+
+The `buscarGreedy` method takes a string input `numero` and iterates through a list of powers of 2 up to 62. It compares the length of each power of 2 with the length of the input string and keeps track of the minimum difference. It returns this minimum difference as the result.
+
+The program does not modify the state of any variables or classes outside of the `buscarGreedy` method. The only state that is modified is the `memo` HashSet and the `potencias` HashSet, but these are only used within the `buscarGreedy` method and do not affect the output.

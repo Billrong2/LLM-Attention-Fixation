@@ -1,0 +1,9 @@
+The program first reads the number of test cases from the standard input, which is 1 in this case. Then it reads two strings, "abccc" and "ab".
+
+The program calls the `solve` method with the input strings as arguments. The `solve` method starts with a loop that iterates from the end of the first string. It checks if the current character in the first string matches the current character in the second string. If they do, it moves the pointer for the second string back one character. If not, it skips the current character in the first string by moving the pointer back two characters.
+
+The loop continues until it reaches the beginning of the first string. If the pointer for the second string reaches the beginning (i.e., the loop finds a match for the entire second string in the first string), the function returns "YES". Otherwise, it returns "NO".
+
+In this specific case, the loop matches the characters "ab" in the first string with the second string. However, the loop encounters a mismatch at the third character of the first string ("c" in "abccc" does not match "a" in "ab"). Since the loop does not find a match for the entire second string in the first string, the function returns "NO".
+
+The program prints the output "NO" and ends.

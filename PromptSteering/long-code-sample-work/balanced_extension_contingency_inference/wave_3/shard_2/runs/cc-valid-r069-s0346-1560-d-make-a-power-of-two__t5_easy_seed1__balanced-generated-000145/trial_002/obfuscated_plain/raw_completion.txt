@@ -1,0 +1,44 @@
+ To predict the exact standard output of the given Java program for the specified input case, we need to analyze the `buscarGreedy` method, which is the target method invoked in this scenario.
+
+### Analysis of `buscarGreedy` Method
+The `buscarGreedy` method calculates the minimum number of operations required to transform a given number into a power of two using the `comparar` function. The `comparar` function computes the difference in characters between the input number and the closest power of two.
+
+Here’s a step-by-step breakdown of how `buscarGreedy` works:
+
+1. **Initialization**:
+   - A variable `pot` is initialized to 1.
+   - A variable `minimo` is set to `Integer.MAX_VALUE`.
+
+2. **Loop through Powers of Two**:
+   - The method iterates through the powers of two up to \(2^{62}\).
+   - For each power of two (`pot`), it converts the power of two to a string (`numPot`).
+   - It then compares the length of `numPot` with the input number `numero`.
+
+3. **Comparison**:
+   - The `comparar` function is called to determine the number of changes needed to convert `numero` to `numPot`.
+   - If the result (`res`) is less than the current minimum (`minimo`), `minimo` is updated with `res`.
+
+4. **Result**:
+   - After all iterations, the function returns the minimum value found.
+
+### Input Case
+The input case provided is:
+```
+1
+366323
+```
+This means there is one test case with the number `366323`.
+
+### Execution Flow
+1. **Reading Input**:
+   - The program reads the first line, which indicates there is one test case.
+   - It reads the next line, which is the number `366323`.
+
+2. **Invoking `buscarGreedy`**:
+   - The method `buscarGreedy` is called with the number `366323`.
+   - It initializes `pot` to 1 and `minimo` to `Integer.MAX_VALUE`.
+
+3. **Loop Execution**:
+   - The loop runs from 0 to 61 (62 iterations).
+   - For each iteration, it converts `pot` to a string and compares its length with the input number.
+   - The `comparar`

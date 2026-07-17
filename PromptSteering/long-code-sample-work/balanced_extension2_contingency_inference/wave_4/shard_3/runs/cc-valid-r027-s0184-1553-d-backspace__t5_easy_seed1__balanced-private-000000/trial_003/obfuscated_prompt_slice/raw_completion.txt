@@ -1,0 +1,38 @@
+
+
+
+### CASE 001:
+Input:
+1
+baa
+ba
+
+Static Elements:
+- MethodDeclaration at L37: target method solve(String s, String t) {}
+- SliceMethodParameter at L37: method parameter s
+- SliceMethodParameter at L37: method parameter t
+- SliceReturnValue at L49: return value expression ("YES")
+- SliceReturnValue at L51: return value expression ("NO")
+- SliceDefinition at L38: definition of _obf_t5_solve_181246 (int _obf_t5_solve_181246 = 0)
+- SliceAssignment: assignment/update influencing _obf_t5_solve_181246
+- SliceDefinition at L39: definition of j (int j = t.length() - 1)
+- SliceMethodCall at L39: method call t.length()
+- SliceDefinition at L40: definition of i (int i = s.length() - 1)
+- SliceMethodCall at L40: method call s.length()
+- SliceControlDependency at L41: control predicate over i, s, charAt, t, j
+- SliceControlDependency at L42: control predicate over s, charAt, i, t, j
+- SliceMethodCall at L42: method call s.charAt(i)
+- SliceMethodCall at L42: method call t.charAt(j)
+- SliceAssignment: assignment/update influencing i
+- SliceControlDependency at L49: control predicate over j
+
+Reasoning:
+The program takes two strings, "s" and "t", as input. The "solve" method is responsible for determining whether "s" contains all the characters of "t" in the same order.
+
+The method initializes the variables _obf_t5_solve_181246, j, and i with 0, the length of "t" minus 1, and the length of "s" minus 1, respectively. 
+
+The while loop at L41 checks if i is greater than or equal to 0. If it is, the program proceeds to check if the characters at the current positions of s and t are equal (at L42).
+
+If the characters are equal, j and i are decremented (at L43 and L44). Otherwise, i is decremented by 2 (at L47). 
+
+If j becomes -1

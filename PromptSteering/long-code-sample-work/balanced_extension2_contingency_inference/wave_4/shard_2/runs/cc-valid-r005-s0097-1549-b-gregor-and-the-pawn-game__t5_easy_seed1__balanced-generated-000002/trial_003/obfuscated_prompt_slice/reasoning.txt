@@ -1,0 +1,43 @@
+### REASONING BEGINS
+
+The input provided includes three different cases for the `pawnLineal` method:
+
+1. `4\n3\n000\n101` 
+   - The output is computed by the following code snippet: 
+   ```java
+   for (int i=1;i<scr.length()-1;i++){
+       if (scr.charAt(i)=='1'){
+           if (dst.charAt(i-1)=='1'){
+               dst.setCharAt(i-1,'X');
+               ret++;
+           }
+           else if (dst.charAt(i)=='0'){
+               dst.setCharAt(i,'X');
+               ret++;
+           }
+           else if (dst.charAt(i+1)=='1'){
+               dst.setCharAt(i+1,'X');
+               ret++;
+           }
+       }
+   }
+   ```
+   - This method iterates through the strings `scr` and `dst`, checking for the conditions where a pawn movement is allowed (`101` or `111`). In this case, only one movement is allowed (`001 -> 101`), so the return value is `1`.
+   
+2. `4\n0011\n1011` 
+   - This input also has only one allowed pawn movement (`0011 -> 1011`), so the return value is `1`.
+
+3. `3\n010\n010` 
+   - In this case, there are no allowed pawn movements, so the return value is `0`.
+
+4. `5\n11001\n00000` 
+   - For this input, there are two allowed pawn movements (`11001 -> 01001` and `11001 -> 00001`), so the return value is `2`.
+
+Therefore, the outputs for the provided inputs are:
+
+- `1`
+- `1`
+- `0`
+- `2`
+
+###

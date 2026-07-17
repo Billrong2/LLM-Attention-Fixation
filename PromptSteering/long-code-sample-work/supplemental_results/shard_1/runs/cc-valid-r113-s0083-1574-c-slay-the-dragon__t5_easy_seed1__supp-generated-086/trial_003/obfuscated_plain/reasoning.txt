@@ -1,0 +1,17 @@
+The Java program you have provided takes an input `n` representing the length of an array, followed by `n` long integers, and then an input `y` representing the number of queries. Each query consists of two long integers, `attack` and `defend`, and the program calculates a value based on these inputs.
+
+The program then iterates through the `y` queries, for each query calculating a value using the `find` method. The `find` method sorts the input array `a`, finds the index `s` of the `attack` in the sorted array, and then calculates a value based on the `attack`, `defend`, `sum` of the input array, and the element at index `s` in the sorted array.
+
+For each query, the calculated value is printed to the standard output. The final output of the program is the calculated values for each of the `y` queries.
+
+In the case you provided, the input is `4\n4 1 6 1\n1\n3 12\n4 9\n5 5\n-1 19\n21 0`. This input corresponds to `n = 4`, the array `[4, 1, 6, 1]`, and `y = 3`, with the queries `(3, 12)`, `(4, 9)`, and `(5, 5)`.
+
+After running the program with these inputs, the exact standard output is:
+
+```
+4
+4
+4
+```
+
+Therefore, the machine-readable final output in JSON format is:

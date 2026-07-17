@@ -1,0 +1,44 @@
+ To predict the exact standard output of the given Java program for the provided case, we need to follow the program's logic step-by-step. Here's the reasoning:
+
+1. The program starts by creating an instance of `FastReader` named `s`.
+2. It then reads the number of test cases, `t`, which is 3 in this case.
+3. For each test case, it reads an integer `n` and a string of characters `ch`.
+4. The `find` method is invoked with `n` and `ch` as arguments.
+5. The `find` method calculates the moves based on the characters in `ch`.
+
+Now let's break down the `find` method for each test case:
+
+1. **First Test Case:**
+   - `n = 3`, `ch = "007"`
+   - Moves calculation:
+     - `moves += ch[n-1]-'0';` -> `moves += 7`
+     - For `i = 0` and `i = 1`, the character is '0', so no additional moves.
+   - Final `moves` = 7
+
+2. **Second Test Case:**
+   - `n = 4`, `ch = "1100"`
+   - Moves calculation:
+     - `moves += ch[n-1]-'0';` -> `moves += 0`
+     - For `i = 0` and `i = 1`, the character is '1', so `moves += (1+1)` for each, which adds 2 to moves.
+     - Final `moves` = 2
+
+3. **Third Test Case:**
+   - `n = 5`, `ch = "00010"`
+   - Moves calculation:
+     - `moves += ch[n-1]-'0';` -> `moves += 0`
+     - For `i = 0`, `i = 1`, and `i = 2`, the character is '0', so no additional moves.
+     - For `i = 3`, the character is '1', so `moves += (1+1)` which adds 2 to moves.
+     - Final `moves` = 2
+
+The program outputs the calculated `moves` for each test case. Therefore, the exact standard output is:
+
+```
+7
+2
+2
+```
+
+In machine-readable format:
+
+```json
+FINAL_OUTPUT_JSON: {"stdout":"7\n2\n2\n

@@ -1,0 +1,32 @@
+ To predict the exact output of the given Java program, let's break down the main steps and reasoning:
+
+1. The program reads an integer `T` representing the number of test cases.
+2. For each test case:
+    - It reads two integers `n` and `k`.
+    - It calculates `pow = pow(2, n)` which is `2^n`.
+    - It calculates `other` which is `pow(2, n - 1)` but adjusted based on the parity of `n`.
+    - It initializes a 2D array `dp` for memoization.
+    - It calls the `cal` method to compute the result and prints it.
+
+Now, let's focus on the `cal` method:
+- It takes four parameters: `index`, `larger`, `n`, `twoPowerN`, and `other`.
+- If `index < 0`, it returns `1` (base case).
+- If `dp[larger][index]` has already been computed, it returns that value.
+- Otherwise, it calculates the result based on whether `larger` is `1` or `0` and stores it in `dp`.
+
+The key part of the calculation in `cal`:
+- If `larger` is `1`, it multiplies the result by `twoPowerN` and recursively calls itself with `index - 1`.
+- If `larger` is `0`, it multiplies the result by `other` and also checks if `n` is even, adding the recursive call with `larger = 1`.
+
+Let's analyze the specific case provided:
+- `n = 3`, `k = 6`
+- `pow = 2^3 = 8`
+- `other = 2^(3-1) = 4`, adjusted for odd `n`, so `other = 4 + 1 = 5`
+
+We need to trace the recursive calls to `cal`:
+- `cal(5, 0, 3, 8, 5)`:
+  - `cal(4, 0, 3, 8, 5)`:
+    - `cal(3, 0, 3, 8, 5)`:
+      - `cal(2, 0, 3, 8, 5)`:
+        - `cal(1, 0, 3, 8, 5)`:
+          - `cal(0, 

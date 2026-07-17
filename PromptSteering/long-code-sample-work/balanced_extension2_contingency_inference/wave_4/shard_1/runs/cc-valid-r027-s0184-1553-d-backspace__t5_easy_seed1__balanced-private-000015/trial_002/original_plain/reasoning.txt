@@ -1,0 +1,12 @@
+CASE 1:
+- The program starts by creating an instance of the `FastScanner` class.
+- It then reads an integer from standard input using `FastScanner`'s `ni()` method.
+- The program enters a loop that runs `ni()` times, where `ni()` represents the number of test cases.
+- Inside the loop, the program reads two strings from standard input using `FastScanner`'s `next()` method.
+- The program calls the `solve()` method, passing in the two strings as arguments.
+- The `solve()` method checks if `t.charAt(j)` is equal to `s.charAt(i)`.
+- If the condition is true, `j` and `i` are decremented by 1.
+- If the condition is false, `i` is decremented by 2.
+- If `j` becomes `-1`, the `solve()` method returns "YES".
+- If the loop finishes without `j` becoming `-1`, the `solve()` method returns "NO".
+- Finally, the result of `solve()` is printed to standard output using `printArr()` method.

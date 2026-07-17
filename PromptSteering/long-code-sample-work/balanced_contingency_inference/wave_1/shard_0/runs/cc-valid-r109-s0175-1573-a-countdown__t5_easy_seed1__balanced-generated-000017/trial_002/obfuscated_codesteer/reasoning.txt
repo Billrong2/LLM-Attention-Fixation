@@ -1,0 +1,15 @@
+### CASES_BEGIN
+c001: invoke program entry point; target_method=find; stdin="7\n3\n007\n4\n1000\n5\n00000\n3\n103\n4\n2020\n9\n189517537\n30\n001678294039710047203946100020\n"; argv=[]
+### CASES_END
+
+Concise reasoning:
+
+1. Read the input integer `n` from the first line.
+2. Read the next line as a character array `ch` with length `n`.
+3. Initialize `moves` to 0.
+4. Increment `moves` by the value of the last character in `ch` minus '0'.
+5. Iterate from `i=0` to `n-2` (inclusive).
+6. If the current character minus '0' is greater than 0, increment `moves` by the current character minus '0' plus 1.
+7. Return `moves`.
+
+Machine-readable output:

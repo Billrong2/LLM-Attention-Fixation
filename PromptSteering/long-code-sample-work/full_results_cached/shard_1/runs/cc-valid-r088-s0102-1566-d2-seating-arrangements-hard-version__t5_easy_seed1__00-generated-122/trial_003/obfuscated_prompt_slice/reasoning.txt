@@ -1,0 +1,17 @@
+### Reasoning:
+
+The program `Main` contains a `main` method that reads input from `stdin` and prints the output to `stdout`. The `main` method calls the `solve` method with an `ArrayList<pair>` and an integer `m`. The `solve` method calculates the sum of the number of elements in the `ArrayList<pair>` that are greater than the current element and returns it.
+
+The `solve` method iterates through the `ArrayList<pair>` and calculates the sum of the number of elements that are greater than the current element. It uses two nested `for` loops, where the outer loop iterates through the elements in the `ArrayList<pair>` and the inner loop iterates through the elements that have a smaller index than the current element. If the current element is greater than the element with a smaller index, the inner loop increments a counter variable `temp`. The `solve` method then adds `temp` to the `sum` variable.
+
+After the `main` method calls the `solve` method, it prints the `sum` variable to `stdout`. The program then flushes the `PrintWriter` and exits.
+
+The program uses the `FastReader` class to read input from `stdin` and the `pair` and `sort` classes to implement a custom sorting algorithm. The `pair` class implements the `Comparable` interface and compares two `pair` objects based on their `val` and `idx` attributes. The `sort` class implements the `Comparator` interface and compares two `pair` objects based on their `val` attribute.
+
+The program also contains a `nextLargerElement` method that returns the indices of the next larger elements for each element in an array. The `gcd` method calculates the greatest common divisor of two numbers, and the `lcm` method calculates the least common multiple of two numbers. The `primefactor` method calculates the prime factors of a given number.
+
+The program is deterministic, meaning that the output will always be the same for the given input. The output is the sum of the number of elements in the `ArrayList<pair>` that are greater than the current element.
+
+The program is not optimized for performance and may not work efficiently for large inputs. Additionally, the program contains several unnecessary comments and unused code, which may affect the program's readability and performance.
+
+The program's output will depend on the input provided to it. For example, if the input is `7\n1 2\n1 1\n3 2

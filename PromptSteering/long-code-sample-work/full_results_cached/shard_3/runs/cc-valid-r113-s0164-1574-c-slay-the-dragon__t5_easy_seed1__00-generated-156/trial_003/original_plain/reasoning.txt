@@ -1,0 +1,26 @@
+### CASE c001
+#### Input
+```
+4
+12 11 1 2
+1
+12 28
+7 2
+4 10
+0 13
+8 7
+```
+#### Output
+```
+17
+```
+
+### Reasoning
+1. `get(Long [] a, long x)` performs binary search to find the index of the largest element less than `x`.
+2. `main()` reads input, sorts `arr`, computes `sums`, and processes test cases.
+3. For each test case, it computes the minimum cost to reach `d` and `p`.
+
+### Final Output JSON
+```json
+{"stdout":"17"}
+```

@@ -1,0 +1,33 @@
+### Reasoning
+The program starts by reading the number of test cases `t` and then proceeds to handle each test case individually. Each test case is processed as follows:
+
+1. The program reads three integers `n`, `m`, and `k` from the input.
+2. It reads `n` integers to populate an array `yline` and `m` integers to populate an array `xline`.
+3. It reads `k` pairs of integers to populate two arrays `px` and `py`.
+4. The program then calculates the number of points `(px[i], py[i])` that are not covered by the lines defined by `yline` and `xline` using the `solve` method.
+5. The result of each test case is printed to the console.
+
+The `solve` method works as follows:
+
+1. It creates sets `yset` and `xset` from the elements of `yline` and `xline`, respectively.
+2. It creates lists `xlist` and `ylist` from the pairs `(yline[i], -1)` and `(xline[i], -1)`.
+3. For each point `(px[i], py[i])`, it checks if the point is covered by the lines. If not, it adds the point to the appropriate list.
+4. It sorts both `xlist` and `ylist`.
+5. It iterates over the sorted lists to calculate the number of points not covered by the lines. It does this by maintaining two maps (`mapx` and `mapy`) and two sums (`sumx` and `sumy`) to track the cumulative count of points.
+6. The final answer is the sum of `ans` after processing both lists.
+
+Given the input:
+```
+1
+2 2 2
+0 1010000
+0 1000000
+1556 1000000
+0 18
+```
+The output of the program will be:
+```
+9
+```
+### Final Output JSON
+```json

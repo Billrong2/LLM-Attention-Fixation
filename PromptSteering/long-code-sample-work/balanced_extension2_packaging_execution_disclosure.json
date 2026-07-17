@@ -1,0 +1,18 @@
+{
+  "schema_version": "long-code-balanced-extension2-packaging-execution-disclosure-v1",
+  "recorded_at_local": "2026-07-13 21:13:41 CDT (-0500)",
+  "incident_time_local_approximate": "2026-07-13 21:11 CDT (-0500)",
+  "incident_time_is_approximate": true,
+  "working_directory": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work",
+  "command": "rg --files | rg 'extension2.*disclos|disclos.*extension2|balanced_extension2' | head -n 80",
+  "disclosure": "During implementation of the case-study packager, a broad filename-only search unexpectedly listed path names under the existing balanced Extension-2 Wave-4 inference directory. This corrects any packaging-process claim that no result path was listed. No inference-result file content, completion, reasoning trace, score, prompt, aggregate progress, or model outcome was opened, read, summarized, or used. The command made no filesystem mutation and did not alter frozen cases, manifests, settings, the ongoing run, or any sequential trigger or launch decision.",
+  "result_path_names_listed": true,
+  "result_file_contents_read": false,
+  "result_progress_inspected": false,
+  "model_outcomes_inspected_or_used": false,
+  "frozen_extension2_package_modified": false,
+  "cases_or_settings_modified": false,
+  "ongoing_run_modified": false,
+  "sequential_triggers_or_launch_decisions_modified": false,
+  "filesystem_mutation_by_incident_command": false
+}

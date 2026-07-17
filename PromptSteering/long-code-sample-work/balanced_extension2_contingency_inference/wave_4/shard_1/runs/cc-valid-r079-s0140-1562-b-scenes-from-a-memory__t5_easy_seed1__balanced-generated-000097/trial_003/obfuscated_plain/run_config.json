@@ -1,0 +1,41 @@
+{
+  "activation_steering": false,
+  "codesteer_prior_preflight": null,
+  "condition": "obfuscated_plain",
+  "fingerprint": "cb8e9564fdd3111bee30dd502a3a4201796bd8684d443b912b426b0b7b074cfb",
+  "generation": {
+    "do_sample": true,
+    "max_new_tokens": 512,
+    "temperature": 1.05,
+    "top_k": 7,
+    "top_p": 0.95
+  },
+  "manifest_sha256": "bdb56bd094e30d46d541daca1c620132c75219376f188b11a5dbe20877c3c253",
+  "model_name": "Qwen/Qwen2.5-14B",
+  "model_snapshot_commit": "97e1e76335b7017d8f67c08a19d103c0504298c9",
+  "obfuscated_sha256": "c3d36479361ef8a0776353f1da8bef5e20bb874ec9cfef8b836adb0b2321a069",
+  "original_sha256": "7193729d3ba14ddf03421507912226b82c1b86ddc12b4cd1844ad3e11c49e666",
+  "paired_design": "same seed for all four conditions in this sample/trial",
+  "paired_seed": 1893183110,
+  "prompt_metadata": {
+    "enabled": false,
+    "mechanism": "none",
+    "recorded_target_method": "isPrime"
+  },
+  "prompt_sha256": "2ff5b2cb183068875fbe32875001326ae716e79f323ce9185bc333409c060a94",
+  "protocol_version": "long-code-output-v1",
+  "sample_id": "cc-valid-r079-s0140-1562-b-scenes-from-a-memory__t5_easy_seed1__balanced-generated-000097",
+  "source_kind": "obfuscated",
+  "source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r079-s0140-1562-b-scenes-from-a-memory/variants/T5_bogus_control_flow/easy/seed_1/Main.java",
+  "steering": null,
+  "target_method": "isPrime",
+  "token_preflight": {
+    "context_limit": 131072,
+    "context_margin_tokens": 128488,
+    "fits_context": true,
+    "max_new_tokens": 512,
+    "prompt_sha256": "2ff5b2cb183068875fbe32875001326ae716e79f323ce9185bc333409c060a94",
+    "prompt_token_count": 2072
+  },
+  "trial": 3
+}

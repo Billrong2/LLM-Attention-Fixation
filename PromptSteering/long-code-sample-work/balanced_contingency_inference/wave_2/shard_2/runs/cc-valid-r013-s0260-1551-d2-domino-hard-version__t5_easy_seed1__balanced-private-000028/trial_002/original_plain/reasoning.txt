@@ -1,0 +1,26 @@
+The exact standard output of this deterministic Java program for the concrete case below:
+
+### CASES_BEGIN
+c001: invoke program entry point; target_method=cal; stdin="1\n6 7 20\n"; argv=[]
+### CASES_END
+
+is:
+```
+YES
+a a a a a a 
+a b b a a a 
+a b c b c a 
+a c a b a a 
+a c b c b a 
+a d b c a a 
+```
+
+The algorithm method `cal` is called with the following parameters: `index=0`, `horizontal=20`, `n=6`, `m=7`.
+
+The algorithm uses a boolean `dp` array to keep track of whether the current state is possible or not. It also uses a `cur` variable to keep track of the current character index in the alphabet.
+
+The algorithm recursively explores all possible states, trying to place the characters in the grid while maintaining the constraints. If a state is found to be impossible, it is marked in the `dp` array.
+
+The algorithm also uses a `re` array to keep track of the grid state. The `cal` function returns `true` if a valid solution is found, and it prints the grid in the `YES` case. If no solution is found, it prints `NO`.
+
+For the given input, the algorithm finds a valid solution and prints it as shown above.

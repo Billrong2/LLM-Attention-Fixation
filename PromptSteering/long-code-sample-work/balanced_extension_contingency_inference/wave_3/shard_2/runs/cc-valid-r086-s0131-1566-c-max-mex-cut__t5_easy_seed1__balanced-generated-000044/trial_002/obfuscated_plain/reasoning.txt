@@ -1,0 +1,29 @@
+### Reasoning:
+
+1. **Initialization**: `dp` array is initialized to `-1`.
+2. **Input**: Read 3 integers and 2 strings.
+3. **Next Calculation**:
+   - Initialize `nxt` array with `-1` values.
+   - Populate `nxt` based on characters in the strings from right to left.
+4. **Calculation**:
+   - For `index` from `0` to `n-1`, calculate `result` based on the values in `nxt` and update `dp[index]`.
+5. **Output**: Print the calculated result.
+
+### Exact Output:
+The exact output for the given input is:
+```
+FINAL_OUTPUT_JSON: {"stdout":"4\n2\n4\n"}
+```
+
+### Detailed Steps:
+1. **Initialization**: `dp` array is initialized to `-1`.
+2. **Input**: Read 3 integers and 2 strings.
+3. **Next Calculation**:
+   - Initialize `nxt` array with `-1` values.
+   - Populate `nxt` based on characters in the strings from right to left.
+4. **Calculation**:
+   - For `index` from `0` to `n-1`, calculate `result` based on the values in `nxt` and update `dp[index]`.
+5. **Output**: Print the calculated result.
+
+### Final Output:
+```

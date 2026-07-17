@@ -1,0 +1,29 @@
+**Output Prediction Reasoning**
+
+To predict the output of the program, we need to focus on the `find` method, which is called for each test case.
+
+* The method takes two parameters: `n` (an integer) and `ch` (a character array).
+* The method starts by adding `ch[n-1] - '0'` to the variable `moves`. This effectively converts the last character of the input string to an integer and adds it to `moves`.
+* Then, it loops through the first `n-1` characters of the input string.
+	+ For each character, if its corresponding integer value is greater than 0, it adds `(ch[i] - '0') + 1` to `moves`.
+		- This effectively increments the integer value of the character by 1.
+
+After processing all test cases, the program outputs the result using `out.println`.
+
+For the given input:
+
+* Case 1: `7\n3\n007`
+	+ The input string is "007", so `n` is 3 and `ch` contains "007".
+	+ `find(3, "007")` returns `1`, which is added to `moves`.
+* Case 2: `4\n1000`
+	+ The input string is "1000", so `n` is 4 and `ch` contains "1000".
+	+ `find(4, "1000")` returns `2`, which is added to `moves`.
+* Case 3: `5\n00000`
+	+ The input string is "00000", so `n` is 5 and `ch` contains "00000".
+	+ `find(5, "00000")` returns `0`, which is added to `moves`.
+* Case 4: `3\n103`
+	+ The input string is "103", so `n` is 3 and `ch` contains "103".
+	+ `find(3, "103")` returns `3`, which is added to `moves`.
+* Case 5: `4\n1247`
+	+ The input string is "1247", so `n` is 4 and `ch` contains "1247".
+	+ `find(4, "

@@ -1,0 +1,12 @@
+ ### Reasoning:
+1. The program starts by reading the number of elements `n` and an array `arr` of size `n`.
+2. It then sorts the array `arr`.
+3. It computes the cumulative sums of the elements in the sorted array into the `sums` array.
+4. Next, it reads an integer `t` which indicates the number of test cases.
+5. For each test case, it reads a `d` and `p`, and computes the index `x` of the first element greater than or equal to `d` using the `get` function.
+6. Based on the value of `x`, it calculates two possible answers `ans` and `ans2` and prints the minimum of the two.
+
+### FINAL_OUTPUT_JSON:
+```json
+{"stdout":"4\n4 1 6 1\n1\n3 12\n4 9\n5 5\n-1 19\n21 0\n"}
+```

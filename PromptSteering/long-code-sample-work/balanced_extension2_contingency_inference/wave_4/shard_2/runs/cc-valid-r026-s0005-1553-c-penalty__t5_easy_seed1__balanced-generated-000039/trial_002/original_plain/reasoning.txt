@@ -1,0 +1,41 @@
+To predict the output, we need to analyze the `main` method and its interactions with the `helper` method. Let's break it down step-by-step:
+
+1. **Initialization**:
+   - The program reads the number of test cases, `test`, from the input.
+   - The input is "4\n0????00101\n1010111011\n??????????\n1100010100\n".
+
+2. **First Test Case**:
+   - The first test case has the input "0????00101".
+   - The `helper` method is called with the initial parameters:
+     - `index = 0`
+     - `f = 0`
+     - `s = 0`
+     - `k1 = 5`
+     - `k2 = 5`
+     - `s1 = "0????00101"`
+
+3. **Execution of `helper` Method**:
+   - The loop runs until `index` reaches 10.
+   - For each character in `s1`:
+     - If the character is '0' or '?', it updates `k1` or `k2` accordingly.
+     - If the character is '1', it updates `f` or `s` and decrements `k1` or `k2`.
+
+4. **Calculation of Output**:
+   - The `helper` method returns the count of valid moves.
+   - The result for the first test case is printed.
+
+5. **Second Test Case**:
+   - The second test case has the input "1010111011".
+   - The `helper` method is called with the same initial parameters:
+     - `index = 0`
+     - `f = 0`
+     - `s = 0`
+     - `k1 = 5`
+     - `k2 = 5`
+     - `s1 = "1010111011"`
+
+6. **Execution of `helper` Method**:
+   - The loop runs until `index` reaches 10.
+   - For each character in `s1`:
+     - If the character is '0' or '?', it updates `k1` or `k2` accordingly.
+     - If the character is '1', it updates `f` or `s` and decrements `k

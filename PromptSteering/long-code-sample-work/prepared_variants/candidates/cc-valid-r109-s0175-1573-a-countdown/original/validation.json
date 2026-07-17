@@ -1,0 +1,129 @@
+{
+  "codesteer_target": {
+    "called_directly_from_main": true,
+    "eligible_parameter_to_return_target": true,
+    "genuine_return_sink_count": 1,
+    "main_called_method_names": [
+      "close",
+      "find",
+      "nextInt",
+      "nextLine",
+      "println",
+      "toCharArray"
+    ],
+    "method_names": [
+      "next",
+      "nextInt",
+      "readIntArray",
+      "readLongArray",
+      "nextLong",
+      "nextDouble",
+      "nextLine",
+      "main",
+      "find",
+      "gcd",
+      "gcd",
+      "lcm",
+      "lcm",
+      "pow",
+      "modPow",
+      "mul",
+      "fact",
+      "fastPow",
+      "debug",
+      "debug",
+      "debugMatrix",
+      "debugMatrix",
+      "reverseArray",
+      "reverseArray",
+      "toString",
+      "compare"
+    ],
+    "parameter_count": 2,
+    "parameters": [
+      {
+        "name": "n",
+        "type": "int"
+      },
+      {
+        "name": "ch",
+        "type": "char[]"
+      }
+    ],
+    "parse_status": "javalang",
+    "return_sink_count": 1,
+    "return_type": "int",
+    "selected_method": "find",
+    "selected_method_line": 107,
+    "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+    "selector_implementation_owner": "steering.priors.SlicingPrior",
+    "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+  },
+  "entry": {
+    "compile_class": "Codeforces1",
+    "main_class": "Codeforces1",
+    "package": "",
+    "parse_status": "javalang"
+  },
+  "execution_validation": {
+    "accepted": true,
+    "cases": [
+      {
+        "accepted": true,
+        "actual_trimmed": "7\n2\n2\n5\n6\n53\n115",
+        "case_id": "00-generated-007",
+        "command": [
+          "java",
+          "-Dfile.encoding=UTF-8",
+          "-Djava.io.tmpdir=<scratch>",
+          "-Duser.home=<scratch>",
+          "-XX:-UsePerfData",
+          "-cp",
+          "<classes>",
+          "Codeforces1"
+        ],
+        "duration_seconds": 0.03412,
+        "exit_code": 0,
+        "expected_trimmed": "7\n2\n2\n5\n6\n53\n115",
+        "raw_expected_stdout_sha256": "77816cf4b5f52eb6b8be80efd4e363dc4fd8e1850eef53fdc83e482f2f93dc84",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "77816cf4b5f52eb6b8be80efd4e363dc4fd8e1850eef53fdc83e482f2f93dc84",
+        "stderr": "",
+        "stdout": "7\n2\n2\n5\n6\n53\n115\n",
+        "timed_out": false,
+        "trimmed_exact_match": true
+      }
+    ],
+    "compile": {
+      "accepted": true,
+      "command": [
+        "javac",
+        "-encoding",
+        "UTF-8",
+        "-J-Djava.io.tmpdir=<scratch>",
+        "-J-Duser.home=<scratch>",
+        "-J-XX:-UsePerfData",
+        "-Xlint:none",
+        "-nowarn",
+        "-d",
+        "<classes>",
+        "<scratch>/Codeforces1.java"
+      ],
+      "exit_code": 0,
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    "entry": {
+      "compile_class": "Codeforces1",
+      "main_class": "Codeforces1",
+      "package": "",
+      "parse_status": "javalang"
+    }
+  },
+  "physical_loc": 271,
+  "source_path": "candidates/cc-valid-r109-s0175-1573-a-countdown/original/Codeforces1.java",
+  "source_sha256": "a1aedda73fa68adbacd505e753b9737e86b7ec0dd223bfe26e533dca1814d1af"
+}

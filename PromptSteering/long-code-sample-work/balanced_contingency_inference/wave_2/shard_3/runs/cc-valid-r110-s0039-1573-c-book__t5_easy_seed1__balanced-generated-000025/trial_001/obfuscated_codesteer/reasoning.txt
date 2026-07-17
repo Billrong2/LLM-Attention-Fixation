@@ -1,0 +1,25 @@
+### Reasoning:
+
+1. **Initialization**: 
+   The program starts by initializing the `Scanner` object, which reads from the standard input.
+   
+2. **Input Reading**:
+   - The number of test cases `T` is read from the input.
+   - For each test case, the number of vertices `n` is read, followed by the adjacency list for each vertex.
+   
+3. **Dynamic Programming Array Initialization**:
+   - An array `dp` is initialized with `-2` to mark vertices that have not been visited yet.
+   
+4. **Main Loop**:
+   - For each vertex, the `cal` function is called to compute the maximum distance.
+   - If any vertex returns `-1`, the result for that test case is set to `-1`.
+   - Otherwise, the maximum value computed from all vertices is stored.
+   
+5. **Output**:
+   - The maximum distance for each test case is printed to the standard output.
+
+### Final Output:
+Based on the given input, the program computes the maximum distance for each test case and prints the result.
+
+### Machine-Readable Final Output:
+```json

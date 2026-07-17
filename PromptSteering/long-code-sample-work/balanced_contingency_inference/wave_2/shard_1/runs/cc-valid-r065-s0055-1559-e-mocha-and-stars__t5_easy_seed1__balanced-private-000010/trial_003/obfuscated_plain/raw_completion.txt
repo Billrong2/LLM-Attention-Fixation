@@ -1,0 +1,13 @@
+ ### CASES_BEGIN
+c001: invoke program entry point; target_method=ans; stdin="5 1000\n3 997\n3 998\n6 996\n1 1000\n8 998\n"; argv=[]
+### CASES_END
+
+Given the input for CASE c001, the program first processes the input to read the values and initialize the required variables. The main function then calls the `mobiusAndPrime` function to calculate the values of `mu` and `isPrime` arrays. After this, it calculates the `ans` value using the `ans` function and finally prints the output.
+
+Here's a detailed reasoning for the control flow:
+
+1. The `mobiusAndPrime` function calculates the values of `mu` and `isPrime` arrays up to 100000.
+2. The `ans` function calculates the final sum using the `num` array and returns it.
+3. The main function calls the `ans` function with the required parameters and prints the output.
+
+FINAL_OUTPUT_JSON: {"stdout":"4"}

@@ -1,0 +1,36 @@
+ ### CASES_BEGIN
+c001: invoke program entry point; target_method=solve; stdin="1\nababc\nab\n"; argv=[]
+
+### CASES_END
+
+The provided Java program reads the number of test cases and then processes each test case, where each test case consists of two strings. For each test case, it checks whether the second string `t` can be found in the first string `s` by removing characters from `s`. The function `solve(s, t)` attempts to find the longest subsequence in `s` that matches `t`. If such a subsequence exists, it returns "YES"; otherwise, it returns "NO".
+
+Given the input:
+```
+1
+ababc
+ab
+```
+
+Let's trace the execution of the `solve` method:
+
+1. Initialize `i` (the index of `s`) and `j` (the index of `t`) to the last characters of their respective strings:
+   - `i = 4` (for "ababc")
+   - `j = 1` (for "ab")
+
+2. Enter the while loop and compare the current characters at `i` and `j`:
+   - If `s[i]` equals `t[j]`, move both pointers back one step (`i--`, `j--`).
+   - Otherwise, move the pointer `i` back two steps (`i -= 2`).
+
+3. Continue this process until either `i` becomes less than 0 or `j` becomes -1.
+
+4. After the loop terminates, check if `j` is -1. If true, return "YES"; otherwise, return "NO".
+
+Given the string "ababc" and "ab":
+- Start at the end: 'c' (index 4) does not match 'b' (index 1), so move two steps back to 'a' (index 2).
+- Next, 'a' (index 2) matches 'b' (index 0), so move one step back to 'a' (index 1) and 'a' (index 0).
+- Finally, 'a' (index 1) matches 'a' (index 0), so move one step back to 'b' (index 0) and 'a' (index -1).
+
+At this point, `j` is -1, indicating that the entire string `t` has been matched by removing characters from `s`.
+
+Thus

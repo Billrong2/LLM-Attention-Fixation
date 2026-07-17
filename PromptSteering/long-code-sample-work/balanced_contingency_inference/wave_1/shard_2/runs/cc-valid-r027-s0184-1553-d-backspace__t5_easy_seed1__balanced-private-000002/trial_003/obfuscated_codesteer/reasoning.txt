@@ -1,0 +1,43 @@
+To solve the problem, we need to follow the steps described in the `solve` method of the given Java code. The problem involves determining whether it is possible to delete characters from the string `s` in such a way that it can be made equal to the string `t` by deleting characters from `s` in pairs.
+
+### Step-by-Step Reasoning:
+
+1. **Input Initialization:**
+   - Read the number of test cases `tc`.
+   - For each test case, read two strings `s` and `t`.
+
+2. **Processing Each Test Case:**
+   - Initialize pointers `i` and `j` to the end of strings `s` and `t`, respectively.
+   - Use a while loop to iterate through the characters of `s` from the end towards the beginning.
+   - For each character `s[i]`:
+     - If `s[i]` is equal to `t[j]`, then decrement both `i` and `j`.
+     - If `s[i]` is not equal to `t[j]`, then decrement `i` by 2 (since we need to remove two characters at a time).
+   - After the loop, check if `j` is less than 0, which means all characters in `t` have been matched.
+
+3. **Output:**
+   - If `j` is less than 0, return "YES".
+   - Otherwise, return "NO".
+
+### Detailed Step-by-Step Solution:
+
+#### CASE 1: `tc = 1`
+- Input: `edcca`, `ec`
+
+#### CASE 2: `tc = 1`
+- Input: `edcc`, `e`
+
+### Detailed Steps:
+
+1. **Initialize Variables:**
+   - `i = 5` (since `edcca` has 5 characters)
+   - `j = 2` (since `ec` has 2 characters)
+
+2. **First Iteration:**
+   - `i = 5`, `j = 2`
+   - `s[5] = 'a'`, `t[2] = 'c'`
+   - `s[i]` is not equal to `t[j]`, so decrement `i` by 2.
+     - `i = 3`
+
+3. **Second Iteration:**
+   - `i = 3`, `j = 2`
+   - `s[3] = 'c'`, `t[2

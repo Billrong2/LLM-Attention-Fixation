@@ -1,0 +1,26 @@
+{
+  "schema_version": "long-code-balanced-path-correction-v1",
+  "selection_frozen_before_corrected_supplemental_outcomes": true,
+  "administrative_refreeze_after_outcomes": true,
+  "case_selection_or_ranking_changed": false,
+  "case_inputs_or_oracles_changed": false,
+  "tokenizer_filtered_manifests_changed": false,
+  "wave_1_manifest_sha256_before_and_after": "77c56a24424561d210e0267af98bca99de1261d4a6a99419abf86459ac9a9281",
+  "wave_2_manifest_sha256_before_and_after": "1ad71da922365aae463acc32511ba3809ffe5839a5267e2bd8aba66fd58b21dd",
+  "last_pre_outcome_freeze_manifest_sha256": "eb0acd8cdf021109bb8dce0420731a3bf638d31c04bc49f285f10e7daa3ceb00",
+  "correction": "Launch arguments and the working directory were rebased together so the registered runner resolves each relative output root beneath long-code-sample-work exactly once.",
+  "outcome_use_disclosure": "No completion, score, exact-match result, or reasoning trace was used to select, replace, rank, or alter a case. The administrative path correction was prompted solely by the observed duplicated filesystem location.",
+  "excluded_attempt": {
+    "relative_path_from_work_root": "balanced_wave1_path_rebase_attempt",
+    "total_completed_records": 21,
+    "completed_records_per_shard": [6, 3, 6, 6],
+    "included_in_any_audit_or_selection": false,
+    "sessions_stopped_before_correction": true,
+    "results_index_sha256": [
+      "36b50be18f82db39ab21d8ba86298bebf0bccbefb48ea9c79d75be26d93f4f00",
+      "cf60150ca0ab375511fdfe61bce737484019bf62a2b898a00c15af13f3cb97ca",
+      "8b8e8ec541d2945b3178d5603a2090e505f786d81cc192b85a88aa42da9e58b6",
+      "21324f0b24884f3e7306d7431d8ea8b3402f9c5fccf5299d23b7460e27388ce5"
+    ]
+  }
+}

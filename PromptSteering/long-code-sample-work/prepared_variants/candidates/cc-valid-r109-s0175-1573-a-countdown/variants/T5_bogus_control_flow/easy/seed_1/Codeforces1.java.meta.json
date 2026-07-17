@@ -1,0 +1,223 @@
+{
+  "budgets": {
+    "ast_growth_ok": true,
+    "limits": {
+      "max_added_branches_per_100_stmts": 5,
+      "max_cfg_states_for_flattening": 4,
+      "max_expr_depth_increase": 2,
+      "max_new_ast_nodes_percent": 50.0,
+      "max_new_helpers": 2
+    },
+    "usage": {
+      "added_branches": 0,
+      "ast_nodes_after": 3792,
+      "ast_nodes_before": 3152,
+      "expr_depth_increase": 0,
+      "flatten_states_added": 0,
+      "helpers_added": 0
+    }
+  },
+  "class_renamed": false,
+  "codesteer_target": {
+    "called_directly_from_main": true,
+    "eligible_parameter_to_return_target": true,
+    "genuine_return_sink_count": 1,
+    "main_called_method_names": [
+      "close",
+      "find",
+      "nextInt",
+      "nextLine",
+      "println",
+      "toCharArray"
+    ],
+    "method_names": [
+      "next",
+      "nextInt",
+      "readIntArray",
+      "readLongArray",
+      "nextLong",
+      "nextDouble",
+      "nextLine",
+      "main",
+      "find",
+      "gcd",
+      "gcd",
+      "lcm",
+      "lcm",
+      "pow",
+      "modPow",
+      "mul",
+      "fact",
+      "fastPow",
+      "debug",
+      "debug",
+      "debugMatrix",
+      "debugMatrix",
+      "reverseArray",
+      "reverseArray",
+      "toString",
+      "compare"
+    ],
+    "parameter_count": 2,
+    "parameters": [
+      {
+        "name": "n",
+        "type": "int"
+      },
+      {
+        "name": "ch",
+        "type": "char[]"
+      }
+    ],
+    "parse_status": "javalang",
+    "return_sink_count": 1,
+    "return_type": "int",
+    "selected_method": "find",
+    "selected_method_line": 133,
+    "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+    "selector_implementation_owner": "steering.priors.SlicingPrior",
+    "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+  },
+  "difficulty": "easy",
+  "equivalence": {
+    "details": "not_run",
+    "exit_match": false,
+    "stderr_match": false,
+    "stdout_match": false
+  },
+  "jdk17_execution_validation": {
+    "accepted": true,
+    "cases": [
+      {
+        "accepted": true,
+        "actual_trimmed": "7\n2\n2\n5\n6\n53\n115",
+        "case_id": "00-generated-007",
+        "command": [
+          "java",
+          "-Dfile.encoding=UTF-8",
+          "-Djava.io.tmpdir=<scratch>",
+          "-Duser.home=<scratch>",
+          "-XX:-UsePerfData",
+          "-cp",
+          "<classes>",
+          "Codeforces1"
+        ],
+        "duration_seconds": 0.034104,
+        "exit_code": 0,
+        "expected_trimmed": "7\n2\n2\n5\n6\n53\n115",
+        "raw_expected_stdout_sha256": "77816cf4b5f52eb6b8be80efd4e363dc4fd8e1850eef53fdc83e482f2f93dc84",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "77816cf4b5f52eb6b8be80efd4e363dc4fd8e1850eef53fdc83e482f2f93dc84",
+        "stderr": "",
+        "stdout": "7\n2\n2\n5\n6\n53\n115\n",
+        "timed_out": false,
+        "trimmed_exact_match": true
+      }
+    ],
+    "compile": {
+      "accepted": true,
+      "command": [
+        "javac",
+        "-encoding",
+        "UTF-8",
+        "-J-Djava.io.tmpdir=<scratch>",
+        "-J-Duser.home=<scratch>",
+        "-J-XX:-UsePerfData",
+        "-Xlint:none",
+        "-nowarn",
+        "-d",
+        "<classes>",
+        "<scratch>/Codeforces1.java"
+      ],
+      "exit_code": 0,
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    "entry": {
+      "compile_class": "Codeforces1",
+      "main_class": "Codeforces1",
+      "package": "",
+      "parse_status": "javalang"
+    }
+  },
+  "language": "java",
+  "level": null,
+  "main_touched": false,
+  "method_coverage": {
+    "main_touched": true,
+    "method_coverage_total": 26,
+    "method_coverage_touched": 26,
+    "untouched_methods": []
+  },
+  "method_coverage_total": 0,
+  "method_coverage_touched": 0,
+  "metrics": {
+    "ast_nodes": 3792,
+    "cyclomatic_approx": 45,
+    "difficulty_score": 0.6417,
+    "helpers_injected": 0,
+    "lines": 355,
+    "max_ast_depth": 5,
+    "tokens": 3548
+  },
+  "mode": "technique",
+  "obfuscated_class_name": null,
+  "obfuscated_source_sha256": "f48fc0f518091a1e3540748b17a1a0986078f4e421aa4cc66ac3bbd5e0030e57",
+  "original_class_name": null,
+  "original_source_sha256": "a1aedda73fa68adbacd505e753b9737e86b7ec0dd223bfe26e533dca1814d1af",
+  "passes_applied": [
+    {
+      "applied": true,
+      "extra": {
+        "fallback_insertions": 7,
+        "main_touched": true,
+        "method_coverage_policy": "force_all",
+        "method_coverage_total": 26,
+        "method_coverage_touched": 26,
+        "untouched_methods": []
+      },
+      "helpers_injected": 0,
+      "name": "T5",
+      "node_delta": 26,
+      "reason": "bogus_cf:19|force_all_fallback:7",
+      "tier": "easy",
+      "time_ms": 9.042
+    }
+  ],
+  "profile_name": "safe",
+  "program_id": "cc-valid-r109-s0175-1573-a-countdown",
+  "requested_difficulty": "easy",
+  "requested_method_coverage_policy": "force_all",
+  "requested_profile": "safe",
+  "requested_seed": 1,
+  "seed": 8583528535454504268,
+  "selected_target_touch_evidence": {
+    "method_block_parser": "eyetracking.obfuscation.java.passes.utils.iter_method_blocks",
+    "obfuscated_block_name": "find",
+    "obfuscated_match_count": 1,
+    "obfuscated_method_bytes": 339,
+    "obfuscated_method_index": 8,
+    "obfuscated_method_sha256": "ff68e35d29e0f820160d01944d9ca457ef9ded3be7aa6284684cf80ee3238eb6",
+    "obfuscated_method_start_line": 132,
+    "obfuscated_name_matches_codesteer_target": true,
+    "obfuscated_target_line": 133,
+    "obfuscated_target_method": "find",
+    "original_block_name": "find",
+    "original_match_count": 1,
+    "original_method_bytes": 276,
+    "original_method_index": 8,
+    "original_method_sha256": "2a20153d1cd8dd24664d291bd430ee6146ae02db8d4f5e67837902c1f88e5660",
+    "original_method_start_line": 106,
+    "original_target_line": 107,
+    "original_target_method": "find",
+    "reason": "method_source_changed",
+    "touched": true,
+    "verifiable": true
+  },
+  "skipped_passes_with_reasons": [],
+  "technique": "T5",
+  "untouched_methods": []
+}

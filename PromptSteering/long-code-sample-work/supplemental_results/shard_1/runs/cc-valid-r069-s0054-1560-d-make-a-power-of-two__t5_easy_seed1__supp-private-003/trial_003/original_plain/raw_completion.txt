@@ -1,0 +1,15 @@
+
+
+
+### Reasoning:
+
+1. The program starts by initializing an `ArrayList` named `items` with a sequence of powers of 2 up to a very large number (900000_00000_0000000L + 10000).
+2. It then enters a loop that reads an integer `t` from standard input.
+3. For each value of `t`, it reads another integer `n` and calls the `getMin` method with the string representation of `n` and the `items` list.
+4. The `getMin` method iterates over each element in the `items` list, counting the number of characters that need to be changed to match the input string `string`. It then updates the `min` variable with the minimum count found so far.
+5. After processing all elements in the `items` list, the method returns the minimum count.
+6. The main method prints the result of each call to `getMin` and flushes the output.
+
+### Final Output JSON:
+
+FINAL_OUTPUT_JSON: {"stdout":"1\n1\n"}

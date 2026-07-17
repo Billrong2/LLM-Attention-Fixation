@@ -1,0 +1,13 @@
+The provided Java program calculates the number of ways to partition a given string of digits into substrings such that each substring is divisible by 3 and each digit can either be part of a single digit substring or part of a two-digit substring. 
+
+The input is a single integer `t` indicating the number of test cases, followed by `t` lines each containing a string of digits. The output for each test case is the number of valid partitions modulo 10^9 + 7.
+
+The algorithm uses dynamic programming with memoization to efficiently calculate the number of valid partitions for each substring of the input string. The state of the dynamic programming is represented by two parameters: the index `in` indicating the current position in the input string, and the `carry` parameter which tracks the carry from previous operations.
+
+The base case for the dynamic programming is when `in` reaches the end of the input string. At this point, the algorithm checks if the carry is divisible by 3 and returns 1 if it is, otherwise it returns 0. If the current digit at index `in` is 0, then there are no valid partitions and the algorithm recursively calls itself with the next index and the same carry. Otherwise, the algorithm checks if the current digit and the next two digits form a valid substring and recursively calls itself with the next index and the updated carry. If the current digit does not form a valid substring with the next two digits, then the algorithm checks if the current digit can form a valid substring with the next digit and recursively calls itself with the next index and the updated carry. If the current digit is not 1 or 2, then the algorithm also checks if the current digit can form a valid substring with the next two digits and recursively calls itself with the next index and the updated carry. Finally, the algorithm returns the sum of all the recursive calls.
+
+The input for this specific case is:
+- 1 test case with the input string "10481". 
+
+The output for this specific case is:
+- The number of valid partitions for the input string "10481" is 8.

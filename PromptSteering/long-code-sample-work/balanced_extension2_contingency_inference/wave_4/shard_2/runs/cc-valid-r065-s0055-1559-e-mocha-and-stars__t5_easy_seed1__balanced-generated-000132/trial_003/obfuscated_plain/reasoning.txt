@@ -1,0 +1,20 @@
+### Reasoning:
+1. Read input:
+   - `n` = 25
+   - `m` = 100
+   - 25 intervals, each with two integers
+
+2. Initialize `mu` and `isPrime` arrays up to 100000.
+
+3. Call `mobiusAndPrime(100000)` to populate `isPrime` and `mu` based on the Möbius function.
+
+4. Initialize `ans` to 0.
+
+5. Loop from `j = 1` to 100000:
+   - Check if any interval has a start point greater than its end point after division by `j`. If so, skip this iteration.
+   - Otherwise, add to `ans` the result of `mu[j] * ans(m/j, newOne, sum)` and reduce modulo `mod`.
+
+6. Print `ans`.
+
+### Final Output:
+```

@@ -1,0 +1,82 @@
+{
+  "base_seed": 20260713,
+  "cache_dir": "/data/xxr230000/model_cache",
+  "codesteer_registered_profile": {
+    "beta_bias": 0.0,
+    "beta_post": 0.8,
+    "binning": "equal_count",
+    "enabled_levels": [
+      2
+    ],
+    "head_mask_apply_to": "both",
+    "head_subset_mode": "none",
+    "n_bins": 12,
+    "only_first_decode_step": false,
+    "prior": "slice_hybrid",
+    "recency_apply_after_prompt": true,
+    "recency_mix": true,
+    "recency_rho": 0.2,
+    "recency_scope": "prefer_generated",
+    "recency_window": 64,
+    "steer_last_n_layers": 8
+  },
+  "conditions": [
+    "original_plain",
+    "obfuscated_plain",
+    "obfuscated_prompt_slice",
+    "obfuscated_codesteer"
+  ],
+  "created_at_unix": 1783983162.3096516,
+  "generation": {
+    "do_sample": true,
+    "max_new_tokens": 512,
+    "temperature": 1.05,
+    "top_k": 7,
+    "top_p": 0.95
+  },
+  "manifest_metadata": {
+    "coverage_accounting_caveat": "The canonical main_touched field may be false when a valid main declaration contains a throws clause; eligibility instead requires direct before/after hashes proving that the exact CodeSteer-selected algorithm method changed.",
+    "provenance_path": "../prepared_variants/provenance/preparation_provenance.json",
+    "purpose": "JDK17-validated long-code obfuscation variants for paired model inference",
+    "schema_version": "long-code-obfuscated-variants-v1",
+    "selection_stage": "tokenizer_exact_prior_preflight",
+    "tokenizer_preflight": {
+      "exclusions": "exclusions.jsonl",
+      "full_report": "full_report.json",
+      "input_top_level_count": 25,
+      "retained_exploded_sample_count": 23,
+      "retained_top_level_count": 23,
+      "schema_version": "long-code-tokenizer-preflight-v1",
+      "selection_rule": "Retain only cases whose exact Qwen2.5-14B-tokenized CodeSteer prompt yields a non-positional SlicingPrior vector, an active CASES signal, and fits context.",
+      "source_manifest": "../prepared_variants/eligible_variants.json",
+      "source_manifest_sha256": "cd2b22525cc4b4b21040bd60f41c23d614c67c0d981b43d8252e2fd581b38094"
+    },
+    "variant_count": 23
+  },
+  "manifest_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/tokenizer_preflight/inference_eligible_variants.json",
+  "manifest_sha256": "584238ee4eb8e01df8b2047f0d133414619b17d032ceefb3475c32ed1ad281c7",
+  "model_name": "Qwen/Qwen2.5-14B",
+  "model_snapshot_commit": "97e1e76335b7017d8f67c08a19d103c0504298c9",
+  "outcome_selection_note": "The complete screened pool is retained. Any later all-baselines-fail/CodeSteer-succeeds case-study subset is outcome-selected and must be labeled as such.",
+  "protocol_version": "long-code-output-v1",
+  "sample_ids": [
+    "cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__00-generated-156",
+    "cc-valid-r069-s0054-1560-d-make-a-power-of-two__t5_easy_seed1__00-generated-028",
+    "cc-valid-r040-s0219-1555-c-coin-rows__t5_easy_seed1__00-generated-160",
+    "cc-valid-r054-s0229-1557-c-moamen-and-xor__t5_easy_seed1__00-private-017",
+    "cc-valid-r079-s0140-1562-b-scenes-from-a-memory__t5_easy_seed1__00-generated-009",
+    "cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1__00-private-000"
+  ],
+  "score_definition": {
+    "canonicalization": "CRLF/CR to LF, then strip leading/trailing whitespace; internal whitespace preserved",
+    "name": "trimmed_exact_match"
+  },
+  "static_prior_cache": {
+    "enabled": true,
+    "key": "(current_bin, number_of_bins)",
+    "reason": "The unmodified runtime requests the same prompt-static slice once per steered layer and decode token. Recomputing it changes neither the vector nor sampling, but is prohibitively expensive for 250--350-line programs.",
+    "scope": "one SteeringManager instance",
+    "semantic_effect": "none; memoizes a deterministic prompt-static prior vector"
+  },
+  "trials": 3
+}

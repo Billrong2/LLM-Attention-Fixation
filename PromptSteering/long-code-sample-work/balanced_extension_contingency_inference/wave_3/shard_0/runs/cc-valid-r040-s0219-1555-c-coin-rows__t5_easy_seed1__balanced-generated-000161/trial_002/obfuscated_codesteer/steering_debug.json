@@ -1,0 +1,98 @@
+{
+  "blocked_disabled": 0,
+  "blocked_kv_len": 0,
+  "blocked_layer": 80,
+  "blocked_prefill_calls": 8,
+  "blocked_q_len": 8,
+  "blocked_residual_disabled": 0,
+  "blocked_residual_layer": 0,
+  "blocked_residual_no_steer": 0,
+  "blocked_residual_prefill": 0,
+  "current_step_kv_len": 2677,
+  "decode_only": true,
+  "enabled": true,
+  "head_mask_active_by_layer": {},
+  "head_mask_active_total": 0,
+  "head_mask_apply_to": "both",
+  "head_mask_error": null,
+  "head_mask_loaded": false,
+  "head_stats": null,
+  "head_subset_calibration": {},
+  "head_subset_mode": "none",
+  "head_subset_selected_heads": {},
+  "level_call_counts": {
+    "l1_active_steps": 0,
+    "l1_calls": 0,
+    "l2_active_steps": 1,
+    "l2_calls": 8,
+    "l3_active_steps": 0,
+    "l4_active_steps": 0,
+    "l4_calls": 0,
+    "l5_active_steps": 0,
+    "l5_calls": 0
+  },
+  "level_event_trace": [
+    {
+      "level": 2,
+      "step_index": 0
+    },
+    {
+      "level": 2,
+      "step_index": 0
+    },
+    {
+      "level": 2,
+      "step_index": 0
+    },
+    {
+      "level": 2,
+      "step_index": 0
+    },
+    {
+      "level": 2,
+      "step_index": 0
+    },
+    {
+      "level": 2,
+      "step_index": 0
+    },
+    {
+      "level": 2,
+      "step_index": 0
+    },
+    {
+      "level": 2,
+      "step_index": 0
+    }
+  ],
+  "only_first_decode_step": false,
+  "pointer_beta_zero_steps": 0,
+  "pointer_bias_applied_steps": 0,
+  "pointer_calls_total": 0,
+  "pointer_missing_attention_steps": 0,
+  "prompt_len": 2677,
+  "recency_apply_after_prompt": true,
+  "recency_mix": true,
+  "recency_rho": 0.2,
+  "recency_scope": "prefer_generated",
+  "recency_window": 64,
+  "residual_calls_attn": 0,
+  "residual_calls_mlp": 0,
+  "residual_debug": [],
+  "residual_scale_enabled": false,
+  "residual_scale_layer_end": null,
+  "residual_scale_layer_start": null,
+  "residual_scale_mode": "static",
+  "split_prefill_used": true,
+  "steer_calls": 8,
+  "temporal_debug": [
+    {
+      "generated_mass": 0.0,
+      "kv_len": 2677,
+      "prompt_mass": 1.0,
+      "recent_mass": 0.023900890722870827,
+      "rho_used": 0.0,
+      "step_index": 0
+    }
+  ]
+}

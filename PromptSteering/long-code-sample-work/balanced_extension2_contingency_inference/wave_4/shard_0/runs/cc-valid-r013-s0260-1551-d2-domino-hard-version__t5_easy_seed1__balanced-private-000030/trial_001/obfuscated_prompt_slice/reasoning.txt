@@ -1,0 +1,20 @@
+1. Invoke program entry point with `invoke program entry point; target_method=cal; stdin="1\n1 10 5\n"; argv=[]`
+2. `cal(0, 10, 5, 1)` is called
+3. Control predicate over `_obf_t5_cal_219867` is evaluated as true
+4. Control predicate over `index, m` is evaluated as false
+5. Control predicate over `index, m` is evaluated as false
+6. Control predicate over `horizontal, n, index, j, m, i, find, re, tmp, cur` is evaluated as false
+7. Control predicate over `n` is evaluated as true
+8. Control predicate over `index, j, m, i, n, find, re, tmp, cur` is evaluated as true
+9. Control predicate over `i, n, find, j, re, tmp, cur` is evaluated as true
+10. Method call `find` is made in static data/control context
+11. `tmp` is assigned the value `a`
+12. `re` array is assigned the values
+13. Control predicate over `dp, index, horizontal` is evaluated as true
+14. `result` is assigned the value `false`
+15. Control predicate over `n, result, cal, index, horizontal, m, i, find, re, tmp, cur` is evaluated as false
+16. `result` remains `false`
+17. `cal` method returns `false`
+
+The exact output is: 
+```

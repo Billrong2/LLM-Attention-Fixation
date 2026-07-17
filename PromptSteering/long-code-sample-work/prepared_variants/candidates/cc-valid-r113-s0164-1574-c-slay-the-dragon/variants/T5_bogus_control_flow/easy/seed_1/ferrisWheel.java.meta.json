@@ -1,0 +1,215 @@
+{
+  "budgets": {
+    "ast_growth_ok": true,
+    "limits": {
+      "max_added_branches_per_100_stmts": 5,
+      "max_cfg_states_for_flattening": 4,
+      "max_expr_depth_increase": 2,
+      "max_new_ast_nodes_percent": 50.0,
+      "max_new_helpers": 2
+    },
+    "usage": {
+      "added_branches": 0,
+      "ast_nodes_after": 2442,
+      "ast_nodes_before": 2142,
+      "expr_depth_increase": 0,
+      "flatten_states_added": 0,
+      "helpers_added": 0
+    }
+  },
+  "class_renamed": false,
+  "codesteer_target": {
+    "called_directly_from_main": true,
+    "eligible_parameter_to_return_target": true,
+    "genuine_return_sink_count": 1,
+    "main_called_method_names": [
+      "abs",
+      "flush",
+      "get",
+      "min",
+      "nextInt",
+      "nextLong",
+      "nextLongArray",
+      "println",
+      "sort"
+    ],
+    "method_names": [
+      "get",
+      "main",
+      "toString",
+      "compareTo",
+      "next",
+      "readAllLines",
+      "nextInt",
+      "nextLong",
+      "nextLine",
+      "nextDouble",
+      "nextlongArray",
+      "nextLongArray",
+      "nextIntArray",
+      "nextIntegerArray",
+      "ready"
+    ],
+    "parameter_count": 2,
+    "parameters": [
+      {
+        "name": "a",
+        "type": "Long[]"
+      },
+      {
+        "name": "x",
+        "type": "long"
+      }
+    ],
+    "parse_status": "javalang",
+    "return_sink_count": 1,
+    "return_type": "long",
+    "selected_method": "get",
+    "selected_method_line": 6,
+    "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+    "selector_implementation_owner": "steering.priors.SlicingPrior",
+    "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+  },
+  "difficulty": "easy",
+  "equivalence": {
+    "details": "not_run",
+    "exit_match": false,
+    "stderr_match": false,
+    "stdout_match": false
+  },
+  "jdk17_execution_validation": {
+    "accepted": true,
+    "cases": [
+      {
+        "accepted": true,
+        "actual_trimmed": "14",
+        "case_id": "00-generated-156",
+        "command": [
+          "java",
+          "-Dfile.encoding=UTF-8",
+          "-Djava.io.tmpdir=<scratch>",
+          "-Duser.home=<scratch>",
+          "-XX:-UsePerfData",
+          "-cp",
+          "<classes>",
+          "ferrisWheel"
+        ],
+        "duration_seconds": 0.033982,
+        "exit_code": 0,
+        "expected_trimmed": "14",
+        "raw_expected_stdout_sha256": "9a92adbc0cee38ef658c71ce1b1bf8c65668f166bfb213644c895ccb1ad07a25",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "9a92adbc0cee38ef658c71ce1b1bf8c65668f166bfb213644c895ccb1ad07a25",
+        "stderr": "",
+        "stdout": "14\n",
+        "timed_out": false,
+        "trimmed_exact_match": true
+      }
+    ],
+    "compile": {
+      "accepted": true,
+      "command": [
+        "javac",
+        "-encoding",
+        "UTF-8",
+        "-J-Djava.io.tmpdir=<scratch>",
+        "-J-Duser.home=<scratch>",
+        "-J-XX:-UsePerfData",
+        "-Xlint:none",
+        "-nowarn",
+        "-d",
+        "<classes>",
+        "<scratch>/ferrisWheel.java"
+      ],
+      "exit_code": 0,
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    "entry": {
+      "compile_class": "ferrisWheel",
+      "main_class": "ferrisWheel",
+      "package": "",
+      "parse_status": "javalang"
+    }
+  },
+  "language": "java",
+  "level": null,
+  "main_touched": false,
+  "method_coverage": {
+    "main_touched": false,
+    "method_coverage_total": 14,
+    "method_coverage_touched": 14,
+    "untouched_methods": []
+  },
+  "method_coverage_total": 0,
+  "method_coverage_touched": 0,
+  "metrics": {
+    "ast_nodes": 2442,
+    "cyclomatic_approx": 38,
+    "difficulty_score": 0.6317,
+    "helpers_injected": 0,
+    "lines": 308,
+    "max_ast_depth": 5,
+    "tokens": 2194
+  },
+  "mode": "technique",
+  "obfuscated_class_name": null,
+  "obfuscated_source_sha256": "478f298044610cf6e852dc8a7303bb56dd49aa3a2cd83bee2cb8a263fbb33cb7",
+  "original_class_name": null,
+  "original_source_sha256": "c7971bc02d69fd7f9d0e0f8a359c1b09ca82eb1d13be091d5386f9f1d5b44ac3",
+  "passes_applied": [
+    {
+      "applied": true,
+      "extra": {
+        "fallback_insertions": 6,
+        "main_touched": false,
+        "method_coverage_policy": "force_all",
+        "method_coverage_total": 14,
+        "method_coverage_touched": 14,
+        "untouched_methods": []
+      },
+      "helpers_injected": 0,
+      "name": "T5",
+      "node_delta": 14,
+      "reason": "bogus_cf:8|force_all_fallback:6",
+      "tier": "easy",
+      "time_ms": 4.58
+    }
+  ],
+  "profile_name": "safe",
+  "program_id": "cc-valid-r113-s0164-1574-c-slay-the-dragon",
+  "requested_difficulty": "easy",
+  "requested_method_coverage_policy": "force_all",
+  "requested_profile": "safe",
+  "requested_seed": 1,
+  "seed": 1028780128355726719,
+  "selected_target_touch_evidence": {
+    "method_block_parser": "eyetracking.obfuscation.java.passes.utils.iter_method_blocks",
+    "obfuscated_block_name": "get",
+    "obfuscated_match_count": 1,
+    "obfuscated_method_bytes": 324,
+    "obfuscated_method_index": 0,
+    "obfuscated_method_sha256": "d874ca22458f9132eecd8058831678b065d60377bcfc400172c9a49d21897a14",
+    "obfuscated_method_start_line": 6,
+    "obfuscated_name_matches_codesteer_target": true,
+    "obfuscated_target_line": 6,
+    "obfuscated_target_method": "get",
+    "original_block_name": "get",
+    "original_match_count": 1,
+    "original_method_bytes": 230,
+    "original_method_index": 0,
+    "original_method_sha256": "87bc9237d91d8f27f9a82a10e4348afaa6a4cde7e6c693689f98a8b29a4fcadc",
+    "original_method_start_line": 6,
+    "original_target_line": 6,
+    "original_target_method": "get",
+    "reason": "method_source_changed",
+    "touched": true,
+    "verifiable": true
+  },
+  "skipped_passes_with_reasons": [],
+  "technique": "T5",
+  "untouched_methods": []
+}

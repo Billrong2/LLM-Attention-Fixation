@@ -1,0 +1,16 @@
+
+
+
+c001: The input to the main method is 4, followed by four long integers, 4 5 4 4, followed by 3, followed by three pairs of long integers, 3 12, 7 13, 7 11, followed by -1 10, followed by 12 7, and an empty argument array.
+
+The main method initializes a Reader object called sc and a PrintWriter object called out, which will be used to print the output. The main method also declares several variables, including n, m, arr, hs, sum, and a.
+
+The first four lines of input are read using sc.nextInt() and stored in the arr array. The set hs is also populated with the same values. The sum variable is calculated as the sum of the values in the arr array.
+
+The next value is read using sc.nextInt() and stored in the variable y. This value is used to determine the number of times the find method should be called in the for loop. Inside the for loop, two values are read using sc.nextLong() and stored in the variables attack and defend. These values are passed to the find method, along with other arguments, and the result is printed using out.println().
+
+The find method takes in several arguments, including sum, hs, arr, n, attack, and defend. The method uses a while loop to find the closest value in the arr array to attack. Once the closest value is found, the method calculates two different values, ans1 and ans2, based on different combinations of attack and defend. The method returns the minimum of ans1 and ans2.
+
+The output of the main method is the result of calling the find method with the given input. This result is printed using out.println(). The output will contain the results of the find method called with each pair of values in the input.
+
+FINAL_OUTPUT_JSON: {"stdout":"12\n3\n2\n1\n"}

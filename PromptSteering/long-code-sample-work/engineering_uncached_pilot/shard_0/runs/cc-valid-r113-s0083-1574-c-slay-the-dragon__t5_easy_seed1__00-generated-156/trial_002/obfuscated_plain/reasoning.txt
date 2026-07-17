@@ -1,0 +1,24 @@
+The program reads input from the user, sorts an array, and then calculates the minimum value of a function for each pair of input values. The function `find` takes the sum of all elements in the array, a set of elements, the sorted array, the size of the array, attack, and defend values as input. It calculates the minimum value of the function and prints the result. The function works by finding the element in the sorted array that is equal to or greater than the attack value. It then calculates the difference between the attack value and the element, and between the sum of the array and the element. The defend value is added to the minimum of these differences, and the result is printed.
+
+For the given input:
+
+```
+4
+12 11 1 2
+1
+12 28
+7 2
+4 10
+0 13
+8 7
+```
+
+The program sorts the array to get [1, 2, 11, 12] and then calculates the minimum value of the function for each pair of input values. The results are printed as follows:
+
+```
+0
+0
+0
+0
+0
+```

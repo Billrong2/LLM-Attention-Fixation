@@ -1,0 +1,46 @@
+The provided Java program reads input from standard input and processes it according to the defined algorithm in the `find` method. Given the input:
+
+```
+7
+3
+007
+4
+0000
+5
+00000
+3
+103
+4
+2020
+9
+189517537
+30
+001678294039710047203946100020
+```
+
+The `find` method calculates the number of moves required based on the digits of each input string. Specifically, it adds the last digit and for each preceding digit, it adds the digit itself plus one.
+
+### Step-by-Step Calculation:
+
+1. **Input**: `3\n007`
+   - Length `n=3`, digits `[0, 0, 7]`.
+   - Moves: `7 + (0+1) + (0+1) = 9`.
+
+2. **Input**: `4\n0000`
+   - Length `n=4`, digits `[0, 0, 0, 0]`.
+   - Moves: `0 + (0+1) + (0+1) + (0+1) = 3`.
+
+3. **Input**: `5\n00000`
+   - Length `n=5`, digits `[0, 0, 0, 0, 0]`.
+   - Moves: `0 + (0+1) + (0+1) + (0+1) + (0+1) = 5`.
+
+4. **Input**: `3\n103`
+   - Length `n=3`, digits `[1, 0, 3]`.
+   - Moves: `3 + (1+1) + (0+1) = 6`.
+
+5. **Input**: `4\n2020`
+   - Length `n=4`, digits `[2, 0, 2, 0]`.
+   - Moves: `0 + (2+1) + (0+1) + (2+1) = 6`.
+
+6. **Input**: `9\n189517537`
+   - Length `n=9`, digits `[1, 8, 9, 5, 1, 7,

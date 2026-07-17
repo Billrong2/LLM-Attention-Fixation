@@ -1,0 +1,27 @@
+### Reasoning
+1. The program is a Java program, so it uses Java syntax and conventions.
+2. The main class is C_Global_Round16, which contains a main method.
+3. The main method reads input from stdin using the Scanner class.
+4. It then processes the input and calls the cal method.
+5. The cal method takes 3 arguments: index, n, and nxt.
+6. It initializes result to 0.
+7. It checks if index is equal to n. If it is, it returns 0.
+8. If dp[index] is not -1, it returns dp[index].
+9. It checks if nxt[0][index] is equal to index and if nxt[1][index] is equal to index.
+10. If it is, it sets result to 2 + cal(index + 1, n, nxt).
+11. If it is not, it checks if nxt[0][index] is equal to index.
+12. If it is, it sets result to 1 + cal(index + 1, n, nxt).
+13. If nxt[1][index] is not -1, it sets result to the maximum of result and 2 + cal(nxt[1][index] + 1, n, nxt).
+14. If it is not, it checks if nxt[0][index] is not -1.
+15. If it is, it sets result to the maximum of result and 2 + cal(nxt[0][index] + 1, n, nxt).
+16. It returns dp[index] = result.
+17. The program outputs the result of the cal method.
+18. The input to the cal method is provided in the stdin variable.
+19. The stdin variable contains the input for each case.
+20. The input for each case is provided on separate lines.
+21. The input for each case is in the format: n\n01100\n1110100\n
+22. The input for each case is split into two parts: n and data.
+23. The data is split into two parts: data[0] and data[1].
+24. The data is converted into an int[] using the parseInt method.
+25. The nxt array is initialized with values based on the data.
+26. The nxt array is a 2D array with size 2 x n

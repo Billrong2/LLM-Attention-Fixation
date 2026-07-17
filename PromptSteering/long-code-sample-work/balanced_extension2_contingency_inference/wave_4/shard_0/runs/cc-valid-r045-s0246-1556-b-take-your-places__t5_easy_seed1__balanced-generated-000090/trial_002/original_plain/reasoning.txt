@@ -1,0 +1,15 @@
+CASE 001:
+- The `main` method starts by creating a `FastReader` object named `sc` to read inputs from the user.
+- It reads an integer `test` (which is 1 in this case) indicating the number of test cases.
+- It enters a while loop with `test-- != 0` which runs only once because `test` is initially 1.
+- Inside the while loop:
+  - It reads another integer `n` (which is 7 in this case) representing the length of the array.
+  - It initializes an array `a` of length `n` and another integer array `f` of length 2.
+  - It iterates over `n` to fill the array `a` with integers modulo 2 (i.e., either 0 or 1).
+  - It then calculates counts of 0s and 1s in the array `a` and stores them in `f`.
+  - Since `n` is 7 (an odd number), it checks if the absolute difference between the counts of 0s and 1s is not greater than 1, which it is not.
+  - Next, it checks the condition for the difference between counts of 0s and 1s:
+    - If `f[0]` (count of 0s) is 1 more than `f[1]` (count of 1s), it calls the `fun` method with `0` as the argument and prints the result.
+  - In this case, since there are 5 zeros (count = 5) and 2 ones (count = 2), the difference is 3, which is greater than 1. Therefore, it does not meet the condition and does not call the `fun` method.
+
+The program prints `-1` and terminates.

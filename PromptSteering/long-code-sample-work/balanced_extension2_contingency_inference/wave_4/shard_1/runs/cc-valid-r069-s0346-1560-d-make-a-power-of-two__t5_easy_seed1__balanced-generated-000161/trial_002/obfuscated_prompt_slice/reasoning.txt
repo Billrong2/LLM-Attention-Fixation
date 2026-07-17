@@ -1,0 +1,16 @@
+Reasoning (do not imitate this text):
+
+1. The program reads the number of cases from stdin, then calls `buscarGreedy` for each case with the input string from stdin. The program prints the return value of `buscarGreedy`.
+2. `buscarGreedy` iterates from i=0 to i=61 and computes the string value of 2^i. It then computes the minimum edit distance from that number to the input number. Finally, `buscarGreedy` returns that min edit distance.
+3. For c001, `buscarGreedy` will iterate from i=0 to i=61, comparing 2^i with "159524", and return the minimum edit distance.
+4. Therefore, the exact standard output of the program for this case is 1.
+
+FINAL_OUTPUT_JSON: {"stdout": "1\n"}
+
+The program reads the number of cases from stdin, then calls buscarGreedy for each case with the input string from stdin. The program prints the return value of buscarGreedy.
+
+buscarGreedy iterates from i=0 to i=61 and computes the string value of 2^i. It then computes the minimum edit distance from that number to the input number. Finally, buscarGreedy returns that min edit distance.
+
+For c001, buscarGreedy will iterate from i=0 to i=61, comparing 2^i with "159524", and return the minimum edit distance.
+
+Therefore, the exact standard output of the program for this case is 1.

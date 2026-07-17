@@ -1,0 +1,11 @@
+### REASONING_BEGIN
+The program is a Java program that reads a sequence of integers and prints the minimum number of operations to make each integer a multiple of 2.
+For each test case, the program reads an integer n, then reads n integers and stores them in an array.
+The program then calculates the minimum number of operations to make each integer a multiple of 2.
+The program uses a function called `getMin` to calculate the minimum number of operations.
+The function `getMin` takes a string representation of the integer and an ArrayList of Long integers as arguments.
+The function `getMin` calculates the minimum number of operations by checking each integer in the ArrayList to see if it is a multiple of 2.
+If it is a multiple of 2, the function adds the number of operations needed to make the integer a multiple of 2 to a counter.
+If it is not a multiple of 2, the function adds the number of operations needed to make the integer a multiple of 2 to the counter and then adds 1 to the counter.
+The function returns the minimum number of operations.
+### REASONING_END

@@ -1,0 +1,13 @@
+**Reasoning:**
+
+The program takes input from the user and processes it to find the maximum value that can be obtained by making some operations on the input strings. The input is a sequence of integers, followed by pairs of strings. The program calculates the maximum value that can be obtained by finding the length of the longest common prefix between the two strings in each pair, and adding 2 to it. The maximum value obtained is then printed as output.
+
+The program uses dynamic programming to calculate the maximum value. It initializes an array `dp` with -1s, and then iterates through the input strings to calculate the maximum value. For each index, it checks if the two characters at that index are equal, and if so, it updates the `dp` array with the maximum value obtained by adding 2 to the current index. If the two characters are not equal, it updates the `dp` array with the maximum value obtained by adding 1 to the current index and then recursively calling the `cal` function with the next index.
+
+The program also includes some helper functions for calculating the distance between two indices, finding the index of the next occurrence of a character in a string, and calculating the number of digits in a number.
+
+The program is executed with the input "4\n7\n1101000\n1101100\n5\n00000\n10100\n2\n01\n01\n6\n010000\n111110" and no arguments.
+
+**Output:**
+
+The program prints the maximum value that can be obtained from each pair of strings, which is 5, 6, 3, and 6, respectively. The final output is:

@@ -1,0 +1,25 @@
+Reasoning:
+
+1. MethodDeclaration at L062: The main method cal() takes 4 parameters (index, horizontal, n, m).
+2. SliceMethodParameter at L062: The method parameters are index, horizontal, n, m.
+3. SliceReturnValue at L069: The return value is based on the horizontal parameter, specifically checking if horizontal == 0.
+4. SliceReturnValue at L072: If the conditions are not met, the return value is false.
+5. SliceReturnValue at L076: If the conditions are not met, the return value is false.
+6. SliceReturnValue at L085: If the conditions are met, the return value is true.
+7. SliceReturnValue at L088: If the conditions are not met, the return value is false.
+8. SliceReturnValue at L124: The return value is based on the result variable.
+9. SliceControlDependency at L063: A control predicate checks if ((3 * 3) - 9) != 0, which is always true.
+10. SliceControlDependency at L067: A control predicate checks if index == m.
+11. SliceControlDependency at L071: A control predicate checks if index > m.
+12. SliceControlDependency at L074: A control predicate checks if horizontal == 0, n % 2 != 0, and other conditions.
+13. SliceControlDependency at L078: A control predicate loops over index, j, m, i, n, find, re, tmp, cur.
+14. SliceControlDependency at L079: A control predicate loops over i, n, find, j, re, tmp, cur.
+15. SliceMethodCall at L080: The find() method is called with specific parameters.
+16. SliceControlDependency at L087: A control predicate checks if dp[index][horizontal].
+17. SliceDefinition at L091: The result variable is initialized as false.
+18. SliceControlDependency at L092: A control predicate checks if n % 2 == 0.
+19. SliceAssignment: The result variable is assigned based on a condition.
+20. SliceMethodCall at L093: The cal() method is called with specific parameters.
+
+Output:
+For the given input, the program prints "YES" and then

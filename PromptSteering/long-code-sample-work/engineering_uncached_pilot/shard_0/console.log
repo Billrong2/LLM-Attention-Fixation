@@ -1,0 +1,31 @@
+[preflight] samples=6 trials=3 conditions=['original_plain', 'obfuscated_plain', 'obfuscated_prompt_slice', 'obfuscated_codesteer'] model=Qwen/Qwen2.5-14B
+Loading model: Qwen/Qwen2.5-14B
+USE_4BIT=False  |  GPUs visible=1
+Limiting to 1 GPU(s) (of 1).
+Per-GPU max_memory cap: {0: '42GiB'}
+hidden_size = None
+num_hidden_layers = None
+num_attention_heads = None
+num_key_value_heads = None
+intermediate_size = None
+rms_norm_eps = None
+rope_theta = None
+max_position_embeddings = None
+vocab_size = 151643
+tie_word_embeddings = None
+Sliding Window Attention is enabled but not implemented for `eager`; unexpected results may be encountered.
+Loading checkpoint shards:   0%|          | 0/8 [00:00<?, ?it/s]Loading checkpoint shards:  12%|█▎        | 1/8 [00:01<00:07,  1.14s/it]Loading checkpoint shards:  25%|██▌       | 2/8 [00:02<00:06,  1.00s/it]Loading checkpoint shards:  38%|███▊      | 3/8 [00:03<00:04,  1.02it/s]Loading checkpoint shards:  50%|█████     | 4/8 [00:03<00:03,  1.09it/s]Loading checkpoint shards:  62%|██████▎   | 5/8 [00:04<00:02,  1.12it/s]Loading checkpoint shards:  75%|███████▌  | 6/8 [00:05<00:01,  1.13it/s]Loading checkpoint shards:  88%|████████▊ | 7/8 [00:06<00:00,  1.16it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:06<00:00,  1.38it/s]Loading checkpoint shards: 100%|██████████| 8/8 [00:06<00:00,  1.18it/s]
+[INFO] Loaded model with torch_dtype=torch.bfloat16.
+[Steering] Installed backend=qwen2.
+
+=== Device map (layer -> GPU) ===
+{'': 0}
+[done] cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__00-generated-156 trial=1 condition=original_plain exact=False seed=656761695
+[done] cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__00-generated-156 trial=1 condition=obfuscated_plain exact=False seed=656761695
+[done] cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__00-generated-156 trial=1 condition=obfuscated_prompt_slice exact=False seed=656761695
+[done] cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__00-generated-156 trial=1 condition=obfuscated_codesteer exact=False seed=656761695
+[done] cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__00-generated-156 trial=2 condition=original_plain exact=False seed=643122409
+[done] cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__00-generated-156 trial=2 condition=obfuscated_plain exact=False seed=643122409
+[done] cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__00-generated-156 trial=2 condition=obfuscated_prompt_slice exact=False seed=643122409
+[done] cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__00-generated-156 trial=2 condition=obfuscated_codesteer exact=False seed=643122409
+[done] cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__00-generated-156 trial=3 condition=original_plain exact=False seed=1353406302

@@ -1,0 +1,28 @@
+### Reasoning
+
+1. **Program Entry Point and Input Processing**:
+   - The program entry point is the `main` method.
+   - It initializes the input/output streams and reads the number of test cases.
+   - For each test case, it reads the values `n`, `m`, and `k`.
+
+2. **Target Method Invocation**:
+   - The `cal` method is called with the initial parameters `0`, `k`, `n`, and `m`.
+   - The method checks for a specific condition at line 063 (`if (((3 * 3) - 9) != 0)`).
+   - If this condition evaluates to true, it proceeds to the main logic.
+
+3. **Control Flow Analysis**:
+   - If `index` is equal to `m` (`if (index == m)` at line 067), it returns true if `horizontal` is 0.
+   - If `index` is greater than `m` (`if (index > m)` at line 071), it returns false.
+   - If `horizontal` is 0, it checks if `n` is even (`if (n % 2 != 0)` at line 075).
+     - If true, it returns false.
+     - If false, it iterates through `index` and `i` to assign characters to `re` (`for` loops at lines 078 and 079) and returns true.
+
+4. **Memoization and Further Control Flow**:
+   - It checks if `dp[index][horizontal]` is true (`if (dp[index][horizontal])` at line 074).
+     - If true, it returns false.
+     - If false, it sets `dp[index][horizontal]` to true and proceeds with further logic.
+   - If `n` is even (`if (n % 2 == 0)` at line 092), it recursively calls `cal` with updated parameters (`result = cal(index + 1, horizontal, n, m)` at line 093).
+   - If the result is true, it assigns characters to `re` and returns true.
+   - It iterates through `z` (up to `horizontal`) and checks if `n - z` is even.
+     - If true, it recursively calls `cal` with updated parameters.
+     - If the result is true, it assigns characters to

@@ -1,0 +1,25 @@
+ ### Output Prediction
+
+The program starts by reading `3` from standard input, which is the value of `t`. This indicates that there will be three test cases.
+
+For each test case:
+- It reads an integer `n` and a string `s`.
+- If any character in `s` is not '2', '3', '5', or '7', it prints "1" followed by that character and exits the current test case.
+- Otherwise, it counts occurrences of '2', '3', '5', and '7' in `s`.
+- Then, for each pair of characters in `s`, it concatenates them, converts the result to an integer `p`, and checks if `p` is a prime number using the `isPrime` function.
+- If `p` is not prime, it prints "2" followed by the concatenated characters and exits the current test case.
+
+Given the input "1\n3\n121\n", the program will:
+1. Read "1" as `t`.
+2. Read "3" as `n` and "1" as `s`.
+    - The character '1' is not '2', '3', '5', or '7', so it prints "1\n1".
+3. Read "1" as `n` and "2" as `s`.
+    - All characters in "2" are valid (only '2').
+    - Since there's only one character, no pairs are formed, and no numbers are checked for primality.
+4. Read "2" as `n` and "121" as `s`.
+    - The first '1' is not '2', '3', '5', or '7', so it prints "1\n1".
+
+### Final Output JSON
+```json
+FINAL_OUTPUT_JSON: {"stdout":"1\n1\n1\n1\n"}
+```

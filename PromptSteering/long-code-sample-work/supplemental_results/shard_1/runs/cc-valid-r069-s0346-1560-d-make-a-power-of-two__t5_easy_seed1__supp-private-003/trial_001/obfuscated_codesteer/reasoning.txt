@@ -1,0 +1,36 @@
+To predict the exact standard output of the `buscarGreedy` method for the given input, let's go through the steps involved in the method:
+
+1. Initialize the variable `pot` to 1.
+2. Iterate from 0 to 61 (inclusive) in a loop.
+3. Convert the current value of `pot` to a string and store it in `numPot`.
+4. Use the `comparar` method to compare `numPot` with the input number `numero`.
+5. Update `minimo` with the result of `comparar` if it is less than the current `minimo`.
+6. Double the value of `pot`.
+7. After the loop, return the value of `minimo`.
+
+Now, let's consider the input provided in the test case:
+- The input is "2\n1\n1\n", which represents two test cases.
+- The first test case is "1".
+- The second test case is "1".
+
+For each test case, we will execute the `buscarGreedy` method:
+
+1. **First Test Case: "1"**
+   - Initialize `pot` to 1.
+   - Iterate through the loop:
+     - Convert `pot` to a string: "1".
+     - Compare "1" with "1": result is 0.
+     - Update `minimo` to 0.
+     - Double `pot` to 2.
+     - Convert `pot` to a string: "2".
+     - Compare "2" with "1": result is 1.
+     - Since 1 is not less than 0, `minimo` remains 0.
+     - Continue doubling `pot` until the loop ends.
+   - After the loop, `minimo` is 0.
+   - The result of the first test case is 0.
+
+2. **Second Test Case: "1"**
+   - The same steps as above apply since the input is the same.
+   - The result of the second test case is also 0.
+
+Therefore, the exact standard output of the program for the given inputs is:

@@ -1,0 +1,12 @@
+CASES_BEGIN
+c001: invoke program entry point; target_method=fun; stdin="1\n7\n3 2 6 5 3 12 1\n"; argv=[]
+### CASES_END
+
+The program's `main` method takes input as follows:
+1. The number of test cases (1)
+2. The length of the array (7)
+3. The array elements (3, 2, 6, 5, 3, 12, 1)
+
+For each test case, the program calculates the number of 0s and 1s in the array. If the difference between the number of 0s and 1s is greater than 1, it prints "-1". Otherwise, if the length of the array is even, it checks if the number of 0s and 1s are equal. If they are, it calculates the minimum of the two possible outcomes and prints it. If they are not equal, it prints "-1". If the length of the array is odd, it checks if the number of 0s is one more than the number of 1s or vice versa. If it is, it calculates and prints the corresponding outcome. Otherwise, it prints "-1".
+
+In the given input, the difference between the number of 0s and 1s is 0, and the length of the array is odd. Therefore, it calculates and prints the outcome corresponding to the first element being 0.

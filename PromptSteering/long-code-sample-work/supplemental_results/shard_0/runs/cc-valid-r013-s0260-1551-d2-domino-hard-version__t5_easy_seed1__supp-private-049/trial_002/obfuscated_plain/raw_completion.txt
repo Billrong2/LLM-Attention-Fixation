@@ -1,0 +1,19 @@
+ ### CASES_BEGIN
+c001: invoke program entry point; target_method=cal; stdin="1\n86 51 2176\n"; argv=[]
+### CASES_END
+
+**Reasoning:** 
+
+1. The input specifies a single test case where `n = 86`, `m = 51`, and `k = 2176`.
+2. The `cal` function is called with these parameters.
+3. The base cases are checked first.
+4. The function then checks if `horizontal` is 0, which it is not.
+5. It then checks the `dp` array and finds it needs to be computed.
+6. The function tries different values for `z` and finds a solution when `z = 2176`.
+7. It fills the grid accordingly and returns `true`.
+8. The program prints "YES" followed by the filled grid.
+
+**Final Output:**
+```json
+{"stdout":"YES\na b c d e f g h i j k l m n o p q r s t u v w x y z \n"}
+```

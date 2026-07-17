@@ -1,0 +1,37 @@
+The given Java program takes an integer input `n`, and a string of characters `ch` of length `n`. The `find` method counts the number of moves required to make all the characters equal to the character in the last position.
+
+To solve the problem, we will analyze the given test case `c001`:
+
+1. `n = 7`
+2. `ch = "3\n007\n4\n0000\n5\n00010\n3\n103\n4\n2020\n9\n123456789\n30\n001678294039710047203946100020\n"`
+
+First, we will process the test case by calling the `find` method and printing the result:
+
+```java
+int t = s.nextInt(); // t = 1 (since the number of test cases is not provided, we assume it's 1)
+while(t-->0) {
+    int n = s.nextInt(); // n = 7
+    char[] ch = s.nextLine().toCharArray(); // ch = "3\n007\n4\n0000\n5\n00010\n3\n103\n4\n2020\n9\n123456789\n30\n001678294039710047203946100020\n"
+    out.println(find(n, ch)); // print the result of find(n, ch)
+}
+```
+
+Now, let's analyze the `find` method:
+
+```java
+public static int find(int n, char[] ch) {
+    int moves = 0;
+    moves += ch[n - 1] - '0';
+    for (int i = 0; i < n - 1; i++) {
+        if (ch[i] - '0' > 0) {
+            moves += (ch[i] - '0' + 1);
+        }
+    }
+    return moves;
+}
+```
+
+The `find` method calculates the number of moves required to make all characters equal to the character in the last position. The algorithm works by:
+
+1. Initializing `moves` to 0.
+2. Adding the value of the character in the last position (`ch[n -

@@ -1,0 +1,29 @@
+ ### CASES_BEGIN
+c001: invoke program entry point; target_method=pawnLineal; stdin="1\n20\n01101000110111000110\n00101100011000000010\n"; argv=[]
+### CASES_END
+
+The program `pawnLineal` takes two binary strings `scr` and `dst` as input and counts the number of '1's in `scr` that can be removed by moving from `dst` to `scr`. The movement is allowed only if there is a '1' in `dst` at the same position as the '1' in `scr`. If there are multiple '1's in `dst` at the same position, only the first '1' can be used for the movement.
+
+For the given input:
+
+```
+1
+20
+01101000110111000110
+00101100011000000010
+```
+
+- `scr` is `"01101000110111000110"`
+- `dst` is `"00101100011000000010"`
+
+Let's analyze the positions where '1's exist in both `scr` and `dst`:
+
+- Position 1: `scr` has '1', `dst` has '0' -> No move possible
+- Position 2: `scr` has '1', `dst` has '0' -> No move possible
+- Position 3: `scr` has '1', `dst` has '1' -> Move possible
+- Position 4: `scr` has '0', `dst` has '0' -> No move possible
+- Position 5: `scr` has '1', `dst` has '0' -> No move possible
+- Position 6: `scr` has '0', `dst` has '0' -> No move possible
+- Position 7: `scr` has '0', `dst` has '1' -> No move possible
+- Position 8: `scr` has '0', `dst` has '0' -> No move possible
+- Position 9: `scr`

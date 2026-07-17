@@ -1,0 +1,49 @@
+ To predict the exact standard output of the given Java program, we need to analyze the `isPrime` method and how it processes the input.
+
+### Analysis of the `isPrime` Method
+
+The `isPrime` method checks whether a given integer `n` is prime. The algorithm works as follows:
+
+1. **Basic Checks**:
+   - If `n` is less than or equal to 1, it returns `false`.
+   - If `n` is 2, it returns `true`.
+   - If `n` is even (other than 2), it returns `false`.
+
+2. **Iterative Check**:
+   - It then iterates from 3 to the square root of `n`, checking if `n` is divisible by any of these numbers.
+   - If `n` is divisible by any number in this range, it returns `false`.
+
+If none of these conditions are met, the method returns `true`.
+
+### Input Analysis
+
+The input provided is:
+```
+1
+3
+379
+```
+
+### Processing Each Input
+
+#### First Input: `1`
+
+- The method checks if `1` is less than or equal to 1, which is true. Hence, it returns `false`.
+
+#### Second Input: `3`
+
+- The method checks if `3` is less than or equal to 1, which is false.
+- It then checks if `3` is 2, which is false.
+- It checks if `3` is even (other than 2), which is false.
+- Since `3` is not even, it checks from 3 to the square root of `3` (which is 1.732). There are no divisors in this range, so it returns `true`.
+
+#### Third Input: `379`
+
+- The method checks if `379` is less than or equal to 1, which is false.
+- It checks if `379` is 2, which is false.
+- It checks if `379` is even (other than 2), which is false.
+- It then checks from 3 to the square root of `379` (approximately 19.46). The divisors checked are 3, 5, 7, ..., 19. None of these are divisors, so it returns `true`.
+
+### Conclusion
+
+For the given inputs `1`, `3`, and `379

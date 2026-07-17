@@ -1,0 +1,36 @@
+### CASE c001
+- Read input `7\n3\n237\n5\n44444\n3\n221\n2\n35\n3\n1270\n1\n4\n19\n626221626221626221626221626221`
+- Parse and store `7` as `n` for the first iteration.
+- Parse and store `3` as `n` for the second iteration.
+- ...
+
+#### Iteration for `7`
+- Iterate over each character of `s = "3"`
+- The first character is `3`
+  - Since `3` is not equal to `2`, `3`, `5`, or `7`, print `1` and `3` and skip to the next test case.
+- Output: `1\n3\n`
+
+#### Iteration for `3`
+- Iterate over each character of `s = "237"`
+- The first character is `2`
+- The second character is `3`, forming `23`
+  - Since `23` is a prime number, continue to the next iteration
+- The third character is `7`, forming `27`
+  - Since `27` is not a prime number, print `2` and `27` and skip to the next test case.
+- Output: `2\n27\n`
+
+#### Iteration for `5`
+- Iterate over each character of `s = "2375"`
+- The first character is `2`
+- The second character is `3`, forming `23`
+  - Since `23` is a prime number, continue to the next iteration
+- The third character is `7`, forming `27`
+  - Since `27` is not a prime number, print `2` and `27` and skip to the next test case.
+- Output: `2\n27\n`
+
+#### Remaining cases:
+Continue with similar logic, checking each character and each pair of characters for each input, and printing the output when a non-prime number is found.
+
+Since the input is large and we are printing on finding the first non-prime pair or single-digit, the exact output will depend on the first occurrence of a non-prime number or digit for each input.
+
+Given the input, the exact output will be the first non-prime digit or pair

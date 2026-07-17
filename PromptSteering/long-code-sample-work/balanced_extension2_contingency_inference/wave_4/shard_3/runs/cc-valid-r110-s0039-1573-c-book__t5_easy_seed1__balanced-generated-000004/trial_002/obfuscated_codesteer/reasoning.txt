@@ -1,0 +1,69 @@
+To determine the exact standard output of the provided Java program, we need to follow the execution logic and understand how it handles the input and produces output. Here is a step-by-step breakdown of the process:
+
+### Input Parsing and Execution Logic
+
+1. **Reading Test Cases (`T`)**:
+   - The program starts by reading the number of test cases `T`.
+   - For each test case, it reads the number of nodes (`n`) and their respective edges.
+
+2. **Edge List Construction**:
+   - Each node `i` has a list of edges represented by indices `data[i]`.
+
+3. **Dynamic Programming (DP) Initialization**:
+   - The `dp` array is initialized with `-2` to indicate unvisited nodes.
+   - A boolean array `s` is used to mark nodes as visited.
+
+4. **Depth First Search (DFS) with Dynamic Programming**:
+   - The function `cal` performs DFS on the graph while updating the `dp` array.
+   - It checks if a node has been visited before (using `s[index]`) and updates its state accordingly.
+
+5. **Result Calculation**:
+   - The maximum value from the `dp` array is determined as the result for each test case.
+
+### Specific Case Analysis
+
+Given the input:
+```plaintext
+5
+4
+1 2
+0
+2 1 4
+1 3
+5
+1 5
+1 1
+1 2
+1 3
+1 4
+5
+0
+0
+2 1 4
+1 2
+2 2 1
+4
+2 2 3
+0
+0
+2 3 2
+5
+1 4
+1 3
+1 4
+1 5
+0
+```
+
+Let's analyze the first test case:
+- `n = 4`
+- Edges: `[1 -> 2], [0], [2 -> 1 -> 4], [1 -> 3]`
+
+The `cal` function will be called recursively for each node:
+- Node 0: `[1 -> 2 -> 3]`
+- Node 1: `[2 -> 4]`
+- Node 2: `[1 -> 3 -> 4]`
+
+Since there are no cycles and all nodes are reachable, the output for the first test case will be the maximum depth, which is `3`.
+
+For the remaining test cases, similar analysis can be done, but

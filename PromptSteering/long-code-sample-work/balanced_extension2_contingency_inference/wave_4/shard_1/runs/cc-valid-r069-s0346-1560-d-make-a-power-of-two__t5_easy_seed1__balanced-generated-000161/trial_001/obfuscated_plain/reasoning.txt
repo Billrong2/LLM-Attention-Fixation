@@ -1,0 +1,32 @@
+**Reasoning:**
+
+The given Java program is a deterministic algorithm that calculates the minimum number of operations required to transform a given number into a power of two. The algorithm uses a breadth-first search (BFS) approach to explore all possible transformations of the input number and finds the shortest path to a power of two.
+
+The input to the program is taken from the standard input, which includes the number of test cases (T) followed by T lines, each containing an integer. For each test case, the program calculates the minimum number of operations required to transform the input number into a power of two using the `buscarGreedy` function.
+
+The `buscarGreedy` function takes a string `numero` as input, which represents the input number. The function initializes a variable `pot` to 1, which is the current power of two being compared with the input number. It then iterates over all possible powers of two up to 2^62, which is the maximum power of two that can be represented as an integer in Java.
+
+For each power of two, the function compares the number of differences between the binary representation of the power of two and the input number using the `comparar` function. The `comparar` function takes two strings `patron` and `num` as input, which represent the binary representation of the power of two and the input number, respectively. The function recursively compares the first characters of the two strings and returns the minimum number of differences between them.
+
+If the number of differences between the current power of two and the input number is less than the minimum number of differences found so far, the function updates the minimum number of differences. The function then moves on to the next power of two and repeats the process until it has checked all possible powers of two.
+
+Once the function has finished checking all possible powers of two, it returns the minimum number of differences found, which represents the minimum number of operations required to transform the input number into a power of two.
+
+In the given program, the `buscarGreedy` function is called for each test case, and the output of the function is printed to the standard output.
+
+**Output:**
+
+For the given input:
+
+```
+1
+159524
+```
+
+The output of the program is:
+
+```
+3
+```
+
+This is because the minimum number of operations required to transform the input number 159524 into a power of two is 3. The program first checks if the input

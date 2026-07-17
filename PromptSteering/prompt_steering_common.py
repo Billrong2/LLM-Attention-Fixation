@@ -15,7 +15,6 @@ DEFAULT_PROJECT_ROOT = Path(__file__).resolve().parents[1]
 PROMPT_STEERING_ROOT = Path(__file__).resolve().parent
 DEFAULT_MODEL_NAME = "Qwen/Qwen2.5-Coder-7B-Instruct"
 DEFAULT_OUTPUT_ROOT = PROMPT_STEERING_ROOT / "artifacts"
-DEFAULT_JAVA_HOME = Path("/people/cs/x/xxr230000/jdks/jdk-17.0.11+9")
 DEFAULT_JAVA_COMPAT_SRC = PROMPT_STEERING_ROOT / "java_compat"
 DEFAULT_JAVA_COMPAT_BUILD = DEFAULT_OUTPUT_ROOT / "java_compat"
 DEFAULT_JAVATUPLES_COMPAT_JAR = DEFAULT_JAVA_COMPAT_BUILD / "javatuples-compat.jar"
@@ -40,10 +39,8 @@ def configure_java_home(java_home: Optional[str | Path] = None) -> Optional[Path
     explicit = java_home is not None and str(java_home).strip() != ""
     if explicit:
         candidates.append(Path(str(java_home)).expanduser())
-    else:
-        candidates.append(DEFAULT_JAVA_HOME)
-        if os.environ.get("JAVA_HOME"):
-            candidates.append(Path(os.environ["JAVA_HOME"]).expanduser())
+    elif os.environ.get("JAVA_HOME"):
+        candidates.append(Path(os.environ["JAVA_HOME"]).expanduser())
 
     seen: set[str] = set()
     for candidate in candidates:
@@ -179,7 +176,20 @@ def ensure_java_compat_wrappers(
 
     javac_wrapper = wrapper_dir / "javac-with-compat"
     java_wrapper = wrapper_dir / "java-with-compat"
-    javac_wrapper.write_text(
+
+    def write_once(path: Path, text: str) -> None:
+        if path.is_file():
+            path.chmod(0o755)
+            return
+        try:
+            path.write_text(text, encoding="utf-8")
+            path.chmod(0o755)
+        except OSError:
+            if not path.is_file():
+                raise
+
+    write_once(
+        javac_wrapper,
         "\n".join(
             [
                 "#!/usr/bin/env bash",
@@ -192,9 +202,9 @@ def ensure_java_compat_wrappers(
                 "",
             ]
         ),
-        encoding="utf-8",
     )
-    java_wrapper.write_text(
+    write_once(
+        java_wrapper,
         "\n".join(
             [
                 "#!/usr/bin/env bash",
@@ -231,10 +241,7 @@ def ensure_java_compat_wrappers(
                 "",
             ]
         ),
-        encoding="utf-8",
     )
-    javac_wrapper.chmod(0o755)
-    java_wrapper.chmod(0o755)
     return javac_wrapper.resolve(), java_wrapper.resolve()
 
 

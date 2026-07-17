@@ -1,0 +1,24 @@
+{
+  "schema_version": "long-code-balanced-execution-disclosure-v1",
+  "registered_protocol_interim_looks_allowed": false,
+  "actual_interim_aggregate_look_occurred": true,
+  "disclosure": "During corrected balanced Wave 1, the orchestrating agent inspected results_index aggregate exact-match counts and the sample identifiers attached to baseline exact hits before the wave completed. This was an execution-protocol deviation and is disclosed rather than described as preregistered or outcome-blind timing.",
+  "content_not_inspected_for_the_interim_look": [
+    "raw model completions",
+    "reasoning traces",
+    "submitted prompts",
+    "oracle file contents",
+    "per-CodeSteer-success content"
+  ],
+  "current_wave_action_changed": false,
+  "current_wave_cases_changed": false,
+  "current_wave_trials_or_conditions_changed": false,
+  "current_wave_stopped_early": false,
+  "wave_2_trigger_policy_changed": false,
+  "wave_2_decision_requires_complete_valid_post_wave_1_audit": true,
+  "adaptive_extension_motivated_in_part_by_interim_aggregate_look": true,
+  "adaptive_extension_case_ranking_uses_model_outcomes": false,
+  "adaptive_extension_launch_requires_complete_valid_post_wave_2_audit_below_ten": true,
+  "excluded_path_rebase_attempt_result_contents_inspected": false,
+  "pass_at_k_displayed": false
+}

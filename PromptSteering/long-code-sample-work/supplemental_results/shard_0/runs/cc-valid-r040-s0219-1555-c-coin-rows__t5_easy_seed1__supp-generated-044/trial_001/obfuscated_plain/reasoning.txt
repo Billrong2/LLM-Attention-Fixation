@@ -1,0 +1,26 @@
+The program reads input from standard input and writes output to standard output. The main method reads the number of test cases, then for each test case, it reads the value of `m` and two arrays `arr` and `arr2`. It then calls the `game` method with `arr`, `arr2`, and `m` as arguments, and writes the return value of `game` to standard output. The `game` method calculates the minimum value of the maximum value of the two arrays `dp[0][i]` and `dp[1][i]`, where `i` ranges from `0` to `m-1`. The `dp` array is calculated by adding `Integer.parseInt(arr2[i-1])` to `dp[0][i-1]` for each `i` in the range `[1, m)`, and adding `Integer.parseInt(arr1[m-i])` to `dp[1][m-i]` for each `i` in the range `[1, m)`. The `dp` array is initialized with all values set to `0`. The minimum value is initially set to a large number (`10000000000l`). For each `i` in the range `[0, m)`, it updates `min` with the minimum of `min` and the maximum of `dp[0][i]` and `dp[1][i]`. Finally, it returns `min`.
+
+The input for this particular case is:
+
+```
+3
+3
+2 3 12
+-1 10 4
+3
+2 5 9
+4 5 1
+1
+8
+```
+
+For the first test case, `m = 3`, `arr = {2, 3, 12}`, and `arr2 = {-1, 10, 4}`. The `dp` array is initialized as `{{0, 0, 0}, {0, 0, 0}}`. The values of `dp` after each iteration are:
+
+```
+0  9  13
+0  4  1
+```
+
+The minimum value of the maximum values of `dp[0][i]` and `dp[1][i]` is `4`. Therefore, the output for the first test case is `4`.
+
+For the second test case, `m = 3`, `arr

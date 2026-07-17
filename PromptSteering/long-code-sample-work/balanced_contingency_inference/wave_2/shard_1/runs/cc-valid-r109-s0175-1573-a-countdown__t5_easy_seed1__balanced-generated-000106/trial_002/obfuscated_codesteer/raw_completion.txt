@@ -1,0 +1,14 @@
+ To solve the problem, we need to analyze the given program and understand its behavior for the provided input. The main method of the program processes each test case by reading an integer `n` and a string of digits, then calling the `find` method to calculate the number of moves required.
+
+For each test case, the `find` method calculates the number of moves as follows:
+1. Add the value of the last digit in the input string.
+2. For each of the other digits (from index 0 to `n-2`), add 1 plus the value of the digit if it is greater than 0.
+
+Let's apply this algorithm to the provided input:
+- "3\n007": The last digit is 7, and the other digits are 0 and 0. So, the number of moves is 7 + 1 = 8.
+- "4\n1100": The last digit is 0, and the other digits are 1, 1, and 0. So, the number of moves is 0 + 2 + 2 = 4.
+- "5\n00010": The last digit is 0, and the other digits are 0, 0, 0, and 1. So, the number of moves is 0 + 0 + 0 + 2 = 2.
+- "3\n103": The last digit is 3, and the other digits are 1 and 0. So, the number of moves is 3 + 2 = 5.
+- "4\n2020": The last digit is 0, and the other digits are 2, 0, and 2. So, the number of moves is 0 + 3 + 3 = 6.
+- "9\n123456789": The last digit is 9, and the other digits are 1, 2, 3, 4, 5, 6, 7, and 8. So, the number of moves is 9 + 2 + 3 + 4 + 5 + 6 + 7 + 8 = 44.
+- "30\n001678294039710047203946100020": The last digit is 0, and the other digits

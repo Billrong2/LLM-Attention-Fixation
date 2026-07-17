@@ -1,0 +1,158 @@
+{
+  "expected_stdout": "7\n2\n2\n5\n6\n53\n115\n",
+  "expected_stdout_path": "candidates/cc-valid-r109-s0175-1573-a-countdown/io/00-generated-007.out",
+  "id": "cc-valid-r109-s0175-1573-a-countdown",
+  "input": "7\n3\n007\n4\n1000\n5\n00010\n3\n103\n4\n2020\n9\n123456789\n30\n001678294039710047203946100020\n",
+  "input_path": "candidates/cc-valid-r109-s0175-1573-a-countdown/io/00-generated-007.in",
+  "inputs": [
+    {
+      "dataset_test_index": 7,
+      "expected_stdout": "7\n2\n2\n5\n6\n53\n115\n",
+      "expected_stdout_path": "candidates/cc-valid-r109-s0175-1573-a-countdown/io/00-generated-007.out",
+      "expected_stdout_sha256": "77816cf4b5f52eb6b8be80efd4e363dc4fd8e1850eef53fdc83e482f2f93dc84",
+      "id": "00-generated-007",
+      "input": "7\n3\n007\n4\n1000\n5\n00010\n3\n103\n4\n2020\n9\n123456789\n30\n001678294039710047203946100020\n",
+      "input_path": "candidates/cc-valid-r109-s0175-1573-a-countdown/io/00-generated-007.in",
+      "input_sha256": "4309c196fda7f799196166221c5d0ee4397b509dcae6c3e18972c0ce497b6017",
+      "suite": "generated_tests",
+      "validation": {
+        "compiled_with_jdk17": true,
+        "exit_code": 0,
+        "stderr_bytes": 0,
+        "stdout_exact_byte_match": true,
+        "timed_out": false
+      }
+    }
+  ],
+  "loc_definition": "Python str.splitlines(); final newline does not add an empty physical line",
+  "main_class": "Codeforces1",
+  "nonblank_loc": 221,
+  "original_path": "candidates/cc-valid-r109-s0175-1573-a-countdown/original.java",
+  "physical_loc": 271,
+  "prevalidation": {
+    "all_retained_tests_exact": true,
+    "compiled": true,
+    "compiler_exit_code": 0,
+    "compiler_stderr_bytes": 0,
+    "compiler_stdout_bytes": 0,
+    "jdk_major": 17
+  },
+  "problem_key": "codeforces-1573-A",
+  "problem_name": "1573_A. Countdown",
+  "provenance": {
+    "cf_contest_id": 1573,
+    "cf_index": "A",
+    "cf_points": 500.0,
+    "cf_rating": 800,
+    "cf_tags": [
+      "greedy"
+    ],
+    "dataset_file": "codecontests-valid-802411c3.parquet",
+    "dataset_file_sha256": "02e8c1ccedae716f1e43cc813fcb7823c3db666ea92638820aba80e8cef451ab",
+    "dataset_id": "deepmind/code_contests",
+    "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+    "dataset_url": "https://huggingface.co/datasets/deepmind/code_contests/resolve/802411c3010cb00d1b05bad57ca77365a3c699d6/data/valid-00000-of-00001-5e672c5751f060d3.parquet",
+    "difficulty": 7,
+    "language": "Java",
+    "language_code": 4,
+    "problem_name": "1573_A. Countdown",
+    "row_index": 109,
+    "solution_container": "solutions",
+    "solution_index": 175,
+    "solution_label": "correct human solution",
+    "source_code": 2,
+    "split": "valid"
+  },
+  "source_bytes": 7878,
+  "source_sha256": "a1aedda73fa68adbacd505e753b9737e86b7ec0dd223bfe26e533dca1814d1af",
+  "target": {
+    "arity": 2,
+    "body_nonblank_loc": 10,
+    "body_physical_loc": 11,
+    "class": "Codeforces1",
+    "codesteer_selector": {
+      "declaration_line": 107,
+      "fallback_used": false,
+      "implementation": "steering.priors.SlicingPrior._select_target_method",
+      "name": "find",
+      "parameter_count": 2,
+      "parse_status": "javalang",
+      "top_level_body_statement_count": 4
+    },
+    "control_node_count": 2,
+    "end_line": 118,
+    "loop_node_count": 1,
+    "main_call_path": [
+      {
+        "arity": 1,
+        "class": "Codeforces1",
+        "end_line": 105,
+        "name": "main",
+        "parameter_types": [
+          "String[]"
+        ],
+        "return_type": "void",
+        "start_line": 93
+      },
+      {
+        "arity": 2,
+        "class": "Codeforces1",
+        "end_line": 118,
+        "name": "find",
+        "parameter_types": [
+          "int",
+          "char[]"
+        ],
+        "return_type": "int",
+        "start_line": 107
+      }
+    ],
+    "main_reachable": true,
+    "name": "find",
+    "output_caller": {
+      "arity": 1,
+      "class": "Codeforces1",
+      "end_line": 105,
+      "name": "main",
+      "parameter_types": [
+        "String[]"
+      ],
+      "return_type": "void",
+      "start_line": 93
+    },
+    "output_evidence": "out.println(find(n, ch))",
+    "output_relevance_kind": "direct_print_argument",
+    "output_relevance_variable": null,
+    "parameter_types": [
+      "int",
+      "char[]"
+    ],
+    "recursive_call_count": 0,
+    "return_type": "int",
+    "return_value_output_relevant": true,
+    "source_sha256": "0faa4d4ce10fd905a6cdde79f4700cce991d52c94014c3e1e989d41de24b8734",
+    "start_line": 107
+  },
+  "target_method": "find",
+  "target_signature": "int Codeforces1.find(int, char[])",
+  "tests": [
+    {
+      "dataset_test_index": 7,
+      "expected_stdout": "7\n2\n2\n5\n6\n53\n115\n",
+      "expected_stdout_path": "candidates/cc-valid-r109-s0175-1573-a-countdown/io/00-generated-007.out",
+      "expected_stdout_sha256": "77816cf4b5f52eb6b8be80efd4e363dc4fd8e1850eef53fdc83e482f2f93dc84",
+      "id": "00-generated-007",
+      "input": "7\n3\n007\n4\n1000\n5\n00010\n3\n103\n4\n2020\n9\n123456789\n30\n001678294039710047203946100020\n",
+      "input_path": "candidates/cc-valid-r109-s0175-1573-a-countdown/io/00-generated-007.in",
+      "input_sha256": "4309c196fda7f799196166221c5d0ee4397b509dcae6c3e18972c0ce497b6017",
+      "suite": "generated_tests",
+      "validation": {
+        "compiled_with_jdk17": true,
+        "exit_code": 0,
+        "stderr_bytes": 0,
+        "stdout_exact_byte_match": true,
+        "timed_out": false
+      }
+    }
+  ]
+}

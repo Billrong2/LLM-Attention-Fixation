@@ -1,0 +1,9 @@
+The program is reading input from stdin and performing a specific calculation for each test case.
+The first line of input is the number of test cases, denoted as `test`.
+For each test case, the program reads the number of elements in an array, denoted as `n`, and the elements themselves, denoted as `a`.
+The program then calculates the number of elements in the array that are 0 and the number of elements that are 1, denoted as `f[0]` and `f[1]`, respectively.
+If the difference between `f[0]` and `f[1]` is greater than 1, the program prints -1.
+If `n` is even, the program checks if `f[0]` is equal to `f[1]`. If it is, it calculates the minimum of two possible values, denoted as `ans`, by calling the `fun` method with different values of `x`. The `fun` method calculates the absolute difference between `x` and each element in the array, sums these differences, and returns the result. The program then prints the value of `ans`. If `f[0]` is not equal to `f[1]`, the program prints -1.
+If `n` is odd, the program checks if `f[0]` is equal to `f[1] + 1`. If it is, it calculates the value of `ans` by calling the `fun` method with `x` equal to 0. The program then prints the value of `ans`. If `f[0]` is not equal to `f[1] + 1`, the program checks if `f[1]` is equal to `f[0] + 1`. If it is, it calculates the value of `ans` by calling the `fun` method with `x` equal to 1. The program then prints the value of `ans`. If `f[1]` is not equal to `f[0] + 1`, the program prints -1.
+For the given input, the program will perform the following calculations:
+- For the first test case, `n` is 7 and the array elements are 3, 2, 6, 5, 3, 12, 1. The values of `f[0]` and `f[1]` are 2 and 5, respectively.

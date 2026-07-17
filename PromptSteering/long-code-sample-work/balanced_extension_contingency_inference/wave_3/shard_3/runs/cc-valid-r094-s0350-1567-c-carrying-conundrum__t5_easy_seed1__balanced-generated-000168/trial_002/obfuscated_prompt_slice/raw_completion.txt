@@ -1,0 +1,13 @@
+
+
+
+Reasoning:
+
+- The program is invoked with the input "1\n12509\n" and an empty argument list.
+- The main method reads the input, converts it to a char array, and calls the eval method with the char array, initial indices, and boolean flags.
+- The eval method recursively calculates the number of valid strings that can be formed by inserting '+' or '-' signs into the input string, such that the resulting expression evaluates to 0.
+- The program uses memoization to store the results of subproblems in a 2D array, dp, to avoid recalculating them.
+- The program uses bitwise operations to keep track of the carry and the number of valid strings that can be formed.
+- The program returns the result of the eval method, which is printed as the output.
+
+FINAL_OUTPUT_JSON: {"stdout": "10"}

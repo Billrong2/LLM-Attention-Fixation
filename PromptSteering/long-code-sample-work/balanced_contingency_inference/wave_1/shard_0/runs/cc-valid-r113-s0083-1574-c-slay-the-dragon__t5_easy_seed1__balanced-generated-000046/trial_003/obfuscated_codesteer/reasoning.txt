@@ -1,0 +1,26 @@
+The program reads input from the console and performs the following steps:
+
+1. Reads an integer `n` from the input.
+2. Reads `n` integers from the input and stores them in an array `arr` and a set `hs`.
+3. Reads an integer `m` from the input.
+4. Creates a new array `a` of size `m`.
+5. Iterates through the set `hs` and adds each element to the array `a`.
+6. Sorts the array `a`.
+7. Reads two integers `attack` and `defend` from the input.
+8. Calls the `find` method with the parameters `sum`, `hs`, `a`, `m`, `attack`, and `defend`.
+9. Prints the result returned by the `find` method to the console.
+
+The `find` method takes the parameters `sum`, `hs`, `a`, `m`, `attack`, and `defend`. It performs the following steps:
+
+1. Initializes two variables `s` and `e` to 0 and `n-1` respectively.
+2. Loops while `s` is less than `e`.
+3. Calculates the midpoint of the range `s` to `e` and stores it in `mid`.
+4. If the value at index `mid` in the array `a` is equal to `attack`, sets `s` and `e` to `mid`.
+5. If the value at index `mid` in the array `a` is less than `attack`, increments `s` by 1.
+6. If the value at index `mid` in the array `a` is greater than or equal to `attack`, decrements `e` by 1.
+7. Calculates the value of `t1`, `t2`, and `t3` based on the value of `attack` and `sum`.
+8. Calculates the value of `ans1` as the sum of `t1` and `t3`.
+9. Calculates the value of `ans2` as the sum of `t1` and `t3` if `s-1` is greater than or equal to 0.
+10. Returns the minimum of `ans1` and `ans2`.
+
+The output of the program for the input `4\n2 6 2 0\n1\n3 12\n7 9\n4 14\n2 10\n8 7\n

@@ -1,0 +1,13 @@
+ The program `C1567` takes a single integer input `t` indicating the number of test cases to be evaluated. For each test case, it reads a string and calculates the number of valid sequences that can be formed from the digits of the input string, following specific rules. The main rules are:
+
+1. The number of valid sequences is influenced by the presence of '1' and '2' digits in the input string.
+2. For any digit at index `in`, the value `val` is determined by whether `carry` at the corresponding index is set.
+3. If `val` is 0, the function returns 1 if both `a` and `b` are true; otherwise, it returns 0.
+4. If `val` is 1, `carry` is toggled at the next two indices, and the function is recursively called with `a` and `b` unchanged.
+5. If `val` is 2, `carry` is toggled at the next two indices, and the function is recursively called twice with one of `a` or `b` set to true.
+6. For other values of `val`, if `in` is less than `n-2`, the function calculates the number of valid sequences by considering different scenarios based on `val` and the current state of `carry`, `a`, and `b`.
+7. The function then returns the sum of these calculated values.
+
+The final output is the total number of valid sequences for the given input string, printed for each test case.
+
+FINAL_OUTPUT_JSON: {"stdout":"1\n7323\n"}

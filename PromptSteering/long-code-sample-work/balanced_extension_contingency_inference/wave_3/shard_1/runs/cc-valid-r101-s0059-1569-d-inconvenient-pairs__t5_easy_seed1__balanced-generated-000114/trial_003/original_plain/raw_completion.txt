@@ -1,0 +1,43 @@
+ To predict the exact standard output of this Java program for the given input, let's go through the steps:
+
+1. The program reads the number of test cases (t) and the input for each test case.
+2. For each test case, it reads the number of lines in the y-axis (n), the number of lines in the x-axis (m), and the number of points (k).
+3. It then reads the y-coordinates of the n lines and the x-coordinates of the m lines.
+4. Next, it reads the coordinates of the k points.
+5. The `solve` method is called with these parameters.
+6. The `solve` method processes the input by creating sets and lists to store the y and x coordinates, and then calculates the number of points that lie on both the x and y lines.
+7. The final result is printed to the standard output.
+
+The input is as follows:
+
+```
+1
+2 2 0
+0 1011000
+0 1000000
+1556 1000000
+0 14
+```
+
+Let's break down the processing step-by-step:
+
+1. There is 1 test case.
+2. n = 2, m = 2, k = 0.
+3. The y-coordinates are: 1011000, 1000000.
+4. The x-coordinates are: 1556, 1000000.
+5. There are no points to process since k = 0.
+
+The `solve` method will process the input as follows:
+
+1. It initializes two sets and two lists for y and x coordinates.
+2. It adds the y-coordinates to the sets and lists.
+3. It adds the x-coordinates to the sets and lists.
+4. Since there are no points to process, the method will calculate the number of points that lie on both the x and y lines, which is 0.
+
+Therefore, the output will be:
+
+```
+0
+```
+
+FINAL_OUTPUT_JSON: {"stdout":"0"}

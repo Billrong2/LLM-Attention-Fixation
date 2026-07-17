@@ -1,0 +1,15 @@
+ The program `eval` is called with the arguments `(arr, 0, 0, n, dp, false, false)`. The `arr` array is initialized with the string input `"7323"`. The `eval` function recursively evaluates the array, considering each digit and whether it is part of a carry operation. The function uses a dynamic programming table `dp` to store the results of subproblems.
+
+1. The input string is converted to a char array `arr`.
+2. The `eval` function is called with the initial parameters `(arr, 0, 0, n, dp, false, false)`.
+3. The function processes each digit in `arr`, considering the carry operations and the current state of `a` and `b`.
+
+The function `eval` uses a combination of conditional logic and recursive calls to evaluate the array. It considers whether the current digit is part of a carry operation and whether it is a 1 or a 2. The function also updates the carry state and the state of `a` and `b`.
+
+The function `eval` returns the result of the evaluation, which is then printed to the output.
+
+The output of the program for the given input `"7323"` is:
+```
+FINAL_OUTPUT_JSON: {"stdout":"100\n"}
+```
+The program prints "100" as the result of the evaluation.

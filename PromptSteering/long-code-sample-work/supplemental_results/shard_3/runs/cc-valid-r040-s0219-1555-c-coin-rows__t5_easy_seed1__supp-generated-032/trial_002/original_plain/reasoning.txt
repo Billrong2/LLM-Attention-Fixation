@@ -1,0 +1,52 @@
+CASES_BEGIN
+
+### CASES_END
+
+The program will read an integer \( t \), the number of test cases, from the standard input.
+
+### CASES_BEGIN
+
+c001: invoke program entry point; target_method=game; stdin="3\n3\n1 2 7\n3 17 0\n3\n2 3 0\n6 2 1\n1\n3\n15\n"; argv=[]
+
+### CASES_END
+
+For the case \( c001 \):
+- \( t = 3 \)
+- First test case:
+  - \( m = 3 \)
+  - \( arr = ["1", "2", "7"] \)
+  - \( arr2 = ["3", "17", "0"] \)
+  - \( game(arr, arr2, m) \)
+- Second test case:
+  - \( m = 3 \)
+  - \( arr = ["2", "3", "0"] \)
+  - \( arr2 = ["6", "2", "1"] \)
+  - \( game(arr, arr2, m) \)
+- Third test case:
+  - \( m = 1 \)
+  - \( arr = ["1"] \)
+  - \( arr2 = ["3"] \)
+  - \( game(arr, arr2, m) \)
+
+For \( m = 3 \):
+- The `game` function computes the maximum values in `dp[0]` and `dp[1]`.
+- It then finds the minimum value among the maximum values in `dp[0]` and `dp[1]`.
+
+For \( m = 1 \):
+- The `game` function returns 0 as per the condition \( m == 1 \).
+
+The `game` function calculates the minimum maximum sum of the subarrays for the given `arr` and `arr2`.
+
+### CASES_BEGIN
+
+c001: invoke program entry point; target_method=game; stdin="3\n3\n1 2 7\n3 17 0\n3\n2 3 0\n6 2 1\n1\n3\n15\n"; argv=[]
+
+### CASES_END
+
+**Final Output:**
+
+```plaintext
+10
+15
+0
+```

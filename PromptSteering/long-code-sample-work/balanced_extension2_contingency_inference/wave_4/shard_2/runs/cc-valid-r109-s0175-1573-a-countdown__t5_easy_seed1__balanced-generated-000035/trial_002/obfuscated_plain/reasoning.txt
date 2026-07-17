@@ -1,0 +1,46 @@
+### Output Prediction
+For the given input:
+```
+invoke program entry point; target_method=find; stdin="7\n3\n007\n4\n1000\n5\n00001\n3\n103\n4\n1537\n9\n123456789\n30\n001678294039710047203946100020\n"; argv=[]
+```
+The program reads `7` as the number of test cases, and then it reads each test case in the following format: an integer `n` followed by a string `ch`. The function `find` is called for each test case.
+
+For each test case, the function `find` calculates the number of moves required to change the last digit of the string `ch` to a specific value. The moves are calculated by summing up the values of each digit in the string `ch` and adding 1 to the last digit.
+
+Therefore, the expected output is:
+```
+8
+4
+5
+4
+6
+12
+```
+
+
+### Reasoning
+The function `find` takes an integer `n` and a character array `ch` as input. It calculates the number of moves required to change the last digit of the string `ch` to a specific value.
+
+The function first adds the last digit of `ch` to the total moves. Then, it iterates over the remaining digits in `ch` and adds their values to the total moves.
+
+The function returns the total moves calculated.
+
+### Code
+```java
+public static int find(int n, char[] ch)
+{
+    int _obf_t5_find_587907 = 0; _obf_t5_find_587907 += 0;
+    int moves = 0;
+        moves += ch[n-1]-'0';
+
+        for(int i=0;i<n-1;i++)
+        {
+            if(ch[i]-'0'>0)
+            moves += (ch[i]-'0'+1);
+        }
+        return moves;
+}
+```
+
+### Final Output
+```json

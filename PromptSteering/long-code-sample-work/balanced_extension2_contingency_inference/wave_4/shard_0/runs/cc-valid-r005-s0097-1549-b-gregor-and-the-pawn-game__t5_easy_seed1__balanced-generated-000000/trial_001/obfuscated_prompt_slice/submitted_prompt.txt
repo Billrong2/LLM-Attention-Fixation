@@ -1,0 +1,423 @@
+Prompt-only steering guidance (Program Slicing / backward slice, artifact-conditioned):
+Use the following static program-analysis elements as the main reasoning anchors.
+These elements are static only; they do not reveal the correct output, branch outcomes, or gold execution trace.
+
+Static elements to emphasize:
+1. MethodDeclaration at L296: target method pawnLineal(scr1, dst1) (public static int pawnLineal(String scr1, String dst1) {)
+2. SliceMethodParameter at L296: method parameter scr1 (public static int pawnLineal(String scr1, String dst1) {)
+3. SliceMethodParameter at L296: method parameter dst1 (public static int pawnLineal(String scr1, String dst1) {)
+4. SliceReturnValue at L325: return value expression using ret (return ret;)
+5. SliceDefinition at L298: definition of ret (int ret = 0;)
+6. SliceControlDependency at L305: control predicate over i, scr, length, charAt, dst, setCharAt, ret (for (int i=1;i<scr.length()-1;i++){)
+7. SliceMethodCall at L305: method call scr.length in static data/control context (for (int i=1;i<scr.length()-1;i++){)
+8. SliceControlDependency at L308: control predicate over scr, charAt, i, dst, setCharAt, ret (if (scr.charAt(i)=='1'){)
+9. SliceMethodCall at L308: method call scr.charAt in static data/control context (if (scr.charAt(i)=='1'){)
+10. SliceControlDependency at L309: control predicate over dst, charAt, i, setCharAt, ret (if (dst.charAt(i-1)=='1'){)
+11. SliceMethodCall at L309: method call dst.charAt in static data/control context (if (dst.charAt(i-1)=='1'){)
+12. SliceMethodCall at L310: method call dst.setCharAt in static data/control context (dst.setCharAt(i-1,'X');)
+13. SliceControlDependency at L314: control predicate over dst, charAt, i, setCharAt, ret (if (dst.charAt(i)=='0'){)
+14. SliceMethodCall at L314: method call dst.charAt in static data/control context (if (dst.charAt(i)=='0'){)
+15. SliceMethodCall at L315: method call dst.setCharAt in static data/control context (dst.setCharAt(i,'X');)
+16. SliceControlDependency at L319: control predicate over dst, charAt, i, setCharAt, ret (if (dst.charAt(i+1)=='1'){)
+17. SliceMethodCall at L319: method call dst.charAt in static data/control context (if (dst.charAt(i+1)=='1'){)
+18. SliceMethodCall at L320: method call dst.setCharAt in static data/control context (dst.setCharAt(i+1,'X');)
+
+Predict the exact standard output of this deterministic Java program for the concrete case below. The recorded algorithm method is `pawnLineal`. This is output prediction, not code generation.
+### CASES_BEGIN
+c001: invoke program entry point; target_method=pawnLineal; stdin="4\n3\n000\n111\n4\n0111\n1111\n3\n010\n010\n5\n11001\n00000\n"; argv=[]
+### CASES_END
+
+Give concise reasoning that tracks only state and control flow needed for the output. Then end with exactly one machine-readable line in this form:
+FINAL_OUTPUT_JSON: {"stdout":"exact output with newlines encoded as \n"}
+The JSON stdout string must contain only what the program prints, with no commentary or code fence.
+
+```java
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Scanner;
+
+public class Chess {
+    static HashSet<String> memo = new HashSet<String>();
+    
+    public static void subsecuencias(String datos) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_subsecuencias_132189 = 0;
+            _obf_t5_subsecuencias_132189++;
+        }
+        System.out.print("[");
+        for(int i=0;i<datos.length();i++)
+            System.out.print(datos.charAt(i)+", ");
+        System.out.println("]");
+        memo.add(datos);
+        for (int i=0;i<datos.length();i++){
+            String nuevoDatos = datos.substring(0,i)+datos.substring(i+1);
+            
+            if (!memo.contains(nuevoDatos))
+                subsecuencias(nuevoDatos);
+        }
+    }
+    
+    public static void subsecuencias(ArrayList<Integer> datos, ArrayList<Integer> datosT) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_subsecuencias_366691 = 0;
+            _obf_t5_subsecuencias_366691++;
+        }
+        
+        
+        for (int i=0;i<datos.size();i++){
+            ArrayList<Integer> datosNuevo = new ArrayList<>();
+            for (int h=0;h<datos.size();h++){
+                if (h!=i){
+                    //System.out.print(datos.get(h));
+                    datosNuevo.add(datos.get(h));
+                }
+            }
+            
+            if(!datosNuevo.isEmpty())
+                subsecuencias(datosNuevo, datosT);
+            
+        }
+        for (int i=0;i<datos.size();i++){
+            System.out.print(datos.get(i)+".");
+        }
+        System.out.println();
+    }
+    
+    public static int solucion(int[] datos) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_solucion_283501 = 0;
+            _obf_t5_solucion_283501++;
+        }
+        double sum1 = datos [0];
+        double sum2 = 0.0;
+               
+        for (int i=1;i<datos.length;i++)
+            sum2+=datos[i];
+        double maximo = sum1 + sum2 / (datos.length-1);
+        
+        //System.out.println(sum1+" "+sum2+" "+maximo);
+        
+        
+        for (int i=1;i<datos.length;i++){
+            sum1 += datos[i];
+            sum2 -= datos[i];
+            System.out.println(sum1+" "+sum2+" "+maximo);
+        }
+        
+        
+        
+        return 0;
+    }
+    public static void main22(String[] args) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_main22_973797 = 0;
+            _obf_t5_main22_973797++;
+        }
+        //int[] datos = {3,1,2};
+        //int ret = solucion(datos);
+        //System.out.println(ret);
+        ArrayList<Integer> datos = new ArrayList<>();
+        for (int i = 0;i<6;i++)            
+            datos.add(i);
+        
+        subsecuencias(datos,datos);
+        //datos.add(1);
+        //datos.add(2);
+        //datos.add(3);
+        //datos.add(40);
+        //datos.add(5);
+        
+        
+        
+        //System.out.println((1 << 6));
+        /*
+        int n= 5;
+        List<List<Boolean>> powerSet = new ArrayList<>();
+        for (int i = 0; i < (1 << n); i++) {
+            List<Boolean> subset = new ArrayList<>(n);
+            for (int j = 0; j < n; j++)
+                subset.add(((1 << j) & i) > 0);
+            powerSet.add(subset);
+        }
+        
+        for (int i=0;i<powerSet.size();i++){
+            List<Boolean> subset = powerSet.get(i);
+            System.out.print("[");
+            for (int h=0;h<subset.size();h++){
+                if(subset.get(h))
+                    System.out.print("1 ");
+                else
+                    System.out.print("0 ");
+            }
+            System.out.println("]");
+        }*/
+    }
+    
+    
+    public static int pawn(String scr, String dst) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_pawn_170945 = 0;
+            _obf_t5_pawn_170945++;
+        }
+        int tot = 0;
+        int acumdst = 0;
+        int acumscr = 0;
+        scr += "0";
+        dst += "0";
+        for (int i=0;i<dst.length();i++){
+            if (dst.charAt(i)=='0'){
+                if (acumscr<acumdst){
+                    tot += acumscr;
+                }
+                else
+                if (acumscr>0){
+                    int _obf_t5_if_576597 = 0; _obf_t5_if_576597 += 0;
+                    if (acumscr % 2==0)
+                        tot += acumscr;
+                    else    
+                        tot += acumscr - 1;
+                }
+                if (scr.charAt(i)=='1'){
+                    tot++;
+                }
+                //System.out.println(i+" " + acumdst + " " + acumscr + " " + tot);
+                acumdst = 0;
+                acumscr = 0;
+                
+            }
+            else{
+                acumdst++;
+                if (scr.charAt(i)=='1'){
+                    acumscr++;
+                }
+            }
+        }
+        
+        return tot;
+    }
+    
+    public static String reemplazar(String str, int pos, char car) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_reemplazar_793842 = 0;
+            _obf_t5_reemplazar_793842++;
+        }
+        StringBuilder cad = new StringBuilder(str);
+        cad.setCharAt(pos, car);
+        return cad.toString();
+    }
+    
+    public static int contar(String scr) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_contar_849267 = 0;
+            _obf_t5_contar_849267++;
+        }
+        int ret = 0;
+        for (int i=0;i<scr.length();i++)
+            if (scr.charAt(i)=='X')
+                ret++;
+        return ret;
+    }
+    static int maximo = 0;
+    static HashSet<String> memo2 = new HashSet<String>();
+    public static void pawn2(String scr, String dst) {
+        int _obf_t5_pawn2_919509 = 0; _obf_t5_pawn2_919509 += 0;
+        String x = scr+dst;
+        if (memo2.contains(x))
+            return;
+        memo2.add(x);
+        
+        //System.out.println(scr+"\t"+dst);
+        //System.out.println("==============");
+        for (int i=0;i<scr.length();i++){
+            for (int h=-1;h<=1;h++){
+                int pos = h+i;
+                if (pos>=0 && pos <scr.length()){
+                    //System.out.println(pos+" ");
+                    
+                    if (i==pos){
+                        if (scr.charAt(pos)=='1' && dst.charAt(pos)=='0'){
+                            String dstNuevo = reemplazar(dst,pos,'X');
+                            String scrNuevo = reemplazar(scr,pos,'0');
+                            //System.out.println(scrNuevo+"\t"+dstNuevo);
+                            pawn2(scrNuevo, dstNuevo);
+                            int nuevo = contar(dstNuevo);
+                            if (nuevo>maximo)
+                                maximo = nuevo;
+                        }
+                    }
+                    else{
+                        if (scr.charAt(i)=='1' && dst.charAt(pos)=='1'){
+                            String dstNuevo = reemplazar(dst,pos,'X');
+                            String scrNuevo = reemplazar(scr,i,'0');
+                            //System.out.println(scrNuevo+"\t"+dstNuevo);
+                            pawn2(scrNuevo, dstNuevo);
+                            int nuevo = contar(dstNuevo);
+                            if (nuevo>maximo)
+                                maximo = nuevo;
+                        }
+                    }
+                }
+            }
+            //System.out.println("..............");
+        }
+    }
+    
+    public static int pawnAux(String scr, String dst) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_pawnAux_623372 = 0;
+            _obf_t5_pawnAux_623372++;
+        }
+        int ret = 0;
+        scr += "0";
+        dst += "0";
+        String scrNuevo = "" + scr.charAt(0);
+        String dstNuevo = "" + dst.charAt(0);
+        for (int i=1;i<dst.length();i++){
+            if (dst.charAt(i)=='0'){
+                System.out.println(scrNuevo + " \\ " + dstNuevo);
+                maximo = 0;
+                memo2.clear();
+                pawn2(scrNuevo, dstNuevo);
+                
+                ret += maximo;
+                if (scr.charAt(i)=='1')
+                    ret++;
+                
+                scrNuevo = "";
+                dstNuevo = "";
+            }
+            else{
+                scrNuevo +=  scr.charAt(i);
+                dstNuevo +=  dst.charAt(i);
+            }
+        }
+        return ret;
+    }
+    
+    /*
+    public static int pawnLineal(String scr, String dst) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_pawnLineal_634539 = 0;
+            _obf_t5_pawnLineal_634539++;
+        }
+        int ret = 0;
+        scr = "0" + scr + "0";
+        dst = "0" + dst + "0";
+        for (int i=1;i<scr.length()-1;i++){
+            //System.out.print(scr.charAt(i));
+        
+            if (scr.charAt(i)=='1'){
+                if (dst.charAt(i-1)=='1'){
+                    dst = reemplazar(dst,i-1,'X');
+                    ret++;
+                }
+                else
+                if (dst.charAt(i)=='0'){
+                    dst = reemplazar(dst,i,'X');
+                    ret++;
+                }
+                else
+                if (dst.charAt(i+1)=='1'){
+                    dst = reemplazar(dst,i+1,'X');
+                    ret++;
+                }
+            }
+        } 
+        return ret;
+    }    
+   */
+    public static int pawnLineal(String scr1, String dst1) {
+        int _obf_t5_pawnLineal_471801 = 0; _obf_t5_pawnLineal_471801 += 0;
+        int ret = 0;
+        scr1 = "0" + scr1 + "0";
+        dst1 = "0" + dst1 + "0";
+        
+        StringBuilder scr = new StringBuilder(scr1);
+        StringBuilder dst = new StringBuilder(dst1);
+        
+        for (int i=1;i<scr.length()-1;i++){
+            //System.out.print(scr.charAt(i));
+        
+            if (scr.charAt(i)=='1'){
+                if (dst.charAt(i-1)=='1'){
+                    dst.setCharAt(i-1,'X');
+                    ret++;
+                }
+                else
+                if (dst.charAt(i)=='0'){
+                    dst.setCharAt(i,'X');
+                    ret++;
+                }
+                else
+                if (dst.charAt(i+1)=='1'){
+                    dst.setCharAt(i+1,'X');
+                    ret++;
+                }
+            }
+        } 
+        return ret;
+    }    
+        
+    public static void main(String[] args) {
+        if (((3 * 3) - 9) != 0) {
+            int _obf_t5_main_287172 = 0;
+            _obf_t5_main_287172++;
+        }
+        /*maximo = 0;
+        String scr = "111011111100000000000000000000011111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111000000000000000000011101011011100111010111001";//"101011";
+        String dst = "101011011100101011111010001110011111111110000000000000000011111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111100000000000000000111110";//"111011";
+        System.out.println("lineal "+pawnLineal(scr, dst));
+        */
+        /*scr = dst = "";
+        for (int i=0;i<200000;i++){
+            
+        }*/
+        //pawn2(scr, dst);
+        //System.out.println("maximo "+maximo);
+        
+        //System.out.println("pawnAux " + pawnAux(scr, dst));
+        /*
+        maximo = 0;
+        memo2.clear();
+        String scr = "10101";
+        String dst = "11111";
+        pawn2(scr, dst);
+        System.out.println("maximo "+maximo);
+        
+        int ret = pawnAux(scr, dst);
+        System.out.println(ret);
+        System.out.println("...............");
+        System.out.println("lineal "+pawnLineal(scr, dst));
+        */
+        //System.out.println(ret);
+        /*
+        System.out.println("...............................");
+        
+        ret = pawn("111", "010");
+        System.out.println(ret);
+        */
+        
+        
+        Scanner sc = new Scanner(System.in);
+        String largo = sc.nextLine();
+        int casos = Integer.parseInt(largo);
+        for (int i=0;i<casos;i++){
+            largo = sc.nextLine();
+            //System.out.println(largo);
+            String scr = sc.nextLine();
+            //System.out.println(scr);
+            String dst = sc.nextLine();
+            //System.out.println(dst);
+            //System.out.println((i+1)+"\t"+pawn(dst, scr));
+            //maximo = 0;
+            //memo2.clear();
+            //pawn2(dst, scr);
+            //System.out.println(pawnAux(dst, scr));
+            System.out.println(pawnLineal(dst, scr));
+        }
+        
+    }
+}
+
+```

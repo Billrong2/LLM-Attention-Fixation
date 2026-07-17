@@ -1,0 +1,41 @@
+To predict the exact standard output of the given Java program, we need to analyze the behavior of the `isPrime` function and the main logic within the `while` loop.
+
+### Analysis of the `isPrime` Function
+The `isPrime` function checks if a number is prime. It follows these steps:
+1. Checks if `n` is less than or equal to 1, which returns `false`.
+2. Checks if `n` is 2, which returns `true`.
+3. Checks if `n` is divisible by 2, which returns `false` for even numbers greater than 2.
+4. Iterates from 3 to the square root of `n`, checking divisibility. If `n` is divisible by any number in this range, it returns `false`.
+
+### Analysis of the Main Logic
+The main logic in the `while` loop does the following:
+1. Reads an integer `n` from standard input.
+2. Reads a string `s` from standard input.
+3. Checks each character of `s` to see if it is not 2, 3, 5, or 7. If it is not, it prints "1" followed by the character and continues to the next iteration of the outer loop.
+4. If all characters are 2, 3, 5, or 7, it checks all pairs of characters to see if their concatenated form is prime. If a pair forms a non-prime number, it prints "2" followed by the number and continues to the next iteration of the outer loop.
+
+Given the input:
+```
+1
+2
+77
+```
+
+Let's break down the steps for each test case:
+
+### Test Case: `1 2`
+1. Reads `n = 1`.
+2. Reads `s = "2"`.
+3. Checks `s.charAt(0) = '2'`, which is a valid prime digit.
+4. No pair is formed since `n = 1`.
+5. Prints nothing.
+
+### Test Case: `2 2`
+1. Reads `n = 2`.
+2. Reads `s = "2"`.
+3. Checks `s.charAt(0) = '2'`, which is a valid prime digit.
+4. Forms a pair: "22".
+5. `isPrime(22)` returns `false`.
+6. Prints "2" followed by "22".
+
+### Test Case: `2 77`

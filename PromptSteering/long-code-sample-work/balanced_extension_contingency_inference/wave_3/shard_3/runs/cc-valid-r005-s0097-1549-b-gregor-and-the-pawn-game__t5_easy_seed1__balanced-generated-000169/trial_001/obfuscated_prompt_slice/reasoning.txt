@@ -1,0 +1,33 @@
+### CASES_BEGIN
+c001: invoke program entry point; target_method=pawnLineal; stdin="1\n20\n01101100111111000110\n00101100010010001110\n"; argv=[]
+### CASES_END
+
+Give concise reasoning that tracks only state and control flow needed for the output. Then end with exactly one machine-readable line in this form:
+FINAL_OUTPUT_JSON: {"stdout":"exact output with newlines encoded as \n"}
+The JSON stdout string must contain only what the program prints, with no commentary or code fence.
+
+
+The program reads the input from the standard input and processes it to find the maximum number of pawns that can be moved from one string (`dst`) to another (`scr`), where '1' represents a pawn and '0' represents an empty space. Here is the detailed reasoning:
+
+1. **Reading Input:**
+   - The program reads the number of cases (`casos`) from the first line.
+   - For each case, it reads the length of the strings and the strings themselves.
+   
+2. **Processing Each Case:**
+   - For each case, the program calculates the number of pawns that can be moved from `dst` to `scr` using the `pawnLineal` function.
+   - The `pawnLineal` function appends '0' to both `scr` and `dst` to handle boundary conditions, then iterates over each character in `scr` (excluding the first and last characters).
+   - If a '1' is found in `scr`, it checks if the corresponding character in `dst` (one position before, at the current position, or one position after) is '1'. If so, it moves the pawn to that position in `dst`, increments the count (`ret`), and sets the corresponding character in `dst` to 'X'.
+   
+3. **Output:**
+   - For each case, the program prints the calculated number of pawns that can be moved.
+
+Given the provided input:
+```
+1
+20
+01101100111111000110
+00101100010010001110
+```
+The program will process this input and output the result.
+
+### Final Output:

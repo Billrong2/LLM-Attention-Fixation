@@ -1,0 +1,18 @@
+### Reasoning:
+
+1. The program starts by reading the first integer from the input, which is 1.
+2. The program then reads three integers, 2, 2, and 2, and stores them in the variables `n`, `m`, and `k`, respectively.
+3. The program then reads two lines of input, each containing two integers, and stores them in the arrays `yline` and `xline`, respectively.
+4. The program then reads one more line of input containing two integers, and stores them in the arrays `px` and `py`.
+5. The program calls the `solve` method with the input values.
+6. Inside the `solve` method, the program initializes two hash sets, `yset` and `xset`, and two arrays of `Pair` objects, `xlist` and `ylist`.
+7. The program then loops over the input arrays `yline` and `xline`, adding the values to the hash sets and the `Pair` arrays.
+8. Next, the program loops over the input arrays `px` and `py`, checking for values that are already in the hash sets. If a value is already in the hash set, the program does nothing. Otherwise, the program adds a new `Pair` object to the appropriate `Pair` array.
+9. The program then sorts the `Pair` arrays using their `compareTo` method.
+10. The program initializes two maps, `mapx` and `mapy`, and two long variables, `sumx` and `sumy`, to 0.
+11. The program then iterates over the `Pair` arrays, updating the maps and sums as it goes.
+12. Finally, the program returns the value of `ans`.
+
+### Output:
+
+```json

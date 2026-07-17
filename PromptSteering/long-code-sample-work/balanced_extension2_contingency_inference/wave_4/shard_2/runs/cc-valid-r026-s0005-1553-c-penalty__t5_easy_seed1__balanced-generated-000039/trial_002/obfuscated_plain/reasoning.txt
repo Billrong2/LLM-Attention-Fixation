@@ -1,0 +1,42 @@
+To predict the exact output of the deterministic Java program, we need to carefully track the state and control flow based on the given input. Here’s the detailed reasoning:
+
+### Reasoning Steps:
+
+1. **Input Processing:**
+   - The program reads the number of test cases from the input (`test = sc.nextInt();`).
+   - It then reads a string of characters for each test case (`String s = sc.next();`).
+
+2. **Helper Method Execution:**
+   - The `helper` method is called with specific parameters:
+     - `index`: Initially 0.
+     - `f`: Initially 0.
+     - `s`: Initially 0.
+     - `k1`: Initially 5.
+     - `k2`: Initially 5.
+     - `s1`: The characters of the input string as a character array (`s.toCharArray()`).
+
+3. **Recursive Calculation:**
+   - The `helper` method processes each character in the string recursively.
+   - If the current character is `'1'`:
+     - If the index is even, increment `f` and decrement `k1`.
+     - If the index is odd, increment `s` and decrement `k2`.
+     - Recur with `index + 1`, `f`, `s`, `k1 - 1`, and `k2`.
+     - If `k1` or `k2` becomes negative, return 0.
+   - If the current character is `'0'`:
+     - If the index is even, decrement `k1`.
+     - If the index is odd, decrement `k2`.
+     - Recur with `index + 1`, `f`, `s`, `k1 - 1`, and `k2`.
+   - If the current character is `'?'`:
+     - If the index is even, choose the minimum of two options (increment `f` or not increment).
+     - If the index is odd, choose the minimum of two options (increment `s` or not increment).
+
+4. **Output Calculation:**
+   - The `helper` method returns the total count of valid moves.
+
+### Given Input:
+```
+invoke program entry point; target_method=helper; stdin="4\n0????00101\n1010111011\n??????????\n1100010100\n"; argv=[]
+```
+
+### Detailed Execution:
+1. **First Test Case:

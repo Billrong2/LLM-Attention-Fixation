@@ -1,0 +1,30 @@
+To predict the exact standard output of the given deterministic Java program, let's break down the key steps and reasoning:
+
+1. The `main` method reads an integer `test` from the input.
+2. It then enters a loop `test` times.
+3. In each iteration, it reads a string `s` from the input.
+4. It calls the `helper` method with initial parameters and prints the result.
+
+For the given input:
+```
+4
+0?0???1101
+1010101111
+??????????
+1100010000
+```
+Let's analyze each call to the `helper` method:
+- For the first string `"0?0???1101"`, the function will explore all possibilities due to the wildcards and return the minimum number of moves required to balance the sequence.
+- For the second string `"1010101111"`, it's already balanced, so it will return 0.
+- For the third string `"??????????"`, it will return the maximum number of moves because all positions are wildcards.
+- For the fourth string `"1100010000"`, it needs 3 moves to balance the sequence.
+
+After calculating all these values, the program will print them out.
+
+Given the input and the logic of the program, the exact output will be:
+```
+4
+0
+5
+3
+```

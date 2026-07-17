@@ -1,0 +1,19 @@
+### CASES_BEGIN
+c001: invoke program entry point; target_method=fun; stdin="5\n3\n2 4 6\n5\n4 4 4 4 4\n5\n1 3 5 7 9\n5\n1 1 1 1 1\n5\n4 8 10 6 2\n"; argv=[]
+### CASES_END
+
+**Reasoning Steps:**
+1. The input starts with `5`, indicating there will be five test cases.
+2. Each test case begins with an integer `n`, followed by `n` space-separated integers.
+3. The program calculates the absolute difference between two counts (odd and even numbers) in the array.
+4. If the absolute difference is more than 1, it prints `-1`.
+5. Otherwise, it checks if `n` is even or odd and applies the `fun` function accordingly.
+
+**Concrete Output Calculation:**
+
+For each test case:
+- The input array is processed to count the number of odd and even numbers.
+- If the condition for `n` being even or odd is met, the `fun` function is called with appropriate parameters.
+- The result of `fun` is printed.
+
+**Machine-Readable Final Output:**

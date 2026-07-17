@@ -1,0 +1,15 @@
+### Reasoning:
+
+1. **Input Parsing**: The input consists of `T` cases. Each case contains an integer `n` and a list of `n` integers, where each integer `k` is followed by `k` integers representing the indices of other integers in the list that are smaller than the current one.
+
+2. **Depth-First Search (DFS)**: The program performs a DFS on the input list to find the maximum depth. The DFS starts from each index and recursively visits all smaller indices.
+
+3. **Output Calculation**: For each case, the program calculates the maximum depth of the DFS tree and prints it. If the DFS encounters a cycle, it prints `-1`.
+
+### Final Output Prediction:
+
+Based on the provided input, the program will perform a DFS on the input list for each case and calculate the maximum depth of the DFS tree. If the DFS encounters a cycle, it will print `-1`. The final output will be the maximum depth for each case.
+
+### Machine-Readable Line:
+
+```json

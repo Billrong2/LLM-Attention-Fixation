@@ -1,0 +1,31 @@
+Reasoning:
+
+The program starts by reading a single integer value `t` from the input. This value determines the number of test cases to be processed.
+
+The program then enters a loop that will execute `t` times. In each iteration, the program reads the following input values:
+- `n`: the number of elements in the `yline` and `xline` arrays.
+- `m`: the number of elements in the `yline` and `xline` arrays.
+- `k`: the number of elements in the `px` and `py` arrays.
+
+The program then reads the following arrays:
+- `yline`: an array of `n` integers.
+- `xline`: an array of `m` integers.
+- `px`: an array of `k` integers.
+- `py`: an array of `k` integers.
+
+The program then calculates the result using the `solve` method and prints it to the output.
+
+The `solve` method performs the following operations:
+- It creates two hash sets, `yset` and `xset`, to store unique elements from the `yline` and `xline` arrays, respectively.
+- It creates two lists, `xlist` and `ylist`, to store pairs of integers from the `px` and `py` arrays.
+- It iterates through the `px` and `py` arrays and adds pairs to the `xlist` and `ylist` if the corresponding element in the `xset` or `yset` exists.
+- It sorts the `xlist` and `ylist` based on the first element of each pair.
+- It creates two maps, `mapx` and `mapy`, to store the sum of each unique element in the `xlist` and `ylist`, respectively.
+- It initializes two variables, `sumx` and `sumy`, to store the sum of the elements in the `xlist` and `ylist`, respectively.
+- It iterates through the `xlist` and `ylist` and updates the `mapx`, `mapy`, `sumx`, and `sumy` variables accordingly.
+- It returns the sum of the elements in the `xlist` and `ylist`.
+
+The final output of the program for the given input is:
+```
+14
+```

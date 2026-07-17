@@ -1,0 +1,39 @@
+ The given program defines a class `C_Global_Round16` and a main method which reads input from stdin, performs calculations, and writes the result to stdout. The program uses a dynamic programming approach to solve a problem involving sequences of bits.
+
+The input format is as follows:
+- The first line contains an integer `T` indicating the number of test cases.
+- For each test case, there are three lines of input:
+  1. An integer `n` representing the length of the sequence.
+  2. A string `data[0]` of length `n` consisting of '0's and '1's.
+  3. A string `data[1]` of length `n` also consisting of '0's and '1's.
+
+The program initializes an array `nxt` to store indices for each digit ('0' or '1') in the given strings. It then calls the `cal` method to calculate the result for each position in the strings. The `cal` method uses dynamic programming to determine the maximum number of pairs of indices that can be selected such that no two indices are adjacent.
+
+For the given input:
+```
+4
+7
+0101000
+1101100
+5
+01001
+10101
+2
+01
+01
+6
+010001
+000111
+```
+The expected standard output is:
+```
+2
+2
+2
+3
+```
+The reasoning behind this output is as follows:
+1. For the first test case, the strings are "0101000" and "1101100". The `cal` method will find that the maximum number of pairs of indices that can be selected is 2.
+2. For the second test case, the strings are "01001" and "10101". The `cal` method will again find that the maximum number of pairs of indices that can be selected is 2.
+3. For the third test case, the strings are "01" and "01". The `cal` method will find that the maximum number of pairs of indices that can be selected is 2.
+4. For the fourth test case, the strings are "010001" and "000111". The `cal` method will find that the maximum number

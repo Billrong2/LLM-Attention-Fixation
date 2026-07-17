@@ -1,0 +1,37 @@
+ ### Reasoning:
+
+1. We have 6 test cases, so the loop will run 6 times.
+2. Each time, the input is processed and passed to the `fun` method.
+3. The `fun` method calculates the minimum number of moves required to make the array alternating by flipping elements.
+
+### CASES_BEGIN
+#### Case c001:
+
+- Input: `5\n3\n2 4 6\n5\n4 4 4 4 4\n5\n1 3 5 7 9\n5\n1 1 1 1 1\n5\n4 8 10 6 2\n`
+- The input is split into 6 test cases:
+  - First case: `5\n3\n2 4 6\n`
+  - Second case: `5\n4 4 4 4 4\n`
+  - Third case: `5\n1 3 5 7 9\n`
+  - Fourth case: `5\n1 1 1 1 1\n`
+  - Fifth case: `5\n4 8 10 6 2\n`
+- For each case, the input is parsed into the number of elements (`n`) and the array elements (`arr`).
+- The program calls the `fun` method to compute the answer.
+
+### CASES_END
+
+### Output:
+
+The `fun` method will process each test case and print the result to stdout. The expected output for each case is as follows:
+
+1. `12`
+2. `-1`
+3. `16`
+4. `-1`
+5. `6`
+
+### FINAL_OUTPUT_JSON:
+```json
+{"stdout":"12\n-1\n16\n-1\n6\n"}
+```
+
+This JSON represents the exact output of the program as it would appear in stdout, including newlines.

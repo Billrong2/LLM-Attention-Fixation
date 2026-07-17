@@ -1,0 +1,8 @@
+ CASE: invoke program entry point; target_method=buscarGreedy; stdin="1\n103635\n"; argv=[]
+The program starts by calling the `buscarGreedy` method with the input "103635". This method calculates the minimum number of digits needed to represent a given number as a sum of powers of 2. To do this, the program iterates over all the numbers from 1 to 2^62 and checks how many digits are needed to represent the difference between the input number and the current power of 2. It keeps track of the minimum number of digits found so far, and at the end of the loop, it returns this minimum value.
+
+To calculate the number of digits needed to represent a number, the program uses the `comparar` method, which compares two strings and returns the number of digits that differ between them. The method works by comparing the characters of the two strings one by one and incrementing a counter whenever there is a difference.
+
+The `buscarGreedy` method returns the minimum number of digits found, which is 3 in this case. The program prints this value to the standard output, which is "3".
+
+FINAL_OUTPUT_JSON: {"stdout":"3"}

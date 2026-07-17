@@ -1,0 +1,41 @@
+ To predict the exact standard output of the provided Java program for the given test case, let's follow the execution flow step-by-step.
+
+### Test Case Analysis
+- **stdin**: `1\n236121`
+- **argv**: `[]`
+
+### Execution Flow:
+1. **Input Processing**: 
+   - Read `1` which is the number of test cases.
+   - Read `236121` which is the number to process.
+
+2. **Function Call**:
+   - Call `buscarGreedy("236121")`.
+
+3. **Function `buscarGreedy` Analysis**:
+   - Initialize `pot` to `1`.
+   - Iterate `62` times (since `62` is a predefined limit).
+   - Convert `pot` to a string `numPot` and compare it with `"236121"` using the `comparar` function.
+
+4. **Function `comparar` Analysis**:
+   - This function compares each character of `patron` with `num` and counts the differences.
+   - For each iteration, it updates `minimo` with the minimum differences found.
+
+5. **Final Output**:
+   - The function returns the minimum differences found, which is printed by `System.out.println`.
+
+### Detailed Steps:
+- `pot` starts as `1`.
+- Iteration `0`: `pot` becomes `2`.
+  - `numPot` is `2`.
+  - `comparar("2", "236121")` returns `4`.
+- Iteration `1`: `pot` becomes `4`.
+  - `numPot` is `4`.
+  - `comparar("4", "236121")` returns `4`.
+- Iteration `2`: `pot` becomes `8`.
+  - `numPot` is `8`.
+  - `comparar("8", "236121")` returns `4`.
+- ...
+- Iteration `61`: `pot` becomes `18446744073709551616`.
+  - `numPot` is `18446744073709551616`.
+  - `comparar("18446744073709551616", "

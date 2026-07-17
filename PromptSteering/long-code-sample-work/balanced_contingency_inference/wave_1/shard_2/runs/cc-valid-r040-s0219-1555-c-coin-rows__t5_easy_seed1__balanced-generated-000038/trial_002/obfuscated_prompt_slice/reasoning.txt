@@ -1,0 +1,22 @@
+### CASES_BEGIN
+c001: invoke program entry point; target_method=game; stdin="3\n3\n-1 1 0\n2 0 -1\n3\n2 6 0\n4 2 0\n1\n0\n8\n"; argv=[]
+### CASES_END
+The reasoning is based on the provided static program-analysis elements and the input data.
+
+- The program starts by taking input for 't', 'm', 'arr', and 'arr2' in the `main` function.
+- The `game` function is called with `arr`, `arr2`, and `m` as inputs.
+- The `game` function initializes an array `dp` and fills it with zeros.
+- It then calculates the cumulative sum of the elements in `arr2` and `arr1` into `dp[0]` and `dp[1]` respectively.
+- After this, it finds the minimum value in `dp` and returns it.
+- The final output will be the minimum value obtained from `dp`.
+
+For the given input "3\n3\n-1 1 0\n2 0 -1\n3\n2 6 0\n4 2 0\n1\n0\n8\n":
+1. The first line is ignored.
+2. The second line is ignored.
+3. The third line is ignored.
+4. The fourth line is ignored.
+5. The fifth line is ignored.
+6. The sixth line is ignored.
+7. The seventh line is ignored.
+
+The output is the result of the `game` function for the input "3\n-1 1 0\n2 6 0\n1\n0\n8\n".

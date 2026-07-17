@@ -1,0 +1,23 @@
+
+
+
+### Reasoning:
+
+1. The input for this problem is read by the FastReader object, which is an enhanced version of BufferedReader.
+2. The first line of the input is read as `test`, which represents the number of test cases.
+3. The second line of the input is read as `n`, which represents the length of the array.
+4. The next `n` lines of the input are read and stored in the array `a`.
+5. The values of the array are modified based on their parity and stored in the array `f`.
+6. The program then checks if the absolute difference between `f[0]` and `f[1]` is greater than 1.
+7. If it is, the program prints "-1".
+8. If not, the program checks if `n` is even.
+9. If it is, the program checks if `f[0]` is equal to `f[1]`.
+10. If it is, the program calculates the minimum of `fun(0, a)` and `fun(1, a)` and prints the result.
+11. If `f[0]` is not equal to `f[1]`, the program prints "-1".
+12. If `n` is odd, the program checks if `f[0]` is equal to `f[1] + 1`.
+13. If it is, the program prints the result of `fun(0, a)`.
+14. If `f[0]` is not equal to `f[1] + 1`, the program checks if `f[1]` is equal to `f[0] + 1`.
+15. If it is, the program prints the result of `fun(1, a)`.
+16. If `f[1]` is not equal to `f[0] + 1`, the program prints "-1".
+
+FINAL_OUTPUT_JSON: {"stdout":"-1\n"}

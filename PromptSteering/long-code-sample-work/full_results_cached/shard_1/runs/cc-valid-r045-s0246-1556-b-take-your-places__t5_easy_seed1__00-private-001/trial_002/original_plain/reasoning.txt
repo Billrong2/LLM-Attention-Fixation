@@ -1,0 +1,14 @@
+The program reads 5 test cases from the input. For each test case, it takes an integer `n` and a list of `n` integers `a`. It then calculates the number of set bits in each integer `a[i]` and stores it in an array `b`. It then calculates the minimum number of operations required to make all elements of `b` equal. The minimum number of operations is the minimum of two values: the first value is the minimum number of operations required to make all elements of `b` equal to `b[0]`, and the second value is the minimum number of operations required to make all elements of `b` equal to `b[n-1]`. The program outputs the minimum number of operations for each test case.
+
+**Reasoning:**
+
+1. The program reads the number of test cases `test` from the input.
+2. For each test case, it reads an integer `n` and a list of `n` integers `a` from the input.
+3. It calculates the number of set bits in each integer `a[i]` and stores it in an array `b`.
+4. It calculates the minimum number of operations required to make all elements of `b` equal by comparing `b[0]` and `b[n-1]`.
+5. The minimum number of operations is the minimum of two values: the first value is the minimum number of operations required to make all elements of `b` equal to `b[0]`, and the second value is the minimum number of operations required to make all elements of `b` equal to `b[n-1]`.
+6. The program outputs the minimum number of operations for each test case.
+
+**Final Output:**
+
+```

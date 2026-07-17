@@ -1,0 +1,31 @@
+ The program is a deterministic algorithm that processes input data and computes output based on the given rules. Here's the reasoning step-by-step for the provided input case:
+
+### Input
+- `stdin="1\n7\n3 2 6 5 3 12 1\n"`
+
+### Output Computation
+1. **Initialization**:
+   - Read the first line: `1`, which is the number of test cases.
+   - Read the second line: `7`, which is the length of the array.
+   - Read the third line: `3 2 6 5 3 12 1`, which are the elements of the array.
+
+2. **Array Processing**:
+   - Convert each element in the array to a value between 0 and 1.
+   - Calculate the frequencies of 0 and 1 (`f[0]` and `f[1]`).
+
+3. **Conditions Check**:
+   - If the absolute difference between `f[0]` and `f[1]` is greater than 1, print `-1`.
+   - If the length of the array is even, check if `f[0]` equals `f[1]`, then calculate the minimum value of `fun(0, a)` and `fun(1, a)` and print the result. Otherwise, print `-1`.
+   - If the length of the array is odd, check if `f[0]` equals `f[1] + 1`, then print `fun(0, a)`. Otherwise, if `f[1]` equals `f[0] + 1`, print `fun(1, a)`. Otherwise, print `-1`.
+
+### Output
+Given the input `3 2 6 5 3 12 1`, the array elements converted to binary values are `1, 0, 0, 1, 1, 0, 1`. Thus, `f[0] = 3` and `f[1] = 4`.
+
+Since `|f[0] - f[1]| <= 1` and the length of the array is odd, and `f[0] == f[1] - 1`, the program will call `fun(1, a)` and print the result.
+
+### Final Output
+The output of the program for the given input is `18`.
+
+### Machine-Readable Line
+```json
+FINAL_OUTPUT

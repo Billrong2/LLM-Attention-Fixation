@@ -1,0 +1,23 @@
+
+
+
+### CASES_BEGIN
+c001: invoke program entry point; target_method=pawnLineal; stdin="1\n20\n01101100000111000000\n00101110011010001110\n"; argv=[]
+### CASES_END
+FINAL_OUTPUT_JSON: {"stdout":"2\n"}
+
+The program reads from standard input (stdin) the following:
+- The number of cases to process.
+- The length of the strings.
+- The source string (`scr`).
+- The destination string (`dst`).
+
+For each case, the program calculates the minimum number of moves required to move all the pawns from the source string to the destination string using the `pawnLineal` function.
+
+In this case, the input is:
+- 1 (number of cases)
+- 20 (length of the strings)
+- "01101100000111000000" (source string)
+- "00101110011010001110" (destination string)
+
+The `pawnLineal` function processes these inputs and calculates the minimum number of moves required to move all the pawns from the source string to the destination string. The result is 2, which is printed to stdout.

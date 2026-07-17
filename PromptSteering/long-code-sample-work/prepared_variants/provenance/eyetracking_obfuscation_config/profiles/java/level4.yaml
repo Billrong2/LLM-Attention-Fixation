@@ -1,0 +1,30 @@
+pass_order: [T2, T1, T8, T4, T3, T5, T6, T7]
+shuffle_group: [T3, T4, T5]
+profiles:
+  safe:
+    budget:
+      max_new_ast_nodes_percent: 260
+      max_new_helpers: 10
+      max_expr_depth_increase: 6
+      max_cfg_states_for_flattening: 20
+      max_added_branches_per_100_stmts: 24
+    python_allow_exec: false
+    java_allow_reflection: false
+  aggressive:
+    budget:
+      max_new_ast_nodes_percent: 600
+      max_new_helpers: 20
+      max_expr_depth_increase: 20
+      max_cfg_states_for_flattening: 64
+      max_added_branches_per_100_stmts: 60
+    python_allow_exec: false
+    java_allow_reflection: false
+passes:
+  T1: {tier: hard, target_rate: 0.80, intensity: 1.0, enabled: true}
+  T2: {tier: hard, target_rate: 0.75, intensity: 1.0, enabled: true}
+  T3: {tier: hard, target_rate: 0.70, intensity: 1.0, enabled: true}
+  T4: {tier: hard, target_rate: 0.55, intensity: 1.0, enabled: true}
+  T5: {tier: hard, target_rate: 0.35, intensity: 1.0, enabled: true}
+  T6: {tier: hard, target_rate: 0.25, intensity: 1.0, enabled: true}
+  T7: {tier: hard, target_rate: 0.20, intensity: 1.0, enabled: true}
+  T8: {tier: hard, target_rate: 0.30, intensity: 1.0, enabled: true}

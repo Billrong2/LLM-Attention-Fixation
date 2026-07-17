@@ -1,0 +1,17 @@
+
+
+
+The target method is `pawnLineal(String scr, String dst)`.
+The concrete case is: c001: invoke program entry point; target_method=pawnLineal; stdin="4\n3\n000\n111\n4\n0111\n1111\n3\n010\n010\n5\n11001\n00000\n"; argv=[]
+We will predict the output of `pawnLineal` for the given case.
+The input is 4 lines:
+1. The first line is the number of cases (4 in this case).
+2. The second line is the length of the strings (3 in this case).
+3. The third line is the source string ("000" in this case).
+4. The fourth line is the destination string ("111" in this case).
+
+The output of `pawnLineal` is the maximum number of times a pawn can move from the source string to the destination string. The pawn can move from a source cell to a destination cell if the source cell is occupied by a pawn (represented by '1') and the destination cell is either empty (represented by '0') or occupied by a pawn.
+
+In this case, the output is 3, because the pawn can move from the first source cell to the first destination cell, from the second source cell to the second destination cell, and from the third source cell to the third destination cell.
+
+FINAL_OUTPUT_JSON: {"stdout":"3\n"}

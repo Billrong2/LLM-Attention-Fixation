@@ -1,0 +1,37 @@
+To determine the exact output of the given Java program for the specified input, we need to carefully trace the execution and understand how the input affects the program's behavior. Here’s a step-by-step breakdown of the process:
+
+1. **Input Parsing**:
+   - The program starts by reading the number of test cases (`test`).
+   - For each test case:
+     - It reads the number of elements in the array (`n`).
+     - It reads `n` integers which are then converted modulo 2 and stored in the array `a`.
+
+2. **Processing Each Test Case**:
+   - The program counts the occurrences of 0 and 1 in the array `a`.
+   - If the absolute difference between the counts of 0 and 1 is greater than 1, it prints `-1`.
+   - If `n` is even:
+     - If the counts of 0 and 1 are equal, it computes and prints the minimum of two possible values based on the `fun` function.
+     - Otherwise, it prints `-1`.
+   - If `n` is odd:
+     - It checks if the count of 0 is one more than the count of 1, and prints the result of the `fun` function with 0.
+     - If the count of 1 is one more than the count of 0, it prints the result of the `fun` function with 1.
+     - Otherwise, it prints `-1`.
+
+3. **Output Calculation**:
+   - The `fun` function iterates over the array and calculates a sum based on the parity differences between the current element and the target value (`x`). It also toggles the target value between 0 and 1 in each iteration.
+
+4. **Concrete Case Execution**:
+   - **Input**:
+     ```
+     1
+     7
+     6 1 0 4 7 3 4
+     ```
+   - **Processing**:
+     - `test = 1`
+     - `n = 7`
+     - Array `a` after modulo operation: `[0, 1, 0, 0, 1, 1, 0]` (since all elements modulo 2 result in either 0 or 1).
+     - Counts: `f[0] = 4`, `f[1] = 3`
+     - Since the absolute difference between counts is greater than 1, the program will print `-1`.
+
+Therefore

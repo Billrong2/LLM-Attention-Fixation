@@ -1,0 +1,19 @@
+
+
+
+
+Reasoning:
+1. MethodDeclaration: `isPrime(int n)` is a static boolean method that takes an integer `n` as a parameter.
+2. SliceMethodParameter: The method parameter `n` is an integer.
+3. SliceReturnValue: The return value expression is a boolean value, either `true` or `false`.
+4. SliceControlDependency: The control predicate over `n` is `if (n <= 1)`, which returns `false` if `n` is less than or equal to 1.
+5. SliceControlDependency: The control predicate over `n` is `else if (n == 2)`, which returns `true` if `n` is equal to 2.
+6. SliceControlDependency: The control predicate over `n` is `else if (n % 2 == 0)`, which returns `false` if `n` is divisible by 2.
+7. SliceControlDependency: The control predicate over `i`, `Math`, `sqrt`, `n` is `for (int i = 3; i <= Math.sqrt(n); i += 2)`, which iterates from 3 to the square root of `n`, increasing `i` by 2 in each iteration.
+8. SliceMethodCall: The method call `Math.sqrt` in static data/control context returns the square root of `n`.
+9. SliceControlDependency: The control predicate over `n`, `i` is `if (n % i == 0)`, which returns `false` if `n` is divisible by `i`.
+10. SliceAssignment: The assignment/update influencing `i` is `i += 2`, which increases `i` by 2 in each iteration.
+11. SliceAssignment: The assignment/update influencing `_obf_t5_isPrime_61332` is `int _obf_t5_isPrime_61332 = 0; _obf_t5_isPrime_61332 += 0;`, which initializes `_obf_t5_isPrime_61332` to 0 and adds 0 to it.
+12. SliceReturnValue: The return value expression is a boolean value, either `true` or `false`, depending on the control predicates.
+
+FINAL_OUTPUT_JSON: {"stdout":"\n2\n77\n"}

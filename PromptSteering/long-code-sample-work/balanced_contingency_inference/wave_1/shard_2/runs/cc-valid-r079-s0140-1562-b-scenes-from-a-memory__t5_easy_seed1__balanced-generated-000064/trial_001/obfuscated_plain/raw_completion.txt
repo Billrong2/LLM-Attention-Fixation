@@ -1,0 +1,14 @@
+ The given Java program takes input in the form of a number of test cases and for each test case, an integer n and a string s. The program then checks if the integer n is prime using the `isPrime` method and if not, prints the first digit that is not prime and stops the program. 
+
+In the first test case, n is 1 and s is "1". Since 1 is not a prime number, the program prints "11" and stops. 
+
+In the second test case, n is 2 and s is "2". Since 2 is a prime number, the program moves on to the next step. 
+
+In the third test case, n is 133 and s is "133". The program checks if the first digit, 1, is prime using the `isPrime` method and since it is not, the program prints "1" and stops. 
+
+The exact output is:
+
+11
+1
+
+FINAL_OUTPUT_JSON: {"stdout":"11\n1\n"}

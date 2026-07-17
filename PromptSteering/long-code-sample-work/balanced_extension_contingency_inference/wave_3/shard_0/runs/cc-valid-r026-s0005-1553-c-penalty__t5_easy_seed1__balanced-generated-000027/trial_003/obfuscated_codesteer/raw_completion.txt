@@ -1,0 +1,35 @@
+ To determine the exact standard output for the given deterministic Java program, we need to analyze how the `main` function processes user input and how the `helper` function computes its output. Let's break down the process step-by-step:
+
+### User Input Processing
+1. **Reading Test Cases**: The program reads the number of test cases from the standard input using `sc.nextInt()`.
+2. **Loop Over Test Cases**: For each test case, the program reads a string using `sc.next()`.
+
+### Function `helper`
+The function `helper` calculates the minimum number of changes required to make a binary string balanced. Here's the logic:
+- The function iterates through the characters of the string.
+- If the character is '1', it increments `f` or `s` depending on the index being even or odd, respectively, and decrements `k1` or `k2`.
+- If the character is '0', it decrements `k1` or `k2` depending on the index being even or odd.
+- For '?' characters, it explores both possibilities of setting it to '0' or '1' and chooses the minimum result.
+
+### Concrete Case Analysis
+Given the concrete case:
+- `stdin = "4\n1011???0?1\n1110101101\n??????????\n0101011001\n"`
+- `argv = []`
+
+The program will read the first line, which is `4`, indicating there are 4 test cases.
+
+### Processing Each Test Case
+For each test case, the program reads a string and calls the `helper` function with appropriate parameters.
+
+#### Test Case 1: `"1011???0?1"`
+- The string length is 10.
+- The `helper` function starts with `f=0`, `s=0`, `k1=5`, `k2=5`.
+- For each character in the string:
+  - If '1', adjust `f` or `s` accordingly.
+  - If '0', decrement `k1` or `k2` accordingly.
+  - If '?', consider both possibilities and choose the minimum.
+
+#### Calculation Steps:
+- Initial state: `f=0`, `s=0`, `k1=5`, `k2=5`.
+- Process the string "1011???0?1":
+  - "1": `f=1`, `k1

@@ -1,0 +1,43 @@
+ To determine the exact standard output of the `buscarGreedy` method for the given input, we need to follow the logic of the method and simulate its execution step by step.
+
+The method `buscarGreedy` compares the given string `numero` with all powers of 2 up to \(2^{62}\) and returns the minimum number of changes needed to convert `numero` into a power of 2.
+
+### Steps to Determine the Output:
+
+1. **Initialization**:
+   - `pot` is initialized to 1.
+   - `minimo` is set to `Integer.MAX_VALUE`.
+
+2. **Loop**:
+   - The loop runs from 0 to 61 (inclusive).
+   - Inside the loop, it converts `pot` to a string `numPot`.
+   - It calculates the number of changes required using the `comparar` method, which compares `numPot` and `numero`.
+   - If the calculated value is less than `minimo`, it updates `minimo`.
+
+3. **Return**:
+   - After the loop, the method returns `minimo`.
+
+### Input:
+- The input to `buscarGreedy` is provided in the `main` method as "366323".
+
+### Execution:
+- The `buscarGreedy` method is called with the input "366323".
+- The loop iterates from 0 to 61, comparing "366323" with each power of 2 up to \(2^{62}\).
+
+### Analysis:
+- The `comparar` method calculates the number of characters that need to be changed to make "366323" match the current power of 2.
+- Since "366323" is a 6-digit number, the comparison will be made against 6-digit powers of 2.
+
+### Conclusion:
+- The minimum number of changes required to convert "366323" into a power of 2 is calculated.
+- Given the nature of the comparison and the size of the numbers involved, the output is likely to be the smallest number of changes needed to match any 6-digit power of 2.
+
+### Output:
+- Based on the logic and the input, the output of `buscarGreedy` for "366323" is 5.
+
+### Machine-Readable Line:
+```json
+FINAL_OUTPUT_JSON: {"stdout":"5"}
+```
+
+This is the final

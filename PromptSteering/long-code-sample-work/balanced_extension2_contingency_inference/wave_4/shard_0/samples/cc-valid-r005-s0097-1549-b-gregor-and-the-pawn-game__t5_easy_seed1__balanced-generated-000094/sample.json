@@ -1,0 +1,453 @@
+{
+  "argv": [],
+  "metadata": {
+    "argv": [],
+    "balanced_extension2_contingency_selection": {
+      "canonical_problem_identity": "deepmind/code_contests@802411c3010cb00d1b05bad57ca77365a3c699d6:valid:row-000005",
+      "continued_accepted_ranks": [
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "protocol": "../BALANCED_EXTENSION2_CONTINGENCY_PROTOCOL.md",
+      "schema_version": "long-code-balanced-extension2-contingency-v1",
+      "selected_source_rule": "same first tokenizer-eligible source used by frozen balanced Waves 1--3",
+      "source_denominator_unchanged": true,
+      "wave_id": "balanced_wave_4"
+    },
+    "candidate_id": "cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game",
+    "candidate_metadata": {
+      "expected_stdout": "8\n",
+      "expected_stdout_path": "candidates/cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game/io/00-private-000.out",
+      "id": "cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game",
+      "input": "1\n20\n01001100111111000100\n00101100011010001110\n",
+      "input_path": "candidates/cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game/io/00-private-000.in",
+      "inputs": [
+        {
+          "dataset_test_index": 0,
+          "expected_stdout": "8\n",
+          "expected_stdout_path": "candidates/cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game/io/00-private-000.out",
+          "expected_stdout_sha256": "aa67a169b0bba217aa0aa88a65346920c84c42447c36ba5f7ea65f422c1fe5d8",
+          "id": "00-private-000",
+          "input": "1\n20\n01001100111111000100\n00101100011010001110\n",
+          "input_path": "candidates/cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game/io/00-private-000.in",
+          "input_sha256": "39d19b52b0d6eeaebafbc20298f56109889c48910d8361825ec08196837dd3ad",
+          "suite": "private_tests",
+          "validation": {
+            "compiled_with_jdk17": true,
+            "exit_code": 0,
+            "stderr_bytes": 0,
+            "timed_out": false
+          }
+        }
+      ],
+      "loc_definition": "Python str.splitlines(); final newline does not add an empty physical line",
+      "main_class": "Chess",
+      "nonblank_loc": 299,
+      "original_path": "candidates/cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game/original.java",
+      "physical_loc": 344,
+      "prevalidation": {
+        "all_retained_tests_exact": true,
+        "compiled": true,
+        "compiler_exit_code": 0,
+        "compiler_stderr_bytes": 0,
+        "compiler_stdout_bytes": 0,
+        "jdk_major": 17
+      },
+      "problem_key": "codeforces-1549-B",
+      "problem_name": "1549_B. Gregor and the Pawn Game",
+      "provenance": {
+        "cf_contest_id": 1549,
+        "cf_index": "B",
+        "cf_points": 750.0,
+        "cf_rating": 800,
+        "cf_tags": [
+          "dfs and similar",
+          "dp",
+          "flows",
+          "graph matchings",
+          "graphs",
+          "greedy",
+          "implementation"
+        ],
+        "dataset_file": "codecontests-valid-802411c3.parquet",
+        "dataset_file_sha256": "02e8c1ccedae716f1e43cc813fcb7823c3db666ea92638820aba80e8cef451ab",
+        "dataset_id": "deepmind/code_contests",
+        "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+        "dataset_url": "https://huggingface.co/datasets/deepmind/code_contests/resolve/802411c3010cb00d1b05bad57ca77365a3c699d6/data/valid-00000-of-00001-5e672c5751f060d3.parquet",
+        "difficulty": 8,
+        "language": "Java",
+        "language_code": 4,
+        "problem_name": "1549_B. Gregor and the Pawn Game",
+        "row_index": 5,
+        "solution_container": "solutions",
+        "solution_index": 97,
+        "solution_label": "correct human solution",
+        "source_code": 2,
+        "split": "valid"
+      },
+      "source_bytes": 10981,
+      "source_sha256": "1202bd073ae65d5a083f878a05c6298943d6fa1492c694bb92e9f555d7cf679c",
+      "target": {
+        "arity": 2,
+        "body_nonblank_loc": 27,
+        "body_physical_loc": 30,
+        "class": "Chess",
+        "codesteer_selector": {
+          "declaration_line": 258,
+          "fallback_used": false,
+          "implementation": "steering.priors.SlicingPrior._select_target_method",
+          "name": "pawnLineal",
+          "parameter_count": 2,
+          "parse_status": "javalang",
+          "top_level_body_statement_count": 7
+        },
+        "control_node_count": 5,
+        "end_line": 287,
+        "loop_node_count": 1,
+        "main_call_path": [
+          {
+            "arity": 1,
+            "class": "Chess",
+            "end_line": 343,
+            "name": "main",
+            "parameter_types": [
+              "String[]"
+            ],
+            "return_type": "void",
+            "start_line": 289
+          },
+          {
+            "arity": 2,
+            "class": "Chess",
+            "end_line": 287,
+            "name": "pawnLineal",
+            "parameter_types": [
+              "String",
+              "String"
+            ],
+            "return_type": "int",
+            "start_line": 258
+          }
+        ],
+        "main_reachable": true,
+        "name": "pawnLineal",
+        "output_caller": {
+          "arity": 1,
+          "class": "Chess",
+          "end_line": 343,
+          "name": "main",
+          "parameter_types": [
+            "String[]"
+          ],
+          "return_type": "void",
+          "start_line": 289
+        },
+        "output_evidence": "System.out.println(pawnLineal(dst, scr))",
+        "output_relevance_kind": "direct_print_argument",
+        "output_relevance_variable": null,
+        "parameter_types": [
+          "String",
+          "String"
+        ],
+        "recursive_call_count": 0,
+        "return_type": "int",
+        "return_value_output_relevant": true,
+        "source_sha256": "6ed1e9cfe597cf3a406fda2d979f6646e6970d6ce0efaca96b7cc226a7bf833d",
+        "start_line": 258
+      },
+      "target_method": "pawnLineal",
+      "target_signature": "int Chess.pawnLineal(String, String)",
+      "tests": [
+        {
+          "dataset_test_index": 0,
+          "expected_stdout": "8\n",
+          "expected_stdout_path": "candidates/cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game/io/00-private-000.out",
+          "expected_stdout_sha256": "aa67a169b0bba217aa0aa88a65346920c84c42447c36ba5f7ea65f422c1fe5d8",
+          "id": "00-private-000",
+          "input": "1\n20\n01001100111111000100\n00101100011010001110\n",
+          "input_path": "candidates/cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game/io/00-private-000.in",
+          "input_sha256": "39d19b52b0d6eeaebafbc20298f56109889c48910d8361825ec08196837dd3ad",
+          "suite": "private_tests",
+          "validation": {
+            "compiled_with_jdk17": true,
+            "exit_code": 0,
+            "stderr_bytes": 0,
+            "timed_out": false
+          }
+        }
+      ]
+    },
+    "codesteer_target_method": "pawnLineal",
+    "concrete_case": {
+      "accepted_rank": 12,
+      "argv": [],
+      "canonical_case_key": [
+        5,
+        "generated_tests",
+        94
+      ],
+      "case_id": "balanced-generated-000094",
+      "dataset_test_index": 94,
+      "expected_output_bytes": 3,
+      "expected_output_lines": 1,
+      "expected_output_path": "../../tests/cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game__t5_easy_seed1/balanced-generated-000094/oracle_stdout.txt",
+      "input_bytes": 47,
+      "input_sha256": "84a327fcb0fb7f869240d949299b3e500f6c7cfbee4e691ea2aa65c95e82fe76",
+      "obfuscated_stderr_path": "../../tests/cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game__t5_easy_seed1/balanced-generated-000094/obfuscated.stderr",
+      "obfuscated_stdout_path": "../../tests/cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game__t5_easy_seed1/balanced-generated-000094/obfuscated.stdout",
+      "obfuscated_trimmed_exact_to_oracle": true,
+      "original_obfuscated_trimmed_agreement": true,
+      "original_stderr_path": "../../tests/cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game__t5_easy_seed1/balanced-generated-000094/original.stderr",
+      "original_stdout_path": "../../tests/cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game__t5_easy_seed1/balanced-generated-000094/original.stdout",
+      "original_trimmed_exact_to_oracle": true,
+      "rank_key": [
+        1,
+        1,
+        3,
+        33,
+        94
+      ],
+      "raw_expected_stdout_sha256": "25d4f2a86deb5e2574bb3210b67bb24fcc4afb19f93a7b65a057daa874a9d18e",
+      "raw_obfuscated_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_obfuscated_stdout_sha256": "25d4f2a86deb5e2574bb3210b67bb24fcc4afb19f93a7b65a057daa874a9d18e",
+      "raw_original_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_original_stdout_sha256": "25d4f2a86deb5e2574bb3210b67bb24fcc4afb19f93a7b65a057daa874a9d18e",
+      "source_case_metadata": {
+        "dataset_id": "deepmind/code_contests",
+        "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+        "dataset_test_index": 94,
+        "row_index": 5,
+        "selection_stage": "balanced_extension2_adaptive_outcome_independent_ranking",
+        "split": "valid",
+        "suite": "generated_tests",
+        "wave_id": "balanced_wave_4"
+      },
+      "stdin_path": "../../tests/cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game__t5_easy_seed1/balanced-generated-000094/stdin.txt",
+      "suite": "generated_tests",
+      "validation_path": "../../validation/cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game__t5_easy_seed1/balanced-generated-000094.json"
+    },
+    "difficulty": "easy",
+    "eligible": true,
+    "expected_stdout_path": "../../tests/cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game__t5_easy_seed1/balanced-generated-000094/oracle_stdout.txt",
+    "id": "cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game__t5_easy_seed1__balanced-generated-000094",
+    "main_class": "Chess",
+    "method_coverage_policy": "force_all",
+    "obfuscated": {
+      "codesteer_target": {
+        "called_directly_from_main": true,
+        "eligible_parameter_to_return_target": true,
+        "genuine_return_sink_count": 1,
+        "main_called_method_names": [
+          "nextLine",
+          "parseInt",
+          "pawnLineal",
+          "println"
+        ],
+        "method_names": [
+          "subsecuencias",
+          "subsecuencias",
+          "solucion",
+          "main22",
+          "pawn",
+          "reemplazar",
+          "contar",
+          "pawn2",
+          "pawnAux",
+          "pawnLineal",
+          "main"
+        ],
+        "parameter_count": 2,
+        "parameters": [
+          {
+            "name": "scr1",
+            "type": "String"
+          },
+          {
+            "name": "dst1",
+            "type": "String"
+          }
+        ],
+        "parse_status": "javalang",
+        "return_sink_count": 1,
+        "return_type": "int",
+        "selected_method": "pawnLineal",
+        "selected_method_line": 296,
+        "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+        "selector_implementation_owner": "steering.priors.SlicingPrior",
+        "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+      },
+      "execution_validation": {
+        "accepted": true,
+        "cases": [
+          {
+            "accepted": true,
+            "actual_trimmed": "8",
+            "case_id": "00-private-000",
+            "command": [
+              "java",
+              "-Dfile.encoding=UTF-8",
+              "-Djava.io.tmpdir=<scratch>",
+              "-Duser.home=<scratch>",
+              "-XX:-UsePerfData",
+              "-cp",
+              "<classes>",
+              "Chess"
+            ],
+            "duration_seconds": 0.063378,
+            "exit_code": 0,
+            "expected_trimmed": "8",
+            "raw_expected_stdout_sha256": "aa67a169b0bba217aa0aa88a65346920c84c42447c36ba5f7ea65f422c1fe5d8",
+            "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "raw_stdout_sha256": "aa67a169b0bba217aa0aa88a65346920c84c42447c36ba5f7ea65f422c1fe5d8",
+            "stderr": "",
+            "stdout": "8\n",
+            "timed_out": false,
+            "trimmed_exact_match": true
+          }
+        ],
+        "compile": {
+          "accepted": true,
+          "command": [
+            "javac",
+            "-encoding",
+            "UTF-8",
+            "-J-Djava.io.tmpdir=<scratch>",
+            "-J-Duser.home=<scratch>",
+            "-J-XX:-UsePerfData",
+            "-Xlint:none",
+            "-nowarn",
+            "-d",
+            "<classes>",
+            "<scratch>/Chess.java"
+          ],
+          "exit_code": 0,
+          "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false
+        },
+        "entry": {
+          "compile_class": "Chess",
+          "main_class": "Chess",
+          "package": "",
+          "parse_status": "javalang"
+        }
+      },
+      "main_class": "Chess",
+      "metadata_path": "candidates/cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game/variants/T5_bogus_control_flow/easy/seed_1/Chess.java.meta.json",
+      "method_coverage": {
+        "main_touched": true,
+        "method_coverage_total": 13,
+        "method_coverage_touched": 13,
+        "untouched_methods": []
+      },
+      "path": "../../../prepared_variants/candidates/cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game/variants/T5_bogus_control_flow/easy/seed_1/Chess.java",
+      "selected_target_touch_evidence": {
+        "method_block_parser": "eyetracking.obfuscation.java.passes.utils.iter_method_blocks",
+        "obfuscated_block_name": "pawnLineal",
+        "obfuscated_match_count": 1,
+        "obfuscated_method_bytes": 968,
+        "obfuscated_method_index": 11,
+        "obfuscated_method_sha256": "569725136c375095d4056a614a89f8bf941c0a82ea0a022339901ec855d3a8e7",
+        "obfuscated_method_start_line": 296,
+        "obfuscated_name_matches_codesteer_target": true,
+        "obfuscated_target_line": 296,
+        "obfuscated_target_method": "pawnLineal",
+        "original_block_name": "pawnLineal",
+        "original_match_count": 1,
+        "original_method_bytes": 893,
+        "original_method_index": 11,
+        "original_method_sha256": "5d609667a8c24093b246931dd1074b8862f84b5cc2852f092cc69e5a899c4d10",
+        "original_method_start_line": 258,
+        "original_target_line": 258,
+        "original_target_method": "pawnLineal",
+        "reason": "method_source_changed",
+        "touched": true,
+        "verifiable": true
+      },
+      "sha256": "65f6e61b5d802fce2d0a801acce3f48e942fa2a7626a41d8b3a2f47c82b8216b",
+      "target_method": "pawnLineal"
+    },
+    "obfuscated_main_class": "Chess",
+    "obfuscated_path": "../../../prepared_variants/candidates/cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game/variants/T5_bogus_control_flow/easy/seed_1/Chess.java",
+    "obfuscated_target_method": "pawnLineal",
+    "obfuscation_metadata_path": "candidates/cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game/variants/T5_bogus_control_flow/easy/seed_1/Chess.java.meta.json",
+    "original": {
+      "codesteer_target": {
+        "called_directly_from_main": true,
+        "eligible_parameter_to_return_target": true,
+        "genuine_return_sink_count": 1,
+        "main_called_method_names": [
+          "nextLine",
+          "parseInt",
+          "pawnLineal",
+          "println"
+        ],
+        "method_names": [
+          "subsecuencias",
+          "subsecuencias",
+          "solucion",
+          "main22",
+          "pawn",
+          "reemplazar",
+          "contar",
+          "pawn2",
+          "pawnAux",
+          "pawnLineal",
+          "main"
+        ],
+        "parameter_count": 2,
+        "parameters": [
+          {
+            "name": "scr1",
+            "type": "String"
+          },
+          {
+            "name": "dst1",
+            "type": "String"
+          }
+        ],
+        "parse_status": "javalang",
+        "return_sink_count": 1,
+        "return_type": "int",
+        "selected_method": "pawnLineal",
+        "selected_method_line": 258,
+        "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+        "selector_implementation_owner": "steering.priors.SlicingPrior",
+        "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+      },
+      "execution_validation_path": "candidates/cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game/original/validation.json",
+      "main_class": "Chess",
+      "path": "../../../prepared_variants/candidates/cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game/original/Chess.java",
+      "sha256": "1202bd073ae65d5a083f878a05c6298943d6fa1492c694bb92e9f555d7cf679c",
+      "target_method": "pawnLineal"
+    },
+    "original_main_class": "Chess",
+    "original_path": "../../../prepared_variants/candidates/cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game/original/Chess.java",
+    "original_target_method": "pawnLineal",
+    "parent_candidate_id": "cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game__t5_easy_seed1",
+    "profile": "safe",
+    "rejection_reasons": [],
+    "seed": 1,
+    "stdin_path": "../../tests/cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game__t5_easy_seed1/balanced-generated-000094/stdin.txt",
+    "target_method": {
+      "obfuscated": "pawnLineal",
+      "original": "pawnLineal"
+    },
+    "technique": "T5",
+    "technique_name": "bogus_control_flow",
+    "variant_id": "cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game__t5_easy_seed1",
+    "warnings": []
+  },
+  "obfuscated_sha256": "65f6e61b5d802fce2d0a801acce3f48e942fa2a7626a41d8b3a2f47c82b8216b",
+  "obfuscated_source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game/variants/T5_bogus_control_flow/easy/seed_1/Chess.java",
+  "obfuscated_target_method": "pawnLineal",
+  "original_sha256": "1202bd073ae65d5a083f878a05c6298943d6fa1492c694bb92e9f555d7cf679c",
+  "original_source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game/original/Chess.java",
+  "original_target_method": "pawnLineal",
+  "sample_id": "cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game__t5_easy_seed1__balanced-generated-000094"
+}

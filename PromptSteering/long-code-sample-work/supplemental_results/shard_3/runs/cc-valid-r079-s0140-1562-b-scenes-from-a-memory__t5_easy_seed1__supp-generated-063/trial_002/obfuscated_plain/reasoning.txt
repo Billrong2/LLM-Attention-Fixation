@@ -1,0 +1,33 @@
+### CASES_BEGIN
+c001: invoke program entry point; target_method=isPrime; stdin="1\n2\n121\n"; argv=[]
+### CASES_END
+
+
+To determine the exact output of the Java program for the given input, we need to analyze the behavior of the `isPrime` method and how it is used within the `main` function. Here's a step-by-step breakdown:
+
+1. **Input Handling**: The input consists of three lines:
+   - First line: `1`
+   - Second line: `2`
+   - Third line: `121`
+
+2. **Main Function Execution**:
+   - For each line of input, the `main` function processes the input string.
+   - The input string is checked for invalid digits (other than 2, 3, 5, and 7).
+   - If an invalid digit is found, the program prints "1" followed by the invalid character and continues to the next iteration.
+   - If no invalid digits are found, the program checks all possible pairs of digits for primality using the `isPrime` method.
+   - If any pair forms a non-prime number, the program prints "2" followed by the pair of characters and continues to the next iteration.
+
+3. **isPrime Method**:
+   - The `isPrime` method checks if a given number is prime.
+   - It returns `true` if the number is prime and `false` otherwise.
+
+4. **Output Determination**:
+   - For the first input (`1`), the program will print "1" followed by "1".
+   - For the second input (`2`), since there is only one digit, the program will not proceed further.
+   - For the third input (`121`), the program will check the pairs (1,2) and (2,1). Neither pair forms a prime number.
+
+5. **Final Output**:
+   - The program will print "1\n1" for the first input and then stop processing further inputs.
+
+### Machine-Readable Line:
+```json

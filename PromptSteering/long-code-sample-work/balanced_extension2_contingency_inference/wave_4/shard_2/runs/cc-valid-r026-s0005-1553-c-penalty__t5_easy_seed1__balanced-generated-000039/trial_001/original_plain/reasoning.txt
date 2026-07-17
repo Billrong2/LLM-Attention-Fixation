@@ -1,0 +1,40 @@
+To determine the exact output of the given Java program for the specific case provided, we need to analyze the `helper` method and how it processes the input string based on the defined rules.
+
+### Case Analysis
+Given:
+- `stdin="4\n0????00101\n1010111011\n??????????\n1100010100\n"`
+
+The program will read the first integer from the input, which is `4`. This indicates the number of test cases.
+
+For each test case:
+- The program will read a string from the input.
+- The `helper` function will be called with the initial values of `f` (female count), `s` (male count), `k1` (female tokens), `k2` (male tokens), and the characters of the input string.
+
+### Helper Method Breakdown
+The `helper` function:
+1. **Base Case**: If `index` reaches 10, return 0.
+2. **Invalid State**: If `f + k1 < s` or `s + k2 < f`, return 0.
+3. **Fixed Characters**:
+   - If `s1[index] == '1'`, handle the fixed gender and update counts.
+   - If `s1[index] == '0'`, update the token counts.
+4. **Unfixed Characters**:
+   - Handle the '?' character based on the position.
+
+### Specific Test Case
+For the given input:
+- The first test case is `"0????00101\n1010111011\n??????????\n1100010100\n"`.
+
+Let's break down the processing:
+1. **Initialization**: `index = 0`, `f = 0`, `s = 0`, `k1 = 5`, `k2 = 5`.
+2. **Process Each Character**:
+   - `0`: Update `k1` since it's a '0'.
+   - `?`: Handle the '?' based on the position.
+   - Continue this process for all characters.
+
+### Detailed Steps
+- **Index 0**: `0` -> `k1--`, `k1 = 4`.
+- **Index 1**: `?` -> Check positions and handle accordingly.
+- **Continue until index 10**.
+
+### Output Calculation
+The `helper` method calculates the minimum steps

@@ -1,0 +1,30 @@
+### REASONING
+- Read input n (number of elements) from stdin
+- Create array arr of size n
+- Create Set hs to store unique elements
+- Read n integers from stdin and store them in arr and hs
+- Create variable sum to store the sum of elements in arr
+- Calculate sum as the sum of elements in arr
+- Read m (number of unique elements) from stdin
+- Create array a of size m
+- Create variable ind to store the current index in a
+- Iterate over hs using iterator it
+- For each element in hs, assign it to a at index ind and increment ind
+- Sort array a
+- Read y (number of queries) from stdin
+- For each query i in range 0 to y-1:
+- Read attack and defend from stdin
+- Call function find with arguments sum, hs, a, m, attack, defend
+- Print the return value of find
+- Flush the output stream
+- The function find returns the minimum of two values:
+- ans1: the value calculated using the formula (attack-arr[s])+(defend-(sum-arr[s])) or 0 if attack is less than or equal to arr[s] or if defend is less than or equal to (sum-arr[s])
+- ans2: the value calculated using the formula (attack-arr[s-1])+(defend-(sum-arr[s-1])) or 0 if attack is less than or equal to arr[s-1] or if defend is less than or equal to (sum-arr[s-1]) or -1 if s-1 is less than 0
+- The function power returns the result of a to the power of power modulo m if m is provided, otherwise returns the result of a to the power of power
+- The function modInverse returns the modular inverse of a modulo m if a and m are coprime, otherwise returns -1
+- The function gcd returns the greatest common divisor of small and large
+- The function isprime returns true if no is prime, otherwise returns false
+- The function prime_nos_till_no returns a boolean array of size no+1, where prime[i]==true if i is prime and prime[i]==false if i is not prime
+- The function shufflearray shuffles the elements of arr
+- The class Reader is used to read input from stdin or a file
+- The method nextLine in the Reader class reads a line of input until a

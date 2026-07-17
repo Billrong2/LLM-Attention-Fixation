@@ -1,0 +1,119 @@
+{
+  "base_seed": 20260713,
+  "cache_dir": "/data/xxr230000/model_cache",
+  "codesteer_registered_profile": {
+    "beta_bias": 0.0,
+    "beta_post": 0.8,
+    "binning": "equal_count",
+    "enabled_levels": [
+      2
+    ],
+    "head_mask_apply_to": "both",
+    "head_subset_mode": "none",
+    "n_bins": 12,
+    "only_first_decode_step": false,
+    "prior": "slice_hybrid",
+    "recency_apply_after_prompt": true,
+    "recency_mix": true,
+    "recency_rho": 0.2,
+    "recency_scope": "prefer_generated",
+    "recency_window": 64,
+    "steer_last_n_layers": 8
+  },
+  "conditions": [
+    "original_plain",
+    "obfuscated_plain",
+    "obfuscated_prompt_slice",
+    "obfuscated_codesteer"
+  ],
+  "created_at_unix": 1783994922.5311337,
+  "generation": {
+    "do_sample": true,
+    "max_new_tokens": 512,
+    "temperature": 1.05,
+    "top_k": 7,
+    "top_p": 0.95
+  },
+  "manifest_metadata": {
+    "accepted_ranks_per_problem": [
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "adaptive_status_disclosure": "This second extension is adaptive and outcome-aware from the Wave-2 aggregate result, is not preregistered, and is not outcome-blind in timing. Its case eligibility, deterministic rank key, accepted-rank continuation, and feasibility-driven prospective revisions are outcome-independent. The final design is the largest uniform two-wave continuation across the same 19 problems: Wave 4 ranks 11--15 and Wave 5 ranks 16--19; there is no Wave 6.",
+    "canonical_problem_count": 19,
+    "case_count": 95,
+    "cases_per_problem": 5,
+    "conditional_trigger": "run only after a complete valid post-Wave-3 audit has fewer than ten strict canonical problems; stop this and all later waves if threshold reached",
+    "denominator_disclosure": "The source denominator remains 25 frozen source/obfuscation variants; the same 23 tokenizer-eligible sources spanning 19 canonical problems are reused. Waves 4--5 add only repeated concrete inputs.",
+    "feasibility_revision_disclosure": "The original Wave-6 ranks 21--25 proposal failed closed at row 27 (202 eligible, 24 accepted). The first revision to Wave 6 ranks 21--24 then failed closed at row 54 (255 eligible, 19 accepted), which also blocks Wave-5 rank 20. Before inspecting any Wave-3 output or result, the final design was prospectively revised to Wave 4 ranks 11--15 and Wave 5 ranks 16--19 only, the largest uniform two-wave continuation for all 19 problems.",
+    "frozen_source_denominator": 25,
+    "preparation_read_disclosure": "Preparation, tokenizer gating, revision, and freezing read no inference result directory or file, perform no language-model inference, and create no inference result root. The completed post-Wave-2 count of four is an externally supplied trigger and timing fact only; no Wave-3 output or result was inspected. Both preserved failures are static/JDK feasibility evidence only.",
+    "protocol_date": "2026-07-13",
+    "purpose": "pre-tokenizer runner manifest for conditional balanced Wave 4",
+    "schema_version": "long-code-balanced-extension2-contingency-v1",
+    "selection_stage": "tokenizer_exact_prior_preflight",
+    "selection_unit": "canonical dataset row + suite + dataset test index",
+    "state": "exact_tokenizer_gate_passed",
+    "timing_disclosure": "Specified and prospectively revised twice during live Wave 3, after the completed valid post-Wave-2 audit reported four distinct strict canonical CodeContests problems. The initial 19-by-5 Wave-6 proposal failed closed because an exhaustive frozen-rule static/JDK scan found canonical row 27 has 202 statically eligible candidates but only 24 JDK-valid accepted ranks in total. The first revision also failed closed because row 54 has 255 statically eligible candidates but only 19 JDK-valid accepted ranks, blocking rank 20 and every Wave-6 rank. No Wave-3 model output, result, score, completion, reasoning trace, or result file was inspected or used to specify or revise this contingency.",
+    "tokenizer_eligible_source_denominator": 23,
+    "tokenizer_preflight": {
+      "exclusions": "exclusions.jsonl",
+      "full_report": "full_report.json",
+      "input_top_level_count": 19,
+      "retained_exploded_sample_count": 95,
+      "retained_top_level_count": 19,
+      "schema_version": "long-code-tokenizer-preflight-v1",
+      "selection_rule": "Retain only cases whose exact Qwen2.5-14B-tokenized CodeSteer prompt yields a non-positional SlicingPrior vector, an active CASES signal, and fits context.",
+      "source_manifest": "../../wave_4_manifest_pre_tokenizer.json",
+      "source_manifest_sha256": "b295a5ea5b00f9741299af0ff9cd914897df3780a6794a5a60eb165954835de2"
+    },
+    "variant_count": 19,
+    "wave_id": "balanced_wave_4"
+  },
+  "manifest_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/balanced_extension2_contingency/tokenizer_preflight/wave_4/inference_eligible_variants.json",
+  "manifest_sha256": "bdb56bd094e30d46d541daca1c620132c75219376f188b11a5dbe20877c3c253",
+  "model_name": "Qwen/Qwen2.5-14B",
+  "model_snapshot_commit": "97e1e76335b7017d8f67c08a19d103c0504298c9",
+  "outcome_selection_note": "The complete screened pool is retained. Any later all-baselines-fail/CodeSteer-succeeds case-study subset is outcome-selected and must be labeled as such.",
+  "protocol_version": "long-code-output-v1",
+  "sample_ids": [
+    "cc-valid-r005-s0097-1549-b-gregor-and-the-pawn-game__t5_easy_seed1__balanced-generated-000067",
+    "cc-valid-r013-s0260-1551-d2-domino-hard-version__t5_easy_seed1__balanced-private-000021",
+    "cc-valid-r026-s0005-1553-c-penalty__t5_easy_seed1__balanced-generated-000032",
+    "cc-valid-r027-s0184-1553-d-backspace__t5_easy_seed1__balanced-private-000027",
+    "cc-valid-r027-s0184-1553-d-backspace__t5_easy_seed1__balanced-private-000000",
+    "cc-valid-r035-s0234-1554-c-mikasa__t5_easy_seed1__balanced-generated-000125",
+    "cc-valid-r040-s0219-1555-c-coin-rows__t5_easy_seed1__balanced-generated-000011",
+    "cc-valid-r045-s0246-1556-b-take-your-places__t5_easy_seed1__balanced-generated-000089",
+    "cc-valid-r054-s0229-1557-c-moamen-and-xor__t5_easy_seed1__balanced-generated-000017",
+    "cc-valid-r054-s0229-1557-c-moamen-and-xor__t5_easy_seed1__balanced-generated-000187",
+    "cc-valid-r065-s0055-1559-e-mocha-and-stars__t5_easy_seed1__balanced-generated-000137",
+    "cc-valid-r069-s0346-1560-d-make-a-power-of-two__t5_easy_seed1__balanced-generated-000164",
+    "cc-valid-r070-s0285-1560-e-polycarp-and-string-transformation__t5_easy_seed1__balanced-generated-000030",
+    "cc-valid-r079-s0140-1562-b-scenes-from-a-memory__t5_easy_seed1__balanced-generated-000094",
+    "cc-valid-r079-s0140-1562-b-scenes-from-a-memory__t5_easy_seed1__balanced-generated-000100",
+    "cc-valid-r086-s0131-1566-c-max-mex-cut__t5_easy_seed1__balanced-generated-000082",
+    "cc-valid-r088-s0111-1566-d2-seating-arrangements-hard-version__t5_easy_seed1__balanced-generated-000079",
+    "cc-valid-r094-s0350-1567-c-carrying-conundrum__t5_easy_seed1__balanced-generated-000064",
+    "cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1__balanced-generated-000137",
+    "cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1__balanced-generated-000189",
+    "cc-valid-r109-s0175-1573-a-countdown__t5_easy_seed1__balanced-generated-000036",
+    "cc-valid-r110-s0039-1573-c-book__t5_easy_seed1__balanced-generated-000004",
+    "cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__balanced-generated-000131"
+  ],
+  "score_definition": {
+    "canonicalization": "CRLF/CR to LF, then strip leading/trailing whitespace; internal whitespace preserved",
+    "name": "trimmed_exact_match"
+  },
+  "static_prior_cache": {
+    "enabled": true,
+    "key": "(current_bin, number_of_bins)",
+    "reason": "The unmodified runtime requests the same prompt-static slice once per steered layer and decode token. Recomputing it changes neither the vector nor sampling, but is prohibitively expensive for 250--350-line programs.",
+    "scope": "one SteeringManager instance",
+    "semantic_effect": "none; memoizes a deterministic prompt-static prior vector"
+  },
+  "trials": 3
+}

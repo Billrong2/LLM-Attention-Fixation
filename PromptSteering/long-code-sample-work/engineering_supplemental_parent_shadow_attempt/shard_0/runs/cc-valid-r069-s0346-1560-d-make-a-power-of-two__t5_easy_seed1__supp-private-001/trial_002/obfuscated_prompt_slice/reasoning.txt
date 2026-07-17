@@ -1,0 +1,15 @@
+### Reasoning
+The program starts by reading input from the standard input stream using a `Scanner` object. The first line of input represents the number of test cases. The program then iterates through each test case and reads the input number for each case.
+
+For each test case, the program calls the `buscarGreedy` method, passing the input number as an argument. The `buscarGreedy` method calculates the minimum distance between the input number and the powers of 2.
+
+The `buscarGreedy` method initializes a variable `minimo` with a maximum value. It then iterates through the powers of 2, comparing each power with the input number using the `comparar` method. If the result of the comparison is smaller than `minimo`, `minimo` is updated with the new result.
+
+The `comparar` method compares two numbers by iterating through their digits. It returns the difference in the number of digits between the two numbers if they have different lengths. If the numbers have the same length, it compares each digit and increments the result for each mismatch.
+
+The program then writes the value of `minimo` to the standard output stream.
+
+### FINAL_OUTPUT_JSON
+```json
+{"stdout":"2\n3\n3\n2\n2\n3\n2\n4\n4\n7\n10\n27\n"}
+```

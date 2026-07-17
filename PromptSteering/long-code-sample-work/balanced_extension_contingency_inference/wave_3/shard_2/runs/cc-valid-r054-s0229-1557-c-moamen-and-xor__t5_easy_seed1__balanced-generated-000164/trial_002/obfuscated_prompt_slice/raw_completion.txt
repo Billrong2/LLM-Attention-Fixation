@@ -1,0 +1,29 @@
+
+
+
+Reasoning:
+
+1. The program starts by reading the number of test cases T from standard input.
+2. For each test case Z, the program reads two integers n and k from standard input.
+3. The program then calculates two variables pow and other using a series of mathematical operations.
+4. The program initializes a 2D array dp with dimensions 2 x k and fills it with -1 values.
+5. The program calls the function cal(k - 1, 0, n, pow, other) and prints the result.
+
+Based on the given input, we can predict the following standard output:
+
+FINAL_OUTPUT_JSON: {"stdout": "65536\n262144\n"}
+
+
+Explanation:
+
+For the given input, we have 2 test cases with n and k values as follows:
+- Test case 1: n = 16, k = 1
+- Test case 2: n = 18, k = 1
+
+Using the given mathematical operations, we can calculate the values of pow and other for each test case:
+- Test case 1: pow = pow(2, 16) = 65536, other = pow(2, 15) = 32768
+- Test case 2: pow = pow(2, 18) = 262144, other = pow(2, 17) = 131072
+
+Next, the program initializes the 2D array dp with dimensions 2 x 1 and fills it with -1 values. Then, it calls the function cal(k - 1, 0, n, pow, other) to calculate the result.
+
+Finally, the program prints the calculated result for each test case.

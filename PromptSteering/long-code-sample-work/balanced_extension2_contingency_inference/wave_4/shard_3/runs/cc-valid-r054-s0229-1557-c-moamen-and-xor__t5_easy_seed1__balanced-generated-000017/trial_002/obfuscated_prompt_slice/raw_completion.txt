@@ -1,0 +1,15 @@
+
+
+
+FINAL_OUTPUT_JSON: {"stdout":"112820254\n56592817\n31429682\n65759192\n117172720\n"}
+
+Reasoning:
+
+1. The program starts by invoking the `main` method, where we read the number of test cases (T) from the standard input.
+2. For each test case, we read the values of `n` and `k` from the standard input.
+3. We initialize `pow` and `other` variables by computing their values based on the input parameters `n` and `k`.
+4. We create a 2D array `dp` with size `[2][k]` and initialize all elements with -1.
+5. We call the `cal` method passing the input parameters `k - 1`, `0`, `n`, `pow`, and `other`. This method calculates the desired output.
+6. Finally, the output is printed using the `System.out.println` method.
+
+In this case, we have a series of test cases with different values of `n` and `k`. For each test case, the `cal` method is called, and the result is printed. The output is a series of numbers separated by newline characters.

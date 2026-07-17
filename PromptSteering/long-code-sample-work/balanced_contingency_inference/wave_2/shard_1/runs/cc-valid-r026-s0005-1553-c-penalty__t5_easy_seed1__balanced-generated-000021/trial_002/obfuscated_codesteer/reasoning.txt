@@ -1,0 +1,39 @@
+The provided Java program reads from standard input and processes multiple test cases. For each test case, it takes a string `s` consisting of characters `0`, `1`, or `?`, and calculates the result using the `helper` function. The `helper` function processes the string based on certain rules related to the characters `0`, `1`, and `?`.
+
+Here's a concise reasoning of the program's behavior for the provided input:
+
+1. **Input Parsing**:
+   - The program reads an integer `test` from standard input, which indicates the number of test cases.
+   - For each test case, it reads a string `s` from standard input.
+
+2. **Processing Each Test Case**:
+   - The string `s` is passed to the `helper` function along with initial values for `f` (initially 0), `s` (initially 0), `k1` (initially 5), and `k2` (initially 5). The string is converted to a character array for processing.
+   - The `helper` function processes each character in the array according to the following rules:
+     - If the character is '1', it increments `f` or `s` and decrements `k1` or `k2` based on the position in the string.
+     - If the character is '0', it decrements `k1` or `k2` based on the position in the string.
+     - If the character is '?', it explores both possibilities for the position in the string and chooses the one with the minimum result.
+
+3. **Output**:
+   - For each test case, the result of the `helper` function is printed to the standard output.
+
+Given the input:
+```
+4
+1001???0?1
+1111111011
+??????????
+0100011100
+```
+
+The program processes each line as follows:
+
+- For the first line "1001???0?1":
+  - The function `helper` processes the characters and calculates the result.
+  - The final result is 10.
+
+- For the second line "1111111011":
+  - The function `helper` processes the characters and calculates the result.
+  - The final result is 10.
+
+- For the third line "??????????":
+  - The function `helper` processes the

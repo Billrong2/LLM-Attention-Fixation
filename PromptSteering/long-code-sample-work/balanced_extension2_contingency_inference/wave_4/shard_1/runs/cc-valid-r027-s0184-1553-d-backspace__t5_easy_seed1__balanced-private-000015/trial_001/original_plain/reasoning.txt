@@ -1,0 +1,18 @@
+CASES_BEGIN
+c001: invoke program entry point; target_method=solve; stdin="1\nabc\nab\n"; argv=[]
+CASES_END
+
+### Reasoning:
+1. The program takes the input "abc" and "ab" which represents two strings.
+2. It then calls the `solve` method with these strings as arguments.
+3. In the `solve` method, it compares each character from the end of the strings until they match or the end of the first string is reached.
+4. If all characters from the second string match in order with the first string, it returns "YES".
+5. If it reaches the end of the first string without matching all characters of the second string, it returns "NO".
+6. The program prints the result to the console.
+
+### Output Prediction:
+- Input: "1\nabc\nab\n"
+- Output: "YES"
+
+### Final Output JSON:
+```json

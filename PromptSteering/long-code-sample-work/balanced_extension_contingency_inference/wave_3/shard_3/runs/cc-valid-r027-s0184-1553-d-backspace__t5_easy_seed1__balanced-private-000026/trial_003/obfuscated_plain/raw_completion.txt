@@ -1,0 +1,67 @@
+ To determine the exact output of the given Java program, we need to trace through its execution step-by-step. Here’s a detailed breakdown of what happens:
+
+### Step-by-Step Analysis
+
+#### Initialization
+```java
+int tc = sc.ni();  // Read number of test cases
+// tc = 1
+```
+
+#### Loop Through Test Cases
+For each test case:
+```java
+String s = sc.next();  // Read string s
+String t = sc.next();  // Read string t
+```
+
+#### Input for First Test Case
+```java
+// tc = 1
+s = "ababa"
+t = "ab"
+```
+
+#### Calling `solve` Method
+The `solve` method takes two strings `s` and `t`, and returns either "YES" or "NO".
+
+#### `solve` Method Implementation
+```java
+int j = t.length() - 1;  // j = 1
+int i = s.length() - 1;  // i = 4
+
+while (i >= 0) {
+    if (s.charAt(i) == t.charAt(j)) {
+        j--;
+        i--;
+    } else {
+        i -= 2;
+    }
+    if (j == -1) return "YES";
+}
+
+return "NO";
+```
+
+#### Execution of `solve` Method
+1. **Initial State:**
+   - `i = 4`, `j = 1`
+   - `s = "ababa"`, `t = "ab"`
+
+2. **First Iteration:**
+   - `i = 4`, `j = 1`
+   - `s.charAt(4) != t.charAt(1)` (`'a' != 'b'`)
+   - `i -= 2`, so `i = 2`
+
+3. **Second Iteration:**
+   - `i = 2`, `j = 1`
+   - `s.charAt(2) != t.charAt(1)` (`'b' != 'b'`)
+   - `i -= 2`, so `i = 0`
+
+4. **Third Iteration:**
+   - `i = 0`, `j = 1`
+   - `s.charAt(0) == t.charAt(1)` (`'a' == 'b'`)
+   - `j--`, so `j = 0`
+   - `i--`, so `i = -1`
+
+5. **Condition Check:

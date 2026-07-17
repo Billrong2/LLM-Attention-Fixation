@@ -1,0 +1,50 @@
+
+
+
+### CASES_BEGIN
+c001: invoke program entry point; target_method=isPrime; stdin="1\n2\n121\n"; argv=[]
+### CASES_END
+
+
+To determine the exact output of the Java program for the given input, we need to analyze the behavior of the `isPrime` method and how it is used within the `main` function. Here's a step-by-step breakdown:
+
+1. **Input Handling**: The program reads an integer \( t \), indicating the number of test cases. For each test case, it reads an integer \( n \) and a string \( s \) of length \( n \).
+
+2. **Prime Checking**: The program checks if the digits of \( s \) form a prime number. If any digit is not 2, 3, 5, or 7, the program outputs "1" followed by the offending digit and breaks out of the loop.
+
+3. **Pairwise Prime Checking**: For each pair of consecutive characters in \( s \), the program forms a two-digit number and checks if it is prime. If any such number is not prime, the program outputs "2" followed by the non-prime pair and breaks out of the loop.
+
+4. **Output**: If all checks pass, the program prints "YES".
+
+Given the input "1\n2\n121", let's analyze each test case step-by-step:
+
+### Test Case 1: n = 1, s = "1"
+- The single digit '1' is not a prime number.
+- Therefore, the output will be "1\n1".
+
+### Test Case 2: n = 2, s = "2"
+- The single digit '2' is a prime number.
+- There are no pairs to check.
+- Therefore, the output will be "YES".
+
+### Test Case 3: n = 3, s = "121"
+- The digits 1, 2, and 1 are checked individually. The digit 1 is not a prime number.
+- Therefore, the output will be "1\n1".
+
+Combining these results, the overall output will be:
+
+```
+1
+1
+YES
+1
+1
+```
+
+Thus, the machine-readable output is:
+
+```json
+FINAL_OUTPUT_JSON: {"stdout":"1\n1\nYES\n1\n1\n"}
+```
+
+This JSON string contains only the exact output with newlines encoded as `\n`.

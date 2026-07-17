@@ -1,0 +1,54 @@
+To predict the exact standard output of the provided Java program, we need to trace through the execution step by step.
+
+### Input Parsing and Processing:
+
+1. **Initialization**:
+   - `test` is read from input.
+   - For each test case:
+     - `n` is read from input.
+     - `a` is an array of size `n` read from input.
+
+2. **Main Logic**:
+   - Initialize an array `f` to count occurrences of even and odd numbers in `a`.
+   - Iterate over `a` and populate `f` accordingly.
+
+### Condition Check:
+
+- If the absolute difference between counts of even and odd numbers is greater than 1, print `-1`.
+
+- If `n` is even:
+  - Check if `f[0] == f[1]`:
+    - Compute and print the minimum of `fun(0, a)` and `fun(1, a)`.
+  - Otherwise, print `-1`.
+
+- If `n` is odd:
+  - If `f[0] == f[1] + 1`, print `fun(0, a)`.
+  - If `f[1] == f[0] + 1`, print `fun(1, a)`.
+  - Otherwise, print `-1`.
+
+### Helper Function `fun`:
+
+- This function calculates a specific value based on the input array `arr` and parameter `x`. It involves iterating over `arr` and performing arithmetic operations.
+
+### Execution for the Given Input:
+
+1. **Test Case 1**:
+   - `n = 7`
+   - Array `a` = `[3, 0, 0, 5, 3, 12, 4]`
+
+   **Counting Occurrences**:
+   - Even: `[0, 0, 12, 4]` (4 occurrences)
+   - Odd: `[3, 5, 3]` (3 occurrences)
+
+   **Conditions**:
+   - `|4 - 3| <= 1` (True)
+
+   **Even Check**:
+   - `n % 2 == 0` (True)
+   - `f[0] == f[1]` (False, hence `-1` is printed)
+
+### Final Output:
+
+Based on the above steps, the program will print `-1` for the given input.
+
+```

@@ -1,0 +1,11 @@
+Reasoning:
+
+The main method of the program is responsible for reading the input and calling the isPrime method. The input consists of the number of test cases and then the values of n and s for each test case.
+
+For each test case, the program first checks if any digit in s is not equal to 2, 3, 5, or 7. If so, it outputs "1" followed by the first non-matching digit and continues to the next test case.
+
+If all digits in s are 2, 3, 5, or 7, the program then checks all possible pairs of digits in s to see if their product is a prime number. If any pair is found, it outputs "2" followed by the product and continues to the next test case.
+
+If no such pair is found, the program outputs "1" followed by a space and then the string "NO". This is the final output for all test cases.
+
+FINAL\_OUTPUT\_JSON: {"stdout":"1\n379\n"}

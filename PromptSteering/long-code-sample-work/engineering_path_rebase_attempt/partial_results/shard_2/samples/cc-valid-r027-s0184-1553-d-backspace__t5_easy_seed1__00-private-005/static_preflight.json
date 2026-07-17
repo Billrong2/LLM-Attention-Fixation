@@ -1,0 +1,252 @@
+{
+  "obfuscated_line_count": 367,
+  "obfuscated_method_analysis": {
+    "codesteer_selected_target_method": "solve",
+    "codesteer_target_matches_recorded": true,
+    "fallback_used": false,
+    "method_names": [
+      "main",
+      "solve",
+      "greaterThan",
+      "smallerThan",
+      "reduce",
+      "summation",
+      "summation",
+      "pow",
+      "isPrime",
+      "gcd",
+      "gcd",
+      "lcm",
+      "sort",
+      "sort",
+      "charint",
+      "printArr",
+      "printArr2d",
+      "next",
+      "ni",
+      "intArray",
+      "nl",
+      "longArray",
+      "nd",
+      "nextLine",
+      "add",
+      "remove",
+      "size",
+      "higher",
+      "lower",
+      "ceiling",
+      "floor",
+      "first",
+      "last",
+      "isEmpty"
+    ],
+    "parameter_count": 2,
+    "parse_status": "javalang",
+    "recorded_target_found": true,
+    "recorded_target_method": "solve",
+    "return_sink_count": 2
+  },
+  "original_line_count": 270,
+  "original_method_analysis": {
+    "codesteer_selected_target_method": "solve",
+    "codesteer_target_matches_recorded": true,
+    "fallback_used": false,
+    "method_names": [
+      "main",
+      "solve",
+      "greaterThan",
+      "smallerThan",
+      "reduce",
+      "summation",
+      "summation",
+      "pow",
+      "isPrime",
+      "gcd",
+      "gcd",
+      "lcm",
+      "sort",
+      "sort",
+      "charint",
+      "printArr",
+      "printArr2d",
+      "next",
+      "ni",
+      "intArray",
+      "nl",
+      "longArray",
+      "nd",
+      "nextLine",
+      "add",
+      "remove",
+      "size",
+      "higher",
+      "lower",
+      "ceiling",
+      "floor",
+      "first",
+      "last",
+      "isEmpty"
+    ],
+    "parameter_count": 2,
+    "parse_status": "javalang",
+    "recorded_target_found": true,
+    "recorded_target_method": "solve",
+    "return_sink_count": 2
+  },
+  "prompt_slice": {
+    "artifact_name": "Program Slicing / backward slice",
+    "elements": [
+      {
+        "code": "static String solve(String s, String t) {",
+        "description": "target method solve(s, t)",
+        "kind": "MethodDeclaration",
+        "line": 37,
+        "line_label": "L037"
+      },
+      {
+        "code": "static String solve(String s, String t) {",
+        "description": "method parameter s",
+        "kind": "SliceMethodParameter",
+        "line": 37,
+        "line_label": "L037"
+      },
+      {
+        "code": "static String solve(String s, String t) {",
+        "description": "method parameter t",
+        "kind": "SliceMethodParameter",
+        "line": 37,
+        "line_label": "L037"
+      },
+      {
+        "code": "if (j == -1) return \"YES\";",
+        "description": "return value expression",
+        "kind": "SliceReturnValue",
+        "line": 49,
+        "line_label": "L049"
+      },
+      {
+        "code": "return \"NO\";",
+        "description": "return value expression",
+        "kind": "SliceReturnValue",
+        "line": 51,
+        "line_label": "L051"
+      },
+      {
+        "code": "int _obf_t5_solve_181246 = 0; _obf_t5_solve_181246 += 0;",
+        "description": "definition of _obf_t5_solve_181246",
+        "kind": "SliceDefinition",
+        "line": 38,
+        "line_label": "L038"
+      },
+      {
+        "code": "",
+        "description": "assignment/update influencing _obf_t5_solve_181246",
+        "kind": "SliceAssignment",
+        "line": null,
+        "line_label": ""
+      },
+      {
+        "code": "int j = t.length() - 1;",
+        "description": "definition of j",
+        "kind": "SliceDefinition",
+        "line": 39,
+        "line_label": "L039"
+      },
+      {
+        "code": "int j = t.length() - 1;",
+        "description": "method call t.length in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 39,
+        "line_label": "L039"
+      },
+      {
+        "code": "int i = s.length() - 1;",
+        "description": "definition of i",
+        "kind": "SliceDefinition",
+        "line": 40,
+        "line_label": "L040"
+      },
+      {
+        "code": "int i = s.length() - 1;",
+        "description": "method call s.length in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 40,
+        "line_label": "L040"
+      },
+      {
+        "code": "while (i >= 0) {",
+        "description": "control predicate over i, s, charAt, t, j",
+        "kind": "SliceControlDependency",
+        "line": 41,
+        "line_label": "L041"
+      },
+      {
+        "code": "if (s.charAt(i) == t.charAt(j)) {",
+        "description": "control predicate over s, charAt, i, t, j",
+        "kind": "SliceControlDependency",
+        "line": 42,
+        "line_label": "L042"
+      },
+      {
+        "code": "if (s.charAt(i) == t.charAt(j)) {",
+        "description": "method call s.charAt in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 42,
+        "line_label": "L042"
+      },
+      {
+        "code": "if (s.charAt(i) == t.charAt(j)) {",
+        "description": "method call t.charAt in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 42,
+        "line_label": "L042"
+      },
+      {
+        "code": "",
+        "description": "assignment/update influencing i",
+        "kind": "SliceAssignment",
+        "line": null,
+        "line_label": ""
+      },
+      {
+        "code": "if (j == -1) return \"YES\";",
+        "description": "control predicate over j",
+        "kind": "SliceControlDependency",
+        "line": 49,
+        "line_label": "L049"
+      }
+    ],
+    "eligible_count_is_lower_bound": false,
+    "eligible_element_count": 17,
+    "emitted_element_count": 17,
+    "emitted_over_eligible": 1.0,
+    "enabled": true,
+    "guidance_text": "Prompt-only steering guidance (Program Slicing / backward slice, artifact-conditioned):\nUse the following static program-analysis elements as the main reasoning anchors.\nThese elements are static only; they do not reveal the correct output, branch outcomes, or gold execution trace.\n\nStatic elements to emphasize:\n1. MethodDeclaration at L037: target method solve(s, t) (static String solve(String s, String t) {)\n2. SliceMethodParameter at L037: method parameter s (static String solve(String s, String t) {)\n3. SliceMethodParameter at L037: method parameter t (static String solve(String s, String t) {)\n4. SliceReturnValue at L049: return value expression (if (j == -1) return \"YES\";)\n5. SliceReturnValue at L051: return value expression (return \"NO\";)\n6. SliceDefinition at L038: definition of _obf_t5_solve_181246 (int _obf_t5_solve_181246 = 0; _obf_t5_solve_181246 += 0;)\n7. SliceAssignment: assignment/update influencing _obf_t5_solve_181246\n8. SliceDefinition at L039: definition of j (int j = t.length() - 1;)\n9. SliceMethodCall at L039: method call t.length in static data/control context (int j = t.length() - 1;)\n10. SliceDefinition at L040: definition of i (int i = s.length() - 1;)\n11. SliceMethodCall at L040: method call s.length in static data/control context (int i = s.length() - 1;)\n12. SliceControlDependency at L041: control predicate over i, s, charAt, t, j (while (i >= 0) {)\n13. SliceControlDependency at L042: control predicate over s, charAt, i, t, j (if (s.charAt(i) == t.charAt(j)) {)\n14. SliceMethodCall at L042: method call s.charAt in static data/control context (if (s.charAt(i) == t.charAt(j)) {)\n15. SliceMethodCall at L042: method call t.charAt in static data/control context (if (s.charAt(i) == t.charAt(j)) {)\n16. SliceAssignment: assignment/update influencing i\n17. SliceControlDependency at L049: control predicate over j (if (j == -1) return \"YES\";)",
+    "max_elements": 24,
+    "mechanism": "artifact_conditioned_natural_language_instruction_only",
+    "mode": "slice",
+    "parse_status": "javalang",
+    "prompt_items": [
+      "MethodDeclaration at L037: target method solve(s, t) (static String solve(String s, String t) {)",
+      "SliceMethodParameter at L037: method parameter s (static String solve(String s, String t) {)",
+      "SliceMethodParameter at L037: method parameter t (static String solve(String s, String t) {)",
+      "SliceReturnValue at L049: return value expression (if (j == -1) return \"YES\";)",
+      "SliceReturnValue at L051: return value expression (return \"NO\";)",
+      "SliceDefinition at L038: definition of _obf_t5_solve_181246 (int _obf_t5_solve_181246 = 0; _obf_t5_solve_181246 += 0;)",
+      "SliceAssignment: assignment/update influencing _obf_t5_solve_181246",
+      "SliceDefinition at L039: definition of j (int j = t.length() - 1;)",
+      "SliceMethodCall at L039: method call t.length in static data/control context (int j = t.length() - 1;)",
+      "SliceDefinition at L040: definition of i (int i = s.length() - 1;)",
+      "SliceMethodCall at L040: method call s.length in static data/control context (int i = s.length() - 1;)",
+      "SliceControlDependency at L041: control predicate over i, s, charAt, t, j (while (i >= 0) {)",
+      "SliceControlDependency at L042: control predicate over s, charAt, i, t, j (if (s.charAt(i) == t.charAt(j)) {)",
+      "SliceMethodCall at L042: method call s.charAt in static data/control context (if (s.charAt(i) == t.charAt(j)) {)",
+      "SliceMethodCall at L042: method call t.charAt in static data/control context (if (s.charAt(i) == t.charAt(j)) {)",
+      "SliceAssignment: assignment/update influencing i",
+      "SliceControlDependency at L049: control predicate over j (if (j == -1) return \"YES\";)"
+    ],
+    "recorded_target_method": "solve",
+    "target_method": "solve"
+  },
+  "sample_id": "cc-valid-r027-s0184-1553-d-backspace__t5_easy_seed1__00-private-005"
+}

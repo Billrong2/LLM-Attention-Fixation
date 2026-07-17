@@ -1,0 +1,161 @@
+{
+  "expected_stdout": "14\n",
+  "expected_stdout_path": "candidates/cc-valid-r113-s0164-1574-c-slay-the-dragon/io/00-generated-156.out",
+  "id": "cc-valid-r113-s0164-1574-c-slay-the-dragon",
+  "input": "4\n12 11 1 2\n1\n12 28\n7 2\n4 10\n0 13\n8 7\n",
+  "input_path": "candidates/cc-valid-r113-s0164-1574-c-slay-the-dragon/io/00-generated-156.in",
+  "inputs": [
+    {
+      "dataset_test_index": 156,
+      "expected_stdout": "14\n",
+      "expected_stdout_path": "candidates/cc-valid-r113-s0164-1574-c-slay-the-dragon/io/00-generated-156.out",
+      "expected_stdout_sha256": "9a92adbc0cee38ef658c71ce1b1bf8c65668f166bfb213644c895ccb1ad07a25",
+      "id": "00-generated-156",
+      "input": "4\n12 11 1 2\n1\n12 28\n7 2\n4 10\n0 13\n8 7\n",
+      "input_path": "candidates/cc-valid-r113-s0164-1574-c-slay-the-dragon/io/00-generated-156.in",
+      "input_sha256": "6aace315a3f1d1f38f86f5502ac9b101ea51907f4885595a7eaf4aab4b4be739",
+      "suite": "generated_tests",
+      "validation": {
+        "compiled_with_jdk17": true,
+        "exit_code": 0,
+        "stderr_bytes": 0,
+        "stdout_exact_byte_match": true,
+        "timed_out": false
+      }
+    }
+  ],
+  "loc_definition": "Python str.splitlines(); final newline does not add an empty physical line",
+  "main_class": "ferrisWheel",
+  "nonblank_loc": 236,
+  "original_path": "candidates/cc-valid-r113-s0164-1574-c-slay-the-dragon/original.java",
+  "physical_loc": 266,
+  "prevalidation": {
+    "all_retained_tests_exact": true,
+    "compiled": true,
+    "compiler_exit_code": 0,
+    "compiler_stderr_bytes": 0,
+    "compiler_stdout_bytes": 0,
+    "jdk_major": 17
+  },
+  "problem_key": "codeforces-1574-C",
+  "problem_name": "1574_C. Slay the Dragon",
+  "provenance": {
+    "cf_contest_id": 1574,
+    "cf_index": "C",
+    "cf_points": 0.0,
+    "cf_rating": 1300,
+    "cf_tags": [
+      "binary search",
+      "greedy",
+      "sortings",
+      "ternary search"
+    ],
+    "dataset_file": "codecontests-valid-802411c3.parquet",
+    "dataset_file_sha256": "02e8c1ccedae716f1e43cc813fcb7823c3db666ea92638820aba80e8cef451ab",
+    "dataset_id": "deepmind/code_contests",
+    "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+    "dataset_url": "https://huggingface.co/datasets/deepmind/code_contests/resolve/802411c3010cb00d1b05bad57ca77365a3c699d6/data/valid-00000-of-00001-5e672c5751f060d3.parquet",
+    "difficulty": 9,
+    "language": "Java",
+    "language_code": 4,
+    "problem_name": "1574_C. Slay the Dragon",
+    "row_index": 113,
+    "solution_container": "solutions",
+    "solution_index": 164,
+    "solution_label": "correct human solution",
+    "source_code": 2,
+    "split": "valid"
+  },
+  "source_bytes": 6046,
+  "source_sha256": "c7971bc02d69fd7f9d0e0f8a359c1b09ca82eb1d13be091d5386f9f1d5b44ac3",
+  "target": {
+    "arity": 2,
+    "body_nonblank_loc": 10,
+    "body_physical_loc": 10,
+    "class": "ferrisWheel",
+    "codesteer_selector": {
+      "declaration_line": 6,
+      "fallback_used": false,
+      "implementation": "steering.priors.SlicingPrior._select_target_method",
+      "name": "get",
+      "parameter_count": 2,
+      "parse_status": "javalang",
+      "top_level_body_statement_count": 3
+    },
+    "control_node_count": 2,
+    "end_line": 15,
+    "loop_node_count": 1,
+    "main_call_path": [
+      {
+        "arity": 1,
+        "class": "ferrisWheel",
+        "end_line": 52,
+        "name": "main",
+        "parameter_types": [
+          "String[]"
+        ],
+        "return_type": "void",
+        "start_line": 16
+      },
+      {
+        "arity": 2,
+        "class": "ferrisWheel",
+        "end_line": 15,
+        "name": "get",
+        "parameter_types": [
+          "Long []",
+          "long"
+        ],
+        "return_type": "long",
+        "start_line": 6
+      }
+    ],
+    "main_reachable": true,
+    "name": "get",
+    "output_caller": {
+      "arity": 1,
+      "class": "ferrisWheel",
+      "end_line": 52,
+      "name": "main",
+      "parameter_types": [
+        "String[]"
+      ],
+      "return_type": "void",
+      "start_line": 16
+    },
+    "output_evidence": "x=get(arr, d) -> pw.println(Math.min(ans, ans2))",
+    "output_relevance_kind": "local_assignment_then_print",
+    "output_relevance_variable": "x",
+    "parameter_types": [
+      "Long []",
+      "long"
+    ],
+    "recursive_call_count": 0,
+    "return_type": "long",
+    "return_value_output_relevant": true,
+    "source_sha256": "b0aeb4ed677947cb6d1153739a01ebd64faaca0a374268f2aed98b16e7162130",
+    "start_line": 6
+  },
+  "target_method": "get",
+  "target_signature": "long ferrisWheel.get(Long [], long)",
+  "tests": [
+    {
+      "dataset_test_index": 156,
+      "expected_stdout": "14\n",
+      "expected_stdout_path": "candidates/cc-valid-r113-s0164-1574-c-slay-the-dragon/io/00-generated-156.out",
+      "expected_stdout_sha256": "9a92adbc0cee38ef658c71ce1b1bf8c65668f166bfb213644c895ccb1ad07a25",
+      "id": "00-generated-156",
+      "input": "4\n12 11 1 2\n1\n12 28\n7 2\n4 10\n0 13\n8 7\n",
+      "input_path": "candidates/cc-valid-r113-s0164-1574-c-slay-the-dragon/io/00-generated-156.in",
+      "input_sha256": "6aace315a3f1d1f38f86f5502ac9b101ea51907f4885595a7eaf4aab4b4be739",
+      "suite": "generated_tests",
+      "validation": {
+        "compiled_with_jdk17": true,
+        "exit_code": 0,
+        "stderr_bytes": 0,
+        "stdout_exact_byte_match": true,
+        "timed_out": false
+      }
+    }
+  ]
+}

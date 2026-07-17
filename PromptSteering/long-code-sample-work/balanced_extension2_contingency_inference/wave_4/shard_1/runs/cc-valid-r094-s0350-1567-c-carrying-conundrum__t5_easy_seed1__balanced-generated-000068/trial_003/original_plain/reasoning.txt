@@ -1,0 +1,47 @@
+To determine the exact standard output of the given Java program for the provided input case, let's break down the execution step-by-step:
+
+### Case Analysis
+- **Input:** stdin="1\n4402\n"
+- **argv:** []
+
+### Execution Steps
+1. **Read Input:**
+   - The first line is read as `1`, which sets `t` to `1`.
+   - The second line is read as `4402`.
+
+2. **Main Loop:**
+   - The loop runs once (`t = 1`):
+     - Convert the input string `4402` to a character array: `['4', '4', '0', '2']`.
+
+3. **Evaluate Expression:**
+   - Call `eval` with parameters:
+     - `arr = ['4', '4', '0', '2']`
+     - `in = 0`
+     - `carry = 0`
+     - `n = 4`
+     - `dp = new long[4][1100]`
+     - `a = false`
+     - `b = false`
+
+### Evaluation Process
+- **Initial Call to `eval`:**
+  - `in = 0`, `val = 4` (from '4'), `carry = 0`.
+  - Since `in < n-2`, check `val`:
+    - `val == 2`: Enter inner logic.
+      - Update `carry` to `4` (binary `100`).
+      - Call `eval` twice with updated `a` and `b`:
+        - First call: `eval(arr,1,4,n,dp,true,false)`
+        - Second call: `eval(arr,1,4,n,dp,false,true)`
+      - Update `carry` back to `0`.
+
+### Detailed Breakdown
+- **First Recursion:**
+  - `in = 1`, `val = 4` (from '4'), `carry = 4`.
+  - Check `val` again:
+    - `val == 2`: Enter inner logic.
+      - Update `carry` to `12` (binary `1100`).
+      - Call `eval` twice with updated `a` and `b`.
+      - Update `carry` back to `4`.
+
+- **Second Recursion:**
+  - `in = 2`, `val = 0` (from '0'), `

@@ -1,0 +1,15 @@
+ ### Reasoning:
+1. Read input parameters \( n = 50 \) and \( m = 100 \).
+2. Parse \( n \) pairs of integers representing intervals.
+3. Calculate Möbius function and prime numbers up to 100,000 using `mobiusAndPrime`.
+4. Compute \( \text{ans} \) for each divisor \( j \) from 1 to 100,000:
+   - Adjust each interval by dividing by \( j \).
+   - Check if adjusted intervals are valid.
+   - Calculate the number of valid combinations for each divisor \( j \).
+5. Summarize results modulo the selected modulus.
+6. Output the result modulo the selected modulus.
+
+### Final Output:
+```json
+FINAL_OUTPUT_JSON: {"stdout":"9817\n"}
+```

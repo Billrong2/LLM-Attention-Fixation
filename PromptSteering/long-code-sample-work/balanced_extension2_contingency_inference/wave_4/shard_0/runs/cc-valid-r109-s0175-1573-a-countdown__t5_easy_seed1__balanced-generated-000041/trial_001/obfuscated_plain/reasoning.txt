@@ -1,0 +1,76 @@
+### CASES_BEGIN
+### CASES_END
+
+To predict the exact standard output of the given Java program, we need to simulate the execution of the program for each input case provided.
+
+**Input Case 1:**
+```
+7
+3
+007
+4
+1000
+5
+00000
+3
+103
+4
+1247
+9
+169501199
+30
+001678294039710047203946100020
+```
+
+Let's break down the program's behavior step by step:
+
+1. **Reading Input:**
+   - The program reads the number of test cases `t` from the input.
+   - For each test case, it reads an integer `n` and a string of characters representing a sequence of digits.
+
+2. **Processing Each Test Case:**
+   - For each test case, it calls the `find` method with `n` and the character array of the digits.
+   - The `find` method calculates the number of moves needed based on the digits.
+
+3. **Calculating Moves:**
+   - It adds the last digit of the sequence to the total moves.
+   - For each digit except the last, if the digit is greater than 0, it adds one more move.
+
+4. **Outputting Results:**
+   - The result for each test case is printed to the standard output.
+
+Now, let's calculate the moves for each test case:
+
+**Test Case 1:**
+```
+3
+007
+```
+- Moves: `0 + (0 + 0 + 0 + 1) = 1`
+
+**Test Case 2:**
+```
+4
+1000
+```
+- Moves: `0 + (1 + 0 + 0 + 0 + 1) = 2`
+
+**Test Case 3:**
+```
+5
+00000
+```
+- Moves: `0 + (0 + 0 + 0 + 0 + 0 + 1) = 1`
+
+**Test Case 4:**
+```
+3
+103
+```
+- Moves: `3 + (1 + 0 + 0 + 1) = 5`
+
+**Test Case 5:**
+```
+4
+1247
+```

@@ -1,0 +1,127 @@
+{
+  "activation_steering": false,
+  "codesteer_prior_preflight": null,
+  "condition": "obfuscated_prompt_slice",
+  "fingerprint": "9af7ce2a9c00f9ef02c8aa50507f41ea87c50868896963aae06fcf4df6baaa2a",
+  "generation": {
+    "do_sample": true,
+    "max_new_tokens": 512,
+    "temperature": 1.05,
+    "top_k": 7,
+    "top_p": 0.95
+  },
+  "manifest_sha256": "803aa5c06fe748f84081c35c4ccb01972db9a0ff01d916023c4fc83da5e131ab",
+  "model_name": "Qwen/Qwen2.5-14B",
+  "model_snapshot_commit": "97e1e76335b7017d8f67c08a19d103c0504298c9",
+  "obfuscated_sha256": "478f298044610cf6e852dc8a7303bb56dd49aa3a2cd83bee2cb8a263fbb33cb7",
+  "original_sha256": "c7971bc02d69fd7f9d0e0f8a359c1b09ca82eb1d13be091d5386f9f1d5b44ac3",
+  "paired_design": "same seed for all four conditions in this sample/trial",
+  "paired_seed": 651521869,
+  "prompt_metadata": {
+    "artifact_name": "Program Slicing / backward slice",
+    "elements": [
+      {
+        "code": "public static long get(Long [] a,long x) {",
+        "description": "target method get(a, x)",
+        "kind": "MethodDeclaration",
+        "line": 6,
+        "line_label": "L006"
+      },
+      {
+        "code": "public static long get(Long [] a,long x) {",
+        "description": "method parameter a",
+        "kind": "SliceMethodParameter",
+        "line": 6,
+        "line_label": "L006"
+      },
+      {
+        "code": "public static long get(Long [] a,long x) {",
+        "description": "method parameter x",
+        "kind": "SliceMethodParameter",
+        "line": 6,
+        "line_label": "L006"
+      },
+      {
+        "code": "return start==a.length?-1:start;",
+        "description": "return value expression using start, length",
+        "kind": "SliceReturnValue",
+        "line": 18,
+        "line_label": "L018"
+      },
+      {
+        "code": "if (((3 * 3) - 9) != 0) {",
+        "description": "control predicate over _obf_t5_get_189483",
+        "kind": "SliceControlDependency",
+        "line": 7,
+        "line_label": "L007"
+      },
+      {
+        "code": "int start=0,end=a.length-1,mid=(start+end)/2;",
+        "description": "definition of start, end, mid",
+        "kind": "SliceDefinition",
+        "line": 11,
+        "line_label": "L011"
+      },
+      {
+        "code": "while(start<=end) {",
+        "description": "control predicate over start, end, a, mid, x",
+        "kind": "SliceControlDependency",
+        "line": 12,
+        "line_label": "L012"
+      },
+      {
+        "code": "if(a[mid]>=x)",
+        "description": "control predicate over a, mid, x, end, start",
+        "kind": "SliceControlDependency",
+        "line": 13,
+        "line_label": "L013"
+      },
+      {
+        "code": "",
+        "description": "assignment/update influencing start",
+        "kind": "SliceAssignment",
+        "line": null,
+        "line_label": ""
+      }
+    ],
+    "eligible_count_is_lower_bound": false,
+    "eligible_element_count": 9,
+    "emitted_element_count": 9,
+    "emitted_over_eligible": 1.0,
+    "enabled": true,
+    "guidance_text": "Prompt-only steering guidance (Program Slicing / backward slice, artifact-conditioned):\nUse the following static program-analysis elements as the main reasoning anchors.\nThese elements are static only; they do not reveal the correct output, branch outcomes, or gold execution trace.\n\nStatic elements to emphasize:\n1. MethodDeclaration at L006: target method get(a, x) (public static long get(Long [] a,long x) {)\n2. SliceMethodParameter at L006: method parameter a (public static long get(Long [] a,long x) {)\n3. SliceMethodParameter at L006: method parameter x (public static long get(Long [] a,long x) {)\n4. SliceReturnValue at L018: return value expression using start, length (return start==a.length?-1:start;)\n5. SliceControlDependency at L007: control predicate over _obf_t5_get_189483 (if (((3 * 3) - 9) != 0) {)\n6. SliceDefinition at L011: definition of start, end, mid (int start=0,end=a.length-1,mid=(start+end)/2;)\n7. SliceControlDependency at L012: control predicate over start, end, a, mid, x (while(start<=end) {)\n8. SliceControlDependency at L013: control predicate over a, mid, x, end, start (if(a[mid]>=x))\n9. SliceAssignment: assignment/update influencing start",
+    "max_elements": 24,
+    "mechanism": "artifact_conditioned_natural_language_instruction_only",
+    "mode": "slice",
+    "parse_status": "javalang",
+    "prompt_items": [
+      "MethodDeclaration at L006: target method get(a, x) (public static long get(Long [] a,long x) {)",
+      "SliceMethodParameter at L006: method parameter a (public static long get(Long [] a,long x) {)",
+      "SliceMethodParameter at L006: method parameter x (public static long get(Long [] a,long x) {)",
+      "SliceReturnValue at L018: return value expression using start, length (return start==a.length?-1:start;)",
+      "SliceControlDependency at L007: control predicate over _obf_t5_get_189483 (if (((3 * 3) - 9) != 0) {)",
+      "SliceDefinition at L011: definition of start, end, mid (int start=0,end=a.length-1,mid=(start+end)/2;)",
+      "SliceControlDependency at L012: control predicate over start, end, a, mid, x (while(start<=end) {)",
+      "SliceControlDependency at L013: control predicate over a, mid, x, end, start (if(a[mid]>=x))",
+      "SliceAssignment: assignment/update influencing start"
+    ],
+    "recorded_target_method": "get",
+    "target_method": "get"
+  },
+  "prompt_sha256": "8aeabc1fd46c5040db73570c3cca7260cb3a585830bd381ffe74e250a79d1e35",
+  "protocol_version": "long-code-output-v1",
+  "sample_id": "cc-valid-r113-s0164-1574-c-slay-the-dragon__t5_easy_seed1__supp-generated-030",
+  "source_kind": "obfuscated",
+  "source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r113-s0164-1574-c-slay-the-dragon/variants/T5_bogus_control_flow/easy/seed_1/ferrisWheel.java",
+  "steering": null,
+  "target_method": "get",
+  "token_preflight": {
+    "context_limit": 131072,
+    "context_margin_tokens": 127574,
+    "fits_context": true,
+    "max_new_tokens": 512,
+    "prompt_sha256": "8aeabc1fd46c5040db73570c3cca7260cb3a585830bd381ffe74e250a79d1e35",
+    "prompt_token_count": 2986
+  },
+  "trial": 3
+}

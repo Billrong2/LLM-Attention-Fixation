@@ -1,0 +1,14 @@
+
+
+
+### Reasoning
+1. The input consists of the number of test cases, followed by the length of each test case and the two binary strings.
+2. The `cal` method is called with the starting index, the length of the string, and an array of indices for each character in the string.
+3. The `cal` method returns the number of operations needed to make the string valid. The operations are:
+	* If both characters at the current position are '1', add 2 operations and move to the next position.
+	* If only the first character is '1', add 1 operation and move to the next position. If the second character is also '1', add an additional 2 operations and move to the position of the second '1'.
+	* If only the second character is '1', move to the next position.
+4. The output is the total number of operations needed for each test case.
+
+### Output
+FINAL_OUTPUT_JSON: {"stdout":"4\n"}

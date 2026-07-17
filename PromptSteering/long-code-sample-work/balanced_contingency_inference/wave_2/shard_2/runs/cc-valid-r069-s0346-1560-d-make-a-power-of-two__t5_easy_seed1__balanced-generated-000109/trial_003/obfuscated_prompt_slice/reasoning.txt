@@ -1,0 +1,8 @@
+CASE: invoke program entry point; target_method=buscarGreedy; stdin="1\n103635\n"; argv=[]
+Reasoning:
+- The main method reads an integer from the standard input representing the number of test cases.
+- For each test case, it reads a string representing the number to find the minimum distance to a power of two.
+- For each test case, it calls the `buscarGreedy` method with the input number to calculate the minimum distance.
+- It then prints the minimum distance for each test case.
+
+The main method does not print the input number or any intermediate values. Therefore, the exact standard output is:

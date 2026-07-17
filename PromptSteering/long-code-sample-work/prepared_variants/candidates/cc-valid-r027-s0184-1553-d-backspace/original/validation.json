@@ -1,0 +1,136 @@
+{
+  "codesteer_target": {
+    "called_directly_from_main": true,
+    "eligible_parameter_to_return_target": true,
+    "genuine_return_sink_count": 2,
+    "main_called_method_names": [
+      "close",
+      "next",
+      "ni",
+      "println",
+      "solve"
+    ],
+    "method_names": [
+      "main",
+      "solve",
+      "greaterThan",
+      "smallerThan",
+      "reduce",
+      "summation",
+      "summation",
+      "pow",
+      "isPrime",
+      "gcd",
+      "gcd",
+      "lcm",
+      "sort",
+      "sort",
+      "charint",
+      "printArr",
+      "printArr2d",
+      "next",
+      "ni",
+      "intArray",
+      "nl",
+      "longArray",
+      "nd",
+      "nextLine",
+      "add",
+      "remove",
+      "size",
+      "higher",
+      "lower",
+      "ceiling",
+      "floor",
+      "first",
+      "last",
+      "isEmpty"
+    ],
+    "parameter_count": 2,
+    "parameters": [
+      {
+        "name": "s",
+        "type": "String"
+      },
+      {
+        "name": "t",
+        "type": "String"
+      }
+    ],
+    "parse_status": "javalang",
+    "return_sink_count": 2,
+    "return_type": "String",
+    "selected_method": "solve",
+    "selected_method_line": 33,
+    "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+    "selector_implementation_owner": "steering.priors.SlicingPrior",
+    "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+  },
+  "entry": {
+    "compile_class": "codeforces",
+    "main_class": "codeforces",
+    "package": "",
+    "parse_status": "javalang"
+  },
+  "execution_validation": {
+    "accepted": true,
+    "cases": [
+      {
+        "accepted": true,
+        "actual_trimmed": "YES\nYES\nYES\nYES\nYES\nYES\nNO\nNO\nNO\nNO",
+        "case_id": "00-private-005",
+        "command": [
+          "java",
+          "-Dfile.encoding=UTF-8",
+          "-Djava.io.tmpdir=<scratch>",
+          "-Duser.home=<scratch>",
+          "-XX:-UsePerfData",
+          "-cp",
+          "<classes>",
+          "codeforces"
+        ],
+        "duration_seconds": 0.033864,
+        "exit_code": 0,
+        "expected_trimmed": "YES\nYES\nYES\nYES\nYES\nYES\nNO\nNO\nNO\nNO",
+        "raw_expected_stdout_sha256": "c95dbdce7bd72dfba65ee405cbe26abaed1a712f517e089dd369a34b04ed87e8",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "c95dbdce7bd72dfba65ee405cbe26abaed1a712f517e089dd369a34b04ed87e8",
+        "stderr": "",
+        "stdout": "YES\nYES\nYES\nYES\nYES\nYES\nNO\nNO\nNO\nNO\n",
+        "timed_out": false,
+        "trimmed_exact_match": true
+      }
+    ],
+    "compile": {
+      "accepted": true,
+      "command": [
+        "javac",
+        "-encoding",
+        "UTF-8",
+        "-J-Djava.io.tmpdir=<scratch>",
+        "-J-Duser.home=<scratch>",
+        "-J-XX:-UsePerfData",
+        "-Xlint:none",
+        "-nowarn",
+        "-d",
+        "<classes>",
+        "<scratch>/codeforces.java"
+      ],
+      "exit_code": 0,
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    "entry": {
+      "compile_class": "codeforces",
+      "main_class": "codeforces",
+      "package": "",
+      "parse_status": "javalang"
+    }
+  },
+  "physical_loc": 270,
+  "source_path": "candidates/cc-valid-r027-s0184-1553-d-backspace/original/codeforces.java",
+  "source_sha256": "8db5a93da3cfb0b932bf71518e4148e8de0a0eec887f6c223f19350100582a32"
+}

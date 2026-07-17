@@ -1,0 +1,25 @@
+
+
+
+Reasoning:
+
+1. Read the input values: T (test cases), n (array size), and k (number of subproblems for each index).
+2. Initialize the `dp` array with -2, indicating that no solution has been computed yet for any index.
+3. Initialize an array `data` to store the subproblem indices for each index.
+4. Create a `boolean` array `s` of size n with all elements initialized to false.
+5. Iterate through each index `i` from 0 to n - 1.
+6. Calculate the result of `cal(i, s, data)`, which is the minimum distance from index i to a subproblem index that is not in `s`.
+7. If the result is -1, break the loop and set `result` to -1.
+8. Otherwise, update the `result` with the maximum of the current result and the calculated value.
+9. Print the final value of `result`.
+
+Now, let's predict the exact output for the given case:
+
+Input: `5\n4\n1 2\n0\n2 1 4\n1 3\n5\n1 5\n1 1\n1 2\n1 3\n1 4\n5\n0\n0\n2 1 4\n1 2\n2 2 1\n4\n2 2 3\n0\n0\n2 3 2\n5\n1 2\n1 3\n1 4\n1 5\n0\n`
+
+Output: `FINAL_OUTPUT_JSON: {"stdout":"0
+2
+2
+-1
+2
+"}`

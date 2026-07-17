@@ -1,0 +1,40 @@
+ To predict the exact standard output of the provided Java program for the given input cases, we need to follow the flow of the program step by step. Let's break down the execution process for each case:
+
+### Case: c001
+
+1. **Program Execution:**
+   - The program reads the first line of input, which is `1`. This indicates there is 1 test case.
+   - The program then reads the second line of input, which is `236121`.
+   - The program calls the `buscarGreedy` method with the argument `236121`.
+
+2. **buscarGreedy Method Execution:**
+   - Inside `buscarGreedy`, the method initializes a variable `pot` to 1.
+   - It then enters a loop that runs 62 times (since the loop runs from 0 to 61 inclusive).
+   - For each iteration:
+     - It converts the current value of `pot` to a string and stores it in `numPot`.
+     - It calls the `comparar` method to compare `numPot` with `numero`.
+     - It updates `minimo` if the result of `comparar` is less than `minimo`.
+
+3. **comparar Method Execution:**
+   - The `comparar` method is a recursive function that compares two strings character by character.
+   - It returns the number of differences between the two strings.
+
+4. **Output:**
+   - After the loop in `buscarGreedy` completes, it prints the value of `minimo`, which is the result of the `comparar` method.
+
+### Detailed Execution:
+
+- **Input: `236121`**
+  - The initial value of `pot` is 1.
+  - After the loop completes, the method returns the value of `minimo`.
+
+- **Comparing `numPot` with `numero` (`236121`):**
+  - The loop runs 62 times, and for each iteration, `pot` is doubled.
+  - The `comparar` method is called to compare `numPot` with `236121`.
+
+- **Result Calculation:**
+  - The `comparar` method returns the number of differences between the strings.
+  - The minimum number of differences found across all iterations is stored in `minimo`.
+
+### Conclusion:
+- The output of the program for the input `

@@ -1,0 +1,9 @@
+Reasoning:
+
+1. The program initializes the `MOD` variable to `1000000007`, which is used later in the `cal` method for modulo operation.
+2. The program defines a two-dimensional array `dp` to store precomputed results.
+3. The program reads input values `T`, `n`, and `k` from the user using the `Scanner` class.
+4. The program computes `pow` as the result of `pow(2, n)` and `other` as the result of `pow(2, n - 1)`.
+5. If `n` is even, `other` is decremented by 1 and modulo operation is applied. Otherwise, `other` is incremented by 1 and modulo operation is applied.
+6. The program calls the `cal` method with initial values of `index`, `larger`, `n`, `pow`, and `other`, and stores the result in a variable.
+7. The program prints the result of the `cal` method to the standard output.

@@ -1,0 +1,199 @@
+{
+  "activation_steering": false,
+  "codesteer_prior_preflight": null,
+  "condition": "obfuscated_prompt_slice",
+  "fingerprint": "61b155ec1fc5dfff50c450ac1103c4d95302e90598ce1f6c890100e8daf803f7",
+  "generation": {
+    "do_sample": true,
+    "max_new_tokens": 512,
+    "temperature": 1.05,
+    "top_k": 7,
+    "top_p": 0.95
+  },
+  "manifest_sha256": "803aa5c06fe748f84081c35c4ccb01972db9a0ff01d916023c4fc83da5e131ab",
+  "model_name": "Qwen/Qwen2.5-14B",
+  "model_snapshot_commit": "97e1e76335b7017d8f67c08a19d103c0504298c9",
+  "obfuscated_sha256": "174bba21e67d588dd3f95f00cc6ce9721d0415bb223bfed93db292fb1c117727",
+  "original_sha256": "0e2794d84fe44cce124ca90da37801405f763bb3ba74d60c6e0d0f9d2c2e8efa",
+  "paired_design": "same seed for all four conditions in this sample/trial",
+  "paired_seed": 864364143,
+  "prompt_metadata": {
+    "artifact_name": "Program Slicing / backward slice",
+    "elements": [
+      {
+        "code": "public static long find(long sum,Set<Long> hs, long[] arr,int n,long attack,long defend)",
+        "description": "target method find(sum, hs, arr, n, attack, defend)",
+        "kind": "MethodDeclaration",
+        "line": 5,
+        "line_label": "L005"
+      },
+      {
+        "code": "public static long find(long sum,Set<Long> hs, long[] arr,int n,long attack,long defend)",
+        "description": "method parameter sum",
+        "kind": "SliceMethodParameter",
+        "line": 5,
+        "line_label": "L005"
+      },
+      {
+        "code": "public static long find(long sum,Set<Long> hs, long[] arr,int n,long attack,long defend)",
+        "description": "method parameter hs",
+        "kind": "SliceMethodParameter",
+        "line": 5,
+        "line_label": "L005"
+      },
+      {
+        "code": "public static long find(long sum,Set<Long> hs, long[] arr,int n,long attack,long defend)",
+        "description": "method parameter arr",
+        "kind": "SliceMethodParameter",
+        "line": 5,
+        "line_label": "L005"
+      },
+      {
+        "code": "public static long find(long sum,Set<Long> hs, long[] arr,int n,long attack,long defend)",
+        "description": "method parameter n",
+        "kind": "SliceMethodParameter",
+        "line": 5,
+        "line_label": "L005"
+      },
+      {
+        "code": "public static long find(long sum,Set<Long> hs, long[] arr,int n,long attack,long defend)",
+        "description": "method parameter attack",
+        "kind": "SliceMethodParameter",
+        "line": 5,
+        "line_label": "L005"
+      },
+      {
+        "code": "public static long find(long sum,Set<Long> hs, long[] arr,int n,long attack,long defend)",
+        "description": "method parameter defend",
+        "kind": "SliceMethodParameter",
+        "line": 5,
+        "line_label": "L005"
+      },
+      {
+        "code": "return Math.min(ans1,ans2);",
+        "description": "return value expression using Math, min, ans1, ans2",
+        "kind": "SliceReturnValue",
+        "line": 40,
+        "line_label": "L040"
+      },
+      {
+        "code": "if (((3 * 3) - 9) != 0) {",
+        "description": "control predicate over _obf_t5_find_571991",
+        "kind": "SliceControlDependency",
+        "line": 7,
+        "line_label": "L007"
+      },
+      {
+        "code": "while(s<e)",
+        "description": "control predicate over s, e, arr, mid, attack",
+        "kind": "SliceControlDependency",
+        "line": 13,
+        "line_label": "L013"
+      },
+      {
+        "code": "if(arr[mid]==attack){",
+        "description": "control predicate over arr, mid, attack, s, e",
+        "kind": "SliceControlDependency",
+        "line": 16,
+        "line_label": "L016"
+      },
+      {
+        "code": "if(arr[mid]<attack) s=mid+1;",
+        "description": "control predicate over arr, mid, attack, s, e",
+        "kind": "SliceControlDependency",
+        "line": 20,
+        "line_label": "L020"
+      },
+      {
+        "code": "long ans1 = Long.MAX_VALUE;",
+        "description": "definition of ans1",
+        "kind": "SliceDefinition",
+        "line": 23,
+        "line_label": "L023"
+      },
+      {
+        "code": "",
+        "description": "assignment/update influencing ans1",
+        "kind": "SliceAssignment",
+        "line": null,
+        "line_label": ""
+      },
+      {
+        "code": "long ans2 = Long.MAX_VALUE;",
+        "description": "definition of ans2",
+        "kind": "SliceDefinition",
+        "line": 31,
+        "line_label": "L031"
+      },
+      {
+        "code": "if(s-1>=0)",
+        "description": "control predicate over s, t1, attack, arr, t2, sum, t3, defend, ans2",
+        "kind": "SliceControlDependency",
+        "line": 32,
+        "line_label": "L032"
+      },
+      {
+        "code": "",
+        "description": "assignment/update influencing ans2",
+        "kind": "SliceAssignment",
+        "line": null,
+        "line_label": ""
+      },
+      {
+        "code": "return Math.min(ans1,ans2);",
+        "description": "method call Math.min in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 40,
+        "line_label": "L040"
+      }
+    ],
+    "eligible_count_is_lower_bound": false,
+    "eligible_element_count": 18,
+    "emitted_element_count": 18,
+    "emitted_over_eligible": 1.0,
+    "enabled": true,
+    "guidance_text": "Prompt-only steering guidance (Program Slicing / backward slice, artifact-conditioned):\nUse the following static program-analysis elements as the main reasoning anchors.\nThese elements are static only; they do not reveal the correct output, branch outcomes, or gold execution trace.\n\nStatic elements to emphasize:\n1. MethodDeclaration at L005: target method find(sum, hs, arr, n, attack, defend) (public static long find(long sum,Set<Long> hs, long[] arr,int n,long attack,long defend))\n2. SliceMethodParameter at L005: method parameter sum (public static long find(long sum,Set<Long> hs, long[] arr,int n,long attack,long defend))\n3. SliceMethodParameter at L005: method parameter hs (public static long find(long sum,Set<Long> hs, long[] arr,int n,long attack,long defend))\n4. SliceMethodParameter at L005: method parameter arr (public static long find(long sum,Set<Long> hs, long[] arr,int n,long attack,long defend))\n5. SliceMethodParameter at L005: method parameter n (public static long find(long sum,Set<Long> hs, long[] arr,int n,long attack,long defend))\n6. SliceMethodParameter at L005: method parameter attack (public static long find(long sum,Set<Long> hs, long[] arr,int n,long attack,long defend))\n7. SliceMethodParameter at L005: method parameter defend (public static long find(long sum,Set<Long> hs, long[] arr,int n,long attack,long defend))\n8. SliceReturnValue at L040: return value expression using Math, min, ans1, ans2 (return Math.min(ans1,ans2);)\n9. SliceControlDependency at L007: control predicate over _obf_t5_find_571991 (if (((3 * 3) - 9) != 0) {)\n10. SliceControlDependency at L013: control predicate over s, e, arr, mid, attack (while(s<e))\n11. SliceControlDependency at L016: control predicate over arr, mid, attack, s, e (if(arr[mid]==attack){)\n12. SliceControlDependency at L020: control predicate over arr, mid, attack, s, e (if(arr[mid]<attack) s=mid+1;)\n13. SliceDefinition at L023: definition of ans1 (long ans1 = Long.MAX_VALUE;)\n14. SliceAssignment: assignment/update influencing ans1\n15. SliceDefinition at L031: definition of ans2 (long ans2 = Long.MAX_VALUE;)\n16. SliceControlDependency at L032: control predicate over s, t1, attack, arr, t2, sum, t3, defend, ans2 (if(s-1>=0))\n17. SliceAssignment: assignment/update influencing ans2\n18. SliceMethodCall at L040: method call Math.min in static data/control context (return Math.min(ans1,ans2);)",
+    "max_elements": 24,
+    "mechanism": "artifact_conditioned_natural_language_instruction_only",
+    "mode": "slice",
+    "parse_status": "javalang",
+    "prompt_items": [
+      "MethodDeclaration at L005: target method find(sum, hs, arr, n, attack, defend) (public static long find(long sum,Set<Long> hs, long[] arr,int n,long attack,long defend))",
+      "SliceMethodParameter at L005: method parameter sum (public static long find(long sum,Set<Long> hs, long[] arr,int n,long attack,long defend))",
+      "SliceMethodParameter at L005: method parameter hs (public static long find(long sum,Set<Long> hs, long[] arr,int n,long attack,long defend))",
+      "SliceMethodParameter at L005: method parameter arr (public static long find(long sum,Set<Long> hs, long[] arr,int n,long attack,long defend))",
+      "SliceMethodParameter at L005: method parameter n (public static long find(long sum,Set<Long> hs, long[] arr,int n,long attack,long defend))",
+      "SliceMethodParameter at L005: method parameter attack (public static long find(long sum,Set<Long> hs, long[] arr,int n,long attack,long defend))",
+      "SliceMethodParameter at L005: method parameter defend (public static long find(long sum,Set<Long> hs, long[] arr,int n,long attack,long defend))",
+      "SliceReturnValue at L040: return value expression using Math, min, ans1, ans2 (return Math.min(ans1,ans2);)",
+      "SliceControlDependency at L007: control predicate over _obf_t5_find_571991 (if (((3 * 3) - 9) != 0) {)",
+      "SliceControlDependency at L013: control predicate over s, e, arr, mid, attack (while(s<e))",
+      "SliceControlDependency at L016: control predicate over arr, mid, attack, s, e (if(arr[mid]==attack){)",
+      "SliceControlDependency at L020: control predicate over arr, mid, attack, s, e (if(arr[mid]<attack) s=mid+1;)",
+      "SliceDefinition at L023: definition of ans1 (long ans1 = Long.MAX_VALUE;)",
+      "SliceAssignment: assignment/update influencing ans1",
+      "SliceDefinition at L031: definition of ans2 (long ans2 = Long.MAX_VALUE;)",
+      "SliceControlDependency at L032: control predicate over s, t1, attack, arr, t2, sum, t3, defend, ans2 (if(s-1>=0))",
+      "SliceAssignment: assignment/update influencing ans2",
+      "SliceMethodCall at L040: method call Math.min in static data/control context (return Math.min(ans1,ans2);)"
+    ],
+    "recorded_target_method": "find",
+    "target_method": "find"
+  },
+  "prompt_sha256": "d8b527eaca22a4398468f7fb00edd06e2cc534b01a00724a5f91bc4372192741",
+  "protocol_version": "long-code-output-v1",
+  "sample_id": "cc-valid-r113-s0083-1574-c-slay-the-dragon__t5_easy_seed1__supp-generated-097",
+  "source_kind": "obfuscated",
+  "source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r113-s0083-1574-c-slay-the-dragon/variants/T5_bogus_control_flow/easy/seed_1/check5.java",
+  "steering": null,
+  "target_method": "find",
+  "token_preflight": {
+    "context_limit": 131072,
+    "context_margin_tokens": 127405,
+    "fits_context": true,
+    "max_new_tokens": 512,
+    "prompt_sha256": "d8b527eaca22a4398468f7fb00edd06e2cc534b01a00724a5f91bc4372192741",
+    "prompt_token_count": 3155
+  },
+  "trial": 1
+}

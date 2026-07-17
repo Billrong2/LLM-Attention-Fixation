@@ -1,0 +1,6 @@
+Reasoning:
+The program is a Java class with a main method and a recursive method `eval`. The main method takes an integer input `t` from the input stream, then reads `t` strings of integers and calls the `eval` method on each string.
+
+The `eval` method is a recursive method that calculates a value based on the input string and the current index, carry, and boolean values `a` and `b`. It uses a 2D array `dp` to store the calculated values, and returns the final answer. The `eval` method is called recursively with different combinations of `a` and `b` values, based on the input value at the current index.
+
+The output of the program is the result of calling the `eval` method on each input string.

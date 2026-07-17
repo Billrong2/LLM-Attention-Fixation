@@ -1,0 +1,13 @@
+ CASES_BEGIN
+invoke program entry point; target_method=buscarGreedy; stdin="1\n366323\n"; argv=[]
+CASES_END
+
+Reasoning: 
+We are given an input "1\n366323\n" and we need to find the output of the program.
+The program starts by calling the method `buscarGreedy` with the argument "366323".
+The `buscarGreedy` method iterates through all the powers of 2 up to 62 and compares the length of each power of 2 string to the input string "366323".
+The method returns the minimum length of the comparison.
+
+The program prints the output of the `buscarGreedy` method, which is "4".
+
+FINAL_OUTPUT_JSON: {"stdout":"4"}

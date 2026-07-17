@@ -1,0 +1,44 @@
+To solve this problem, I'll break it down step by step, emphasizing the key parts of the code that will help us understand how the output is generated.
+
+### Case Analysis (c001)
+The given case invokes the program entry point `buscarGreedy` with the input `"1\n165947\n"`. The method `buscarGreedy` is called with the argument `"165947"`. Let's analyze what happens inside this method.
+
+1. **Initialization**:
+   ```java
+   public static int buscarGreedy(String numero) {
+       long pot = 1; // Initialize pot to 1
+       int minimo = Integer.MAX_VALUE; // Set minimo to maximum possible value
+   ```
+   At the start, `pot` is initialized to 1 and `minimo` to `Integer.MAX_VALUE`.
+
+2. **Loop through Powers of 2**:
+   ```java
+   for (int i = 0; i < 62; i++) {
+       String numPot = Long.toString(pot); // Convert pot to string
+       int res = comparar(numPot, numero); // Compare numPot with the input string
+       if (res < minimo)
+           minimo = res; // Update minimo if res is smaller
+       pot = 2 * pot; // Double pot for next iteration
+   }
+   return minimo;
+   ```
+   This loop iterates 62 times, doubling `pot` each time. For each iteration, it converts `pot` to a string (`numPot`) and compares it with the input string using the `comparar` function.
+
+3. **Comparing Strings**:
+   ```java
+   public static int comparar(String patron, String num) {
+       if (num.equals("")) {
+           return patron.length();
+       } else if (patron.equals("")) {
+           return num.length();
+       } else if (patron.charAt(0) == num.charAt(0)) {
+           return comparar(patron.substring(1), num.substring(1));
+       } else {
+           return 1 + comparar(patron, num.substring(1));
+       }
+   }
+   ```
+   This recursive function compares two strings character by character and returns the number of mismatches needed to make one string match the other.
+
+### Reasoning
+To predict the exact standard output for the input `"165947"`, we need to determine the minimum number of operations (m

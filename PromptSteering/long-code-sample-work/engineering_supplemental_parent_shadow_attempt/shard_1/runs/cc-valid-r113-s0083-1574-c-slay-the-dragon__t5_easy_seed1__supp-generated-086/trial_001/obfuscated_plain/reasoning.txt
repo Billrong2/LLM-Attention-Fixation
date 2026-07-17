@@ -1,0 +1,15 @@
+### REASONING
+
+1. The input is read from the standard input stream.
+2. The first line contains an integer `n`.
+3. An array `arr` of size `n` is initialized.
+4. The next `n` lines contain long integers which are read and added to the array `arr`.
+5. The array `arr` is then sorted.
+6. The next line contains an integer `y`.
+7. The next `y` lines contain two long integers each, which are the `attack` and `defend` values.
+8. For each `attack` and `defend` pair, the `find` method is called with the `sum` of the elements in the `arr` array, the `hs` set containing the elements of `arr`, the `arr` array, the size of `arr` (`n`), the `attack` and `defend` values.
+9. The result of the `find` method call is printed to the standard output.
+
+### FINAL OUTPUT
+
+```json

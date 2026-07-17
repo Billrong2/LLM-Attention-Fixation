@@ -1,0 +1,18 @@
+The given Java program is designed to find the minimum number of changes required to convert a given string of digits into a power of two. The program reads an integer representing the number of test cases and then reads each test case as a string of digits. For each test case, it calculates the minimum number of changes required using a greedy approach.
+
+Here's the step-by-step reasoning for the provided case:
+
+1. The program starts by reading the number of test cases, which is `1` in this case.
+2. It then reads the first test case, which is the string `"103635"`.
+3. The program calls the `buscarGreedy` method to find the minimum number of changes required to convert the string `"103635"` into a power of two.
+4. The `buscarGreedy` method iterates through the powers of two up to a certain limit (in this case, up to 62 powers) and compares each power of two with the input string using the `comparar` method.
+5. The `comparar` method calculates the minimum number of changes required by comparing each character of the power of two with the corresponding character of the input string.
+6. The `buscarGreedy` method returns the minimum number of changes required.
+
+The output of the program for the given input is:
+```
+1
+```
+
+Here's the machine-readable output in the required format:
+```json

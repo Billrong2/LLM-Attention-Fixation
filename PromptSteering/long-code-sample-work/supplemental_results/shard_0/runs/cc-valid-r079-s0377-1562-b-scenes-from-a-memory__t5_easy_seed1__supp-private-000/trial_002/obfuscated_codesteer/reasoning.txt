@@ -1,0 +1,26 @@
+### CASE c001
+- **Input**: 1 2 77
+  - `t` = 1
+  - `n` = 2
+  - `s` = "77"
+
+### Execution Flow
+1. The program enters the `outer` loop.
+2. Inside the loop:
+   - `i` is initialized to 0 and increments up to 2.
+   - The character at position `i` in `s` is checked.
+     - `s.charAt(i)` for `i` = 0: '7'
+     - `s.charAt(i)` for `i` = 1: '7'
+
+3. For each character:
+   - It checks if the character is one of 2, 3, 5, or 7.
+     - For '7': It is not one of 2, 3, 5, or 7.
+     - It prints "1" followed by the character '7'.
+
+### Final Output
+```plaintext
+1
+7
+```
+
+### Machine-Readable Line

@@ -1,0 +1,22 @@
+### Reasoning:
+
+1. MethodDeclaration at L070: target method cal(index, s, data) (static int cal(int index, boolean[] s, int[][] data) {)
+2. SliceMethodParameter at L070: method parameter index (static int cal(int index, boolean[] s, int[][] data) {)
+3. SliceMethodParameter at L070: method parameter s (static int cal(int index, boolean[] s, int[][] data) {)
+4. SliceMethodParameter at L070: method parameter data (static int cal(int index, boolean[] s, int[][] data) {)
+5. SliceReturnValue at L076: return value expression using dp, index (return dp[index];)
+6. SliceReturnValue at L079: return value expression (return -1;)
+7. SliceReturnValue at L095: return value expression using dp, index, result (return dp[index] = result;)
+8. SliceControlDependency at L071: control predicate over _obf_t5_cal_120114 (if (((3 * 3) - 9) != 0) {)
+9. SliceControlDependency at L075: control predicate over dp, index (if (dp[index] != -2) {)
+10. SliceControlDependency at L078: control predicate over s, index (if (s[index]) {)
+11. SliceDefinition at L082: definition of result (int result = 1;)
+12. SliceControlDependency at L083: control predicate over data, index, cal, i, s, v, result, Integer, max (for (int i : data[index]) {)
+13. SliceMethodCall at L084: method call cal in static data/control context (int v = cal(i, s, data);)
+14. SliceControlDependency at L085: control predicate over v, result (if (v == -1) {)
+15. SliceAssignment: assignment/update influencing result
+16. SliceControlDependency at L089: control predicate over i, index, v (if (i > index) {)
+17. SliceMethodCall at L092: method call Integer.max in static data/control context (result = Integer.max(result, v);)
+18. SliceAssignment: assignment/update influencing dp
+
+###

@@ -1,0 +1,8 @@
+### OUTPUT PREDICTION REASONING
+The program defines a class `PowerTwo` with various methods and variables. The main method reads an integer `casos` from the input, which represents the number of test cases. For each test case, it reads a string `numero` and calls the `buscarGreedy` method, which computes the minimum distance from `numero` to a power of 2.
+
+The `buscarGreedy` method initializes a variable `pot` to 1 and iterates through powers of 2 up to `2^62`. For each power of 2, it calculates the minimum distance from the current power of 2 to the input number by comparing the two strings and returns the smallest distance.
+
+The main method prints the result of calling `buscarGreedy` for each test case.
+
+For the given input "1\n379827\n", the program will read the input, call `buscarGreedy` with the input "379827", and print the result. The `buscarGreedy` method will compute the minimum distance from "379827" to a power of 2.

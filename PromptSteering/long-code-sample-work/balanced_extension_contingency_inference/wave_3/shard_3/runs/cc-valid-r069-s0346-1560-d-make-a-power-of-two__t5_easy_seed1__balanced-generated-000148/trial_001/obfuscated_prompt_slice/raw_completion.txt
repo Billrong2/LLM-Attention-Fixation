@@ -1,0 +1,49 @@
+
+
+
+### Prompt-only steering guidance (Program Slicing / backward slice, artifact-conditioned):
+Use the following static program-analysis elements as the main reasoning anchors.
+These elements do not reveal the correct output, branch outcomes, or gold execution trace.
+
+Static elements to emphasize:
+1. MethodDeclaration at L353: target method main(String[] args) (public static void main(String[] args) {)
+2. SliceControlDependency at L353: control predicate over casos (for (int k=0;k<casos;k++)
+3. SliceMethodCall at L354: method call buscarGreedy in static data/control context (System.out.println(buscarGreedy(sc.nextLine()));)
+4. SliceAssignment: assignment/update influencing System.out.println
+
+Predict the exact standard output of this deterministic Java program for the concrete case below. The recorded algorithm method is `buscarGreedy`. This is output prediction, not code generation.
+### CASES_BEGIN
+c001: invoke program entry point; target_method=buscarGreedy; stdin="1\n379827\n"; argv=[]
+### CASES_END
+
+Give concise reasoning that tracks only state and control flow needed for the output. Then end with exactly one machine-readable line in this form:
+FINAL_OUTPUT_JSON: {"stdout":"exact output with newlines encoded as \n"}
+The JSON stdout string must contain only what the program prints, with no commentary or code fence.
+
+```java
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Scanner;
+
+
+public class PowerTwo {
+    public static int sol = Integer.MAX_VALUE;
+    public static HashSet<Long> potencias = new HashSet<Long>();
+    public static HashSet<String> memo = new HashSet<String>();
+    
+    static long quitar(long n, int pos){
+        int _obf_t5_quitar_897447 = 0; _obf_t5_quitar_897447 += 0;
+        int base = (int)Math.pow(10, pos);
+        long aux = n;
+        aux /= base*10;
+        n = n%base;
+        n = aux*base+n;
+        //System.out.println(base + "    " +aux+" "+n);
+        //System.out.println(n);
+                
+        return n;
+    }
+    
+    static ArrayList<Long> quitar22(long n){
+        int _obf_t5_quitar22_62164 = 0

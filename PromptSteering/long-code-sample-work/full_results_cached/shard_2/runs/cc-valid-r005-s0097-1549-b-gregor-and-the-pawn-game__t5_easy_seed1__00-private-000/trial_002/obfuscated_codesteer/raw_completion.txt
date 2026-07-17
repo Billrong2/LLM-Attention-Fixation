@@ -1,0 +1,46 @@
+
+
+
+To determine the exact standard output of the given Java program for the specified input, we need to focus on the `pawnLineal` method, which is called within the main loop to process each test case. 
+
+### Input Processing
+For each test case:
+- Read three lines from the standard input:
+  1. The length of the string `largo`.
+  2. The source string `scr`.
+  3. The destination string `dst`.
+
+### Output Calculation
+The `pawnLineal` method is used to calculate the output for each test case. Here's a breakdown of what `pawnLineal` does:
+- It prepends and appends a '0' to both `src` and `dst` to handle edge cases.
+- It iterates through each character of `src` and checks the adjacent characters in `dst` to determine if a pawn can move from `src` to `dst`.
+- It increments the result (`ret`) based on the valid moves.
+
+### Detailed Steps:
+1. **Read Input**:
+   - The first line (`largo`) is not used in the calculations.
+   - The second line (`scr`) is converted to a string with padding.
+   - The third line (`dst`) is also converted to a string with padding.
+
+2. **Initialize Variables**:
+   - `scr` and `dst` are padded with zeros at both ends.
+
+3. **Iterate Through Strings**:
+   - For each character in `scr`, check if it is '1'.
+   - If it is '1', check the adjacent characters in `dst`:
+     - If `dst` has a '1' immediately before or after, mark it as 'X' and increment `ret`.
+     - If `dst` has a '0', mark it as 'X' and increment `ret`.
+     - Continue the loop.
+
+4. **Print Result**:
+   - Print the final value of `ret` for each test case.
+
+### Specific Case Analysis
+For the provided input:
+- `scr`: `01001100111111000100`
+- `dst`: `00101100011010001110`
+
+The `pawnLineal` method processes these strings as follows:
+1. Initialize `ret` to 0.
+2. Process each character in `scr`, checking the corresponding positions in `dst`.
+3. Update

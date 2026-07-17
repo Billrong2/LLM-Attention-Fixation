@@ -1,0 +1,210 @@
+{
+  "budgets": {
+    "ast_growth_ok": true,
+    "limits": {
+      "max_added_branches_per_100_stmts": 5,
+      "max_cfg_states_for_flattening": 4,
+      "max_expr_depth_increase": 2,
+      "max_new_ast_nodes_percent": 50.0,
+      "max_new_helpers": 2
+    },
+    "usage": {
+      "added_branches": 0,
+      "ast_nodes_after": 3593,
+      "ast_nodes_before": 3463,
+      "expr_depth_increase": 0,
+      "flatten_states_added": 0,
+      "helpers_added": 0
+    }
+  },
+  "class_renamed": false,
+  "codesteer_target": {
+    "called_directly_from_main": true,
+    "eligible_parameter_to_return_target": true,
+    "genuine_return_sink_count": 1,
+    "main_called_method_names": [
+      "add",
+      "close",
+      "containsKey",
+      "entrySet",
+      "get",
+      "getInconvenienceExperienced",
+      "getKey",
+      "getLastEmpty",
+      "getValue",
+      "nextInt",
+      "println",
+      "put"
+    ],
+    "method_names": [
+      "main",
+      "apply",
+      "getLastEmpty",
+      "getInconvenienceExperienced",
+      "leastSignificantBit",
+      "add",
+      "getPrefixValue"
+    ],
+    "parameter_count": 2,
+    "parameters": [
+      {
+        "name": "row",
+        "type": "BinaryIndexTreeDataStructure<...>"
+      },
+      {
+        "name": "c",
+        "type": "int"
+      }
+    ],
+    "parse_status": "javalang",
+    "return_sink_count": 1,
+    "return_type": "int",
+    "selected_method": "getLastEmpty",
+    "selected_method_line": 214,
+    "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+    "selector_implementation_owner": "steering.priors.SlicingPrior",
+    "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+  },
+  "difficulty": "easy",
+  "equivalence": {
+    "details": "not_run",
+    "exit_match": false,
+    "stderr_match": false,
+    "stdout_match": false
+  },
+  "jdk17_execution_validation": {
+    "accepted": true,
+    "cases": [
+      {
+        "accepted": true,
+        "actual_trimmed": "0\n1\n4\n0\n0\n1\n0",
+        "case_id": "00-generated-122",
+        "command": [
+          "java",
+          "-Dfile.encoding=UTF-8",
+          "-Djava.io.tmpdir=<scratch>",
+          "-Duser.home=<scratch>",
+          "-XX:-UsePerfData",
+          "-cp",
+          "<classes>",
+          "SeatingArrangementsV2"
+        ],
+        "duration_seconds": 0.061961,
+        "exit_code": 0,
+        "expected_trimmed": "0\n1\n4\n0\n0\n1\n0",
+        "raw_expected_stdout_sha256": "e52061bcea2b920fcba16e9632f38c06577245642f695740b10e48a43279a561",
+        "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "raw_stdout_sha256": "e52061bcea2b920fcba16e9632f38c06577245642f695740b10e48a43279a561",
+        "stderr": "",
+        "stdout": "0\n1\n4\n0\n0\n1\n0\n",
+        "timed_out": false,
+        "trimmed_exact_match": true
+      }
+    ],
+    "compile": {
+      "accepted": true,
+      "command": [
+        "javac",
+        "-encoding",
+        "UTF-8",
+        "-J-Djava.io.tmpdir=<scratch>",
+        "-J-Duser.home=<scratch>",
+        "-J-XX:-UsePerfData",
+        "-Xlint:none",
+        "-nowarn",
+        "-d",
+        "<classes>",
+        "<scratch>/SeatingArrangementsV2.java"
+      ],
+      "exit_code": 0,
+      "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr": "",
+      "stdout": "",
+      "timed_out": false
+    },
+    "entry": {
+      "compile_class": "SeatingArrangementsV2",
+      "main_class": "SeatingArrangementsV2",
+      "package": "",
+      "parse_status": "javalang"
+    }
+  },
+  "language": "java",
+  "level": null,
+  "main_touched": false,
+  "method_coverage": {
+    "main_touched": true,
+    "method_coverage_total": 7,
+    "method_coverage_touched": 7,
+    "untouched_methods": []
+  },
+  "method_coverage_total": 0,
+  "method_coverage_touched": 0,
+  "metrics": {
+    "ast_nodes": 3593,
+    "cyclomatic_approx": 32,
+    "difficulty_score": 0.61,
+    "helpers_injected": 0,
+    "lines": 294,
+    "max_ast_depth": 6,
+    "tokens": 3453
+  },
+  "mode": "technique",
+  "obfuscated_class_name": null,
+  "obfuscated_source_sha256": "81dbb59b7a13605b4cacb141f4583ebecbd348222c8f97bc14f461a0ae442743",
+  "original_class_name": null,
+  "original_source_sha256": "bde1f8ddb569e81aef77b8a7cc85cf1e68f8afab6d997f77130027cf4f875861",
+  "passes_applied": [
+    {
+      "applied": true,
+      "extra": {
+        "fallback_insertions": 4,
+        "main_touched": true,
+        "method_coverage_policy": "force_all",
+        "method_coverage_total": 7,
+        "method_coverage_touched": 7,
+        "untouched_methods": []
+      },
+      "helpers_injected": 0,
+      "name": "T5",
+      "node_delta": 7,
+      "reason": "bogus_cf:3|force_all_fallback:4",
+      "tier": "easy",
+      "time_ms": 5.459
+    }
+  ],
+  "profile_name": "safe",
+  "program_id": "cc-valid-r088-s0111-1566-d2-seating-arrangements-hard-version",
+  "requested_difficulty": "easy",
+  "requested_method_coverage_policy": "force_all",
+  "requested_profile": "safe",
+  "requested_seed": 1,
+  "seed": 10559795024931828859,
+  "selected_target_touch_evidence": {
+    "method_block_parser": "eyetracking.obfuscation.java.passes.utils.iter_method_blocks",
+    "obfuscated_block_name": "getLastEmpty",
+    "obfuscated_match_count": 1,
+    "obfuscated_method_bytes": 536,
+    "obfuscated_method_index": 2,
+    "obfuscated_method_sha256": "5f44978f0a541135c8b3dc1dffdea09c9edb1328219666d00adca74f155cd316",
+    "obfuscated_method_start_line": 213,
+    "obfuscated_name_matches_codesteer_target": true,
+    "obfuscated_target_line": 214,
+    "obfuscated_target_method": "getLastEmpty",
+    "original_block_name": "getLastEmpty",
+    "original_match_count": 1,
+    "original_method_bytes": 461,
+    "original_method_index": 2,
+    "original_method_sha256": "0314d8a5b3bad70915f6496e4bf270332c508c0c85c69f2d8a2e6b0c4263ef6a",
+    "original_method_start_line": 208,
+    "original_target_line": 209,
+    "original_target_method": "getLastEmpty",
+    "reason": "method_source_changed",
+    "touched": true,
+    "verifiable": true
+  },
+  "skipped_passes_with_reasons": [],
+  "technique": "T5",
+  "untouched_methods": []
+}

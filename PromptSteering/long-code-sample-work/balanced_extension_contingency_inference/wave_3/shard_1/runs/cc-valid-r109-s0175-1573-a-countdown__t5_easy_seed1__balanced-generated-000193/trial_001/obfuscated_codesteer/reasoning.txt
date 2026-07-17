@@ -1,0 +1,13 @@
+Reasoning:
+We have a Java program with a `main` method and a `find` method. The `main` method initializes a `FastReader` object `s`, reads an integer `t` from the input stream, and then enters a loop where it reads another integer `n` and a string of length `n`. For each iteration of the loop, it calls the `find` method with `n` and the character array representation of the string.
+
+The `find` method takes two parameters: an integer `n` and a character array `ch`. It initializes a variable `moves` to 0, adds the value of the last character in `ch` (converted to an integer) to `moves`, and then iterates over the first `n-1` characters in `ch`. If a character has a value greater than 0, it adds the value of the character plus 1 to `moves`. Finally, it returns the value of `moves`.
+
+For the given input, the program's output is as follows:
+- For the first test case, the input is "7", "007", and the output is 8.
+- For the second test case, the input is "4", "0000", and the output is 0.
+- For the third test case, the input is "5", "00010", and the output is 1.
+- For the fourth test case, the input is "3", "103", and the output is 4.
+- For the fifth test case, the input is "4", "2020", and the output is 4.
+- For the sixth test case, the input is "9", "123456789", and the output is 45.
+- For the seventh test case, the input is "30", "001678294039710047203946100020", and the output is 84.

@@ -1,0 +1,16 @@
+ ### CASES_BEGIN
+c001: invoke program entry point; target_method=fun; stdin="1\n7\n5 3 4 5 3 4 4\n"; argv=[]
+### CASES_END
+
+**Reasoning:**
+1. The program starts by reading an integer `test` from the input.
+2. Since `test` is `1`, it will read another integer `n` which is `7`.
+3. Then it reads `n` elements from the input and stores them in an array `a`.
+4. It then processes this array based on the parity of its elements.
+5. Since the input elements `[5, 3, 4, 5, 3, 4, 4]` have a mix of even and odd numbers, it will call the `fun` method twice with different initial conditions.
+6. Finally, it prints the minimum result obtained from these two calls or `-1` if none of the conditions are met.
+
+**Final Output:**
+```
+4
+```

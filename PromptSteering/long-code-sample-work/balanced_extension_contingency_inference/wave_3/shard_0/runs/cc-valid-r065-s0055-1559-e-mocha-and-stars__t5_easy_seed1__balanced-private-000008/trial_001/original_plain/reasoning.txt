@@ -1,0 +1,33 @@
+The Java program takes two inputs: an integer \( n \) and an integer \( m \). Then, it reads \( n \) lines of input, each containing two integers \( a_i \) and \( b_i \).
+
+The program calculates the answer using a method called `ans`. The `ans` method takes three arguments: an integer `max`, an array of arrays `intervals`, and an integer `sum`. The method initializes a long array `num` with `max-sum+1` elements, where `num[0]` is set to 1. It then iterates over the `intervals` array and updates the `num` array based on certain conditions. Finally, it returns the sum of elements in the `num` array.
+
+The main program calculates the answer for each value of \( j \) from 1 to 100000, excluding values where the sum of the `intervals` array exceeds `max`. The answer for each value of \( j \) is calculated by multiplying it with the result of the `ans` method and adding it to the overall answer. The final answer is printed to the console.
+
+For the given input:
+- \( n = 25 \)
+- \( m = 10000 \)
+- The input lines contain the intervals as follows:
+  - 4 9998
+  - 4 9999
+  - 4 9998
+  - 10 10000
+  - 4 9994
+  - 4 9997
+  - 3 9994
+  - 1 9994
+  - 5 10000
+  - 3 9996
+  - 10 10000
+  - 8 9999
+  - 10 10000
+  - 9 9999
+  - 10 10000
+  - 3 9998
+  - 8 9999
+  - 8 9999
+  - 7 10000
+  - 4 9998
+  - 2 9995
+  - 6 9996
+  - 5 9

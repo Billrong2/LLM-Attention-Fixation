@@ -1,0 +1,21 @@
+ CASE: 1
+stdin: 7
+abacbbaaadaac
+oovyouknowuhat
+polycarppoycarppoyarppyarppyrpprqpp
+ish
+everywherevrywhrvryhrvhhrvrv
+haaha
+qweqeewew
+argv:
+
+### Reasoning:
+
+1. Input: 7
+2. Read the 7 strings from the input.
+3. Process each string by counting the occurrences of each character, and checking if the count can be evenly divided by the total number of unique characters in the string.
+4. If the count can be evenly divided, construct a string by repeating each unique character the appropriate number of times.
+5. Check if the constructed string matches the original string by performing the KMP algorithm.
+6. Output the constructed string if it matches the original string, or -1 if it does not match.
+
+FINAL_OUTPUT_JSON: {"stdout":"-1\n-1\n-1\n-1\n-1\n-1\n-1\n"}

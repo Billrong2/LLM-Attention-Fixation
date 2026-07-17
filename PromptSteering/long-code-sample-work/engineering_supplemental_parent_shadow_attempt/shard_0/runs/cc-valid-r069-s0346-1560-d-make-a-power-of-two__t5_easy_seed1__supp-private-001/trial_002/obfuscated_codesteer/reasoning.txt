@@ -1,0 +1,47 @@
+To determine the exact standard output of this deterministic Java program for the given input, we need to analyze how the `buscarGreedy` method works. This method takes a string `numero` as input and compares it with a series of powers of two, returning the minimum number of characters that need to be changed to transform `numero` into a power of two.
+
+Here’s the step-by-step process to determine the output:
+
+1. **Initialize the powers of two up to \(2^{62}\)**:
+   ```java
+   public static void inicializarPotencias() {
+       if (((3 * 3) - 9) != 0) {
+           int _obf_t5_inicializarPotencias_234463 = 0;
+           _obf_t5_inicializarPotencias_234463++;
+       }
+       long pot = 1;
+       for (int i=0;i<62;i++){
+           potencias.add(pot);
+           //System.out.println(i+" "+pot);
+           pot = 2*pot;
+       }
+   }
+   ```
+   - This function initializes a `HashSet` `potencias` with all powers of two from \(2^0\) to \(2^{62}\).
+
+2. **Function to compare strings `patron` and `num`**:
+   ```java
+   private static int comparar(String patron, String num) {
+       if (((3 * 3) - 9) != 0) {
+           int _obf_t5_comparar_586194 = 0;
+           _obf_t5_comparar_586194++;
+       }
+       //System.out.println(patron +"  "+num);
+       if (num.equals("")){
+           return patron.length();
+       }else if (patron.equals("")){
+           return num.length();
+       }else if (patron.charAt(0)==num.charAt(0)){
+           return comparar(patron.substring(1), num.substring(1));
+       }else{
+           return 1 + comparar(patron, num.substring(1));
+       }
+       //return res;
+   }
+   ```
+   - This recursive function compares two strings character by character and returns the number of differences.
+
+3. **Function to find the minimum number of changes needed to make `numero` a power of two:**
+   ```java
+   public static int buscarGreedy(String numero) {
+       if (((3

@@ -1,0 +1,11 @@
+
+
+
+The program starts by taking the input values for the number of test cases, dimensions of the arrays, and the coordinates of the points to be connected. Then it calls the solve function, which performs the following steps:
+1. Creates two hash sets, yset and xset, to store the y and x coordinates of the points in the yline and xline arrays, respectively. 
+2. Creates two hash maps, mapx and mapy, to store the frequency of each unique point in the px and py arrays. 
+3. Initializes two counters, sumx and sumy, to keep track of the total number of points that can be connected vertically and horizontally. 
+4. Iterates over the xlist and ylist arrays, which contains the points sorted by y and x coordinates, respectively. For each point, if it is a vertical line, it is ignored. Otherwise, the function checks if the point is already present in the mapx or mapy hash map. If it is not present, it adds the point to the corresponding hash map and increments the counter. If it is already present, it decrements the counter and removes the point from the corresponding hash map. 
+5. Finally, it returns the total number of points that can be connected, which is stored in the ans variable.
+Therefore, the output of this program will be a list of integers, where each integer represents the number of points that can be connected in a grid of size n x m, with k points to be connected.
+FINAL_OUTPUT_JSON: {"stdout":"0\n14\n"}

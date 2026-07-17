@@ -1,0 +1,467 @@
+{
+  "argv": [],
+  "metadata": {
+    "argv": [],
+    "candidate_id": "cc-valid-r079-s0377-1562-b-scenes-from-a-memory",
+    "candidate_metadata": {
+      "expected_stdout": "2\n27\n1\n4\n1\n1\n2\n35\n1\n1\n1\n4\n1\n6\n",
+      "expected_stdout_path": "candidates/cc-valid-r079-s0377-1562-b-scenes-from-a-memory/io/00-generated-009.out",
+      "id": "cc-valid-r079-s0377-1562-b-scenes-from-a-memory",
+      "input": "7\n3\n237\n5\n44444\n3\n221\n2\n35\n3\n1270\n1\n4\n19\n626221626221626221626221626221\n",
+      "input_path": "candidates/cc-valid-r079-s0377-1562-b-scenes-from-a-memory/io/00-generated-009.in",
+      "inputs": [
+        {
+          "dataset_test_index": 9,
+          "expected_stdout": "2\n27\n1\n4\n1\n1\n2\n35\n1\n1\n1\n4\n1\n6\n",
+          "expected_stdout_path": "candidates/cc-valid-r079-s0377-1562-b-scenes-from-a-memory/io/00-generated-009.out",
+          "expected_stdout_sha256": "6ac90b05f754d918802001dc8cd1bb7736fb885166a0aa4693d51c548593baa3",
+          "id": "00-generated-009",
+          "input": "7\n3\n237\n5\n44444\n3\n221\n2\n35\n3\n1270\n1\n4\n19\n626221626221626221626221626221\n",
+          "input_path": "candidates/cc-valid-r079-s0377-1562-b-scenes-from-a-memory/io/00-generated-009.in",
+          "input_sha256": "f5f69f1b9749cf4ef72bc70c2f974c21022bf8ff91f0fa1db9dcd32753fc4c1c",
+          "suite": "generated_tests",
+          "validation": {
+            "compiled_with_jdk17": true,
+            "exit_code": 0,
+            "stderr_bytes": 0,
+            "timed_out": false
+          }
+        }
+      ],
+      "loc_definition": "Python str.splitlines(); final newline does not add an empty physical line",
+      "main_class": "Main",
+      "nonblank_loc": 205,
+      "original_path": "candidates/cc-valid-r079-s0377-1562-b-scenes-from-a-memory/original.java",
+      "physical_loc": 251,
+      "prevalidation": {
+        "all_retained_tests_exact": true,
+        "compiled": true,
+        "compiler_exit_code": 0,
+        "compiler_stderr_bytes": 0,
+        "compiler_stdout_bytes": 0,
+        "jdk_major": 17
+      },
+      "problem_key": "codeforces-1562-B",
+      "problem_name": "1562_B. Scenes From a Memory",
+      "provenance": {
+        "cf_contest_id": 1562,
+        "cf_index": "B",
+        "cf_points": 1000.0,
+        "cf_rating": 1000,
+        "cf_tags": [
+          "brute force",
+          "constructive algorithms",
+          "implementation",
+          "math",
+          "number theory"
+        ],
+        "dataset_file": "codecontests-valid-802411c3.parquet",
+        "dataset_file_sha256": "02e8c1ccedae716f1e43cc813fcb7823c3db666ea92638820aba80e8cef451ab",
+        "dataset_id": "deepmind/code_contests",
+        "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+        "dataset_url": "https://huggingface.co/datasets/deepmind/code_contests/resolve/802411c3010cb00d1b05bad57ca77365a3c699d6/data/valid-00000-of-00001-5e672c5751f060d3.parquet",
+        "difficulty": 8,
+        "language": "Java",
+        "language_code": 4,
+        "problem_name": "1562_B. Scenes From a Memory",
+        "row_index": 79,
+        "solution_container": "solutions",
+        "solution_index": 377,
+        "solution_label": "correct human solution",
+        "source_code": 2,
+        "split": "valid"
+      },
+      "source_bytes": 5061,
+      "source_sha256": "fb30bc0bc62ff83a59c7f55fc2edf409dcf0b2a0028a6921562add35c3f90956",
+      "target": {
+        "arity": 1,
+        "body_nonblank_loc": 14,
+        "body_physical_loc": 20,
+        "class": "Main",
+        "codesteer_selector": {
+          "declaration_line": 70,
+          "fallback_used": false,
+          "implementation": "steering.priors.SlicingPrior._select_target_method",
+          "name": "isPrime",
+          "parameter_count": 1,
+          "parse_status": "javalang",
+          "top_level_body_statement_count": 3
+        },
+        "control_node_count": 5,
+        "end_line": 90,
+        "loop_node_count": 1,
+        "main_call_path": [
+          {
+            "arity": 1,
+            "class": "Main",
+            "end_line": 65,
+            "name": "main",
+            "parameter_types": [
+              "String"
+            ],
+            "return_type": "void",
+            "start_line": 19
+          },
+          {
+            "arity": 1,
+            "class": "Main",
+            "end_line": 90,
+            "name": "isPrime",
+            "parameter_types": [
+              "int"
+            ],
+            "return_type": "boolean",
+            "start_line": 70
+          }
+        ],
+        "main_reachable": true,
+        "name": "isPrime",
+        "output_caller": {
+          "arity": 1,
+          "class": "Main",
+          "end_line": 65,
+          "name": "main",
+          "parameter_types": [
+            "String"
+          ],
+          "return_type": "void",
+          "start_line": 19
+        },
+        "output_evidence": "isPrime(num) controls System.out.println(\"2\")",
+        "output_relevance_kind": "output_control_predicate",
+        "output_relevance_variable": null,
+        "parameter_types": [
+          "int"
+        ],
+        "recursive_call_count": 0,
+        "return_type": "boolean",
+        "return_value_output_relevant": true,
+        "source_sha256": "6b2b7ac76dd311d29998132cf477eac2a9d8ec0f7dac7a6c2ca9c4dacb3b1fc3",
+        "start_line": 70
+      },
+      "target_method": "isPrime",
+      "target_signature": "boolean Main.isPrime(int)",
+      "tests": [
+        {
+          "dataset_test_index": 9,
+          "expected_stdout": "2\n27\n1\n4\n1\n1\n2\n35\n1\n1\n1\n4\n1\n6\n",
+          "expected_stdout_path": "candidates/cc-valid-r079-s0377-1562-b-scenes-from-a-memory/io/00-generated-009.out",
+          "expected_stdout_sha256": "6ac90b05f754d918802001dc8cd1bb7736fb885166a0aa4693d51c548593baa3",
+          "id": "00-generated-009",
+          "input": "7\n3\n237\n5\n44444\n3\n221\n2\n35\n3\n1270\n1\n4\n19\n626221626221626221626221626221\n",
+          "input_path": "candidates/cc-valid-r079-s0377-1562-b-scenes-from-a-memory/io/00-generated-009.in",
+          "input_sha256": "f5f69f1b9749cf4ef72bc70c2f974c21022bf8ff91f0fa1db9dcd32753fc4c1c",
+          "suite": "generated_tests",
+          "validation": {
+            "compiled_with_jdk17": true,
+            "exit_code": 0,
+            "stderr_bytes": 0,
+            "timed_out": false
+          }
+        }
+      ]
+    },
+    "codesteer_target_method": "isPrime",
+    "concrete_case": {
+      "argv": [],
+      "case_id": "supp-generated-053",
+      "dataset_test_index": 53,
+      "expected_output_bytes": 4,
+      "expected_output_lines": 2,
+      "expected_output_path": "../supplemental_cases/tests/cc-valid-r079-s0377-1562-b-scenes-from-a-memory__t5_easy_seed1/supp-generated-053/oracle_stdout.txt",
+      "input_bytes": 8,
+      "input_sha256": "ad80dfb791b089a5f2251afaf97c086ded24507ee6be665bb0ad4c97865cc4c9",
+      "obfuscated_stderr_path": "../supplemental_cases/tests/cc-valid-r079-s0377-1562-b-scenes-from-a-memory__t5_easy_seed1/supp-generated-053/obfuscated.stderr",
+      "obfuscated_stdout_path": "../supplemental_cases/tests/cc-valid-r079-s0377-1562-b-scenes-from-a-memory__t5_easy_seed1/supp-generated-053/obfuscated.stdout",
+      "obfuscated_trimmed_exact_to_oracle": true,
+      "original_obfuscated_trimmed_agreement": true,
+      "original_stderr_path": "../supplemental_cases/tests/cc-valid-r079-s0377-1562-b-scenes-from-a-memory__t5_easy_seed1/supp-generated-053/original.stderr",
+      "original_stdout_path": "../supplemental_cases/tests/cc-valid-r079-s0377-1562-b-scenes-from-a-memory__t5_easy_seed1/supp-generated-053/original.stdout",
+      "original_trimmed_exact_to_oracle": true,
+      "rank_key": [
+        1,
+        2,
+        4,
+        72,
+        53
+      ],
+      "raw_expected_stdout_sha256": "ad0fadf63cc7cd779ce475e345bf4063565b63a3c2efef1eebc89790aaa6acba",
+      "raw_obfuscated_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_obfuscated_stdout_sha256": "ad0fadf63cc7cd779ce475e345bf4063565b63a3c2efef1eebc89790aaa6acba",
+      "raw_original_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_original_stdout_sha256": "ad0fadf63cc7cd779ce475e345bf4063565b63a3c2efef1eebc89790aaa6acba",
+      "source_case_metadata": {
+        "dataset_test_index": 53,
+        "row_index": 79,
+        "selection_stage": "outcome_blind_supplemental_expansion",
+        "solution_index": 377,
+        "suite": "generated_tests"
+      },
+      "stdin_path": "../supplemental_cases/tests/cc-valid-r079-s0377-1562-b-scenes-from-a-memory__t5_easy_seed1/supp-generated-053/stdin.txt",
+      "suite": "generated_tests",
+      "tractable_rank": 2,
+      "validation_path": "../supplemental_cases/validation/cc-valid-r079-s0377-1562-b-scenes-from-a-memory__t5_easy_seed1/supp-generated-053.json"
+    },
+    "difficulty": "easy",
+    "eligible": true,
+    "expected_stdout_path": "../supplemental_cases/tests/cc-valid-r079-s0377-1562-b-scenes-from-a-memory__t5_easy_seed1/supp-generated-053/oracle_stdout.txt",
+    "id": "cc-valid-r079-s0377-1562-b-scenes-from-a-memory__t5_easy_seed1__supp-generated-053",
+    "main_class": "Main",
+    "method_coverage_policy": "force_all",
+    "obfuscated": {
+      "codesteer_target": {
+        "called_directly_from_main": true,
+        "eligible_parameter_to_return_target": true,
+        "genuine_return_sink_count": 5,
+        "main_called_method_names": [
+          "charAt",
+          "isPrime",
+          "length",
+          "next",
+          "nextInt",
+          "print",
+          "println",
+          "valueOf"
+        ],
+        "method_names": [
+          "main",
+          "isPrime",
+          "max",
+          "min",
+          "max",
+          "min",
+          "max",
+          "min",
+          "ruffleSort",
+          "print",
+          "printd",
+          "gcd",
+          "lcm",
+          "abs",
+          "next",
+          "nextInt",
+          "nextLong",
+          "nextDouble",
+          "nextLine",
+          "ria",
+          "rla"
+        ],
+        "parameter_count": 1,
+        "parameters": [
+          {
+            "name": "n",
+            "type": "int"
+          }
+        ],
+        "parse_status": "javalang",
+        "return_sink_count": 5,
+        "return_type": "boolean",
+        "selected_method": "isPrime",
+        "selected_method_line": 70,
+        "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+        "selector_implementation_owner": "steering.priors.SlicingPrior",
+        "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+      },
+      "execution_validation": {
+        "accepted": true,
+        "cases": [
+          {
+            "accepted": true,
+            "actual_trimmed": "2\n27\n1\n4\n1\n1\n2\n35\n1\n1\n1\n4\n1\n6",
+            "case_id": "00-generated-009",
+            "command": [
+              "java",
+              "-Dfile.encoding=UTF-8",
+              "-Djava.io.tmpdir=<scratch>",
+              "-Duser.home=<scratch>",
+              "-XX:-UsePerfData",
+              "-cp",
+              "<classes>",
+              "Main"
+            ],
+            "duration_seconds": 0.058738,
+            "exit_code": 0,
+            "expected_trimmed": "2\n27\n1\n4\n1\n1\n2\n35\n1\n1\n1\n4\n1\n6",
+            "raw_expected_stdout_sha256": "6ac90b05f754d918802001dc8cd1bb7736fb885166a0aa4693d51c548593baa3",
+            "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "raw_stdout_sha256": "6ac90b05f754d918802001dc8cd1bb7736fb885166a0aa4693d51c548593baa3",
+            "stderr": "",
+            "stdout": "2\n27\n1\n4\n1\n1\n2\n35\n1\n1\n1\n4\n1\n6\n",
+            "timed_out": false,
+            "trimmed_exact_match": true
+          }
+        ],
+        "compile": {
+          "accepted": true,
+          "command": [
+            "javac",
+            "-encoding",
+            "UTF-8",
+            "-J-Djava.io.tmpdir=<scratch>",
+            "-J-Duser.home=<scratch>",
+            "-J-XX:-UsePerfData",
+            "-Xlint:none",
+            "-nowarn",
+            "-d",
+            "<classes>",
+            "<scratch>/Main.java"
+          ],
+          "exit_code": 0,
+          "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false
+        },
+        "entry": {
+          "compile_class": "Main",
+          "main_class": "Main",
+          "package": "",
+          "parse_status": "javalang"
+        }
+      },
+      "main_class": "Main",
+      "metadata_path": "candidates/cc-valid-r079-s0377-1562-b-scenes-from-a-memory/variants/T5_bogus_control_flow/easy/seed_1/Main.java.meta.json",
+      "method_coverage": {
+        "main_touched": false,
+        "method_coverage_total": 16,
+        "method_coverage_touched": 16,
+        "untouched_methods": []
+      },
+      "path": "../prepared_variants/candidates/cc-valid-r079-s0377-1562-b-scenes-from-a-memory/variants/T5_bogus_control_flow/easy/seed_1/Main.java",
+      "selected_target_touch_evidence": {
+        "method_block_parser": "eyetracking.obfuscation.java.passes.utils.iter_method_blocks",
+        "obfuscated_block_name": "isPrime",
+        "obfuscated_match_count": 1,
+        "obfuscated_method_bytes": 516,
+        "obfuscated_method_index": 0,
+        "obfuscated_method_sha256": "eb2d734b6e5bb9a1fb4f6cab58537ded17a398179a0ffc9c691ba0be796c6e76",
+        "obfuscated_method_start_line": 66,
+        "obfuscated_name_matches_codesteer_target": true,
+        "obfuscated_target_line": 70,
+        "obfuscated_target_method": "isPrime",
+        "original_block_name": "isPrime",
+        "original_match_count": 1,
+        "original_method_bytes": 392,
+        "original_method_index": 0,
+        "original_method_sha256": "a9d1f457832c050ad449d16ed7369a7633f97f78cc0ea4a12d1a2f9159c9d2c8",
+        "original_method_start_line": 66,
+        "original_target_line": 70,
+        "original_target_method": "isPrime",
+        "reason": "method_source_changed",
+        "touched": true,
+        "verifiable": true
+      },
+      "sha256": "77dc091b986bb73aab17789c290ea2992d37ef94486d0c8323f003fdf422fd1f",
+      "target_method": "isPrime"
+    },
+    "obfuscated_main_class": "Main",
+    "obfuscated_path": "../prepared_variants/candidates/cc-valid-r079-s0377-1562-b-scenes-from-a-memory/variants/T5_bogus_control_flow/easy/seed_1/Main.java",
+    "obfuscated_target_method": "isPrime",
+    "obfuscation_metadata_path": "candidates/cc-valid-r079-s0377-1562-b-scenes-from-a-memory/variants/T5_bogus_control_flow/easy/seed_1/Main.java.meta.json",
+    "original": {
+      "codesteer_target": {
+        "called_directly_from_main": true,
+        "eligible_parameter_to_return_target": true,
+        "genuine_return_sink_count": 5,
+        "main_called_method_names": [
+          "charAt",
+          "isPrime",
+          "length",
+          "next",
+          "nextInt",
+          "print",
+          "println",
+          "valueOf"
+        ],
+        "method_names": [
+          "main",
+          "isPrime",
+          "max",
+          "min",
+          "max",
+          "min",
+          "max",
+          "min",
+          "ruffleSort",
+          "print",
+          "printd",
+          "gcd",
+          "lcm",
+          "abs",
+          "next",
+          "nextInt",
+          "nextLong",
+          "nextDouble",
+          "nextLine",
+          "ria",
+          "rla"
+        ],
+        "parameter_count": 1,
+        "parameters": [
+          {
+            "name": "n",
+            "type": "int"
+          }
+        ],
+        "parse_status": "javalang",
+        "return_sink_count": 5,
+        "return_type": "boolean",
+        "selected_method": "isPrime",
+        "selected_method_line": 70,
+        "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+        "selector_implementation_owner": "steering.priors.SlicingPrior",
+        "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+      },
+      "execution_validation_path": "candidates/cc-valid-r079-s0377-1562-b-scenes-from-a-memory/original/validation.json",
+      "main_class": "Main",
+      "path": "../prepared_variants/candidates/cc-valid-r079-s0377-1562-b-scenes-from-a-memory/original/Main.java",
+      "sha256": "fb30bc0bc62ff83a59c7f55fc2edf409dcf0b2a0028a6921562add35c3f90956",
+      "target_method": "isPrime"
+    },
+    "original_main_class": "Main",
+    "original_path": "../prepared_variants/candidates/cc-valid-r079-s0377-1562-b-scenes-from-a-memory/original/Main.java",
+    "original_target_method": "isPrime",
+    "parent_candidate_id": "cc-valid-r079-s0377-1562-b-scenes-from-a-memory__t5_easy_seed1",
+    "profile": "safe",
+    "rejection_reasons": [],
+    "seed": 1,
+    "stdin_path": "../supplemental_cases/tests/cc-valid-r079-s0377-1562-b-scenes-from-a-memory__t5_easy_seed1/supp-generated-053/stdin.txt",
+    "supplemental_case_selection": {
+      "executed_supplemental_candidate_count": 4,
+      "frozen_case_references": [
+        {
+          "case_id": "00-generated-009",
+          "dataset_test_index": 9,
+          "input_sha256": "f5f69f1b9749cf4ef72bc70c2f974c21022bf8ff91f0fa1db9dcd32753fc4c1c",
+          "raw_expected_stdout_sha256": "6ac90b05f754d918802001dc8cd1bb7736fb885166a0aa4693d51c548593baa3",
+          "suite": "generated_tests"
+        }
+      ],
+      "frozen_source_position": 24,
+      "protocol": "../SUPPLEMENTAL_CASE_PROTOCOL.md",
+      "raw_private_generated_pair_count": 134,
+      "schema_version": "long-code-supplemental-cases-v2",
+      "selected_supplemental_case_count": 4,
+      "source_denominator_unchanged": true,
+      "tractable_nonfrozen_pair_count": 127
+    },
+    "target_method": {
+      "obfuscated": "isPrime",
+      "original": "isPrime"
+    },
+    "technique": "T5",
+    "technique_name": "bogus_control_flow",
+    "variant_id": "cc-valid-r079-s0377-1562-b-scenes-from-a-memory__t5_easy_seed1",
+    "warnings": [
+      "canonical_main_touched_unobserved_regex_may_not_parse_throws_clause"
+    ]
+  },
+  "obfuscated_sha256": "77dc091b986bb73aab17789c290ea2992d37ef94486d0c8323f003fdf422fd1f",
+  "obfuscated_source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r079-s0377-1562-b-scenes-from-a-memory/variants/T5_bogus_control_flow/easy/seed_1/Main.java",
+  "obfuscated_target_method": "isPrime",
+  "original_sha256": "fb30bc0bc62ff83a59c7f55fc2edf409dcf0b2a0028a6921562add35c3f90956",
+  "original_source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r079-s0377-1562-b-scenes-from-a-memory/original/Main.java",
+  "original_target_method": "isPrime",
+  "sample_id": "cc-valid-r079-s0377-1562-b-scenes-from-a-memory__t5_easy_seed1__supp-generated-053"
+}

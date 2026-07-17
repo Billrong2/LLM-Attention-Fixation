@@ -1,0 +1,21 @@
+### Reasoning
+The input is a sequence of intervals, each represented by two integers: the start and end of an interval. The algorithm processes these intervals to find the sum of all unique numbers within these intervals after dividing by a common divisor `j`.
+
+### Control Flow
+1. The program initializes `sc` (input scanner) and `out` (output writer).
+2. It reads two integers `n` and `m` from the input.
+3. It then reads `n` pairs of integers and stores them in `intervals`.
+4. The `mobiusAndPrime` function is called to precompute values needed for the algorithm.
+5. It iterates over possible values of `j` from 1 to 100000.
+6. For each `j`, it creates a new array `newOne` where each interval's start and end are divided by `j` and rounded up or down.
+7. If any interval becomes invalid (start > end), it skips that `j`.
+8. It calculates `ans` using the `ans` function for each valid `j` and adds it to the total sum.
+
+### Output Calculation
+The `ans` function calculates the sum of numbers in the modified intervals after adjusting for overlaps and ensuring the sum does not exceed `max`.
+
+### Final Output
+After processing all intervals for all valid `j`, the final result is printed.
+
+### Machine-Readable Output
+```json

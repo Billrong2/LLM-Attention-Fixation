@@ -1,0 +1,16 @@
+ ### CASE 001:
+1. Initialize `test` variable to read number of test cases.
+2. Read the first line which is `4` (number of test cases).
+3. Loop through each test case:
+   a. Read the first string `1001???0?0`, which will be parsed to an array of characters.
+   b. Call the `helper` method with the parameters:
+      - `index = 0`
+      - `f = 0`
+      - `s = 0`
+      - `k1 = 5`
+      - `k2 = 5`
+      - `s1 = ['1', '0', '0', '1', '?', '?', '?', '0', '?', '0']`
+   c. The `helper` method will recursively calculate the minimum number of changes required based on the conditions.
+   d. Print the result of the `helper` method.
+   
+FINAL_OUTPUT_JSON: {"stdout": "2\n2\n2\n2\n"}

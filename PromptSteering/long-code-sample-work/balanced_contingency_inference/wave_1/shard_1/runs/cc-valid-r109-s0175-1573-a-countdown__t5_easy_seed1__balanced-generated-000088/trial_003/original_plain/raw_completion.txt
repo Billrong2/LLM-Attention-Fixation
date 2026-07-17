@@ -1,0 +1,18 @@
+ The output prediction for this Java program given the specific input case is as follows:
+### CASES_BEGIN
+c001: invoke program entry point; target_method=find; stdin="7\n3\n007\n4\n0000\n5\n00000\n3\n103\n4\n2020\n9\n189517537\n30\n001678294039710047203946100020\n"; argv=[]
+### CASES_END
+The program will print:
+```
+8
+7
+7
+4
+10
+2
+11
+34
+301
+```
+FINAL_OUTPUT_JSON: {"stdout":"8\n7\n7\n4\n10\n2\n11\n34\n301"}
+The program reads the number of test cases and then reads the number of digits and the corresponding digits for each test case, and calls the `find` function to determine the number of moves. The `find` function iterates over the array of digits and counts the number of moves needed to reach the last digit.

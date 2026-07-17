@@ -1,0 +1,17 @@
+
+
+
+### Case c001
+
+1. The program reads the input: "25 100000\n6 99999\n7 99997\n2 100000\n1 99996\n9 100000\n2 99996\n9 99999\n3 99995\n8 100000\n9 99999\n7 99997\n4 100000\n7 99998\n2 100000\n9 99999\n9 100000\n7 100000\n5 99999\n7 99998\n2 99997\n9 99999\n7 99997\n2 99996\n10 100000\n3 99993\n"
+2. The program sets `n` to 25 and `m` to 100000, and then creates a 2D array `intervals` of size 25x2.
+3. The program loops over each line of the input and populates the `intervals` array.
+4. The program calls the `mobiusAndPrime` method with the argument 100000.
+5. The program initializes a variable `ans` to 0.
+6. The program loops over `j` from 1 to 100000 (inclusive).
+7. Inside the loop, the program initializes `found` to false and creates a 2D array `newOne` of size 25x2.
+8. The program initializes `sum` to 0 and loops over `k` from 0 to 24 (inclusive).
+9. Inside the inner loop, the program populates `newOne` and updates `sum`.
+10. If `newOne[k][1] < newOne[k][0]`, the program sets `found` to true and breaks the inner loop.
+11. If `found` is true, the program continues to the next iteration of the outer loop.
+12. The program calls the `ans` method with the

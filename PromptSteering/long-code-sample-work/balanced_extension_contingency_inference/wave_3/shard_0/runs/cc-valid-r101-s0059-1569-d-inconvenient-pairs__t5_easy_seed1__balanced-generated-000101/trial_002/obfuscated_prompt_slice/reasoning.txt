@@ -1,0 +1,13 @@
+Reasoning:
+1. The target method is solve, which takes seven parameters: n, m, k, yline, xline, px, and py.
+2. The input is read from stdin: 1\n2 2 2\n0 1010010\n0 1000000\n1556 1000000\n0 14.
+3. The input is parsed and stored in the variables n, m, k, yline, xline, px, and py.
+4. The solve method is called with the parsed input.
+5. In the solve method, two hash sets (yset and xset) are created to store unique values from the yline and xline arrays, respectively.
+6. Two lists (xlist and ylist) are created to store pairs of values from the yline, xline, px, and py arrays. The pairs consist of a value and a placeholder value (-1).
+7. The xlist and ylist are sorted.
+8. Two hash maps (mapx and mapy) are created to store the frequency of values in the sorted lists.
+9. The ans variable is calculated using a loop that iterates over the xlist and ylist, adding the frequencies of values from the previous iteration to ans, and subtracting the frequencies of values from the current iteration.
+10. The solve method returns the ans variable.
+11. The returned ans value is printed to stdout.
+12. The main method exits.

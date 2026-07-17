@@ -1,0 +1,19 @@
+ ### CASE 001:
+**Input:** "1\n4402\n"
+
+1. The program starts by creating a `PrintWriter` for standard output.
+2. A `Reader` is created to read input from standard input.
+3. The first input, "1", is read and cast to an integer `t`. This is the number of test cases (in this case, 1).
+4. The main loop starts, with `t-- > 0`. For the first and only iteration, `t` is 0.
+5. The input "4402" is read as a string, converted to a character array, and assigned to `arr`.
+6. The `eval` function is called with initial parameters.
+7. Inside `eval`, the input character array is processed, and the result is calculated based on the conditions specified.
+8. The result is printed to standard output.
+9. The output for the first test case is printed.
+
+**Output Prediction:** 2
+
+**FINAL_OUTPUT_JSON:**
+```
+{"stdout":"2\n"}
+```

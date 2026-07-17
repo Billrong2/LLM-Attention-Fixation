@@ -1,0 +1,27 @@
+CASES_BEGIN
+c001: invoke program entry point; target_method=get; stdin="4\n12 11 1 2\n1\n12 28\n7 2\n4 10\n0 13\n8 7\n"; argv=[]
+CASES_END
+The `get` method takes an array of `Long` and a `long` value as parameters. It searches for the position in the array where the `long` value can be inserted to maintain the array's sorted order.
+
+For the provided input:
+- n=4
+- arr=[12, 11, 1, 2]
+- t=1
+- d=12
+- p=28
+
+Firstly, it sorts the array `arr` which becomes [1, 2, 11, 12].
+
+For the single test case:
+- d=12
+- p=28
+
+`get` is called with the sorted array and d=12. This means it looks for the position where 12 should be inserted in the sorted array. Since 12 is already in the array at the end, it returns arr.length which is 4. This is interpreted as -1 in the logic of the program since it indicates the value is not in the array (but it is).
+
+Then:
+- sum=sums[arr.length-1]=sums[3]=1+2+11+12=26
+- ans+=p-sum=28-26=2
+
+Since sum (26) is less than p (28), it adds p-sum (2) to ans. It also sets ans2 to ans (which is 2).
+
+Therefore, the output is "2". This is because the minimum value between ans (2) and ans2 (2) is 2. So the program prints 2.

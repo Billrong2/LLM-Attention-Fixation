@@ -1,0 +1,15 @@
+ The program entry point invokes the `check` method with the given input. The program reads the input from stdin and performs operations on the input string. 
+
+The program then checks if the count of each character in the input string is divisible by the total number of unique characters in the string. If it is, the program creates a new string by adding the characters in the input string in reverse order. The program then checks if the new string is equal to the input string. If it is, the program prints the input string and the new string. If it's not, the program prints -1.
+
+The exact output of the program for the given input is:
+```
+-1
+-1
+ppqrppryppraypprayoppracyoppracylop
+-1
+-1
+-1
+```
+
+FINAL_OUTPUT_JSON: {"stdout":"-1\n-1\nppqrppryppraypprayoppracyoppracylop\n-1\n-1\n-1\n"}

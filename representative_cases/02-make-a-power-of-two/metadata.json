@@ -1,0 +1,46 @@
+{
+  "schema_version": "representative-paired-case-v1",
+  "title": "Make a Power of Two",
+  "dataset": {
+    "id": "deepmind/code_contests",
+    "revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+    "split": "valid",
+    "row_index": 69,
+    "problem": "Codeforces 1560-D"
+  },
+  "model": {
+    "id": "Qwen/Qwen2.5-14B",
+    "revision": "97e1e76335b7017d8f67c08a19d103c0504298c9"
+  },
+  "sample_id": "cc-valid-r069-s0346-1560-d-make-a-power-of-two__t5_easy_seed1__supp-private-002",
+  "trial": 2,
+  "paired_seed": 160179803,
+  "comparison": {
+    "source": "same obfuscated Java source",
+    "prompt": "byte-identical",
+    "without_steering": "obfuscated_plain",
+    "with_steering": "obfuscated_codesteer",
+    "steering_mechanism": "activation-level CodeSteer with slice_hybrid prior"
+  },
+  "outcomes": {
+    "expected": "0\n0\n0\n",
+    "without_steering": "0\n0\n0\n0\n",
+    "without_steering_parse_status": "marker_json",
+    "without_steering_exact": false,
+    "with_codesteer": "0\n0\n0\n",
+    "with_codesteer_parse_status": "marker_json",
+    "with_codesteer_exact": true
+  },
+  "selection": {
+    "manual_review_order": 2,
+    "reasoning_quality": "coherent",
+    "scope": "illustrative selected-seed comparison; not aggregate evidence"
+  },
+  "sha256": {
+    "obfuscated_java": "2ebdb7034ffa61b44199fd1a8746bbb23a87d2edf6d3ca33c5814c8ad19376cc",
+    "submitted_prompt": "b9ac1bddfe6451b62d3b959ec15f12c1879da486606f6520e45119cf48187863",
+    "non_steering_raw": "f2facc4baf749e6a6ec3da9f31855ccc5a8a8135c0a20ad79c3c5b96c3815c6e",
+    "codesteer_raw": "23f55f5247f892cf693bfd5623d9cc55f43832add39f9b0ac3c266c4f596785e"
+  }
+}
+

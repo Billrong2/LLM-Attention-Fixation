@@ -1,0 +1,15 @@
+The program reads input from the standard input and outputs a value based on the input provided. In this case, it reads the number of test cases T, and then for each test case, it reads the values of n and m. It then checks if n is greater than m and outputs 0 if that is the case. If n is not greater than m, it calls the cal method to calculate and return the minimum value. 
+
+For the given input case, the output of the program is:
+
+1
+
+Explanation:
+1. The input is "5\n14 1\n3 0\n1 6\n100 696\n1055961 843278".
+2. The input is split into individual lines using the newline character "\n".
+3. The first line "5" is read and assigned to the variable T which represents the number of test cases.
+4. The remaining lines "14 1", "3 0", "1 6", "100 696", and "1055961 843278" are split into two values using a space delimiter and assigned to the variables n and m for each test case.
+5. For the first test case, n = 14 and m = 1. Since n is greater than m, the program outputs 0.
+6. For the second test case, n = 3 and m = 0. Since n is not greater than m, the program calls the cal method to calculate the minimum value and outputs the result, which is 1.
+7. The same process is repeated for the remaining test cases.
+8. The program ends with a final line that prints "1", indicating that the output for the given case is 1.

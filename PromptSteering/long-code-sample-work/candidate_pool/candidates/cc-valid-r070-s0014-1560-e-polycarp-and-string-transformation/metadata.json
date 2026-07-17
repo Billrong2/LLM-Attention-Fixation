@@ -1,0 +1,163 @@
+{
+  "expected_stdout": "-1\n-1\n-1\n-1\n-1\n-1\n-1\n",
+  "expected_stdout_path": "candidates/cc-valid-r070-s0014-1560-e-polycarp-and-string-transformation/io/00-generated-003.out",
+  "id": "cc-valid-r070-s0014-1560-e-polycarp-and-string-transformation",
+  "input": "7\nabacbbaaadaac\noovyouknowuhat\npolycarppoycarppoyarppyarppyrpprqpp\nish\neverywherevrywhrvryhrvhhrvrv\nhaaha\nqweqeewew\n",
+  "input_path": "candidates/cc-valid-r070-s0014-1560-e-polycarp-and-string-transformation/io/00-generated-003.in",
+  "inputs": [
+    {
+      "dataset_test_index": 3,
+      "expected_stdout": "-1\n-1\n-1\n-1\n-1\n-1\n-1\n",
+      "expected_stdout_path": "candidates/cc-valid-r070-s0014-1560-e-polycarp-and-string-transformation/io/00-generated-003.out",
+      "expected_stdout_sha256": "e60bceab817dad3eba536bd02198ab4eebefee208dc1a206cceb2a07b0897157",
+      "id": "00-generated-003",
+      "input": "7\nabacbbaaadaac\noovyouknowuhat\npolycarppoycarppoyarppyarppyrpprqpp\nish\neverywherevrywhrvryhrvhhrvrv\nhaaha\nqweqeewew\n",
+      "input_path": "candidates/cc-valid-r070-s0014-1560-e-polycarp-and-string-transformation/io/00-generated-003.in",
+      "input_sha256": "4fd54b9045d2767ec8b741b84ea64a49303eb09ce071694142c04b09ab89865a",
+      "suite": "generated_tests",
+      "validation": {
+        "compiled_with_jdk17": true,
+        "exit_code": 0,
+        "stderr_bytes": 0,
+        "stdout_exact_byte_match": true,
+        "timed_out": false
+      }
+    }
+  ],
+  "loc_definition": "Python str.splitlines(); final newline does not add an empty physical line",
+  "main_class": "Template",
+  "nonblank_loc": 290,
+  "original_path": "candidates/cc-valid-r070-s0014-1560-e-polycarp-and-string-transformation/original.java",
+  "physical_loc": 323,
+  "prevalidation": {
+    "all_retained_tests_exact": true,
+    "compiled": true,
+    "compiler_exit_code": 0,
+    "compiler_stderr_bytes": 0,
+    "compiler_stdout_bytes": 0,
+    "jdk_major": 17
+  },
+  "problem_key": "codeforces-1560-E",
+  "problem_name": "1560_E. Polycarp and String Transformation",
+  "provenance": {
+    "cf_contest_id": 1560,
+    "cf_index": "E",
+    "cf_points": 0.0,
+    "cf_rating": 1800,
+    "cf_tags": [
+      "binary search",
+      "implementation",
+      "sortings",
+      "strings"
+    ],
+    "dataset_file": "codecontests-valid-802411c3.parquet",
+    "dataset_file_sha256": "02e8c1ccedae716f1e43cc813fcb7823c3db666ea92638820aba80e8cef451ab",
+    "dataset_id": "deepmind/code_contests",
+    "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+    "dataset_url": "https://huggingface.co/datasets/deepmind/code_contests/resolve/802411c3010cb00d1b05bad57ca77365a3c699d6/data/valid-00000-of-00001-5e672c5751f060d3.parquet",
+    "difficulty": 11,
+    "language": "Java",
+    "language_code": 4,
+    "problem_name": "1560_E. Polycarp and String Transformation",
+    "row_index": 70,
+    "solution_container": "solutions",
+    "solution_index": 14,
+    "solution_label": "correct human solution",
+    "source_code": 2,
+    "split": "valid"
+  },
+  "source_bytes": 8490,
+  "source_sha256": "382575cfae5b46aabf2f584b91f43dc2b5b93a4fbf71ec292c38aaa45f01692f",
+  "target": {
+    "arity": 3,
+    "body_nonblank_loc": 33,
+    "body_physical_loc": 34,
+    "class": "Template",
+    "codesteer_selector": {
+      "declaration_line": 62,
+      "fallback_used": false,
+      "implementation": "steering.priors.SlicingPrior._select_target_method",
+      "name": "check",
+      "parameter_count": 3,
+      "parse_status": "javalang",
+      "top_level_body_statement_count": 4
+    },
+    "control_node_count": 3,
+    "end_line": 95,
+    "loop_node_count": 2,
+    "main_call_path": [
+      {
+        "arity": 1,
+        "class": "Template",
+        "end_line": 60,
+        "name": "main",
+        "parameter_types": [
+          "String[]"
+        ],
+        "return_type": "void",
+        "start_line": 20
+      },
+      {
+        "arity": 3,
+        "class": "Template",
+        "end_line": 95,
+        "name": "check",
+        "parameter_types": [
+          "String",
+          "String",
+          "String"
+        ],
+        "return_type": "boolean",
+        "start_line": 62
+      }
+    ],
+    "main_reachable": true,
+    "name": "check",
+    "output_caller": {
+      "arity": 1,
+      "class": "Template",
+      "end_line": 60,
+      "name": "main",
+      "parameter_types": [
+        "String[]"
+      ],
+      "return_type": "void",
+      "start_line": 20
+    },
+    "output_evidence": "check(s,t,sb.toString()) controls out.println(s + \" \" + sb.toString())",
+    "output_relevance_kind": "output_control_predicate",
+    "output_relevance_variable": null,
+    "parameter_types": [
+      "String",
+      "String",
+      "String"
+    ],
+    "recursive_call_count": 0,
+    "return_type": "boolean",
+    "return_value_output_relevant": true,
+    "source_sha256": "3ddede36c86dedeab4e283a5215f0a1e334df55b1c478bde155ca65e8a81f266",
+    "start_line": 62
+  },
+  "target_method": "check",
+  "target_signature": "boolean Template.check(String, String, String)",
+  "tests": [
+    {
+      "dataset_test_index": 3,
+      "expected_stdout": "-1\n-1\n-1\n-1\n-1\n-1\n-1\n",
+      "expected_stdout_path": "candidates/cc-valid-r070-s0014-1560-e-polycarp-and-string-transformation/io/00-generated-003.out",
+      "expected_stdout_sha256": "e60bceab817dad3eba536bd02198ab4eebefee208dc1a206cceb2a07b0897157",
+      "id": "00-generated-003",
+      "input": "7\nabacbbaaadaac\noovyouknowuhat\npolycarppoycarppoyarppyarppyrpprqpp\nish\neverywherevrywhrvryhrvhhrvrv\nhaaha\nqweqeewew\n",
+      "input_path": "candidates/cc-valid-r070-s0014-1560-e-polycarp-and-string-transformation/io/00-generated-003.in",
+      "input_sha256": "4fd54b9045d2767ec8b741b84ea64a49303eb09ce071694142c04b09ab89865a",
+      "suite": "generated_tests",
+      "validation": {
+        "compiled_with_jdk17": true,
+        "exit_code": 0,
+        "stderr_bytes": 0,
+        "stdout_exact_byte_match": true,
+        "timed_out": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+
+
+
+The target method `game` is invoked with the concrete input:
+* arr1 = {"3", "2", "3", "12"}
+* arr2 = {"-1", "10", "4"}
+* m = 3
+
+The control flow follows the path where `m` is not equal to 1.
+The method `Arrays.fill` initializes `dp[0]` and `dp[1]` arrays to zero.
+Then it computes the cumulative sum for `arr2` in `dp[0]` and `arr1` in `dp[1]`, respectively.
+Next, it finds the minimum maximum cumulative sum by comparing the maximum cumulative sum of the first row and the second row for each column.
+The final output is the minimum maximum cumulative sum.
+
+```java
+// package lovejava;
+import java.io.*;
+import java.util.*;
+
+public class LoveJava {
+    public static long game(String[] arr1, String[] arr2, int m) {
+        if (m == 1)
+            return 0;
+        int[][] dp = new int[2][m];
+        Arrays.fill(dp[0], 0);
+        Arrays.fill(dp[1], 0);
+        for (int i = 1; i < m; i++) {
+            dp[0][i] = Integer.parseInt(arr2[i - 1]) + dp[0][i - 1];
+        }
+        for (int i = 1; i < m; i++) {
+            dp[1][m - 1 - i] = Integer.parseInt(arr1[m - i]) + dp[1][m - i];
+        }
+        long min = 10000000000l;
+        for (int i = 0; i < m; i++) {
+            min = Math.min(min, Math.max(dp[0][i], dp[1][i]));
+        }
+        return min;
+    }
+}
+```
+
+FINAL_OUTPUT_JSON: {"stdout":"16\n"}

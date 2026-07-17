@@ -1,0 +1,46 @@
+ ### Case c001
+- The program reads the number of test cases \(t\), which is 7.
+- For each test case, the program reads an integer \(n\) and a string representing a sequence of characters.
+- The program then calls the `find` method with the integer \(n\) and the character array of the string.
+- The `find` method counts the number of non-zero digits in the string, except for the last digit, which is added to the count regardless of its value.
+
+### Analysis
+- For each test case, the output is the count of non-zero digits in the string, except for the last digit.
+- The last digit is always counted, regardless of its value.
+- The count is printed for each test case.
+
+### Output
+For the given input:
+```
+7
+3
+007
+4
+1000
+5
+00000
+3
+220
+4
+2020
+9
+123456789
+30
+001678294039710047203946100020
+```
+
+The output will be:
+```
+2
+1
+0
+2
+1
+9
+20
+```
+
+### FINAL_OUTPUT_JSON
+```json
+{"stdout":"2\n1\n0\n2\n1\n9\n20\n"}
+```

@@ -1,0 +1,68 @@
+To determine the exact output of the given Java program for the specified input, we need to follow the execution flow and calculate the results step by step.
+
+### Execution Flow:
+
+1. **Initialization:**
+   - The program reads the input values.
+   - `n` is set to 4.
+   - The array `arr` is populated with the values from the input.
+   - The set `hs` is filled with unique values from the array.
+
+2. **Main Loop:**
+   - The program iterates over the elements in `hs`.
+   - It sorts the unique values in `a`.
+   - It processes the second set of input values, which are the attacks and defends.
+
+3. **Function Calls:**
+   - For each pair of attack and defend, the `find` function is called.
+   - The `find` function calculates the minimum cost based on the given attack and defend values.
+
+### Detailed Calculation:
+
+1. **Input Values:**
+   - `n = 4`
+   - `arr = [12, 11, 1, 2]`
+   - `m = 4` (since there are 4 unique values)
+   - `hs = {1, 2, 11, 12}`
+   - `a = [1, 2, 11, 12]` (sorted unique values)
+
+2. **Function Execution:**
+   - For each pair of `(attack, defend)`:
+     - Calculate `sum` as the sum of all elements in `arr`.
+     - Call `find` function with parameters:
+       - `sum`
+       - `hs`
+       - `a`
+       - `m`
+       - `attack`
+       - `defend`
+
+3. **Output Calculation:**
+   - For the given input pairs:
+     - `(12, 11)`
+     - `(7, 2)`
+     - `(4, 10)`
+     - `(0, 13)`
+     - `(8, 7)`
+
+   - Calculate the minimum cost for each pair using the `find` function.
+
+4. **Final Output:**
+   - The `find` function calculates the minimum cost for each pair.
+   - Print the results.
+
+### Final Output:
+
+Based on the given input, the output of the program is:
+
+```
+1
+14
+14
+13
+8
+```
+
+### JSON Representation:
+
+```json

@@ -1,0 +1,30 @@
+
+
+
+### Case c001:
+
+1. The program starts by taking input `n` which is 4.
+2. It creates an array `arr` of size `n` and initializes a `Set<Long>` `hs`.
+3. It reads `4` integers from the input stream and adds them to the array `arr` and set `hs`.
+4. It calculates the sum of all integers in the array and stores it in `sum`.
+5. It takes input `m` which is 1.
+6. It reads 1 pair of integers from the input stream and stores them in `attack` and `defend`.
+7. It calls the `find` method with `sum`, `hs`, `a`, `m`, `attack`, and `defend`.
+8. The `find` method returns the minimum value of `t1` and `t2` after some calculations.
+9. The `find` method is called for each pair of integers in the input stream.
+10. The final output is printed.
+
+The output of the program is:
+
+```
+4
+12 11 1 2
+1
+12 28
+7 2
+4 10
+0 13
+8 7
+```
+
+FINAL_OUTPUT_JSON: {"stdout": "1\n2\n3\n4\n"}

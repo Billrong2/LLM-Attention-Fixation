@@ -1,0 +1,33 @@
+The program `Codeforces1` reads input data for multiple test cases, where each case involves a number `n` and a string of digits `ch`. The program calculates and prints the number of moves needed for a certain operation related to these inputs.
+
+To solve the problem for the given input:
+- `n` is the number of characters in `ch`.
+- `moves` is calculated as follows:
+  - For the last character in `ch`, the number of moves is `ch[n-1]-'0'`.
+  - For each character from index `0` to `n-2`, if the character is greater than '0', then the number of moves is `(ch[i]-'0'+1)`.
+
+### Case Analysis
+
+#### CASE: c001
+- `n`: 7
+- `ch`: "007"
+
+1. Calculate `moves` for the last character:
+   - `ch[n-1]` is '7'
+   - `moves += ch[n-1]-'0';` is `moves += 7;`
+   - `moves` becomes `7`.
+
+2. Loop through the characters from `0` to `n-2`:
+   - For `i=0`, `ch[0]` is '0'
+     - Since `ch[0]-'0'` is `0`, the condition `ch[i]-'0'>0` is `false`, so no move is added.
+   - For `i=1`, `ch[1]` is '0'
+     - Similar to `i=0`, no move is added.
+   - For `i=2`, `ch[2]` is '7'
+     - `ch[2]-'0'` is `7`, so the condition `ch[i]-'0'>0` is `true`.
+     - `moves += (ch[i]-'0'+1);` is `moves += (7+1);` which is `moves += 8;`
+     - `moves` becomes `15`.
+
+Thus, the output for this case is `15`.
+
+### Final Output
+```json

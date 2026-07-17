@@ -1,0 +1,20 @@
+The program reads input from `System.in`. The input is processed in the `main` method. It reads `n`, then an array of `n` longs, then `m`, then a 2D array of `m` pairs of longs. It then calls the `find` method for each pair in the 2D array, and prints the result. The `find` method takes the sum of the longs in the array, the set of longs in the array, the array of longs, the length of the array, the first element of the pair, and the second element of the pair as input. It returns the minimum of the sum of the first and second elements of the pair, or 0 if the first element of the pair is less than the smallest element in the array. The final output is the sum of the first and second elements of each pair in the 2D array.
+
+The input is processed as follows:
+
+n = 4
+array = [9, 1, 5, 2]
+m = 1
+2D array = [[3, 20], [1, 1], [0, 0], [-1, 0], [19, -1]]
+
+The output is calculated as follows:
+
+find(27, [1, 2, 5, 9], [9, 1, 5, 2], 4, 3, 20) = 23
+find(27, [1, 2, 5, 9], [9, 1, 5, 2], 4, 1, 1) = 0
+find(27, [1, 2, 5, 9], [9, 1, 5, 2], 4, 0, 0) = 0
+find(27, [1, 2, 5, 9], [9, 1, 5, 2], 4, -1, 0) = 0
+find(27, [1, 2, 5, 9], [9, 1, 5, 2], 4, 19, -1) = 20
+
+The output is:
+
+```

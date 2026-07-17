@@ -1,0 +1,24 @@
+ ### CASES_BEGIN
+c001: invoke program entry point; target_method=find; stdin="7\n3\n007\n4\n1000\n5\n00000\n3\n103\n4\n2020\n9\n189517537\n30\n001678294039710047203946100020\n"; argv=[]
+### CASES_END
+
+Concise reasoning:
+
+1. Read the input integer `n` and character array `ch` using the `FastReader` class.
+2. Call the `find` method with `n` and `ch` as arguments.
+3. The `find` method initializes `moves` to 0.
+4. The method then adds `ch[n-1] - '0'` to `moves`.
+5. For each character in `ch` from index 0 to `n-2`, if the character is greater than '0', the method adds `(ch[i] - '0' + 1)` to `moves`.
+6. The method returns the final value of `moves`.
+
+The final output for case c001 is:
+```
+3
+1
+5
+4
+19
+33
+```
+
+FINAL_OUTPUT_JSON: {"stdout":"3\n1\n5\n4\n19\n33\n"}

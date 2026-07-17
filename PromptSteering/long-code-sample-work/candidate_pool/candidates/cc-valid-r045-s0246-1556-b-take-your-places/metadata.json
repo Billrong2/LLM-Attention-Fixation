@@ -1,0 +1,158 @@
+{
+  "expected_stdout": "-1\n-1\n-1\n-1\n-1\n",
+  "expected_stdout_path": "candidates/cc-valid-r045-s0246-1556-b-take-your-places/io/00-private-001.out",
+  "id": "cc-valid-r045-s0246-1556-b-take-your-places",
+  "input": "5\n3\n2 4 6\n5\n4 4 4 4 4\n5\n1 3 5 7 9\n5\n1 1 1 1 1\n5\n4 8 10 6 2\n",
+  "input_path": "candidates/cc-valid-r045-s0246-1556-b-take-your-places/io/00-private-001.in",
+  "inputs": [
+    {
+      "dataset_test_index": 1,
+      "expected_stdout": "-1\n-1\n-1\n-1\n-1\n",
+      "expected_stdout_path": "candidates/cc-valid-r045-s0246-1556-b-take-your-places/io/00-private-001.out",
+      "expected_stdout_sha256": "54a225bfc0713aadddf5b9029458a38966f8cd828634138203d7fca264a4cf35",
+      "id": "00-private-001",
+      "input": "5\n3\n2 4 6\n5\n4 4 4 4 4\n5\n1 3 5 7 9\n5\n1 1 1 1 1\n5\n4 8 10 6 2\n",
+      "input_path": "candidates/cc-valid-r045-s0246-1556-b-take-your-places/io/00-private-001.in",
+      "input_sha256": "ff15c416164c83799c3a9af03b899f7da408178df5083b3267ff61b03b090473",
+      "suite": "private_tests",
+      "validation": {
+        "compiled_with_jdk17": true,
+        "exit_code": 0,
+        "stderr_bytes": 0,
+        "stdout_exact_byte_match": true,
+        "timed_out": false
+      }
+    }
+  ],
+  "loc_definition": "Python str.splitlines(); final newline does not add an empty physical line",
+  "main_class": "Main",
+  "nonblank_loc": 287,
+  "original_path": "candidates/cc-valid-r045-s0246-1556-b-take-your-places/original.java",
+  "physical_loc": 326,
+  "prevalidation": {
+    "all_retained_tests_exact": true,
+    "compiled": true,
+    "compiler_exit_code": 0,
+    "compiler_stderr_bytes": 0,
+    "compiler_stdout_bytes": 0,
+    "jdk_major": 17
+  },
+  "problem_key": "codeforces-1556-B",
+  "problem_name": "1556_B. Take Your Places!",
+  "provenance": {
+    "cf_contest_id": 1556,
+    "cf_index": "B",
+    "cf_points": 1000.0,
+    "cf_rating": 1300,
+    "cf_tags": [
+      "implementation"
+    ],
+    "dataset_file": "codecontests-valid-802411c3.parquet",
+    "dataset_file_sha256": "02e8c1ccedae716f1e43cc813fcb7823c3db666ea92638820aba80e8cef451ab",
+    "dataset_id": "deepmind/code_contests",
+    "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+    "dataset_url": "https://huggingface.co/datasets/deepmind/code_contests/resolve/802411c3010cb00d1b05bad57ca77365a3c699d6/data/valid-00000-of-00001-5e672c5751f060d3.parquet",
+    "difficulty": 8,
+    "language": "Java",
+    "language_code": 4,
+    "problem_name": "1556_B. Take Your Places!",
+    "row_index": 45,
+    "solution_container": "solutions",
+    "solution_index": 246,
+    "solution_label": "correct human solution",
+    "source_code": 2,
+    "split": "valid"
+  },
+  "source_bytes": 8255,
+  "source_sha256": "0d57316ce84465e6ad3184afa997cd256316bbaf58538b3b7956943adfe5f4f0",
+  "target": {
+    "arity": 2,
+    "body_nonblank_loc": 11,
+    "body_physical_loc": 11,
+    "class": "Main",
+    "codesteer_selector": {
+      "declaration_line": 21,
+      "fallback_used": false,
+      "implementation": "steering.priors.SlicingPrior._select_target_method",
+      "name": "fun",
+      "parameter_count": 2,
+      "parse_status": "javalang",
+      "top_level_body_statement_count": 4
+    },
+    "control_node_count": 2,
+    "end_line": 31,
+    "loop_node_count": 1,
+    "main_call_path": [
+      {
+        "arity": 1,
+        "class": "Main",
+        "end_line": 66,
+        "name": "main",
+        "parameter_types": [
+          "String[]"
+        ],
+        "return_type": "void",
+        "start_line": 33
+      },
+      {
+        "arity": 2,
+        "class": "Main",
+        "end_line": 31,
+        "name": "fun",
+        "parameter_types": [
+          "int",
+          "long[]"
+        ],
+        "return_type": "int",
+        "start_line": 21
+      }
+    ],
+    "main_reachable": true,
+    "name": "fun",
+    "output_caller": {
+      "arity": 1,
+      "class": "Main",
+      "end_line": 66,
+      "name": "main",
+      "parameter_types": [
+        "String[]"
+      ],
+      "return_type": "void",
+      "start_line": 33
+    },
+    "output_evidence": "System.out.println(fun(0, a))",
+    "output_relevance_kind": "direct_print_argument",
+    "output_relevance_variable": null,
+    "parameter_types": [
+      "int",
+      "long[]"
+    ],
+    "recursive_call_count": 0,
+    "return_type": "int",
+    "return_value_output_relevant": true,
+    "source_sha256": "dd586e5625b117c8e713b37a21dd0ce94cecd465ada37facb7dda96a8a49b1e1",
+    "start_line": 21
+  },
+  "target_method": "fun",
+  "target_signature": "int Main.fun(int, long[])",
+  "tests": [
+    {
+      "dataset_test_index": 1,
+      "expected_stdout": "-1\n-1\n-1\n-1\n-1\n",
+      "expected_stdout_path": "candidates/cc-valid-r045-s0246-1556-b-take-your-places/io/00-private-001.out",
+      "expected_stdout_sha256": "54a225bfc0713aadddf5b9029458a38966f8cd828634138203d7fca264a4cf35",
+      "id": "00-private-001",
+      "input": "5\n3\n2 4 6\n5\n4 4 4 4 4\n5\n1 3 5 7 9\n5\n1 1 1 1 1\n5\n4 8 10 6 2\n",
+      "input_path": "candidates/cc-valid-r045-s0246-1556-b-take-your-places/io/00-private-001.in",
+      "input_sha256": "ff15c416164c83799c3a9af03b899f7da408178df5083b3267ff61b03b090473",
+      "suite": "private_tests",
+      "validation": {
+        "compiled_with_jdk17": true,
+        "exit_code": 0,
+        "stderr_bytes": 0,
+        "stdout_exact_byte_match": true,
+        "timed_out": false
+      }
+    }
+  ]
+}

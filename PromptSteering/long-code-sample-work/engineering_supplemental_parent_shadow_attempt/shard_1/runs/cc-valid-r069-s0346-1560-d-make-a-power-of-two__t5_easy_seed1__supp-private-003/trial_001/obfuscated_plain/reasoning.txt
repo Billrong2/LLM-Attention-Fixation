@@ -1,0 +1,36 @@
+To predict the exact standard output of the `buscarGreedy` method for the given input, let's go through the logic step by step:
+
+1. **Input**: The input consists of an integer `casos` which represents the number of cases to process, followed by `casos` lines each containing a string representing a number.
+
+2. **Function `buscarGreedy`**:
+   - It calculates the difference between the length of the input string `numero` and the closest power of 2 that matches the initial digits of `numero`.
+   - It does this by comparing `numero` with all powers of 2 within a reasonable range (up to \(2^{62}\)) and finding the minimum difference.
+
+3. **Main Logic**:
+   - For each case, the `buscarGreedy` method is called with the number read from input.
+   - The result of `buscarGreedy` is printed for each case.
+
+### Detailed Analysis:
+
+- **Case 1**: "12"
+  - The closest power of 2 starting with "12" is \(2^{10} = 1024\).
+  - The difference in lengths is \(4 - 2 = 2\).
+
+- **Case 2**: "825"
+  - The closest power of 2 starting with "825" is \(2^{9} = 512\).
+  - The difference in lengths is \(3 - 3 = 0\).
+
+- **Case 3**: "8888"
+  - The closest power of 2 starting with "8888" is \(2^{13} = 8192\).
+  - The difference in lengths is \(4 - 4 = 0\).
+
+- **Case 4**: "4"
+  - The closest power of 2 starting with "4" is \(2^{2} = 4\).
+  - The difference in lengths is \(1 - 1 = 0\).
+
+- **Case 5**: "157"
+  - The closest power of 2 starting with "157" is \(2^{7} = 128\).
+  - The difference in lengths is \(3 - 3 = 0\).
+
+- **Case 6**: "146"
+  - The closest power of 2 starting with "146" is \(2^{7} = 128\

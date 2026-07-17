@@ -1,0 +1,21 @@
+### Reasoning:
+1. The program reads an input integer `t` which represents the number of test cases.
+2. It initializes a StringBuilder `res` to store the output of the program.
+3. In the `while` loop, the program reads the next line of input which contains two integers `n` and `s`.
+4. The program initializes a variable `ans` to 1 and four variables `two`, `three`, `five`, and `seven` to 0.
+5. It then enters an `outer` loop which continues as long as `t` is greater than 0.
+6. In the `outer` loop, the program reads an integer `n` and a string `s` from the input.
+7. The program iterates through each character of the string `s`.
+8. If the character `a` is not equal to 2, 3, 5, or 7, the program sets the variable `ans` to 1 and continues the `outer` loop.
+9. If `a` is equal to 2, the program increments the variable `two`.
+10. If `a` is equal to 3, the program increments the variable `three`.
+11. If `a` is equal to 5, the program increments the variable `five`.
+12. If `a` is equal to 7, the program increments the variable `seven`.
+13. The program enters a nested loop which iterates through each character of the string `s` starting from the second character.
+14. In the nested loop, the program concatenates the current character `ch1` with the next character `ch2` to form a string `x`.
+15. The program converts the string `x` to an integer `p`.
+16. If `p` is not a prime number, the program sets the variable `ans` to 2, concatenates the string `x` to the `res` string, and continues the `outer` loop.
+17. If `p` is a prime number, the program continues the `outer` loop.
+18. After the nested loop, the program sets the variable `t` to `t-1` and continues the `outer` loop.
+19. After the `outer` loop, the program returns the `res` string as the output of the program.
+20. The program also contains several utility functions such as `max`, `

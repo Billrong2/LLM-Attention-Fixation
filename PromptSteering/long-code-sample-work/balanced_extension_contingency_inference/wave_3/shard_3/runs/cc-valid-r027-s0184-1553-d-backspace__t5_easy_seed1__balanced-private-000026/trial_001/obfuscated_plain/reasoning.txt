@@ -1,0 +1,20 @@
+**Reasoning**:
+1. The program starts by initializing some variables and creating a `FastScanner` object.
+2. It reads an integer value `tc` from the input, which represents the number of test cases to process.
+3. For each test case, it reads two strings `s` and `t`.
+4. It then calls the `solve` function with these two strings as arguments.
+5. The `solve` function checks if there is any overlap between the string `t` and the reversed version of the string `s`. If such an overlap exists, it returns "YES", otherwise it returns "NO".
+6. The main function prints the result of the `solve` function for each test case.
+
+**Output**:
+For the given input:
+```
+1
+ababa
+ab
+```
+The output will be:
+```
+YES
+```
+because there is an overlap between the string `ababa` and the reversed version of the string `ab`, which is `ba`.

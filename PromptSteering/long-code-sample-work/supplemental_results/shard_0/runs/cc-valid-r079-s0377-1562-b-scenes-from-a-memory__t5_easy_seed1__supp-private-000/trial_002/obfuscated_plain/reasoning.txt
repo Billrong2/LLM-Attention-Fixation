@@ -1,0 +1,11 @@
+### CASE c001
+- **Input**: 1 77 (stdin="1\n77\n")
+  - `t` = 1
+  - `n` = 77
+  - `s` = "77"
+  - The program iterates over the string "77".
+  - It checks each digit (which are 7 and 7).
+  - Since 7 is a prime digit and not one of the non-prime digits (2, 3, 5, 7), it continues to the next iteration.
+  - Next, it checks for pairs of digits to form a prime number. There's only one pair here (7, 7), which forms the number 77.
+  - The function `isPrime(77)` returns false (since 77 is not a prime number).
+  - Thus, it prints "2\n77" and exits the loop.

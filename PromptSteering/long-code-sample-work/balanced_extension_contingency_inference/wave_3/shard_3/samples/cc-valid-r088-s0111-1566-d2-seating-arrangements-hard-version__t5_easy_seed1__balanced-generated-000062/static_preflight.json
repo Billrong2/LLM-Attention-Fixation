@@ -1,0 +1,142 @@
+{
+  "obfuscated_line_count": 294,
+  "obfuscated_method_analysis": {
+    "codesteer_selected_target_method": "getLastEmpty",
+    "codesteer_target_matches_recorded": true,
+    "fallback_used": false,
+    "method_names": [
+      "main",
+      "apply",
+      "getLastEmpty",
+      "getInconvenienceExperienced",
+      "leastSignificantBit",
+      "add",
+      "getPrefixValue"
+    ],
+    "parameter_count": 2,
+    "parse_status": "javalang",
+    "recorded_target_found": true,
+    "recorded_target_method": "getLastEmpty",
+    "return_sink_count": 1
+  },
+  "original_line_count": 277,
+  "original_method_analysis": {
+    "codesteer_selected_target_method": "getLastEmpty",
+    "codesteer_target_matches_recorded": true,
+    "fallback_used": false,
+    "method_names": [
+      "main",
+      "apply",
+      "getLastEmpty",
+      "getInconvenienceExperienced",
+      "leastSignificantBit",
+      "add",
+      "getPrefixValue"
+    ],
+    "parameter_count": 2,
+    "parse_status": "javalang",
+    "recorded_target_found": true,
+    "recorded_target_method": "getLastEmpty",
+    "return_sink_count": 1
+  },
+  "prompt_slice": {
+    "artifact_name": "Program Slicing / backward slice",
+    "elements": [
+      {
+        "code": "private static int getLastEmpty(BinaryIndexTreeDataStructure<Integer> row, int c) {",
+        "description": "target method getLastEmpty(row, c)",
+        "kind": "MethodDeclaration",
+        "line": 214,
+        "line_label": "L214"
+      },
+      {
+        "code": "private static int getLastEmpty(BinaryIndexTreeDataStructure<Integer> row, int c) {",
+        "description": "method parameter row",
+        "kind": "SliceMethodParameter",
+        "line": 214,
+        "line_label": "L214"
+      },
+      {
+        "code": "private static int getLastEmpty(BinaryIndexTreeDataStructure<Integer> row, int c) {",
+        "description": "method parameter c",
+        "kind": "SliceMethodParameter",
+        "line": 214,
+        "line_label": "L214"
+      },
+      {
+        "code": "return (low - 1);",
+        "description": "return value expression using low",
+        "kind": "SliceReturnValue",
+        "line": 231,
+        "line_label": "L231"
+      },
+      {
+        "code": "int empty = (c + 1) - row.getPrefixValue(c + 1);",
+        "description": "method call row.getPrefixValue in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 216,
+        "line_label": "L216"
+      },
+      {
+        "code": "int low = 1;",
+        "description": "definition of low",
+        "kind": "SliceDefinition",
+        "line": 217,
+        "line_label": "L217"
+      },
+      {
+        "code": "while (low < high) {",
+        "description": "control predicate over low, high, i, row, getPrefixValue, empty_i, empty",
+        "kind": "SliceControlDependency",
+        "line": 221,
+        "line_label": "L221"
+      },
+      {
+        "code": "int empty_i = i - row.getPrefixValue(i);",
+        "description": "method call row.getPrefixValue in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 223,
+        "line_label": "L223"
+      },
+      {
+        "code": "if (empty_i >= empty) {",
+        "description": "control predicate over empty_i, empty, high, i, low",
+        "kind": "SliceControlDependency",
+        "line": 224,
+        "line_label": "L224"
+      },
+      {
+        "code": "",
+        "description": "assignment/update influencing low",
+        "kind": "SliceAssignment",
+        "line": null,
+        "line_label": ""
+      }
+    ],
+    "eligible_count_is_lower_bound": false,
+    "eligible_element_count": 10,
+    "emitted_element_count": 10,
+    "emitted_over_eligible": 1.0,
+    "enabled": true,
+    "guidance_text": "Prompt-only steering guidance (Program Slicing / backward slice, artifact-conditioned):\nUse the following static program-analysis elements as the main reasoning anchors.\nThese elements are static only; they do not reveal the correct output, branch outcomes, or gold execution trace.\n\nStatic elements to emphasize:\n1. MethodDeclaration at L214: target method getLastEmpty(row, c) (private static int getLastEmpty(BinaryIndexTreeDataStructure<Integer> row, int c) {)\n2. SliceMethodParameter at L214: method parameter row (private static int getLastEmpty(BinaryIndexTreeDataStructure<Integer> row, int c) {)\n3. SliceMethodParameter at L214: method parameter c (private static int getLastEmpty(BinaryIndexTreeDataStructure<Integer> row, int c) {)\n4. SliceReturnValue at L231: return value expression using low (return (low - 1);)\n5. SliceMethodCall at L216: method call row.getPrefixValue in static data/control context (int empty = (c + 1) - row.getPrefixValue(c + 1);)\n6. SliceDefinition at L217: definition of low (int low = 1;)\n7. SliceControlDependency at L221: control predicate over low, high, i, row, getPrefixValue, empty_i, empty (while (low < high) {)\n8. SliceMethodCall at L223: method call row.getPrefixValue in static data/control context (int empty_i = i - row.getPrefixValue(i);)\n9. SliceControlDependency at L224: control predicate over empty_i, empty, high, i, low (if (empty_i >= empty) {)\n10. SliceAssignment: assignment/update influencing low",
+    "max_elements": 24,
+    "mechanism": "artifact_conditioned_natural_language_instruction_only",
+    "mode": "slice",
+    "parse_status": "javalang",
+    "prompt_items": [
+      "MethodDeclaration at L214: target method getLastEmpty(row, c) (private static int getLastEmpty(BinaryIndexTreeDataStructure<Integer> row, int c) {)",
+      "SliceMethodParameter at L214: method parameter row (private static int getLastEmpty(BinaryIndexTreeDataStructure<Integer> row, int c) {)",
+      "SliceMethodParameter at L214: method parameter c (private static int getLastEmpty(BinaryIndexTreeDataStructure<Integer> row, int c) {)",
+      "SliceReturnValue at L231: return value expression using low (return (low - 1);)",
+      "SliceMethodCall at L216: method call row.getPrefixValue in static data/control context (int empty = (c + 1) - row.getPrefixValue(c + 1);)",
+      "SliceDefinition at L217: definition of low (int low = 1;)",
+      "SliceControlDependency at L221: control predicate over low, high, i, row, getPrefixValue, empty_i, empty (while (low < high) {)",
+      "SliceMethodCall at L223: method call row.getPrefixValue in static data/control context (int empty_i = i - row.getPrefixValue(i);)",
+      "SliceControlDependency at L224: control predicate over empty_i, empty, high, i, low (if (empty_i >= empty) {)",
+      "SliceAssignment: assignment/update influencing low"
+    ],
+    "recorded_target_method": "getLastEmpty",
+    "target_method": "getLastEmpty"
+  },
+  "sample_id": "cc-valid-r088-s0111-1566-d2-seating-arrangements-hard-version__t5_easy_seed1__balanced-generated-000062"
+}

@@ -1,0 +1,29 @@
+To predict the exact standard output of the given Java program for the provided input, we need to understand the logic and flow of the program. The main part of the program that processes the input is the `buscarGreedy` method, which calculates the minimum number of characters that need to be added or removed from a given number to form a power of two.
+
+Here's the step-by-step reasoning:
+
+1. **Input Parsing**: The program reads the number of test cases and the numbers to be processed from standard input.
+
+2. **Processing Each Number**: For each number, the `buscarGreedy` method is called to find the minimum number of changes required to make the number a power of two.
+
+3. **Output**: The result of the `buscarGreedy` method is printed for each number.
+
+Given the input:
+```
+1
+103635
+```
+
+- The program will read the number `103635`.
+- The `buscarGreedy` method will be called with `103635` as the argument.
+- The method will calculate the minimum number of changes required to make `103635` a power of two.
+
+The `buscarGreedy` method works by comparing the given number with the powers of two and determining the minimum number of changes needed. In this case, the closest power of two greater than `103635` is `131072` (2^17), which requires 3 changes (removing 1036 and adding 131072).
+
+Thus, the program will output:
+```
+3
+```
+
+The final machine-readable output in JSON format is:
+```

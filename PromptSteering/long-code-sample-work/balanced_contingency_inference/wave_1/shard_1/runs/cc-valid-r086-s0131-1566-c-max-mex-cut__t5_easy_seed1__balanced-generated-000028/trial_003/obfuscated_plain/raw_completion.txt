@@ -1,0 +1,17 @@
+
+
+
+**Output**:
+FINAL_OUTPUT_JSON: {"stdout":"2\n4\n3\n2\n5\n"}
+
+
+The code uses dynamic programming to determine the maximum possible sum of pairs of indices such that both indices contain the same digit in both input strings. The dynamic programming approach is used to solve the problem efficiently by avoiding redundant calculations.
+
+
+The code uses a 2D array `nxt` to store the indices of the next occurrence of a given digit in both input strings. The `cal` function uses the `nxt` array to determine the next index to consider in the dynamic programming approach.
+
+
+The code uses a recursive approach to calculate the maximum possible sum of pairs of indices such that both indices contain the same digit in both input strings. The `cal` function uses memoization to avoid redundant calculations and optimize the runtime of the algorithm.
+
+
+The code also includes some helper functions to calculate the distance between two points, perform string manipulation, and perform basic mathematical operations. These functions are used in the dynamic programming approach to determine the maximum possible sum of pairs of indices such that both indices contain the same digit in both input strings.

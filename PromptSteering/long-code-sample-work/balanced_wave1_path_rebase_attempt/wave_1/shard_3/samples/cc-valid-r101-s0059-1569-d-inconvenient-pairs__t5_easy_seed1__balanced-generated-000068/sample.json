@@ -1,0 +1,510 @@
+{
+  "argv": [],
+  "metadata": {
+    "argv": [],
+    "balanced_contingency_selection": {
+      "canonical_problem_identity": "deepmind/code_contests@802411c3010cb00d1b05bad57ca77365a3c699d6:valid:row-000101",
+      "protocol": "../BALANCED_CONTINGENCY_PROTOCOL.md",
+      "schema_version": "long-code-balanced-contingency-v1",
+      "selected_source_rule": "first tokenizer-eligible frozen source in prepared-variant manifest order",
+      "source_denominator_unchanged": true,
+      "wave_id": "balanced_wave_1"
+    },
+    "candidate_id": "cc-valid-r101-s0059-1569-d-inconvenient-pairs",
+    "candidate_metadata": {
+      "expected_stdout": "0\n",
+      "expected_stdout_path": "candidates/cc-valid-r101-s0059-1569-d-inconvenient-pairs/io/00-private-000.out",
+      "id": "cc-valid-r101-s0059-1569-d-inconvenient-pairs",
+      "input": "1\n2 2 2\n0 1000000\n0 1000000\n1556 1000000\n0 34\n",
+      "input_path": "candidates/cc-valid-r101-s0059-1569-d-inconvenient-pairs/io/00-private-000.in",
+      "inputs": [
+        {
+          "dataset_test_index": 0,
+          "expected_stdout": "0\n",
+          "expected_stdout_path": "candidates/cc-valid-r101-s0059-1569-d-inconvenient-pairs/io/00-private-000.out",
+          "expected_stdout_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+          "id": "00-private-000",
+          "input": "1\n2 2 2\n0 1000000\n0 1000000\n1556 1000000\n0 34\n",
+          "input_path": "candidates/cc-valid-r101-s0059-1569-d-inconvenient-pairs/io/00-private-000.in",
+          "input_sha256": "6f15a7e3afca778047b96e731c84ecc81f90c98ca4567d57caa1c403e4d60016",
+          "suite": "private_tests",
+          "validation": {
+            "compiled_with_jdk17": true,
+            "exit_code": 0,
+            "stderr_bytes": 0,
+            "timed_out": false
+          }
+        }
+      ],
+      "loc_definition": "Python str.splitlines(); final newline does not add an empty physical line",
+      "main_class": "Main",
+      "nonblank_loc": 243,
+      "original_path": "candidates/cc-valid-r101-s0059-1569-d-inconvenient-pairs/original.java",
+      "physical_loc": 254,
+      "prevalidation": {
+        "all_retained_tests_exact": true,
+        "compiled": true,
+        "compiler_exit_code": 0,
+        "compiler_stderr_bytes": 0,
+        "compiler_stdout_bytes": 0,
+        "jdk_major": 17
+      },
+      "problem_key": "codeforces-1569-D",
+      "problem_name": "1569_D. Inconvenient Pairs",
+      "provenance": {
+        "cf_contest_id": 1569,
+        "cf_index": "D",
+        "cf_points": 0.0,
+        "cf_rating": 1900,
+        "cf_tags": [
+          "binary search",
+          "data structures",
+          "implementation",
+          "sortings",
+          "two pointers"
+        ],
+        "dataset_file": "codecontests-valid-802411c3.parquet",
+        "dataset_file_sha256": "02e8c1ccedae716f1e43cc813fcb7823c3db666ea92638820aba80e8cef451ab",
+        "dataset_id": "deepmind/code_contests",
+        "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+        "dataset_url": "https://huggingface.co/datasets/deepmind/code_contests/resolve/802411c3010cb00d1b05bad57ca77365a3c699d6/data/valid-00000-of-00001-5e672c5751f060d3.parquet",
+        "difficulty": 10,
+        "language": "Java",
+        "language_code": 4,
+        "problem_name": "1569_D. Inconvenient Pairs",
+        "row_index": 101,
+        "solution_container": "solutions",
+        "solution_index": 59,
+        "solution_label": "correct human solution",
+        "source_code": 2,
+        "split": "valid"
+      },
+      "source_bytes": 5885,
+      "source_sha256": "c33a19ef86e07c85cc710420fecef56580390e04a7b6672f5bb6e208705db3ff",
+      "target": {
+        "arity": 7,
+        "body_nonblank_loc": 61,
+        "body_physical_loc": 61,
+        "class": "Main",
+        "codesteer_selector": {
+          "declaration_line": 33,
+          "fallback_used": false,
+          "implementation": "steering.priors.SlicingPrior._select_target_method",
+          "name": "solve",
+          "parameter_count": 7,
+          "parse_status": "javalang",
+          "top_level_body_statement_count": 17
+        },
+        "control_node_count": 12,
+        "end_line": 93,
+        "loop_node_count": 5,
+        "main_call_path": [
+          {
+            "arity": 1,
+            "class": "Main",
+            "end_line": 32,
+            "name": "main",
+            "parameter_types": [
+              "String[]"
+            ],
+            "return_type": "void",
+            "start_line": 13
+          },
+          {
+            "arity": 7,
+            "class": "Main",
+            "end_line": 93,
+            "name": "solve",
+            "parameter_types": [
+              "int",
+              "int",
+              "int",
+              "int[]",
+              "int[]",
+              "int[]",
+              "int[]"
+            ],
+            "return_type": "long",
+            "start_line": 33
+          }
+        ],
+        "main_reachable": true,
+        "name": "solve",
+        "output_caller": {
+          "arity": 1,
+          "class": "Main",
+          "end_line": 32,
+          "name": "main",
+          "parameter_types": [
+            "String[]"
+          ],
+          "return_type": "void",
+          "start_line": 13
+        },
+        "output_evidence": "out.println(solve(n, m, k, yline, xline, px, py))",
+        "output_relevance_kind": "direct_print_argument",
+        "output_relevance_variable": null,
+        "parameter_types": [
+          "int",
+          "int",
+          "int",
+          "int[]",
+          "int[]",
+          "int[]",
+          "int[]"
+        ],
+        "recursive_call_count": 0,
+        "return_type": "long",
+        "return_value_output_relevant": true,
+        "source_sha256": "5f8c6700eb90a13385896e3ebaf24ffc2cf8cddb6926fea221447db42fe232ba",
+        "start_line": 33
+      },
+      "target_method": "solve",
+      "target_signature": "long Main.solve(int, int, int, int[], int[], int[], int[])",
+      "tests": [
+        {
+          "dataset_test_index": 0,
+          "expected_stdout": "0\n",
+          "expected_stdout_path": "candidates/cc-valid-r101-s0059-1569-d-inconvenient-pairs/io/00-private-000.out",
+          "expected_stdout_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+          "id": "00-private-000",
+          "input": "1\n2 2 2\n0 1000000\n0 1000000\n1556 1000000\n0 34\n",
+          "input_path": "candidates/cc-valid-r101-s0059-1569-d-inconvenient-pairs/io/00-private-000.in",
+          "input_sha256": "6f15a7e3afca778047b96e731c84ecc81f90c98ca4567d57caa1c403e4d60016",
+          "suite": "private_tests",
+          "validation": {
+            "compiled_with_jdk17": true,
+            "exit_code": 0,
+            "stderr_bytes": 0,
+            "timed_out": false
+          }
+        }
+      ]
+    },
+    "codesteer_target_method": "solve",
+    "concrete_case": {
+      "accepted_rank": 2,
+      "argv": [],
+      "canonical_case_key": [
+        101,
+        "generated_tests",
+        68
+      ],
+      "case_id": "balanced-generated-000068",
+      "dataset_test_index": 68,
+      "expected_output_bytes": 2,
+      "expected_output_lines": 1,
+      "expected_output_path": "../../tests/cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1/balanced-generated-000068/oracle_stdout.txt",
+      "input_bytes": 46,
+      "input_sha256": "db4f91c4011ceeebbe515fcc0242e87e4a86dcdf119f64093e2d744a1ae6a1c4",
+      "obfuscated_stderr_path": "../../tests/cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1/balanced-generated-000068/obfuscated.stderr",
+      "obfuscated_stdout_path": "../../tests/cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1/balanced-generated-000068/obfuscated.stdout",
+      "obfuscated_trimmed_exact_to_oracle": true,
+      "original_obfuscated_trimmed_agreement": true,
+      "original_stderr_path": "../../tests/cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1/balanced-generated-000068/original.stderr",
+      "original_stdout_path": "../../tests/cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1/balanced-generated-000068/original.stdout",
+      "original_trimmed_exact_to_oracle": true,
+      "rank_key": [
+        1,
+        1,
+        2,
+        34,
+        68
+      ],
+      "raw_expected_stdout_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "raw_obfuscated_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_obfuscated_stdout_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "raw_original_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "raw_original_stdout_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "source_case_metadata": {
+        "dataset_id": "deepmind/code_contests",
+        "dataset_revision": "802411c3010cb00d1b05bad57ca77365a3c699d6",
+        "dataset_test_index": 68,
+        "row_index": 101,
+        "selection_stage": "balanced_outcome_blind_contingency",
+        "split": "valid",
+        "suite": "generated_tests",
+        "wave_id": "balanced_wave_1"
+      },
+      "stdin_path": "../../tests/cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1/balanced-generated-000068/stdin.txt",
+      "suite": "generated_tests",
+      "validation_path": "../../validation/cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1/balanced-generated-000068.json"
+    },
+    "difficulty": "easy",
+    "eligible": true,
+    "expected_stdout_path": "../../tests/cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1/balanced-generated-000068/oracle_stdout.txt",
+    "id": "cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1__balanced-generated-000068",
+    "main_class": "Main",
+    "method_coverage_policy": "force_all",
+    "obfuscated": {
+      "codesteer_target": {
+        "called_directly_from_main": true,
+        "eligible_parameter_to_return_target": true,
+        "genuine_return_sink_count": 1,
+        "main_called_method_names": [
+          "flush",
+          "nextInt",
+          "nextIntArray",
+          "println",
+          "solve"
+        ],
+        "method_names": [
+          "main",
+          "solve",
+          "equals",
+          "hashCode",
+          "compareTo",
+          "hasNextByte",
+          "readByte",
+          "isSpaceChar",
+          "skip",
+          "hasNext",
+          "next",
+          "nextInt",
+          "nextLong",
+          "nextDouble",
+          "nextIntArray",
+          "nextDoubleArray",
+          "nextLongArray",
+          "nextCharMap"
+        ],
+        "parameter_count": 7,
+        "parameters": [
+          {
+            "name": "n",
+            "type": "int"
+          },
+          {
+            "name": "m",
+            "type": "int"
+          },
+          {
+            "name": "k",
+            "type": "int"
+          },
+          {
+            "name": "yline",
+            "type": "int[]"
+          },
+          {
+            "name": "xline",
+            "type": "int[]"
+          },
+          {
+            "name": "px",
+            "type": "int[]"
+          },
+          {
+            "name": "py",
+            "type": "int[]"
+          }
+        ],
+        "parse_status": "javalang",
+        "return_sink_count": 1,
+        "return_type": "long",
+        "selected_method": "solve",
+        "selected_method_line": 37,
+        "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+        "selector_implementation_owner": "steering.priors.SlicingPrior",
+        "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+      },
+      "execution_validation": {
+        "accepted": true,
+        "cases": [
+          {
+            "accepted": true,
+            "actual_trimmed": "0",
+            "case_id": "00-private-000",
+            "command": [
+              "java",
+              "-Dfile.encoding=UTF-8",
+              "-Djava.io.tmpdir=<scratch>",
+              "-Duser.home=<scratch>",
+              "-XX:-UsePerfData",
+              "-cp",
+              "<classes>",
+              "Main"
+            ],
+            "duration_seconds": 0.034381,
+            "exit_code": 0,
+            "expected_trimmed": "0",
+            "raw_expected_stdout_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+            "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "raw_stdout_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+            "stderr": "",
+            "stdout": "0\n",
+            "timed_out": false,
+            "trimmed_exact_match": true
+          }
+        ],
+        "compile": {
+          "accepted": true,
+          "command": [
+            "javac",
+            "-encoding",
+            "UTF-8",
+            "-J-Djava.io.tmpdir=<scratch>",
+            "-J-Duser.home=<scratch>",
+            "-J-XX:-UsePerfData",
+            "-Xlint:none",
+            "-nowarn",
+            "-d",
+            "<classes>",
+            "<scratch>/Main.java"
+          ],
+          "exit_code": 0,
+          "raw_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "raw_stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr": "",
+          "stdout": "",
+          "timed_out": false
+        },
+        "entry": {
+          "compile_class": "Main",
+          "main_class": "Main",
+          "package": "",
+          "parse_status": "javalang"
+        }
+      },
+      "main_class": "Main",
+      "metadata_path": "candidates/cc-valid-r101-s0059-1569-d-inconvenient-pairs/variants/T5_bogus_control_flow/easy/seed_1/Main.java.meta.json",
+      "method_coverage": {
+        "main_touched": true,
+        "method_coverage_total": 19,
+        "method_coverage_touched": 19,
+        "untouched_methods": []
+      },
+      "path": "../../../prepared_variants/candidates/cc-valid-r101-s0059-1569-d-inconvenient-pairs/variants/T5_bogus_control_flow/easy/seed_1/Main.java",
+      "selected_target_touch_evidence": {
+        "method_block_parser": "eyetracking.obfuscation.java.passes.utils.iter_method_blocks",
+        "obfuscated_block_name": "solve",
+        "obfuscated_match_count": 1,
+        "obfuscated_method_bytes": 1661,
+        "obfuscated_method_index": 1,
+        "obfuscated_method_sha256": "d61fa8456fa4ffaba5e07d31d79847768b3d8af6eb6af33468c0162668f73b66",
+        "obfuscated_method_start_line": 37,
+        "obfuscated_name_matches_codesteer_target": true,
+        "obfuscated_target_line": 37,
+        "obfuscated_target_method": "solve",
+        "original_block_name": "solve",
+        "original_match_count": 1,
+        "original_method_bytes": 1563,
+        "original_method_index": 1,
+        "original_method_sha256": "4e7beab9bf76f5b351fed7c4e3ce3265add2d76e2049206bdea702e8f9c19927",
+        "original_method_start_line": 33,
+        "original_target_line": 33,
+        "original_target_method": "solve",
+        "reason": "method_source_changed",
+        "touched": true,
+        "verifiable": true
+      },
+      "sha256": "e5bf965bdf02c90bbb31ca7e7a88c1f457e54ecc56453b2af799f1257ca8c665",
+      "target_method": "solve"
+    },
+    "obfuscated_main_class": "Main",
+    "obfuscated_path": "../../../prepared_variants/candidates/cc-valid-r101-s0059-1569-d-inconvenient-pairs/variants/T5_bogus_control_flow/easy/seed_1/Main.java",
+    "obfuscated_target_method": "solve",
+    "obfuscation_metadata_path": "candidates/cc-valid-r101-s0059-1569-d-inconvenient-pairs/variants/T5_bogus_control_flow/easy/seed_1/Main.java.meta.json",
+    "original": {
+      "codesteer_target": {
+        "called_directly_from_main": true,
+        "eligible_parameter_to_return_target": true,
+        "genuine_return_sink_count": 1,
+        "main_called_method_names": [
+          "flush",
+          "nextInt",
+          "nextIntArray",
+          "println",
+          "solve"
+        ],
+        "method_names": [
+          "main",
+          "solve",
+          "equals",
+          "hashCode",
+          "compareTo",
+          "hasNextByte",
+          "readByte",
+          "isSpaceChar",
+          "skip",
+          "hasNext",
+          "next",
+          "nextInt",
+          "nextLong",
+          "nextDouble",
+          "nextIntArray",
+          "nextDoubleArray",
+          "nextLongArray",
+          "nextCharMap"
+        ],
+        "parameter_count": 7,
+        "parameters": [
+          {
+            "name": "n",
+            "type": "int"
+          },
+          {
+            "name": "m",
+            "type": "int"
+          },
+          {
+            "name": "k",
+            "type": "int"
+          },
+          {
+            "name": "yline",
+            "type": "int[]"
+          },
+          {
+            "name": "xline",
+            "type": "int[]"
+          },
+          {
+            "name": "px",
+            "type": "int[]"
+          },
+          {
+            "name": "py",
+            "type": "int[]"
+          }
+        ],
+        "parse_status": "javalang",
+        "return_sink_count": 1,
+        "return_type": "long",
+        "selected_method": "solve",
+        "selected_method_line": 33,
+        "selector": "steering.priors.SlicingHybridPrior._select_target_method",
+        "selector_implementation_owner": "steering.priors.SlicingPrior",
+        "selector_source_sha256": "4585f60734d74a4148c741077aad743448ebd97fe8b832e5dd1fc4e4016fcbe9"
+      },
+      "execution_validation_path": "candidates/cc-valid-r101-s0059-1569-d-inconvenient-pairs/original/validation.json",
+      "main_class": "Main",
+      "path": "../../../prepared_variants/candidates/cc-valid-r101-s0059-1569-d-inconvenient-pairs/original/Main.java",
+      "sha256": "c33a19ef86e07c85cc710420fecef56580390e04a7b6672f5bb6e208705db3ff",
+      "target_method": "solve"
+    },
+    "original_main_class": "Main",
+    "original_path": "../../../prepared_variants/candidates/cc-valid-r101-s0059-1569-d-inconvenient-pairs/original/Main.java",
+    "original_target_method": "solve",
+    "parent_candidate_id": "cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1",
+    "profile": "safe",
+    "rejection_reasons": [],
+    "seed": 1,
+    "stdin_path": "../../tests/cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1/balanced-generated-000068/stdin.txt",
+    "target_method": {
+      "obfuscated": "solve",
+      "original": "solve"
+    },
+    "technique": "T5",
+    "technique_name": "bogus_control_flow",
+    "variant_id": "cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1",
+    "warnings": []
+  },
+  "obfuscated_sha256": "e5bf965bdf02c90bbb31ca7e7a88c1f457e54ecc56453b2af799f1257ca8c665",
+  "obfuscated_source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r101-s0059-1569-d-inconvenient-pairs/variants/T5_bogus_control_flow/easy/seed_1/Main.java",
+  "obfuscated_target_method": "solve",
+  "original_sha256": "c33a19ef86e07c85cc710420fecef56580390e04a7b6672f5bb6e208705db3ff",
+  "original_source_path": "/home/cs/x/xxr230000/LLM-Attention-Fixation_submission/PromptSteering/long-code-sample-work/prepared_variants/candidates/cc-valid-r101-s0059-1569-d-inconvenient-pairs/original/Main.java",
+  "original_target_method": "solve",
+  "sample_id": "cc-valid-r101-s0059-1569-d-inconvenient-pairs__t5_easy_seed1__balanced-generated-000068"
+}

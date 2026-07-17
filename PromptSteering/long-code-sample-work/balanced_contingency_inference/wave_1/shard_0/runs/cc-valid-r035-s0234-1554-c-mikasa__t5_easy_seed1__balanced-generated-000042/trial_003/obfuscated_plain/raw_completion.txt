@@ -1,0 +1,17 @@
+ The program's output can be determined by the `cal` function which recursively checks all possibilities for the binary representation of two numbers `n` and `m` and tries to minimize the total number of bit differences. For the concrete case provided, the function `cal` will be called with parameters that are determined by the input `n` and `m`. 
+
+Here is the concise reasoning for the exact standard output:
+
+1. The program starts by reading an integer `T` representing the number of test cases.
+2. For each test case, it reads two integers `n` and `m`.
+3. It checks if `n > m`, and if so, it prints `0` (indicating that `n` and `m` cannot be made equal by flipping bits in `n` to match `m`).
+4. If `n <= m`, it calls the function `cal` with parameters `30`, `0`, `n`, and `m`, where `30` is the bit index and `0` is the initial larger value flag.
+5. The `cal` function recursively checks all possibilities for the binary representation of `n` and `m` at the current bit index `index` and tries to minimize the total number of bit differences.
+6. The result of the `cal` function is printed as the output for each test case.
+
+The concrete case provided has the input `5\n14 1\n3 0\n1 6\n100 696\n1055961 843278`. Let's break down the output for each test case:
+
+- For the test case `14 1`, `n = 14` (1110 in binary) and `m = 1` (0001 in binary). Since `n > m`, the output is `0`.
+- For the test case `3 0`, `n = 3` (0011 in binary) and `m = 0` (0000 in binary). Since `n > m`, the output is `0`.
+- For the test case `1 6`, `n = 1` (0001 in binary) and `m = 6` (0110 in binary). Since `n < m`, the output is the minimum number of bit differences, which is `1`.
+- For the test case `100 

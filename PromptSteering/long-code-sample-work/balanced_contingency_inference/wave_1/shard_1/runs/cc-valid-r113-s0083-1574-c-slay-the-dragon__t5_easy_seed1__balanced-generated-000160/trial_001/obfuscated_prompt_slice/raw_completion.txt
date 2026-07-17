@@ -1,0 +1,19 @@
+
+
+
+The program `check5` takes an input `n` and `m` from the user, where `n` is the number of integers to be entered and `m` is the number of queries. It then reads `n` integers and stores them in the `arr` array. The program then calculates the sum of all the integers and adds them to a set called `hs`.
+
+The program then enters a loop that runs `m` times. In each iteration of the loop, the program takes input for the values of `attack` and `defend` and calls the `find` method. The `find` method calculates the minimum value between the two calculated values (`ans1` and `ans2`) and returns it.
+
+In the `find` method, the program initializes two variables `s` and `e` as 0 and `n-1`, respectively. The program then enters a while loop that runs while `s` is less than `e`. Inside the while loop, the program calculates the value of `mid` as `s + (e - s) / 2` and checks if the value of `arr[mid]` is equal to `attack`. If the value is equal, the program breaks out of the while loop. Otherwise, the program checks if `arr[mid]` is less than `attack` and sets `s` to `mid+1` or sets `e` to `mid` depending on the condition.
+
+The program then initializes two variables `ans1` and `ans2` as `Long.MAX_VALUE`. The program then enters two if conditions. In the first if condition, the program calculates the value of `t1`, `t2`, and `t3` based on the values of `attack`, `sum`, and `defend`. The program then sets `ans1` to `t1 + t3`.
+
+In the second if condition, the program calculates the value of `ans2` if `s-1>=0`. The program calculates the value of `t1`, `t2`, and `t3` based on the values of `attack`, `sum`, and `defend`. The program then sets `ans2` to `t1 + t3`.
+
+Finally, the program returns the minimum value between `ans1` and `ans2`. 
+
+The output of the program for the given input is:
+```
+FINAL_OUTPUT_JSON: {"stdout":"12\n5\n"}
+```

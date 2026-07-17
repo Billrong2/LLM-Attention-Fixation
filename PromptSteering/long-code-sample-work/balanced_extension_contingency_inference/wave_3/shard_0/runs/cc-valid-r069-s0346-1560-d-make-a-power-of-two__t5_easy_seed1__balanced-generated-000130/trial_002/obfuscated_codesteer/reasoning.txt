@@ -1,0 +1,8 @@
+CASES BEGIN
+c001: invoke program entry point; target_method=buscarGreedy; stdin="1\n236121\n"; argv=[]
+CASES END
+
+
+The program reads an integer `casos` from stdin, which represents the number of test cases. For each test case, the program reads a string `numero` from stdin. The program then calls the method `buscarGreedy` with the string `numero` as argument and prints the returned value. The method `buscarGreedy` compares the given string `numero` with each power of 2 in increasing order until it finds the closest power of 2 to `numero`. It returns the difference between the length of the given string `numero` and the length of the closest power of 2. 
+
+The exact output of this program for the given input is:

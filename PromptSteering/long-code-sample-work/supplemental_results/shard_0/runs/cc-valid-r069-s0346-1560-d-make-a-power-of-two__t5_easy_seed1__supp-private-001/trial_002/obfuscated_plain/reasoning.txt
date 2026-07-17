@@ -1,0 +1,53 @@
+To determine the exact standard output of the given deterministic Java program for the concrete case, let's analyze the program step by step.
+
+### Analysis:
+
+1. **Input Reading:**
+   The program reads two lines from standard input:
+   - The first line is an integer indicating the number of test cases.
+   - The second line is a string representing the number.
+
+2. **Main Logic:**
+   For each test case, the program calls the `buscarGreedy` function with the input string.
+   - The `buscarGreedy` function compares the input number with powers of 2 (from \(2^0\) to \(2^{61}\)) to find the minimum number of changes needed to make the input a power of 2.
+   - The `comparar` function is used to count the number of differing characters between the power of 2 and the input number.
+
+3. **Output:**
+   The result of the `buscarGreedy` function is printed for each test case.
+
+### Step-by-Step Execution:
+
+1. **Reading Input:**
+   - First line: `1` (number of test cases)
+   - Second line: `99999` (input number)
+
+2. **Main Execution:**
+   - For the single test case, the program calls `buscarGreedy("99999")`.
+
+3. **Executing `buscarGreedy`:**
+   - It iterates through powers of 2 from \(2^0\) to \(2^{61}\).
+   - For each power of 2, it calculates the difference using `comparar`.
+
+4. **Finding Minimum Difference:**
+   - The minimum difference is found and printed.
+
+### Output Calculation:
+
+For the input `99999`:
+- The closest powers of 2 are `32768`, `65536`, and `131072`.
+- Comparing `99999` with these powers of 2:
+  - `99999` vs `32768`: 5 differences
+  - `99999` vs `65536`: 6 differences
+  - `99999` vs `131072`: 5 differences
+
+The minimum difference is 5.
+
+### Final Output:
+
+```
+5
+```
+
+### Machine-Readable Line:
+
+```json

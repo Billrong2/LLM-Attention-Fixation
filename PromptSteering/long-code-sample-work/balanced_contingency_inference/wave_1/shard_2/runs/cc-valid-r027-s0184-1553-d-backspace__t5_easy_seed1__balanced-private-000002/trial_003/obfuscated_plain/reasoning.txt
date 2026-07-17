@@ -1,0 +1,22 @@
+To solve the problem, we need to follow the steps described in the `solve` method of the given Java code. The method takes two strings `s` and `t`, and returns "YES" if all characters in `t` are present in `s` in the same order, otherwise it returns "NO".
+
+Given:
+- `s = "edcca"`
+- `t = "ec"`
+
+The algorithm iterates through `s` and `t` from the end, comparing characters. If they match, it moves to the next characters in both strings. If they don't match, it skips two characters in `s` (as per the problem statement). The process continues until `s` is exhausted or `t` is completely matched.
+
+Here's the step-by-step process:
+
+1. Initialize `i` to the last index of `s` (4) and `j` to the last index of `t` (1).
+2. Compare `s.charAt(i)` (which is 'a') with `t.charAt(j)` (which is 'c'). They don't match.
+3. Skip two characters in `s`, so `i` becomes 2 (pointing to 'd').
+4. Compare `s.charAt(i)` (which is 'd') with `t.charAt(j)` (which is 'c'). They don't match.
+5. Skip two characters in `s`, so `i` becomes 0 (pointing to 'e').
+6. Compare `s.charAt(i)` (which is 'e') with `t.charAt(j)` (which is 'c'). They don't match.
+7. Skip two characters in `s`, but there are no more characters to skip as `i` is already 0. The loop ends.
+8. Since `j` is not -1 and `i` is not -1, the loop ends without finding a match.
+
+Since `j` is not -1 and `t` was not fully matched, the function returns "NO".
+
+Therefore, the exact output of the program for the given input is "NO".

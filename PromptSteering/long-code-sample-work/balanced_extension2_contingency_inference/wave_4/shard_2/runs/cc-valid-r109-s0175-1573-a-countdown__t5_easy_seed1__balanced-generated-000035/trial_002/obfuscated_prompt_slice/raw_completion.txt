@@ -1,0 +1,23 @@
+
+
+
+### Reasoning
+**Case c001**
+Given the method declaration for `find(int n, char[] ch)` and the control dependencies, we can predict the output as follows:
+1. Read the first integer from stdin (7).
+2. Read the next integer (3).
+3. Read the next string "007".
+4. Convert the string "007" into an array of characters: `ch = ['0', '0', '7']`.
+5. The method `find(n, ch)` is called with `n = 3` and `ch = ['0', '0', '7']`.
+
+Now, let's analyze the execution of `find(n, ch)`:
+1. Initialize `moves = 0`.
+2. Increment `moves` by the difference between the character at index `n-1` and '0': `moves += (ch[n-1]-'0') = moves += (7-'0') = moves += 7`.
+3. Iterate over the array `ch`:
+   - For `i=0`: `ch[i] = '0'`, `'0'-'0' = 0`, `0 > 0` is false, so no change to `moves`.
+   - For `i=1`: `ch[i] = '0'`, `'0'-'0' = 0`, `0 > 0` is false, so no change to `moves`.
+4. Return `moves = 7`.
+
+The program prints `7` to the standard output.
+
+FINAL_OUTPUT_JSON: {"stdout":"7\n"}

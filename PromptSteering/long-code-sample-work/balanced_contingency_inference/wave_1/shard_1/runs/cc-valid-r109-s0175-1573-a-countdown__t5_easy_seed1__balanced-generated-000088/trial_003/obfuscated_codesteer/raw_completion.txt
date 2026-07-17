@@ -1,0 +1,23 @@
+ The given Java program reads an integer `n` and a string of length `n` from standard input. The program then calls the `find` method to process the string and returns an integer value.
+
+To understand how the program works, let's break down the `find` method:
+
+1. Initialize the `moves` variable to store the number of moves required.
+2. Add the value of the last character in the string (`ch[n-1]`) to `moves`.
+3. Iterate through the string from index 0 to n-2 (exclusive). For each character `ch[i]`, if its value is greater than 0, add the value `ch[i]` + 1 to `moves`.
+
+Now, let's analyze the test case provided:
+* `n`: 30
+* `ch`: "001678294039710047203946100020"
+
+Since the length of `ch` is 30, the loop in the `find` method will iterate 29 times. Here's a breakdown of the loop execution:
+
+* Loop 1: `i = 0`, `ch[0] = '0'`, `ch[0] > 0` is false, skip iteration.
+* Loop 2: `i = 1`, `ch[1] = '0'`, `ch[1] > 0` is false, skip iteration.
+* Loop 3: `i = 2`, `ch[2] = '1'`, `ch[2] > 0` is true, add `1 + 1 = 2` to `moves`.
+* ...
+* Loop 30: `i = 28`, `ch[28] = '2'`, `ch[28] > 0` is true, add `2 + 1 = 3` to `moves`.
+
+After the loop finishes, we add the last character's value `ch[29] = '0'` to `moves`, which is 0. So, the final `moves` value is 2 + 3 + ... (all other loop iterations) + 0 = 65.
+
+Therefore, the program outputs the integer value 65 when given the input "30\n00167829403971004720394

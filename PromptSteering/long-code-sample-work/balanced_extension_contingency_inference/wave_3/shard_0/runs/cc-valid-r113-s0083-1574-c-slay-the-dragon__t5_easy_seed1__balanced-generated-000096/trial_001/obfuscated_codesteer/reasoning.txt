@@ -1,0 +1,17 @@
+CASES BEGIN
+c001
+CASES END
+
+To predict the exact standard output of the given Java program for the concrete case where the input is "4\n9 1 5 2\n1\n3 30\n4 6\n5 0\n-1 19\n21 -1\n" and argv is empty, we need to analyze the program's flow and state transitions.
+
+1. Initialize `n` to 4, read the array elements, calculate `sum` and populate the `hs` set.
+2. Read `m` as 1, then read and process the input pairs (3, 30), (4, 6), (5, 0), (-1, 19), and (21, -1).
+3. For each pair, call the `find` method with the parameters: `sum`, `hs`, `a`, `m`, `attack`, and `defend`.
+
+The `find` method calculates the minimum of two values based on the given inputs and prints the result.
+
+Here is the concise reasoning and the machine-readable output:
+
+- Calculate `sum` from the input array.
+- For each input pair, calculate `t1`, `t2`, and `t3` and find the minimum of `ans1` and `ans2`.
+- Print each minimum value as the result for each input pair.

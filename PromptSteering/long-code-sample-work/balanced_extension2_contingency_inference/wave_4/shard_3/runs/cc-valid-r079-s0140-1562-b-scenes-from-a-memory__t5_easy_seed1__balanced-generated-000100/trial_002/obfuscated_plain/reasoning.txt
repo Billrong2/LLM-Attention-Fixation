@@ -1,0 +1,15 @@
+### CASES_BEGIN
+c001: invoke program entry point; target_method=isPrime; stdin="1\n2\n115\n"; argv=[]
+### CASES_END
+
+**Reasoning:**
+
+1. Read input `t = 1` (number of test cases)
+2. Read first test case input `n = 2`, `s = "12"`
+3. Iterate through the digits of `s`
+4. Check if each digit is either `2`, `3`, `5`, or `7`
+5. Check combinations of two consecutive digits
+6. If any combination is not prime, print `2` followed by the combination and exit
+7. Since no non-prime combination found, output is empty
+
+**

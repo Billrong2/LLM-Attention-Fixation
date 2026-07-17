@@ -29,6 +29,7 @@ from transformers import (
     AutoModelForCausalLM,
     GenerationConfig,
 )
+from transformers.cache_utils import DynamicCache
 from transformers.generation.logits_process import LogitsProcessor, LogitsProcessorList
 from steering import SteeringConfig
 from steering.backends import install_steering_hooks
@@ -218,7 +219,16 @@ class SteeredCausalLM:
                 print(f"Limiting to {use} GPU(s) (of {visible}).")
             print("Per-GPU max_memory cap:", max_memory)
 
-        tok = AutoTokenizer.from_pretrained(self.model_name, cache_dir=self.cache_dir)
+        trust_remote_code = os.environ.get("LLM_TRUST_REMOTE_CODE", "0") == "1"
+        if trust_remote_code and not hasattr(DynamicCache, "get_max_length"):
+            # Older remote model code uses the pre-4.48 cache API name.
+            setattr(DynamicCache, "get_max_length", DynamicCache.get_max_cache_shape)
+            print("[Compat] Added DynamicCache.get_max_length alias for remote model code.")
+        tok = AutoTokenizer.from_pretrained(
+            self.model_name,
+            cache_dir=self.cache_dir,
+            trust_remote_code=trust_remote_code,
+        )
         tok.padding_side = "left"
         for k in ["hidden_size","num_hidden_layers","num_attention_heads","num_key_value_heads",
           "intermediate_size","rms_norm_eps","rope_theta","max_position_embeddings",
@@ -232,6 +242,7 @@ class SteeredCausalLM:
             device_map="auto",
             cache_dir=self.cache_dir,
             attn_implementation="eager",
+            trust_remote_code=trust_remote_code,
         )
         if max_memory:
             common["max_memory"] = max_memory

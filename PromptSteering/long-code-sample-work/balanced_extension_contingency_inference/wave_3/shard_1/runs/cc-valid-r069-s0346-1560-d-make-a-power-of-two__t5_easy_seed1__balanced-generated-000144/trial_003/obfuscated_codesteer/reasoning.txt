@@ -1,0 +1,46 @@
+To determine the output of this program, let's break it down step-by-step:
+
+1. **Program Entry Point**: The program starts by calling `main` and reads from the standard input.
+2. **Standard Input**: We have:
+   ```
+   1
+   117124
+   ```
+   The first line indicates there's one test case.
+3. **Test Case Execution**:
+   - The `main` method reads the next line, which is "117124".
+   - It calls `buscarGreedy("117124")`.
+4. **Function `buscarGreedy`**:
+   - This function iterates through powers of 2 up to \(2^{61}\).
+   - For each power, it calculates the difference in length between the power and the input number.
+   - It keeps track of the minimum difference.
+5. **Output Calculation**:
+   - The function `comparar` is used to compare the power of 2 with the input number.
+   - The result is the length of the difference between the two strings.
+
+Let's simulate the process:
+
+- The input number is "117124".
+- We calculate powers of 2 up to \(2^{61}\).
+- For each power, we compare its string representation with "117124".
+
+Here are some powers of 2:
+- \(2^{16} = 65536\)
+- \(2^{17} = 131072\)
+- \(2^{18} = 262144\)
+- \(2^{19} = 524288\)
+
+We compare these with "117124":
+
+1. \(65536\): Difference is 6 digits.
+2. \(131072\): Difference is 2 digits.
+3. \(262144\): Difference is 1 digit.
+4. \(524288\): Difference is 2 digits.
+
+The smallest difference is with \(2^{18} = 262144\), which has a difference of 1 digit.
+
+Thus, the output of `buscarGreedy("117124")` is `1`.
+
+### Machine-Readable Output
+
+```json

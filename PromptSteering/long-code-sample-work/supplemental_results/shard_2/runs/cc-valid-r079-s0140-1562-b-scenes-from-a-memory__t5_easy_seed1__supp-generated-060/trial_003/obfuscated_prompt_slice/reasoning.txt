@@ -1,0 +1,6 @@
+Reasoning for c001:
+- The program starts by reading the input values for t (number of test cases) and then n, s (for each test case).
+- In the isPrime method, the first control predicate at L088 (if (n <= 1)) is evaluated. Since n = 1, the control flow goes to the return false statement at L089, and the method returns false.
+- For the given input, the logic in the main method checks whether any digit is not equal to 2, 3, 5, or 7. Since s = "131", the digit '1' does not meet the condition, and the control flow continues.
+- Next, the code checks if two consecutive digits form a prime number. For the given input, the only combination to check is "13", which is not prime. Therefore, the method prints "2" and then the string "13".
+- As a result, the exact standard output for c001 is: "213"

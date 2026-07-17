@@ -1,0 +1,17 @@
+### Output Reasoning
+1. The program starts by setting the variable `test` to the value provided by the FastReader, which is 1.
+2. It then enters a loop for each test case.
+3. Inside the loop, it reads the number `n` (which is 7 in this case) and an array `a` of size `n`.
+4. The array `a` is filled with values read from the input.
+5. It counts the frequency of `0` and `1` in the array and stores the counts in the array `f`.
+6. It checks if the difference between the counts of `0` and `1` is greater than 1. If true, it prints `-1` and breaks the loop. If not, it proceeds to the next check.
+7. If `n` is even, it checks if the counts of `0` and `1` are equal. If so, it calculates the minimum of `fun(0, a)` and `fun(1, a)` and prints the result. If the counts are not equal, it prints `-1`.
+8. If `n` is odd, it checks which count is greater by 1 and prints the corresponding function call `fun(0, a)` or `fun(1, a)`. If neither condition is met, it prints `-1`.
+
+### State and Control Flow Needed for Output:
+- The program reads the input values and processes them according to the conditions.
+- The `fun` method calculates the answer based on the parity changes and the input array.
+- The main control flow is determined by the conditions inside the loop and the checks for the parity of `n`.
+
+### Exact Output:
+```json

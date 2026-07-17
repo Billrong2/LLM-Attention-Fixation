@@ -1,0 +1,152 @@
+{
+  "obfuscated_line_count": 292,
+  "obfuscated_method_analysis": {
+    "codesteer_selected_target_method": "solve",
+    "codesteer_target_matches_recorded": true,
+    "fallback_used": false,
+    "method_names": [
+      "main",
+      "solve",
+      "compareTo",
+      "compare",
+      "nextLargerElement",
+      "gcd",
+      "primefactor",
+      "next",
+      "nextInt",
+      "nextLong",
+      "nextDouble",
+      "nextLine"
+    ],
+    "parameter_count": 2,
+    "parse_status": "javalang",
+    "recorded_target_found": true,
+    "recorded_target_method": "solve",
+    "return_sink_count": 1
+  },
+  "original_line_count": 261,
+  "original_method_analysis": {
+    "codesteer_selected_target_method": "solve",
+    "codesteer_target_matches_recorded": true,
+    "fallback_used": false,
+    "method_names": [
+      "main",
+      "solve",
+      "compareTo",
+      "compare",
+      "nextLargerElement",
+      "gcd",
+      "primefactor",
+      "next",
+      "nextInt",
+      "nextLong",
+      "nextDouble",
+      "nextLine"
+    ],
+    "parameter_count": 2,
+    "parse_status": "javalang",
+    "recorded_target_found": true,
+    "recorded_target_method": "solve",
+    "return_sink_count": 1
+  },
+  "prompt_slice": {
+    "artifact_name": "Program Slicing / backward slice",
+    "elements": [
+      {
+        "code": "private static long solve(ArrayList<pair> arr, int m ) {",
+        "description": "target method solve(arr, m)",
+        "kind": "MethodDeclaration",
+        "line": 101,
+        "line_label": "L101"
+      },
+      {
+        "code": "private static long solve(ArrayList<pair> arr, int m ) {",
+        "description": "method parameter arr",
+        "kind": "SliceMethodParameter",
+        "line": 101,
+        "line_label": "L101"
+      },
+      {
+        "code": "private static long solve(ArrayList<pair> arr, int m ) {",
+        "description": "method parameter m",
+        "kind": "SliceMethodParameter",
+        "line": 101,
+        "line_label": "L101"
+      },
+      {
+        "code": "return sum;",
+        "description": "return value expression using sum",
+        "kind": "SliceReturnValue",
+        "line": 117,
+        "line_label": "L117"
+      },
+      {
+        "code": "long sum = 0;",
+        "description": "definition of sum",
+        "kind": "SliceDefinition",
+        "line": 103,
+        "line_label": "L103"
+      },
+      {
+        "code": "for( int i = 0; i< m ; i++) {",
+        "description": "control predicate over i, m, j, arr, get, idx, temp, sum",
+        "kind": "SliceControlDependency",
+        "line": 108,
+        "line_label": "L108"
+      },
+      {
+        "code": "for( int j = 0 ; j < i ; j++) {",
+        "description": "control predicate over j, i, arr, get, idx, temp",
+        "kind": "SliceControlDependency",
+        "line": 110,
+        "line_label": "L110"
+      },
+      {
+        "code": "if(arr.get(i).idx > arr.get(j).idx) {",
+        "description": "control predicate over arr, get, idx, i, j, temp",
+        "kind": "SliceControlDependency",
+        "line": 111,
+        "line_label": "L111"
+      },
+      {
+        "code": "if(arr.get(i).idx > arr.get(j).idx) {",
+        "description": "method call arr.get in static data/control context",
+        "kind": "SliceMethodCall",
+        "line": 111,
+        "line_label": "L111"
+      },
+      {
+        "code": "",
+        "description": "assignment/update influencing sum",
+        "kind": "SliceAssignment",
+        "line": null,
+        "line_label": ""
+      }
+    ],
+    "eligible_count_is_lower_bound": false,
+    "eligible_element_count": 10,
+    "emitted_element_count": 10,
+    "emitted_over_eligible": 1.0,
+    "enabled": true,
+    "guidance_text": "Prompt-only steering guidance (Program Slicing / backward slice, artifact-conditioned):\nUse the following static program-analysis elements as the main reasoning anchors.\nThese elements are static only; they do not reveal the correct output, branch outcomes, or gold execution trace.\n\nStatic elements to emphasize:\n1. MethodDeclaration at L101: target method solve(arr, m) (private static long solve(ArrayList<pair> arr, int m ) {)\n2. SliceMethodParameter at L101: method parameter arr (private static long solve(ArrayList<pair> arr, int m ) {)\n3. SliceMethodParameter at L101: method parameter m (private static long solve(ArrayList<pair> arr, int m ) {)\n4. SliceReturnValue at L117: return value expression using sum (return sum;)\n5. SliceDefinition at L103: definition of sum (long sum = 0;)\n6. SliceControlDependency at L108: control predicate over i, m, j, arr, get, idx, temp, sum (for( int i = 0; i< m ; i++) {)\n7. SliceControlDependency at L110: control predicate over j, i, arr, get, idx, temp (for( int j = 0 ; j < i ; j++) {)\n8. SliceControlDependency at L111: control predicate over arr, get, idx, i, j, temp (if(arr.get(i).idx > arr.get(j).idx) {)\n9. SliceMethodCall at L111: method call arr.get in static data/control context (if(arr.get(i).idx > arr.get(j).idx) {)\n10. SliceAssignment: assignment/update influencing sum",
+    "max_elements": 24,
+    "mechanism": "artifact_conditioned_natural_language_instruction_only",
+    "mode": "slice",
+    "parse_status": "javalang",
+    "prompt_items": [
+      "MethodDeclaration at L101: target method solve(arr, m) (private static long solve(ArrayList<pair> arr, int m ) {)",
+      "SliceMethodParameter at L101: method parameter arr (private static long solve(ArrayList<pair> arr, int m ) {)",
+      "SliceMethodParameter at L101: method parameter m (private static long solve(ArrayList<pair> arr, int m ) {)",
+      "SliceReturnValue at L117: return value expression using sum (return sum;)",
+      "SliceDefinition at L103: definition of sum (long sum = 0;)",
+      "SliceControlDependency at L108: control predicate over i, m, j, arr, get, idx, temp, sum (for( int i = 0; i< m ; i++) {)",
+      "SliceControlDependency at L110: control predicate over j, i, arr, get, idx, temp (for( int j = 0 ; j < i ; j++) {)",
+      "SliceControlDependency at L111: control predicate over arr, get, idx, i, j, temp (if(arr.get(i).idx > arr.get(j).idx) {)",
+      "SliceMethodCall at L111: method call arr.get in static data/control context (if(arr.get(i).idx > arr.get(j).idx) {)",
+      "SliceAssignment: assignment/update influencing sum"
+    ],
+    "recorded_target_method": "solve",
+    "target_method": "solve"
+  },
+  "sample_id": "cc-valid-r088-s0102-1566-d2-seating-arrangements-hard-version__t5_easy_seed1__00-generated-122"
+}
