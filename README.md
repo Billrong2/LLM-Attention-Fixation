@@ -13,7 +13,7 @@ The repository combines:
 
 ## Representative cases
 
-The [representative case gallery](representative_cases/) contains four same-source, same-prompt, same-seed comparisons between CodeSteer and unsteered generation, including the raw completions and exact-output scores. These are qualitative selected examples rather than an aggregate evaluation.
+The [representative raw-output comparisons](representative_cases/) contain four same-source, same-prompt, same-seed comparisons between CodeSteer and unsteered generation. These are qualitative selected examples rather than an aggregate evaluation.
 
 ## What This Repo Is For
 
